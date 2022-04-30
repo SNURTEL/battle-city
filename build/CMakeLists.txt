@@ -30,7 +30,8 @@ set(core_lib_test_dir ../src/core-lib/test)
 set(core_lib_test_sources
         ${core_lib_test_dir}/test_simpleObserver.cpp
         ${core_lib_test_dir}/test_eventObserver.cpp
-        ${core_lib_test_dir}/test_eventQueue.cpp ../src/core-lib/test/test_event.cpp)
+        ${core_lib_test_dir}/test_eventQueue.cpp ..
+        ${core_lib_test_dir}/test_event.cpp)
 
 add_executable(tanks ../src/main/tanks.cpp)
 target_link_libraries(tanks PRIVATE core-lib)

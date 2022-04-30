@@ -16,11 +16,14 @@ class Event {
 public:
     enum EventType {
         Keypress = 0,
-        Aaaaaa,
+
         NullEvent
     };
 
+    // FIXME not so elegant
     Event(EventType, unsigned int);
+
+    Event(EventType);
 
 
     struct KeypressEvent {
