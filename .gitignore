@@ -167,3 +167,8 @@ bin/bin/*
 !bin/bin/.gitinclude
 bin/lib/*
 !bin/lib/.gitinclude
+
+# build files
+# Compiled
+build/*
+!build/CMakeLists.txt
