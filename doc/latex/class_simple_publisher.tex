@@ -1,0 +1,42 @@
+\hypertarget{class_simple_publisher}{}\doxysection{Simple\+Publisher Class Reference}
+\label{class_simple_publisher}\index{SimplePublisher@{SimplePublisher}}
+
+
+Inheritance diagram for Simple\+Publisher\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_simple_publisher__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simple_publisher_a34b3673f43ab301a493d104c6cd703a1}\label{class_simple_publisher_a34b3673f43ab301a493d104c6cd703a1}} 
+virtual void {\bfseries notify\+Subscribers} ()
+\item 
+\mbox{\Hypertarget{class_simple_publisher_af85f72a1844975185b72616ad0219ef8}\label{class_simple_publisher_af85f72a1844975185b72616ad0219ef8}} 
+void {\bfseries attach\+Subscriber} (\mbox{\hyperlink{class_simple_subscriber}{Simple\+Subscriber}} $\ast$)
+\item 
+\mbox{\Hypertarget{class_simple_publisher_aeaeefe6ed2589c12a809e1dbd3d03102}\label{class_simple_publisher_aeaeefe6ed2589c12a809e1dbd3d03102}} 
+void {\bfseries detach\+Subscriber} (\mbox{\hyperlink{class_simple_subscriber}{Simple\+Subscriber}} $\ast$)
+\item 
+\mbox{\Hypertarget{class_simple_publisher_ad611e515a75c9137cc804c3db557f4e2}\label{class_simple_publisher_ad611e515a75c9137cc804c3db557f4e2}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_simple_publisher}{Simple\+Publisher}} \&rhs) const
+\item 
+\mbox{\Hypertarget{class_simple_publisher_a54cdda1958ed243459c90e3c6d4ac985}\label{class_simple_publisher_a54cdda1958ed243459c90e3c6d4ac985}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_simple_publisher}{Simple\+Publisher}} \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simple_publisher_ab135300c5d89ab631d464af057ef66f3}\label{class_simple_publisher_ab135300c5d89ab631d464af057ef66f3}} 
+std\+::vector$<$ \mbox{\hyperlink{class_simple_subscriber}{Simple\+Subscriber}} $\ast$ $>$ {\bfseries subscribers\+\_\+}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/tomek/\+CLion\+Projects/proi/proi-\/projekt/src/core-\/lib/include/Simple\+Publisher.\+h\item 
+/home/tomek/\+CLion\+Projects/proi/proi-\/projekt/src/core-\/lib/Simple\+Publisher.\+cpp\end{DoxyCompactItemize}

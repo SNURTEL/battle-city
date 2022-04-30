@@ -1,0 +1,28 @@
+\hypertarget{_event_handler_8h_source}{}\doxysection{Event\+Handler.\+h}
+\label{_event_handler_8h_source}\index{/home/tomek/CLionProjects/proi/proi-\/projekt/src/core-\/lib/include/EventHandler.h@{/home/tomek/CLionProjects/proi/proi-\/projekt/src/core-\/lib/include/EventHandler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by tomek on 28.04.2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef PROI\_PROJEKT\_EVENTHANDLER\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define PROI\_PROJEKT\_EVENTHANDLER\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Event.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{template} <\textcolor{keyword}{class} E>}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_event_handler}{EventHandler}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} handleEvent(std::unique\_ptr<E>)=0;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_event_handler}{EventHandler}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROI\_PROJEKT\_EVENTHANDLER\_H}}
+
+\end{DoxyCode}

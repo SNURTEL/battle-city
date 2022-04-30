@@ -1,0 +1,74 @@
+\hypertarget{class_clock}{}\doxysection{Clock Class Reference}
+\label{class_clock}\index{Clock@{Clock}}
+
+
+Inheritance diagram for Clock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_clock__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Clock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_clock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_clock_aaadf4fd3494f23514024098c2d0c9134}\label{class_clock_aaadf4fd3494f23514024098c2d0c9134}} 
+{\bfseries Clock} (const \mbox{\hyperlink{class_clock}{Clock}} \&)=delete
+\item 
+\mbox{\Hypertarget{class_clock_a268b29b77e3be6cd829681c6fa150e01}\label{class_clock_a268b29b77e3be6cd829681c6fa150e01}} 
+\mbox{\hyperlink{class_clock}{Clock}} {\bfseries operator=} (const \mbox{\hyperlink{class_clock}{Clock}} \&)=delete
+\item 
+\mbox{\Hypertarget{class_clock_a116757f0e1575348549b1f2fc346d492}\label{class_clock_a116757f0e1575348549b1f2fc346d492}} 
+void {\bfseries tick} ()
+\item 
+\mbox{\Hypertarget{class_clock_aceb0567e0266267f0a4bc2e51545777d}\label{class_clock_aceb0567e0266267f0a4bc2e51545777d}} 
+void {\bfseries sleep} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_clock_a0da08dbe90feb864826488c581fdea61}\label{class_clock_a0da08dbe90feb864826488c581fdea61}} 
+static void {\bfseries initialize} (unsigned int)
+\item 
+\mbox{\Hypertarget{class_clock_ab0d73edb46fd90137d3623ca74f04fcf}\label{class_clock_ab0d73edb46fd90137d3623ca74f04fcf}} 
+static \mbox{\hyperlink{class_clock}{Clock}} $\ast$ {\bfseries instance} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_clock_af651ba94fa8072fd0f752c63f090fd39}\label{class_clock_af651ba94fa8072fd0f752c63f090fd39}} 
+{\bfseries Clock} (unsigned int)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_clock_a5e4f74a536af59e3f436a90977b3252f}\label{class_clock_a5e4f74a536af59e3f436a90977b3252f}} 
+std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::steady\+\_\+clock $>$ {\bfseries last\+\_\+tick\+\_\+}
+\item 
+\mbox{\Hypertarget{class_clock_a209e6048cf6f30944ba78915cb5da480}\label{class_clock_a209e6048cf6f30944ba78915cb5da480}} 
+std\+::chrono\+::nanoseconds {\bfseries interval\+\_\+} \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_clock_aefadbf218778afe5478ed228ca74821c}\label{class_clock_aefadbf218778afe5478ed228ca74821c}} 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_clock}{Clock}} $>$ {\bfseries self\+\_\+} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/tomek/\+CLion\+Projects/proi/proi-\/projekt/src/core-\/lib/include/Clock.\+h\item 
+/home/tomek/\+CLion\+Projects/proi/proi-\/projekt/src/core-\/lib/Clock.\+cpp\end{DoxyCompactItemize}

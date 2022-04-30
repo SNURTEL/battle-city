@@ -1,0 +1,38 @@
+\hypertarget{_simple_publisher_8h_source}{}\doxysection{Simple\+Publisher.\+h}
+\label{_simple_publisher_8h_source}\index{/home/tomek/CLionProjects/proi/proi-\/projekt/src/core-\/lib/include/SimplePublisher.h@{/home/tomek/CLionProjects/proi/proi-\/projekt/src/core-\/lib/include/SimplePublisher.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by tomek on 26.04.2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef PROI\_PROJEKT\_SIMPLEPUBLISHER\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define PROI\_PROJEKT\_SIMPLEPUBLISHER\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_simple_subscriber}{SimpleSubscriber}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_simple_publisher}{SimplePublisher}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_simple_publisher}{\string~SimplePublisher}}();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} notifySubscribers();}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} attachSubscriber(\mbox{\hyperlink{class_simple_subscriber}{SimpleSubscriber}}*);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} detachSubscriber(\mbox{\hyperlink{class_simple_subscriber}{SimpleSubscriber}}*);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{class_simple_publisher}{SimplePublisher}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} \mbox{\hyperlink{class_simple_publisher}{SimplePublisher}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_simple_publisher}{SimplePublisher}}()=\textcolor{keywordflow}{default};}
+\DoxyCodeLine{29     std::vector<SimpleSubscriber*> subscribers\_;}
+\DoxyCodeLine{30 \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROI\_PROJEKT\_SIMPLEPUBLISHER\_H}}
+
+\end{DoxyCode}

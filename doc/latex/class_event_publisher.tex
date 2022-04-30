@@ -1,0 +1,35 @@
+\hypertarget{class_event_publisher}{}\doxysection{Event\+Publisher Class Reference}
+\label{class_event_publisher}\index{EventPublisher@{EventPublisher}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_event_publisher_a8fdbe74a93576d9c54b661bc70e1ac09}\label{class_event_publisher_a8fdbe74a93576d9c54b661bc70e1ac09}} 
+virtual void {\bfseries notify\+Event\+Subscribers} (Event\+::\+Event\+Type event\+Type)
+\item 
+\mbox{\Hypertarget{class_event_publisher_a416604ff7cb1ee5b19551e668beb2384}\label{class_event_publisher_a416604ff7cb1ee5b19551e668beb2384}} 
+void {\bfseries attach\+Event\+Subscriber} (\mbox{\hyperlink{class_event_subscriber}{Event\+Subscriber}} $\ast$sub, Event\+::\+Event\+Type event\+Type)
+\item 
+\mbox{\Hypertarget{class_event_publisher_a5bfeea787cb42e37b4673bbc269f93e2}\label{class_event_publisher_a5bfeea787cb42e37b4673bbc269f93e2}} 
+void {\bfseries detach\+Event\+Subscriber} (\mbox{\hyperlink{class_event_subscriber}{Event\+Subscriber}} $\ast$sub, Event\+::\+Event\+Type event\+Type)
+\item 
+\mbox{\Hypertarget{class_event_publisher_a65b398da9f48204c2e48038efb2bd270}\label{class_event_publisher_a65b398da9f48204c2e48038efb2bd270}} 
+void {\bfseries ensure\+Entry\+Exists} (Event\+::\+Event\+Type)
+\item 
+\mbox{\Hypertarget{class_event_publisher_a3471d7106453b5ca0eff3ccb1cf2fb07}\label{class_event_publisher_a3471d7106453b5ca0eff3ccb1cf2fb07}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_event_publisher}{Event\+Publisher}} \&rhs) const
+\item 
+\mbox{\Hypertarget{class_event_publisher_a383bf75c0889dc353b0797d642ae2658}\label{class_event_publisher_a383bf75c0889dc353b0797d642ae2658}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_event_publisher}{Event\+Publisher}} \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_event_publisher_a738e77e505033234f0f687b0a2d559ed}\label{class_event_publisher_a738e77e505033234f0f687b0a2d559ed}} 
+std\+::map$<$ Event\+::\+Event\+Type, std\+::list$<$ \mbox{\hyperlink{class_event_subscriber}{Event\+Subscriber}} $\ast$ $>$ $>$ {\bfseries event\+\_\+subscribers\+\_\+}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/tomek/\+CLion\+Projects/proi/proi-\/projekt/src/core-\/lib/include/Event\+Publisher.\+h\item 
+/home/tomek/\+CLion\+Projects/proi/proi-\/projekt/src/core-\/lib/Event\+Publisher.\+cpp\end{DoxyCompactItemize}

@@ -19,6 +19,4 @@ protected:
 };
 
 
-template class EventHandler<Event>;
-
 #endif //PROI_PROJEKT_EVENTHANDLER_H
