@@ -229,4 +229,3 @@ Check [`doc`](/doc):
    ```bash
    opera ./doc/html/index.html
    ```
-- [`doc/uml`](doc/uml) for class hierarchy
