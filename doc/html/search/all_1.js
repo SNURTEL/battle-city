@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['event_0',['Event',['../class_event.html',1,'']]],
-  ['eventconstructionexception_1',['EventConstructionException',['../struct_event_construction_exception.html',1,'']]],
-  ['eventhandler_2',['EventHandler',['../class_event_handler.html',1,'']]],
-  ['eventpublisher_3',['EventPublisher',['../class_event_publisher.html',1,'']]],
-  ['eventqueue_4',['EventQueue',['../class_event_queue.html',1,'']]],
-  ['eventsubscriber_5',['EventSubscriber',['../class_event_subscriber.html',1,'']]]
+  ['clock_0',['Clock',['../class_clock.html',1,'Clock'],['../class_clock.html#a44e32476c761915df5a3f9741294d2d7',1,'Clock::Clock()=delete'],['../class_clock.html#aaadf4fd3494f23514024098c2d0c9134',1,'Clock::Clock(const Clock &amp;)=delete'],['../class_clock.html#a49f4c6bca28b3308ffb30fb5ec59856e',1,'Clock::Clock(unsigned int frequency)']]],
+  ['clock_2ecpp_1',['Clock.cpp',['../_clock_8cpp.html',1,'']]],
+  ['clock_2eh_2',['Clock.h',['../_clock_8h.html',1,'']]]
 ];

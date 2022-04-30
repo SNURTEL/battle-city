@@ -11,17 +11,38 @@
 #include "Event.h"
 #include "EventSubscriber.h"
 
+/**
+ * Publisher class with multiple subscriber pools
+ *
+ * Subscribers can subscribe a particular event, and subscriber notification method calls can be done for each
+ * event separately.
+ */
 class EventPublisher {
 public:
+    /**
+     * Removes references to self from every subscriber
+     */
     ~EventPublisher();
 
+    /**
+     * Notifies all subscribers subscribed to an event of type eventType (calls ::notify for every subscriber)
+     * @param eventType Indicates which subscribers should be notified
+     */
     virtual void notifyEventSubscribers(Event::EventType eventType);
 
+    /**
+     * Attaches a subscriber to eventType aspect of self
+     * @param sub
+     * @param eventType
+     */
     void attachEventSubscriber(EventSubscriber *sub, Event::EventType eventType);
 
+    /**
+     * Detaches a subscriber from eventType aspect of self. Throws an ObserverException if does not exist
+     * @param sub
+     * @param eventType
+     */
     void detachEventSubscriber(EventSubscriber *sub, Event::EventType eventType);
-
-    void ensureEntryExists(Event::EventType);
 
     bool operator==(const EventPublisher &rhs) const;
 
@@ -31,6 +52,14 @@ public:
 protected:
     EventPublisher()=default;
     std::map<Event::EventType, std::list<EventSubscriber*>> event_subscribers_;
+
+private:
+    /**
+     * Creates an entry in event_subscribers if it does not exist yet
+     *
+     * @param eventType
+     */
+    void ensureEntryExists(Event::EventType eventType);
 };
 
 #endif //PROI_PROJEKT_EVENTPUBLISHER_H

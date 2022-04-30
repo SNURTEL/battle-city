@@ -8,12 +8,14 @@
 #include <exception>
 #include <string>
 
-class ObserverException : public std::exception
-{
+/**
+ * Represents and exception thrown by a publisher-subscriber setup
+ */
+class ObserverException : public std::exception{
 public:
     ObserverException()=default;
 
-    explicit ObserverException(std::string);
+    explicit ObserverException(std::string msg);  // FIXME message not showing up
 
     const char* what();
 

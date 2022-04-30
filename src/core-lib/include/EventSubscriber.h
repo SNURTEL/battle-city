@@ -14,17 +14,45 @@
 
 class EventPublisher;
 
+/**
+ * Subscriber class which can subscribe to multiple aspects of the same object
+ *
+ */
 class EventSubscriber {
 public:
+    /**
+     * Unsubscribes all publishers before de-initializing
+     */
     ~EventSubscriber();
 
-    void subscribe(EventPublisher*, Event::EventType);
+    /**
+     * Subscribes to events of a particular type from the given publisher
+     * @param pub
+     * @param eventType
+     */
+    void subscribe(EventPublisher* pub, Event::EventType eventType);
 
+    /**
+     * Unsubscribes from events of a particular type from the given publisher.
+     * Throws and ObserverException if it does not exist
+     * @param pub
+     * @param eventType
+     */
     void unsubscribe(EventPublisher*, Event::EventType);
 
-    void removeDeletedSubject(EventPublisher *pub, Event::EventType);
+    /**
+     * Tries to unsubscribe from a publisher, quietly returns if it does not exist
+     * @param pub
+     * @param eventType
+     */
+    void removeDeletedSubject(EventPublisher *pub, Event::EventType eventType);
 
-    virtual void notify(EventPublisher *, Event::EventType eventType) =0;
+    /**
+     * Called when notifying the subscriber about an event
+     * @param pub Publisher which sent the notification
+     * @param eventType Event type
+     */
+    virtual void notify(EventPublisher * pub, Event::EventType eventType) =0;
 
     bool operator==(const EventSubscriber &rhs) const;
 
@@ -35,7 +63,12 @@ protected:
     std::map<Event::EventType, std::list<EventPublisher*>> subscribedSubjects_;
 
 private:
-    void ensureEntryExists(Event::EventType);
+    /**
+     * Creates an entry in event_subscribers if it does not exist yet
+     *
+     * @param eventType
+     */
+    void ensureEntryExists(Event::EventType eventType);
 };
 
 

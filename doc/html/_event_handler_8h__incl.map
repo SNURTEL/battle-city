@@ -1,7 +1,12 @@
 <map id="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/core&#45;lib/include/EventHandler.h" name="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/core&#45;lib/include/EventHandler.h">
 <area shape="rect" id="node1" title=" " alt="" coords="5,5,235,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="32,109,109,136"/>
-<area shape="rect" id="node3" href="$_event_8h.html" title=" " alt="" coords="134,109,205,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="77,184,163,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="188,184,247,211"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,109,83,136"/>
+<area shape="rect" id="node3" href="$_event_8h.html" title=" " alt="" coords="135,259,206,285"/>
+<area shape="rect" id="node6" href="$_event_publisher_8h.html" title=" " alt="" coords="157,109,288,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="79,333,166,360"/>
+<area shape="rect" id="node5" title=" " alt="" coords="191,333,249,360"/>
+<area shape="rect" id="node7" title=" " alt="" coords="232,259,283,285"/>
+<area shape="rect" id="node8" title=" " alt="" coords="389,259,451,285"/>
+<area shape="rect" id="node9" href="$_event_subscriber_8h.html" title=" " alt="" coords="259,184,397,211"/>
+<area shape="rect" id="node10" title=" " alt="" coords="307,259,349,285"/>
 </map>

@@ -84,49 +84,338 @@ $(document).ready(function(){initNavTree('class_event_subscriber.html',''); init
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="class_event_subscriber-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">EventSubscriber Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_event_subscriber_8h_source.html">EventSubscriber.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4f1d6eb9fe630db1d66f3c6d46d0d608"><td class="memItemLeft" align="right" valign="top"><a id="a4f1d6eb9fe630db1d66f3c6d46d0d608" name="a4f1d6eb9fe630db1d66f3c6d46d0d608"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>subscribe</b> (<a class="el" href="class_event_publisher.html">EventPublisher</a> *, Event::EventType)</td></tr>
-<tr class="separator:a4f1d6eb9fe630db1d66f3c6d46d0d608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adae9004de4b07cbd0e2aafa489f57b81"><td class="memItemLeft" align="right" valign="top"><a id="adae9004de4b07cbd0e2aafa489f57b81" name="adae9004de4b07cbd0e2aafa489f57b81"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unsubscribe</b> (<a class="el" href="class_event_publisher.html">EventPublisher</a> *, Event::EventType)</td></tr>
+<tr class="memitem:afca9b6edc8aebe5844414d3e2e583d25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#afca9b6edc8aebe5844414d3e2e583d25">~EventSubscriber</a> ()</td></tr>
+<tr class="separator:afca9b6edc8aebe5844414d3e2e583d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8071e41bae4c80090d06003824800daf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#a8071e41bae4c80090d06003824800daf">subscribe</a> (<a class="el" href="class_event_publisher.html">EventPublisher</a> *pub, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a> eventType)</td></tr>
+<tr class="separator:a8071e41bae4c80090d06003824800daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae9004de4b07cbd0e2aafa489f57b81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#adae9004de4b07cbd0e2aafa489f57b81">unsubscribe</a> (<a class="el" href="class_event_publisher.html">EventPublisher</a> *, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a>)</td></tr>
 <tr class="separator:adae9004de4b07cbd0e2aafa489f57b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01783248c65318499759ccb0d4bf1e8e"><td class="memItemLeft" align="right" valign="top"><a id="a01783248c65318499759ccb0d4bf1e8e" name="a01783248c65318499759ccb0d4bf1e8e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeDeletedSubject</b> (<a class="el" href="class_event_publisher.html">EventPublisher</a> *pub, Event::EventType)</td></tr>
-<tr class="separator:a01783248c65318499759ccb0d4bf1e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae366e77f650d923853824c5bf8ffab1b"><td class="memItemLeft" align="right" valign="top"><a id="ae366e77f650d923853824c5bf8ffab1b" name="ae366e77f650d923853824c5bf8ffab1b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>notify</b> (<a class="el" href="class_event_publisher.html">EventPublisher</a> *, Event::EventType eventType)=0</td></tr>
-<tr class="separator:ae366e77f650d923853824c5bf8ffab1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a479c56982bbd8e5df298db4725607baf"><td class="memItemLeft" align="right" valign="top"><a id="a479c56982bbd8e5df298db4725607baf" name="a479c56982bbd8e5df298db4725607baf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_event_subscriber.html">EventSubscriber</a> &amp;rhs) const</td></tr>
+<tr class="memitem:a409f6722e16e76d696f56aa1153de2a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#a409f6722e16e76d696f56aa1153de2a2">removeDeletedSubject</a> (<a class="el" href="class_event_publisher.html">EventPublisher</a> *pub, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a> eventType)</td></tr>
+<tr class="separator:a409f6722e16e76d696f56aa1153de2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e284b8ccf69cff7f612918a3d00f085"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#a4e284b8ccf69cff7f612918a3d00f085">notify</a> (<a class="el" href="class_event_publisher.html">EventPublisher</a> *pub, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a> eventType)=0</td></tr>
+<tr class="separator:a4e284b8ccf69cff7f612918a3d00f085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a479c56982bbd8e5df298db4725607baf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#a479c56982bbd8e5df298db4725607baf">operator==</a> (const <a class="el" href="class_event_subscriber.html">EventSubscriber</a> &amp;rhs) const</td></tr>
 <tr class="separator:a479c56982bbd8e5df298db4725607baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a971a288ba9b1fcab4a4b6989e5c92f24"><td class="memItemLeft" align="right" valign="top"><a id="a971a288ba9b1fcab4a4b6989e5c92f24" name="a971a288ba9b1fcab4a4b6989e5c92f24"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_event_subscriber.html">EventSubscriber</a> &amp;rhs) const</td></tr>
+<tr class="memitem:a971a288ba9b1fcab4a4b6989e5c92f24"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#a971a288ba9b1fcab4a4b6989e5c92f24">operator!=</a> (const <a class="el" href="class_event_subscriber.html">EventSubscriber</a> &amp;rhs) const</td></tr>
 <tr class="separator:a971a288ba9b1fcab4a4b6989e5c92f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a92a8ae0afb62246e1c5f573fa2b0a43a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#a92a8ae0afb62246e1c5f573fa2b0a43a">EventSubscriber</a> ()=default</td></tr>
+<tr class="separator:a92a8ae0afb62246e1c5f573fa2b0a43a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:aff26a25676ab655cf961473927f74003"><td class="memItemLeft" align="right" valign="top"><a id="aff26a25676ab655cf961473927f74003" name="aff26a25676ab655cf961473927f74003"></a>
-std::map&lt; Event::EventType, std::list&lt; <a class="el" href="class_event_publisher.html">EventPublisher</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>subscribedSubjects_</b></td></tr>
+<tr class="memitem:aff26a25676ab655cf961473927f74003"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a>, std::list&lt; <a class="el" href="class_event_publisher.html">EventPublisher</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#aff26a25676ab655cf961473927f74003">subscribedSubjects_</a></td></tr>
 <tr class="separator:aff26a25676ab655cf961473927f74003"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a53e63aa728c1e6300c1b6a4d10433ae8"><td class="memItemLeft" align="right" valign="top"><a id="a53e63aa728c1e6300c1b6a4d10433ae8" name="a53e63aa728c1e6300c1b6a4d10433ae8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ensureEntryExists</b> (Event::EventType)</td></tr>
-<tr class="separator:a53e63aa728c1e6300c1b6a4d10433ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb04674a26cce9f98771161761fb3f44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_subscriber.html#adb04674a26cce9f98771161761fb3f44">ensureEntryExists</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a> eventType)</td></tr>
+<tr class="separator:adb04674a26cce9f98771161761fb3f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Subscriber class which can subscribe to multiple aspects of the same object </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afca9b6edc8aebe5844414d3e2e583d25" name="afca9b6edc8aebe5844414d3e2e583d25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca9b6edc8aebe5844414d3e2e583d25">&#9670;&nbsp;</a></span>~EventSubscriber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventSubscriber::~EventSubscriber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Unsubscribes all publishers before de-initializing </p>
+
+</div>
+</div>
+<a id="a92a8ae0afb62246e1c5f573fa2b0a43a" name="a92a8ae0afb62246e1c5f573fa2b0a43a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92a8ae0afb62246e1c5f573fa2b0a43a">&#9670;&nbsp;</a></span>EventSubscriber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventSubscriber::EventSubscriber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="adb04674a26cce9f98771161761fb3f44" name="adb04674a26cce9f98771161761fb3f44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb04674a26cce9f98771161761fb3f44">&#9670;&nbsp;</a></span>ensureEntryExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventSubscriber::ensureEntryExists </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a>&#160;</td>
+          <td class="paramname"><em>eventType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Creates an entry in event_subscribers if it does not exist yet</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventType</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e284b8ccf69cff7f612918a3d00f085" name="a4e284b8ccf69cff7f612918a3d00f085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e284b8ccf69cff7f612918a3d00f085">&#9670;&nbsp;</a></span>notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void EventSubscriber::notify </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event_publisher.html">EventPublisher</a> *&#160;</td>
+          <td class="paramname"><em>pub</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a>&#160;</td>
+          <td class="paramname"><em>eventType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Called when notifying the subscriber about an event </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pub</td><td>Publisher which sent the notification </td></tr>
+    <tr><td class="paramname">eventType</td><td><a class="el" href="class_event.html" title="Represents a single event of type Event::EventType.">Event</a> type </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a971a288ba9b1fcab4a4b6989e5c92f24" name="a971a288ba9b1fcab4a4b6989e5c92f24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a971a288ba9b1fcab4a4b6989e5c92f24">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EventSubscriber::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_event_subscriber.html">EventSubscriber</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a479c56982bbd8e5df298db4725607baf" name="a479c56982bbd8e5df298db4725607baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a479c56982bbd8e5df298db4725607baf">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EventSubscriber::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_event_subscriber.html">EventSubscriber</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a409f6722e16e76d696f56aa1153de2a2" name="a409f6722e16e76d696f56aa1153de2a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a409f6722e16e76d696f56aa1153de2a2">&#9670;&nbsp;</a></span>removeDeletedSubject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventSubscriber::removeDeletedSubject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event_publisher.html">EventPublisher</a> *&#160;</td>
+          <td class="paramname"><em>pub</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a>&#160;</td>
+          <td class="paramname"><em>eventType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Tries to unsubscribe from a publisher, quietly returns if it does not exist </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pub</td><td></td></tr>
+    <tr><td class="paramname">eventType</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8071e41bae4c80090d06003824800daf" name="a8071e41bae4c80090d06003824800daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8071e41bae4c80090d06003824800daf">&#9670;&nbsp;</a></span>subscribe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventSubscriber::subscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event_publisher.html">EventPublisher</a> *&#160;</td>
+          <td class="paramname"><em>pub</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a>&#160;</td>
+          <td class="paramname"><em>eventType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Subscribes to events of a particular type from the given publisher </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pub</td><td></td></tr>
+    <tr><td class="paramname">eventType</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adae9004de4b07cbd0e2aafa489f57b81" name="adae9004de4b07cbd0e2aafa489f57b81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adae9004de4b07cbd0e2aafa489f57b81">&#9670;&nbsp;</a></span>unsubscribe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventSubscriber::unsubscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event_publisher.html">EventPublisher</a> *&#160;</td>
+          <td class="paramname"><em>pub</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a>&#160;</td>
+          <td class="paramname"><em>eventType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Unsubscribes from events of a particular type from the given publisher. Throws and <a class="el" href="class_observer_exception.html">ObserverException</a> if it does not exist </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pub</td><td></td></tr>
+    <tr><td class="paramname">eventType</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aff26a25676ab655cf961473927f74003" name="aff26a25676ab655cf961473927f74003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff26a25676ab655cf961473927f74003">&#9670;&nbsp;</a></span>subscribedSubjects_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">Event::EventType</a>, std::list&lt;<a class="el" href="class_event_publisher.html">EventPublisher</a>*&gt; &gt; EventSubscriber::subscribedSubjects_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/tomek/CLionProjects/proi/proi-projekt/src/core-lib/include/<a class="el" href="_event_subscriber_8h_source.html">EventSubscriber.h</a></li>
-<li>/home/tomek/CLionProjects/proi/proi-projekt/src/core-lib/EventSubscriber.cpp</li>
+<li>/home/tomek/CLionProjects/proi/proi-projekt/src/core-lib/<a class="el" href="_event_subscriber_8cpp.html">EventSubscriber.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

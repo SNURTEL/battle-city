@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('class_event_queue.html',''); initResiz
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="class_event_queue-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">EventQueue&lt; E &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -99,11 +100,9 @@ $(document).ready(function(){initNavTree('class_event_queue.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acb24ae8194eef59f577deea6e4bc02e4"><td class="memItemLeft" align="right" valign="top"><a id="acb24ae8194eef59f577deea6e4bc02e4" name="acb24ae8194eef59f577deea6e4bc02e4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EventQueue</b> (<a class="el" href="class_event_queue.html">EventQueue</a> &amp;)=delete</td></tr>
+<tr class="memitem:acb24ae8194eef59f577deea6e4bc02e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_queue.html#acb24ae8194eef59f577deea6e4bc02e4">EventQueue</a> (<a class="el" href="class_event_queue.html">EventQueue</a> &amp;)=delete</td></tr>
 <tr class="separator:acb24ae8194eef59f577deea6e4bc02e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7666121d3db42c82cc209b4a62705d49"><td class="memItemLeft" align="right" valign="top"><a id="a7666121d3db42c82cc209b4a62705d49" name="a7666121d3db42c82cc209b4a62705d49"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_event_queue.html">EventQueue</a> &amp;)=delete</td></tr>
+<tr class="memitem:a7666121d3db42c82cc209b4a62705d49"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_queue.html#a7666121d3db42c82cc209b4a62705d49">operator=</a> (const <a class="el" href="class_event_queue.html">EventQueue</a> &amp;)=delete</td></tr>
 <tr class="separator:a7666121d3db42c82cc209b4a62705d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53b631d69b1a0acbafde454b67f2a5c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_queue.html#a53b631d69b1a0acbafde454b67f2a5c7">registerEvent</a> (std::unique_ptr&lt; E &gt; event)</td></tr>
 <tr class="separator:a53b631d69b1a0acbafde454b67f2a5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,15 +118,18 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a83a749137b64d37e19193532967c64d2"><td class="memItemLeft" align="right" valign="top"><a id="a83a749137b64d37e19193532967c64d2" name="a83a749137b64d37e19193532967c64d2"></a>
-std::queue&lt; std::unique_ptr&lt; E &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>events_</b></td></tr>
+<tr class="memitem:a83a749137b64d37e19193532967c64d2"><td class="memItemLeft" align="right" valign="top">std::queue&lt; std::unique_ptr&lt; E &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_queue.html#a83a749137b64d37e19193532967c64d2">events_</a></td></tr>
 <tr class="separator:a83a749137b64d37e19193532967c64d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a2c7b5c4f3744940a36017f2532f8fd47"><td class="memItemLeft" align="right" valign="top"><a id="a2c7b5c4f3744940a36017f2532f8fd47" name="a2c7b5c4f3744940a36017f2532f8fd47"></a>
-static std::unique_ptr&lt; <a class="el" href="class_event_queue.html">EventQueue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>self_</b></td></tr>
+<tr class="memitem:a2c7b5c4f3744940a36017f2532f8fd47"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="class_event_queue.html">EventQueue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47">self_</a></td></tr>
 <tr class="separator:a2c7b5c4f3744940a36017f2532f8fd47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a2cd683a45db8669da2dce14125b8d9ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_queue.html#a2cd683a45db8669da2dce14125b8d9ac">EventQueue</a> ()=default</td></tr>
+<tr class="separator:a2cd683a45db8669da2dce14125b8d9ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class E&gt;<br />
@@ -135,11 +137,67 @@ class EventQueue&lt; E &gt;</div><p >Singleton class wrapper for std::queue&lt;E
 <p >Stores and queues events wrapped in std::unique_ptr. Singleton instance can be accessed with ::instance(). Different instances are created for every each type (E). Cannot be inherited from (::instance() would always return the base class)</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">E</td><td><a class="el" href="class_event.html">Event</a> type </td></tr>
+    <tr><td class="paramname">E</td><td><a class="el" href="class_event.html" title="Represents a single event of type Event::EventType.">Event</a> type </td></tr>
   </table>
   </dd>
 </dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acb24ae8194eef59f577deea6e4bc02e4" name="acb24ae8194eef59f577deea6e4bc02e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb24ae8194eef59f577deea6e4bc02e4">&#9670;&nbsp;</a></span>EventQueue() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_event_queue.html">EventQueue</a>&lt; E &gt;<a class="el" href="class_event_queue.html">::EventQueue</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event_queue.html">EventQueue</a>&lt; E &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2cd683a45db8669da2dce14125b8d9ac" name="a2cd683a45db8669da2dce14125b8d9ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd683a45db8669da2dce14125b8d9ac">&#9670;&nbsp;</a></span>EventQueue() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_event_queue.html">EventQueue</a>&lt; E &gt;<a class="el" href="class_event_queue.html">::EventQueue</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad79d4122796089b84a33c21a4a3ba016" name="ad79d4122796089b84a33c21a4a3ba016"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad79d4122796089b84a33c21a4a3ba016">&#9670;&nbsp;</a></span>instance()</h2>
 
@@ -198,6 +256,34 @@ template&lt;class E &gt; </div>
 
 </div>
 </div>
+<a id="a7666121d3db42c82cc209b4a62705d49" name="a7666121d3db42c82cc209b4a62705d49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7666121d3db42c82cc209b4a62705d49">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_event_queue.html">EventQueue</a>&lt; E &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_event_queue.html">EventQueue</a>&lt; E &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a33b98f19b97d83a287b0a79d9a5ee469" name="a33b98f19b97d83a287b0a79d9a5ee469"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33b98f19b97d83a287b0a79d9a5ee469">&#9670;&nbsp;</a></span>pop()</h2>
 
@@ -222,7 +308,7 @@ template&lt;class E &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Pops the first element in the queue. </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_event.html">Event</a> instance wrapped in a std::unique_ptr </dd></dl>
+<p >Pops the first element in the queue. </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_event.html" title="Represents a single event of type Event::EventType.">Event</a> instance wrapped in a std::unique_ptr </dd></dl>
 
 </div>
 </div>
@@ -253,10 +339,59 @@ template&lt;class E &gt; </div>
 </div><div class="memdoc">
 <p >Moves the unique_ptr containing the event to the back of the queue. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td><a class="el" href="class_event.html">Event</a> instance wrapped in std::unique_ptr </td></tr>
+    <tr><td class="paramname">event</td><td><a class="el" href="class_event.html" title="Represents a single event of type Event::EventType.">Event</a> instance wrapped in std::unique_ptr </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a83a749137b64d37e19193532967c64d2" name="a83a749137b64d37e19193532967c64d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83a749137b64d37e19193532967c64d2">&#9670;&nbsp;</a></span>events_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;std::unique_ptr&lt;E&gt; &gt; <a class="el" href="class_event_queue.html">EventQueue</a>&lt; E &gt;::events_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c7b5c4f3744940a36017f2532f8fd47" name="a2c7b5c4f3744940a36017f2532f8fd47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c7b5c4f3744940a36017f2532f8fd47">&#9670;&nbsp;</a></span>self_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_event_queue.html">EventQueue</a>&gt; <a class="el" href="class_event_queue.html">EventQueue</a>&lt; E &gt;::self_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

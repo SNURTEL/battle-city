@@ -84,17 +84,98 @@ $(document).ready(function(){initNavTree('class_event_handler.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_event_handler-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">EventHandler&lt; E &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_event_handler_8h_source.html">EventHandler.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a296f9d246ef849e015c9cdd37de0b373"><td class="memItemLeft" align="right" valign="top"><a id="a296f9d246ef849e015c9cdd37de0b373" name="a296f9d246ef849e015c9cdd37de0b373"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>handleEvent</b> (std::unique_ptr&lt; E &gt;)=0</td></tr>
-<tr class="separator:a296f9d246ef849e015c9cdd37de0b373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a9eec56eaa2dfd74cb4f3fddffd285d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_handler.html#a4a9eec56eaa2dfd74cb4f3fddffd285d">handleEvent</a> (std::unique_ptr&lt; E &gt; event)=0</td></tr>
+<tr class="separator:a4a9eec56eaa2dfd74cb4f3fddffd285d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a5f5cf81e3095d31123dea5a76ff74361"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_handler.html#a5f5cf81e3095d31123dea5a76ff74361">EventHandler</a> ()=default</td></tr>
+<tr class="separator:a5f5cf81e3095d31123dea5a76ff74361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;class E&gt;<br />
+class EventHandler&lt; E &gt;</div><p >Base class for event handlers.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">E</td><td><a class="el" href="class_event.html" title="Represents a single event of type Event::EventType.">Event</a> type </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5f5cf81e3095d31123dea5a76ff74361" name="a5f5cf81e3095d31123dea5a76ff74361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f5cf81e3095d31123dea5a76ff74361">&#9670;&nbsp;</a></span>EventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_event_handler.html">EventHandler</a>&lt; E &gt;<a class="el" href="class_event_handler.html">::EventHandler</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4a9eec56eaa2dfd74cb4f3fddffd285d" name="a4a9eec56eaa2dfd74cb4f3fddffd285d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a9eec56eaa2dfd74cb4f3fddffd285d">&#9670;&nbsp;</a></span>handleEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_event_handler.html">EventHandler</a>&lt; E &gt;::handleEvent </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; E &gt;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Handles an event. Most of the time method implementation will contain a switch-case which responds to different events differentiated by some kind of enum, and throws an exception if an event cannot be handled. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>The event that should be handed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_publisher_event_handler.html#a72508134bdaf8404291162d828aa95c1">PublisherEventHandler</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/tomek/CLionProjects/proi/proi-projekt/src/core-lib/include/<a class="el" href="_event_handler_8h_source.html">EventHandler.h</a></li>
 </ul>

@@ -9,6 +9,7 @@ const char *EventConstructionException::what() const noexcept {
 }
 
 Event::Event(EventType e) {
+    type = e;
     switch (e) {
         case NullEvent: {
             break;
@@ -19,6 +20,7 @@ Event::Event(EventType e) {
 }
 
 Event::Event(EventType e, unsigned int i1) {
+    type = e;
     switch (e) {
         case Keypress: {
             info.key = {i1};

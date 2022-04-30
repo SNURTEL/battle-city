@@ -10,14 +10,29 @@
 
 class SimpleSubscriber;
 
+/**
+ * Base subscriber class. Does not distinguish different publisher aspects.
+ */
 class SimplePublisher {
 public:
+    /**
+     * Removes references to self from every subscriber
+     */
     ~SimplePublisher();
 
+    /**
+     * Notifies all subscribers (calls ::notify for every subscriber)
+     */
     virtual void notifySubscribers();
 
+    /**
+     * Attaches a subscriber to self
+     */
     void attachSubscriber(SimpleSubscriber*);
 
+    /**
+     * Detatches a subscriber from self. Throws an ObserverException if does not exist
+     */
     void detachSubscriber(SimpleSubscriber*);
 
     bool operator==(const SimplePublisher &rhs) const;

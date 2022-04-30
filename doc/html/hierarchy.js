@@ -2,7 +2,12 @@ var hierarchy =
 [
     [ "Event", "class_event.html", null ],
     [ "EventHandler< E >", "class_event_handler.html", null ],
-    [ "EventPublisher", "class_event_publisher.html", null ],
+    [ "EventHandler< Event >", "class_event_handler.html", [
+      [ "PublisherEventHandler", "class_publisher_event_handler.html", null ]
+    ] ],
+    [ "EventPublisher", "class_event_publisher.html", [
+      [ "PublisherEventHandler", "class_publisher_event_handler.html", null ]
+    ] ],
     [ "EventQueue< E >", "class_event_queue.html", null ],
     [ "EventSubscriber", "class_event_subscriber.html", null ],
     [ "std::exception", null, [

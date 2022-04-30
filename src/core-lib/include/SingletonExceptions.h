@@ -8,6 +8,10 @@
 
 #include <exception>
 
+/**
+ * An exception thrown when trying to instantiate a singleton
+ * class before initializing it (if required)
+ */
 class SingletonNotInitializedException : public std::exception {
     [[nodiscard]] const char * what () const noexcept override;
 };

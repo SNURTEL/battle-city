@@ -12,15 +12,34 @@ class SimplePublisher;
 
 class SimpleSubscriber {
 public:
+    /**
+     * Unsubscribes from all publishers before de-initializing
+     */
     ~SimpleSubscriber();
 
-    void subscribe(SimplePublisher*);
+    /**
+     * Subscribes to a publisher
+     * @param pub
+     */
+    void subscribe(SimplePublisher* pub);
 
-    void unsubscribe(SimplePublisher*);
+    /**
+     * Unsubscribes from a publisher. Throws an ObserverException if does not exist.
+     * @param pub
+     */
+    void unsubscribe(SimplePublisher* pub);
 
-    void removeDeletedSubject(SimplePublisher*);
+    /**
+     * Tries to remove a publisher from an internal publisher pool, quietly returns if does not exist
+     * @param pub
+     */
+    void removeDeletedSubject(SimplePublisher* pub);
 
-    virtual void notify(SimplePublisher*)=0;
+    /**
+     * Called when a notification is sent
+     * @param pub
+     */
+    virtual void notify(SimplePublisher* pub)=0;
 
 protected:
     SimpleSubscriber()=default;

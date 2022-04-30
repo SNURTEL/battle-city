@@ -84,36 +84,213 @@ $(document).ready(function(){initNavTree('class_simple_subscriber.html',''); ini
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_simple_subscriber-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SimpleSubscriber Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_simple_subscriber_8h_source.html">SimpleSubscriber.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4fd94b2b26e1d57b8009e02a0ecd3654"><td class="memItemLeft" align="right" valign="top"><a id="a4fd94b2b26e1d57b8009e02a0ecd3654" name="a4fd94b2b26e1d57b8009e02a0ecd3654"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>subscribe</b> (<a class="el" href="class_simple_publisher.html">SimplePublisher</a> *)</td></tr>
-<tr class="separator:a4fd94b2b26e1d57b8009e02a0ecd3654"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1b19bd770efa225ed07b3a644d02293"><td class="memItemLeft" align="right" valign="top"><a id="af1b19bd770efa225ed07b3a644d02293" name="af1b19bd770efa225ed07b3a644d02293"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unsubscribe</b> (<a class="el" href="class_simple_publisher.html">SimplePublisher</a> *)</td></tr>
-<tr class="separator:af1b19bd770efa225ed07b3a644d02293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab464402553cd00f823746c4171440563"><td class="memItemLeft" align="right" valign="top"><a id="ab464402553cd00f823746c4171440563" name="ab464402553cd00f823746c4171440563"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeDeletedSubject</b> (<a class="el" href="class_simple_publisher.html">SimplePublisher</a> *)</td></tr>
-<tr class="separator:ab464402553cd00f823746c4171440563"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50153bf70378a9eaa596815b2c1c65ed"><td class="memItemLeft" align="right" valign="top"><a id="a50153bf70378a9eaa596815b2c1c65ed" name="a50153bf70378a9eaa596815b2c1c65ed"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>notify</b> (<a class="el" href="class_simple_publisher.html">SimplePublisher</a> *)=0</td></tr>
-<tr class="separator:a50153bf70378a9eaa596815b2c1c65ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcf546aeab6be511e41e85cdeca1e3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_subscriber.html#adfcf546aeab6be511e41e85cdeca1e3f">~SimpleSubscriber</a> ()</td></tr>
+<tr class="separator:adfcf546aeab6be511e41e85cdeca1e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85dcb8936cce17618dcb28495b19b937"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_subscriber.html#a85dcb8936cce17618dcb28495b19b937">subscribe</a> (<a class="el" href="class_simple_publisher.html">SimplePublisher</a> *pub)</td></tr>
+<tr class="separator:a85dcb8936cce17618dcb28495b19b937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54f48edd65af3b061be2054bcb96a5b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_subscriber.html#a54f48edd65af3b061be2054bcb96a5b3">unsubscribe</a> (<a class="el" href="class_simple_publisher.html">SimplePublisher</a> *pub)</td></tr>
+<tr class="separator:a54f48edd65af3b061be2054bcb96a5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd95af2dd6e2bac34cb6e6cf54160f60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_subscriber.html#afd95af2dd6e2bac34cb6e6cf54160f60">removeDeletedSubject</a> (<a class="el" href="class_simple_publisher.html">SimplePublisher</a> *pub)</td></tr>
+<tr class="separator:afd95af2dd6e2bac34cb6e6cf54160f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78e5a5afbedbc117d6abda455703a34b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_subscriber.html#a78e5a5afbedbc117d6abda455703a34b">notify</a> (<a class="el" href="class_simple_publisher.html">SimplePublisher</a> *pub)=0</td></tr>
+<tr class="separator:a78e5a5afbedbc117d6abda455703a34b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:adb3f75c1f79529979b8448b8897e138f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_subscriber.html#adb3f75c1f79529979b8448b8897e138f">SimpleSubscriber</a> ()=default</td></tr>
+<tr class="separator:adb3f75c1f79529979b8448b8897e138f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a4d268f3e6add46ad3d832a0b15a3ca61"><td class="memItemLeft" align="right" valign="top"><a id="a4d268f3e6add46ad3d832a0b15a3ca61" name="a4d268f3e6add46ad3d832a0b15a3ca61"></a>
-std::vector&lt; <a class="el" href="class_simple_publisher.html">SimplePublisher</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>subscribedSubjects_</b></td></tr>
+<tr class="memitem:a4d268f3e6add46ad3d832a0b15a3ca61"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_simple_publisher.html">SimplePublisher</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_subscriber.html#a4d268f3e6add46ad3d832a0b15a3ca61">subscribedSubjects_</a></td></tr>
 <tr class="separator:a4d268f3e6add46ad3d832a0b15a3ca61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="adfcf546aeab6be511e41e85cdeca1e3f" name="adfcf546aeab6be511e41e85cdeca1e3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfcf546aeab6be511e41e85cdeca1e3f">&#9670;&nbsp;</a></span>~SimpleSubscriber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimpleSubscriber::~SimpleSubscriber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Unsubscribes from all publishers before de-initializing </p>
+
+</div>
+</div>
+<a id="adb3f75c1f79529979b8448b8897e138f" name="adb3f75c1f79529979b8448b8897e138f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb3f75c1f79529979b8448b8897e138f">&#9670;&nbsp;</a></span>SimpleSubscriber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimpleSubscriber::SimpleSubscriber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a78e5a5afbedbc117d6abda455703a34b" name="a78e5a5afbedbc117d6abda455703a34b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78e5a5afbedbc117d6abda455703a34b">&#9670;&nbsp;</a></span>notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SimpleSubscriber::notify </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_simple_publisher.html">SimplePublisher</a> *&#160;</td>
+          <td class="paramname"><em>pub</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Called when a notification is sent </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pub</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afd95af2dd6e2bac34cb6e6cf54160f60" name="afd95af2dd6e2bac34cb6e6cf54160f60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd95af2dd6e2bac34cb6e6cf54160f60">&#9670;&nbsp;</a></span>removeDeletedSubject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimpleSubscriber::removeDeletedSubject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_simple_publisher.html">SimplePublisher</a> *&#160;</td>
+          <td class="paramname"><em>pub</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Tries to remove a publisher from an internal publisher pool, quietly returns if does not exist </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pub</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a85dcb8936cce17618dcb28495b19b937" name="a85dcb8936cce17618dcb28495b19b937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85dcb8936cce17618dcb28495b19b937">&#9670;&nbsp;</a></span>subscribe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimpleSubscriber::subscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_simple_publisher.html">SimplePublisher</a> *&#160;</td>
+          <td class="paramname"><em>pub</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Subscribes to a publisher </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pub</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54f48edd65af3b061be2054bcb96a5b3" name="a54f48edd65af3b061be2054bcb96a5b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54f48edd65af3b061be2054bcb96a5b3">&#9670;&nbsp;</a></span>unsubscribe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimpleSubscriber::unsubscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_simple_publisher.html">SimplePublisher</a> *&#160;</td>
+          <td class="paramname"><em>pub</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Unsubscribes from a publisher. Throws an <a class="el" href="class_observer_exception.html">ObserverException</a> if does not exist. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pub</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4d268f3e6add46ad3d832a0b15a3ca61" name="a4d268f3e6add46ad3d832a0b15a3ca61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d268f3e6add46ad3d832a0b15a3ca61">&#9670;&nbsp;</a></span>subscribedSubjects_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_simple_publisher.html">SimplePublisher</a>*&gt; SimpleSubscriber::subscribedSubjects_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/tomek/CLionProjects/proi/proi-projekt/src/core-lib/include/<a class="el" href="_simple_subscriber_8h_source.html">SimpleSubscriber.h</a></li>
-<li>/home/tomek/CLionProjects/proi/proi-projekt/src/core-lib/SimpleSubscriber.cpp</li>
+<li>/home/tomek/CLionProjects/proi/proi-projekt/src/core-lib/<a class="el" href="_simple_subscriber_8cpp.html">SimpleSubscriber.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

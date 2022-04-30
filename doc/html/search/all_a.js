@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['observerexception_0',['ObserverException',['../class_observer_exception.html',1,'ObserverException'],['../class_observer_exception.html#a934015c1f371f1a2bb4969c1c9dde0f6',1,'ObserverException::ObserverException()=default'],['../class_observer_exception.html#af0701f842e8824e6fc86d9d6f2681a5a',1,'ObserverException::ObserverException(std::string)']]],
+  ['observerexception_0',['ObserverException',['../class_observer_exception.html',1,'ObserverException'],['../class_observer_exception.html#a934015c1f371f1a2bb4969c1c9dde0f6',1,'ObserverException::ObserverException()=default'],['../class_observer_exception.html#a63de2b477ddf1a5096935d8afc4eaeaa',1,'ObserverException::ObserverException(std::string msg)']]],
   ['observerexceptions_2ecpp_1',['ObserverExceptions.cpp',['../_observer_exceptions_8cpp.html',1,'']]],
   ['observerexceptions_2eh_2',['ObserverExceptions.h',['../_observer_exceptions_8h.html',1,'']]],
   ['operator_21_3d_3',['operator!=',['../class_event_publisher.html#a383bf75c0889dc353b0797d642ae2658',1,'EventPublisher::operator!=()'],['../class_event_subscriber.html#a971a288ba9b1fcab4a4b6989e5c92f24',1,'EventSubscriber::operator!=()'],['../class_simple_publisher.html#a54cdda1958ed243459c90e3c6d4ac985',1,'SimplePublisher::operator!=()']]],

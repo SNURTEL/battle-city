@@ -2,8 +2,8 @@ var class_clock =
 [
     [ "Clock", "class_clock.html#a44e32476c761915df5a3f9741294d2d7", null ],
     [ "Clock", "class_clock.html#aaadf4fd3494f23514024098c2d0c9134", null ],
-    [ "Clock", "class_clock.html#af651ba94fa8072fd0f752c63f090fd39", null ],
-    [ "initialize", "class_clock.html#a0da08dbe90feb864826488c581fdea61", null ],
+    [ "Clock", "class_clock.html#a49f4c6bca28b3308ffb30fb5ec59856e", null ],
+    [ "initialize", "class_clock.html#aac728057a5b81ab27c83291271918bf1", null ],
     [ "instance", "class_clock.html#ab0d73edb46fd90137d3623ca74f04fcf", null ],
     [ "operator=", "class_clock.html#a268b29b77e3be6cd829681c6fa150e01", null ],
     [ "sleep", "class_clock.html#aceb0567e0266267f0a4bc2e51545777d", null ],
