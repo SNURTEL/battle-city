@@ -61,10 +61,11 @@ public:
      * Contains additional event info. For every event, only one field contains
      * actual data - the rest is initialized with null.
      */
-    struct {
+    union info_u {
         KeypressEvent key;
         std::string someOtherVal;
-    } info;
+        ~info_u(){};
+    } info = {};
 
     Event()=delete;
 };
