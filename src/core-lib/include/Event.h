@@ -52,19 +52,14 @@ public:
 
     };
 
-
     // ####################################################3
-
-    // does not work with union (gcc deletes the default constructor?)
-    // memory overhead!
     /**
      * Contains additional event info. For every event, only one field contains
      * actual data - the rest is initialized with null.
      */
     union info_u {
         KeypressEvent key;
-        std::string someOtherVal;
-        ~info_u(){};
+        ~info_u(){};  // DO NOT change this to =default, or else it will stop working
     } info = {};
 
     Event()=delete;
