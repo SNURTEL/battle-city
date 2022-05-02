@@ -8,13 +8,6 @@
 #include "include/ActiveEventHandler.h"
 #include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
-InvalidEventException::InvalidEventException(std::string msg) {
-    what_message = std::move(msg);
-}
-
-const char *InvalidEventException::what() {
-    return what_message.c_str();
-}
 
 ActiveEventHandler::ActiveEventHandler(Game *game) {
     game_ = game;

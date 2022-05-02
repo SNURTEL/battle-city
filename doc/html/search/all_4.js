@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['handleevent_0',['handleEvent',['../class_event_handler.html#a4a9eec56eaa2dfd74cb4f3fddffd285d',1,'EventHandler::handleEvent()'],['../class_publisher_event_handler.html#a72508134bdaf8404291162d828aa95c1',1,'PublisherEventHandler::handleEvent()']]]
+  ['fetchkeyboardevent_0',['fetchKeyboardEvent',['../class_keyboard_controller.html#ad3bef8a094a66828327549ff3a768994',1,'KeyboardController']]]
 ];

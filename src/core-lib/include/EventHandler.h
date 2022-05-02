@@ -10,6 +10,18 @@
 #include "Event.h"
 #include "EventPublisher.h"
 
+class InvalidEventException : public std::exception{
+public:
+    InvalidEventException()=default;
+
+    explicit InvalidEventException(std::string msg);  // FIXME message not showing up
+
+    const char* what();
+
+private:
+    std::string what_message;
+};
+
 /**
  * Base class for event handlers.
  *

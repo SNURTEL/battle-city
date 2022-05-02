@@ -13,25 +13,23 @@ class Event;
 
 class Game;
 
-
-class InvalidEventException : public std::exception{
-public:
-    InvalidEventException()=default;
-
-    explicit InvalidEventException(std::string msg);  // FIXME message not showing up
-
-    const char* what();
-
-private:
-    std::string what_message;
-};
-
+/**
+ * Event handler for active game state. Operates on Event class events
+ */
 class ActiveEventHandler: public PublisherEventHandler{
 public:
     ActiveEventHandler()=delete;
 
+    /**
+     * Inits class ActiveEventHandler.
+     * @param game
+     */
     explicit ActiveEventHandler(Game* game);
 
+    /**
+     * Responds to event
+     * @param event
+     */
     void processEvent(std::unique_ptr<Event> event) override;
 
 private:

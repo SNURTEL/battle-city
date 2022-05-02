@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['what_0',['what',['../struct_event_construction_exception.html#a21beb0ea2cdb5053549bf0dff5d66add',1,'EventConstructionException::what()'],['../class_observer_exception.html#abc6401c47ef7af3e488779117444d179',1,'ObserverException::what()'],['../class_singleton_not_initialized_exception.html#aa3184c9ee95d0cdf422faaa4a111ad51',1,'SingletonNotInitializedException::what()']]],
-  ['what_5fmessage_1',['what_message',['../class_observer_exception.html#a3f569a12194315b6e2039efe44938e8c',1,'ObserverException']]]
+  ['tanks_2ecpp_0',['tanks.cpp',['../tanks_8cpp.html',1,'']]],
+  ['tick_1',['tick',['../class_clock.html#a116757f0e1575348549b1f2fc346d492',1,'Clock']]],
+  ['type_2',['type',['../class_event.html#ac721e4f34b3b9a1ae302165412221724',1,'Event']]]
 ];

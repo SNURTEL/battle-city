@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_simple_subscriber_1_1_useful.html" title="Represents an externally controlled clock running at a given frequency." alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node1" href="$class_game_state.html" title=" " alt="" coords="5,5,100,32"/>
+<area shape="rect" id="node2" href="$class_active_game_state.html" title=" " alt="" coords="148,5,284,32"/>
 </map>

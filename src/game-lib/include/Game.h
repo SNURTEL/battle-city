@@ -22,20 +22,40 @@ class GameState;
 
 class KeyboardController;
 
+
+/**
+ * Main container
+ * Hold references to all other objects and runs the main event loop
+ */
 class Game {
 public:
     Game()=delete;
 
+    /**
+     * Inits class Game
+     * @param clock_freq Internal clock frequency
+     */
     explicit Game(unsigned int clock_freq);
 
+    /**
+     * Starts the game
+     */
     void run();
 
+    /**
+     * Switches the current state to active
+     */
     void setActiveState();
 
-    [[nodiscard]] Clock *getClock() const;
-
 private:
+    /**
+     * Called right before starting the event loop. Sets all remaining attrs, creates the render window,
+     * loads the scoreboard and links subscribers to clock.
+     */
     void setup();
+    /**
+     * Creates an SFML render window and saves it
+     */
     void createRenderWindow();
     std::unique_ptr<GameState> active_state_;
     GameState* state_{};

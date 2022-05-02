@@ -14,9 +14,18 @@ class PublisherEventHandler;
 
 class Game;
 
+/**
+ * Encapsulates game's state and holds data related to it.
+ * Each state contains an event handler, which defines game's responses to internal events
+ */
 class GameState {
 public:
     virtual ~GameState()=default;
+
+    /**
+     * Returns state's event handler
+     * @return State's event handler
+     */
     PublisherEventHandler* getEventHandler();
 
 protected:

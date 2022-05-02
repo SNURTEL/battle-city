@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['info_0',['info',['../class_event.html#abeb03de99b9bf857c36683f46a1e1f8b',1,'Event']]],
-  ['interval_5f_1',['interval_',['../class_clock.html#a209e6048cf6f30944ba78915cb5da480',1,'Clock']]]
+  ['clock_5f_0',['clock_',['../class_game.html#a0a15a49e48e2b85aea3670f571c87995',1,'Game']]]
 ];

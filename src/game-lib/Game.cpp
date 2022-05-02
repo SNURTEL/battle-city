@@ -16,10 +16,6 @@ Game::Game(unsigned int clock_freq) {
     eventQueue_ = EventQueue<Event>::instance();
 }
 
-Clock *Game::getClock() const {
-    return clock_;
-}
-
 void Game::setup() {
     // load scoreboard, init UI, etC
     createRenderWindow();
