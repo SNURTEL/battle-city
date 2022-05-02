@@ -108,12 +108,12 @@ Collaboration diagram for Event:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_keypress_event.html">KeypressEvent</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_keypress_event.html">KeyEventInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aa306292f6e9bf31a622e79dfc54321de"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> { <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaa7eecb026661c0595326e2e5b6cbf68a">Keypress</a> = 0
+<tr class="memitem:aa306292f6e9bf31a622e79dfc54321de"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> { <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaa7eecb026661c0595326e2e5b6cbf68a">KeyPressed</a> = 0
 , <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c">NullEvent</a>
  }</td></tr>
 <tr class="separator:aa306292f6e9bf31a622e79dfc54321de"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,7 +132,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ac721e4f34b3b9a1ae302165412221724"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#ac721e4f34b3b9a1ae302165412221724">type</a></td></tr>
 <tr class="separator:ac721e4f34b3b9a1ae302165412221724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abeb03de99b9bf857c36683f46a1e1f8b"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:ae6b31a2130fe8bb3c38fa1b4f154bcf3"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="struct_event_1_1_keypress_event.html">KeypressEvent</a>&#160;&#160;&#160;<a class="el" href="class_event.html#aa65e1276295df03ea9ac167ca978c342">key</a></td></tr>
+<tr class="memitem:ae6b31a2130fe8bb3c38fa1b4f154bcf3"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="struct_event_1_1_keypress_event.html">KeyEventInfo</a>&#160;&#160;&#160;<a class="el" href="class_event.html#aa65e1276295df03ea9ac167ca978c342">key</a></td></tr>
 <tr class="separator:ae6b31a2130fe8bb3c38fa1b4f154bcf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30b7fa59f18d267163b8e176abfd48c8"><td class="memItemLeft" >&#160;&#160;&#160;std::string&#160;&#160;&#160;<a class="el" href="class_event.html#ae8d2cfa698eb66f82a2131dbda788c15">someOtherVal</a></td></tr>
 <tr class="separator:a30b7fa59f18d267163b8e176abfd48c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,7 +158,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Represents event types </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deaa7eecb026661c0595326e2e5b6cbf68a" name="aa306292f6e9bf31a622e79dfc54321deaa7eecb026661c0595326e2e5b6cbf68a"></a>Keypress&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deaa7eecb026661c0595326e2e5b6cbf68a" name="aa306292f6e9bf31a622e79dfc54321deaa7eecb026661c0595326e2e5b6cbf68a"></a>KeyPressed&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c" name="aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c"></a>NullEvent&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
@@ -267,7 +267,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_event_1_1_keypress_event.html">KeypressEvent</a> Event::key</td>
+          <td class="memname"><a class="el" href="struct_event_1_1_keypress_event.html">KeyEventInfo</a> Event::key</td>
         </tr>
       </table>
 </div><div class="memdoc">

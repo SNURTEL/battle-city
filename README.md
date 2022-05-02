@@ -57,6 +57,7 @@ If the project does not compile, check [dependencies](#dependencies).
 - gcc
 - cmake
 - Catch2 (version `v3.x`)
+- SFML
 - doxygen (only for generating documentation)
 
 ### GCC
@@ -106,6 +107,14 @@ cd vcpkg
 ./vcpkg install catch2
 ```
 [Full instructions](https://github.com/catchorg/Catch2/blob/devel/docs/cmake-integration.md)
+
+### SFML
+Install  with:
+```bash
+sudo apt-get install libsfml-dev
+```
+
+[Full instructions](https://www.sfml-dev.org/tutorials/2.5/start-linux.php)
 
 ### Doxygen
 Check if Doxygen is installed:

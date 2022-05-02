@@ -32,24 +32,24 @@ public:
      * Represents event types
      */
     enum EventType {
-        Keypress = 0,
+        KeyPressed = 0,
+        KeyReleased,
 
         NullEvent
     };
 
     EventType type;
 
-    // FIXME not so elegant
-    Event(EventType, unsigned int ui1);
-
-    explicit Event(EventType);
-
     /**
-     * Carries additional event info for Keypress event
+     * Carries additional event info for KeyPressed event
      */
-    struct KeypressEvent {
+    struct KeyEventInfo {
+        enum KeyAction{
+            Pressed =0,
+            Released
+        };
         unsigned int keyCode;
-
+        KeyAction action;
     };
 
     // ####################################################3
@@ -58,9 +58,14 @@ public:
      * actual data - the rest is initialized with null.
      */
     union info_u {
-        KeypressEvent key;
+        KeyEventInfo key;
         ~info_u(){};  // DO NOT change this to =default, or else it will stop working
     } info = {};
+
+    // FIXME not so elegant
+    Event(EventType, unsigned int ui1, KeyEventInfo::KeyAction);
+
+    explicit Event(EventType);
 
     Event()=delete;
 };

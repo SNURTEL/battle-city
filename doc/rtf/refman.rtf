@@ -176,7 +176,7 @@ ObserverException\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADQ \\*MERGEFOR
 SingletonNotInitializedException\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEP \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 }\par
-Event::KeypressEvent\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACD \\*MERGEFORMAT}{\fldrslt pagenum}}
+Event::KeyEventInfo\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACD \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 SimplePublisher\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADY \\*MERGEFORMAT}{\fldrslt pagenum}}
 {
@@ -216,7 +216,7 @@ Singleton class wrapper for std::queue<E> })} \tab {\field\fldedit {\*\fldinst P
 \par
 {\b {\b EventSubscriber} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADF \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b Event::KeypressEvent} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACD \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b Event::KeyEventInfo} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACD \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b ObserverException} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADQ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
@@ -573,7 +573,7 @@ Classes\par
 
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-struct {\b KeypressEvent}\par
+struct {\b KeyEventInfo}\par
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Public Types\par
@@ -581,7 +581,7 @@ Public Types\par
 
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-enum {\b EventType} \{ {\b Keypress} = 0
+enum {\b EventType} \{ {\b KeyPressed} = 0
 , {\b NullEvent}
  \}\par
 }
@@ -609,7 +609,7 @@ struct \{\par
 
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-\~ {\b KeypressEvent} {\b key}\par
+\~ {\b KeyEventInfo} {\b key}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 \~ std::string {\b someOtherVal}\par
 }
@@ -653,9 +653,9 @@ Enumerator:\par}
 \clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
 \clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
 \pard \widctlpar\intbl\adjustright
-{\xe \v Keypress\:Event}
-{\xe \v Event\:Keypress}
-{\qr Keypress{\bkmkstart AAAAAAAABU}
+{\xe \v KeyPressed\:Event}
+{\xe \v Event\:KeyPressed}
+{\qr KeyPressed{\bkmkstart AAAAAAAABU}
 {\bkmkend AAAAAAAABU}
 \cell }{\cell }{\row }
 {\xe \v NullEvent\:Event}
@@ -723,7 +723,7 @@ Contains additional event info. For every event, only one field contains actual 
 {\xe \v Event\:key}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-{\b KeypressEvent} Event::key}}
+{\b KeyEventInfo} Event::key}}
 \par
 {\bkmkstart AAAAAAAACA}
 {\bkmkend AAAAAAAACA}
@@ -1672,9 +1672,9 @@ The documentation for this class was generated from the following files:{\par
 \pard\plain \sect\sbkpage
 \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
 \pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
-Event::KeypressEvent Struct Reference\par \pard\plain 
-{\tc\tcl2 \v Event::KeypressEvent}
-{\xe \v Event::KeypressEvent}
+Event::KeyEventInfo Struct Reference\par \pard\plain
+{\tc\tcl2 \v Event::KeyEventInfo}
+{\xe \v Event::KeyEventInfo}
 {\bkmkstart AAAAAAAACD}
 {\bkmkend AAAAAAAACD}
 \par
@@ -1694,17 +1694,17 @@ Detailed Description\par
 \pard\plain 
 {
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Carries additional event info for Keypress event \par
+Carries additional event info for KeyPressed event \par
 }}
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Member Data Documentation\par
 \pard\plain 
-{\xe \v keyCode\:Event::KeypressEvent}
-{\xe \v Event::KeypressEvent\:keyCode}
+{\xe \v keyCode\:Event::KeyEventInfo}
+{\xe \v Event::KeyEventInfo\:keyCode}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-unsigned int Event::KeypressEvent::keyCode}}
+unsigned int Event::KeyEventInfo::keyCode}}
 \par
 {\bkmkstart AAAAAAAACE}
 {\bkmkend AAAAAAAACE}
@@ -2635,7 +2635,7 @@ class {\b Event}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Represents a single event of type {\b Event::EventType}. }}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-struct {\b Event::KeypressEvent}\par
+struct {\b Event::KeyEventInfo}\par
 }
 \par \pard\plain 
 
@@ -2666,7 +2666,7 @@ Go to the documentation of this file.{
 29 {\cf17 public}:\par
 30 \par
 34     {\cf17 enum} EventType \{\par
-35         Keypress = 0,\par
+35         KeyPressed = 0,\par
 36 \par
 37         NullEvent\par
 38     \};\par
@@ -2678,7 +2678,7 @@ Go to the documentation of this file.{
 44 \par
 45     {\cf17 explicit} Event(EventType);\par
 46 \par
-50     {\cf17 struct }KeypressEvent \{\par
+50     {\cf17 struct }KeyEventInfo \{\par
 51         {\cf18 unsigned} {\cf18 int} keyCode;\par
 52 \par
 53     \};\par
@@ -2689,7 +2689,7 @@ Go to the documentation of this file.{
 58     {\cf20 // does not work with union (gcc deletes the default constructor?)}\par
 59     {\cf20 // memory overhead!}\par
 64 {\cf20 }    {\cf17 struct }\{\par
-65         KeypressEvent key;\par
+65         KeyEventInfo key;\par
 66         std::string someOtherVal;\par
 67     \} info;\par
 68 \par

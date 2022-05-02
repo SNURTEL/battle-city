@@ -30,7 +30,7 @@ public:
     bool notified2 = false;
 
     void notify(EventPublisher *pub, Event::EventType eventType) override {
-        if(eventType==Event::Keypress){
+        if(eventType==Event::KeyPressed){
             notified1= true;
         }else if(eventType == Event::NullEvent){
             notified2 = true;
@@ -49,11 +49,11 @@ SCENARIO("Event observer - Regular behavior"){
         std::shared_ptr<TestEventSubscriber> subscriber2 = std::make_shared<TestEventSubscriber>();
 
         WHEN("Subscribed to an event"){
-            subscriber1->subscribe(publisher.get(), Event::Keypress);
+            subscriber1->subscribe(publisher.get(), Event::KeyPressed);
             subscriber2->subscribe(publisher.get(), Event::NullEvent);
 
             THEN("A correct subscriber should be notified when an event is registered"){
-                REQUIRE_NOTHROW(publisher->notifyEventSubscribers(Event::Keypress));
+                REQUIRE_NOTHROW(publisher->notifyEventSubscribers(Event::KeyPressed));
                 REQUIRE(publisher->notification_count==1);
                 REQUIRE(subscriber1->notified1 == true);
                 REQUIRE(subscriber2->notified2 == false);
@@ -66,18 +66,18 @@ SCENARIO("Event observer - Regular behavior"){
         }
 
         WHEN("Unsubscribing") {
-            subscriber1->subscribe(publisher.get(), Event::Keypress);
-            REQUIRE_NOTHROW(subscriber1->subscribe(publisher.get(), Event::Keypress));
+            subscriber1->subscribe(publisher.get(), Event::KeyPressed);
+            REQUIRE_NOTHROW(subscriber1->subscribe(publisher.get(), Event::KeyPressed));
             THEN("Subscriber should not be notified"){
                 REQUIRE(subscriber1->notified1==false);
             }
         }
 
         WHEN("Subscribed to multiple events"){
-            subscriber1->subscribe(publisher.get(), Event::Keypress);
+            subscriber1->subscribe(publisher.get(), Event::KeyPressed);
             subscriber1->subscribe(publisher.get(), Event::NullEvent);
 
-            publisher->notifyEventSubscribers(Event::Keypress);
+            publisher->notifyEventSubscribers(Event::KeyPressed);
             publisher->notifyEventSubscribers(Event::NullEvent);
             THEN("Subscriber should be notified multiple times"){
                 REQUIRE(subscriber1->notified1 == true);
@@ -95,13 +95,13 @@ SCENARIO("Event observer - Edge cases") {
         std::shared_ptr<TestEventSubscriber> subscriber2 = std::make_shared<TestEventSubscriber>();
 
         WHEN("Subscribing the same publisher twice") {
-            subscriber1->subscribe(publisher.get(), Event::Keypress);
-            REQUIRE_NOTHROW(subscriber1->subscribe(publisher.get(), Event::Keypress));
+            subscriber1->subscribe(publisher.get(), Event::KeyPressed);
+            REQUIRE_NOTHROW(subscriber1->subscribe(publisher.get(), Event::KeyPressed));
 
             THEN("Subscriber should only be notified once") {
-                publisher->notifyEventSubscribers(Event::Keypress);
+                publisher->notifyEventSubscribers(Event::KeyPressed);
                 REQUIRE(publisher->notification_count == 1);
-                REQUIRE(subscriber1->getSubscribedSubjectsCount(Event::Keypress)==1);
+                REQUIRE(subscriber1->getSubscribedSubjectsCount(Event::KeyPressed) == 1);
             }
         }
 
@@ -118,13 +118,13 @@ SCENARIO("Event observer - Edge cases") {
         auto subscriber2 = new TestEventSubscriber();
 
         WHEN("Subscriber is de-initialized") {
-            subscriber1->subscribe(publisher1, Event::Keypress);
+            subscriber1->subscribe(publisher1, Event::KeyPressed);
             subscriber1->subscribe(publisher2, Event::NullEvent);
-            subscriber2->subscribe(publisher1, Event::Keypress);
+            subscriber2->subscribe(publisher1, Event::KeyPressed);
 
             THEN("Subscriber should be removed from the pool") {
                 REQUIRE_NOTHROW(delete subscriber1);
-                REQUIRE_NOTHROW(publisher1->notifyEventSubscribers(Event::Keypress));
+                REQUIRE_NOTHROW(publisher1->notifyEventSubscribers(Event::KeyPressed));
                 REQUIRE(publisher1->notification_count == 1);
                 REQUIRE_NOTHROW(publisher2->notifyEventSubscribers(Event::NullEvent));
                 REQUIRE(publisher2->notification_count == 0);
@@ -132,15 +132,15 @@ SCENARIO("Event observer - Edge cases") {
         }
 
         WHEN("Publisher is de-initialized") {
-            subscriber1->subscribe(publisher1, Event::Keypress);
+            subscriber1->subscribe(publisher1, Event::KeyPressed);
             subscriber2->subscribe(publisher1, Event::NullEvent);
 
-            REQUIRE(subscriber1->getSubscribedSubjectsCount(Event::Keypress) == 1);
+            REQUIRE(subscriber1->getSubscribedSubjectsCount(Event::KeyPressed) == 1);
             REQUIRE(subscriber2->getSubscribedSubjectsCount(Event::NullEvent) == 1);
 
             THEN("Publisher should be removed from subscribers' pool") {
                 REQUIRE_NOTHROW(delete publisher1);
-                REQUIRE(subscriber1->getSubscribedSubjectsCount(Event::Keypress) == 0);
+                REQUIRE(subscriber1->getSubscribedSubjectsCount(Event::KeyPressed) == 0);
                 REQUIRE(subscriber2->getSubscribedSubjectsCount(Event::NullEvent) == 0);
             }
 
