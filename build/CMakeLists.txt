@@ -78,7 +78,8 @@ add_library(tank-lib SHARED ${tank_lib_sources})
 
 set(tank_lib_test_dir ../src/tank-lib/test)
 set(tank_lib_test_sources
-        ../src/tank-lib/test/test_tank.cpp)
+        ${tank_lib_test_dir}/test_tank.cpp
+        ${tank_lib_test_dir}/test_tankController.cpp)
 
 add_executable(test_tank_lib ${tank_lib_test_sources})
 target_link_libraries(test_tank_lib PRIVATE core-lib tank-lib Catch2::Catch2WithMain)

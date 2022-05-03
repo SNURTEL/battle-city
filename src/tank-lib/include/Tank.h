@@ -14,11 +14,22 @@ enum Direction {
 
 class Tank {
 public:
+    virtual ~Tank()=default;
+
+    enum TankType{
+        BasicTank,
+        FastTank,
+        PowerTank,
+        ArmorTank
+    };
+
     void moveX(int delta_x);
 
     void moveY(int delta_y);
 
     void deltaLives(int delta_l);
+
+    [[nodiscard]] TankType getType() const;
 
     [[nodiscard]] unsigned int getX() const;
 
@@ -36,6 +47,9 @@ public:
 
 protected:
     Tank()=default;
+
+    TankType type_;
+
     unsigned int x_;
     unsigned int y_;
     unsigned int lives_;

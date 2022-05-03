@@ -54,9 +54,15 @@ double Tank::getBulletSpeed() const {
     return bullet_speed_;
 }
 
+Tank::TankType Tank::getType() const {
+    return type_;
+}
+
 // ##############################
 
 BasicTank::BasicTank(unsigned int x, unsigned int y, Direction facing) : Tank() {
+    type_=Tank::BasicTank;
+
     x_ = x;
     y_ = y;
     facing_=facing;
@@ -68,6 +74,8 @@ BasicTank::BasicTank(unsigned int x, unsigned int y, Direction facing) : Tank() 
 }
 
 FastTank::FastTank(unsigned int x, unsigned int y, Direction facing) : Tank() {
+    type_=Tank::FastTank;
+
     x_ = x;
     y_ = y;
     facing_=facing;
@@ -79,6 +87,8 @@ FastTank::FastTank(unsigned int x, unsigned int y, Direction facing) : Tank() {
 }
 
 PowerTank::PowerTank(unsigned int x, unsigned int y, Direction facing) : Tank() {
+    type_=Tank::PowerTank;
+
     x_ = x;
     y_ = y;
     facing_=facing;
@@ -90,6 +100,8 @@ PowerTank::PowerTank(unsigned int x, unsigned int y, Direction facing) : Tank() 
 }
 
 ArmorTank::ArmorTank(unsigned int x, unsigned int y, Direction facing) : Tank() {
+    type_=Tank::ArmorTank;
+
     x_ = x;
     y_ = y;
     facing_=facing;
