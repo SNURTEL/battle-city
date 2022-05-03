@@ -13,7 +13,7 @@ KeyboardController::KeyboardController(sf::RenderWindow *window) {
     eventQueue_ = EventQueue<Event>::instance();
 }
 
-void KeyboardController::fetchKeyboardEvent() {
+void KeyboardController::fetchKeyboardEvent() const {
     sf::Event event;
     window_->pollEvent(event);
 

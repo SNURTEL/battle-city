@@ -46,7 +46,7 @@ public:
      * - KeyReleased (from sf::Event::KeyReleased)
      * - NullEvent (if none of the above was registered)
      */
-    void fetchKeyboardEvent();
+    void fetchKeyboardEvent() const;
 
     sf::RenderWindow* window_;
 

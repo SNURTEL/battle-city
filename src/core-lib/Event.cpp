@@ -37,30 +37,12 @@ Event::Event(EventType e, unsigned int i1, KeyEventInfo::KeyAction keyAction) {
 Event::Event(EventType e, Tank *tank) {
     type = e;
     switch (e) {
-        case TankSpawned: {
-            info.tankSpawnedInfo = {tank};
-            break;
-        }
-        case TankMoved: {
-            info.tankMovedInfo = {tank};
-            break;
-        }
-        case TankHit: {
-            info.tankHitInfo = {tank};
-            break;
-        }
-        default: {
-            throw EventConstructionException();
-        }
-    }
-}
-
-Event::Event(EventType e, std::unique_ptr<Tank> tank) {
-    type = e;
-    switch (e) {
+        case TankSpawned:
+        case TankMoved:
+        case TankHit:
         case TankRemoved:
-        case TankKilled: {
-            info.tankKilledInfo = {std::move(tank)};
+        case TankKilled:  {
+            info.tankInfo = {tank};
             break;
         }
         default: {
