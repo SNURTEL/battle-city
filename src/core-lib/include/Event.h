@@ -54,8 +54,9 @@ public:
 
     // ####################################################3
     /**
-     * Contains additional event info. For every event, only one field contains
-     * actual data - the rest is initialized with null.
+     * Contains additional event info.
+     * Unions member is initialized according to EventType enum passed to the constructor
+     * Trying to access any member other than initialized will result in undefined behavior
      */
     union info_u {
         KeyEventInfo key;

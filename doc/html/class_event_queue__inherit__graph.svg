@@ -59,26 +59,26 @@ var sectionId = 'dynsection-0';
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Singleton class wrapper for std::queue&lt;E&gt;.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-270.5 0,-492.5 150,-492.5 150,-270.5 0,-270.5"/>
-<text text-anchor="middle" x="75" y="-480.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; E &gt;</text>
+<text text-anchor="middle" x="75" y_="-480.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; E &gt;</text>
 <polyline fill="none" stroke="black" points="0,-473.5 150,-473.5 "/>
-<text text-anchor="start" x="8" y="-461.5" font-family="Helvetica,sans-Serif" font-size="10.00"># std::queue&lt; std::unique</text>
-<text text-anchor="start" x="8" y="-450.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; E &gt; &gt; events_</text>
-<text text-anchor="start" x="8" y="-439.5" font-family="Helvetica,sans-Serif" font-size="10.00"># static std::unique</text>
-<text text-anchor="start" x="8" y="-428.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; EventQueue &gt; self_</text>
+<text text-anchor="start" x="8" y_="-461.5" font-family="Helvetica,sans-Serif" font-size="10.00"># std::queue&lt; std::unique</text>
+<text text-anchor="start" x="8" y_="-450.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; E &gt; &gt; events_</text>
+<text text-anchor="start" x="8" y_="-439.5" font-family="Helvetica,sans-Serif" font-size="10.00"># static std::unique</text>
+<text text-anchor="start" x="8" y_="-428.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; EventQueue &gt; self_</text>
 <polyline fill="none" stroke="black" points="0,-421.5 150,-421.5 "/>
-<text text-anchor="start" x="8" y="-409.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ EventQueue(EventQueue</text>
-<text text-anchor="start" x="8" y="-398.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;)=delete</text>
-<text text-anchor="start" x="8" y="-387.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator=(const</text>
-<text text-anchor="start" x="8" y="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventQueue &amp;)=delete</text>
-<text text-anchor="start" x="8" y="-365.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void registerEvent</text>
-<text text-anchor="start" x="8" y="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; E</text>
-<text text-anchor="start" x="8" y="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)</text>
-<text text-anchor="start" x="8" y="-332.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ std::unique_ptr&lt; E</text>
-<text text-anchor="start" x="8" y="-321.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; pop()</text>
-<text text-anchor="start" x="8" y="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool isEmpty()</text>
-<text text-anchor="start" x="8" y="-299.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ static EventQueue *</text>
-<text text-anchor="start" x="8" y="-288.5" font-family="Helvetica,sans-Serif" font-size="10.00"> instance()</text>
-<text text-anchor="start" x="8" y="-277.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; EventQueue()=default</text>
+<text text-anchor="start" x="8" y_="-409.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ EventQueue(EventQueue</text>
+<text text-anchor="start" x="8" y_="-398.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;)=delete</text>
+<text text-anchor="start" x="8" y_="-387.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator=(const</text>
+<text text-anchor="start" x="8" y_="-376.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventQueue &amp;)=delete</text>
+<text text-anchor="start" x="8" y_="-365.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void registerEvent</text>
+<text text-anchor="start" x="8" y_="-354.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; E</text>
+<text text-anchor="start" x="8" y_="-343.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)</text>
+<text text-anchor="start" x="8" y_="-332.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ std::unique_ptr&lt; E</text>
+<text text-anchor="start" x="8" y_="-321.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; pop()</text>
+<text text-anchor="start" x="8" y_="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool isEmpty()</text>
+<text text-anchor="start" x="8" y_="-299.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ static EventQueue *</text>
+<text text-anchor="start" x="8" y_="-288.5" font-family="Helvetica,sans-Serif" font-size="10.00"> instance()</text>
+<text text-anchor="start" x="8" y_="-277.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; EventQueue()=default</text>
 </a>
 </g>
 </g>
@@ -87,26 +87,26 @@ var sectionId = 'dynsection-0';
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="class_event_queue.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-222.5 150,-222.5 150,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="75" y="-210.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; Event &gt;</text>
+<text text-anchor="middle" x="75" y_="-210.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; Event &gt;</text>
 <polyline fill="none" stroke="black" points="0,-203.5 150,-203.5 "/>
-<text text-anchor="start" x="8" y="-191.5" font-family="Helvetica,sans-Serif" font-size="10.00"># std::queue&lt; std::unique</text>
-<text text-anchor="start" x="8" y="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; Event &gt; &gt; events_</text>
-<text text-anchor="start" x="8" y="-169.5" font-family="Helvetica,sans-Serif" font-size="10.00"># static std::unique</text>
-<text text-anchor="start" x="8" y="-158.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; EventQueue &gt; self_</text>
+<text text-anchor="start" x="8" y_="-191.5" font-family="Helvetica,sans-Serif" font-size="10.00"># std::queue&lt; std::unique</text>
+<text text-anchor="start" x="8" y_="-180.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; Event &gt; &gt; events_</text>
+<text text-anchor="start" x="8" y_="-169.5" font-family="Helvetica,sans-Serif" font-size="10.00"># static std::unique</text>
+<text text-anchor="start" x="8" y_="-158.5" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; EventQueue &gt; self_</text>
 <polyline fill="none" stroke="black" points="0,-151.5 150,-151.5 "/>
-<text text-anchor="start" x="8" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ EventQueue(EventQueue</text>
-<text text-anchor="start" x="8" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;)=delete</text>
-<text text-anchor="start" x="8" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator=(const</text>
-<text text-anchor="start" x="8" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventQueue &amp;)=delete</text>
-<text text-anchor="start" x="8" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void registerEvent</text>
-<text text-anchor="start" x="8" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; Event</text>
-<text text-anchor="start" x="8" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)</text>
-<text text-anchor="start" x="8" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ std::unique_ptr&lt; Event</text>
-<text text-anchor="start" x="8" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; pop()</text>
-<text text-anchor="start" x="8" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool isEmpty()</text>
-<text text-anchor="start" x="8" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ static EventQueue *</text>
-<text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00"> instance()</text>
-<text text-anchor="start" x="8" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; EventQueue()=default</text>
+<text text-anchor="start" x="8" y_="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ EventQueue(EventQueue</text>
+<text text-anchor="start" x="8" y_="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;)=delete</text>
+<text text-anchor="start" x="8" y_="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator=(const</text>
+<text text-anchor="start" x="8" y_="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventQueue &amp;)=delete</text>
+<text text-anchor="start" x="8" y_="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void registerEvent</text>
+<text text-anchor="start" x="8" y_="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; Event</text>
+<text text-anchor="start" x="8" y_="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)</text>
+<text text-anchor="start" x="8" y_="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ std::unique_ptr&lt; Event</text>
+<text text-anchor="start" x="8" y_="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; pop()</text>
+<text text-anchor="start" x="8" y_="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool isEmpty()</text>
+<text text-anchor="start" x="8" y_="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ static EventQueue *</text>
+<text text-anchor="start" x="8" y_="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00"> instance()</text>
+<text text-anchor="start" x="8" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; EventQueue()=default</text>
 </a>
 </g>
 </g>
@@ -115,15 +115,15 @@ var sectionId = 'dynsection-0';
 <title>Node1&#45;&gt;Node2</title>
 <path fill="none" stroke="orange" d="M75,-260.32C75,-247.79 75,-235.09 75,-222.67"/>
 <polygon fill="orange" stroke="orange" points="71.5,-260.33 75,-270.33 78.5,-260.33 71.5,-260.33"/>
-<text text-anchor="middle" x="102" y="-244" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; Event &gt;</text>
+<text text-anchor="middle" x="102" y_="-244" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; Event &gt;</text>
 </g>
 </g>
 </svg>
         <g id="navigator" transform="translate(0 0)" fill="#404254">
-                <rect fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width=".5" x="0" y="0" width="60" height="60"/>
-                <use id="zoomplus" xlink:href="#zoomPlus" x="17" y="9" onmousedown="handleZoom(evt,'in')"/>
-                <use id="zoomminus" xlink:href="#zoomMin" x="42" y="9" onmousedown="handleZoom(evt,'out')"/>
-                <use id="reset" xlink:href="#resetDef" x="30" y="36" onmousedown="handleReset()"/>
+                <rect fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width=".5" x="0" y_="0" width="60" height="60"/>
+                <use id="zoomplus" xlink:href="#zoomPlus" x="17" y_="9" onmousedown="handleZoom(evt,'in')"/>
+                <use id="zoomminus" xlink:href="#zoomMin" x="42" y_="9" onmousedown="handleZoom(evt,'out')"/>
+                <use id="reset" xlink:href="#resetDef" x="30" y_="36" onmousedown="handleReset()"/>
                 <g id="arrowUp" xlink:href="#dirArrow" transform="translate(30 24)" onmousedown="handlePan(0,-1)">
                   <use xlink:href="#rim" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowUp.mouseover" end="arrowUp.mouseout"/>
@@ -152,7 +152,7 @@ var sectionId = 'dynsection-0';
         <svg viewBox="0 0 15 15" width="100%" height="30px" preserveAspectRatio="xMaxYMin meet">
          <g id="arrow_out" transform="scale(0.3 0.3)">
           <a xlink:href="class_event_queue__inherit__graph_org.svg" target="_base">
-           <rect id="button" ry="5" rx="5" y="6" x="6" height="38" width="38"
+           <rect id="button" ry="5" rx="5" y_="6" x="6" height="38" width="38"
                 fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width="1.0"/>
            <path id="arrow"
              d="M 11.500037,31.436501 C 11.940474,20.09759 22.043105,11.32322 32.158766,21.979434 L 37.068811,17.246167 C 37.068811,17.246167 37.088388,32 37.088388,32 L 22.160133,31.978069 C 22.160133,31.978069 26.997745,27.140456 26.997745,27.140456 C 18.528582,18.264221 13.291696,25.230495 11.500037,31.436501 z"

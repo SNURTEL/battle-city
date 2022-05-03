@@ -13,7 +13,7 @@
 <title>Node0</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="0,-57.5 0,-76.5 86,-76.5 86,-57.5 0,-57.5"/>
-<text text-anchor="middle" x="43" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">std::exception</text>
+<text text-anchor="middle" x="43" y_="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">std::exception</text>
 </a>
 </g>
 </g>
@@ -22,7 +22,7 @@
 <title>Node1</title>
 <g id="a_node2"><a xlink:href="struct_event_construction_exception.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="133,-114.5 133,-133.5 287,-133.5 287,-114.5 133,-114.5"/>
-<text text-anchor="middle" x="210" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventConstructionException</text>
+<text text-anchor="middle" x="210" y_="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventConstructionException</text>
 </a>
 </g>
 </g>
@@ -37,7 +37,7 @@
 <title>Node2</title>
 <g id="a_node3"><a xlink:href="class_invalid_event_exception.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="147.5,-76.5 147.5,-95.5 272.5,-95.5 272.5,-76.5 147.5,-76.5"/>
-<text text-anchor="middle" x="210" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">InvalidEventException</text>
+<text text-anchor="middle" x="210" y_="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">InvalidEventException</text>
 </a>
 </g>
 </g>
@@ -52,7 +52,7 @@
 <title>Node3</title>
 <g id="a_node4"><a xlink:href="class_observer_exception.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="155.5,-38.5 155.5,-57.5 264.5,-57.5 264.5,-38.5 155.5,-38.5"/>
-<text text-anchor="middle" x="210" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">ObserverException</text>
+<text text-anchor="middle" x="210" y_="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">ObserverException</text>
 </a>
 </g>
 </g>
@@ -67,7 +67,7 @@
 <title>Node4</title>
 <g id="a_node5"><a xlink:href="class_singleton_not_initialized_exception.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="122,-0.5 122,-19.5 298,-19.5 298,-0.5 122,-0.5"/>
-<text text-anchor="middle" x="210" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">SingletonNotInitializedException</text>
+<text text-anchor="middle" x="210" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">SingletonNotInitializedException</text>
 </a>
 </g>
 </g>

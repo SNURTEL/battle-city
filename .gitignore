@@ -163,9 +163,8 @@ $RECYCLE.BIN/
 *.idea/
 
 # Compiled
-bin/bin/*
-!bin/bin/.gitinclude
-bin/lib/*
+bin/*
+# bin/lib/*
 !bin/lib/.gitinclude
 
 # build files

@@ -12,7 +12,7 @@
    <stop stop-color="#C0CCE3" offset="0"/>
    <stop stop-color="#EEF1F7" offset="1"/>
   </linearGradient>
-  <filter id="f" x="-.010676" y="-.045304" width="1.0214" height="1.0906" color-interpolation-filters="sRGB">
+  <filter id="f" x="-.010676" y_="-.045304" width="1.0214" height="1.0906" color-interpolation-filters="sRGB">
    <feGaussianBlur stdDeviation="0.45293203"/>
   </filter>
  </defs>

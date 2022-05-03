@@ -13,9 +13,9 @@
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="52,-112.5 52,-153.5 229,-153.5 229,-112.5 52,-112.5"/>
-<text text-anchor="start" x="60" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="60" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="140.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/ObserverExceptions.cpp</text>
+<text text-anchor="start" x="60" y_="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="60" y_="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="140.5" y_="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/ObserverExceptions.cpp</text>
 </a>
 </g>
 </g>
@@ -24,7 +24,7 @@
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="_observer_exceptions_8h.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-56.5 0,-75.5 161,-75.5 161,-56.5 0,-56.5"/>
-<text text-anchor="middle" x="80.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">include/ObserverExceptions.h</text>
+<text text-anchor="middle" x="80.5" y_="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">include/ObserverExceptions.h</text>
 </a>
 </g>
 </g>
@@ -39,7 +39,7 @@
 <title>Node5</title>
 <g id="a_node5"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="179,-56.5 179,-75.5 224,-75.5 224,-56.5 179,-56.5"/>
-<text text-anchor="middle" x="201.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">utility</text>
+<text text-anchor="middle" x="201.5" y_="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">utility</text>
 </a>
 </g>
 </g>
@@ -54,7 +54,7 @@
 <title>Node3</title>
 <g id="a_node3"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="12,-0.5 12,-19.5 77,-19.5 77,-0.5 12,-0.5"/>
-<text text-anchor="middle" x="44.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">exception</text>
+<text text-anchor="middle" x="44.5" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">exception</text>
 </a>
 </g>
 </g>
@@ -69,7 +69,7 @@
 <title>Node4</title>
 <g id="a_node4"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="95.5,-0.5 95.5,-19.5 139.5,-19.5 139.5,-0.5 95.5,-0.5"/>
-<text text-anchor="middle" x="117.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">string</text>
+<text text-anchor="middle" x="117.5" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">string</text>
 </a>
 </g>
 </g>

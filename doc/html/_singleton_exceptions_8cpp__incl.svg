@@ -13,9 +13,9 @@
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-112.5 0,-153.5 179,-153.5 179,-112.5 0,-112.5"/>
-<text text-anchor="start" x="8" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="8" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="89.5" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/SingletonExceptions.cpp</text>
+<text text-anchor="start" x="8" y_="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="8" y_="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="89.5" y_="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/SingletonExceptions.cpp</text>
 </a>
 </g>
 </g>
@@ -24,7 +24,7 @@
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="_singleton_exceptions_8h.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="8,-56.5 8,-75.5 171,-75.5 171,-56.5 8,-56.5"/>
-<text text-anchor="middle" x="89.5" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">include/SingletonExceptions.h</text>
+<text text-anchor="middle" x="89.5" y_="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">include/SingletonExceptions.h</text>
 </a>
 </g>
 </g>
@@ -39,7 +39,7 @@
 <title>Node3</title>
 <g id="a_node3"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="57,-0.5 57,-19.5 122,-19.5 122,-0.5 57,-0.5"/>
-<text text-anchor="middle" x="89.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">exception</text>
+<text text-anchor="middle" x="89.5" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">exception</text>
 </a>
 </g>
 </g>

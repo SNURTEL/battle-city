@@ -13,9 +13,9 @@
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="16.5,-112.5 16.5,-153.5 201.5,-153.5 201.5,-112.5 16.5,-112.5"/>
-<text text-anchor="start" x="24.5" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="24.5" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="109" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/EventSubscriber.h</text>
+<text text-anchor="start" x="24.5" y_="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="24.5" y_="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="109" y_="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/EventSubscriber.h</text>
 </a>
 </g>
 </g>
@@ -24,7 +24,7 @@
 <title>Node2</title>
 <g id="a_node2"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="0,-56.5 0,-75.5 38,-75.5 38,-56.5 0,-56.5"/>
-<text text-anchor="middle" x="19" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">map</text>
+<text text-anchor="middle" x="19" y_="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">map</text>
 </a>
 </g>
 </g>
@@ -39,7 +39,7 @@
 <title>Node3</title>
 <g id="a_node3"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="56.5,-56.5 56.5,-75.5 103.5,-75.5 103.5,-56.5 56.5,-56.5"/>
-<text text-anchor="middle" x="80" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector</text>
+<text text-anchor="middle" x="80" y_="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">vector</text>
 </a>
 </g>
 </g>
@@ -54,7 +54,7 @@
 <title>Node4</title>
 <g id="a_node4"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="122,-56.5 122,-75.5 154,-75.5 154,-56.5 122,-56.5"/>
-<text text-anchor="middle" x="138" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">list</text>
+<text text-anchor="middle" x="138" y_="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">list</text>
 </a>
 </g>
 </g>
@@ -69,7 +69,7 @@
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="$_event_8h.html" xlink:title=" ">
 <polygon fill="none" stroke="black" points="172.5,-56.5 172.5,-75.5 225.5,-75.5 225.5,-56.5 172.5,-56.5"/>
-<text text-anchor="middle" x="199" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event.h</text>
+<text text-anchor="middle" x="199" y_="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event.h</text>
 </a>
 </g>
 </g>
@@ -84,7 +84,7 @@
 <title>Node6</title>
 <g id="a_node6"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="129.5,-0.5 129.5,-19.5 194.5,-19.5 194.5,-0.5 129.5,-0.5"/>
-<text text-anchor="middle" x="162" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">exception</text>
+<text text-anchor="middle" x="162" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">exception</text>
 </a>
 </g>
 </g>
@@ -99,7 +99,7 @@
 <title>Node7</title>
 <g id="a_node7"><a xlink:title=" ">
 <polygon fill="none" stroke="#bfbfbf" points="213,-0.5 213,-19.5 257,-19.5 257,-0.5 213,-0.5"/>
-<text text-anchor="middle" x="235" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">string</text>
+<text text-anchor="middle" x="235" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">string</text>
 </a>
 </g>
 </g>

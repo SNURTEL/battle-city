@@ -24,7 +24,6 @@ Some cool description waiting to be added
 ```
 proi-projekt
    ├ bin
-   │  ├ bin
    │  └ lib
    ├ build
    ├ doc
@@ -37,7 +36,6 @@ proi-projekt
 ```
 Where:
 1. `bin/` - Pre-compiled binaries
-    - `bin/` - Executable
     - `lib/` - Libraries
 2. `build/` - CMake project files
 3. `doc/` - Full documentation (plus tools for re-generating it)

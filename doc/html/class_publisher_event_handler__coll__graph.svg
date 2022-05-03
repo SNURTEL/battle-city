@@ -59,18 +59,18 @@ var sectionId = 'dynsection-1';
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Extended EventHandler for Event class events with publisher capabilities.">
 <polygon fill="#bfbfbf" stroke="black" points="103,-0.5 103,-134.5 255,-134.5 255,-0.5 103,-0.5"/>
-<text text-anchor="middle" x="179" y="-122.5" font-family="Helvetica,sans-Serif" font-size="10.00">PublisherEventHandler</text>
+<text text-anchor="middle" x="179" y_="-122.5" font-family="Helvetica,sans-Serif" font-size="10.00">PublisherEventHandler</text>
 <polyline fill="none" stroke="black" points="103,-115.5 255,-115.5 "/>
-<text text-anchor="middle" x="179" y="-103.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="179" y_="-103.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="103,-96.5 255,-96.5 "/>
-<text text-anchor="start" x="111" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void handleEvent(std</text>
-<text text-anchor="start" x="111" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">::unique_ptr&lt; Event &gt;</text>
-<text text-anchor="start" x="111" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00"> event) override</text>
-<text text-anchor="start" x="111" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void processEvent</text>
-<text text-anchor="start" x="111" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; Event</text>
-<text text-anchor="start" x="111" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)=0</text>
-<text text-anchor="start" x="111" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00"># PublisherEventHandler</text>
-<text text-anchor="start" x="111" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">()=default</text>
+<text text-anchor="start" x="111" y_="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void handleEvent(std</text>
+<text text-anchor="start" x="111" y_="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">::unique_ptr&lt; Event &gt;</text>
+<text text-anchor="start" x="111" y_="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00"> event) override</text>
+<text text-anchor="start" x="111" y_="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void processEvent</text>
+<text text-anchor="start" x="111" y_="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; Event</text>
+<text text-anchor="start" x="111" y_="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)=0</text>
+<text text-anchor="start" x="111" y_="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00"># PublisherEventHandler</text>
+<text text-anchor="start" x="111" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">()=default</text>
 </a>
 </g>
 </g>
@@ -79,29 +79,29 @@ var sectionId = 'dynsection-1';
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="class_event_publisher.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="11,-172.5 11,-427.5 175,-427.5 175,-172.5 11,-172.5"/>
-<text text-anchor="middle" x="93" y="-415.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventPublisher</text>
+<text text-anchor="middle" x="93" y_="-415.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventPublisher</text>
 <polyline fill="none" stroke="black" points="11,-408.5 175,-408.5 "/>
-<text text-anchor="middle" x="93" y="-396.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="93" y_="-396.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="11,-389.5 175,-389.5 "/>
-<text text-anchor="start" x="19" y="-377.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~EventPublisher()</text>
-<text text-anchor="start" x="19" y="-366.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void notifyEvent</text>
-<text text-anchor="start" x="19" y="-355.5" font-family="Helvetica,sans-Serif" font-size="10.00">Subscribers(Event::EventType</text>
-<text text-anchor="start" x="19" y="-344.5" font-family="Helvetica,sans-Serif" font-size="10.00"> eventType)</text>
-<text text-anchor="start" x="19" y="-333.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void attachEventSubscriber</text>
-<text text-anchor="start" x="19" y="-322.5" font-family="Helvetica,sans-Serif" font-size="10.00">(EventSubscriber *sub, Event</text>
-<text text-anchor="start" x="19" y="-311.5" font-family="Helvetica,sans-Serif" font-size="10.00">::EventType eventType)</text>
-<text text-anchor="start" x="19" y="-300.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void detachEventSubscriber</text>
-<text text-anchor="start" x="19" y="-289.5" font-family="Helvetica,sans-Serif" font-size="10.00">(EventSubscriber *sub, Event</text>
-<text text-anchor="start" x="19" y="-278.5" font-family="Helvetica,sans-Serif" font-size="10.00">::EventType eventType)</text>
-<text text-anchor="start" x="19" y="-267.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator==(const</text>
-<text text-anchor="start" x="19" y="-256.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventPublisher &amp;rhs)</text>
-<text text-anchor="start" x="19" y="-245.5" font-family="Helvetica,sans-Serif" font-size="10.00"> const</text>
-<text text-anchor="start" x="19" y="-234.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator!=(const</text>
-<text text-anchor="start" x="19" y="-223.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventPublisher &amp;rhs)</text>
-<text text-anchor="start" x="19" y="-212.5" font-family="Helvetica,sans-Serif" font-size="10.00"> const</text>
-<text text-anchor="start" x="19" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00"># EventPublisher()=default</text>
-<text text-anchor="start" x="19" y="-190.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; void ensureEntryExists</text>
-<text text-anchor="start" x="19" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Event::EventType eventType)</text>
+<text text-anchor="start" x="19" y_="-377.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~EventPublisher()</text>
+<text text-anchor="start" x="19" y_="-366.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void notifyEvent</text>
+<text text-anchor="start" x="19" y_="-355.5" font-family="Helvetica,sans-Serif" font-size="10.00">Subscribers(Event::EventType</text>
+<text text-anchor="start" x="19" y_="-344.5" font-family="Helvetica,sans-Serif" font-size="10.00"> eventType)</text>
+<text text-anchor="start" x="19" y_="-333.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void attachEventSubscriber</text>
+<text text-anchor="start" x="19" y_="-322.5" font-family="Helvetica,sans-Serif" font-size="10.00">(EventSubscriber *sub, Event</text>
+<text text-anchor="start" x="19" y_="-311.5" font-family="Helvetica,sans-Serif" font-size="10.00">::EventType eventType)</text>
+<text text-anchor="start" x="19" y_="-300.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void detachEventSubscriber</text>
+<text text-anchor="start" x="19" y_="-289.5" font-family="Helvetica,sans-Serif" font-size="10.00">(EventSubscriber *sub, Event</text>
+<text text-anchor="start" x="19" y_="-278.5" font-family="Helvetica,sans-Serif" font-size="10.00">::EventType eventType)</text>
+<text text-anchor="start" x="19" y_="-267.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator==(const</text>
+<text text-anchor="start" x="19" y_="-256.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventPublisher &amp;rhs)</text>
+<text text-anchor="start" x="19" y_="-245.5" font-family="Helvetica,sans-Serif" font-size="10.00"> const</text>
+<text text-anchor="start" x="19" y_="-234.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator!=(const</text>
+<text text-anchor="start" x="19" y_="-223.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventPublisher &amp;rhs)</text>
+<text text-anchor="start" x="19" y_="-212.5" font-family="Helvetica,sans-Serif" font-size="10.00"> const</text>
+<text text-anchor="start" x="19" y_="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00"># EventPublisher()=default</text>
+<text text-anchor="start" x="19" y_="-190.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; void ensureEntryExists</text>
+<text text-anchor="start" x="19" y_="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Event::EventType eventType)</text>
 </a>
 </g>
 </g>
@@ -116,12 +116,12 @@ var sectionId = 'dynsection-1';
 <title>Node3</title>
 <g id="a_node3"><a xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-481 0,-549 176,-549 176,-481 0,-481"/>
-<text text-anchor="start" x="8" y="-537" font-family="Helvetica,sans-Serif" font-size="10.00">map&lt; Event::EventType,</text>
-<text text-anchor="middle" x="88" y="-526" font-family="Helvetica,sans-Serif" font-size="10.00"> std::list&lt; EventSubscriber * &gt; &gt;</text>
+<text text-anchor="start" x="8" y_="-537" font-family="Helvetica,sans-Serif" font-size="10.00">map&lt; Event::EventType,</text>
+<text text-anchor="middle" x="88" y_="-526" font-family="Helvetica,sans-Serif" font-size="10.00"> std::list&lt; EventSubscriber * &gt; &gt;</text>
 <polyline fill="none" stroke="black" points="0,-519 176,-519 "/>
-<text text-anchor="middle" x="88" y="-507" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="88" y_="-507" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="0,-500 176,-500 "/>
-<text text-anchor="middle" x="88" y="-488" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="88" y_="-488" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
 </g>
@@ -130,21 +130,21 @@ var sectionId = 'dynsection-1';
 <title>Node3&#45;&gt;Node2</title>
 <path fill="none" stroke="#404040" d="M88.78,-480.72C89.06,-468.99 89.39,-454.97 89.74,-440.01"/>
 <polygon fill="none" stroke="#404040" points="89.74,-439.82 85.88,-433.73 90.02,-427.83 93.88,-433.92 89.74,-439.82"/>
-<text text-anchor="middle" x="143" y="-449" font-family="Helvetica,sans-Serif" font-size="10.00"> #event_subscribers_</text>
+<text text-anchor="middle" x="143" y_="-449" font-family="Helvetica,sans-Serif" font-size="10.00"> #event_subscribers_</text>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
 <g id="a_node4"><a xlink:href="class_event_handler.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="201.5,-255 201.5,-345 348.5,-345 348.5,-255 201.5,-255"/>
-<text text-anchor="middle" x="275" y="-333" font-family="Helvetica,sans-Serif" font-size="10.00">EventHandler&lt; Event &gt;</text>
+<text text-anchor="middle" x="275" y_="-333" font-family="Helvetica,sans-Serif" font-size="10.00">EventHandler&lt; Event &gt;</text>
 <polyline fill="none" stroke="black" points="201.5,-326 348.5,-326 "/>
-<text text-anchor="middle" x="275" y="-314" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="275" y_="-314" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="201.5,-307 348.5,-307 "/>
-<text text-anchor="start" x="209.5" y="-295" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void handleEvent</text>
-<text text-anchor="start" x="209.5" y="-284" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; Event</text>
-<text text-anchor="start" x="209.5" y="-273" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)=0</text>
-<text text-anchor="start" x="209.5" y="-262" font-family="Helvetica,sans-Serif" font-size="10.00"># EventHandler()=default</text>
+<text text-anchor="start" x="209.5" y_="-295" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void handleEvent</text>
+<text text-anchor="start" x="209.5" y_="-284" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; Event</text>
+<text text-anchor="start" x="209.5" y_="-273" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)=0</text>
+<text text-anchor="start" x="209.5" y_="-262" font-family="Helvetica,sans-Serif" font-size="10.00"># EventHandler()=default</text>
 </a>
 </g>
 </g>
@@ -159,13 +159,13 @@ var sectionId = 'dynsection-1';
 <title>Node5</title>
 <g id="a_node5"><a xlink:href="class_event_handler.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="194,-475.5 194,-554.5 364,-554.5 364,-475.5 194,-475.5"/>
-<text text-anchor="middle" x="279" y="-542.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventHandler&lt; E &gt;</text>
+<text text-anchor="middle" x="279" y_="-542.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventHandler&lt; E &gt;</text>
 <polyline fill="none" stroke="black" points="194,-535.5 364,-535.5 "/>
-<text text-anchor="middle" x="279" y="-523.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="279" y_="-523.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="194,-516.5 364,-516.5 "/>
-<text text-anchor="start" x="202" y="-504.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void handleEvent</text>
-<text text-anchor="start" x="202" y="-493.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; E &gt; event)=0</text>
-<text text-anchor="start" x="202" y="-482.5" font-family="Helvetica,sans-Serif" font-size="10.00"># EventHandler()=default</text>
+<text text-anchor="start" x="202" y_="-504.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void handleEvent</text>
+<text text-anchor="start" x="202" y_="-493.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; E &gt; event)=0</text>
+<text text-anchor="start" x="202" y_="-482.5" font-family="Helvetica,sans-Serif" font-size="10.00"># EventHandler()=default</text>
 </a>
 </g>
 </g>
@@ -174,15 +174,15 @@ var sectionId = 'dynsection-1';
 <title>Node5&#45;&gt;Node4</title>
 <path fill="none" stroke="orange" d="M278.08,-465.12C277.4,-428.97 276.49,-380.15 275.83,-345.17"/>
 <polygon fill="orange" stroke="orange" points="274.59,-465.49 278.28,-475.43 281.59,-465.36 274.59,-465.49"/>
-<text text-anchor="middle" x="305" y="-449" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; Event &gt;</text>
+<text text-anchor="middle" x="305" y_="-449" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; Event &gt;</text>
 </g>
 </g>
 </svg>
         <g id="navigator" transform="translate(0 0)" fill="#404254">
-                <rect fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width=".5" x="0" y="0" width="60" height="60"/>
-                <use id="zoomplus" xlink:href="#zoomPlus" x="17" y="9" onmousedown="handleZoom(evt,'in')"/>
-                <use id="zoomminus" xlink:href="#zoomMin" x="42" y="9" onmousedown="handleZoom(evt,'out')"/>
-                <use id="reset" xlink:href="#resetDef" x="30" y="36" onmousedown="handleReset()"/>
+                <rect fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width=".5" x="0" y_="0" width="60" height="60"/>
+                <use id="zoomplus" xlink:href="#zoomPlus" x="17" y_="9" onmousedown="handleZoom(evt,'in')"/>
+                <use id="zoomminus" xlink:href="#zoomMin" x="42" y_="9" onmousedown="handleZoom(evt,'out')"/>
+                <use id="reset" xlink:href="#resetDef" x="30" y_="36" onmousedown="handleReset()"/>
                 <g id="arrowUp" xlink:href="#dirArrow" transform="translate(30 24)" onmousedown="handlePan(0,-1)">
                   <use xlink:href="#rim" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowUp.mouseover" end="arrowUp.mouseout"/>
@@ -211,7 +211,7 @@ var sectionId = 'dynsection-1';
         <svg viewBox="0 0 15 15" width="100%" height="30px" preserveAspectRatio="xMaxYMin meet">
          <g id="arrow_out" transform="scale(0.3 0.3)">
           <a xlink:href="class_publisher_event_handler__coll__graph_org.svg" target="_base">
-           <rect id="button" ry="5" rx="5" y="6" x="6" height="38" width="38"
+           <rect id="button" ry="5" rx="5" y_="6" x="6" height="38" width="38"
                 fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width="1.0"/>
            <path id="arrow"
              d="M 11.500037,31.436501 C 11.940474,20.09759 22.043105,11.32322 32.158766,21.979434 L 37.068811,17.246167 C 37.068811,17.246167 37.088388,32 37.088388,32 L 22.160133,31.978069 C 22.160133,31.978069 26.997745,27.140456 26.997745,27.140456 C 18.528582,18.264221 13.291696,25.230495 11.500037,31.436501 z"

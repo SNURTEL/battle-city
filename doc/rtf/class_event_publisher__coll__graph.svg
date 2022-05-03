@@ -13,29 +13,29 @@
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="6,-0.5 6,-255.5 170,-255.5 170,-0.5 6,-0.5"/>
-<text text-anchor="middle" x="88" y="-243.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventPublisher</text>
+<text text-anchor="middle" x="88" y_="-243.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventPublisher</text>
 <polyline fill="none" stroke="black" points="6,-236.5 170,-236.5 "/>
-<text text-anchor="middle" x="88" y="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="88" y_="-224.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="6,-217.5 170,-217.5 "/>
-<text text-anchor="start" x="14" y="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~EventPublisher()</text>
-<text text-anchor="start" x="14" y="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void notifyEvent</text>
-<text text-anchor="start" x="14" y="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">Subscribers(Event::EventType</text>
-<text text-anchor="start" x="14" y="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00"> eventType)</text>
-<text text-anchor="start" x="14" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void attachEventSubscriber</text>
-<text text-anchor="start" x="14" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">(EventSubscriber *sub, Event</text>
-<text text-anchor="start" x="14" y="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">::EventType eventType)</text>
-<text text-anchor="start" x="14" y="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void detachEventSubscriber</text>
-<text text-anchor="start" x="14" y="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">(EventSubscriber *sub, Event</text>
-<text text-anchor="start" x="14" y="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">::EventType eventType)</text>
-<text text-anchor="start" x="14" y="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator==(const</text>
-<text text-anchor="start" x="14" y="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventPublisher &amp;rhs)</text>
-<text text-anchor="start" x="14" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00"> const</text>
-<text text-anchor="start" x="14" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator!=(const</text>
-<text text-anchor="start" x="14" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventPublisher &amp;rhs)</text>
-<text text-anchor="start" x="14" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00"> const</text>
-<text text-anchor="start" x="14" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00"># EventPublisher()=default</text>
-<text text-anchor="start" x="14" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; void ensureEntryExists</text>
-<text text-anchor="start" x="14" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Event::EventType eventType)</text>
+<text text-anchor="start" x="14" y_="-205.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~EventPublisher()</text>
+<text text-anchor="start" x="14" y_="-194.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual void notifyEvent</text>
+<text text-anchor="start" x="14" y_="-183.5" font-family="Helvetica,sans-Serif" font-size="10.00">Subscribers(Event::EventType</text>
+<text text-anchor="start" x="14" y_="-172.5" font-family="Helvetica,sans-Serif" font-size="10.00"> eventType)</text>
+<text text-anchor="start" x="14" y_="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void attachEventSubscriber</text>
+<text text-anchor="start" x="14" y_="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">(EventSubscriber *sub, Event</text>
+<text text-anchor="start" x="14" y_="-139.5" font-family="Helvetica,sans-Serif" font-size="10.00">::EventType eventType)</text>
+<text text-anchor="start" x="14" y_="-128.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void detachEventSubscriber</text>
+<text text-anchor="start" x="14" y_="-117.5" font-family="Helvetica,sans-Serif" font-size="10.00">(EventSubscriber *sub, Event</text>
+<text text-anchor="start" x="14" y_="-106.5" font-family="Helvetica,sans-Serif" font-size="10.00">::EventType eventType)</text>
+<text text-anchor="start" x="14" y_="-95.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator==(const</text>
+<text text-anchor="start" x="14" y_="-84.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventPublisher &amp;rhs)</text>
+<text text-anchor="start" x="14" y_="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00"> const</text>
+<text text-anchor="start" x="14" y_="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator!=(const</text>
+<text text-anchor="start" x="14" y_="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventPublisher &amp;rhs)</text>
+<text text-anchor="start" x="14" y_="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00"> const</text>
+<text text-anchor="start" x="14" y_="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00"># EventPublisher()=default</text>
+<text text-anchor="start" x="14" y_="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; void ensureEntryExists</text>
+<text text-anchor="start" x="14" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">(Event::EventType eventType)</text>
 </a>
 </g>
 </g>
@@ -44,12 +44,12 @@
 <title>Node2</title>
 <g id="a_node2"><a xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-303.5 0,-371.5 176,-371.5 176,-303.5 0,-303.5"/>
-<text text-anchor="start" x="8" y="-359.5" font-family="Helvetica,sans-Serif" font-size="10.00">map&lt; Event::EventType,</text>
-<text text-anchor="middle" x="88" y="-348.5" font-family="Helvetica,sans-Serif" font-size="10.00"> std::list&lt; EventSubscriber * &gt; &gt;</text>
+<text text-anchor="start" x="8" y_="-359.5" font-family="Helvetica,sans-Serif" font-size="10.00">map&lt; Event::EventType,</text>
+<text text-anchor="middle" x="88" y_="-348.5" font-family="Helvetica,sans-Serif" font-size="10.00"> std::list&lt; EventSubscriber * &gt; &gt;</text>
 <polyline fill="none" stroke="black" points="0,-341.5 176,-341.5 "/>
-<text text-anchor="middle" x="88" y="-329.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="88" y_="-329.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="0,-322.5 176,-322.5 "/>
-<text text-anchor="middle" x="88" y="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="88" y_="-310.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 </a>
 </g>
 </g>
@@ -58,7 +58,7 @@
 <title>Node2&#45;&gt;Node1</title>
 <path fill="none" stroke="#404040" d="M88,-303.16C88,-292.81 88,-280.69 88,-267.75"/>
 <polygon fill="none" stroke="#404040" points="88,-267.66 84,-261.66 88,-255.66 92,-261.66 88,-267.66"/>
-<text text-anchor="middle" x="141" y="-277" font-family="Helvetica,sans-Serif" font-size="10.00"> #event_subscribers_</text>
+<text text-anchor="middle" x="141" y_="-277" font-family="Helvetica,sans-Serif" font-size="10.00"> #event_subscribers_</text>
 </g>
 </g>
 </svg>

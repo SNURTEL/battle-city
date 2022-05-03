@@ -13,17 +13,17 @@
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
 <polygon fill="#bfbfbf" stroke="black" points="0,-127.5 0,-250.5 168,-250.5 168,-127.5 0,-127.5"/>
-<text text-anchor="middle" x="84" y="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameState</text>
+<text text-anchor="middle" x="84" y_="-238.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameState</text>
 <polyline fill="none" stroke="black" points="0,-231.5 168,-231.5 "/>
-<text text-anchor="start" x="8" y="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00"># std::unique_ptr&lt; Publisher</text>
-<text text-anchor="start" x="8" y="-208.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventHandler &gt; eventHandler_</text>
-<text text-anchor="start" x="8" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00"># Game * game_</text>
+<text text-anchor="start" x="8" y_="-219.5" font-family="Helvetica,sans-Serif" font-size="10.00"># std::unique_ptr&lt; Publisher</text>
+<text text-anchor="start" x="8" y_="-208.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventHandler &gt; eventHandler_</text>
+<text text-anchor="start" x="8" y_="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00"># Game * game_</text>
 <polyline fill="none" stroke="black" points="0,-190.5 168,-190.5 "/>
-<text text-anchor="start" x="8" y="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual ~GameState</text>
-<text text-anchor="start" x="8" y="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00">()=default</text>
-<text text-anchor="start" x="8" y="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ PublisherEventHandler</text>
-<text text-anchor="start" x="8" y="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"> * getEventHandler()</text>
-<text text-anchor="start" x="8" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00"># GameState()=default</text>
+<text text-anchor="start" x="8" y_="-178.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ virtual ~GameState</text>
+<text text-anchor="start" x="8" y_="-167.5" font-family="Helvetica,sans-Serif" font-size="10.00">()=default</text>
+<text text-anchor="start" x="8" y_="-156.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ PublisherEventHandler</text>
+<text text-anchor="start" x="8" y_="-145.5" font-family="Helvetica,sans-Serif" font-size="10.00"> * getEventHandler()</text>
+<text text-anchor="start" x="8" y_="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00"># GameState()=default</text>
 </a>
 </g>
 </g>
@@ -32,14 +32,14 @@
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="$class_active_game_state.html" xlink:title=" ">
 <polygon fill="none" stroke="black" points="11,-0.5 11,-90.5 157,-90.5 157,-0.5 11,-0.5"/>
-<text text-anchor="middle" x="84" y="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">ActiveGameState</text>
+<text text-anchor="middle" x="84" y_="-78.5" font-family="Helvetica,sans-Serif" font-size="10.00">ActiveGameState</text>
 <polyline fill="none" stroke="black" points="11,-71.5 157,-71.5 "/>
-<text text-anchor="middle" x="84" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<text text-anchor="middle" x="84" y_="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
 <polyline fill="none" stroke="black" points="11,-52.5 157,-52.5 "/>
-<text text-anchor="start" x="19" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ActiveGameState()</text>
-<text text-anchor="start" x="19" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">=delete</text>
-<text text-anchor="start" x="19" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ActiveGameState(Game</text>
-<text text-anchor="start" x="19" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00"> *game)</text>
+<text text-anchor="start" x="19" y_="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ActiveGameState()</text>
+<text text-anchor="start" x="19" y_="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">=delete</text>
+<text text-anchor="start" x="19" y_="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ActiveGameState(Game</text>
+<text text-anchor="start" x="19" y_="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00"> *game)</text>
 </a>
 </g>
 </g>
