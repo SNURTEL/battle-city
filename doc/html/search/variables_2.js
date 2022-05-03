@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['key_0',['key',['../class_event.html#aa65e1276295df03ea9ac167ca978c342',1,'Event']]],
-  ['keycode_1',['keyCode',['../struct_event_1_1_keypress_event.html#a14f6ce891fdd6e04591849331bc1d179',1,'Event::KeypressEvent']]]
+  ['event_5fsubscribers_5f_0',['event_subscribers_',['../class_event_publisher.html#a738e77e505033234f0f687b0a2d559ed',1,'EventPublisher']]],
+  ['eventhandler_5f_1',['eventHandler_',['../class_game_state.html#af01995afceb7c309c856622d94053bd7',1,'GameState']]],
+  ['eventqueue_5f_2',['eventQueue_',['../class_game.html#adf5cb414245c87871f2a0f0b2cd87129',1,'Game::eventQueue_()'],['../class_keyboard_controller.html#a10b7e6e03d06955bb214e9c3b747e11f',1,'KeyboardController::eventQueue_()']]],
+  ['events_5f_3',['events_',['../class_event_queue.html#a83a749137b64d37e19193532967c64d2',1,'EventQueue']]]
 ];

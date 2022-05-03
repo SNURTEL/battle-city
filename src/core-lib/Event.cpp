@@ -19,11 +19,15 @@ Event::Event(EventType e) {
     }
 }
 
-Event::Event(EventType e, unsigned int i1) {
+Event::Event(EventType e, unsigned int i1, KeyEventInfo::KeyAction keyAction) {
     type = e;
     switch (e) {
-        case Keypress: {
-            info.key = {i1};
+        case KeyPressed: {
+            info.key = {i1, keyAction};
+            break;
+        }
+        case KeyReleased: {
+            info.key = {i1, keyAction};
             break;
         }
         default: {

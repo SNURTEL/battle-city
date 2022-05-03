@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['last_5ftick_5f_0',['last_tick_',['../class_clock.html#a5e4f74a536af59e3f436a90977b3252f',1,'Clock']]]
+  ['game_5f_0',['game_',['../class_active_event_handler.html#aebaa0b2149bf6598d5a0397eacd830c1',1,'ActiveEventHandler::game_()'],['../class_game_state.html#a4efcc887639fa292382d03176ac0e79d',1,'GameState::game_()']]]
 ];

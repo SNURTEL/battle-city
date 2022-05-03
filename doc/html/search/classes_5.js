@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['simplepublisher_0',['SimplePublisher',['../class_simple_publisher.html',1,'']]],
-  ['simplesubscriber_1',['SimpleSubscriber',['../class_simple_subscriber.html',1,'']]],
-  ['singletonnotinitializedexception_2',['SingletonNotInitializedException',['../class_singleton_not_initialized_exception.html',1,'']]]
+  ['keyboardcontroller_0',['KeyboardController',['../class_keyboard_controller.html',1,'']]],
+  ['keyeventinfo_1',['KeyEventInfo',['../struct_event_1_1_key_event_info.html',1,'Event']]]
 ];

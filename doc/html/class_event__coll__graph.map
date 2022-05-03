@@ -1,4 +1,8 @@
 <map id="Event" name="Event">
-<area shape="rect" id="node1" title="Represents a single event of type Event::EventType." alt="" coords="57,95,116,121"/>
-<area shape="rect" id="node2" href="$struct_event_1_1_keypress_event.html" title=" " alt="" coords="5,5,168,32"/>
+<area shape="rect" id="node1" title="Represents a single event of type Event::EventType." alt="" coords="5,425,219,561"/>
+<area shape="rect" id="node2" title=" " alt="" coords="30,285,119,363"/>
+<area shape="rect" id="node3" href="$union_event_1_1info__u.html" title=" " alt="" coords="144,285,251,363"/>
+<area shape="rect" id="node4" href="$struct_event_1_1_key_event_info.html" title=" " alt="" coords="121,145,274,223"/>
+<area shape="rect" id="node5" title=" " alt="" coords="87,5,190,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="214,5,301,83"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['what_5fmessage_0',['what_message',['../class_observer_exception.html#a3f569a12194315b6e2039efe44938e8c',1,'ObserverException']]]
+  ['last_5ftick_5f_0',['last_tick_',['../class_clock.html#a5e4f74a536af59e3f436a90977b3252f',1,'Clock']]]
 ];

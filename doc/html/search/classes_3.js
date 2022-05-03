@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['observerexception_0',['ObserverException',['../class_observer_exception.html',1,'']]]
+  ['game_0',['Game',['../class_game.html',1,'']]],
+  ['gamestate_1',['GameState',['../class_game_state.html',1,'']]]
 ];

@@ -8,9 +8,9 @@ Some cool description waiting to be added
 - [Repository structure](#repository-structure)
 - [Configuration](#configuration)
 - [Dependencies](#dependencies)
-  - [GCC](#gcc)
   - [CMake](#cmake)
   - [Catch2](#catch2)
+  - [SFML](#sfml)
   - [Doxygen](#doxygen)
 - [Build](#build)
 - [Source code structure](#source-code-structure)
@@ -29,7 +29,7 @@ proi-projekt
    ├ build
    ├ doc
    │  ├ html 
-   │  └ rtd 
+   │  └ rtf
    └ src
       ├ <name>-lib
      ...
@@ -54,24 +54,10 @@ This should be it :)
 If the project does not compile, check [dependencies](#dependencies).
 
 ## Dependencies
-- gcc
 - cmake
 - Catch2 (version `v3.x`)
+- SFML
 - doxygen (only for generating documentation)
-
-### GCC
-Check if GCC is installed:
-```bash
-gcc -v
-```
-If, for some reason, it is not present, install with:
-```bash
-sudo apt-get update
-sudo apt-get install build-essential gdb
-```
-[Full instructions](https://gcc.gnu.org/install/)
-
-You can use a different compiler if you want to - in that case, you'll need to modify [CMakeLists.txt](build/CMakeLists.txt).
 
 ### CMake
 Check if CMake is installed:
@@ -106,6 +92,14 @@ cd vcpkg
 ./vcpkg install catch2
 ```
 [Full instructions](https://github.com/catchorg/Catch2/blob/devel/docs/cmake-integration.md)
+
+### SFML
+Install  with:
+```bash
+sudo apt-get install libsfml-dev
+```
+
+[Full instructions](https://www.sfml-dev.org/tutorials/2.5/start-linux.php)
 
 ### Doxygen
 Check if Doxygen is installed:
@@ -181,7 +175,7 @@ set(my_lib_test_sources
         ${my_lib_test_dir}/baz.cpp
         )
 
-add_library(my-lib ${my_lib_sources})
+add_library(my-lib SHARED ${my_lib_sources})
 
 add_executable(test_my_lib ${my_lib_test_sources})
 target_link_libraries(test_my_lib PRIVATE my-lib Catch2::Catch2WithMain)
@@ -208,7 +202,7 @@ When working on the project:
    ```
 2. Do your work and commit changes. Don't forget to:
    - Update [CMakeLists.txt](build/CMakeLists.txt) according to [source code structure](#source-code-structure)
-   - Write and re-generate the documentation (should match javadoc convention):
+   - Write and re-generate the documentation (should match javadoc standard):
        ```bash
        cd doc
        doxygen

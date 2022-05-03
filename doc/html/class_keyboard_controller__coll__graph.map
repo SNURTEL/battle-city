@@ -1,0 +1,11 @@
+<map id="KeyboardController" name="KeyboardController">
+<area shape="rect" id="node1" title=" " alt="" coords="245,792,461,957"/>
+<area shape="rect" id="node2" href="$class_simple_subscriber.html" title=" " alt="" coords="5,491,263,715"/>
+<area shape="rect" id="node3" title=" " alt="" coords="29,248,239,325"/>
+<area shape="rect" id="node4" title=" " alt="" coords="287,564,418,641"/>
+<area shape="rect" id="node5" href="$class_event_queue.html" title=" " alt="" coords="442,476,642,729"/>
+<area shape="rect" id="node6" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="345,241,494,333"/>
+<area shape="rect" id="node7" title=" " alt="" coords="442,13,642,90"/>
+<area shape="rect" id="node8" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="613,160,813,413"/>
+<area shape="rect" id="node9" title=" " alt="" coords="666,5,815,97"/>
+</map>

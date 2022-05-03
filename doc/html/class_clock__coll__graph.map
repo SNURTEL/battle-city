@@ -1,4 +1,8 @@
 <map id="Clock" name="Clock">
-<area shape="rect" id="node1" title="Represents an externally controlled clock running at a given frequency." alt="" coords="39,80,98,107"/>
-<area shape="rect" id="node2" href="$class_simple_publisher.html" title=" " alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node1" title="Represents an externally controlled clock running at a given frequency." alt="" coords="342,476,535,715"/>
+<area shape="rect" id="node2" href="$class_simple_publisher.html" title=" " alt="" coords="5,145,243,413"/>
+<area shape="rect" id="node3" title=" " alt="" coords="15,5,233,83"/>
+<area shape="rect" id="node4" title=" " alt="" coords="267,233,445,325"/>
+<area shape="rect" id="node5" title=" " alt="" coords="469,241,576,318"/>
+<area shape="rect" id="node6" title=" " alt="" coords="600,241,757,318"/>
 </map>

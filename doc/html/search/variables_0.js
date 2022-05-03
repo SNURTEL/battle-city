@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['event_5fsubscribers_5f_0',['event_subscribers_',['../class_event_publisher.html#a738e77e505033234f0f687b0a2d559ed',1,'EventPublisher']]],
-  ['events_5f_1',['events_',['../class_event_queue.html#a83a749137b64d37e19193532967c64d2',1,'EventQueue']]]
+  ['action_0',['action',['../struct_event_1_1_key_event_info.html#ac2dbd6b1864be62d39ebc334cb41065b',1,'Event::KeyEventInfo']]],
+  ['active_5fstate_5f_1',['active_state_',['../class_game.html#ad68ef6fda1842723d3472de00f514629',1,'Game']]]
 ];
