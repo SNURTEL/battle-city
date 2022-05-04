@@ -36,9 +36,9 @@ SCENARIO("Event queue - Regular behavior") {
 
                 AND_WHEN("Events are removed from queue"){
                     THEN("Events should be removed duh"){
-                        REQUIRE(queue->pop()->info.key.keyCode == 123);
+                        REQUIRE(queue->pop()->info.keyInfo.keyCode == 123);
 //                        REQUIRE(queue->getQueue()->size() == 2);
-                        REQUIRE(queue->pop()->info.key.keyCode == 234);
+                        REQUIRE(queue->pop()->info.keyInfo.keyCode == 234);
 //                        REQUIRE(queue->getQueue()->size() == 1);
                         queue->pop();
                         REQUIRE(queue->isEmpty());

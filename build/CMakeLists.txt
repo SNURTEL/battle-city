@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.16.3)
 project(PROI_PROJEKT)
 set(CMAKE_CXX_STANDARD 20)
 find_package(Catch2 REQUIRED)
-find_package(SFML REQUIRED system window graphics network audio)
 
 set(CMAKE_BINARY_DIR ../../bin)
 
@@ -12,6 +11,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 
 # SFML stuff
+find_package(SFML REQUIRED system window graphics network audio)
+
 set(SFML_INCLUDE_DIR ./SFML-2.5.1/include/SFML/System.hpp)
 set(SFML_LIBRARIES sfml-system
         sfml-window
@@ -53,20 +54,39 @@ set(game_lib_dir ../src/game-lib)
 set(game_lib_sources
         ${game_lib_dir}/Game.cpp
         ${game_lib_dir}/ActiveEventHandler.cpp
-        ${game_lib_dir}/GameState.cpp ../src/game-lib/KeyboardController.cpp ../src/game-lib/include/KeyboardController.h)
+        ${game_lib_dir}/GameState.cpp
+        ${game_lib_dir}/KeyboardController.cpp)
 
 add_library(game-lib SHARED ${game_lib_sources})
 
 set(game_lib_test_dir ../src/game-lib/test)
 set(game_lib_test_sources
-        ../src/game-lib/test/test_sanity.cpp)
+        ${game_lib_test_dir}/test_sanity.cpp)
 
 add_executable(test_game_lib ${game_lib_test_sources})
-target_link_libraries(test_game_lib PRIVATE core-lib game-lib Catch2::Catch2WithMain)
+target_link_libraries(test_game_lib PRIVATE core-lib game-lib ${SFML_LIBRARIES} Catch2::Catch2WithMain)
+
+############################ TANK-LIB ################################
+
+set(tank_lib_dir ../src/tank-lib)
+set(tank_lib_sources
+        ${tank_lib_dir}/Tank.cpp
+        ${tank_lib_dir}/TankController.cpp
+        )
+
+add_library(tank-lib SHARED ${tank_lib_sources})
+
+set(tank_lib_test_dir ../src/tank-lib/test)
+set(tank_lib_test_sources
+        ${tank_lib_test_dir}/test_tank.cpp
+        ${tank_lib_test_dir}/test_tankController.cpp)
+
+add_executable(test_tank_lib ${tank_lib_test_sources})
+target_link_libraries(test_tank_lib PRIVATE tank-lib core-lib game-lib  Catch2::Catch2WithMain)
 
 ############################ MAIN ################################
 
 
-add_executable(tanks ../src/main/tanks.cpp ${core_lib_sources} ${game_lib_sources})
-target_link_libraries(tanks ${SFML_LIBRARIES} core-lib game-lib)
+add_executable(tanks ../src/main/tanks.cpp ${core_lib_sources} ${game_lib_sources} ${tank_lib_sources})
+target_link_libraries(tanks ${SFML_LIBRARIES} core-lib game-lib tank-lib)
 

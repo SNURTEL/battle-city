@@ -1,6 +1,7 @@
 //
 // Created by tomek on 26.04.2022.
 //
+#include <memory>
 
 #include "include/Event.h"
 
@@ -22,12 +23,26 @@ Event::Event(EventType e) {
 Event::Event(EventType e, unsigned int i1, KeyEventInfo::KeyAction keyAction) {
     type = e;
     switch (e) {
-        case KeyPressed: {
-            info.key = {i1, keyAction};
+        case (KeyPressed):
+        case (KeyReleased): {
+            info.keyInfo = {i1, keyAction};
             break;
         }
-        case KeyReleased: {
-            info.key = {i1, keyAction};
+        default: {
+            throw EventConstructionException();
+        }
+    }
+}
+
+Event::Event(EventType e, Tank *tank) {
+    type = e;
+    switch (e) {
+        case TankSpawned:
+        case TankMoved:
+        case TankHit:
+        case TankRemoved:
+        case TankKilled:  {
+            info.tankInfo = {tank};
             break;
         }
         default: {

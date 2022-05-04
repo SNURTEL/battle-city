@@ -6,7 +6,7 @@
 
 #include <utility>
 
-ObserverException::ObserverException(std::string msg) {
+ObserverException::ObserverException(std::string msg): std::exception() {
     what_message = std::move(msg);
 }
 

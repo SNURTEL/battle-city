@@ -7,6 +7,9 @@
 
 #include <exception>
 #include <string>
+#include <memory>
+
+class Tank;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
@@ -35,6 +38,13 @@ public:
         KeyPressed = 0,
         KeyReleased,
 
+        TankSpawned,
+        TankKilled,
+        TankMoved,
+        TankHit,
+        TankRemoved,
+
+
         NullEvent
     };
 
@@ -52,13 +62,20 @@ public:
         KeyAction action;
     };
 
+    struct TankInfo {
+        Tank* tank;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
+    };
+
     // ####################################################3
     /**
-     * Contains additional event info. For every event, only one field contains
-     * actual data - the rest is initialized with null.
+     * Contains additional event info.
+     * Unions member is initialized according to EventType enum passed to the constructor
+     * Trying to access any member other than initialized will result in undefined behavior
      */
     union info_u {
-        KeyEventInfo key;
+        KeyEventInfo keyInfo;
+        TankInfo tankInfo;
+
         ~info_u(){};  // DO NOT change this to =default, or else it will stop working
     } info = {};
 
@@ -66,6 +83,8 @@ public:
     Event(EventType, unsigned int ui1, KeyEventInfo::KeyAction);
 
     explicit Event(EventType);
+
+    Event(EventType e, Tank* tank);
 
     Event()=delete;
 };
