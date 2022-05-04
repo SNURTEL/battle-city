@@ -1,0 +1,13 @@
+<map id="Event" name="Event">
+<area shape="rect" id="node1" title="Represents a single event of type Event::EventType." alt="" coords="11,917,225,1068"/>
+<area shape="rect" id="node2" title=" " alt="" coords="36,777,125,855"/>
+<area shape="rect" id="node3" href="$union_event_1_1info__u.html" title=" " alt="" coords="150,777,257,855"/>
+<area shape="rect" id="node4" href="$struct_event_1_1_key_event_info.html" title=" " alt="" coords="55,343,208,421"/>
+<area shape="rect" id="node5" title=" " alt="" coords="141,5,244,83"/>
+<area shape="rect" id="node8" href="$class_tank.html" title="Base class for tank representation." alt="" coords="233,189,427,575"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,5,92,83"/>
+<area shape="rect" id="node7" href="$struct_event_1_1_tank_info.html" title=" " alt="" coords="255,637,378,715"/>
+<area shape="rect" id="node9" title=" " alt="" coords="529,5,611,83"/>
+<area shape="rect" id="node10" title=" " alt="" coords="294,5,361,83"/>
+<area shape="rect" id="node11" title=" " alt="" coords="423,5,504,83"/>
+</map>
