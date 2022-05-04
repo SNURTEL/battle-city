@@ -27,8 +27,8 @@ SCENARIO("Event queue - Regular behavior") {
         EventQueue<Event>* queue = EventQueue<Event>::instance();
 
         WHEN("Adding events to queue"){
-            REQUIRE_NOTHROW(queue->registerEvent(std::make_unique<Event>(Event::KeyPressed, 123, Event::KeyEventInfo::KeyAction::Pressed)));
-            REQUIRE_NOTHROW(queue->registerEvent(std::make_unique<Event>(Event::KeyPressed, 234, Event::KeyEventInfo::KeyAction::Pressed)));
+            REQUIRE_NOTHROW(queue->registerEvent(std::make_unique<Event>(Event::KeyPressed, 123)));
+            REQUIRE_NOTHROW(queue->registerEvent(std::make_unique<Event>(Event::KeyPressed, 234)));
             REQUIRE_NOTHROW(queue->registerEvent(std::make_unique<Event>(Event::NullEvent)));
 
             THEN("Events should be added correctly") {
@@ -65,7 +65,7 @@ SCENARIO("Event queue - singleton-specific behavior") {
 
                 THEN("Separate instances should be created") {
                     REQUIRE(anotherQueue != nullptr);
-                    myQueue->registerEvent(std::make_unique<Event>(Event::KeyPressed, 234, Event::KeyEventInfo::KeyAction::Pressed));
+                    myQueue->registerEvent(std::make_unique<Event>(Event::KeyPressed, 234));
                     REQUIRE_FALSE(myQueue->isEmpty());
                     REQUIRE(anotherQueue->isEmpty());
                 }

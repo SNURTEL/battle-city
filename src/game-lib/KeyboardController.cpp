@@ -18,14 +18,12 @@ void KeyboardController::fetchKeyboardEvent() const {
     window_->pollEvent(event);
 
     switch (event.type) {
-        case sf::Event::KeyPressed:
-            eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed,
-                                                               event.key.code,
-                                                               Event::KeyEventInfo::KeyAction::Pressed));
         case sf::Event::KeyReleased:
             eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::KeyReleased,
-                                                  event.key.code,
-                                                  Event::KeyEventInfo::KeyAction::Released));
+                                                               event.key.code));
+        case sf::Event::KeyPressed:
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed,
+                                                               event.key.code));
         default:
             eventQueue_->registerEvent(std::make_unique<Event>(Event::NullEvent));
     }

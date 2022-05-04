@@ -51,7 +51,7 @@ public:
     EventType type;
 
     /**
-     * Carries additional event info for KeyPressed event
+     * Holds additional event info for keyboard related events
      */
     struct KeyEventInfo {
         enum KeyAction{
@@ -62,6 +62,13 @@ public:
         KeyAction action;
     };
 
+    /**
+     * Holds additional event info for tank related events
+     * If an event was created as a result of deleting a tank, member variable
+     * will point to deallocated memory and should only be used for removing empty
+     * references in other objects
+     * TRYING TO ACCESS MEMBER VARIABLE'S ATTRS WILL RESULT IN UNDEFINED BEHAVIOR
+     */
     struct TankInfo {
         Tank* tank;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
     };
@@ -80,7 +87,7 @@ public:
     } info = {};
 
     // FIXME not so elegant
-    Event(EventType, unsigned int ui1, KeyEventInfo::KeyAction);
+    Event(EventType, unsigned int ui1);
 
     explicit Event(EventType);
 
