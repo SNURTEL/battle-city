@@ -4,26 +4,41 @@
 
 #include "include/Tank.h"
 
-void Tank::moveX(int delta_x) {
-    x_ += delta_x;
+void Tank::moveX(int delta_x) { // TODO TEST
     if (delta_x > 0) {
         facing_ = East;
+        x_ += delta_x;
+
     } else if (delta_x < 0) {
         facing_ = West;
+        if(static_cast<int>(x_) + delta_x < 0){
+            x_ = 0;
+        }else{
+            x_ += delta_x;
+        }
     }
 }
 
 void Tank::moveY(int delta_y) {
-    y_ += delta_y;
     if (delta_y > 0) {
         facing_ = South;
+        y_ += delta_y;
     } else if (delta_y < 0) {
         facing_ = North;
+        if(static_cast<int>(y_) + delta_y < 0){
+            y_ = 0;
+        }else{
+            y_ += delta_y;
+        }
     }
 }
 
 void Tank::deltaLives(int delta_l) {
-    lives_ += delta_l;
+    if(static_cast<int>(lives_) + delta_l < 0) {
+        lives_=0;
+    }else{
+        lives_ += delta_l;
+    }
 }
 
 unsigned int Tank::getX() const {

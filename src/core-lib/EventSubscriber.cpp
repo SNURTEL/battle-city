@@ -5,8 +5,6 @@
 #include "include/EventPublisher.h"
 #include "include/ObserverExceptions.h"
 
-// TODO T E S T S
-
 EventSubscriber::~EventSubscriber() {
     for (auto[eventType, publishers]: subscribedSubjects_) {
         for (EventPublisher *pub: publishers) {
