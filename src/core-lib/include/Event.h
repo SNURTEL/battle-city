@@ -86,8 +86,6 @@ public:
 
     Event(EventType e, Tank* tank);
 
-    Event(EventType e, std::unique_ptr<Tank> tank);
-
     Event()=delete;
 };
 

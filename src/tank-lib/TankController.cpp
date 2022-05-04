@@ -69,7 +69,7 @@ void TankController::killTank(Tank *target) {
     if(iter == tanks_.end()){
         throw TankDoesNotExistException();
     }
-    eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankKilled, std::move(*iter)));
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankKilled, target));
 
     tanks_.erase(iter);
 }
@@ -82,7 +82,7 @@ void TankController::removeTank(Tank *target) {
     if(iter == tanks_.end()){
         throw TankDoesNotExistException();
     }
-    eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankRemoved, std::move(*iter)));
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankRemoved, target));
 
     tanks_.erase(iter);
 }
@@ -110,5 +110,13 @@ void TankController::moveTank(Tank * target, Direction direction) {
 }
 
 std::optional<Tank *> TankController::getTankAtPosition(unsigned int x, unsigned int y) {
-    //TODO Implement finding by position (match any point in bounding box)
+    //assume all tanks are 13x13
+    for(auto& tank: tanks_){
+        if(x >= tank->getX() &&  tank->getX() + 13 > x){   //try as a single expression
+            if(x >= tank->getY() && tank->getY() + 13 > y){
+                return tank.get();
+            }
+        }
+    }
+    return std::nullopt;
 }

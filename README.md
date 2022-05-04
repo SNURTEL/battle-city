@@ -136,6 +136,7 @@ Or simply **make use of your IDE's CMake integration**.
 Binaries should be written to [`/bin`](bin).
 
 ## Source code structure
+### Project structure
 The majority of source code is organised in libraries under /src/. Each library should be roughly structured as:
 ```
 ─ my-lib
@@ -154,8 +155,8 @@ The majority of source code is organised in libraries under /src/. Each library 
           ...
           └ test_baz.cpp
 ```
-
-and should have its representation in [`CMakeLists.txt`](build/CMakeLists.txt):
+### CMakeLists.txt
+Each library should have its representation in [`CMakeLists.txt`](build/CMakeLists.txt) written as follows:
 ```cmake
 set(my_lib_dir ../src/my-lib)
 set(my_lib_sources
@@ -181,6 +182,25 @@ target_link_libraries(test_my_lib PRIVATE my-lib Catch2::Catch2WithMain)
 # ...
 
 target_link_libraries(my_main PRIVATE my-lib)
+```
+
+### Testing
+Tests should be written according to BDD methodology:
+```c++
+SCENARIO("Some action"){
+        GIVEN("Tests objects, initial requirements"){
+            Foo test_foo{};
+            REQUIRE(test_foo.bar() == 123);
+            
+            WHEN("Something happens"){
+                foo.baz();
+                
+                THEN("There should be some response"){
+                    CHECK(foo.qux() == 456);
+                }
+            }
+        }
+}
 ```
 
 ## Workflow

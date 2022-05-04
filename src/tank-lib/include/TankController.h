@@ -48,9 +48,10 @@ public:
     void moveTank(Tank * target, Direction direction);
 
     // const?
+    //assumes tanks are 13x13 in size
     std::optional<Tank*> getTankAtPosition(unsigned int x, unsigned int y);
 
-private:
+protected:
     EventQueue<Event> *eventQueue_;
     std::vector<std::unique_ptr<Tank>> tanks_;
 };

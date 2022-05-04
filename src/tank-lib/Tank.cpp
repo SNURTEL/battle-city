@@ -60,6 +60,19 @@ Tank::TankType Tank::getType() const {
 
 // ##############################
 
+PlayerTank::PlayerTank(unsigned int x, unsigned int y, unsigned int lives, Direction facing) {
+    type_=Tank::PlayerTank;
+
+    x_ = x;
+    y_ = y;
+    facing_=facing;
+
+    lives_=lives;
+    tank_speed_=1;
+    bullet_speed_=1;
+    points_=100;
+}
+
 BasicTank::BasicTank(unsigned int x, unsigned int y, Direction facing) : Tank() {
     type_=Tank::BasicTank;
 

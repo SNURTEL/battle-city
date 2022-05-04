@@ -17,6 +17,7 @@ public:
     virtual ~Tank()=default;
 
     enum TankType{
+        PlayerTank,
         BasicTank,
         FastTank,
         PowerTank,
@@ -59,6 +60,12 @@ protected:
     unsigned int points_;
 };
 
+
+class PlayerTank: public Tank{
+public:
+    PlayerTank()=delete;
+    PlayerTank(unsigned int x, unsigned int y, unsigned int lives, Direction facing=North);
+};
 
 class BasicTank: public Tank{
 public:
