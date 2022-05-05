@@ -36,7 +36,7 @@ set(core_lib_sources
         ${core_lib_dir}/SingletonExceptions.cpp
         )
 
-add_library(core-lib SHARED ${core_lib_sources})
+add_library(core-lib ${core_lib_sources})
 
 set(core_lib_test_dir ../src/core-lib/test)
 set(core_lib_test_sources
@@ -57,14 +57,15 @@ set(game_lib_sources
         ${game_lib_dir}/GameState.cpp
         ${game_lib_dir}/KeyboardController.cpp)
 
-add_library(game-lib SHARED ${game_lib_sources})
+add_library(game-lib ${game_lib_sources})
+target_link_libraries(game-lib PRIVATE core-lib ${SFML_LIBRARIES})
 
 set(game_lib_test_dir ../src/game-lib/test)
 set(game_lib_test_sources
         ${game_lib_test_dir}/test_sanity.cpp)
 
 add_executable(test_game_lib ${game_lib_test_sources})
-target_link_libraries(test_game_lib PRIVATE core-lib game-lib ${SFML_LIBRARIES} Catch2::Catch2WithMain)
+target_link_libraries(test_game_lib PRIVATE game-lib Catch2::Catch2WithMain)
 
 ############################ TANK-LIB ################################
 
@@ -74,7 +75,8 @@ set(tank_lib_sources
         ${tank_lib_dir}/TankController.cpp
         )
 
-add_library(tank-lib SHARED ${tank_lib_sources})
+add_library(tank-lib ${tank_lib_sources})
+target_link_libraries(tank-lib PRIVATE game-lib)
 
 set(tank_lib_test_dir ../src/tank-lib/test)
 set(tank_lib_test_sources
@@ -82,7 +84,7 @@ set(tank_lib_test_sources
         ${tank_lib_test_dir}/test_tankController.cpp)
 
 add_executable(test_tank_lib ${tank_lib_test_sources})
-target_link_libraries(test_tank_lib PRIVATE tank-lib core-lib game-lib  Catch2::Catch2WithMain)
+target_link_libraries(test_tank_lib PRIVATE tank-lib Catch2::Catch2WithMain)
 
 ############################ MAIN ################################
 
