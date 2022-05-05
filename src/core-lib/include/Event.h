@@ -44,7 +44,6 @@ public:
         TankHit,
         TankRemoved,
 
-
         NullEvent
     };
 
