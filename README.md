@@ -33,7 +33,7 @@ proi-projekt
       ├ <name>-lib
      ...
       └ main
-```
+``` 
 Where:
 1. `bin/` - Pre-compiled binaries
     - `lib/` - Libraries
