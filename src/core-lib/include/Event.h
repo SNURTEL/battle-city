@@ -34,11 +34,11 @@ public:
     /**
      * Represents event types
      */
-    enum EventType {
+    enum EventType {  // TODO make Event an abstract base class; move enum to separate file and specify enum values there (EVENT SHOULD KNOW EVENT TYPE TO STORE IT)
         KeyPressed = 0,
         KeyReleased,
 
-        TankSpawned,
+        TankSpawned,  // TODO replace with entity (not necessary if enum was moved to separate file)
         TankKilled,
         TankMoved,
         TankHit,
@@ -68,7 +68,7 @@ public:
      * references in other objects
      * TRYING TO ACCESS MEMBER VARIABLE'S ATTRS WILL RESULT IN UNDEFINED BEHAVIOR
      */
-    struct TankInfo {
+    struct TankInfo {  //
         Tank* tank;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
     };
 
