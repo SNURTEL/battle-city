@@ -103,7 +103,7 @@ void TankController::moveTank(Tank * target, Direction direction) {
             break;
         }
         case East:
-            target->moveY(1);
+            target->moveX(1);
             break;
     }
     eventQueue_->registerEvent(std::make_unique<Event>(Event::TankMoved, target));
