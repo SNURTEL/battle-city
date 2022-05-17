@@ -52,10 +52,10 @@ This should be it :)
 If the project does not compile, check [dependencies](#dependencies).
 
 ## Dependencies
-- cmake
+- CMake
 - Catch2 (version `v3.x`)
 - SFML
-- doxygen (only for generating documentation)
+- Doxygen (only for generating documentation)
 
 ### CMake
 Check if CMake is installed:
@@ -169,12 +169,13 @@ set(my_lib_sources
 set(my_lib_test_dir ${my_lib_dir}/test)
 set(my_lib_test_sources
         ${my_lib_test_dir}/test_foo.cpp
-        ${my_lib_test_dir}/bar.cpp
+        ${my_lib_test_dir}/test_bar.cpp
         ...
-        ${my_lib_test_dir}/baz.cpp
+        ${my_lib_test_dir}/test_baz.cpp
         )
 
-add_library(my-lib SHARED ${my_lib_sources})
+add_library(my-lib ${my_lib_sources})
+target_link_libraries(my_lib PRIVATE dependency1 dependency2)
 
 add_executable(test_my_lib ${my_lib_test_sources})
 target_link_libraries(test_my_lib PRIVATE my-lib Catch2::Catch2WithMain)
@@ -233,11 +234,12 @@ When working on the project:
    ```
    git push [-u] origin feature-branch-foo
    ```
-5. Open a merge request and **ask someone to review your code**.
+5. Open a merge request, address all merge conflicts and **ask someone to review your code**.
 
 ## Full documentation
 Check [`doc`](/doc):
 - [`doc/html`](doc/html) and [`doc/rtf`](doc/rtf) for Doxygen-style project documentation:
    ```bash
-   opera ./doc/html/index.html
+  cd ./doc/html/
+   opera ./index.html
    ```
