@@ -4,6 +4,9 @@
 
 #include "include/GameState.h"
 #include "include/ActiveEventHandler.h"
+#include "include/FinishedEventHandler.h"
+#include "include/PauseEventHandler.h"
+#include "include/MenuEventHandler.h"
 
 PublisherEventHandler *GameState::getEventHandler() {
     return eventHandler_.get();
@@ -13,11 +16,11 @@ ActiveGameState::ActiveGameState(Game* game) {
     eventHandler_ = std::make_unique<ActiveEventHandler>(game);
 }
 PauseGameState::PauseGameState(Game* game) {
-    eventHandler_ = std::make_unique<ActiveEventHandler>(game);
+    eventHandler_ = std::make_unique<PauseEventHandler>(game);
 }
-ActiveGameState::ActiveGameState(Game* game) {
-    eventHandler_ = std::make_unique<ActiveEventHandler>(game);
+MenuGameState::MenuGameState(Game* game) {
+    eventHandler_ = std::make_unique<MenuEventHandler>(game);
 }
-ActiveGameState::ActiveGameState(Game* game) {
-    eventHandler_ = std::make_unique<ActiveEventHandler>(game);
+FinishedGameState::FinishedGameState(Game* game) {
+    eventHandler_ = std::make_unique<FinishedEventHandler>(game);
 }
