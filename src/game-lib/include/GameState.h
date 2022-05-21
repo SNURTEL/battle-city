@@ -8,6 +8,9 @@
 #include <memory>
 
 #include "ActiveEventHandler.h"
+#include "MenuEventHandler.h"
+#include "PauseEventHandler.h"
+#include "FinishedEventHandler.h"
 
 
 class PublisherEventHandler;
@@ -46,6 +49,18 @@ class PauseGameState: public GameState{
 public:
     PauseGameState()=delete;
     explicit PauseGameState(Game* game);
+};
+
+class MenuGameState: public GameState{
+public:
+    MenuGameState()=delete;
+    explicit MenuGameState(Game* game);
+};
+
+class FinishedGameState: public GameState{
+public:
+    FinishedGameState()=delete;
+    explicit FinishedGameState(Game* game);
 };
 
 #endif //PROI_PROJEKT_GAMESTATE_H

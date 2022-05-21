@@ -5,15 +5,15 @@
 #include <utility>
 #include <iostream>
 
-#include "include/PauseEventHandler.h"
+#include "include/MenuEventHandler.h"
 #include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
 
-PauseEventHandler::PauseEventHandler(Game *game) {
+MenuEventHandler::MenuEventHandler(Game *game) {
     game_ = game;
 }
 
-void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
+void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             //TODO Implement response to KeyPressed
