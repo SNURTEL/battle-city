@@ -42,5 +42,11 @@ public:
     explicit ActiveGameState(Game* game);
 };
 
+class PauseGameState: public GameState{
+public:
+    PauseGameState()=delete;
+    explicit PauseGameState(Game* game);
+};
+
 #endif //PROI_PROJEKT_GAMESTATE_H
 

@@ -12,3 +12,12 @@ PublisherEventHandler *GameState::getEventHandler() {
 ActiveGameState::ActiveGameState(Game* game) {
     eventHandler_ = std::make_unique<ActiveEventHandler>(game);
 }
+PauseGameState::PauseGameState(Game* game) {
+    eventHandler_ = std::make_unique<ActiveEventHandler>(game);
+}
+ActiveGameState::ActiveGameState(Game* game) {
+    eventHandler_ = std::make_unique<ActiveEventHandler>(game);
+}
+ActiveGameState::ActiveGameState(Game* game) {
+    eventHandler_ = std::make_unique<ActiveEventHandler>(game);
+}
