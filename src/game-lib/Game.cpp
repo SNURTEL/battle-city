@@ -27,7 +27,7 @@ void Game::setup() {
 }
 
 void Game::createRenderWindow() {
-    window_ = std::make_unique<sf::RenderWindow>(sf::VideoMode(200, 200), ":D");
+    window_ = std::make_unique<sf::RenderWindow>(sf::VideoMode(400, 400), ":D");
 }
 
 void Game::setActiveState() {

@@ -25,6 +25,9 @@ void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
             if (event->info.keyInfo.keyCode == 36) {
                 game_->setActiveState();
             }
+            if (event->info.keyInfo.keyCode == 58) {
+                game_->setMenuState();
+            }
             std::cout << "Game is paused! " << event->info.keyInfo.keyCode << std::endl;
             break;
         }
