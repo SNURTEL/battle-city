@@ -18,13 +18,13 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             //TODO Implement response to KeyPressed
-            if (event->info.keyInfo.keyCode == 36) {
-                game_->setPauseState();
-            }
             std::cout << "Key pressed: " << event->info.keyInfo.keyCode << std::endl;
             break;
         }
         case (Event::KeyReleased):{
+            if (event->info.keyInfo.keyCode == 36) {
+                game_->setPauseState();
+            }
             std::cout << "Key released: " << event->info.keyInfo.keyCode << std::endl;
             break;
         }

@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "include/PauseEventHandler.h"
+#include "include/Game.h"
 #include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
 
@@ -17,11 +18,14 @@ void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             //TODO Implement response to KeyPressed
-            std::cout << "Key pressed a: " << event->info.keyInfo.keyCode << std::endl;
+            std::cout << "Game is paused! " << event->info.keyInfo.keyCode << std::endl;
             break;
         }
         case (Event::KeyReleased):{
-            std::cout << "Key released a: " << event->info.keyInfo.keyCode << std::endl;
+            if (event->info.keyInfo.keyCode == 36) {
+                game_->setActiveState();
+            }
+            std::cout << "Game is paused! " << event->info.keyInfo.keyCode << std::endl;
             break;
         }
         case (Event::NullEvent):{
