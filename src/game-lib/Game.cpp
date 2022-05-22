@@ -46,11 +46,15 @@ void Game::setPauseState() {
     state_ = pause_state_.get();
 }
 
+void Game::quit() {
+    running_ = false;
+}
+
 void Game::run() {
     setup();
-    setActiveState();
+    setMenuState();
 
-    while (true){
+    while (running_ == true){
         clock_->tick();
         while (!eventQueue_->isEmpty()){
             state_->getEventHandler()->handleEvent(std::move(eventQueue_->pop()));
@@ -59,4 +63,8 @@ void Game::run() {
         //redraw UI
         clock_->sleep();
     }
+}
+
+GameState* Game::get_state() {
+    return state_;
 }

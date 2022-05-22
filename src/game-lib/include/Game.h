@@ -46,9 +46,31 @@ public:
      * Switches the current state to active
      */
     void setActiveState();
+
+    /**
+     * Switches the current state to finished
+     */
     void setFinishedState();
+
+    /**
+     * Switches the current state to pause
+     */
     void setPauseState();
+
+    /**
+     * Switches the current state to menu
+     */
     void setMenuState();
+
+    /**
+     * Quits the game
+     */
+    void quit();
+
+    /**
+     * Returns current state pointer
+     */
+    GameState* get_state();
 
 private:
     /**
@@ -65,6 +87,7 @@ private:
     std::unique_ptr<GameState> finished_state_;
     std::unique_ptr<GameState> menu_state_;
     GameState* state_{};
+    bool running_ = true;
 
     Clock* clock_;
     EventQueue<Event>* eventQueue_;

@@ -21,6 +21,12 @@ PauseGameState::PauseGameState(Game* game) {
 MenuGameState::MenuGameState(Game* game) {
     eventHandler_ = std::make_unique<MenuEventHandler>(game);
 }
+void MenuGameState::set_position(unsigned int new_pos) {
+    position_ = new_pos;
+}
+unsigned int MenuGameState::get_position() {
+    return position_;
+}
 FinishedGameState::FinishedGameState(Game* game) {
     eventHandler_ = std::make_unique<FinishedEventHandler>(game);
 }

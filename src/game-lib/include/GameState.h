@@ -31,6 +31,9 @@ public:
      */
     PublisherEventHandler* getEventHandler();
 
+    virtual void set_position(unsigned int) {}
+    virtual unsigned int get_position() {return 0;}
+
 protected:
     GameState()=default;
     std::unique_ptr<PublisherEventHandler> eventHandler_;
@@ -52,7 +55,11 @@ public:
 };
 
 class MenuGameState: public GameState{
+private:
+    unsigned int position_ = 1;
 public:
+    void set_position(unsigned int);
+    unsigned int get_position();
     MenuGameState()=delete;
     explicit MenuGameState(Game* game);
 };
