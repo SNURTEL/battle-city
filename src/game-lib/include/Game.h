@@ -46,6 +46,9 @@ public:
      * Switches the current state to active
      */
     void setActiveState();
+    void setFinishedState();
+    void setPauseState();
+    void setMenuState();
 
 private:
     /**
@@ -58,6 +61,9 @@ private:
      */
     void createRenderWindow();
     std::unique_ptr<GameState> active_state_;
+    std::unique_ptr<GameState> pause_state_;
+    std::unique_ptr<GameState> finished_state_;
+    std::unique_ptr<GameState> menu_state_;
     GameState* state_{};
 
     Clock* clock_;

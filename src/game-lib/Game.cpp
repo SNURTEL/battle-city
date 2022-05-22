@@ -11,6 +11,9 @@
 
 Game::Game(unsigned int clock_freq) {
     active_state_ = std::make_unique<ActiveGameState>(this);
+    finished_state_ = std::make_unique<FinishedGameState>(this);
+    pause_state_ = std::make_unique<PauseGameState>(this);
+    menu_state_ = std::make_unique<MenuGameState>(this);
     Clock::initialize(clock_freq);
     clock_ = Clock::instance();
     eventQueue_ = EventQueue<Event>::instance();
@@ -29,6 +32,18 @@ void Game::createRenderWindow() {
 
 void Game::setActiveState() {
     state_ = active_state_.get();
+}
+
+void Game::setFinishedState() {
+    state_ = finished_state_.get();
+}
+
+void Game::setMenuState() {
+    state_ = menu_state_.get();
+}
+
+void Game::setPauseState() {
+    state_ = pause_state_.get();
 }
 
 void Game::run() {
