@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "include/ActiveEventHandler.h"
+#include "include/Game.h"
 #include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
 
@@ -17,6 +18,9 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             //TODO Implement response to KeyPressed
+            if (event->info.keyInfo.keyCode == 36) {
+                game_->setPauseState();
+            }
             std::cout << "Key pressed: " << event->info.keyInfo.keyCode << std::endl;
             break;
         }

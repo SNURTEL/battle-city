@@ -28,7 +28,7 @@ void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
             break;
         }
         default:{
-            throw InvalidEventException("Invalid event for ActiveEventHandler");
+            throw InvalidEventException("Invalid event for MenuEventHandler");
         }
     }
 }

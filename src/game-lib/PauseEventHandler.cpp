@@ -17,18 +17,18 @@ void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             //TODO Implement response to KeyPressed
-            std::cout << "Key pressed: " << event->info.keyInfo.keyCode << std::endl;
+            std::cout << "Key pressed a: " << event->info.keyInfo.keyCode << std::endl;
             break;
         }
         case (Event::KeyReleased):{
-            std::cout << "Key released: " << event->info.keyInfo.keyCode << std::endl;
+            std::cout << "Key released a: " << event->info.keyInfo.keyCode << std::endl;
             break;
         }
         case (Event::NullEvent):{
             break;
         }
         default:{
-            throw InvalidEventException("Invalid event for ActiveEventHandler");
+            throw InvalidEventException("Invalid event for PauseEventHandler");
         }
     }
 }
