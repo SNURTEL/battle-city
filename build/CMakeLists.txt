@@ -3,7 +3,7 @@ project(PROI_PROJEKT)
 set(CMAKE_CXX_STANDARD 20)
 find_package(Catch2 REQUIRED)
 
-set(CMAKE_BINARY_DIR ../../bin)
+set(CMAKE_BINARY_DIR ../bin)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -54,6 +54,9 @@ set(game_lib_dir ../src/game-lib)
 set(game_lib_sources
         ${game_lib_dir}/Game.cpp
         ${game_lib_dir}/ActiveEventHandler.cpp
+        ${game_lib_dir}/PauseEventHandler.cpp
+        ${game_lib_dir}/MenuEventHandler.cpp
+        ${game_lib_dir}/FinishedEventHandler.cpp
         ${game_lib_dir}/GameState.cpp
         ${game_lib_dir}/KeyboardController.cpp)
 
