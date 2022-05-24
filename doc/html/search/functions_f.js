@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['setactivestate_0',['setActiveState',['../class_game.html#a4587d972f0b730a48c1ada4d9cb3d7e2',1,'Game']]],
   ['setfacing_1',['setFacing',['../class_tank.html#a016ada45dc6d1636830e72371793f807',1,'Tank']]],
   ['setgrid_2',['setGrid',['../class_board.html#a3a18b6cab4a4259da763ceb735b8422b',1,'Board']]],
@@ -17,4 +18,10 @@ var searchData=
   ['snaptanktogrid_14',['snapTankToGrid',['../class_board.html#af333035f40474678447b28f3261768cb',1,'Board']]],
   ['spawntank_15',['spawnTank',['../class_board.html#a6c5b7c849c64fb4740f84312281ce4fc',1,'Board']]],
   ['subscribe_16',['subscribe',['../class_event_subscriber.html#a8071e41bae4c80090d06003824800daf',1,'EventSubscriber::subscribe()'],['../class_simple_subscriber.html#a85dcb8936cce17618dcb28495b19b937',1,'SimpleSubscriber::subscribe()']]]
+=======
+  ['registerevent_333',['registerEvent',['../class_event_queue.html#a53b631d69b1a0acbafde454b67f2a5c7',1,'EventQueue']]],
+  ['removedeletedsubject_334',['removeDeletedSubject',['../class_event_subscriber.html#a409f6722e16e76d696f56aa1153de2a2',1,'EventSubscriber::removeDeletedSubject()'],['../class_simple_subscriber.html#afd95af2dd6e2bac34cb6e6cf54160f60',1,'SimpleSubscriber::removeDeletedSubject()']]],
+  ['removetank_335',['removeTank',['../class_tank_controller.html#a739305f3a3b7f9c4493fdf6418c097ab',1,'TankController']]],
+  ['run_336',['run',['../class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
+>>>>>>> added docs
 ];

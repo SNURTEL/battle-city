@@ -19,7 +19,10 @@ var hierarchy =
     [ "EventHandler< E >", "class_event_handler.html", null ],
     [ "EventHandler< Event >", "class_event_handler.html", [
       [ "PublisherEventHandler", "class_publisher_event_handler.html", [
-        [ "ActiveEventHandler", "class_active_event_handler.html", null ]
+        [ "ActiveEventHandler", "class_active_event_handler.html", null ],
+        [ "FinishedEventHandler", "class_finished_event_handler.html", null ],
+        [ "MenuEventHandler", "class_menu_event_handler.html", null ],
+        [ "PauseEventHandler", "class_pause_event_handler.html", null ]
       ] ]
     ] ],
     [ "EventPublisher", "class_event_publisher.html", [
@@ -28,8 +31,12 @@ var hierarchy =
     [ "EventQueue< E >", "class_event_queue.html", null ],
     [ "EventQueue< Event >", "class_event_queue.html", null ],
     [ "EventSubscriber", "class_event_subscriber.html", null ],
+<<<<<<< HEAD
     [ "std::exception", null, [
       [ "EntityDoesNotExistException", "class_entity_does_not_exist_exception.html", null ],
+=======
+    [ "exception", null, [
+>>>>>>> added docs
       [ "EventConstructionException", "struct_event_construction_exception.html", null ],
       [ "InvalidEventException", "class_invalid_event_exception.html", null ],
       [ "ObserverException", "class_observer_exception.html", null ],
@@ -38,7 +45,10 @@ var hierarchy =
     ] ],
     [ "Game", "class_game.html", null ],
     [ "GameState", "class_game_state.html", [
-      [ "ActiveGameState", "class_active_game_state.html", null ]
+      [ "ActiveGameState", "class_active_game_state.html", null ],
+      [ "FinishedGameState", "class_finished_game_state.html", null ],
+      [ "MenuGameState", "class_menu_game_state.html", null ],
+      [ "PauseGameState", "class_pause_game_state.html", null ]
     ] ],
     [ "Grid", "class_grid.html", null ],
     [ "GridBuilder", "class_grid_builder.html", null ],
@@ -53,7 +63,12 @@ var hierarchy =
       [ "KeyboardController", "class_keyboard_controller.html", null ],
       [ "Tank", "class_tank.html", null ]
     ] ],
+<<<<<<< HEAD
     [ "Event::TileInfo", "struct_event_1_1_tile_info.html", null ],
     [ "TileManager", "class_tile_manager.html", null ],
     [ "queue< std::unique_ptr< Event > >", "classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html", null ]
+=======
+    [ "TankController", "class_tank_controller.html", null ],
+    [ "Event::TankInfo", "struct_event_1_1_tank_info.html", null ]
+>>>>>>> added docs
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['self_5f_0',['self_',['../class_clock.html#aefadbf218778afe5478ed228ca74821c',1,'Clock::self_()'],['../class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47',1,'EventQueue::self_()']]],
   ['setactivestate_1',['setActiveState',['../class_game.html#a4587d972f0b730a48c1ada4d9cb3d7e2',1,'Game']]],
   ['setfacing_2',['setFacing',['../class_tank.html#a016ada45dc6d1636830e72371793f807',1,'Tank']]],
@@ -35,4 +36,12 @@ var searchData=
   ['subscribe_32',['subscribe',['../class_event_subscriber.html#a8071e41bae4c80090d06003824800daf',1,'EventSubscriber::subscribe()'],['../class_simple_subscriber.html#a85dcb8936cce17618dcb28495b19b937',1,'SimpleSubscriber::subscribe()']]],
   ['subscribedsubjects_5f_33',['subscribedSubjects_',['../class_event_subscriber.html#aff26a25676ab655cf961473927f74003',1,'EventSubscriber::subscribedSubjects_()'],['../class_simple_subscriber.html#a4d268f3e6add46ad3d832a0b15a3ca61',1,'SimpleSubscriber::subscribedSubjects_()']]],
   ['subscribers_5f_34',['subscribers_',['../class_simple_publisher.html#ab135300c5d89ab631d464af057ef66f3',1,'SimplePublisher']]]
+=======
+  ['registerevent_128',['registerEvent',['../class_event_queue.html#a53b631d69b1a0acbafde454b67f2a5c7',1,'EventQueue']]],
+  ['released_129',['Released',['../struct_event_1_1_key_event_info.html#a7d9393ce87392d51bff47dce5dd837edae1301734e5fbddce7ae9e76ec734cc96',1,'Event::KeyEventInfo']]],
+  ['removedeletedsubject_130',['removeDeletedSubject',['../class_event_subscriber.html#a409f6722e16e76d696f56aa1153de2a2',1,'EventSubscriber::removeDeletedSubject()'],['../class_simple_subscriber.html#afd95af2dd6e2bac34cb6e6cf54160f60',1,'SimpleSubscriber::removeDeletedSubject()']]],
+  ['removetank_131',['removeTank',['../class_tank_controller.html#a739305f3a3b7f9c4493fdf6418c097ab',1,'TankController']]],
+  ['run_132',['run',['../class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]],
+  ['running_5f_133',['running_',['../class_game.html#a9da12a2d9125bfaa8782a61b69c49f9e',1,'Game']]]
+>>>>>>> added docs
 ];

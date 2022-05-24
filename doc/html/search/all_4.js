@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['east_0',['East',['../_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1a66183dce5a3b8d48fbdfe1f8ede7fcc2',1,'Entity.h']]],
   ['enemy_1',['Enemy',['../class_bullet.html#ab81b1ff6754c7931c5c5af43f352fbc9a79bebbc5f6c0b3a4c6753105c8077194',1,'Bullet']]],
   ['ensureentryexists_2',['ensureEntryExists',['../class_event_subscriber.html#adb04674a26cce9f98771161761fb3f44',1,'EventSubscriber::ensureEntryExists()'],['../class_event_publisher.html#accf099b2ef5c0a2f134e28735bd35c59',1,'EventPublisher::ensureEntryExists()']]],
@@ -51,4 +52,31 @@ var searchData=
   ['eventsubscriber_2ecpp_48',['EventSubscriber.cpp',['../_event_subscriber_8cpp.html',1,'']]],
   ['eventsubscriber_2eh_49',['EventSubscriber.h',['../_event_subscriber_8h.html',1,'']]],
   ['eventtype_50',['EventType',['../class_event.html#aa306292f6e9bf31a622e79dfc54321de',1,'Event']]]
+=======
+  ['east_20',['East',['../_tank_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa66183dce5a3b8d48fbdfe1f8ede7fcc2',1,'Tank.h']]],
+  ['ensureentryexists_21',['ensureEntryExists',['../class_event_publisher.html#accf099b2ef5c0a2f134e28735bd35c59',1,'EventPublisher::ensureEntryExists()'],['../class_event_subscriber.html#adb04674a26cce9f98771161761fb3f44',1,'EventSubscriber::ensureEntryExists()']]],
+  ['event_22',['Event',['../class_event.html',1,'Event'],['../class_event.html#acada8c80e07cef0cc7228145e9367c59',1,'Event::Event(EventType, unsigned int ui1)'],['../class_event.html#acc5f9d382b870fd6ae19370955d563ad',1,'Event::Event(EventType)'],['../class_event.html#a28ff8dcd5ee5c236a5445c3ef33f3359',1,'Event::Event(EventType e, Tank *tank)'],['../class_event.html#aa409fd6a64c9d71f975abb6c85aca183',1,'Event::Event()=delete']]],
+  ['event_2ecpp_23',['Event.cpp',['../_event_8cpp.html',1,'']]],
+  ['event_2eh_24',['Event.h',['../_event_8h.html',1,'']]],
+  ['event_5fsubscribers_5f_25',['event_subscribers_',['../class_event_publisher.html#a738e77e505033234f0f687b0a2d559ed',1,'EventPublisher']]],
+  ['eventconstructionexception_26',['EventConstructionException',['../struct_event_construction_exception.html',1,'']]],
+  ['eventhandler_27',['EventHandler',['../class_event_handler.html',1,'EventHandler&lt; E &gt;'],['../class_event_handler.html#a5f5cf81e3095d31123dea5a76ff74361',1,'EventHandler::EventHandler()']]],
+  ['eventhandler_2ecpp_28',['EventHandler.cpp',['../_event_handler_8cpp.html',1,'']]],
+  ['eventhandler_2eh_29',['EventHandler.h',['../_event_handler_8h.html',1,'']]],
+  ['eventhandler_3c_20event_20_3e_30',['EventHandler&lt; Event &gt;',['../class_event_handler.html',1,'']]],
+  ['eventhandler_5f_31',['eventHandler_',['../class_game_state.html#af01995afceb7c309c856622d94053bd7',1,'GameState']]],
+  ['eventpublisher_32',['EventPublisher',['../class_event_publisher.html',1,'EventPublisher'],['../class_event_publisher.html#afd7ed7944bb701ea33d504b0aab61cac',1,'EventPublisher::EventPublisher()']]],
+  ['eventpublisher_2ecpp_33',['EventPublisher.cpp',['../_event_publisher_8cpp.html',1,'']]],
+  ['eventpublisher_2eh_34',['EventPublisher.h',['../_event_publisher_8h.html',1,'']]],
+  ['eventqueue_35',['EventQueue',['../class_event_queue.html',1,'EventQueue&lt; E &gt;'],['../class_event_queue.html#acb24ae8194eef59f577deea6e4bc02e4',1,'EventQueue::EventQueue(EventQueue &amp;)=delete'],['../class_event_queue.html#a2cd683a45db8669da2dce14125b8d9ac',1,'EventQueue::EventQueue()=default']]],
+  ['eventqueue_2ecpp_36',['EventQueue.cpp',['../_event_queue_8cpp.html',1,'']]],
+  ['eventqueue_2eh_37',['EventQueue.h',['../_event_queue_8h.html',1,'']]],
+  ['eventqueue_3c_20event_20_3e_38',['EventQueue&lt; Event &gt;',['../class_event_queue.html',1,'']]],
+  ['eventqueue_5f_39',['eventQueue_',['../class_game.html#adf5cb414245c87871f2a0f0b2cd87129',1,'Game::eventQueue_()'],['../class_keyboard_controller.html#a10b7e6e03d06955bb214e9c3b747e11f',1,'KeyboardController::eventQueue_()'],['../class_tank_controller.html#a5a8415a78a290b366c6813eb57961a97',1,'TankController::eventQueue_()']]],
+  ['events_5f_40',['events_',['../class_event_queue.html#a83a749137b64d37e19193532967c64d2',1,'EventQueue']]],
+  ['eventsubscriber_41',['EventSubscriber',['../class_event_subscriber.html',1,'EventSubscriber'],['../class_event_subscriber.html#a92a8ae0afb62246e1c5f573fa2b0a43a',1,'EventSubscriber::EventSubscriber()']]],
+  ['eventsubscriber_2ecpp_42',['EventSubscriber.cpp',['../_event_subscriber_8cpp.html',1,'']]],
+  ['eventsubscriber_2eh_43',['EventSubscriber.h',['../_event_subscriber_8h.html',1,'']]],
+  ['eventtype_44',['EventType',['../class_event.html#aa306292f6e9bf31a622e79dfc54321de',1,'Event']]]
+>>>>>>> added docs
 ];

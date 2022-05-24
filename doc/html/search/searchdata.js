@@ -1,5 +1,6 @@
 var indexSectionsWithContent =
 {
+<<<<<<< HEAD
   0: "abcdefghiklmnoprstuvwxy~",
   1: "abcefgiklopst",
   2: "abcegkost",
@@ -7,6 +8,15 @@ var indexSectionsWithContent =
   4: "abcefgiklmpstwxy",
   5: "bdekt",
   6: "abefklnprstw"
+=======
+  0: "abcdefghiklmnopqrstuwxy~",
+  1: "abcefgikmopst",
+  2: "acefgkmopst",
+  3: "abcdefghikmnopqrstuw~",
+  4: "abcefgiklmprstwxy",
+  5: "dekt",
+  6: "abefknprstw"
+>>>>>>> added docs
 };
 
 var indexSectionNames =
