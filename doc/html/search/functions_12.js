@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['what_0',['what',['../struct_event_construction_exception.html#a21beb0ea2cdb5053549bf0dff5d66add',1,'EventConstructionException::what()'],['../class_invalid_event_exception.html#acf3851766157cb9f6490e409d755909f',1,'InvalidEventException::what()'],['../class_observer_exception.html#abc6401c47ef7af3e488779117444d179',1,'ObserverException::what()'],['../class_singleton_not_initialized_exception.html#aa3184c9ee95d0cdf422faaa4a111ad51',1,'SingletonNotInitializedException::what()'],['../class_tank_overlap_exception.html#aeb8dd094c3adb721ab528ff21d0f5681',1,'TankOverlapException::what()'],['../class_tank_does_not_exist_exception.html#a90d2a0e17e8138ffc5d108ce7d3305e5',1,'TankDoesNotExistException::what()']]]
+  ['unsubscribe_352',['unsubscribe',['../class_event_subscriber.html#adae9004de4b07cbd0e2aafa489f57b81',1,'EventSubscriber::unsubscribe()'],['../class_simple_subscriber.html#a54f48edd65af3b061be2054bcb96a5b3',1,'SimpleSubscriber::unsubscribe()']]]
 ];

@@ -1,22 +1,9 @@
 var searchData=
 [
-  ['self_5f_0',['self_',['../class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47',1,'EventQueue::self_()'],['../class_clock.html#aefadbf218778afe5478ed228ca74821c',1,'Clock::self_()']]],
-  ['setactivestate_1',['setActiveState',['../class_game.html#a4587d972f0b730a48c1ada4d9cb3d7e2',1,'Game']]],
-  ['setup_2',['setup',['../class_game.html#ae4618ba40eabbbe65e35f1bb239aa29b',1,'Game']]],
-  ['simplepublisher_3',['SimplePublisher',['../class_simple_publisher.html',1,'SimplePublisher'],['../class_simple_publisher.html#abde73531634957973fd7587f80482276',1,'SimplePublisher::SimplePublisher()']]],
-  ['simplepublisher_2ecpp_4',['SimplePublisher.cpp',['../_simple_publisher_8cpp.html',1,'']]],
-  ['simplepublisher_2eh_5',['SimplePublisher.h',['../_simple_publisher_8h.html',1,'']]],
-  ['simplesubscriber_6',['SimpleSubscriber',['../class_simple_subscriber.html',1,'SimpleSubscriber'],['../class_simple_subscriber.html#adb3f75c1f79529979b8448b8897e138f',1,'SimpleSubscriber::SimpleSubscriber()']]],
-  ['simplesubscriber_2ecpp_7',['SimpleSubscriber.cpp',['../_simple_subscriber_8cpp.html',1,'']]],
-  ['simplesubscriber_2eh_8',['SimpleSubscriber.h',['../_simple_subscriber_8h.html',1,'']]],
-  ['singletonexceptions_2ecpp_9',['SingletonExceptions.cpp',['../_singleton_exceptions_8cpp.html',1,'']]],
-  ['singletonexceptions_2eh_10',['SingletonExceptions.h',['../_singleton_exceptions_8h.html',1,'']]],
-  ['singletonnotinitializedexception_11',['SingletonNotInitializedException',['../class_singleton_not_initialized_exception.html',1,'']]],
-  ['sleep_12',['sleep',['../class_clock.html#aceb0567e0266267f0a4bc2e51545777d',1,'Clock']]],
-  ['south_13',['South',['../_tank_8h.html#a224b9163917ac32fc95a60d8c1eec3aaac15660611b40cfc69e36003c8607311a',1,'Tank.h']]],
-  ['spawntank_14',['spawnTank',['../class_tank_controller.html#ac92ffaafc39d0a70a2e0fd657ed483d7',1,'TankController']]],
-  ['state_5f_15',['state_',['../class_game.html#a1f5994676777b79e8370b185d8d314d8',1,'Game']]],
-  ['subscribe_16',['subscribe',['../class_event_subscriber.html#a8071e41bae4c80090d06003824800daf',1,'EventSubscriber::subscribe()'],['../class_simple_subscriber.html#a85dcb8936cce17618dcb28495b19b937',1,'SimpleSubscriber::subscribe()']]],
-  ['subscribedsubjects_5f_17',['subscribedSubjects_',['../class_event_subscriber.html#aff26a25676ab655cf961473927f74003',1,'EventSubscriber::subscribedSubjects_()'],['../class_simple_subscriber.html#a4d268f3e6add46ad3d832a0b15a3ca61',1,'SimpleSubscriber::subscribedSubjects_()']]],
-  ['subscribers_5f_18',['subscribers_',['../class_simple_publisher.html#ab135300c5d89ab631d464af057ef66f3',1,'SimplePublisher']]]
+  ['registerevent_128',['registerEvent',['../class_event_queue.html#a53b631d69b1a0acbafde454b67f2a5c7',1,'EventQueue']]],
+  ['released_129',['Released',['../struct_event_1_1_key_event_info.html#a7d9393ce87392d51bff47dce5dd837edae1301734e5fbddce7ae9e76ec734cc96',1,'Event::KeyEventInfo']]],
+  ['removedeletedsubject_130',['removeDeletedSubject',['../class_event_subscriber.html#a409f6722e16e76d696f56aa1153de2a2',1,'EventSubscriber::removeDeletedSubject()'],['../class_simple_subscriber.html#afd95af2dd6e2bac34cb6e6cf54160f60',1,'SimpleSubscriber::removeDeletedSubject()']]],
+  ['removetank_131',['removeTank',['../class_tank_controller.html#a739305f3a3b7f9c4493fdf6418c097ab',1,'TankController']]],
+  ['run_132',['run',['../class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]],
+  ['running_5f_133',['running_',['../class_game.html#a9da12a2d9125bfaa8782a61b69c49f9e',1,'Game']]]
 ];

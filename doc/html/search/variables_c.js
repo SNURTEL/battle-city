@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['what_5fmessage_0',['what_message',['../class_invalid_event_exception.html#a2ed4831fb010b1437be55e3dd0eb3c61',1,'InvalidEventException::what_message()'],['../class_observer_exception.html#a3f569a12194315b6e2039efe44938e8c',1,'ObserverException::what_message()'],['../class_tank_overlap_exception.html#aca1ccec764550a827d70b152a61d93cd',1,'TankOverlapException::what_message()']]],
-  ['window_5f_1',['window_',['../class_game.html#a0fbe0254a5671d7d7c5c0df01758a1bc',1,'Game::window_()'],['../class_keyboard_controller.html#a6348f5ce48982fa6b9b6caef149bf78a',1,'KeyboardController::window_()']]]
+  ['self_5f_384',['self_',['../class_clock.html#aefadbf218778afe5478ed228ca74821c',1,'Clock::self_()'],['../class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47',1,'EventQueue::self_()']]],
+  ['state_5f_385',['state_',['../class_game.html#a1f5994676777b79e8370b185d8d314d8',1,'Game']]],
+  ['subscribedsubjects_5f_386',['subscribedSubjects_',['../class_event_subscriber.html#aff26a25676ab655cf961473927f74003',1,'EventSubscriber::subscribedSubjects_()'],['../class_simple_subscriber.html#a4d268f3e6add46ad3d832a0b15a3ca61',1,'SimpleSubscriber::subscribedSubjects_()']]],
+  ['subscribers_5f_387',['subscribers_',['../class_simple_publisher.html#ab135300c5d89ab631d464af057ef66f3',1,'SimplePublisher']]]
 ];

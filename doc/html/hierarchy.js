@@ -4,7 +4,10 @@ var hierarchy =
     [ "EventHandler< E >", "class_event_handler.html", null ],
     [ "EventHandler< Event >", "class_event_handler.html", [
       [ "PublisherEventHandler", "class_publisher_event_handler.html", [
-        [ "ActiveEventHandler", "class_active_event_handler.html", null ]
+        [ "ActiveEventHandler", "class_active_event_handler.html", null ],
+        [ "FinishedEventHandler", "class_finished_event_handler.html", null ],
+        [ "MenuEventHandler", "class_menu_event_handler.html", null ],
+        [ "PauseEventHandler", "class_pause_event_handler.html", null ]
       ] ]
     ] ],
     [ "EventPublisher", "class_event_publisher.html", [
@@ -13,7 +16,7 @@ var hierarchy =
     [ "EventQueue< E >", "class_event_queue.html", null ],
     [ "EventQueue< Event >", "class_event_queue.html", null ],
     [ "EventSubscriber", "class_event_subscriber.html", null ],
-    [ "std::exception", null, [
+    [ "exception", null, [
       [ "EventConstructionException", "struct_event_construction_exception.html", null ],
       [ "InvalidEventException", "class_invalid_event_exception.html", null ],
       [ "ObserverException", "class_observer_exception.html", null ],
@@ -23,7 +26,10 @@ var hierarchy =
     ] ],
     [ "Game", "class_game.html", null ],
     [ "GameState", "class_game_state.html", [
-      [ "ActiveGameState", "class_active_game_state.html", null ]
+      [ "ActiveGameState", "class_active_game_state.html", null ],
+      [ "FinishedGameState", "class_finished_game_state.html", null ],
+      [ "MenuGameState", "class_menu_game_state.html", null ],
+      [ "PauseGameState", "class_pause_game_state.html", null ]
     ] ],
     [ "Event::info_u", "union_event_1_1info__u.html", null ],
     [ "Event::KeyEventInfo", "struct_event_1_1_key_event_info.html", null ],
@@ -41,6 +47,5 @@ var hierarchy =
       [ "PowerTank", "class_power_tank.html", null ]
     ] ],
     [ "TankController", "class_tank_controller.html", null ],
-    [ "Event::TankInfo", "struct_event_1_1_tank_info.html", null ],
-    [ "queue< std::unique_ptr< Event > >", "classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html", null ]
+    [ "Event::TankInfo", "struct_event_1_1_tank_info.html", null ]
 ];
