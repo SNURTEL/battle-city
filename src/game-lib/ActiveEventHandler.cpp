@@ -10,8 +10,9 @@
 #include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
 
-ActiveEventHandler::ActiveEventHandler(Game *game) {
+ActiveEventHandler::ActiveEventHandler(Game *game, ActiveGameState* state) {
     game_ = game;
+    state_ = state;
 }
 
 void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {

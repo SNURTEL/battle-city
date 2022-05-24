@@ -13,13 +13,13 @@ PublisherEventHandler *GameState::getEventHandler() {
 }
 
 ActiveGameState::ActiveGameState(Game* game) {
-    eventHandler_ = std::make_unique<ActiveEventHandler>(game);
+    eventHandler_ = std::make_unique<ActiveEventHandler>(game, this);
 }
 PauseGameState::PauseGameState(Game* game) {
-    eventHandler_ = std::make_unique<PauseEventHandler>(game);
+    eventHandler_ = std::make_unique<PauseEventHandler>(game, this);
 }
 MenuGameState::MenuGameState(Game* game) {
-    eventHandler_ = std::make_unique<MenuEventHandler>(game);
+    eventHandler_ = std::make_unique<MenuEventHandler>(game, this);
 }
 void MenuGameState::set_position(unsigned int new_pos) {
     position_ = new_pos;
@@ -28,5 +28,5 @@ unsigned int MenuGameState::get_position() {
     return position_;
 }
 FinishedGameState::FinishedGameState(Game* game) {
-    eventHandler_ = std::make_unique<FinishedEventHandler>(game);
+    eventHandler_ = std::make_unique<FinishedEventHandler>(game, this);
 }

@@ -13,6 +13,8 @@ class Event;
 
 class Game;
 
+class FinishedGameState;
+
 /**
  * Event handler for Finished game state. Operates on Event class events
  */
@@ -24,7 +26,7 @@ public:
      * Inits class FinishedEventHandler.
      * @param game
      */
-    explicit FinishedEventHandler(Game* game);
+    FinishedEventHandler(Game* game, FinishedGameState* state);
 
     /**
      * Responds to event
@@ -34,6 +36,7 @@ public:
 
 private:
     Game* game_;
+    FinishedGameState* state_;
 };
 
 

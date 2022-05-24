@@ -31,9 +31,6 @@ public:
      */
     PublisherEventHandler* getEventHandler();
 
-    virtual void set_position(unsigned int) {}
-    virtual unsigned int get_position() {return 0;}
-
 protected:
     GameState()=default;
     std::unique_ptr<PublisherEventHandler> eventHandler_;

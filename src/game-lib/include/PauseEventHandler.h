@@ -8,10 +8,13 @@
 #include <memory>
 
 #include "../../core-lib/include/EventHandler.h"
+#include "GameState.h"
 
 class Event;
 
 class Game;
+
+class PauseGameState;
 
 /**
  * Event handler for Pause game state. Operates on Event class events
@@ -24,7 +27,7 @@ public:
      * Inits class PauseEventHandler.
      * @param game
      */
-    explicit PauseEventHandler(Game* game);
+    PauseEventHandler(Game* game, PauseGameState* state);
 
     /**
      * Responds to event
@@ -34,6 +37,7 @@ public:
 
 private:
     Game* game_;
+    PauseGameState* state_;
 };
 
 
