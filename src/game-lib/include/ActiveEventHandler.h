@@ -13,6 +13,8 @@ class Event;
 
 class Game;
 
+class ActiveGameState;
+
 /**
  * Event handler for active game state. Operates on Event class events
  */
@@ -24,7 +26,7 @@ public:
      * Inits class ActiveEventHandler.
      * @param game
      */
-    explicit ActiveEventHandler(Game* game);
+    ActiveEventHandler(Game* game, ActiveGameState* state);
 
     /**
      * Responds to event
@@ -34,6 +36,7 @@ public:
 
 private:
     Game* game_;
+    ActiveGameState* state_;
 };
 
 

@@ -10,8 +10,9 @@
 #include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
 
-PauseEventHandler::PauseEventHandler(Game *game) {
+PauseEventHandler::PauseEventHandler(Game *game, PauseGameState* state) {
     game_ = game;
+    state_ = state;
 }
 
 void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {

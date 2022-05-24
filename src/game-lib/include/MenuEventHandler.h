@@ -8,10 +8,13 @@
 #include <memory>
 
 #include "../../core-lib/include/EventHandler.h"
+#include "GameState.h"
 
 class Event;
 
 class Game;
+
+class MenuGameState;
 
 /**
  * Event handler for Menu game state. Operates on Event class events
@@ -24,7 +27,7 @@ public:
      * Inits class MenuEventHandler.
      * @param game
      */
-    explicit MenuEventHandler(Game* game);
+    MenuEventHandler(Game* game, MenuGameState* state);
 
     /**
      * Responds to event
@@ -34,6 +37,7 @@ public:
 
 private:
     Game* game_;
+    MenuGameState* state_;
 };
 
 
