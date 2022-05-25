@@ -2,8 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-#include "FrameView.h"
-// #include "../tank-lib/include/Tank.h"
+#include "Window.h"
+#include <queue>
 
 #ifndef PROI_PROJEKT_BOARDVIEW_H
 #define PROI_PROJEKT_BOARDVIEW_H
@@ -13,7 +13,7 @@
 class Bullet;
 
 /**
- * \brief Class responsible for board updates and render
+ * @brief Class responsible for board updates and render
  *
  * Renders the board and all objects connected to it tanks, tiles, bulltes.
  * Using the SFML View
@@ -23,31 +23,27 @@ class BoardView
 private:
     sf::View view;
     sf::RenderWindow* window;
-    // TileType* grid[52][52];
 
-    // std::vector<RenderObject>
-    // std::vector<Bullet>* bullets;
+    /// @brief Maps texture types to actual paths to textures
+    std::map<TextureType, std::string> textureMap;
+
+    /// @brief Queue that stores vocotrs of elements to be rendered in apropriate order
+    std::queue<std::vector<RenderObject>> renderQueue;
+
 public:
-    /// \brief Renders tanks on the screen
-    void renderTanks();
+    /// @brief Renders all objects on the screen
+    void renderTexturesQueue();
 
-    /// \brief Renders tiles on the screen
-    void renderTiles();
-
-    /// \brief Renders bullets on the screen
-    void renderBullets();
 
     /**
      * @brief Construct a new Board View object
      *
-     * @param window
-     * @param grid
-     * @param tanks
-     * @param bullets
-     *
      * Positions the view in the window.
+     *
+     * @param window
+     * @param renderQueue
      */
-    BoardView(sf::RenderWindow window, TileType* grid[52][52], std::vector<Tank>* tanks /*, std::vector<Bullet>* bullets*/);
+    BoardView(sf::RenderWindow* window, const sf::FloatRect& boardView, std::queue<std::vector<RenderObject>> renderQueue);
 };
 
 #endif //PROI_PROJEKT_BOARDVIEW_H
