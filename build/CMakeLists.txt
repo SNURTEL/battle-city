@@ -114,12 +114,12 @@ set(graphic_lib_dir ../src/graphic-lib)
 #         )
 
 # add_library(tank-lib ${tank_lib_sources})
-target_link_libraries(graphic-lib PRIVATE game-lib)
+# target_link_libraries(graphic-lib PRIVATE game-lib tank-lib)
 
-set(grap_lib_test_dir ../src/graphic-lib/test)
-set(graphic_lib_test_source
-        ${grapchic_lib_test_dir}/test_tank.cpp
-        ${graphic_lib_test_dir}/test_tankController.cpp)
+# set(grap_lib_test_dir ../src/graphic-lib/test)
+# set(graphic_lib_test_source
+#         ${graphic_lib_test_dir}/test_tank.cpp
+#         ${graphic_lib_test_dir}/test_tankController.cpp)
 
 # add_executable(test_graphic_lib ${graphic_lib_test_sources})
 # target_link_libraries(test_graphic_lib PRIVATE graphic-lib Catch2::Catch2WithMain)
