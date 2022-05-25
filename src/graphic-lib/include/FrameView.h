@@ -22,7 +22,7 @@ class FrameView
 {
 private:
     // Tank* playerTank; How will we implement this?
-
+    sf::RenderWindow* window;
 public:
 
     /// \brief Renders bare frame made from sf::Ractangle shape around the board

@@ -15,6 +15,8 @@ class GameState;
 class Bullet;
 class Grid;
 
+class BoardView;
+class FrameView;
 
 /**
  * @brief Contains main SFML functions
