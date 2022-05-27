@@ -4,6 +4,7 @@ var annotated_dup =
     [ "ActiveGameState", "class_active_game_state.html", "class_active_game_state" ],
     [ "ArmorTank", "class_armor_tank.html", "class_armor_tank" ],
     [ "BasicTank", "class_basic_tank.html", "class_basic_tank" ],
+    [ "Board", "class_board.html", "class_board" ],
     [ "Clock", "class_clock.html", "class_clock" ],
     [ "Event", "class_event.html", "class_event" ],
     [ "EventConstructionException", "struct_event_construction_exception.html", "struct_event_construction_exception" ],
@@ -14,9 +15,12 @@ var annotated_dup =
     [ "FastTank", "class_fast_tank.html", "class_fast_tank" ],
     [ "Game", "class_game.html", "class_game" ],
     [ "GameState", "class_game_state.html", "class_game_state" ],
+    [ "Grid", "class_grid.html", "class_grid" ],
+    [ "GridBuilder", "class_grid_builder.html", "class_grid_builder" ],
     [ "InvalidEventException", "class_invalid_event_exception.html", "class_invalid_event_exception" ],
     [ "KeyboardController", "class_keyboard_controller.html", "class_keyboard_controller" ],
     [ "ObserverException", "class_observer_exception.html", "class_observer_exception" ],
+    [ "OutOfMapException", "class_out_of_map_exception.html", "class_out_of_map_exception" ],
     [ "PlayerTank", "class_player_tank.html", "class_player_tank" ],
     [ "PowerTank", "class_power_tank.html", "class_power_tank" ],
     [ "PublisherEventHandler", "class_publisher_event_handler.html", "class_publisher_event_handler" ],
@@ -26,5 +30,6 @@ var annotated_dup =
     [ "Tank", "class_tank.html", "class_tank" ],
     [ "TankController", "class_tank_controller.html", "class_tank_controller" ],
     [ "TankDoesNotExistException", "class_tank_does_not_exist_exception.html", "class_tank_does_not_exist_exception" ],
-    [ "TankOverlapException", "class_tank_overlap_exception.html", "class_tank_overlap_exception" ]
+    [ "TankOverlapException", "class_tank_overlap_exception.html", "class_tank_overlap_exception" ],
+    [ "TileManager", "class_tile_manager.html", "class_tile_manager" ]
 ];

@@ -9,7 +9,7 @@
  * Represents a direction in which a Tank (or a bullet) can be pointed at
  * Assume positive x is East, positive y in South
  */
-enum Direction {
+enum Direction: unsigned int{
     North = 0,
     West,
     South,
@@ -39,17 +39,28 @@ public:
         ArmorTank
     };
 
-    /**
-     * Move tank in x-axis and set adequate facing direction. Will not go below 0.
-     * @param delta_x Distance to move
-     */
-    void moveX(int delta_x);
+//    /**
+//     * Move tank in x-axis and set adequate facing direction. Will not go below 0.
+//     * @param delta_x Distance to move
+//     */
+//    void moveX(int delta_x);
+//
+//    /**
+//     * Move tank in y-axis and set adequate facing direction. Will not go below 0.
+//     * @param delta_t Distance to move
+//     */
+//    void moveY(int delta_y);
 
     /**
-     * Move tank in y-axis and set adequate facing direction. Will not go below 0.
-     * @param delta_t Distance to move
+     * Changes the direction in which the tank is faced
+     * @param direction
      */
-    void moveY(int delta_y);
+    void setFacing(Direction direction);
+
+    /**
+     * Moves the tank by it's tick movement distance (speed) if the moving_ flag is set; otherwise, returns immediately
+     */
+    void move();
 
     /**
      * Modify the number of lives by delta_l. Will not go below 0.
@@ -67,13 +78,13 @@ public:
      * Returns tank's x coord
      * @return
      */
-    [[nodiscard]] unsigned int getX() const;
+    [[nodiscard]] float getX() const;
 
     /**
      * Returns tank's y coord
      * @return
      */
-    [[nodiscard]] unsigned int getY() const;
+    [[nodiscard]] float getY() const;
 
     /**
      * Return;s tank's remaining lives (0 is killed)
@@ -85,13 +96,25 @@ public:
      * Returns tank's speed
      * @return
      */
-    [[nodiscard]] double getTankSpeed() const;
+    [[nodiscard]] float getTankSpeed() const;
+
+    /**
+     * Sets tank's moving_ flag
+     * @param isMoving
+     */
+    [[nodiscard]] void setMoving(bool isMoving);
+
+    /**
+     * Checks whether the tank is moving
+     * @return
+     */
+    [[nodiscard]] bool isMoving() const;
 
     /**
      * Returns tank's bullet speed
      * @return
      */
-    [[nodiscard]] double getBulletSpeed() const;
+    [[nodiscard]] float getBulletSpeed() const;
 
     /**
      * Returns the direction in which the tank is currently pointed
@@ -105,17 +128,36 @@ public:
      */
     [[nodiscard]] unsigned int getPoints() const;
 
+    /**
+     * Sets tank's X coord
+     * @param x
+     */
+    void setX(float x);
+
+    /**
+     * Sets tank's Y coord
+     * @param y
+     */
+    void setY(float y);
+
+    /**
+     * Moves the tank by a given distance in direction in which it is faced
+     * @param offset
+     */
+    void offsetInCurrentDirection(float offset);
+
 protected:
     Tank()=default;
 
     TankType type_;
 
-    unsigned int x_;
-    unsigned int y_;
+    float x_;
+    float y_;
     unsigned int lives_;
-    double tank_speed_;
-    double bullet_speed_;
+    float tank_speed_;
+    float bullet_speed_;
     Direction facing_;
+    bool moving_;
     unsigned int points_;
 };
 
@@ -132,7 +174,7 @@ public:
      * @param lives Initial number of lives
      * @param facing Initial direction in which the tank is faced (default=North)
      */
-    PlayerTank(unsigned int x, unsigned int y, unsigned int lives, Direction facing=North);
+    PlayerTank(float x, float y, unsigned int lives, Direction facing=North);
 };
 
 /**
@@ -147,7 +189,7 @@ public:
     * @param y Initial y coord
     * @param facing Initial direction in which the tank is faced (default=North)
     */
-    BasicTank(unsigned int x, unsigned int y, Direction facing=North);
+    BasicTank(float x, float y, Direction facing=North);
 };
 
 /**
@@ -162,7 +204,7 @@ public:
     * @param y Initial y coord
     * @param facing Initial direction in which the tank is faced (default=North)
     */
-    FastTank(unsigned int x, unsigned int y, Direction facing=North);
+    FastTank(float x, float y, Direction facing=North);
 };
 
 /**
@@ -177,7 +219,7 @@ public:
     * @param y Initial y coord
     * @param facing Initial direction in which the tank is faced (default=North)
     */
-    PowerTank(unsigned int x, unsigned int y, Direction facing=North);
+    PowerTank(float x, float y, Direction facing=North);
 };
 
 /**
@@ -192,7 +234,7 @@ public:
     * @param y Initial y coord
     * @param facing Initial direction in which the tank is faced (default=North)
     */
-    ArmorTank(unsigned int x, unsigned int y, Direction facing=North);
+    ArmorTank(float x, float y, Direction facing=North);
 };
 
 #endif //PROI_PROJEKT_TANK_H

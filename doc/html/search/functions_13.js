@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['_7eeventpublisher_0',['~EventPublisher',['../class_event_publisher.html#a0874c6432bc5d42bc4c6f2d75dac043d',1,'EventPublisher']]],
-  ['_7eeventsubscriber_1',['~EventSubscriber',['../class_event_subscriber.html#afca9b6edc8aebe5844414d3e2e583d25',1,'EventSubscriber']]],
-  ['_7egamestate_2',['~GameState',['../class_game_state.html#adc1bfdf7ee7c1f48e4841995db4e16c3',1,'GameState']]],
-  ['_7einfo_5fu_3',['~info_u',['../union_event_1_1info__u.html#a5f2e4a39a79d6eade703a55405d70157',1,'Event::info_u']]],
-  ['_7esimplepublisher_4',['~SimplePublisher',['../class_simple_publisher.html#ab3138e8718c14268b5e593b4a25fae7e',1,'SimplePublisher']]],
-  ['_7esimplesubscriber_5',['~SimpleSubscriber',['../class_simple_subscriber.html#adfcf546aeab6be511e41e85cdeca1e3f',1,'SimpleSubscriber']]],
-  ['_7etank_6',['~Tank',['../class_tank.html#a8e6e17e915ff31f21a52c71a69ad5b12',1,'Tank']]]
+  ['what_0',['what',['../class_tank_overlap_exception.html#aeb8dd094c3adb721ab528ff21d0f5681',1,'TankOverlapException::what()'],['../class_out_of_map_exception.html#adb817a82e0e897f4cbe656b500a0ec92',1,'OutOfMapException::what()'],['../struct_event_construction_exception.html#a21beb0ea2cdb5053549bf0dff5d66add',1,'EventConstructionException::what()'],['../class_invalid_event_exception.html#acf3851766157cb9f6490e409d755909f',1,'InvalidEventException::what()'],['../class_observer_exception.html#abc6401c47ef7af3e488779117444d179',1,'ObserverException::what()'],['../class_singleton_not_initialized_exception.html#aa3184c9ee95d0cdf422faaa4a111ad51',1,'SingletonNotInitializedException::what()'],['../class_tank_does_not_exist_exception.html#a90d2a0e17e8138ffc5d108ce7d3305e5',1,'TankDoesNotExistException::what()']]]
 ];

@@ -90,7 +90,10 @@ target_link_libraries(test_tank_lib PRIVATE tank-lib Catch2::Catch2WithMain)
 
 set(board_lib_dir ../src/board-lib)
 set(board_lib_sources
-        ${board_lib_dir}/Grid.cpp ../src/board-lib/TileManager.cpp ../src/board-lib/include/TileManager.h)
+        ${board_lib_dir}/Grid.cpp
+        ${board_lib_dir}/TileManager.cpp
+        ${board_lib_dir}/Board.cpp .
+        ${board_lib_dir}/GridBuilder.cpp)
 
 add_library(board-lib ${board_lib_sources})
 target_link_libraries(board-lib PRIVATE tank-lib game-lib)

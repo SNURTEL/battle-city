@@ -40,6 +40,7 @@ public:
 
     /**
      * Pops the first element in the queue.
+     * Popping from an empty queue will result in undefined behavior
      * @return Event instance wrapped in a std::unique_ptr
      */
     std::unique_ptr<E> pop(){
@@ -56,6 +57,13 @@ public:
     bool isEmpty(){
         return events_.empty();
     };
+
+    /**
+     * Removes all elements from the queue
+     */
+    void clear(){
+        std::queue<std::unique_ptr<E>>().swap(events_);
+    }
 
     /**
      * Provides access to singleton instance

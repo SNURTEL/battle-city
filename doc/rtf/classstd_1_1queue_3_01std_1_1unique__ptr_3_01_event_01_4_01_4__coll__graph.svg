@@ -6,7 +6,7 @@
 <!-- Title: queue&lt; std::unique_ptr&lt; Event &gt; &gt; Pages: 1 -->
 <svg width="120pt" height="77pt"
  viewBox="0.00 0.00 120.00 77.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 73)">
+<g id="graph0" class="graph" transform="scale(1 1) setFacing(0) translate(4 73)">
 <title>queue&lt; std::unique_ptr&lt; Event &gt; &gt;</title>
 <!-- Node1 -->
 <g id="node1" class="node">

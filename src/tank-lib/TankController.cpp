@@ -11,14 +11,6 @@
 #include "../core-lib/include/Event.h"
 
 
-TankOverlapException::TankOverlapException(unsigned int x, unsigned int y) : std::exception() {
-    what_message = "Tank at (" + std::to_string(x) + ", " + std::to_string(y) + ") overlaps with another object";
-}
-
-const char *TankOverlapException::what() {
-    return what_message.c_str();
-}
-
 const char *TankDoesNotExistException::what() {
     return "Trying to access a non-existent tank";
 }
@@ -27,8 +19,8 @@ TankController::TankController() {
     eventQueue_ = EventQueue<Event>::instance();
 }
 
-void TankController::spawnTank(unsigned int x, unsigned int y, Tank::TankType type) {
-    // TODO if overlaps, throw exception
+Tank * TankController::spawnTank(unsigned int x, unsigned int y, Tank::TankType type) {
+    // TODO Check collisions before spawning (in Board class maybe?)
     std::unique_ptr<Tank> newTank;
     switch (type) {
         case Tank::BasicTank: {
@@ -47,26 +39,37 @@ void TankController::spawnTank(unsigned int x, unsigned int y, Tank::TankType ty
             newTank = std::make_unique<ArmorTank>(x, y);
             break;
         }
+        case Tank::PlayerTank: {
+            newTank = std::make_unique<PlayerTank>(x, y, 1);    // TODO set lives
+        }
     }
-    eventQueue_->registerEvent(std::make_unique<Event>(Event::TankSpawned, newTank.get()));
-    tanks_.push_back(std::move(newTank));
+    if (type != Tank::PlayerTank) {
+        tanks_.push_back(std::move(newTank));
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::TankSpawned, tanks_.back().get()));
+        return tanks_.back().get();
+    }else{
+        player_ = std::unique_ptr<PlayerTank>(dynamic_cast<PlayerTank*>(newTank.release()));
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::TankSpawned, player_.get()));
+        return player_.get();
+    }
 }
 
+
 void TankController::hitTank(Tank *target, unsigned int damage) {
-    if(target->getLives() <= damage){
+    if (target->getLives() <= damage) {
         killTank(target);
-    } else{
+    } else {
         target->deltaLives(-static_cast<int>(damage));
         eventQueue_->registerEvent(std::make_unique<Event>(Event::TankHit, target));
     }
 }
 
 void TankController::killTank(Tank *target) {
-    auto const& iter = std::find_if(tanks_.begin(), tanks_.end(), [&target](std::unique_ptr<Tank>& tank) {
+    auto const &iter = std::find_if(tanks_.begin(), tanks_.end(), [&target](std::unique_ptr<Tank> &tank) {
         return tank.get() == target;
     });
 
-    if(iter == tanks_.end()){
+    if (iter == tanks_.end()) {
         throw TankDoesNotExistException();
     }
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankKilled, target));
@@ -75,11 +78,11 @@ void TankController::killTank(Tank *target) {
 }
 
 void TankController::removeTank(Tank *target) {
-    auto const& iter = std::find_if(tanks_.begin(), tanks_.end(), [&target](std::unique_ptr<Tank>& tank) {
+    auto const &iter = std::find_if(tanks_.begin(), tanks_.end(), [&target](std::unique_ptr<Tank> &tank) {
         return tank.get() == target;
     });
 
-    if(iter == tanks_.end()){
+    if (iter == tanks_.end()) {
         throw TankDoesNotExistException();
     }
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankRemoved, target));
@@ -87,36 +90,43 @@ void TankController::removeTank(Tank *target) {
     tanks_.erase(iter);
 }
 
-void TankController::moveTank(Tank * target, Direction direction) {
-    //TODO stop before obstacle if collision
-    switch (direction) {
-        case North:{
-            target->moveY(-1);
-            break;
-        }
-        case West:{
-            target->moveX(-1);
-            break;
-        }
-        case South:{
-            target->moveY(1);
-            break;
-        }
-        case East:
-            target->moveX(1);
-            break;
+void TankController::moveAllTanks() {
+    for(std::unique_ptr<Tank> &target: tanks_){
+        moveTank(target.get());
     }
+    moveTank(player_.get());
+}
+
+void TankController::moveTank(Tank *target) {
+    if (!target->isMoving())
+        return;
+
+    target->move();  // TODO Check collisions before moving (in Board class maybe?)
     eventQueue_->registerEvent(std::make_unique<Event>(Event::TankMoved, target));
 }
 
-std::optional<Tank *> TankController::getTankAtPosition(unsigned int x, unsigned int y) {
-    //assume all tanks are 13x13
-    for(auto& tank: tanks_){
-        if(x >= tank->getX() &&  tank->getX() + 13 > x){   //try as a single expression
-            if(x >= tank->getY() && tank->getY() + 13 > y){
+void TankController::setTankMoving(Tank *target, bool isMoving) {
+    target->setMoving(isMoving);
+}
+
+void TankController::setTankDirection(Tank *target, Direction direction) {
+    target->setFacing(direction);
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::TankRotated, target));
+
+}
+
+std::optional<Tank *> TankController::getTankAtPosition(float x, float y) {
+    //assume all tanks are 2x2
+    for (auto &tank: tanks_) {
+        if (x >= tank->getX() && tank->getX() + 2 > x) {   //try as a single expression
+            if (x >= tank->getY() && tank->getY() + 2 > y) {
                 return tank.get();
             }
         }
     }
     return std::nullopt;
+}
+
+PlayerTank *TankController::getPlayer() {
+    return player_.get();
 }

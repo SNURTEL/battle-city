@@ -1,10 +1,19 @@
 var searchData=
 [
   ['setactivestate_0',['setActiveState',['../class_game.html#a4587d972f0b730a48c1ada4d9cb3d7e2',1,'Game']]],
-  ['setup_1',['setup',['../class_game.html#ae4618ba40eabbbe65e35f1bb239aa29b',1,'Game']]],
-  ['simplepublisher_2',['SimplePublisher',['../class_simple_publisher.html#abde73531634957973fd7587f80482276',1,'SimplePublisher']]],
-  ['simplesubscriber_3',['SimpleSubscriber',['../class_simple_subscriber.html#adb3f75c1f79529979b8448b8897e138f',1,'SimpleSubscriber']]],
-  ['sleep_4',['sleep',['../class_clock.html#aceb0567e0266267f0a4bc2e51545777d',1,'Clock']]],
-  ['spawntank_5',['spawnTank',['../class_tank_controller.html#ac92ffaafc39d0a70a2e0fd657ed483d7',1,'TankController']]],
-  ['subscribe_6',['subscribe',['../class_event_subscriber.html#a8071e41bae4c80090d06003824800daf',1,'EventSubscriber::subscribe()'],['../class_simple_subscriber.html#a85dcb8936cce17618dcb28495b19b937',1,'SimpleSubscriber::subscribe()']]]
+  ['setfacing_1',['setFacing',['../class_tank.html#a016ada45dc6d1636830e72371793f807',1,'Tank']]],
+  ['setgrid_2',['setGrid',['../class_board.html#a3a18b6cab4a4259da763ceb735b8422b',1,'Board']]],
+  ['setmoving_3',['setMoving',['../class_tank.html#a3473b81d1ff3cf86236dc02e9b70c3d9',1,'Tank']]],
+  ['settankdirection_4',['setTankDirection',['../class_board.html#a226ade908cad2b4ccd960dae2206c73c',1,'Board::setTankDirection()'],['../class_tank_controller.html#af56d0a9bd2930b5dc076070f108ea216',1,'TankController::setTankDirection()']]],
+  ['settankmoving_5',['setTankMoving',['../class_board.html#ae10dd719175a6d1a2835553d3c19fc12',1,'Board::setTankMoving()'],['../class_tank_controller.html#a8c0a958c8fc7aa844e0b1fb9b8163cf8',1,'TankController::setTankMoving()']]],
+  ['settile_6',['setTile',['../class_grid.html#a9447d78c7d145216588c367555e05b0c',1,'Grid']]],
+  ['setup_7',['setup',['../class_game.html#ae4618ba40eabbbe65e35f1bb239aa29b',1,'Game']]],
+  ['setx_8',['setX',['../class_tank.html#a6c97cbb42f27b7e284d1564e8a282e88',1,'Tank']]],
+  ['sety_9',['setY',['../class_tank.html#a8a3aea91a3b84eedee7dd3414efac493',1,'Tank']]],
+  ['simplepublisher_10',['SimplePublisher',['../class_simple_publisher.html#abde73531634957973fd7587f80482276',1,'SimplePublisher']]],
+  ['simplesubscriber_11',['SimpleSubscriber',['../class_simple_subscriber.html#adb3f75c1f79529979b8448b8897e138f',1,'SimpleSubscriber']]],
+  ['sleep_12',['sleep',['../class_clock.html#aceb0567e0266267f0a4bc2e51545777d',1,'Clock']]],
+  ['snaptanktogrid_13',['snapTankToGrid',['../class_board.html#ab2c76f38ce1e9adb424c95e43c61d3de',1,'Board']]],
+  ['spawntank_14',['spawnTank',['../class_board.html#a510d6b9cd74edb8237ec2438a8bd681c',1,'Board::spawnTank()'],['../class_tank_controller.html#a2477b2ae0780601ceed2e281e78070b2',1,'TankController::spawnTank()']]],
+  ['subscribe_15',['subscribe',['../class_event_subscriber.html#a8071e41bae4c80090d06003824800daf',1,'EventSubscriber::subscribe()'],['../class_simple_subscriber.html#a85dcb8936cce17618dcb28495b19b937',1,'SimpleSubscriber::subscribe()']]]
 ];

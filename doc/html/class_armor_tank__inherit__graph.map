@@ -1,4 +1,4 @@
 <map id="ArmorTank" name="ArmorTank">
-<area shape="rect" id="node1" title=" " alt="" coords="17,541,188,677"/>
-<area shape="rect" id="node2" href="$class_tank.html" title="Base class for tank representation." alt="" coords="5,5,200,493"/>
+<area shape="rect" id="node1" title=" " alt="" coords="33,644,203,765"/>
+<area shape="rect" id="node2" href="$class_tank.html" title="Base class for tank representation." alt="" coords="5,5,231,596"/>
 </map>

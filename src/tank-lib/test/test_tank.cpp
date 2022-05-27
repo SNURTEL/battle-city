@@ -4,6 +4,8 @@
 #include "catch2/catch_test_macros.hpp"
 #include "catch2/catch_all.hpp"
 
+#include <memory>
+
 #include "../include/Tank.h"
 
 class TestTank : public Tank {
@@ -17,64 +19,60 @@ public:
         tank_speed_ = 1;
         bullet_speed_ = 1;
         points_ = 100;
+
+        moving_ = false;
     };
 };
 
-SCENARIO("Changing move direction") {
+SCENARIO("Moving the tank in the direction it is faced") {
     GIVEN("A test tank") {
-        TestTank tank{};
+        auto testTank = std::make_unique<TestTank>();  // facing north
 
-        WHEN("Moving at positive x and y=0") {
-            tank.moveX(2);
-            THEN("Direction should change to east") {
-                REQUIRE(tank.getFacing() == East);
-            }
-        }WHEN("Moving at negative x and y=0") {
-            tank.moveX(-2);
-            THEN("Direction should change to west") {
-                REQUIRE(tank.getFacing() == West);
-            }
-        }WHEN("Moving at x=0 and positive y") {
-            tank.moveY(2);
-            THEN("Direction should change to south") {
-                REQUIRE(tank.getFacing() == South);
-            }
-        }WHEN("Moving at x=0 and negative y") {
-            tank.moveY(-2);
-            THEN("Direction should change to south") {
-                REQUIRE(tank.getFacing() == North);
-            }
-        }WHEN("Moving tank by 0 in X direction") {
-            tank.moveX(0);
-            THEN("Direction should not change") {
-                REQUIRE(tank.getFacing() == North);
-            }
-        }WHEN("Moving tank by 0 in Y direction") {
-            tank.moveY(0);
-            THEN("Direction should not change") {
-                REQUIRE(tank.getFacing() == North);
-            }
-        }
-    }
-}
+        WHEN("Calling the 'move' method when moving flag is set") {
+            testTank->setMoving(true);
 
-SCENARIO("Trying to move to negative coords") {
-    GIVEN("A test tank") {
-        TestTank tank{};
+            REQUIRE(testTank->getX() == 10);
+            REQUIRE(testTank->getX() == 10);
 
-        WHEN("Trying to move to negative x"){
-            tank.moveX(-20);
+            testTank->move();
 
-            THEN("Tank should stop at x=0"){
-                REQUIRE(tank.getX() == 0);
+            THEN("Tak should move by 1x its speed in a proper direction") {
+                REQUIRE(testTank->getX() == 10);
+                REQUIRE(testTank->getY() == 10-testTank->getTankSpeed());
+
+                AND_WHEN("Moving more than once") {
+                    testTank->move();
+                    testTank->move();
+
+                    THEN("Tank's location should be updated accordingly") {
+                        REQUIRE(testTank->getX() == 10);
+                        REQUIRE(testTank->getY() == 10 - 3*testTank->getTankSpeed());
+                    }
+                }
             }
-        }
+        }WHEN("Rotating a tank and moving it") {
+            testTank->setFacing(East);
+            testTank->setMoving(true);
+            testTank->move();
 
-        WHEN("Trying to move to negative y"){
-            tank.moveY(-20);
+            THEN("The tank should move in a right direction") {
+                REQUIRE(testTank->getX() == 11);
+                REQUIRE(testTank->getY() == 10);
+            }
+        }WHEN("Manually specifying the offset") {
+            testTank->offsetInCurrentDirection(0.7f);
 
-            THEN("Tank should stop at x=0"){
-                REQUIRE(tank.getY() == 0);
+            THEN("Tank should be offset by the given value") {
+                REQUIRE(testTank->getX() == 10);
+                REQUIRE(testTank->getY() == 9.3f);
+            }
+        }WHEN("Moving flag is not set") {
+            testTank->setMoving(false);
+
+            testTank->move();
+            THEN("Tank's location should not be updated") {
+                REQUIRE(testTank->getX() == 10);
+                REQUIRE(testTank->getY() == 10);
             }
         }
     }

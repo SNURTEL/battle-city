@@ -14,3 +14,14 @@
 - [ ] AI czołgów
 - [ ] Zapis i odczyt wyników
 - [ ] Dokumentacja
+
+
+
+### Board-lib
+- [ ] Przepisać ruch czołgów ma oparty na prędkości
+  - [x] Zamienić wszystkie inty na floaty
+- [ ] Zmodyfikować tank controller aby operował prędkością
+- [ ] Snapowanie przy obrocie
+- [ ] Dostosować testy
+- [ ] Fasada Board
+  - [ ] Wykrywanie kolizji

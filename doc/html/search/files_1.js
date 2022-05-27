@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['clock_2ecpp_0',['Clock.cpp',['../_clock_8cpp.html',1,'']]],
-  ['clock_2eh_1',['Clock.h',['../_clock_8h.html',1,'']]]
+  ['board_2ecpp_0',['Board.cpp',['../_board_8cpp.html',1,'']]],
+  ['board_2eh_1',['Board.h',['../_board_8h.html',1,'']]]
 ];

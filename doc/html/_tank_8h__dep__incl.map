@@ -1,6 +1,8 @@
 <map id="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/tank&#45;lib/include/Tank.h" name="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/tank&#45;lib/include/Tank.h">
-<area shape="rect" id="node1" title=" " alt="" coords="127,5,328,61"/>
-<area shape="rect" id="node2" href="$_tank_8cpp.html" title=" " alt="" coords="5,109,207,165"/>
-<area shape="rect" id="node3" href="$_tank_controller_8h.html" title=" " alt="" coords="231,109,467,165"/>
-<area shape="rect" id="node4" href="$_tank_controller_8cpp.html" title=" " alt="" coords="248,213,449,269"/>
+<area shape="rect" id="node1" title=" " alt="" coords="231,5,432,61"/>
+<area shape="rect" id="node2" href="$_board_8h.html" title=" " alt="" coords="5,109,207,165"/>
+<area shape="rect" id="node4" href="$_tank_8cpp.html" title=" " alt="" coords="231,109,432,165"/>
+<area shape="rect" id="node5" href="$_tank_controller_8h.html" title=" " alt="" coords="456,109,692,165"/>
+<area shape="rect" id="node3" href="$_board_8cpp.html" title=" " alt="" coords="127,213,328,269"/>
+<area shape="rect" id="node6" href="$_tank_controller_8cpp.html" title=" " alt="" coords="473,213,675,269"/>
 </map>

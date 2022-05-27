@@ -401,31 +401,32 @@
 <g id="node17" class="node">
 <title>Node17</title>
 <g id="a_node17"><a xlink:href="$class_event_queue.html" xlink:title=" ">
-<polygon fill="none" stroke="black" points="492,-386.5 492,-575.5 642,-575.5 642,-386.5 492,-386.5"/>
-<text text-anchor="middle" x="567" y="-563.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; Event &gt;</text>
-<polyline fill="none" stroke="black" points="492,-556.5 642,-556.5 "/>
-<text text-anchor="middle" x="567" y="-544.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="492,-537.5 642,-537.5 "/>
-<text text-anchor="start" x="500" y="-525.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ EventQueue(EventQueue</text>
-<text text-anchor="start" x="500" y="-514.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;)=delete</text>
-<text text-anchor="start" x="500" y="-503.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator=(const</text>
-<text text-anchor="start" x="500" y="-492.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventQueue &amp;)=delete</text>
-<text text-anchor="start" x="500" y="-481.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void registerEvent</text>
-<text text-anchor="start" x="500" y="-470.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; Event</text>
-<text text-anchor="start" x="500" y="-459.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)</text>
-<text text-anchor="start" x="500" y="-448.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ std::unique_ptr&lt; Event</text>
-<text text-anchor="start" x="500" y="-437.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; pop()</text>
-<text text-anchor="start" x="500" y="-426.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool isEmpty()</text>
-<text text-anchor="start" x="500" y="-415.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ static EventQueue *</text>
-<text text-anchor="start" x="500" y="-404.5" font-family="Helvetica,sans-Serif" font-size="10.00"> instance()</text>
-<text text-anchor="start" x="500" y="-393.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; EventQueue()=default</text>
+<polygon fill="none" stroke="black" points="492,-381 492,-581 642,-581 642,-381 492,-381"/>
+<text text-anchor="middle" x="567" y="-569" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; Event &gt;</text>
+<polyline fill="none" stroke="black" points="492,-562 642,-562 "/>
+<text text-anchor="middle" x="567" y="-550" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="492,-543 642,-543 "/>
+<text text-anchor="start" x="500" y="-531" font-family="Helvetica,sans-Serif" font-size="10.00">+ EventQueue(EventQueue</text>
+<text text-anchor="start" x="500" y="-520" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;)=delete</text>
+<text text-anchor="start" x="500" y="-509" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator=(const</text>
+<text text-anchor="start" x="500" y="-498" font-family="Helvetica,sans-Serif" font-size="10.00"> EventQueue &amp;)=delete</text>
+<text text-anchor="start" x="500" y="-487" font-family="Helvetica,sans-Serif" font-size="10.00">+ void registerEvent</text>
+<text text-anchor="start" x="500" y="-476" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; Event</text>
+<text text-anchor="start" x="500" y="-465" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)</text>
+<text text-anchor="start" x="500" y="-454" font-family="Helvetica,sans-Serif" font-size="10.00">+ std::unique_ptr&lt; Event</text>
+<text text-anchor="start" x="500" y="-443" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; pop()</text>
+<text text-anchor="start" x="500" y="-432" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool isEmpty()</text>
+<text text-anchor="start" x="500" y="-421" font-family="Helvetica,sans-Serif" font-size="10.00">+ void clear()</text>
+<text text-anchor="start" x="500" y="-410" font-family="Helvetica,sans-Serif" font-size="10.00">+ static EventQueue *</text>
+<text text-anchor="start" x="500" y="-399" font-family="Helvetica,sans-Serif" font-size="10.00"> instance()</text>
+<text text-anchor="start" x="500" y="-388" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; EventQueue()=default</text>
 </a>
 </g>
 </g>
 <!-- Node17&#45;&gt;Node7 -->
 <g id="edge17" class="edge">
 <title>Node17&#45;&gt;Node7</title>
-<path fill="none" stroke="#404040" d="M621.4,-386.44C630.45,-374.46 640.39,-362.94 651,-353 682.45,-323.56 722.9,-298.72 759.11,-279.85"/>
+<path fill="none" stroke="#404040" d="M625.66,-380.93C633.54,-370.94 642.03,-361.4 651,-353 682.45,-323.56 722.9,-298.72 759.11,-279.85"/>
 <polygon fill="none" stroke="#404040" points="759.51,-279.65 763.04,-273.36 770.2,-274.19 766.67,-280.48 759.51,-279.65"/>
 <text text-anchor="middle" x="721" y="-327" font-family="Helvetica,sans-Serif" font-size="10.00"> &#45;eventQueue_</text>
 </g>
@@ -446,8 +447,8 @@
 <!-- Node18&#45;&gt;Node17 -->
 <g id="edge18" class="edge">
 <title>Node18&#45;&gt;Node17</title>
-<path fill="none" stroke="#404040" d="M601.26,-722.24C596.49,-688.84 588.9,-635.6 582.08,-587.72"/>
-<polygon fill="none" stroke="#404040" points="582.05,-587.56 577.25,-582.19 580.36,-575.68 585.17,-581.06 582.05,-587.56"/>
+<path fill="none" stroke="#404040" d="M601.26,-722.24C596.67,-690.09 589.47,-639.56 582.84,-593.12"/>
+<polygon fill="none" stroke="#404040" points="582.83,-592.98 578.02,-587.6 581.13,-581.1 585.94,-586.47 582.83,-592.98"/>
 <text text-anchor="middle" x="614" y="-630" font-family="Helvetica,sans-Serif" font-size="10.00"> #events_</text>
 </g>
 <!-- Node19 -->
@@ -466,32 +467,33 @@
 <!-- Node19&#45;&gt;Node17 -->
 <g id="edge19" class="edge">
 <title>Node19&#45;&gt;Node17</title>
-<path fill="none" stroke="#404040" d="M659.87,-909.71C673.07,-858.49 695.9,-746.18 671,-656 666.73,-640.52 652.27,-613.95 635.45,-586.17"/>
-<polygon fill="none" stroke="#404040" points="635.43,-586.13 628.88,-583.11 629.16,-575.9 635.7,-578.93 635.43,-586.13"/>
+<path fill="none" stroke="#404040" d="M659.87,-909.71C673.07,-858.49 695.9,-746.18 671,-656 667.01,-641.55 654.16,-617.45 638.79,-591.72"/>
+<polygon fill="none" stroke="#404040" points="638.76,-591.67 632.23,-588.61 632.55,-581.41 639.07,-584.47 638.76,-591.67"/>
 <text text-anchor="middle" x="700.5" y="-754" font-family="Helvetica,sans-Serif" font-size="10.00"> #self_</text>
 </g>
 <!-- Node20 -->
 <g id="node20" class="node">
 <title>Node20</title>
 <g id="a_node20"><a xlink:href="$class_event_queue.html" xlink:title="Singleton class wrapper for std::queue&lt;E&gt;.">
-<polygon fill="none" stroke="black" points="382,-662 382,-851 532,-851 532,-662 382,-662"/>
-<text text-anchor="middle" x="457" y="-839" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; E &gt;</text>
-<polyline fill="none" stroke="black" points="382,-832 532,-832 "/>
-<text text-anchor="middle" x="457" y="-820" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
-<polyline fill="none" stroke="black" points="382,-813 532,-813 "/>
-<text text-anchor="start" x="390" y="-801" font-family="Helvetica,sans-Serif" font-size="10.00">+ EventQueue(EventQueue</text>
-<text text-anchor="start" x="390" y="-790" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;)=delete</text>
-<text text-anchor="start" x="390" y="-779" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator=(const</text>
-<text text-anchor="start" x="390" y="-768" font-family="Helvetica,sans-Serif" font-size="10.00"> EventQueue &amp;)=delete</text>
-<text text-anchor="start" x="390" y="-757" font-family="Helvetica,sans-Serif" font-size="10.00">+ void registerEvent</text>
-<text text-anchor="start" x="390" y="-746" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; E</text>
-<text text-anchor="start" x="390" y="-735" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)</text>
-<text text-anchor="start" x="390" y="-724" font-family="Helvetica,sans-Serif" font-size="10.00">+ std::unique_ptr&lt; E</text>
-<text text-anchor="start" x="390" y="-713" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; pop()</text>
-<text text-anchor="start" x="390" y="-702" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool isEmpty()</text>
-<text text-anchor="start" x="390" y="-691" font-family="Helvetica,sans-Serif" font-size="10.00">+ static EventQueue *</text>
-<text text-anchor="start" x="390" y="-680" font-family="Helvetica,sans-Serif" font-size="10.00"> instance()</text>
-<text text-anchor="start" x="390" y="-669" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; EventQueue()=default</text>
+<polygon fill="none" stroke="black" points="382,-656.5 382,-856.5 532,-856.5 532,-656.5 382,-656.5"/>
+<text text-anchor="middle" x="457" y="-844.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; E &gt;</text>
+<polyline fill="none" stroke="black" points="382,-837.5 532,-837.5 "/>
+<text text-anchor="middle" x="457" y="-825.5" font-family="Helvetica,sans-Serif" font-size="10.00"> </text>
+<polyline fill="none" stroke="black" points="382,-818.5 532,-818.5 "/>
+<text text-anchor="start" x="390" y="-806.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ EventQueue(EventQueue</text>
+<text text-anchor="start" x="390" y="-795.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &amp;)=delete</text>
+<text text-anchor="start" x="390" y="-784.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool operator=(const</text>
+<text text-anchor="start" x="390" y="-773.5" font-family="Helvetica,sans-Serif" font-size="10.00"> EventQueue &amp;)=delete</text>
+<text text-anchor="start" x="390" y="-762.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void registerEvent</text>
+<text text-anchor="start" x="390" y="-751.5" font-family="Helvetica,sans-Serif" font-size="10.00">(std::unique_ptr&lt; E</text>
+<text text-anchor="start" x="390" y="-740.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; event)</text>
+<text text-anchor="start" x="390" y="-729.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ std::unique_ptr&lt; E</text>
+<text text-anchor="start" x="390" y="-718.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; pop()</text>
+<text text-anchor="start" x="390" y="-707.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool isEmpty()</text>
+<text text-anchor="start" x="390" y="-696.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void clear()</text>
+<text text-anchor="start" x="390" y="-685.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ static EventQueue *</text>
+<text text-anchor="start" x="390" y="-674.5" font-family="Helvetica,sans-Serif" font-size="10.00"> instance()</text>
+<text text-anchor="start" x="390" y="-663.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; EventQueue()=default</text>
 </a>
 </g>
 </g>
@@ -505,8 +507,8 @@
 <!-- Node20&#45;&gt;Node17 -->
 <g id="edge20" class="edge">
 <title>Node20&#45;&gt;Node17</title>
-<path fill="none" stroke="orange" d="M498.54,-652.21C508.66,-627.05 519.42,-600.29 529.35,-575.62"/>
-<polygon fill="orange" stroke="orange" points="495.19,-651.18 494.7,-661.76 501.68,-653.79 495.19,-651.18"/>
+<path fill="none" stroke="orange" d="M500.7,-646.84C509.41,-625.19 518.51,-602.56 527.08,-581.25"/>
+<polygon fill="orange" stroke="orange" points="497.35,-645.79 496.87,-656.37 503.85,-648.4 497.35,-645.79"/>
 <text text-anchor="middle" x="533" y="-630" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; Event &gt;</text>
 </g>
 <!-- Node21 -->
@@ -526,8 +528,8 @@
 <!-- Node21&#45;&gt;Node20 -->
 <g id="edge21" class="edge">
 <title>Node21&#45;&gt;Node20</title>
-<path fill="none" stroke="#404040" d="M457,-904.49C457,-892.47 457,-878.16 457,-863.25"/>
-<polygon fill="none" stroke="#404040" points="457,-863.2 453,-857.2 457,-851.2 461,-857.2 457,-863.2"/>
+<path fill="none" stroke="#404040" d="M457,-904.49C457,-893.92 457,-881.57 457,-868.6"/>
+<polygon fill="none" stroke="#404040" points="457,-868.55 453,-862.55 457,-856.55 461,-862.55 457,-868.55"/>
 <text text-anchor="middle" x="482" y="-878" font-family="Helvetica,sans-Serif" font-size="10.00"> #events_</text>
 </g>
 <!-- Node22 -->

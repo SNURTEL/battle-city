@@ -11,6 +11,8 @@
 
 class Tank;
 
+class Grid;
+
 /**
  * Indicates an error encountered while constructing an Event instance.
  */
@@ -35,16 +37,23 @@ public:
      * Represents event types
      */
     enum EventType {  // TODO make Event an abstract base class; move enum to separate file and specify enum values there (EVENT SHOULD KNOW EVENT TYPE TO STORE IT)
-        KeyPressed = 0,
+        NullEvent = 0,
+
+        KeyPressed,
         KeyReleased,
 
         TankSpawned,  // TODO replace with entity (not necessary if enum was moved to separate file)
         TankKilled,
         TankMoved,
+        TankRotated,
         TankHit,
         TankRemoved,
 
-        NullEvent
+        TilePlaced,
+        TileChanged,
+        TileDeleted,
+
+        LevelBuilt
     };
 
     EventType type;
@@ -72,6 +81,17 @@ public:
         Tank* tank;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
     };
 
+    struct TileInfo {
+        unsigned int tile_x;
+        unsigned int tile_y;
+        Grid* grid;
+    };
+
+    struct LevelInfo {
+        unsigned int levelNumber;
+        Grid* grid;
+    };
+
     // ####################################################3
     /**
      * Contains additional event info.
@@ -81,6 +101,8 @@ public:
     union info_u {
         KeyEventInfo keyInfo;
         TankInfo tankInfo;
+        TileInfo tileInfo;
+        LevelInfo levelInfo;
 
         ~info_u(){};  // DO NOT change this to =default, or else it will stop working
     } info = {};
@@ -91,6 +113,10 @@ public:
     explicit Event(EventType);
 
     Event(EventType e, Tank* tank);
+
+    Event(EventType e, unsigned int x, unsigned int y, Grid* grid);
+
+    Event(EventType e, unsigned int levelNumber, Grid* grid);
 
     Event()=delete;
 };

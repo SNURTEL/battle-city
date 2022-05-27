@@ -42,14 +42,40 @@ Event::Event(EventType e, Tank *tank) {
     switch (e) {
         case TankSpawned:
         case TankMoved:
+        case TankRotated:
         case TankHit:
         case TankRemoved:
-        case TankKilled:  {
+        case TankKilled: {
             info.tankInfo = {tank};
             break;
         }
         default: {
             throw EventConstructionException();
         }
+    }
+}
+
+Event::Event(EventType e, unsigned int x, unsigned int y, Grid *grid) {
+    type = e;
+    switch (e) {
+        case TilePlaced:
+        case TileChanged:
+        case TileDeleted: {
+            info.tileInfo = {x, y, grid};
+            break;
+        };
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, unsigned int levelNumber, Grid *grid) {
+    type = e;
+    switch (e) {
+        case LevelBuilt: {
+            info.levelInfo = {levelNumber, grid};
+        }
+        default:
+            throw EventConstructionException();
     }
 }
