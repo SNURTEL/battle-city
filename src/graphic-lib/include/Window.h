@@ -15,8 +15,6 @@ class GameState;
 class Bullet;
 class Grid;
 
-class BoardView;
-class FrameView;
 
 /**
  * @brief Contains main SFML functions
@@ -72,6 +70,7 @@ public:
     void fetchAcitveStatePointers(std::vector<Tank*>* tanks ,Grid* tiles, std::vector<Bullet*>* bullets,
                                   int* level, int* livesLeft);
 
+    GameStateGraphic gameState;
 
     /**
      * @brief Fetches pointers for ActiveState objects
@@ -82,6 +81,8 @@ public:
      */
     void fetchMenuStatePointers(int selected); // Only a concept
 
+    /// @brief Cheks wich game state was given to constructor and sets appropriate attribute
+    void selectgameState();
 
     /**
      * @brief Commands its children to render objects on the screen
@@ -89,6 +90,7 @@ public:
      */
     virtual void render() override;
 
+public:
 
     // /**
     //  * @brief Commands its children to update objects to render
