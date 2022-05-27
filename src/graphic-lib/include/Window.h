@@ -2,138 +2,121 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-#include <queue>
-#include "../../tank-lib/include/Tank.h"
-#include "../../board-lib/include/Grid.h"
+#include "AbstractWindow.h"
 
 
 #ifndef PROI_PROJEKT_GRAPHIC_H
 #define PROI_PROJEKT_GRAPHIC_H
 
-enum TileType;
+class Tank;
+class GameState;
+class Bullet;
 
-class BoardView;
-class FrameView;
 
 /**
- * \brief Contains main SFML functions
+ * @brief Contains main SFML functions
  *
  * Class that summars main graphic-lib functions.
- * It contains BoardView and FrameView objects and functions
- * resposible for updating and rendering board and its objects.
+ * The root of composit
+ * It contains vector of pointers to its children
+ * Resposible for updating and rendering board and its objects.
+ * Creates sf::RenderWindow
  * Window size is 800/800
  */
-class Window
+class Window : AbstractWindow
 {
 private:
 
-    const uint WINDOW_HEIGHT = 800;
-    const uint WINDOW_WIDTH = 800;
-    sf::Vector2u windowSize;
-    sf::FloatRect boardviewSize;
-    std::unique_ptr<sf::RenderWindow> window;
-    sf::VideoMode videoMode;
-    BoardView boardView;
-    FrameView frameView;
-    TileType* grid[52][52];
-    // Tank* playerTank; How we will implement this?
-    std::vector<Tank>* tanks;
-    // std::vector<Bullet>* bullets;
-
     /**
-     * @brief Makes RenderObjects vector from tanks list
+     * @brief Unique poiter for sf:RenderWindow
      *
-     * @return std::vector<RenderObject>
+     * Made for safe memory allocation
      */
-    std::vector<RenderObject> makeRenderTanks() const;
+    std::unique_ptr<sf::RenderWindow> window_unique;
 
 
-    /**
-     * @brief Makes RenderObjects vector from tiles list
-     *
-     * @return std::vector<RenderObject>
-     */
-    std::vector<RenderObject> makeRenderTile() const;
+    /// @brief Enum that determine actual game state
+    enum GameStateGraphic
+    {
+        ActieveGameState=0,
+        PauseGameState,
+        MenuGameState,
+        FinishedGameState
+    };
+
+    GameStateGraphic gameState;
 
 
-    /**
-     * @brief Makes RenderObjects vector from bullete list
-     *
-     * @return std::vector<RenderObject>
-     */
-    std::vector<RenderObject> makeRenderBullet() const;
+    /// @brief Cheks wich game state was given to constructor and sets appropriate attribute
+    void selectgameState();
 
-
-    /// @brief Makes renderQueue for BoardView
-    std::queue<std::vector<RenderObject>> makeRenderQueue() const;
-
-
-    /// @brief Calcualtes board size from a window size
-    void calculateBoardSize();
 
 public:
-    Window(TileType* grid[52][52], std::vector<Tank>* tanks/*, std::vector<Bullet>* bullets*/);
+
+
+    /// @brief Stores given ActiveState pointers
+    struct ActiveStatePointers
+    {
+        std::vector<Tank*> tanks;
+        std::vector<Bullet*> bullets;
+        int tiles[52][52];
+        int level;
+        int playerLivesLeft;
+        // And other ...
+        // Will be added later
+    };
+
+    /// @brief Stores MenuState pointers
+    struct MenuStatePointers
+    {
+        // Will be added later
+    };
 
     /**
-     * @brief Renders objects on the screen
+     * @brief Construct a new Window object
+     *
+     * Intiate window with apropriate size and mode
+     * Gets actual gameState, sets gameState attribute
      *
      */
-    void render() const;
+    Window(GameState* gameState);
+
 
     /**
-     * @brief Updates objects to render
+     * @brief Fetches pointers for ActiveState objects
      *
+     * Fetch poitners fo ActiveStateGraphic children and store it in window data structure
+     *
+     * @param tiles
      */
-    void update();
+    void fetchAcitveStatePointers(std::vector<Tank*>/*, int *tiles[][]*/);
+
 
     /**
-     * @brief Get the RenderObjects objects in a vector
+     * @brief Fetches pointers for ActiveState objects
      *
-     * @return std::vector<RenderTank>
+     * Fetch poitners fo ActiveStateGraphic children and store it in window data structure
+     *
+     * @param tiles
      */
-    std::vector<RenderObject> getRenderTanks();
+    void fetchMenuStatePointers(int selected); // Only a concept
+
 
     /**
-     * @brief Get the RenderObjects objects in a vector
+     * @brief Commands its children to render objects on the screen
      *
-     * @return std::vector<RenderTile>
      */
-    std::vector<RenderObject> getRenderTiles();
+    virtual void render() const;
+
 
     /**
-     * @brief Get the RenderObjects object in a vector
+     * @brief Commands its children to update objects to render
      *
-     * @return std::vector<sf::Vector2f>
      */
-    std::vector<RenderObject> getRenderBullets();
-    ~Window();
+    virtual void update();
+
+
+    virtual ~Window();
 };
-
-
-/// @brief Enum that represents differen types of textures needed
-enum TextureType
-{
-    PlayerTank=0,
-    BasicTank,
-    FastTank,
-    PowerTank,
-    ArmorTank,
-    Bricks,
-    Steel,
-    Water,
-    Trees,
-    NullTile,
-    Bullet
-};
-
-
-/// \brief Sturct that should be given to BoardView for rendering objects
-struct RenderObject
-{
-    sf::Vector2f coords;
-    TextureType textureType;
-};
-
-
 
 #endif //PROI_PROJKET_GRAPHIC_H
