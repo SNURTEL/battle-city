@@ -14,31 +14,30 @@ class Event;
 
 
 class Grid;
-class TankController;
-class BulletController;
+class EntityController;
 
 
 enum Direction: unsigned int;
 
-/**
- * Exception thrown when two tanks are overlapping as a result of an error
- */
-class TankOverlapException : public std::exception{
-public:
-    TankOverlapException()=delete;
-
-    /**
-     * Inits class TankOverlapException
-     * @param x First tank's x coord
-     * @param y First tank's y coord
-     */
-    TankOverlapException(unsigned int x, unsigned int y);
-
-    const char* what();
-
-private:
-    std::string what_message;
-};
+///**
+// * Exception thrown when two tanks are overlapping as a result of an error
+// */
+//class EntityOverlapException : public std::exception{
+//public:
+//    EntityOverlapException()=delete;
+//
+//    /**
+//     * Inits class TankOverlapException
+//     * @param x First tank's x coord
+//     * @param y First tank's y coord
+//     */
+//    EntityOverlapException(unsigned int x, unsigned int y);
+//
+//    const char* what();
+//
+//private:
+//    std::string what_message;
+//};
 
 class Board {
 public:
@@ -63,7 +62,9 @@ public:
      *
      * Possibly queues multiple instances of Event::TankMoved
      * */
-    void moveAllTanks();
+    void moveAllEntities();
+
+    bool moveEntity(Tank *target);
 
     /**
      * Attempts to move a tank by it's speed per tick value. Stops at obstacles
@@ -71,9 +72,10 @@ public:
      * Possibly queues Event::TankMoved
      * @param target
      */
-    void moveTank(Tank* target);
+    bool moveEntity(Entity *target);
 
-    void fireTank(Tank* target){};  // TODO IMPLEMENT
+
+    bool fireTank(Tank* target);
 
     /**
      * Attempts to spawn a tank at a given location. Fails if spawned tank would overlap with another entity
@@ -95,25 +97,32 @@ public:
      */
     void setGrid(std::unique_ptr<Grid> grid);
 
+    void killAllEnemyTanks();
+
+    void removeAllEntities();
+
 private:
     /**
      * Snaps the tank to the nearest integer coords
+     *
+     * Queues Event::TankMoved
      * @param target
      * @param snap_x
      * @param snap_y
      */
     void snapTankToGrid(Tank* target, bool snap_x=true, bool snap_y=true);
 
-    /**
-     * Checks if a tank can move in the direction it is faced without collisions
-     * @param target
-     * @return
-     */
-    bool validateTankMovement(Tank* target);
+//    /**
+//     * Checks if a tank can move in the direction it is faced without collisions
+//     * @param target
+//     * @return
+//     */
+//    bool validateTankMovement(Tank* target);
+
+    bool validateEntityPosition(Entity* target);
 
     std::unique_ptr<Grid> grid_;
-    TankController* tankController_;
-    BulletController* bulletController_;
+    EntityController* entityController_;
 
     EventQueue<Event>* eventQueue_ = EventQueue<Event>::instance();
 

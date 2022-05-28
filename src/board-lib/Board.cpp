@@ -9,24 +9,22 @@
 
 #include "include/Board.h"
 #include "include/Grid.h"
-#include "../tank-lib/include/TankController.h"
+#include "../tank-lib/include/EntityController.h"
 
-TankOverlapException::TankOverlapException(unsigned int x, unsigned int y) : std::exception() {
-    what_message = "Tank at (" + std::to_string(x) + ", " + std::to_string(y) + ") overlaps with another object";
-}
+#include "../tank-lib/include/Tank.h"
+#include "../tank-lib/include/Bullet.h"
 
-const char *TankOverlapException::what() {
-    return what_message.c_str();
-}
 
 void Board::setTankMoving(Tank *target, bool isMoving) {
-    tankController_->setTankMoving(target, isMoving);
+    entityController_->setTankMoving(target, isMoving);
 }
 
 void Board::setTankDirection(Tank *target, Direction direction) {
-    snapTankToGrid(target);
+    snapTankToGrid(target, true, true);
 
-    tankController_->setTankDirection(target, direction);
+    entityController_->setTankDirection(target, direction);
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::TankRotated, target));
+
 }
 
 void Board::snapTankToGrid(Tank *target, bool snap_x, bool snap_y) {
@@ -35,86 +33,121 @@ void Board::snapTankToGrid(Tank *target, bool snap_x, bool snap_y) {
     if (snap_y)
         target->setY(std::round(target->getY()));
 
-    eventQueue_->registerEvent(std::make_unique<Event>(Event::TankMoved, target));
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
 }
 
 void Board::setGrid(std::unique_ptr<Grid> grid) {
     grid_ = std::move(grid);
 }
 
-void Board::moveAllTanks() {
-    tankController_->moveAllTanks();
-}
-
-void Board::moveTank(Tank *target) {
-    if (!validateTankMovement(target)) {
-        if (target->getFacing() == North || target->getFacing() == South) {
-            snapTankToGrid(target, false, true);   // WILL NOT WORK IF TANK'S SPEED IS GREATER THAN 0.5
-        } else {
-            snapTankToGrid(target, true, false);
-        }
-    } else {
-        target->move();
+void Board::moveAllEntities() {
+    for(std::unique_ptr<Entity> &entity: *(entityController_->getAllEntities())){
+        moveEntity(entity.get());
     }
+    moveEntity(entityController_->getPlayer());
 }
 
-bool Board::spawnTank(Tank *target, unsigned int x, unsigned int y, Tank::TankType type) {
-    for (int i = 0; i < 2; i++)
-        for (int j = 0; j < 2; j++) {
-            if ((tankController_->getTankAtPosition(static_cast<float>(x), static_cast<float>(y))).has_value()
-                ||
-                grid_->getTileAtPosition(x, y) != NullTile) {  // TODO ALSO CHECK BULLETS
-                throw TankOverlapException(x, y);
+bool Board::moveEntity(Tank *target) {
+    target->move();
+    if(!validateEntityPosition(target)){
+        snapTankToGrid(target);
+
+        std::optional<Entity*> collidingEntity = entityController_->getEntityAtPosition(target->getX(), target->getY());
+        if(collidingEntity.has_value()){  // collision with entity
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityEntityCollision, dynamic_cast<Entity*>(target), collidingEntity.value()));
+        }else{
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityTileCollision, dynamic_cast<Entity*>(target), target->getX(), target->getY()));
+        }
+
+        return false;
+    }
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
+    return true;
+}
+
+bool Board::moveEntity(Entity *target) {
+    target->move();
+    if(!validateEntityPosition(target)){
+
+        std::optional<Entity*> collidingEntity = entityController_->getEntityAtPosition(target->getX(), target->getY());
+        if(collidingEntity.has_value()){  // collision with entity
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityEntityCollision, target, collidingEntity.value()));
+        }else{
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityTileCollision, target, target->getX(), target->getY()));
+        }
+        return false;
+    }
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
+    return true;
+}
+
+bool Board::fireTank(Tank *target) {
+    std::optional<std::unique_ptr<Bullet>> newBullet = target->createBullet();
+
+    if(!newBullet.has_value()){
+        return false;
+    }
+
+    if(!validateEntityPosition(dynamic_cast<Entity*>(newBullet->get()))){
+        return false;
+    }
+
+    Entity* addedEntity = entityController_->addEntity(std::move(newBullet.value()));
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::EntitySpawned, addedEntity));
+}
+
+bool Board::spawnTank(Tank *target, unsigned int x, unsigned int y, Tank::TankType type) {  // FIXME DUMB VALIDATION
+    std::unique_ptr<Tank> newTank = entityController_->createTank(x, y, type);
+
+    if(!validateEntityPosition(newTank.get())){
+        return false;
+    }
+
+    Entity* spawnedTank = entityController_->addEntity(std::move(newTank));
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::EntitySpawned, spawnedTank));
+}
+
+bool Board::validateEntityPosition(Entity *target) {
+    if(target->getX() < 0 || target->getY() < 0){
+        return false;
+    }
+
+    auto min_x = static_cast<unsigned int>(floorf(target->getX()));   // TODO USE DOUBLE
+    auto max_x = static_cast<unsigned int>(ceilf(target->getX()+target->getSizeX()));
+    auto min_y = static_cast<unsigned int>(floorf(target->getX()));
+    auto max_y = static_cast<unsigned int>(ceilf(target->getX()+target->getSizeX()));
+
+    try{
+        for(unsigned int i = min_x; i<max_x; i++)
+        for(unsigned int j = min_y; j<max_y; j++){
+            if(grid_->getTileAtPosition(i, j) != NullTile){
+                return false;
             }
         }
+    }catch(OutOfGridException&){
+        return false;
+    }
 
-    tankController_->spawnTank(x, y, type);
+    if(entityController_->checkEntityCollisions(target)){
+        return false;
+    }
+
     return true;
 }
 
-bool Board::validateTankMovement(Tank *target) {
-    float x_offset, y_offset = 0;
-    switch (target->getFacing()) {
-        case North: {
-            y_offset = -target->getTankSpeed();
-            break;
-        };
-        case East: {
-            x_offset = target->getTankSpeed();
-            break;
-        };
-        case South: {
-            y_offset = target->getTankSpeed();
-            break;
-        };
-        case West: {
-            x_offset = -target->getTankSpeed();
-            break;
-        };
-    }
-
-    // check extra tiles adjusting for tank's 2x2 size
-    auto secondary_x = static_cast<float>(target->getFacing() == North || target->getFacing() == South);
-    float secondary_y = roundf(1 - secondary_x);
-
-
-    if (target->getY() - target->getTankSpeed() < 0) {
-        return false;
-    }
-    try {
-        if (grid_->getTileAtPosition(static_cast<unsigned int>(target->getX() + x_offset),
-                                     static_cast<unsigned int>(target->getY() + y_offset))
-            != TileType::NullTile) {
-            return false;
+void Board::killAllEnemyTanks() {
+    for(std::unique_ptr<Entity>& entity: *(entityController_->getAllEntities())){
+        Tank* possiblyATank = dynamic_cast<Tank*>(entity.get());
+        if(possiblyATank == nullptr){
+            continue;
         }
-        if (grid_->getTileAtPosition(static_cast<unsigned int>(target->getX() + x_offset + secondary_x),
-                                     static_cast<unsigned int>(target->getY() + y_offset + secondary_y))
-            != TileType::NullTile) {
-            return false;
+        if(possiblyATank->getType() == Tank::PlayerTank){
+            continue;
         }
-    } catch (OutOfMapException &e) {
-        return false;
+        entityController_->killTank(possiblyATank);
     }
+}
 
-    return true;
+void Board::removeAllEntities() {
+    entityController_->clear();
 }

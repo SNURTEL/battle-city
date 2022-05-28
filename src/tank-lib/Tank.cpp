@@ -2,45 +2,31 @@
 // Created by tomek on 03.05.2022.
 //
 
-#include "include/Tank.h"
+#include "../core-lib/include/SimpleSubscriber.h"
+#include "../core-lib/include/SimplePublisher.h"
 
-//void Tank::moveX(int delta_x) {
-//    if (delta_x > 0) {
-//        facing_ = East;
-//        x_ += delta_x;
-//
-//    } else if (delta_x < 0) {
-//        facing_ = West;
-//        if(static_cast<int>(x_) + delta_x < 0){
-//            x_ = 0;
-//        }else{
-//            x_ += delta_x;
-//        }
-//    }
-//}
-//
-//void Tank::moveY(int delta_y) {
-//    if (delta_y > 0) {
-//        facing_ = South;
-//        y_ += delta_y;
-//    } else if (delta_y < 0) {
-//        facing_ = North;
-//        if(static_cast<int>(y_) + delta_y < 0){
-//            y_ = 0;
-//        }else{
-//            y_ += delta_y;
-//        }//    }
-//}
+#include "include/Tank.h"
+#include "include/Bullet.h"
+
 
 void Tank::setFacing(Direction direction) {
     facing_ = direction;
 }
 
-void Tank::move() {
-    if(!isMoving()){
-        return;
+bool Tank::move() {
+    if (!isMoving()) {
+        return false;
     }
-    offsetInCurrentDirection(tank_speed_);
+    offsetInCurrentDirection(speed_);
+    return true;
+}
+
+bool Tank::moveBack() {
+    if (!isMoving()) {
+        return false;
+    }
+    offsetInCurrentDirection(-speed_);
+    return true;
 }
 
 void Tank::deltaLives(int delta_l) {
@@ -51,21 +37,10 @@ void Tank::deltaLives(int delta_l) {
     }
 }
 
-float Tank::getX() const {
-    return x_;
-}
-
-float Tank::getY() const {
-    return y_;
-}
-
 unsigned int Tank::getLives() const {
     return lives_;
 }
 
-float Tank::getTankSpeed() const {
-    return tank_speed_;
-}
 
 void Tank::setMoving(bool movingFlag) {
     moving_ = movingFlag;
@@ -75,16 +50,8 @@ bool Tank::isMoving() const {
     return moving_;
 }
 
-Direction Tank::getFacing() const {
-    return facing_;
-}
-
 unsigned int Tank::getPoints() const {
     return points_;
-}
-
-float Tank::getBulletSpeed() const {
-    return bullet_speed_;
 }
 
 Tank::TankType Tank::getType() const {
@@ -116,69 +83,60 @@ void Tank::offsetInCurrentDirection(float offset) {
     }
 }
 
+std::optional<std::unique_ptr<Bullet>> Tank::createBullet() {
+    if (!subscribedSubjects_.empty()) {
+        return std::nullopt;
+    }
+
+    float bulletSizeX = 0.4;
+    float bulletSizeY = 0.4;
+
+    auto bulletType = static_cast<Bullet::BulletType>(type_ == TankType::PlayerTank);
+
+    std::unique_ptr<Bullet> bullet;
+
+    switch (facing_) {
+        case North: {
+            bullet = std::make_unique<Bullet>(x_ + (size_x_ - bulletSizeX) / 2, y_ - bulletSizeY, facing_, bulletSpeed_,
+                                              bulletType);
+            break;
+        }
+        case East: {
+            bullet = std::make_unique<Bullet>(x_ + size_x_, y_ + (size_y_ - bulletSizeY) / 2, facing_, bulletSpeed_,
+                                              bulletType);
+            break;
+        }
+        case South: {
+            bullet = std::make_unique<Bullet>(x_ + (size_x_ - bulletSizeX) / 2, y_ + size_y_, facing_, bulletSpeed_,
+                                              bulletType);
+            break;
+        }
+        case West: {
+            bullet = std::make_unique<Bullet>(x_ - bulletSizeX, y_ + (size_y_ - bulletSizeY) / 2, facing_, bulletSpeed_,
+                                              bulletType);
+            break;
+        }
+    }
+
+    subscribe(bullet.get());
+
+    return std::move(bullet);
+}
+
+void Tank::notify(SimplePublisher *pub) {}
+
+Tank::Tank(TankType type, float x, float y, float speed, float bulletSpeed, unsigned int lives, Direction direction, unsigned int points)
+        : Entity(x, y, 2, 2, speed, direction),
+          bulletSpeed_(bulletSpeed), lives_(lives), type_(type), points_(points), moving_(false) {}
+
 // ##############################
 
-PlayerTank::PlayerTank(float x, float y, unsigned int lives, Direction facing) {
-    type_ = Tank::PlayerTank;
+PlayerTank::PlayerTank(float x, float y, unsigned int lives, Direction facing) : Tank(Tank::PlayerTank, x, y, 1, 1, lives, facing, 0) {}
 
-    x_ = x;
-    y_ = y;
-    facing_ = facing;
+BasicTank::BasicTank(float x, float y, Direction facing) : Tank(Tank::BasicTank, x, y, 1, 1, 1, facing, 100) {}
 
-    lives_ = lives;
-    tank_speed_ = 1;
-    bullet_speed_ = 1;
-    points_ = 100;
-}
+FastTank::FastTank(float x, float y, Direction facing) : Tank(Tank::FastTank, x, y, 3, 2, 1, facing, 200) {}
 
-BasicTank::BasicTank(float x, float y, Direction facing) : Tank() {
-    type_ = Tank::BasicTank;
+PowerTank::PowerTank(float x, float y, Direction facing) : Tank(Tank::PowerTank, x, y, 2, 3, 1, facing, 300) {}
 
-    x_ = x;
-    y_ = y;
-    facing_ = facing;
-
-    lives_ = 1;
-    tank_speed_ = 1;
-    bullet_speed_ = 1;
-    points_ = 100;
-}
-
-FastTank::FastTank(float x, float y, Direction facing) : Tank() {
-    type_ = Tank::FastTank;
-
-    x_ = x;
-    y_ = y;
-    facing_ = facing;
-
-    lives_ = 1;
-    tank_speed_ = 3;
-    bullet_speed_ = 2;
-    points_ = 200;
-}
-
-PowerTank::PowerTank(float x, float y, Direction facing) : Tank() {
-    type_ = Tank::PowerTank;
-
-    x_ = x;
-    y_ = y;
-    facing_ = facing;
-
-    lives_ = 1;
-    tank_speed_ = 2;
-    bullet_speed_ = 3;
-    points_ = 300;
-}
-
-ArmorTank::ArmorTank(float x, float y, Direction facing) : Tank() {
-    type_ = Tank::ArmorTank;
-
-    x_ = x;
-    y_ = y;
-    facing_ = facing;
-
-    lives_ = 4;
-    tank_speed_ = 2;
-    bullet_speed_ = 2;
-    points_ = 400;
-}
+ArmorTank::ArmorTank(float x, float y, Direction facing) : Tank(Tank::ArmorTank, x, y, 2, 2, 4, facing, 400) {}

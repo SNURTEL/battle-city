@@ -37,21 +37,43 @@ Event::Event(EventType e, unsigned int i1) {
     }
 }
 
-Event::Event(EventType e, Tank *tank) {
+Event::Event(EventType e, Entity *entity) {
     type = e;
     switch (e) {
-        case TankSpawned:
-        case TankMoved:
+        case EntitySpawned:
+        case EntityMoved:
+        case EntityRemoved:
         case TankRotated:
         case TankHit:
-        case TankRemoved:
         case TankKilled: {
-            info.tankInfo = {tank};
+            info.entityInfo = {entity};
             break;
         }
         default: {
             throw EventConstructionException();
         }
+    }
+}
+
+Event::Event(EventType e, Entity *entity1, Entity *entity2) {
+    type = e;
+    switch (e) {
+        case EntityEntityCollision:{
+            info.entityEntityCollisionInfo = {entity1, entity2};
+        }
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, Entity *entity, unsigned int x, unsigned int y) {
+    type = e;
+    switch (e) {
+        case EntityTileCollision:{
+            info.entityTileCollisionInfo = {entity, x, y};
+        }
+        default:
+            throw EventConstructionException();
     }
 }
 

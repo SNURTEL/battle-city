@@ -72,16 +72,16 @@ target_link_libraries(test_game_lib PRIVATE game-lib Catch2::Catch2WithMain)
 set(tank_lib_dir ../src/tank-lib)
 set(tank_lib_sources
         ${tank_lib_dir}/Tank.cpp
-        ${tank_lib_dir}/TankController.cpp
+        ${tank_lib_dir}/EntityController.cpp
         )
 
-add_library(tank-lib ${tank_lib_sources})
+add_library(tank-lib ${tank_lib_sources} ../src/tank-lib/Bullet.cpp ../src/tank-lib/include/Bullet.h ../src/tank-lib/Entity.cpp ../src/tank-lib/include/Entity.h)
 target_link_libraries(tank-lib PRIVATE game-lib)
 
 set(tank_lib_test_dir ../src/tank-lib/test)
 set(tank_lib_test_sources
         ${tank_lib_test_dir}/test_tank.cpp
-        ${tank_lib_test_dir}/test_tankController.cpp)
+        ${tank_lib_test_dir}/test_entityController.cpp)
 
 add_executable(test_tank_lib ${tank_lib_test_sources})
 target_link_libraries(test_tank_lib PRIVATE tank-lib Catch2::Catch2WithMain)

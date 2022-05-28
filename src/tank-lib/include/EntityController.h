@@ -2,8 +2,8 @@
 // Created by tomek on 03.05.2022.
 //
 
-#ifndef PROI_PROJEKT_TANKCONTROLLER_H
-#define PROI_PROJEKT_TANKCONTROLLER_H
+#ifndef PROI_PROJEKT_ENTITYCONTROLLER_H
+#define PROI_PROJEKT_ENTITYCONTROLLER_H
 
 #include <vector>
 #include <memory>
@@ -27,22 +27,24 @@ public:
 /**
  * Aggregates and manipulates Tank objects
  */
-class TankController {
+class EntityController {
 public:
     /**
-     * Inits class TankController
+     * Inits class EntityController
      */
-    TankController();
+    EntityController();
+//
+//    /**
+//     * Attempts to spawn a tank at a given location.
+//     *
+//     * Queues Event::TankSpawned
+//     * @param x Tank's initial x coord
+//     * @param y Tank's initial y coord
+//     * @param type Tank's type
+//     */
+//    Tank * spawnTank(unsigned int x, unsigned int y, Tank::TankType type);
 
-    /**
-     * Attempts to spawn a tank at a given location.
-     *
-     * Queues Event::TankSpawned
-     * @param x Tank's initial x coord
-     * @param y Tank's initial y coord
-     * @param type Tank's type
-     */
-    Tank * spawnTank(unsigned int x, unsigned int y, Tank::TankType type);
+    std::unique_ptr<Tank> createTank(unsigned int x, unsigned int y, Tank::TankType type);
 
     /**
      * Deals damage to a tank (and kills it if health drops to 0)
@@ -57,33 +59,33 @@ public:
      * Kills a tank immediately
      *
      * Queues Event::TankKilled
-     * @param target Target tank
+     * @param tank Target tank
      */
-    void killTank(Tank * target);
+    void killTank(Tank * tank);
 
     /**
      * Removes and deletes a tank from pool without killing it
      *
      * Queues Event::TankRemoved
-     * @param target
+     * @param entity
      */
-    void removeTank(Tank * target);
+    void removeEntity(Entity *entity);
 
     /**
      * Attempt to move all tanks on the board (will move only if moving flag is set)
      *
      * Possibly queues multiple instances of Event::TankMoved
      */
-    void moveAllTanks();
+    void moveAllEntities();
 
     /**
-     * Attempts to move a tank by it's speed per tick value. Stops at obstacles
+     * Attempts to move a tank by it's speed per tick value.
      *
      * Possibly queues Event::TankMoved
      * @param target Target tank
      * @param direction Direction in which to move the tank
      */
-    void moveTank(Tank *target);
+    void moveEntity(Entity *target);
 
     /**
      * Sets tank's moving_ flag to a given value
@@ -108,7 +110,7 @@ public:
      * @param y
      * @return
      */
-    std::optional<Tank*> getTankAtPosition(float x, float y);
+    std::optional<Entity *> getEntityAtPosition(float x, float y);
 
     /**
      * Returns a pointer to the player-controlled tank
@@ -116,11 +118,23 @@ public:
      */
     PlayerTank* getPlayer();
 
+    PlayerTank* addEntity(std::unique_ptr<PlayerTank> playerTank);
+
+    Entity* addEntity(std::unique_ptr<Entity> newEntity);
+
+    bool checkEntityCollisions(Entity* target);
+
+    std::vector<std::unique_ptr<Entity>>* getAllEntities();
+
+    void clear();
+
 protected:
+
     EventQueue<Event> *eventQueue_;
-    std::vector<std::unique_ptr<Tank>> tanks_;
-    std::unique_ptr<PlayerTank> player_;
+    std::vector<std::unique_ptr<Entity>> entities_;
+
+    PlayerTank* player_;
 };
 
 
-#endif //PROI_PROJEKT_TANKCONTROLLER_H
+#endif //PROI_PROJEKT_ENTITYCONTROLLER_H

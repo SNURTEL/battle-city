@@ -10,6 +10,7 @@
 #include <memory>
 
 class Tank;
+class Entity;
 
 class Grid;
 
@@ -42,12 +43,16 @@ public:
         KeyPressed,
         KeyReleased,
 
-        TankSpawned,  // TODO replace with entity (not necessary if enum was moved to separate file)
+        EntitySpawned,
+        EntityMoved,
+        EntityRemoved,
+
+        EntityEntityCollision,
+        EntityTileCollision,
+
         TankKilled,
-        TankMoved,
         TankRotated,
         TankHit,
-        TankRemoved,
 
         TilePlaced,
         TileChanged,
@@ -77,16 +82,33 @@ public:
      * references in other objects
      * TRYING TO ACCESS MEMBER VARIABLE'S ATTRS WILL RESULT IN UNDEFINED BEHAVIOR
      */
-    struct TankInfo {  //
-        Tank* tank;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
+    struct EntityInfo {  //
+        Entity* entity;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
     };
 
+    struct EntityEntityCollisionInfo{
+        Entity* entity1;
+        Entity* entity2;
+    };
+
+    struct EntityTileCollisionInfo{
+        Entity* entity1;
+        unsigned int x;
+        unsigned int y;
+    };
+
+    /**
+     * Holds additional event info for tile related events
+     */
     struct TileInfo {
         unsigned int tile_x;
         unsigned int tile_y;
         Grid* grid;
     };
 
+    /**
+     * Holds additional info for level related events
+     */
     struct LevelInfo {
         unsigned int levelNumber;
         Grid* grid;
@@ -100,9 +122,11 @@ public:
      */
     union info_u {
         KeyEventInfo keyInfo;
-        TankInfo tankInfo;
+        EntityInfo entityInfo;
         TileInfo tileInfo;
         LevelInfo levelInfo;
+        EntityEntityCollisionInfo entityEntityCollisionInfo;
+        EntityTileCollisionInfo entityTileCollisionInfo;
 
         ~info_u(){};  // DO NOT change this to =default, or else it will stop working
     } info = {};
@@ -112,7 +136,11 @@ public:
 
     explicit Event(EventType);
 
-    Event(EventType e, Tank* tank);
+    Event(EventType e, Entity* entity);
+
+    Event(EventType e, Entity* entity1, Entity* entity2);
+
+    Event(EventType e, Entity* entity, unsigned int x, unsigned int y);
 
     Event(EventType e, unsigned int x, unsigned int y, Grid* grid);
 

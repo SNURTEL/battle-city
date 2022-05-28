@@ -28,7 +28,7 @@ enum TileType : unsigned int {
 /**
  * Exception thrown when trying to access a field that's out of map (one or two coords are negative or above 51)
  */
-class OutOfMapException : public std::exception {
+class OutOfGridException : public std::exception {
     [[nodiscard]] const char *what() const noexcept override;
 };
 
@@ -53,6 +53,8 @@ public:
 
     /**
      * Places a tile of a given type at given coords. Calls deleteTile when trying to place a NullTile
+     *
+     * Queues Event::TilePlaced, Event::TileChanged, or Event:TileDeleted
      * @param x
      * @param y
      * @param newTile
@@ -60,7 +62,9 @@ public:
     void setTile(unsigned int x, unsigned int y, TileType newTile);
 
     /**
-     * Replaces a tile at given coords with a NullTile
+     * Replaces a tile at given coords with a NullTile. If it was already a NullTile, does nothing
+     *
+     * Possibly queues Event::TileDeleted
      * @param x
      * @param y
      */

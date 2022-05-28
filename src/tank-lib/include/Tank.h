@@ -5,16 +5,15 @@
 #ifndef PROI_PROJEKT_TANK_H
 #define PROI_PROJEKT_TANK_H
 
-/**
- * Represents a direction in which a Tank (or a bullet) can be pointed at
- * Assume positive x is East, positive y in South
- */
-enum Direction: unsigned int{
-    North = 0,
-    West,
-    South,
-    East
-};
+#include <memory>
+#include <optional>
+
+#include "../../core-lib/include/SimpleSubscriber.h"
+#include "Entity.h"
+
+class SimplePublisher;
+
+class Bullet;
 
 /**
  * \brief Base class for tank representation
@@ -22,12 +21,10 @@ enum Direction: unsigned int{
  * Tanks remember their position, orientation, number of lives,
  * and immutable fields which values are specified in derived classes (ex. points_, speed_).
  *
- * Tanks provide no input validation and should only be manipulated by TankController.
+ * Tanks provide no input validation and should only be manipulated by EntityController.
  */
-class Tank {
+class Tank: public Entity, public SimpleSubscriber{
 public:
-    virtual ~Tank()=default;
-
     /**
      * Represents tank types, should match names of derived classes
      */
@@ -60,7 +57,9 @@ public:
     /**
      * Moves the tank by it's tick movement distance (speed) if the moving_ flag is set; otherwise, returns immediately
      */
-    void move();
+    bool move() override;
+
+    bool moveBack() override;
 
     /**
      * Modify the number of lives by delta_l. Will not go below 0.
@@ -74,17 +73,6 @@ public:
      */
     [[nodiscard]] TankType getType() const;
 
-    /**
-     * Returns tank's x coord
-     * @return
-     */
-    [[nodiscard]] float getX() const;
-
-    /**
-     * Returns tank's y coord
-     * @return
-     */
-    [[nodiscard]] float getY() const;
 
     /**
      * Return;s tank's remaining lives (0 is killed)
@@ -93,34 +81,16 @@ public:
     [[nodiscard]] unsigned int getLives() const;
 
     /**
-     * Returns tank's speed
-     * @return
-     */
-    [[nodiscard]] float getTankSpeed() const;
-
-    /**
      * Sets tank's moving_ flag
      * @param isMoving
      */
-    [[nodiscard]] void setMoving(bool isMoving);
+    void setMoving(bool isMoving);
 
     /**
      * Checks whether the tank is moving
      * @return
      */
     [[nodiscard]] bool isMoving() const;
-
-    /**
-     * Returns tank's bullet speed
-     * @return
-     */
-    [[nodiscard]] float getBulletSpeed() const;
-
-    /**
-     * Returns the direction in which the tank is currently pointed
-     * @return
-     */
-    [[nodiscard]] Direction getFacing() const;
 
     /**
      * Returns the number of points that the player gets for killing the tank
@@ -146,19 +116,20 @@ public:
      */
     void offsetInCurrentDirection(float offset);
 
-protected:
-    Tank()=default;
+    std::optional<std::unique_ptr<Bullet>> createBullet();
 
+    void notify(SimplePublisher* pub) override;
+
+protected:
+
+    Tank(TankType type, float x, float y, float speed, float bulletSpeed, unsigned int lives, Direction direction, unsigned int points);
     TankType type_;
 
-    float x_;
-    float y_;
     unsigned int lives_;
-    float tank_speed_;
-    float bullet_speed_;
-    Direction facing_;
     bool moving_;
     unsigned int points_;
+
+    float bulletSpeed_;
 };
 
 /**

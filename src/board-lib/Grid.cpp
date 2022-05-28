@@ -6,7 +6,7 @@
 #include "../core-lib/include/EventQueue.h"
 #include "../core-lib/include/Event.h"
 
-const char *OutOfMapException::what() const noexcept {
+const char *OutOfGridException::what() const noexcept {
     return "Given coords do not lie within map's boundaries";
 }
 
@@ -16,7 +16,7 @@ Grid::Grid() {
 
 TileType Grid::getTileAtPosition(unsigned int x, unsigned int y) {
     if (x > 51 || y > 51) {
-        throw OutOfMapException();
+        throw OutOfGridException();
     }
 
     return grid[x][y];
@@ -24,7 +24,7 @@ TileType Grid::getTileAtPosition(unsigned int x, unsigned int y) {
 
 void Grid::setTile(unsigned int x, unsigned int y, TileType newTile) {
     if (x > 51 || y > 51) {
-        throw OutOfMapException();
+        throw OutOfGridException();
     }
 
     if (newTile == NullTile) {
@@ -45,7 +45,7 @@ void Grid::setTile(unsigned int x, unsigned int y, TileType newTile) {
 
 void Grid::deleteTile(unsigned int x, unsigned int y) {
     if (x > 51 || y > 51) {
-        throw OutOfMapException();
+        throw OutOfGridException();
     }
 
     if(grid[x][y]==NullTile){

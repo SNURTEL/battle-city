@@ -39,11 +39,11 @@ SCENARIO("Checking grid's contents") {
             }
         }WHEN("Trying to access a field with a negative index") {
             THEN("An exception should be thrown") {
-                REQUIRE_THROWS_AS(testGrid.getTileAtPosition(-5, 17), OutOfMapException);
+                REQUIRE_THROWS_AS(testGrid.getTileAtPosition(-5, 17), OutOfGridException);
             }
         }WHEN("Trying to access a field with an index larger than map's size") {
             THEN("An exception should be thrown") {
-                REQUIRE_THROWS_AS(testGrid.getTileAtPosition(20, testGrid.getSizeY() + 5), OutOfMapException);
+                REQUIRE_THROWS_AS(testGrid.getTileAtPosition(20, testGrid.getSizeY() + 5), OutOfGridException);
             }
         }
     }
