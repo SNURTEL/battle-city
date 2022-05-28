@@ -10,8 +10,16 @@ WindowView::WindowView(sf::RenderWindow* window, sf::View)
 {}
 
 
+WindowView::WindowView()
+{}
+
+
 AbstractWindow::AbstractWindow(const WindowView& windowView)
 : windowView(windowView)
+{}
+
+
+AbstractWindow::AbstractWindow()
 {}
 
 

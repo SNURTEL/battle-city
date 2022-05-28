@@ -16,6 +16,8 @@ TanksGraphic::RenderObject::RenderObject(const sf::Vector2f& coords, Direction d
 
 void TanksGraphic::render()
 {
+    makeRenderTanks(); // updates tanks info
+
     sf::RenderWindow* window = windowView.window;
     std::string path;
     sf::Texture texture;
@@ -59,7 +61,7 @@ float TanksGraphic::getAngle(Direction direction) const
 }
 
 
-TanksGraphic::TanksGraphic(const WindowView& windowView, const std::vector<Tank*>& tanks)
+TanksGraphic::TanksGraphic(const WindowView& windowView, std::vector<Tank*>* tanks)
 : AbstractWindow(windowView), tanks(tanks)
 {}
 
@@ -69,7 +71,7 @@ void TanksGraphic::makeRenderTanks()
     Tank::TankType tankType;
     sf::Vector2f tankPos;
     Direction direction;
-    for (const Tank* tank : tanks)
+    for (const Tank* tank : *tanks)
     {
         direction = tank->getFacing();
         tankPos.x = tank->getX();
@@ -98,7 +100,7 @@ void TanksGraphic::loadTextures()
 
         if (!texture.loadFromFile(path))
         {
-            // Exeption
+            // Exception
         }
         else
         {

@@ -3,12 +3,19 @@
 #include <iostream>
 #include <vector>
 #include "../../AbstractWindow.h"
+#include <map>
 
 #ifndef PROI_PROJEKT_BULLETSGRAPHIC_H
 #define PROI_PROJEKT_BULLETSGRAPHIC_H
 
 
 class Bullet;
+
+// Will be removed after fetching new code
+enum TextureType
+{
+    One=0
+};
 
 /**
  * @brief Class responsible for bullets updates and render
@@ -20,18 +27,7 @@ class Bullet;
  */
 class BulletsGraphic : public AbstractWindow
 {
-private:
-
-    /// @brief Enum that conains possible tanks types textures
-    enum TextureType
-    {
-        PlayerTank=0,
-        BasicTank,
-        FastTank,
-        PowerTank,
-        ArmorTank,
-    };
-
+protected:
 
     /// @brief Sturct that links object position with its texture
     struct RenderObject
@@ -44,6 +40,7 @@ private:
     /// @brief Maps texture types to actual paths to textures
     std::map<TextureType, std::string> textureMap;
 
+    std::vector<Bullet*>* bullets;
 
     /**
      * @brief Makes RenderObjects vector from tanks list
@@ -57,8 +54,8 @@ public:
     virtual void render() override;
 
 
-    /// @brief Updates its objects
-    void update(std::vector<Bullet*> bullets);
+    // /// @brief Updates its objects
+    // void update(std::vector<Bullet*> bullets);
 
 
     /**
@@ -66,7 +63,7 @@ public:
      *
      * @return std::vector<sf::Vector2f>
      */
-    std::vector<RenderObject> getRenderBullets(std::vector<Bullet>* bullets);
+    std::vector<RenderObject> getRenderBullets(std::vector<Bullet*>* bullets);
 
 
     /**
@@ -77,7 +74,7 @@ public:
      * @param window
      * @param TanksGraphic
      */
-    BulletsGraphic(WindowView WindowView, std::vector<Bullet*> bullets);
+    BulletsGraphic(const WindowView& windowView, std::vector<Bullet*>* bullets);
 };
 
 #endif //PROI_PROJEKT_BULLETSGRAPHIC_H

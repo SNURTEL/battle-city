@@ -26,8 +26,8 @@ public:
     /// @brief Stores given board object pointers
     struct BoardPointers
     {
-        std::vector<Tank*> tanks;
-        std::vector<Bullet*> bullets;
+        std::vector<Tank*>* tanks;
+        std::vector<Bullet*>* bullets;
         Grid* tiles;
     };
 
@@ -35,8 +35,8 @@ public:
     /// @brief Stores given frame object pointers
     struct FramePointers
     {
-        int level;
-        int playerLivesLeft;
+        int* level;
+        int* playerLivesLeft;
         // And other ...
         // Will be added later
     };
@@ -51,6 +51,11 @@ public:
      */
     ActiveStateGraphic(const WindowView& windowView, const Window::ActiveStatePointers& activeStatePointers);
 
+    // /**
+    //  * @brief Commands its children to update objects to render
+    //  *
+    //  */
+    // virtual void update();
 
     /**
      * @brief Commands its children to render objects on the screen
@@ -61,7 +66,7 @@ public:
     /// @brief Returns reference to class children
     std::vector<std::shared_ptr<AbstractWindow>>& getChildren();
 
-private:
+protected:
 
     /// @brief Creates appropriate children
     void conscructComposite();
