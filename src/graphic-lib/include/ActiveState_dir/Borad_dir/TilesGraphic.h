@@ -54,7 +54,7 @@ private:
 public:
 
     /// @brief Renders all objects on the screen in given order
-    virtual void render() const override;
+    virtual void render() override;
 
 
     /// @brief Updates its objects
@@ -76,7 +76,7 @@ public:
      *
      * @param window
      */
-    TilesGraphic(sf::RenderWindow* window);
+    TilesGraphic(WindowView WindowView, Grid* grid);
 };
 
 #endif //PROI_PROJEKT_TILESGRAPHIC_H

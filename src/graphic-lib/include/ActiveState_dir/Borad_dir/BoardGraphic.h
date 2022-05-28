@@ -23,19 +23,15 @@ class BoardGraphic : public AbstractWindow
 {
 private:
     ActiveStateGraphic::BoardPointers boardObjects;
+
+    /// @brief Creates appropriate children
+    void conscructComposite();
 public:
     /**
      * @brief Commands its children to render objects on the screen
      *
      */
-    virtual void render() const override;
-
-
-    /**
-     * @brief Commands its children to update objects to render
-     *
-     */
-    void update(ActiveStateGraphic::BoardPointers boardObjects);
+    virtual void render() override;
 
 
     /**
@@ -43,7 +39,7 @@ public:
      *
      * @param window
      */
-    BoardGraphic(sf::RenderWindow* window);
+    BoardGraphic(const WindowView& windowView, const ActiveStateGraphic::BoardPointers& boardObjects);
 };
 
 #endif //PROI_PROJEKT_BoardGraphic_H
