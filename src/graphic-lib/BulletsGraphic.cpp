@@ -8,4 +8,10 @@
 #include <string>
 
 
-// BulletsGraphic::BulletsGraphic()
+BulletsGraphic::BulletsGraphic(const WindowView& windowView, std::vector<Bullet*>* bullets)
+: AbstractWindow(windowView), bullets(bullets)
+{}
+
+
+void BulletsGraphic::render()
+{}

@@ -74,3 +74,14 @@ void ActiveStateGraphic::conscructComposite()
     this->children.push_back(board);
     this->children.push_back(frame);
 }
+
+
+// void ActiveStateGraphic::update()
+// {
+//     // setframeObjects();
+//     // setboardObjects();
+//     for(std::shared_ptr<AbstractWindow> child : children)
+//     {
+//         child->update();
+//     }
+// }

@@ -9,7 +9,7 @@
 
 template<typename State, typename T>
 bool Window::instanceOf(T* ptr)
-{return dynamic_cast<State*>(ptr) == nullptr;}
+{return dynamic_cast<State*>(ptr) != nullptr;}
 
 
 Window::Window(GameState* gameState)
@@ -37,8 +37,8 @@ void Window::selectgameState(GameState* gameState)
 }
 
 
-void Window::fetchAcitveStatePointers(std::vector<Tank*> tanks, Grid* tiles, std::vector<Bullet*> bullets,
-                                      int level, int livesLeft)
+void Window::fetchAcitveStatePointers(std::vector<Tank*>* tanks, Grid* tiles, std::vector<Bullet*>* bullets,
+                                      int* level, int* livesLeft)
 {
     activeStatePointers.tanks = tanks;
     activeStatePointers.bullets = bullets;
@@ -82,3 +82,14 @@ void Window::conscructComposit()
     // Later another states should be implemented
     this->children_map[GameStateGraphic::ActieveGameState] = activeState;
 }
+
+
+// void Window::update()
+// {
+//     std::unordered_map<GameStateGraphic, std::shared_ptr<AbstractWindow>>::iterator it_children = children_map.begin();
+//     for (it_children; it_children != children_map.end(); it_children++)
+//     {
+//         it_children->second->update();
+//     }
+
+// }

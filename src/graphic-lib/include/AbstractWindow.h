@@ -69,7 +69,7 @@ public:
     // virtual void update();
 
 
-    virtual ~AbstractWindow();
+    // virtual ~AbstractWindow();
 };
 
 

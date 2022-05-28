@@ -21,10 +21,10 @@
  */
 class TanksGraphic : public AbstractWindow
 {
-private:
+protected:
 
 
-    std::vector<Tank*> tanks;
+    std::vector<Tank*>* tanks;
 
     /// @brief Sturct that links object position with its texture
     struct RenderObject
@@ -82,7 +82,7 @@ public:
      * @param window
      * @param TanksGraphic
      */
-    TanksGraphic(const WindowView& windowView, const std::vector<Tank*>& tanks);
+    TanksGraphic(const WindowView& windowView, std::vector<Tank*>* tanks);
 };
 
 #endif //PROI_PROJEKT_TANKSGRAPHIC_H

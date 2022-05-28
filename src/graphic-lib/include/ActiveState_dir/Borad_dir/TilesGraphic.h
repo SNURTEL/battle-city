@@ -3,11 +3,14 @@
 #include <iostream>
 #include <vector>
 #include "../../AbstractWindow.h"
+#include <map>
 
 #ifndef PROI_PROJEKT_TILESGRAPHIC_H
 #define PROI_PROJEKT_TILESGRAPHIC_H
 
 
+enum TileType: unsigned int;
+class Grid;
 /**
  * @brief Class responsible for board updates and render
  *
@@ -18,29 +21,19 @@
  */
 class TilesGraphic : public AbstractWindow
 {
-private:
-
-    /// @brief Enum that conains possible tanks types textures
-    enum TextureType
-    {
-        PlayerTank=0,
-        BasicTank,
-        FastTank,
-        PowerTank,
-        ArmorTank,
-    };
-
+protected:
 
     /// @brief Sturct that links object position with its texture
     struct RenderObject
     {
         sf::Vector2f coords;
-        TextureType textureType;
+        TileType textureType;
     };
 
+    Grid* grid;
 
     /// @brief Maps texture types to actual paths to textures
-    std::map<TextureType, std::string> textureMap;
+    std::map<TileType, std::string> textureMap;
 
     /**
      * @brief Makes RenderObjects vector from tanks list
@@ -49,16 +42,14 @@ private:
      */
     std::vector<RenderObject> makeRenderTiles() const;
 
-
-
 public:
 
     /// @brief Renders all objects on the screen in given order
     virtual void render() override;
 
 
-    /// @brief Updates its objects
-    void update(int *tiles[52][52]);
+    // /// @brief Updates its objects
+    // void update(int *tiles[52][52]);
 
 
     /**
@@ -72,11 +63,10 @@ public:
     /**
      * @brief Construct a new TilesGraphic object
      *
-     * Positions the view in the window.
-     *
-     * @param window
+     * @param windowView
+     * @param grid
      */
-    TilesGraphic(WindowView WindowView, Grid* grid);
+    TilesGraphic(WindowView windowView, Grid* grid);
 };
 
 #endif //PROI_PROJEKT_TILESGRAPHIC_H

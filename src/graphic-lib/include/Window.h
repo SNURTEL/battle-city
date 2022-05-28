@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "AbstractWindow.h"
+#include <unordered_map>
 // #include "ActiveState_dir/ActiveStateGraphic.h"
 
 
@@ -33,11 +34,11 @@ public:
     /// @brief Stores given ActiveState pointers
     struct ActiveStatePointers
     {
-        std::vector<Tank*> tanks;
-        std::vector<Bullet*> bullets;
+        std::vector<Tank*>* tanks;
+        std::vector<Bullet*>* bullets;
         Grid* tiles;
-        int level;
-        int playerLivesLeft;
+        int* level;
+        int* playerLivesLeft;
         // And others ...
         // Will be added later
     };
@@ -66,8 +67,8 @@ public:
      *
      * @param tiles
      */
-    void fetchAcitveStatePointers(std::vector<Tank*> tanks ,Grid* tiles, std::vector<Bullet*> bullets,
-                                  int level, int livesLeft);
+    void fetchAcitveStatePointers(std::vector<Tank*>* tanks ,Grid* tiles, std::vector<Bullet*>* bullets,
+                                  int* level, int* livesLeft);
 
 
     /**
@@ -93,9 +94,18 @@ public:
     //  */
     // virtual void update();
 
+    /// @brief Enum that determine actual game state
+    enum GameStateGraphic
+    {
+        ActieveGameState=0,
+        PauseGameState,
+        MenuGameState,
+        FinishedGameState
+    };
 
-    virtual ~Window();
-private:
+
+    // virtual ~Window();
+protected:
 
     /**
      * @brief Unique pointer for sf:RenderWindow
@@ -108,14 +118,6 @@ private:
     /// @brief Create appropriate children
     void conscructComposit();
 
-    /// @brief Enum that determine actual game state
-    enum GameStateGraphic
-    {
-        ActieveGameState=0,
-        PauseGameState,
-        MenuGameState,
-        FinishedGameState
-    };
 
     GameStateGraphic gameState;
 

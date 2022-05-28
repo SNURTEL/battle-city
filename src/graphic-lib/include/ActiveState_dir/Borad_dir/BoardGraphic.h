@@ -21,11 +21,14 @@ class Bullet;
  */
 class BoardGraphic : public AbstractWindow
 {
-private:
+protected:
     ActiveStateGraphic::BoardPointers boardObjects;
 
     /// @brief Creates appropriate children
     void conscructComposite();
+
+
+    // void setBoardObjects();
 public:
     /**
      * @brief Commands its children to render objects on the screen
@@ -33,6 +36,11 @@ public:
      */
     virtual void render() override;
 
+    // /**
+    //  * @brief Commands its children to update objects to render
+    //  *
+    //  */
+    // virtual void update();
 
     /**
      * @brief Construct a new Board View object
