@@ -10,7 +10,6 @@
 
 class Bullet;
 
-
 /**
  * @brief Class resoponsible for coumputing ActiveState graphic
  *
@@ -29,7 +28,7 @@ public:
     {
         std::vector<Tank*> tanks;
         std::vector<Bullet*> bullets;
-        int* tiles[52][52];
+        Grid* tiles;
     };
 
 
@@ -50,35 +49,41 @@ public:
      *
      * @param window
      */
-    ActiveStateGraphic(sf::RenderWindow* window);
+    ActiveStateGraphic(const WindowView& windowView, const Window::ActiveStatePointers& activeStatePointers);
 
 
     /**
      * @brief Commands its children to render objects on the screen
      *
      */
-    virtual void render() const override;
+    virtual void render() override;
 
-
-    /**
-     * @brief Commands its children to update objects to render
-     *
-     */
-    void update(Window::ActiveStatePointers objectsPointers);
+    /// @brief Returns reference to class children
+    std::vector<std::shared_ptr<AbstractWindow>>& getChildren();
 
 private:
 
-    sf::View boardView;
-    sf::View frameView;
+    /// @brief Creates appropriate children
+    void conscructComposite();
+
+    WindowView boardWindowView;
+    WindowView frameWindowView;
 
     /// @brief Calculates the view for board rendering
-    sf::View setboardView();
+    void setboardView();
 
     /// @brief Calculates the view for frame rednering
-    sf::View setframeView();
+    void setframeView();
+
+    /// @brief Sets boardObjects from activeStateGraphic
+    void setboardObjects();
+
+    /// @brief Sets frameObjects from activeStateGraphic
+    void setframeObjects();
 
     BoardPointers boardObjects;
     FramePointers frameObjects;
+    Window::ActiveStatePointers activeStateObjects;
 
 
 };

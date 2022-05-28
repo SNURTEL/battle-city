@@ -32,14 +32,14 @@ public:
      * @brief Commands its children to render objects on the screen
      *
      */
-    virtual void render() const override;
+    virtual void render() override;
 
 
-    /**
-     * @brief Commands its children to update objects to render
-     *
-     */
-    void update(ActiveStateGraphic::FramePointers frameObjects);
+    // /**
+    //  * @brief Commands its children to update objects to render
+    //  *
+    //  */
+    // void update(ActiveStateGraphic::FramePointers frameObjects);
 
 
     /**
@@ -47,7 +47,7 @@ public:
      *
      * @param window
      */
-    FrameGraphic(sf::RenderWindow* window);
+    FrameGraphic(const WindowView& windowView, const ActiveStateGraphic::FramePointers& frameObjects);
 
 private:
 
@@ -55,7 +55,11 @@ private:
 
     BareFrameSize bareFrameSize;
 
-    void calculatebareFrameSize();
+    /// @brief Creates appropriate children
+    void conscructComposite();
+
+    /// @brief Calculates size of a frame around the game board
+    void calculateBareFrameSize();
 
 };
 

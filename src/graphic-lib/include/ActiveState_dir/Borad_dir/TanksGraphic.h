@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include "../../AbstractWindow.h"
+#include "../../../../tank-lib/include/Tank.h" // Does a better way exists?
+
 
 
 #ifndef PROI_PROJEKT_TANKSGRAPHIC_H
@@ -20,43 +22,50 @@
 class TanksGraphic : public AbstractWindow
 {
 private:
-     enum TextureType
-    {
-        PlayerTank=0,
-        BasicTank,
-        FastTank,
-        PowerTank,
-        ArmorTank,
-    };
+
+
+    std::vector<Tank*> tanks;
 
     /// @brief Sturct that links object position with its texture
     struct RenderObject
     {
         sf::Vector2f coords;
-        TextureType textureType;
+        Direction direction;
+        Tank::TankType textureType;
+        RenderObject(const sf::Vector2f& coords, Direction direction,
+                     Tank::TankType textureType);
+        RenderObject();
     };
 
-    /// @brief Maps texture types to actual paths to textures
-    std::map<TextureType, std::string> textureMap;
+    /// @brief Maps texture types to actual textures
+    std::unordered_map<Tank::TankType, sf::Texture> textureMap{}; // Why before initialization compilatro was showing an error
+
+    /// @brief Maps paths types to actual textures
+    std::unordered_map<Tank::TankType, std::string> pathMap{};
 
     /**
      * @brief Makes RenderObjects vector from tanks list
      *
-     * @return std::vector<RenderObject>
+     * Stores made RenderObjects vector in vector renderTanks
      */
-    std::vector<RenderObject> makeRenderTanks() const;
+    void makeRenderTanks();
 
-    /// @brief Enum that conains possible tanks types textures
+    std::vector<RenderObject> renderTanks;
 
+    /// @brief Loads textures into the textureMap
+    void loadTextures();
+
+    /// @brief Returns angle in degrees from given direction
+    float getAngle(Direction direction) const;
 
 public:
 
    /// @brief Renders all objects on the screen in given order
-    virtual void render() const override;
+    virtual void render() override;
 
 
-    /// @brief Updates its objects
-    virtual void update(std::vector<Tank*> tanks);
+    // /// @brief Updates its objects
+    // virtual void update(std::vector<Tank*> tanks);
 
 
     /**
@@ -70,12 +79,10 @@ public:
     /**
      * @brief Construct a new TanksGraphic object
      *
-     * Positions the view in the window.
-     *
      * @param window
      * @param TanksGraphic
      */
-    TanksGraphic(sf::RenderWindow* window);
+    TanksGraphic(const WindowView& windowView, const std::vector<Tank*>& tanks);
 };
 
 #endif //PROI_PROJEKT_TANKSGRAPHIC_H

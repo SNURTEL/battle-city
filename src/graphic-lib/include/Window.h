@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "AbstractWindow.h"
+// #include "ActiveState_dir/ActiveStateGraphic.h"
 
 
 #ifndef PROI_PROJEKT_GRAPHIC_H
@@ -11,6 +12,7 @@
 class Tank;
 class GameState;
 class Bullet;
+class Grid;
 
 
 /**
@@ -25,32 +27,6 @@ class Bullet;
  */
 class Window : AbstractWindow
 {
-private:
-
-    /**
-     * @brief Unique poiter for sf:RenderWindow
-     *
-     * Made for safe memory allocation
-     */
-    std::unique_ptr<sf::RenderWindow> window_unique;
-
-
-    /// @brief Enum that determine actual game state
-    enum GameStateGraphic
-    {
-        ActieveGameState=0,
-        PauseGameState,
-        MenuGameState,
-        FinishedGameState
-    };
-
-    GameStateGraphic gameState;
-
-
-    /// @brief Cheks wich game state was given to constructor and sets appropriate attribute
-    void selectgameState();
-
-
 public:
 
 
@@ -59,10 +35,10 @@ public:
     {
         std::vector<Tank*> tanks;
         std::vector<Bullet*> bullets;
-        int tiles[52][52];
+        Grid* tiles;
         int level;
         int playerLivesLeft;
-        // And other ...
+        // And others ...
         // Will be added later
     };
 
@@ -76,6 +52,7 @@ public:
      * @brief Construct a new Window object
      *
      * Intiate window with apropriate size and mode
+     * Initiate view object in windowView
      * Gets actual gameState, sets gameState attribute
      *
      */
@@ -89,7 +66,8 @@ public:
      *
      * @param tiles
      */
-    void fetchAcitveStatePointers(std::vector<Tank*>/*, int *tiles[][]*/);
+    void fetchAcitveStatePointers(std::vector<Tank*> tanks ,Grid* tiles, std::vector<Bullet*> bullets,
+                                  int level, int livesLeft);
 
 
     /**
@@ -106,17 +84,56 @@ public:
      * @brief Commands its children to render objects on the screen
      *
      */
-    virtual void render() const;
+    virtual void render() override;
 
 
-    /**
-     * @brief Commands its children to update objects to render
-     *
-     */
-    virtual void update();
+    // /**
+    //  * @brief Commands its children to update objects to render
+    //  *
+    //  */
+    // virtual void update();
 
 
     virtual ~Window();
+private:
+
+    /**
+     * @brief Unique pointer for sf:RenderWindow
+     *
+     * Made for safe memory allocation
+     */
+    std::unique_ptr<sf::RenderWindow> window;
+
+
+    /// @brief Create appropriate children
+    void conscructComposit();
+
+    /// @brief Enum that determine actual game state
+    enum GameStateGraphic
+    {
+        ActieveGameState=0,
+        PauseGameState,
+        MenuGameState,
+        FinishedGameState
+    };
+
+    GameStateGraphic gameState;
+
+    /// @brief Map that contains Window children
+    std::unordered_map<GameStateGraphic, std::shared_ptr<AbstractWindow>> children_map{};
+
+    sf::VideoMode videoMode;
+
+    /// @brief Cheks which game state was given to constructor and sets appropriate attribute
+    void selectgameState(GameState* gameState);
+
+    /// @brief Cheks if given objects is type of declared object
+    template<typename State, typename T>
+    bool instanceOf(T* ptr);
+
+
+    ActiveStatePointers activeStatePointers;
+
 };
 
 #endif //PROI_PROJKET_GRAPHIC_H

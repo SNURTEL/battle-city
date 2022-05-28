@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
+#include <memory>
 
 
 #ifndef PROI_PROJEKT_ABSTRACTWINDOW_H
@@ -9,6 +10,21 @@
 
 class Tank;
 class GameState;
+
+
+/**
+ * @brief Struct that links window with view that should be applyed before rendering
+ *
+ * Before rendering leafs objects sets on window given view that is set by some
+ * previous composite object
+ */
+struct WindowView
+{
+    sf::RenderWindow* window;
+    sf::View view;
+    WindowView(sf::RenderWindow* window, sf::View);
+    WindowView();
+};
 
 
 /**
@@ -26,26 +42,35 @@ protected:
 
     const uint WINDOW_HEIGHT = 800;
     const uint WINDOW_WIDTH = 800;
-    sf::RenderWindow* window;
-    sf::VideoMode videoMode;
-    std::vector<std::unique_ptr<AbstractWindow>> children;
+    WindowView windowView;
+    std::vector<std::shared_ptr<AbstractWindow>> children;
 
 public:
     /**
      * @brief Commands its children to render objects on the screen
      *
      */
-    virtual void render() const;
-
+    virtual void render()=0;
+    AbstractWindow();
+    AbstractWindow(const WindowView& windowView);
 
     /**
-     * @brief Commands its children to update objects to render
+     * @brief Sets defoult view on windowView.window
+     *
+     * Used after drawing objects using not default view
      *
      */
-    virtual void update();
+    void setDefalutView();
+
+    // /**
+    //  * @brief Commands its children to update objects to render
+    //  *
+    //  */
+    // virtual void update();
 
 
     virtual ~AbstractWindow();
 };
+
 
 #endif //PROI_PROJKET_GRAPHIC_H

@@ -26,7 +26,7 @@ public:
      * @brief Renders objects on the screen
      *
      */
-    virtual void render() const override;
+    virtual void render() override;
 
 
     /**

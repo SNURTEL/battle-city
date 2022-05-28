@@ -54,7 +54,7 @@ private:
 public:
 
     /// @brief Renders all objects on the screen in given order
-    virtual void render() const override;
+    virtual void render() override;
 
 
     /// @brief Updates its objects
@@ -77,7 +77,7 @@ public:
      * @param window
      * @param TanksGraphic
      */
-    BulletsGraphic(sf::RenderWindow* window);
+    BulletsGraphic(WindowView WindowView, std::vector<Bullet*> bullets);
 };
 
 #endif //PROI_PROJEKT_BULLETSGRAPHIC_H
