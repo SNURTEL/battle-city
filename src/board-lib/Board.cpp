@@ -52,7 +52,7 @@ bool Board::moveEntity(Tank *target) {
     if(!validateEntityPosition(target)){
         snapTankToGrid(target);
 
-        std::optional<Entity*> collidingEntity = entityController_->getEntityAtPosition(target->getX(), target->getY());
+        std::optional<Entity*> collidingEntity = entityController_->findEntityAtPosition(target->getX(), target->getY());
         if(collidingEntity.has_value()){  // collision with entity
             eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityEntityCollision, dynamic_cast<Entity*>(target), collidingEntity.value()));
         }else{
@@ -69,7 +69,7 @@ bool Board::moveEntity(Entity *target) {
     target->move();
     if(!validateEntityPosition(target)){
 
-        std::optional<Entity*> collidingEntity = entityController_->getEntityAtPosition(target->getX(), target->getY());
+        std::optional<Entity*> collidingEntity = entityController_->findEntityAtPosition(target->getX(), target->getY());
         if(collidingEntity.has_value()){  // collision with entity
             eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityEntityCollision, target, collidingEntity.value()));
         }else{

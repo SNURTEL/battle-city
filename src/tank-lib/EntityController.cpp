@@ -7,6 +7,9 @@
 
 #include "include/EntityController.h"
 
+#include "include/Tank.h"
+#include "include/Bullet.h"
+
 #include "../core-lib/include/EventQueue.h"
 #include "../core-lib/include/Event.h"
 
@@ -101,10 +104,10 @@ void EntityController::setTankDirection(Tank *target, Direction direction) {
     target->setFacing(direction);
 }
 
-std::optional<Entity *> EntityController::getEntityAtPosition(float x, float y) {
+std::optional<Entity *> EntityController::findEntityAtPosition(float x, float y) {
     for (auto &entity: entities_) {
         if (x >= entity->getX() && entity->getX() + entity->getSizeX() > x) {   //try as a single expression
-            if (x >= entity->getY() && entity->getY() + entity->getSizeY() > y) {
+            if (y >= entity->getY() && entity->getY() + entity->getSizeY() > y) {
                 return entity.get();
             }
         }
@@ -135,6 +138,16 @@ PlayerTank *EntityController::addEntity(std::unique_ptr<PlayerTank> playerTank) 
     entities_.push_back(std::move(playerTank));
     player_ = dynamic_cast<PlayerTank*>(entities_.back().get());
     return player_;
+}
+
+Tank *EntityController::addEntity(std::unique_ptr<Tank> newTank) {
+    entities_.push_back(std::move(newTank));
+    return dynamic_cast<Tank*>(entities_.back().get());
+}
+
+Bullet *EntityController::addEntity(std::unique_ptr<Bullet> newBullet) {
+    entities_.push_back(std::move(newBullet));
+    return dynamic_cast<Bullet*>(entities_.back().get());
 }
 
 Entity* EntityController::addEntity(std::unique_ptr<Entity> newEntity) {

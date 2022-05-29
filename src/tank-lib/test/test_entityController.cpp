@@ -16,105 +16,154 @@
 #include "../include/Bullet.h"
 
 
-class TestTankController : public EntityController {
+class TestEntityController : public EntityController {
 public:
-    TestTankController() : EntityController() {
+    TestEntityController() : EntityController() {
     }
 
-    std::vector<std::unique_ptr<Entity>> * getEntities() {
+    std::vector<std::unique_ptr<Entity>> *getEntities() {
         return &entities_;
     }
 };
 
-SCENARIO("Spawning tanks") {
+Tank *spawnTank(EntityController *controller, unsigned int x, unsigned int y, Tank::TankType type) {
+    std::unique_ptr<Tank> tank = controller->createTank(x, y, type);
+    return controller->addEntity(std::move(tank));
+}
+
+std::optional<Bullet *> spawnBullet(EntityController *controller, Tank *tank) {
+    auto bullet = tank->createBullet();
+    if (!bullet.has_value()) {
+        return std::nullopt;
+    }
+    return controller->addEntity(std::move(bullet.value()));
+}
+
+EventQueue<Event> *getEmptyEventQueue() {
+    EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
+    eventQueue->clear();
+    return eventQueue;
+}
+
+SCENARIO("Creating tanks") {
     GIVEN("An empty entity controller") {
-        TestTankController test_entityController{};
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
+        TestEntityController test_entityController{};
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+
+        WHEN("Requesting to create a tank") {
+            std::unique_ptr<Tank> tank1 = test_entityController.createTank(12, 99, Tank::ArmorTank);
+
+            THEN("A tank of correct type should be returned") {
+                REQUIRE(dynamic_cast<ArmorTank *>(tank1.get()) != nullptr);
+
+                AND_THEN("All fields should be set as expected") {
+                    REQUIRE(tank1->getX() == 12);
+                    REQUIRE(tank1->getY() == 99);
+                    REQUIRE(tank1->getType() == Tank::ArmorTank);
+                    REQUIRE(tank1->getLives() == 4);
+                    REQUIRE(tank1->isMoving() == false);
+                    REQUIRE(tank1->getFacing() == North);
+                }
+            }
+        }
+    }
+}
+
+SCENARIO("Spawning entities") {
+    GIVEN("An empty entity controller") {
+        TestEntityController test_entityController{};
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
 
         WHEN("Requesting to spawn a tank") {
-            auto newTank1 = test_entityController.spawnTank(5, 5, Tank::BasicTank);
-            auto newTank2 = test_entityController.spawnTank(20, 20, Tank::PowerTank);
+            auto t1 = test_entityController.createTank(5, 5, Tank::BasicTank);
+            Tank *tank1 = test_entityController.addEntity(std::move(t1));
 
-            THEN("Tanks should be created") {
-                REQUIRE(dynamic_cast<Tank*>((*(test_entityController.getEntities()))[0].get())->getType() == Tank::BasicTank);
-                REQUIRE(dynamic_cast<Tank*>((*(test_entityController.getEntities()))[1].get())->getType() == Tank::PowerTank);
+            auto t2 = test_entityController.createTank(20, 20, Tank::PowerTank);
+            Tank *tank2 = test_entityController.addEntity(std::move(t2));
 
-                AND_THEN("Tank creation events should be added to the pool") {
-                    auto event1 = eventQueue->pop();
-                    auto event2 = eventQueue->pop();
+            THEN("Tanks should be added to the controller") {
+                REQUIRE(dynamic_cast<Tank *>((*(test_entityController.getEntities()))[0].get())->getType() ==
+                        Tank::BasicTank);
+                REQUIRE(dynamic_cast<Tank *>((*(test_entityController.getEntities()))[1].get())->getType() ==
+                        Tank::PowerTank);
+            }
+        }
 
-                    REQUIRE(event1->type == Event::EntitySpawned);
-                    REQUIRE(event1->info.entityInfo.entity == newTank1);
-                    REQUIRE(event2->type == Event::EntitySpawned);
-                    REQUIRE(event2->info.entityInfo.entity == newTank2);
-                    REQUIRE(eventQueue->isEmpty());
-                }
+        AND_WHEN("Requesting to spawn a bullet") {
+            auto t1 = test_entityController.createTank(5, 5, Tank::ArmorTank);
+            std::unique_ptr<Bullet> b1 = t1->createBullet().value();
+
+            Bullet *bullet = test_entityController.addEntity(std::move(b1));
+
+            THEN("Bullet should be added to the controller") {
+                REQUIRE(dynamic_cast<Bullet *>((*(test_entityController.getEntities()))[0].get()) != nullptr);
             }
         }
 
         WHEN("Spawning the player") {
-            auto newTank = test_entityController.spawnTank(5, 5, Tank::PlayerTank);
+            std::unique_ptr<Tank> t = test_entityController.createTank(5, 5, Tank::PlayerTank);
+            auto pt = std::unique_ptr<PlayerTank>(dynamic_cast<PlayerTank *>(t.release()));
+            PlayerTank *newTank = test_entityController.addEntity(std::move(pt));
 
             THEN("New tank should be stored in a separate place") {
                 REQUIRE(test_entityController.getPlayer() == newTank);
                 REQUIRE(test_entityController.getEntities()->back().get() == newTank);
-
-                AND_THEN("A correct event should be added to the pool") {
-                    auto event = eventQueue->pop();
-                    REQUIRE(eventQueue->isEmpty());
-
-                    REQUIRE(event->type == Event::EntitySpawned);
-                    REQUIRE(event->info.entityInfo.entity == newTank);
-                }
             }
         }
-
     }
 }
 
 SCENARIO("Tank killed") {
     GIVEN("A controller with some tanks") {
-        TestTankController test_entityController{};
-        test_entityController.spawnTank(5, 5, Tank::ArmorTank);
-        test_entityController.spawnTank(20, 20, Tank::PowerTank);
+        TestEntityController test_entityController{};
+        Tank *tank = spawnTank(&test_entityController, 20, 20, Tank::PowerTank);
+        Tank *tank2 = spawnTank(&test_entityController, 15, 15, Tank::BasicTank);
 
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-        eventQueue->pop();
-        eventQueue->pop();
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
 
         WHEN("Controller is requested to kill a tank") {
-            Tank *target = dynamic_cast<Tank*>((*(test_entityController.getEntities()))[0].get());
-            test_entityController.killTank(target);
+            test_entityController.killTank(tank);
 
             THEN("Tank should be removed from the pool") {
                 REQUIRE(test_entityController.getEntities()->size() == 1);
 
                 AND_THEN("TankKilled event should be added to the queue") {
-                    REQUIRE(eventQueue->pop()->type == Event::TankKilled);
+                    auto event = eventQueue->pop();
+                    REQUIRE(event->type == Event::TankKilled);
+                    REQUIRE(event->info.entityInfo.entity == tank);
+                    REQUIRE(eventQueue->isEmpty());
                 }
             }
         }
     }
 }
 
-SCENARIO("Tank removed") {
-    GIVEN("A controller with some tanks") {
-        TestTankController test_entityController{};
-        test_entityController.spawnTank(5, 5, Tank::ArmorTank);
-        test_entityController.spawnTank(20, 20, Tank::PowerTank);
+SCENARIO("Removing entities") {
+    GIVEN("A controller with some entities") {
+        TestEntityController test_entityController{};
+        Tank *tank = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
+        Tank *tank1 = spawnTank(&test_entityController, 10, 10, Tank::PowerTank);
+        Bullet *bullet = spawnBullet(&test_entityController, tank).value();
 
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-        eventQueue->clear();
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
 
-        WHEN("Controller is requested to remove a tank") {
-            Tank *target = dynamic_cast<Tank*>((*(test_entityController.getEntities()))[0].get());
-            test_entityController.killTank(target);
+        WHEN("Controller is requested to remove an entity") {
+            test_entityController.removeEntity(tank);
+            test_entityController.removeEntity(bullet);
 
-            THEN("Tank should be removed from the pool") {
+            THEN("Entities should be removed from the pool") {
                 REQUIRE(test_entityController.getEntities()->size() == 1);
 
-                AND_THEN("TankRemoved event should be added to the queue") {
-                    REQUIRE(eventQueue->pop()->type == Event::TankKilled);
+                AND_THEN("EntityRemoved events should be added to the queue") {
+                    auto tankEvent = eventQueue->pop();
+                    REQUIRE(tankEvent->type == Event::EntityRemoved);
+                    REQUIRE(tankEvent->info.entityInfo.entity == tank);
+
+                    auto bulletEvent = eventQueue->pop();
+                    REQUIRE(bulletEvent->type == Event::EntityRemoved);
+                    REQUIRE(bulletEvent->info.entityInfo.entity == bullet);
+
+                    REQUIRE(eventQueue->isEmpty());
                 }
             }
         }
@@ -123,19 +172,17 @@ SCENARIO("Tank removed") {
 
 SCENARIO("Tank hit") {
     GIVEN("A controller with some tanks") {
-        TestTankController test_entityController{};
-        test_entityController.spawnTank(5, 5, Tank::ArmorTank);
-        test_entityController.spawnTank(20, 20, Tank::PowerTank);
+        TestEntityController test_entityController{};
+        Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
+        Tank *tank2 = spawnTank(&test_entityController, 20, 20, Tank::PowerTank);
 
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-        eventQueue->clear();
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
 
         WHEN("Tank receives fewer damage points than it has health") {
-            Tank *target = dynamic_cast<Tank*>((*(test_entityController.getEntities()))[0].get());
-            test_entityController.hitTank(target);
+            test_entityController.hitTank(tank1);
 
             THEN("Tank's health should be decreased") {
-                REQUIRE(target->getLives() == 3);
+                REQUIRE(tank1->getLives() == 3);
                 AND_THEN("An event should be added to the queue") {
                     REQUIRE(eventQueue->pop()->type == Event::TankHit);
                 }
@@ -143,105 +190,101 @@ SCENARIO("Tank hit") {
         }
 
         WHEN("Damage is greater or equal than tank's health") {
-            Tank *target = dynamic_cast<Tank*>((*(test_entityController.getEntities()))[1].get());
-            test_entityController.hitTank(target);
+            test_entityController.hitTank(tank2);
 
             THEN("Tank should be destroyed") {
                 REQUIRE(test_entityController.getEntities()->size() == 1);
 
                 AND_THEN("An event should be added to the queue") {
-                    REQUIRE(eventQueue->pop()->type == Event::TankKilled);
+                    auto event = eventQueue->pop();
+                    REQUIRE(event->type == Event::TankKilled);
+                    REQUIRE(event->info.entityInfo.entity == tank2);
                 }
             }
         }
     }
 }
 
-SCENARIO("Moving a tank") {
-    GIVEN("A tank controller with some tanks") {
-        TestTankController test_entityController{};
-        auto testTank1 = test_entityController.spawnTank(5, 5, Tank::ArmorTank);
+SCENARIO("Rotating tanks") {
+    GIVEN("An entity controller with some tanks") {
+        TestEntityController test_entityController{};
 
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-        eventQueue->clear();
+        Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::FastTank);
+        Tank *tank2 = spawnTank(&test_entityController, 20, 20, Tank::PlayerTank);
 
-        WHEN("Rotating tanks"){
-            test_entityController.setTankDirection(testTank1, East);
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
 
-            THEN("The direction in which the tank is faced should be updated"){
-                REQUIRE(testTank1->getFacing()==East);
+        WHEN("Requesting to rotate a tank") {
+            test_entityController.setTankDirection(tank1, East);
 
-                AND_THEN("An event should be added to the queue"){
-                    auto event = eventQueue->pop();
-                    REQUIRE(event->type == Event::TankRotated);
-                    REQUIRE(event->info.entityInfo.entity == testTank1);
-
-                    REQUIRE(eventQueue->isEmpty());
-                }
+            THEN("The direction in which the tank is faced should be updated") {
+                REQUIRE(tank1->getFacing() == East);
             }
         }
+    }
+}
+
+SCENARIO("Moving a single entity") {
+    GIVEN("An entity controller with some entities") {
+        TestEntityController test_entityController{};
+
+        Tank *tank = spawnTank(&test_entityController, 5, 5, Tank::FastTank);
+        test_entityController.setTankMoving(tank, true);
+        test_entityController.setTankDirection(tank, South);
+
+        Tank *stationaryTank = spawnTank(&test_entityController, 20, 20, Tank::PlayerTank);
+        test_entityController.setTankMoving(stationaryTank, false);
+        test_entityController.setTankDirection(stationaryTank, East);
+
+        Bullet *bullet = spawnBullet(&test_entityController, stationaryTank).value();
+        float initialBulletX = bullet->getX();
+        float initialBulletY = bullet->getY();
+
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
 
         WHEN("Controller is requested to move a tank") {
-            test_entityController.setTankMoving(testTank1, true);
-            test_entityController.setTankDirection(testTank1, South);
-            eventQueue->pop();
-            test_entityController.moveEntity(testTank1);
+            test_entityController.setTankMoving(tank, true);
+            test_entityController.setTankDirection(tank, South);
+            eventQueue->clear();
+            test_entityController.moveEntity(tank);
 
-            THEN("Tanks location an orientation should be updated") {
-                REQUIRE(testTank1->getY() == 5 + testTank1->getSpeed());
-                REQUIRE(testTank1->getFacing() == South);
+            THEN("Tanks location should be updated") {
+                REQUIRE(tank->getY() == 5 + tank->getSpeed());
+                REQUIRE(tank->getFacing() == South);
 
-                AND_THEN("An event should be added to the pool") {
+                AND_THEN("An event should be added to the queue") {
                     std::unique_ptr<Event> event = eventQueue->pop();
                     REQUIRE(event->type == Event::EntityMoved);
-                    REQUIRE(event->info.entityInfo.entity == testTank1);
+                    REQUIRE(event->info.entityInfo.entity == tank);
                 }
             }
         }
-    }
-}
 
-SCENARIO("Moving all tanks at once") {
-    GIVEN("A tank controller with some tanks") {
-        TestTankController testTankController{};
-        auto testTank1 = testTankController.spawnTank(5, 5, Tank::BasicTank);
-        testTank1->setFacing(North);
-        testTank1->setMoving(true);
-        auto testTank2 = testTankController.spawnTank(10, 10, Tank::ArmorTank);
-        testTank2->setFacing(West);
-        testTank2->setMoving(true);
-        auto testTank3 = testTankController.spawnTank(15, 15, Tank::FastTank);
-        testTank3->setMoving(false);
-        auto playerTank = testTankController.spawnTank(20, 20, Tank::PlayerTank);
-        playerTank->setFacing(South);
-        playerTank->setMoving(true);
+        WHEN("Controller is requested to move a tank but moving flag is not set") {
+            test_entityController.moveEntity(stationaryTank);
 
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-        eventQueue->clear();
+            THEN("Tank should remain stationary") {
+                REQUIRE(stationaryTank->getX() == 20);
+                REQUIRE(stationaryTank->getY() == 20);
 
-        WHEN("Calling the .moveAllTanks() method") {
-            testTankController.moveAllEntities();
+                AND_THEN("No events should be created") {
+                    REQUIRE(eventQueue->isEmpty());
+                }
+            }
+        }
 
-            THEN("Tanks with moving flag set should be moved") {
-                REQUIRE(testTank1->getX() == 5);
-                REQUIRE(testTank1->getY() == 5 - testTank1->getSpeed());
-                REQUIRE(testTank2->getX() == 10 - testTank2->getSpeed());
-                REQUIRE(testTank2->getY() == 10);
-                REQUIRE(testTank3->getX() == 15);
-                REQUIRE(testTank3->getY() == 15);
-                REQUIRE(playerTank->getX() == 20);
-                REQUIRE(playerTank->getY() == 20 + playerTank->getSpeed());
+        WHEN("Moving a bullet") {
+            test_entityController.moveEntity(bullet);
 
-                AND_THEN("Proper events should be added to the queue"){
-                    auto event = eventQueue->pop();
+            THEN("Bullet's loacion should be updated") {
+                REQUIRE(bullet->getX() == initialBulletX + bullet->getSpeed());
+                REQUIRE(bullet->getFacing() == East);
+
+                AND_THEN("An event should be added to the queue") {
+                    std::unique_ptr<Event> event = eventQueue->pop();
                     REQUIRE(event->type == Event::EntityMoved);
-                    REQUIRE(event->info.entityInfo.entity == testTank1);
-                    event = eventQueue->pop();
-                    REQUIRE(event->type == Event::EntityMoved);
-                    REQUIRE(event->info.entityInfo.entity == testTank2);
-                    event = eventQueue->pop();
-                    REQUIRE(event->type == Event::EntityMoved);
-                    REQUIRE(event->info.entityInfo.entity == playerTank);
+                    REQUIRE(event->info.entityInfo.entity == bullet);
+
                     REQUIRE(eventQueue->isEmpty());
                 }
             }
@@ -249,106 +292,200 @@ SCENARIO("Moving all tanks at once") {
     }
 }
 
-SCENARIO("Finding tanks by position") {
-    GIVEN("A controller with some tanks") {
-        TestTankController test_entityController{};
-        test_entityController.spawnTank(5, 5, Tank::ArmorTank);
-        test_entityController.spawnTank(20, 20, Tank::PowerTank);
+SCENARIO("Moving all entities at once") {
+    GIVEN("A entity controller with some entities") {
+        TestEntityController test_entityController{};
 
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-        eventQueue->clear();
+        Tank *tank = spawnTank(&test_entityController, 5, 5, Tank::FastTank);
+        test_entityController.setTankMoving(tank, true);
+        test_entityController.setTankDirection(tank, South);
 
-        WHEN("Trying to find a tank at it's exact location") {
-            std::optional<Entity *> found = test_entityController.getEntityAtPosition(20, 20);
+        Tank *stationaryTank = spawnTank(&test_entityController, 20, 20, Tank::PlayerTank);
+        test_entityController.setTankMoving(stationaryTank, false);
+        test_entityController.setTankDirection(stationaryTank, East);
 
-            THEN("A correct tank should be returned") {
+        Bullet *bullet = spawnBullet(&test_entityController, stationaryTank).value();
+        float initialBulletX = bullet->getX();
+        float initialBulletY = bullet->getY();
+
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+
+        WHEN("Calling the .moveAllEntities() method") {
+            test_entityController.moveAllEntities();
+
+            THEN("Tanks with moving flag set should be moved") {
+                REQUIRE(tank->getY() == 5 + tank->getSpeed());
+                REQUIRE(tank->getFacing() == South);
+            }
+
+            THEN("Stationary tanks should not be moved") {
+                REQUIRE(stationaryTank->getX() == 20);
+                REQUIRE(stationaryTank->getY() == 20);
+            }
+
+            THEN("Bullets should be moved unconditionally") {
+                REQUIRE(bullet->getX() == initialBulletX + bullet->getSpeed());
+                REQUIRE(bullet->getFacing() == East);
+            }
+
+            THEN("Events representing all moved entities should be added to the queue") {
+                std::unique_ptr<Event> event = eventQueue->pop();
+                REQUIRE(event->type == Event::EntityMoved);
+                REQUIRE(event->info.entityInfo.entity == tank);
+
+                event = eventQueue->pop();
+                REQUIRE(event->type == Event::EntityMoved);
+                REQUIRE(event->info.entityInfo.entity == bullet);
+
+                REQUIRE(eventQueue->isEmpty());
+            }
+        }
+    }
+}
+
+SCENARIO("Finding entities by their position") {
+    GIVEN("A controller with some entities") {
+        TestEntityController test_entityController{};
+
+        Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
+        Tank *tank2 = spawnTank(&test_entityController, 20, 20, Tank::PowerTank);
+        Bullet *bullet = spawnBullet(&test_entityController, tank1).value();
+
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+
+        WHEN("Trying to find an entity at it's exact location") {
+            std::optional<Entity *> found = test_entityController.findEntityAtPosition(bullet->getX(), bullet->getY());
+
+            THEN("A correct entity should be returned") {
                 REQUIRE(found.has_value());
-                REQUIRE(dynamic_cast<Tank*>(found.value())->getType() == Tank::PowerTank);
+                REQUIRE(dynamic_cast<Bullet *>(found.value()) != nullptr);
             }
         }
 
-        WHEN("Trying to find a tank in it's bounding box") {
-            std::optional<Entity *> found = test_entityController.getEntityAtPosition(21, 21);
+        WHEN("Trying to find an entity in it's bounding box") {
+            std::optional<Entity *> found = test_entityController.findEntityAtPosition(21, 21);
 
-            THEN("A correct tank should be returned") {
+            THEN("A correct entity should be returned") {
                 REQUIRE(found.has_value());
-                REQUIRE(dynamic_cast<Tank*>(found.value())->getType() == Tank::PowerTank);
+                REQUIRE(dynamic_cast<PowerTank *>(found.value()) != nullptr);
             }
         }
 
-        WHEN("Trying to find a tank at the lower right corner of it's bounding box") {
-            std::optional<Entity *> found = test_entityController.getEntityAtPosition(21.999, 21.999);
+        WHEN("Trying to find an entity at the lower right corner of it's bounding box") {
+            std::optional<Entity *> found = test_entityController.findEntityAtPosition(21.999, 21.999);
 
-            THEN("A correct tank should be returned") {
+            THEN("A correct entity should be returned") {
                 REQUIRE(found.has_value());
-                REQUIRE(dynamic_cast<Tank*>(found.value())->getType() == Tank::PowerTank);
+                REQUIRE(dynamic_cast<PowerTank *>(found.value()) != nullptr);
             }
         }
 
-        WHEN("Trying to find a tank in a place where there's no tank") {
-            std::optional<Entity *> found = test_entityController.getEntityAtPosition(90, 90);
+        WHEN("Trying to find an entity in a place where there's no tank") {
+            std::optional<Entity *> found = test_entityController.findEntityAtPosition(90, 90);
 
-            THEN("No tank should be returned") {
+            THEN("No entity should be returned") {
                 REQUIRE_FALSE(found.has_value());
             }
         }
 
-        WHEN("Trying to find a tank next to it's edge") {
-            std::optional<Entity *> found = test_entityController.getEntityAtPosition(22, 21);
+        WHEN("Trying to find an entity next to it's edge") {
+            std::optional<Entity *> found = test_entityController.findEntityAtPosition(22, 21);
 
-            THEN("No tank should be returned") {
+            THEN("No entity should be returned") {
                 REQUIRE_FALSE(found.has_value());
             }
 
-            found = test_entityController.getEntityAtPosition(19.999, 19.999);
+            found = test_entityController.findEntityAtPosition(19.999, 19.999);
 
-            THEN("No tank should be returned") {
+            THEN("No entity should be returned") {
                 REQUIRE_FALSE(found.has_value());
             }
+        }
+
+        WHEN("Trying to find an entity at a point located right between two entities") {
+            std::optional<Entity *> found = test_entityController.findEntityAtPosition(5, 5 + (tank1->getSizeY() -
+                                                                                               bullet->getSizeY()) / 2);
+
+            THEN("Entity on the right should be returned") {
+
+                REQUIRE(found.has_value());
+                REQUIRE(dynamic_cast<ArmorTank *>(found.value()) != nullptr);
+            }
+
         }
 
     }
 }
 
-SCENARIO("Collision detection"){
-    GIVEN("An entity controller with some entities"){
-        TestTankController test_entityController{};
-        auto tank1 = test_entityController.spawnTank(5, 5, Tank::ArmorTank);
-        auto bullet1 = test_entityController.addEntity(std::move(std::make_unique<Bullet>(10, 10, North, 1, Bullet::Friendly)));
+SCENARIO("Collision detection") {
+    GIVEN("An entity controller with some entities") {
+        TestEntityController test_entityController{};
 
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-        eventQueue->clear();
+        Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
+        Bullet *bullet1 = spawnBullet(&test_entityController, tank1).value();
 
-        WHEN("Two objects are away from each other"){
-            THEN("No collision should be detected"){
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+
+        WHEN("Two objects are away from each other") {
+            THEN("No collision should be detected") {
                 REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank1));
                 REQUIRE_FALSE(test_entityController.checkEntityCollisions(bullet1));
             }
-        }
-        WHEN("Two objects overlap"){
-            auto tank2 = test_entityController.spawnTank(6, 6, Tank::PlayerTank);
+        }WHEN("Two objects overlap") {
+            Tank *tank2 = spawnTank(&test_entityController, 6, 6, Tank::PlayerTank);
 
-            THEN("A collision should be detected"){
+            THEN("A collision should be detected") {
                 REQUIRE(test_entityController.checkEntityCollisions(tank2));
                 REQUIRE(test_entityController.checkEntityCollisions(tank1));
             }
-        }
-        WHEN("One objects sits right on other's edge (horizontally)"){
-            auto tank2 = test_entityController.spawnTank(7, 5, Tank::PlayerTank);
+        }WHEN("One objects sits right on other's edge (horizontally)") {
+            Tank *tank2 = spawnTank(&test_entityController, 7, 5, Tank::PlayerTank);
 
-            THEN("Np collision should be detected"){
+            THEN("Np collision should be detected") {
+                REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank1));
+                REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank2));
+            }
+        }WHEN("One objects sits right on other's edge (vertically)") {
+            Tank *tank2 = spawnTank(&test_entityController, 5, 7, Tank::PlayerTank);
+
+            THEN("Np collision should be detected") {
                 REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank1));
                 REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank2));
             }
         }
-        WHEN("One objects sits right on other's edge (vertically)"){
-            auto tank2 = test_entityController.spawnTank(5, 7, Tank::PlayerTank);
+        eventQueue->clear();
 
-            THEN("Np collision should be detected"){
-                REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank1));
-                REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank2));
+    }
+}
+
+SCENARIO("Clearing the board") {
+    GIVEN("An entity controller with some contents") {
+        TestEntityController test_entityController{};
+
+        Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
+        Tank *tank2 = spawnTank(&test_entityController, 20, 20, Tank::PowerTank);
+        Bullet *bullet = spawnBullet(&test_entityController, tank1).value();
+
+        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+
+        WHEN("Calling the .clear() method") {
+            test_entityController.clear();
+
+            THEN("All entities should be removed") {
+                REQUIRE(test_entityController.getAllEntities()->empty());
+
+                AND_THEN("EntityRemoved events should be created") {
+                    auto event = eventQueue->pop();
+                    REQUIRE(event->type == Event::EntityRemoved);
+                    REQUIRE(event->info.entityInfo.entity == bullet);
+                    event = eventQueue->pop();
+                    REQUIRE(event->type == Event::EntityRemoved);
+                    REQUIRE(event->info.entityInfo.entity == tank2);
+                    event = eventQueue->pop();
+                    REQUIRE(event->type == Event::EntityRemoved);
+                    REQUIRE(event->info.entityInfo.entity == tank1);
+                }
             }
         }
-    eventQueue->clear();
     }
 }

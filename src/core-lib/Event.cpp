@@ -94,7 +94,7 @@ Event::Event(EventType e, unsigned int x, unsigned int y, Grid *grid) {
 Event::Event(EventType e, unsigned int levelNumber, Grid *grid) {
     type = e;
     switch (e) {
-        case LevelBuilt: {
+        case LevelLoaded: {
             info.levelInfo = {levelNumber, grid};
         }
         default:

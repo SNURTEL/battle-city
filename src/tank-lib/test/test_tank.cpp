@@ -68,7 +68,7 @@ SCENARIO("Moving the tank in the direction it is faced") {
     }
 }
 
-SCENARIO("Firing a tank") {
+SCENARIO("Firing a bullet") {
     GIVEN("Some tanks") {
         std::unique_ptr<Tank> powerTank = std::make_unique<PowerTank>(10, 20, North);
         std::unique_ptr<Tank> basicTank = std::make_unique<BasicTank>(40, 50, East);
@@ -119,10 +119,10 @@ SCENARIO("Firing a tank") {
             THEN("Bullet should not be created") {
                 REQUIRE_FALSE(powerTank->createBullet().has_value());
 
-                AND_WHEN("Bullet is deleted") {
+                AND_WHEN("The other bullet is deleted") {
                     bullet.reset();
 
-                    THEN("Bullet can be created again") {
+                    THEN("New bullet can be created") {
                         auto otherBullet = powerTank->createBullet();
 
                         REQUIRE(otherBullet.has_value());

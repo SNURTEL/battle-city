@@ -58,7 +58,7 @@ public:
         TileChanged,
         TileDeleted,
 
-        LevelBuilt
+        LevelLoaded
     };
 
     EventType type;

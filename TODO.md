@@ -18,10 +18,10 @@
 
 
 ### Board-lib
-- [ ] Przepisać ruch czołgów ma oparty na prędkości
+- [x] Przepisać ruch czołgów ma oparty na prędkości
   - [x] Zamienić wszystkie inty na floaty
-- [ ] Zmodyfikować tank controller aby operował prędkością
-- [ ] Snapowanie przy obrocie
+- [x] Zmodyfikować tank controller aby operował prędkością
+- [x] Snapowanie przy obrocie
 - [ ] Dostosować testy
-- [ ] Fasada Board
-  - [ ] Wykrywanie kolizji
+- [x] Fasada Board
+  - [x] Wykrywanie kolizji

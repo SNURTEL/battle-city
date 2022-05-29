@@ -19,26 +19,7 @@ class EntityController;
 
 enum Direction: unsigned int;
 
-///**
-// * Exception thrown when two tanks are overlapping as a result of an error
-// */
-//class EntityOverlapException : public std::exception{
-//public:
-//    EntityOverlapException()=delete;
-//
-//    /**
-//     * Inits class TankOverlapException
-//     * @param x First tank's x coord
-//     * @param y First tank's y coord
-//     */
-//    EntityOverlapException(unsigned int x, unsigned int y);
-//
-//    const char* what();
-//
-//private:
-//    std::string what_message;
-//};
-
+// TODO CONSTRUCTOR WITH MEMBER CONTROLLERS
 class Board {
 public:
     /**

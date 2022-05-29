@@ -33,16 +33,6 @@ public:
      * Inits class EntityController
      */
     EntityController();
-//
-//    /**
-//     * Attempts to spawn a tank at a given location.
-//     *
-//     * Queues Event::TankSpawned
-//     * @param x Tank's initial x coord
-//     * @param y Tank's initial y coord
-//     * @param type Tank's type
-//     */
-//    Tank * spawnTank(unsigned int x, unsigned int y, Tank::TankType type);
 
     std::unique_ptr<Tank> createTank(unsigned int x, unsigned int y, Tank::TankType type);
 
@@ -110,7 +100,7 @@ public:
      * @param y
      * @return
      */
-    std::optional<Entity *> getEntityAtPosition(float x, float y);
+    std::optional<Entity *> findEntityAtPosition(float x, float y);
 
     /**
      * Returns a pointer to the player-controlled tank
@@ -119,6 +109,10 @@ public:
     PlayerTank* getPlayer();
 
     PlayerTank* addEntity(std::unique_ptr<PlayerTank> playerTank);
+
+    Tank* addEntity(std::unique_ptr<Tank> newTank);
+
+    Bullet* addEntity(std::unique_ptr<Bullet> newBullet);
 
     Entity* addEntity(std::unique_ptr<Entity> newEntity);
 
