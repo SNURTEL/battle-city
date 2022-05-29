@@ -9,7 +9,7 @@
 
 #include "../include/EventPublisher.h"
 #include "../include/EventSubscriber.h"
-#include "../include/event.h"
+#include "../include/Event.h"
 #include "../include/ObserverExceptions.h"
 
 class TestEventPublisher : public EventPublisher {

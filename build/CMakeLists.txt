@@ -106,6 +106,28 @@ set(board_lib_test_sources
 add_executable(test_board_lib ${board_lib_test_sources})
 target_link_libraries(test_board_lib PRIVATE board-lib Catch2::Catch2WithMain)
 
+######################### GRAPHIC-LIB ####################################
+set(graphic_lib_dir ../src/graphic-lib)
+set(graphic_lib_sources
+        ${graphic_lib_dir}/Window.cpp
+        ${graphic_lib_dir}/TanksGraphic.cpp
+        ${graphic_lib_dir}/FrameGraphic.cpp
+        ${graphic_lib_dir}/ActiveStateGraphic.cpp
+        ${graphic_lib_dir}/AbstractWindow.cpp
+        ${graphic_lib_dir}/BoardGraphic.cpp
+        ${graphic_lib_dir}/BulletsGraphic.cpp
+        ${graphic_lib_dir}/TilesGraphic.cpp
+        )
+
+add_library(graphic-lib ${graphic_lib_sources})
+target_link_libraries(graphic-lib PRIVATE game-lib tank-lib)
+
+set(graphic_lib_test_dir ../src/graphic-lib/test)
+set(graphic_lib_test_sources
+        ${graphic_lib_test_dir}/test_window.cpp)
+
+add_executable(test_graphic_lib ${graphic_lib_test_sources})
+target_link_libraries(test_graphic_lib PRIVATE graphic-lib Catch2::Catch2WithMain)
 ############################ MAIN ################################
 
 
