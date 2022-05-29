@@ -14,7 +14,7 @@
 #include "../core-lib/include/Event.h"
 
 
-const char *TankDoesNotExistException::what() {
+const char *EntityDoesNotExistException::what() {
     return "Trying to access a non-existent tank";
 }
 
@@ -23,37 +23,37 @@ EntityController::EntityController() {
 }
 
 
-std::unique_ptr<Tank> EntityController::createTank(unsigned int x, unsigned int y, Tank::TankType type) {
+std::unique_ptr<Tank> EntityController::createTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing) {
     std::unique_ptr<Tank> newTank;
     switch (type) {
         case Tank::BasicTank: {
-            newTank = std::make_unique<BasicTank>(x, y);
+            newTank = std::make_unique<BasicTank>(x, y, facing);
             break;
         }
         case Tank::FastTank: {
-            newTank = std::make_unique<FastTank>(x, y);
+            newTank = std::make_unique<FastTank>(x, y, facing);
             break;
         }
         case Tank::PowerTank: {
-            newTank = std::make_unique<PowerTank>(x, y);
+            newTank = std::make_unique<PowerTank>(x, y, facing);
             break;
         }
         case Tank::ArmorTank: {
-            newTank = std::make_unique<ArmorTank>(x, y);
+            newTank = std::make_unique<ArmorTank>(x, y, facing);
             break;
         }
         case Tank::PlayerTank: {
-            newTank = std::make_unique<PlayerTank>(x, y, 1);    // TODO set lives
+            newTank = std::make_unique<PlayerTank>(x, y, 1, facing);    // TODO set lives
         }
     }
     return std::move(newTank);
 }
 
 void EntityController::hitTank(Tank *target, unsigned int damage) {
-    if (target->getLives() <= damage) {
+    if (target->getLives() <= damage) {  // if greater than health
         killTank(target);
     } else {
-        target->deltaLives(-static_cast<int>(damage));
+        target->deltaLives(-static_cast<int>(damage));  // if lower
         eventQueue_->registerEvent(std::make_unique<Event>(Event::TankHit, target));
     }
 }
@@ -64,9 +64,9 @@ void EntityController::killTank(Tank *target) {
     });
 
     if (iter == entities_.end()) {
-        throw TankDoesNotExistException();
+        throw EntityDoesNotExistException();
     }
-    eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankKilled, target));  // TODO MOVE ALL EVENTS TO BOARD
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankKilled, target));
 
     entities_.erase(iter);
 }
@@ -77,7 +77,7 @@ void EntityController::removeEntity(Entity *target) {
     });
 
     if (iter == entities_.end()) {
-        throw TankDoesNotExistException();
+        throw EntityDoesNotExistException();
     }
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::EntityRemoved, target));
 
@@ -91,7 +91,7 @@ void EntityController::moveAllEntities() {
 }
 
 void EntityController::moveEntity(Entity *target) {
-    if (target->move()) {  // TODO Check collisions before moving (in Board class maybe?)
+    if (target->move()) {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
     }
 }
@@ -104,11 +104,13 @@ void EntityController::setTankDirection(Tank *target, Direction direction) {
     target->setFacing(direction);
 }
 
-std::optional<Entity *> EntityController::findEntityAtPosition(float x, float y) {
+std::optional<Entity *> EntityController::findEntityAtPosition(float x, float y, std::optional<Entity*> ignored) {
     for (auto &entity: entities_) {
         if (x >= entity->getX() && entity->getX() + entity->getSizeX() > x) {   //try as a single expression
             if (y >= entity->getY() && entity->getY() + entity->getSizeY() > y) {
-                return entity.get();
+                if((ignored.has_value() && ignored.value() != entity.get()) || !ignored.has_value()){
+                    return entity.get();
+                }
             }
         }
     }

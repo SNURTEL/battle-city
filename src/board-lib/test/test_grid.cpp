@@ -10,14 +10,17 @@
 #include "../../core-lib/include/EventQueue.h"
 #include "../../core-lib/include/Event.h"
 
-class TestGrid : public Grid {
-};
+namespace helper {
+
+    class TestGrid : public Grid {
+    };
+}
 
 SCENARIO("Checking grid's contents") {
     EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
 
     GIVEN("An empty grid") {
-        TestGrid testGrid{};
+        helper::TestGrid testGrid{};
         WHEN("Accessing the contents of the grid") {
             TileType foundTile = testGrid.getTileAtPosition(27, 42);
             THEN("A NullTile should be returned") {
@@ -25,7 +28,7 @@ SCENARIO("Checking grid's contents") {
             }
         }
     }GIVEN("A grid with some tiles") {
-        TestGrid testGrid{};
+        helper::TestGrid testGrid{};
         testGrid.setTile(10, 20, Bricks);
         testGrid.setTile(30, 45, Steel);
 
@@ -52,7 +55,7 @@ SCENARIO("Checking grid's contents") {
 SCENARIO("Setting grid's contents") {
     EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
     GIVEN("A grid with some tiles") {
-        TestGrid testGrid{};
+        helper::TestGrid testGrid{};
         testGrid.setTile(10, 20, Bricks);
         testGrid.setTile(30, 45, Steel);
 

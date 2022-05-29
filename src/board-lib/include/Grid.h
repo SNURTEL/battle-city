@@ -45,9 +45,9 @@ public:
 
     /**
      * Returns a tile located at given coords
-     * @param x
-     * @param y
-     * @return
+     * @param x X coord
+     * @param y Y coord
+     * @return A TileType value
      */
     TileType getTileAtPosition(unsigned int x, unsigned int y);
 
@@ -55,9 +55,9 @@ public:
      * Places a tile of a given type at given coords. Calls deleteTile when trying to place a NullTile
      *
      * Queues Event::TilePlaced, Event::TileChanged, or Event:TileDeleted
-     * @param x
-     * @param y
-     * @param newTile
+     * @param x X coord
+     * @param y Y coord
+     * @return A TileType value
      */
     void setTile(unsigned int x, unsigned int y, TileType newTile);
 
@@ -65,20 +65,20 @@ public:
      * Replaces a tile at given coords with a NullTile. If it was already a NullTile, does nothing
      *
      * Possibly queues Event::TileDeleted
-     * @param x
-     * @param y
+     * @param x X coord
+     * @param y Y coord
      */
     void deleteTile(unsigned int x, unsigned int y);
 
     /**
      * Returns board's X size
-     * @return
+     * @return Board's X axis size
      */
     [[nodiscard]] unsigned int getSizeX() const;
 
     /**
      * Returns board's Y size
-     * @return
+     * @return Board's Y axis size
      */
     [[nodiscard]] unsigned int getSizeY() const;
 

@@ -15,40 +15,68 @@
 #include "../include/Tank.h"
 #include "../include/Bullet.h"
 
+namespace helper {  // helper classes and functions
+    /**
+     * Extended EntityController for testing purposes
+     */
+    class TestEntityController : public EntityController {
+    public:
+        TestEntityController() : EntityController() {
+        }
 
-class TestEntityController : public EntityController {
-public:
-    TestEntityController() : EntityController() {
+        /**
+         * Provides access to entity vector
+         * @return A pointer to entity vector
+         */
+        std::vector<std::unique_ptr<Entity>> *getEntities() {
+            return &entities_;
+        }
+    };
+
+    /**
+     * Silently spawns a tank without adding an event to the queue
+     * @param controller EntityController instance to store the tank in
+     * @param x Tank's initial X coord
+     * @param y Tank's initial Y coord
+     * @param type Tank's type
+     * @param facing The direction in which the tank should be faced (defaults to North)
+     * @return A new tank wrapped in a unique_ptr
+     */
+    Tank *spawnTank(EntityController *controller, unsigned int x, unsigned int y, Tank::TankType type) {
+        std::unique_ptr<Tank> tank = controller->createTank(x, y, type);
+        return controller->addEntity(std::move(tank));
     }
 
-    std::vector<std::unique_ptr<Entity>> *getEntities() {
-        return &entities_;
+    /**
+     * Silently spawns a bullet without adding an event to the queue
+     * Will not spawn a bullet if given tank already fired
+     * @param controller EntityController instance to store the tank in
+     * @param tank A tank that should fire the bullet
+     * @return If successful, a pointer to the new bullet; if failed, an std::nullopt
+     */
+    std::optional<Bullet *> spawnBullet(EntityController *controller, Tank *tank) {
+        auto bullet = tank->createBullet();
+        if (!bullet.has_value()) {
+            return std::nullopt;
+        }
+        return controller->addEntity(std::move(bullet.value()));
     }
-};
 
-Tank *spawnTank(EntityController *controller, unsigned int x, unsigned int y, Tank::TankType type) {
-    std::unique_ptr<Tank> tank = controller->createTank(x, y, type);
-    return controller->addEntity(std::move(tank));
-}
-
-std::optional<Bullet *> spawnBullet(EntityController *controller, Tank *tank) {
-    auto bullet = tank->createBullet();
-    if (!bullet.has_value()) {
-        return std::nullopt;
+    /**
+     * Clears the event queue and returns a pointer to it
+     * @return A pointer to EventQueue<Event> sole instance
+     */
+    EventQueue<Event> *getEmptyEventQueue() {
+        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
+        eventQueue->clear();
+        return eventQueue;
     }
-    return controller->addEntity(std::move(bullet.value()));
-}
-
-EventQueue<Event> *getEmptyEventQueue() {
-    EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-    eventQueue->clear();
-    return eventQueue;
 }
 
 SCENARIO("Creating tanks") {
     GIVEN("An empty entity controller") {
-        TestEntityController test_entityController{};
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        helper::TestEntityController test_entityController{};
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Requesting to create a tank") {
             std::unique_ptr<Tank> tank1 = test_entityController.createTank(12, 99, Tank::ArmorTank);
@@ -71,8 +99,8 @@ SCENARIO("Creating tanks") {
 
 SCENARIO("Spawning entities") {
     GIVEN("An empty entity controller") {
-        TestEntityController test_entityController{};
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        helper::TestEntityController test_entityController{};
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Requesting to spawn a tank") {
             auto t1 = test_entityController.createTank(5, 5, Tank::BasicTank);
@@ -115,11 +143,11 @@ SCENARIO("Spawning entities") {
 
 SCENARIO("Tank killed") {
     GIVEN("A controller with some tanks") {
-        TestEntityController test_entityController{};
+        helper::TestEntityController test_entityController{};
         Tank *tank = spawnTank(&test_entityController, 20, 20, Tank::PowerTank);
         Tank *tank2 = spawnTank(&test_entityController, 15, 15, Tank::BasicTank);
 
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Controller is requested to kill a tank") {
             test_entityController.killTank(tank);
@@ -140,12 +168,12 @@ SCENARIO("Tank killed") {
 
 SCENARIO("Removing entities") {
     GIVEN("A controller with some entities") {
-        TestEntityController test_entityController{};
+        helper::TestEntityController test_entityController{};
         Tank *tank = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
         Tank *tank1 = spawnTank(&test_entityController, 10, 10, Tank::PowerTank);
         Bullet *bullet = spawnBullet(&test_entityController, tank).value();
 
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Controller is requested to remove an entity") {
             test_entityController.removeEntity(tank);
@@ -172,11 +200,11 @@ SCENARIO("Removing entities") {
 
 SCENARIO("Tank hit") {
     GIVEN("A controller with some tanks") {
-        TestEntityController test_entityController{};
+        helper::TestEntityController test_entityController{};
         Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
         Tank *tank2 = spawnTank(&test_entityController, 20, 20, Tank::PowerTank);
 
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Tank receives fewer damage points than it has health") {
             test_entityController.hitTank(tank1);
@@ -207,12 +235,12 @@ SCENARIO("Tank hit") {
 
 SCENARIO("Rotating tanks") {
     GIVEN("An entity controller with some tanks") {
-        TestEntityController test_entityController{};
+        helper::TestEntityController test_entityController{};
 
         Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::FastTank);
         Tank *tank2 = spawnTank(&test_entityController, 20, 20, Tank::PlayerTank);
 
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Requesting to rotate a tank") {
             test_entityController.setTankDirection(tank1, East);
@@ -226,7 +254,7 @@ SCENARIO("Rotating tanks") {
 
 SCENARIO("Moving a single entity") {
     GIVEN("An entity controller with some entities") {
-        TestEntityController test_entityController{};
+        helper::TestEntityController test_entityController{};
 
         Tank *tank = spawnTank(&test_entityController, 5, 5, Tank::FastTank);
         test_entityController.setTankMoving(tank, true);
@@ -240,7 +268,7 @@ SCENARIO("Moving a single entity") {
         float initialBulletX = bullet->getX();
         float initialBulletY = bullet->getY();
 
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Controller is requested to move a tank") {
             test_entityController.setTankMoving(tank, true);
@@ -294,7 +322,7 @@ SCENARIO("Moving a single entity") {
 
 SCENARIO("Moving all entities at once") {
     GIVEN("A entity controller with some entities") {
-        TestEntityController test_entityController{};
+        helper::TestEntityController test_entityController{};
 
         Tank *tank = spawnTank(&test_entityController, 5, 5, Tank::FastTank);
         test_entityController.setTankMoving(tank, true);
@@ -308,7 +336,7 @@ SCENARIO("Moving all entities at once") {
         float initialBulletX = bullet->getX();
         float initialBulletY = bullet->getY();
 
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Calling the .moveAllEntities() method") {
             test_entityController.moveAllEntities();
@@ -345,13 +373,13 @@ SCENARIO("Moving all entities at once") {
 
 SCENARIO("Finding entities by their position") {
     GIVEN("A controller with some entities") {
-        TestEntityController test_entityController{};
+        helper::TestEntityController test_entityController{};
 
         Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
         Tank *tank2 = spawnTank(&test_entityController, 20, 20, Tank::PowerTank);
         Bullet *bullet = spawnBullet(&test_entityController, tank1).value();
 
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Trying to find an entity at it's exact location") {
             std::optional<Entity *> found = test_entityController.findEntityAtPosition(bullet->getX(), bullet->getY());
@@ -419,12 +447,12 @@ SCENARIO("Finding entities by their position") {
 
 SCENARIO("Collision detection") {
     GIVEN("An entity controller with some entities") {
-        TestEntityController test_entityController{};
+        helper::TestEntityController test_entityController{};
 
         Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
         Bullet *bullet1 = spawnBullet(&test_entityController, tank1).value();
 
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Two objects are away from each other") {
             THEN("No collision should be detected") {
@@ -460,13 +488,13 @@ SCENARIO("Collision detection") {
 
 SCENARIO("Clearing the board") {
     GIVEN("An entity controller with some contents") {
-        TestEntityController test_entityController{};
+        helper::TestEntityController test_entityController{};
 
         Tank *tank1 = spawnTank(&test_entityController, 5, 5, Tank::ArmorTank);
         Tank *tank2 = spawnTank(&test_entityController, 20, 20, Tank::PowerTank);
         Bullet *bullet = spawnBullet(&test_entityController, tank1).value();
 
-        EventQueue<Event> *eventQueue = getEmptyEventQueue();
+        EventQueue<Event> *eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Calling the .clear() method") {
             test_entityController.clear();

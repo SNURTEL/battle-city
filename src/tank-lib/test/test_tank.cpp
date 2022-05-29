@@ -9,6 +9,9 @@
 #include "../include/Tank.h"
 #include "../include/Bullet.h"
 
+/**
+ * Extended Tank derived class for testing purposes
+ */
 class TestTank : public Tank {
 public:
     TestTank() : Tank(Tank::PowerTank, 10, 10, 1, 1, 1, North, 100) {};

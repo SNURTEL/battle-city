@@ -60,6 +60,10 @@ public:
         return events_.empty();
     };
 
+    unsigned int size(){
+        return events_.size();
+    }
+
     /**
      * Removes all elements from the queue
      */

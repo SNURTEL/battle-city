@@ -1,7 +1,7 @@
 var searchData=
 [
   ['placechunk_0',['placeChunk',['../class_grid_builder.html#aaee96358410ee0adf854ef19128bd8aa',1,'GridBuilder']]],
-  ['player_5f_1',['player_',['../class_tank_controller.html#a74dcf4d22824addba38c43f1aa2dbfbd',1,'TankController']]],
+  ['player_5f_1',['player_',['../class_entity_controller.html#ac9994f304071d728fe11d5cad6ec259b',1,'EntityController']]],
   ['playertank_2',['PlayerTank',['../class_player_tank.html',1,'PlayerTank'],['../class_tank.html#a8d01b214be6a1663539d0a34ae808d83a1b841dc53bb46afa5800649e29e7d0f9',1,'Tank::PlayerTank()'],['../class_player_tank.html#a1eb4632937e72cd60cfc0c252582ff37',1,'PlayerTank::PlayerTank()=delete'],['../class_player_tank.html#a14e33f813b5dec23e3a0980304de52c9',1,'PlayerTank::PlayerTank(float x, float y, unsigned int lives, Direction facing=North)']]],
   ['points_5f_3',['points_',['../class_tank.html#a8da8f054031c1ceb54fe79b3a3712f89',1,'Tank']]],
   ['pop_4',['pop',['../class_event_queue.html#a33b98f19b97d83a287b0a79d9a5ee469',1,'EventQueue']]],

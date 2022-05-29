@@ -174,10 +174,11 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Replaces a tile at given coords with a NullTile </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Replaces a tile at given coords with a NullTile. If it was already a NullTile, does nothing</p>
+<p >Possibly queues <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea2b659b21c38eb50be0473f069151676d">Event::TileDeleted</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">x</td><td>X coord </td></tr>
+    <tr><td class="paramname">y</td><td>Y coord </td></tr>
   </table>
   </dd>
 </dl>
@@ -198,7 +199,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Returns board's X size </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p >Returns board's X size </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_board.html" title="Aggregates and manipulates tank, bullet, and tile objects.">Board</a>'s X axis size </dd></dl>
 
 </div>
 </div>
@@ -216,7 +217,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Returns board's Y size </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p >Returns board's Y size </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_board.html" title="Aggregates and manipulates tank, bullet, and tile objects.">Board</a>'s Y axis size </dd></dl>
 
 </div>
 </div>
@@ -247,12 +248,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Returns a tile located at given coords </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">x</td><td>X coord </td></tr>
+    <tr><td class="paramname">y</td><td>Y coord </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A TileType value </dd></dl>
 
 </div>
 </div>
@@ -287,14 +288,15 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Places a tile of a given type at given coords. Calls deleteTile when trying to place a NullTile </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Places a tile of a given type at given coords. Calls deleteTile when trying to place a NullTile</p>
+<p >Queues <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaef0743881bb0aed5901c650563827ab4">Event::TilePlaced</a>, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea9780f2629f1251f516640ee1eb7d7b63">Event::TileChanged</a>, or <a class="el" href="class_event.html" title="Represents a single event of type Event::EventType.">Event</a>:TileDeleted </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramname">newTile</td><td></td></tr>
+    <tr><td class="paramname">x</td><td>X coord </td></tr>
+    <tr><td class="paramname">y</td><td>Y coord </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A TileType value </dd></dl>
 
 </div>
 </div>

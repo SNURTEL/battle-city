@@ -48,7 +48,7 @@ public:
         EntityRemoved,
 
         EntityEntityCollision,
-        EntityTileCollision,
+        EntityGridCollision,
 
         TankKilled,
         TankRotated,
@@ -92,7 +92,7 @@ public:
     };
 
     struct EntityTileCollisionInfo{
-        Entity* entity1;
+        Entity* entity;
         unsigned int x;
         unsigned int y;
     };
@@ -126,7 +126,7 @@ public:
         TileInfo tileInfo;
         LevelInfo levelInfo;
         EntityEntityCollisionInfo entityEntityCollisionInfo;
-        EntityTileCollisionInfo entityTileCollisionInfo;
+        EntityTileCollisionInfo entityGridCollisionInfo;
 
         ~info_u(){};  // DO NOT change this to =default, or else it will stop working
     } info = {};

@@ -1,13 +1,10 @@
 <map id="Board" name="Board">
-<area shape="rect" id="node1" title=" " alt="" coords="162,1284,378,1684"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,983,153,1060"/>
-<area shape="rect" id="node3" href="$class_tank_controller.html" title=" " alt="" coords="322,821,541,1221"/>
-<area shape="rect" id="node4" href="$class_event_queue.html" title=" " alt="" coords="117,491,317,759"/>
-<area shape="rect" id="node5" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="19,248,169,340"/>
-<area shape="rect" id="node6" title=" " alt="" coords="117,13,317,90"/>
-<area shape="rect" id="node7" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="287,160,487,428"/>
-<area shape="rect" id="node8" title=" " alt="" coords="341,5,490,97"/>
-<area shape="rect" id="node9" title=" " alt="" coords="348,579,499,671"/>
-<area shape="rect" id="node10" title=" " alt="" coords="523,586,715,663"/>
-<area shape="rect" id="node11" title=" " alt="" coords="565,983,700,1060"/>
+<area shape="rect" id="node1" title="Aggregates and manipulates tank, bullet, and tile objects." alt="" coords="177,851,401,1397"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,608,153,685"/>
+<area shape="rect" id="node3" title=" " alt="" coords="177,608,400,685"/>
+<area shape="rect" id="node4" href="$class_event_queue.html" title=" " alt="" coords="423,505,623,788"/>
+<area shape="rect" id="node5" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="326,255,475,347"/>
+<area shape="rect" id="node6" title=" " alt="" coords="423,13,623,90"/>
+<area shape="rect" id="node7" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="594,160,794,443"/>
+<area shape="rect" id="node8" title=" " alt="" coords="647,5,797,97"/>
 </map>

@@ -1,8 +1,11 @@
 <map id="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/board&#45;lib/include/Board.h" name="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/board&#45;lib/include/Board.h">
-<area shape="rect" id="node1" title=" " alt="" coords="82,5,283,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,117,91,143"/>
-<area shape="rect" id="node3" title=" " alt="" coords="97,199,175,225"/>
-<area shape="rect" id="node4" href="$_event_queue_8h.html" title=" " alt="" coords="165,109,312,151"/>
-<area shape="rect" id="node6" href="$_tank_8h.html" title=" " alt="" coords="336,109,483,151"/>
-<area shape="rect" id="node5" title=" " alt="" coords="207,199,270,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,207,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="77,288,154,315"/>
+<area shape="rect" id="node3" href="$_event_queue_8h.html" title=" " alt="" coords="33,109,179,151"/>
+<area shape="rect" id="node5" href="$_tank_8h.html" title=" " alt="" coords="203,109,350,151"/>
+<area shape="rect" id="node4" title=" " alt="" coords="84,206,147,233"/>
+<area shape="rect" id="node6" title=" " alt="" coords="222,206,297,233"/>
+<area shape="rect" id="node7" href="$_simple_subscriber_8h.html" title=" " alt="" coords="321,199,472,240"/>
+<area shape="rect" id="node9" href="$_entity_8h.html" title=" " alt="" coords="496,206,567,233"/>
+<area shape="rect" id="node8" title=" " alt="" coords="365,288,428,315"/>
 </map>

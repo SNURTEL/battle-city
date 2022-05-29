@@ -8,6 +8,7 @@ var class_event_queue =
     [ "operator=", "class_event_queue.html#a7666121d3db42c82cc209b4a62705d49", null ],
     [ "pop", "class_event_queue.html#a33b98f19b97d83a287b0a79d9a5ee469", null ],
     [ "registerEvent", "class_event_queue.html#a53b631d69b1a0acbafde454b67f2a5c7", null ],
+    [ "size", "class_event_queue.html#a5ae43c99bf434fdfeb4af73c76bda6d2", null ],
     [ "events_", "class_event_queue.html#a83a749137b64d37e19193532967c64d2", null ],
     [ "self_", "class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47", null ]
 ];

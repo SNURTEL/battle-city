@@ -10,5 +10,6 @@ var searchData=
   ['keyinfo_7',['keyInfo',['../union_event_1_1info__u.html#aa35441765d4cc27b6813f02a2bd14d34',1,'Event::info_u']]],
   ['keypressed_8',['KeyPressed',['../class_event.html#aa306292f6e9bf31a622e79dfc54321deaf1929590e029d4c7be9d1a60705a6fc1',1,'Event']]],
   ['keyreleased_9',['KeyReleased',['../class_event.html#aa306292f6e9bf31a622e79dfc54321dea23d7d2cb81f58d78fc803b9303fa2c8d',1,'Event']]],
-  ['killtank_10',['killTank',['../class_tank_controller.html#af54789b13a13d19ad45e7904c6088b9a',1,'TankController']]]
+  ['killallenemyentities_10',['killAllEnemyEntities',['../class_board.html#abdb06aa942ce94caa39f4386d2040d48',1,'Board']]],
+  ['killtank_11',['killTank',['../class_entity_controller.html#a3b116bde703fa17627f192eb5fff9021',1,'EntityController']]]
 ];

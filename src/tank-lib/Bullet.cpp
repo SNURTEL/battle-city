@@ -11,6 +11,7 @@ Bullet::Bullet(float x, float y, Direction direction, float speed, BulletType ty
 
 bool Bullet::move() {
     offsetInCurrentDirection(speed_);
+    return true;
 };
 
 bool Bullet::moveBack() {

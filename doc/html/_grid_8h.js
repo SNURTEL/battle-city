@@ -1,6 +1,6 @@
 var _grid_8h =
 [
-    [ "OutOfMapException", "class_out_of_map_exception.html", "class_out_of_map_exception" ],
+    [ "OutOfGridException", "class_out_of_grid_exception.html", "class_out_of_grid_exception" ],
     [ "Grid", "class_grid.html", "class_grid" ],
     [ "TileType", "_grid_8h.html#ae4c5928999c3565a2a27432c04591328", [
       [ "NullTile", "_grid_8h.html#ae4c5928999c3565a2a27432c04591328a1885a687710c799b6ef688ced097e3ab", null ],

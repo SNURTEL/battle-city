@@ -60,6 +60,7 @@ Event::Event(EventType e, Entity *entity1, Entity *entity2) {
     switch (e) {
         case EntityEntityCollision:{
             info.entityEntityCollisionInfo = {entity1, entity2};
+            break;
         }
         default:
             throw EventConstructionException();
@@ -69,8 +70,9 @@ Event::Event(EventType e, Entity *entity1, Entity *entity2) {
 Event::Event(EventType e, Entity *entity, unsigned int x, unsigned int y) {
     type = e;
     switch (e) {
-        case EntityTileCollision:{
-            info.entityTileCollisionInfo = {entity, x, y};
+        case EntityGridCollision:{
+            info.entityGridCollisionInfo = {entity, x, y};
+            break;
         }
         default:
             throw EventConstructionException();
@@ -96,6 +98,7 @@ Event::Event(EventType e, unsigned int levelNumber, Grid *grid) {
     switch (e) {
         case LevelLoaded: {
             info.levelInfo = {levelNumber, grid};
+            break;
         }
         default:
             throw EventConstructionException();
