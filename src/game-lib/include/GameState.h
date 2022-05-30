@@ -38,6 +38,20 @@ protected:
     Game* game_{};
 };
 
+// ############### menu pos ###################
+
+class Menu {
+    private:
+        unsigned int pos_ = 1;
+        unsigned int max_pos_ = 1;
+    public:
+        explicit Menu(unsigned int);
+        unsigned int get_pos();
+        void set_pos(unsigned int);
+        void add_pos();
+        void sub_pos();
+};
+
 // #####################################
 
 class ActiveGameState: public GameState{
@@ -56,13 +70,13 @@ public:
 };
 
 class MenuGameState: public GameState{
-private:
-    unsigned int position_ = 1;
 public:
     void set_position(unsigned int);
-    unsigned int get_position();
+    Menu* get_menu();
     MenuGameState()=delete;
     explicit MenuGameState(Game* game);
+private:
+    std::unique_ptr<Menu> menu_;
 };
 
 class FinishedGameState: public GameState{

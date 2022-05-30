@@ -24,18 +24,18 @@ void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
         }
         case (Event::KeyReleased):{
             if (event->info.keyInfo.keyCode == 74) {
-                state_->set_position(2);
+                state_->get_menu()->add_pos();
             }
             if (event->info.keyInfo.keyCode == 73) {
-                state_->set_position(1);
+                state_->get_menu()->sub_pos();
             }
-            std::cout << "current pos: " << state_->get_position() << std::endl;
+            std::cout << "current pos: " << state_->get_menu()->get_pos() << std::endl;
             if (event->info.keyInfo.keyCode == 58) {
-                if (state_->get_position() == 1)
+                if (state_->get_menu()->get_pos() == 1)
                 {
                     game_->setActiveState();
                 }
-                if (state_->get_position() == 2)
+                if (state_->get_menu()->get_pos() == 2)
                 {
                     game_->setFinishedState();
                 }
