@@ -100,12 +100,14 @@ $(document).ready(function(){initNavTree('class_event_queue.html',''); initResiz
 <div class="dynheader">
 Inheritance diagram for EventQueue&lt; E &gt;:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_event_queue__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_event_queue__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <div class="dynheader">
 Collaboration diagram for EventQueue&lt; E &gt;:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="class_event_queue__coll__graph.svg" width="384" height="419"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_event_queue__coll__graph.svg" width="384" height="448"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -120,6 +122,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a33b98f19b97d83a287b0a79d9a5ee469"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44deb5b894b537989dbe0580a088d16e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_queue.html#a44deb5b894b537989dbe0580a088d16e">isEmpty</a> ()</td></tr>
 <tr class="separator:a44deb5b894b537989dbe0580a088d16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ae43c99bf434fdfeb4af73c76bda6d2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_queue.html#a5ae43c99bf434fdfeb4af73c76bda6d2">size</a> ()</td></tr>
+<tr class="separator:a5ae43c99bf434fdfeb4af73c76bda6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab46958d4f566fef316894d76a6cdf94d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event_queue.html#ab46958d4f566fef316894d76a6cdf94d">clear</a> ()</td></tr>
+<tr class="separator:ab46958d4f566fef316894d76a6cdf94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -145,6 +151,7 @@ Private Member Functions</h2></td></tr>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class E&gt;<br />
 class EventQueue&lt; E &gt;</div><p >Singleton class wrapper for std::queue&lt;E&gt;. </p>
 <p >Stores and queues events wrapped in std::unique_ptr. Singleton instance can be accessed with ::instance(). Different instances are created for every each type (E). Cannot be inherited from (::instance() would always return the base class)</p>
+<p >NOTE: When testing event-generating objects, call <a class="el" href="class_event_queue.html#ad79d4122796089b84a33c21a4a3ba016">EventQueue::instance()</a>-&gt;<a class="el" href="class_event_queue.html#ab46958d4f566fef316894d76a6cdf94d">clear()</a> or assert <a class="el" href="class_event_queue.html#ad79d4122796089b84a33c21a4a3ba016">EventQueue::instance()</a>-&gt;<a class="el" href="class_event_queue.html#a44deb5b894b537989dbe0580a088d16e">isEmpty()</a> to guarantee starting and ending the test with an empty queue</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">E</td><td><a class="el" href="class_event.html" title="Represents a single event of type Event::EventType.">Event</a> type </td></tr>
@@ -208,6 +215,34 @@ template&lt;class E &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab46958d4f566fef316894d76a6cdf94d" name="ab46958d4f566fef316894d76a6cdf94d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab46958d4f566fef316894d76a6cdf94d">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_event_queue.html">EventQueue</a>&lt; E &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Removes all elements from the queue </p>
+
+</div>
+</div>
 <a id="ad79d4122796089b84a33c21a4a3ba016" name="ad79d4122796089b84a33c21a4a3ba016"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad79d4122796089b84a33c21a4a3ba016">&#9670;&nbsp;</a></span>instance()</h2>
 
@@ -318,7 +353,7 @@ template&lt;class E &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Pops the first element in the queue. </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_event.html" title="Represents a single event of type Event::EventType.">Event</a> instance wrapped in a std::unique_ptr </dd></dl>
+<p >Pops the first element in the queue. Popping from an empty queue will result in undefined behavior </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_event.html" title="Represents a single event of type Event::EventType.">Event</a> instance wrapped in a std::unique_ptr </dd></dl>
 
 </div>
 </div>
@@ -353,6 +388,33 @@ template&lt;class E &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a5ae43c99bf434fdfeb4af73c76bda6d2" name="a5ae43c99bf434fdfeb4af73c76bda6d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ae43c99bf434fdfeb4af73c76bda6d2">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_event_queue.html">EventQueue</a>&lt; E &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -405,7 +467,8 @@ template&lt;class E &gt; </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/home/tomek/CLionProjects/proi/proi-projekt/src/board-lib/include/<a class="el" href="_grid_8h_source.html">Grid.h</a></li>
 <li>/home/tomek/CLionProjects/proi/proi-projekt/src/core-lib/include/<a class="el" href="_event_queue_8h_source.html">EventQueue.h</a></li>
 </ul>
 </div><!-- contents -->

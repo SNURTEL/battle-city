@@ -21,6 +21,8 @@
  * Singleton instance can be accessed with ::instance(). Different instances are created for every each type (E).
  * Cannot be inherited from (::instance() would always return the base class)
  *
+ * NOTE: When testing event-generating objects, call EventQueue::instance()->clear() or assert EventQueue::instance()->isEmpty() to guarantee starting and ending the test with an empty queue
+ *
  * @tparam E Event type
  */
 template <class E>
@@ -40,6 +42,7 @@ public:
 
     /**
      * Pops the first element in the queue.
+     * Popping from an empty queue will result in undefined behavior
      * @return Event instance wrapped in a std::unique_ptr
      */
     std::unique_ptr<E> pop(){
@@ -56,6 +59,17 @@ public:
     bool isEmpty(){
         return events_.empty();
     };
+
+    unsigned int size(){
+        return events_.size();
+    }
+
+    /**
+     * Removes all elements from the queue
+     */
+    void clear(){
+        std::queue<std::unique_ptr<E>>().swap(events_);
+    }
 
     /**
      * Provides access to singleton instance

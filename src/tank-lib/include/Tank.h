@@ -5,29 +5,26 @@
 #ifndef PROI_PROJEKT_TANK_H
 #define PROI_PROJEKT_TANK_H
 
-/**
- * Represents a direction in which a Tank (or a bullet) can be pointed at
- * Assume positive x is East, positive y in South
- */
-enum Direction {
-    North = 0,
-    West,
-    South,
-    East
-};
+#include <memory>
+#include <optional>
+
+#include "../../core-lib/include/SimpleSubscriber.h"
+#include "Entity.h"
+
+class SimplePublisher;
+
+class Bullet;
 
 /**
  * \brief Base class for tank representation
  *
- * Tanks remember their position, orientation, number of lives,
- * and immutable fields which values are specified in derived classes (ex. points_, speed_).
+ * Tanks are derived from Entity and have some additional tank-specific fields
+ * Additionally, tanks inherit from SimpleSubscriber and can subscribe to Bullet instances fired by them (to disable firing when a bullet was already fired)
  *
- * Tanks provide no input validation and should only be manipulated by TankController.
+ * Tanks provide no input validation whatsoever and should only be manipulated by EntityController.
  */
-class Tank {
+class Tank: public Entity, public SimpleSubscriber{
 public:
-    virtual ~Tank()=default;
-
     /**
      * Represents tank types, should match names of derived classes
      */
@@ -40,83 +37,112 @@ public:
     };
 
     /**
-     * Move tank in x-axis and set adequate facing direction. Will not go below 0.
-     * @param delta_x Distance to move
+     * Changes the direction in which the tank is faced
+     * @param direction Target direction
      */
-    void moveX(int delta_x);
+    void setFacing(Direction direction);
 
     /**
-     * Move tank in y-axis and set adequate facing direction. Will not go below 0.
-     * @param delta_t Distance to move
+     * Moves the tank by it's tick movement distance (speed) if the moving_ flag is set; otherwise, returns immediately
+     * @return Whether the tank was moved or not
      */
-    void moveY(int delta_y);
+    bool move() override;
+
+    /**
+     * Undoes the move() operation; moving_ flag is still required to be set
+     * @return Whether the tank was moved or not
+     */
+    bool moveBack() override;
 
     /**
      * Modify the number of lives by delta_l. Will not go below 0.
-     * @param delta_l
+     * @param delta_l Lives number modifier
      */
     void deltaLives(int delta_l);
 
     /**
      * Returns tank type
-     * @return
+     * @return Tank::TankType value representing tank's type
      */
     [[nodiscard]] TankType getType() const;
 
-    /**
-     * Returns tank's x coord
-     * @return
-     */
-    [[nodiscard]] unsigned int getX() const;
 
     /**
-     * Returns tank's y coord
-     * @return
-     */
-    [[nodiscard]] unsigned int getY() const;
-
-    /**
-     * Return;s tank's remaining lives (0 is killed)
+     * Returns tank's remaining lives (0 is killed)
      * @return
      */
     [[nodiscard]] unsigned int getLives() const;
 
     /**
-     * Returns tank's speed
-     * @return
+     * Sets tank's moving_ flag
+     * @param isMoving New flag value
      */
-    [[nodiscard]] double getTankSpeed() const;
+    void setMoving(bool isMoving);
 
     /**
-     * Returns tank's bullet speed
-     * @return
+     * Checks whether the tank is moving or not
+     * @return True is moving_ flag is set
      */
-    [[nodiscard]] double getBulletSpeed() const;
-
-    /**
-     * Returns the direction in which the tank is currently pointed
-     * @return
-     */
-    [[nodiscard]] Direction getFacing() const;
+    [[nodiscard]] bool isMoving() const;
 
     /**
      * Returns the number of points that the player gets for killing the tank
-     * @return
+     * @return Point reward value for killing the tank
      */
     [[nodiscard]] unsigned int getPoints() const;
 
+    /**
+     * Sets tank's X coord
+     * @param x New X coord value
+     */
+    void setX(float x);
+
+    /**
+     * Sets tank's Y coord
+     * @param y New Y coord value
+     */
+    void setY(float y);
+
+    /**
+     * Moves the tank by a given distance in direction in which it is faced
+     * @param offset Offset value
+     */
+    void offsetInCurrentDirection(float offset);
+
+    /**
+     * Creates a bullet located right in front of the tank and faced in the same direction as the tank.
+     * Bullet will not be created if a Bullet instance created by the tank already exists
+     * @return A Bullet instance wrapped in a unique_ptr if the bullet was created; otherwise, an std::nullopt
+     */
+    std::optional<std::unique_ptr<Bullet>> createBullet();
+
+    /**
+     * Does nothing. All bullet - tank communication is done just with subscribing and unsubscribing.
+     * @param pub
+     */
+    void notify(SimplePublisher* pub) override;
+
 protected:
-    Tank()=default;
+    /**
+     * Inits class Tank
+     * @param type Tank's type
+     * @param x Tank's initial X coord
+     * @param y Tank's initial Y coord
+     * @param speed Tank's speed
+     * @param bulletSpeed Tank's bullet's speed
+     * @param lives Tank's lives
+     * @param direction The direction in which the tank should be faced
+     * @param points Point reward value for killing the tank
+     */
+    Tank(TankType type, float x, float y, float speed, float bulletSpeed, unsigned int lives, Direction direction, unsigned int points);
 
     TankType type_;
 
-    unsigned int x_;
-    unsigned int y_;
     unsigned int lives_;
-    double tank_speed_;
-    double bullet_speed_;
-    Direction facing_;
+    bool moving_;
     unsigned int points_;
+
+    float bulletSpeed_;
 };
 
 /**
@@ -132,7 +158,7 @@ public:
      * @param lives Initial number of lives
      * @param facing Initial direction in which the tank is faced (default=North)
      */
-    PlayerTank(unsigned int x, unsigned int y, unsigned int lives, Direction facing=North);
+    PlayerTank(float x, float y, unsigned int lives, Direction facing=North);
 };
 
 /**
@@ -147,7 +173,7 @@ public:
     * @param y Initial y coord
     * @param facing Initial direction in which the tank is faced (default=North)
     */
-    BasicTank(unsigned int x, unsigned int y, Direction facing=North);
+    BasicTank(float x, float y, Direction facing=North);
 };
 
 /**
@@ -162,7 +188,7 @@ public:
     * @param y Initial y coord
     * @param facing Initial direction in which the tank is faced (default=North)
     */
-    FastTank(unsigned int x, unsigned int y, Direction facing=North);
+    FastTank(float x, float y, Direction facing=North);
 };
 
 /**
@@ -177,7 +203,7 @@ public:
     * @param y Initial y coord
     * @param facing Initial direction in which the tank is faced (default=North)
     */
-    PowerTank(unsigned int x, unsigned int y, Direction facing=North);
+    PowerTank(float x, float y, Direction facing=North);
 };
 
 /**
@@ -192,7 +218,7 @@ public:
     * @param y Initial y coord
     * @param facing Initial direction in which the tank is faced (default=North)
     */
-    ArmorTank(unsigned int x, unsigned int y, Direction facing=North);
+    ArmorTank(float x, float y, Direction facing=North);
 };
 
 #endif //PROI_PROJEKT_TANK_H

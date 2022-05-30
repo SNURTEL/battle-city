@@ -72,19 +72,39 @@ target_link_libraries(test_game_lib PRIVATE game-lib Catch2::Catch2WithMain)
 set(tank_lib_dir ../src/tank-lib)
 set(tank_lib_sources
         ${tank_lib_dir}/Tank.cpp
-        ${tank_lib_dir}/TankController.cpp
+        ${tank_lib_dir}/EntityController.cpp
         )
 
-add_library(tank-lib ${tank_lib_sources})
+add_library(tank-lib ${tank_lib_sources} ../src/tank-lib/Bullet.cpp ../src/tank-lib/include/Bullet.h ../src/tank-lib/Entity.cpp ../src/tank-lib/include/Entity.h)
 target_link_libraries(tank-lib PRIVATE game-lib)
 
 set(tank_lib_test_dir ../src/tank-lib/test)
 set(tank_lib_test_sources
         ${tank_lib_test_dir}/test_tank.cpp
-        ${tank_lib_test_dir}/test_tankController.cpp)
+        ${tank_lib_test_dir}/test_entityController.cpp)
 
 add_executable(test_tank_lib ${tank_lib_test_sources})
 target_link_libraries(test_tank_lib PRIVATE tank-lib Catch2::Catch2WithMain)
+
+############################ BOARD-LIB ################################
+
+set(board_lib_dir ../src/board-lib)
+set(board_lib_sources
+        ${board_lib_dir}/Grid.cpp
+        ${board_lib_dir}/TileManager.cpp
+        ${board_lib_dir}/Board.cpp .
+        ${board_lib_dir}/GridBuilder.cpp)
+
+add_library(board-lib ${board_lib_sources})
+target_link_libraries(board-lib PRIVATE tank-lib game-lib)
+
+set(board_lib_test_dir ../src/board-lib/test)
+set(board_lib_test_sources
+        ${board_lib_test_dir}/test_grid.cpp
+        ${board_lib_test_dir}/test_board.cpp)
+
+add_executable(test_board_lib ${board_lib_test_sources})
+target_link_libraries(test_board_lib PRIVATE board-lib Catch2::Catch2WithMain)
 
 ############################ MAIN ################################
 

@@ -99,30 +99,48 @@ $(document).ready(function(){initNavTree('class_event.html',''); initResizable()
 <div class="dynheader">
 Collaboration diagram for Event:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_event__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_event__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_entity_entity_collision_info.html">EntityEntityCollisionInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_entity_info.html">EntityInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_entity_tile_collision_info.html">EntityTileCollisionInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_event_1_1info__u.html">info_u</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_key_event_info.html">KeyEventInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_tank_info.html">TankInfo</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_level_info.html">LevelInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_tile_info.html">TileInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:aa306292f6e9bf31a622e79dfc54321de"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> { <br />
-&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaf1929590e029d4c7be9d1a60705a6fc1">KeyPressed</a> = 0
+&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c">NullEvent</a> = 0
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaf1929590e029d4c7be9d1a60705a6fc1">KeyPressed</a>
 , <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea23d7d2cb81f58d78fc803b9303fa2c8d">KeyReleased</a>
-, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deafda2d30b1d1c3c3c0ccb9e86a8444735">TankSpawned</a>
-, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea604fb8cab3e80877f5b4db8c09e5f12a">TankKilled</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deac754b0950ae21a7db2201677affe0925">EntitySpawned</a>
 , <br />
-&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea3c80a4f3512b2d2ebd9b2b96610ffa3c">TankMoved</a>
+&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea873cb81f594e6becb8c27cab8d67fe60">EntityMoved</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea8ebd718fd45762dcf3fc76f657994220">EntityRemoved</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea9c02913946b199e141203178007699c3">EntityEntityCollision</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deac16ff7193b5df29034ebe066251e2e18">EntityGridCollision</a>
+, <br />
+&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea604fb8cab3e80877f5b4db8c09e5f12a">TankKilled</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea92abf5e344dbb4337a59e83187e7746a">TankRotated</a>
 , <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea51119f14afc981239143fb1ffb333c09">TankHit</a>
-, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea6dc23eec7747ae850e52dbe47ed15293">TankRemoved</a>
-, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c">NullEvent</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaef0743881bb0aed5901c650563827ab4">TilePlaced</a>
+, <br />
+&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea9780f2629f1251f516640ee1eb7d7b63">TileChanged</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea2b659b21c38eb50be0473f069151676d">TileDeleted</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea2e5413f3d18c411514f8e44e39582ac2">LevelLoaded</a>
 <br />
  }</td></tr>
 <tr class="separator:aa306292f6e9bf31a622e79dfc54321de"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,8 +151,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acada8c80e07cef0cc7228145e9367c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc5f9d382b870fd6ae19370955d563ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#acc5f9d382b870fd6ae19370955d563ad">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>)</td></tr>
 <tr class="separator:acc5f9d382b870fd6ae19370955d563ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28ff8dcd5ee5c236a5445c3ef33f3359"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a28ff8dcd5ee5c236a5445c3ef33f3359">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, <a class="el" href="class_tank.html">Tank</a> *tank)</td></tr>
-<tr class="separator:a28ff8dcd5ee5c236a5445c3ef33f3359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2241952e58ef5c00cdefbf14d708c482"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a2241952e58ef5c00cdefbf14d708c482">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, <a class="el" href="class_entity.html">Entity</a> *entity)</td></tr>
+<tr class="separator:a2241952e58ef5c00cdefbf14d708c482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add293948c18edf4aeed5b1d1b0d0a75c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#add293948c18edf4aeed5b1d1b0d0a75c">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, <a class="el" href="class_entity.html">Entity</a> *entity1, <a class="el" href="class_entity.html">Entity</a> *entity2)</td></tr>
+<tr class="separator:add293948c18edf4aeed5b1d1b0d0a75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefb7c42f8a161bd2e072495442968096"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#aefb7c42f8a161bd2e072495442968096">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, <a class="el" href="class_entity.html">Entity</a> *entity, unsigned int x, unsigned int y)</td></tr>
+<tr class="separator:aefb7c42f8a161bd2e072495442968096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af76a47f99f7b247c25243bb3f88d46b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#af76a47f99f7b247c25243bb3f88d46b8">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, unsigned int x, unsigned int y, <a class="el" href="class_grid.html">Grid</a> *grid)</td></tr>
+<tr class="separator:af76a47f99f7b247c25243bb3f88d46b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57a8bf797ca0c0f842e3fd0d67a3e41b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a57a8bf797ca0c0f842e3fd0d67a3e41b">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, unsigned int levelNumber, <a class="el" href="class_grid.html">Grid</a> *grid)</td></tr>
+<tr class="separator:a57a8bf797ca0c0f842e3fd0d67a3e41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa409fd6a64c9d71f975abb6c85aca183"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#aa409fd6a64c9d71f975abb6c85aca183">Event</a> ()=delete</td></tr>
 <tr class="separator:aa409fd6a64c9d71f975abb6c85aca183"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -164,21 +190,28 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Represents event types </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deaf1929590e029d4c7be9d1a60705a6fc1" name="aa306292f6e9bf31a622e79dfc54321deaf1929590e029d4c7be9d1a60705a6fc1"></a>KeyPressed&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c" name="aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c"></a>NullEvent&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deaf1929590e029d4c7be9d1a60705a6fc1" name="aa306292f6e9bf31a622e79dfc54321deaf1929590e029d4c7be9d1a60705a6fc1"></a>KeyPressed&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea23d7d2cb81f58d78fc803b9303fa2c8d" name="aa306292f6e9bf31a622e79dfc54321dea23d7d2cb81f58d78fc803b9303fa2c8d"></a>KeyReleased&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deafda2d30b1d1c3c3c0ccb9e86a8444735" name="aa306292f6e9bf31a622e79dfc54321deafda2d30b1d1c3c3c0ccb9e86a8444735"></a>TankSpawned&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deac754b0950ae21a7db2201677affe0925" name="aa306292f6e9bf31a622e79dfc54321deac754b0950ae21a7db2201677affe0925"></a>EntitySpawned&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea873cb81f594e6becb8c27cab8d67fe60" name="aa306292f6e9bf31a622e79dfc54321dea873cb81f594e6becb8c27cab8d67fe60"></a>EntityMoved&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea8ebd718fd45762dcf3fc76f657994220" name="aa306292f6e9bf31a622e79dfc54321dea8ebd718fd45762dcf3fc76f657994220"></a>EntityRemoved&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea9c02913946b199e141203178007699c3" name="aa306292f6e9bf31a622e79dfc54321dea9c02913946b199e141203178007699c3"></a>EntityEntityCollision&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deac16ff7193b5df29034ebe066251e2e18" name="aa306292f6e9bf31a622e79dfc54321deac16ff7193b5df29034ebe066251e2e18"></a>EntityGridCollision&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea604fb8cab3e80877f5b4db8c09e5f12a" name="aa306292f6e9bf31a622e79dfc54321dea604fb8cab3e80877f5b4db8c09e5f12a"></a>TankKilled&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea3c80a4f3512b2d2ebd9b2b96610ffa3c" name="aa306292f6e9bf31a622e79dfc54321dea3c80a4f3512b2d2ebd9b2b96610ffa3c"></a>TankMoved&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea92abf5e344dbb4337a59e83187e7746a" name="aa306292f6e9bf31a622e79dfc54321dea92abf5e344dbb4337a59e83187e7746a"></a>TankRotated&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea51119f14afc981239143fb1ffb333c09" name="aa306292f6e9bf31a622e79dfc54321dea51119f14afc981239143fb1ffb333c09"></a>TankHit&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea6dc23eec7747ae850e52dbe47ed15293" name="aa306292f6e9bf31a622e79dfc54321dea6dc23eec7747ae850e52dbe47ed15293"></a>TankRemoved&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c" name="aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c"></a>NullEvent&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deaef0743881bb0aed5901c650563827ab4" name="aa306292f6e9bf31a622e79dfc54321deaef0743881bb0aed5901c650563827ab4"></a>TilePlaced&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea9780f2629f1251f516640ee1eb7d7b63" name="aa306292f6e9bf31a622e79dfc54321dea9780f2629f1251f516640ee1eb7d7b63"></a>TileChanged&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea2b659b21c38eb50be0473f069151676d" name="aa306292f6e9bf31a622e79dfc54321dea2b659b21c38eb50be0473f069151676d"></a>TileDeleted&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea2e5413f3d18c411514f8e44e39582ac2" name="aa306292f6e9bf31a622e79dfc54321dea2e5413f3d18c411514f8e44e39582ac2"></a>LevelLoaded&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acada8c80e07cef0cc7228145e9367c59" name="acada8c80e07cef0cc7228145e9367c59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acada8c80e07cef0cc7228145e9367c59">&#9670;&nbsp;</a></span>Event() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acada8c80e07cef0cc7228145e9367c59">&#9670;&nbsp;</a></span>Event() <span class="overload">[1/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,7 +239,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="acc5f9d382b870fd6ae19370955d563ad" name="acc5f9d382b870fd6ae19370955d563ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc5f9d382b870fd6ae19370955d563ad">&#9670;&nbsp;</a></span>Event() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5f9d382b870fd6ae19370955d563ad">&#9670;&nbsp;</a></span>Event() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,8 +264,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a28ff8dcd5ee5c236a5445c3ef33f3359" name="a28ff8dcd5ee5c236a5445c3ef33f3359"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28ff8dcd5ee5c236a5445c3ef33f3359">&#9670;&nbsp;</a></span>Event() <span class="overload">[3/4]</span></h2>
+<a id="a2241952e58ef5c00cdefbf14d708c482" name="a2241952e58ef5c00cdefbf14d708c482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2241952e58ef5c00cdefbf14d708c482">&#9670;&nbsp;</a></span>Event() <span class="overload">[3/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,8 +279,156 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_tank.html">Tank</a> *&#160;</td>
-          <td class="paramname"><em>tank</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_entity.html">Entity</a> *&#160;</td>
+          <td class="paramname"><em>entity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add293948c18edf4aeed5b1d1b0d0a75c" name="add293948c18edf4aeed5b1d1b0d0a75c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add293948c18edf4aeed5b1d1b0d0a75c">&#9670;&nbsp;</a></span>Event() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_entity.html">Entity</a> *&#160;</td>
+          <td class="paramname"><em>entity1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_entity.html">Entity</a> *&#160;</td>
+          <td class="paramname"><em>entity2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefb7c42f8a161bd2e072495442968096" name="aefb7c42f8a161bd2e072495442968096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefb7c42f8a161bd2e072495442968096">&#9670;&nbsp;</a></span>Event() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_entity.html">Entity</a> *&#160;</td>
+          <td class="paramname"><em>entity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af76a47f99f7b247c25243bb3f88d46b8" name="af76a47f99f7b247c25243bb3f88d46b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af76a47f99f7b247c25243bb3f88d46b8">&#9670;&nbsp;</a></span>Event() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_grid.html">Grid</a> *&#160;</td>
+          <td class="paramname"><em>grid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57a8bf797ca0c0f842e3fd0d67a3e41b" name="a57a8bf797ca0c0f842e3fd0d67a3e41b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57a8bf797ca0c0f842e3fd0d67a3e41b">&#9670;&nbsp;</a></span>Event() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>levelNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_grid.html">Grid</a> *&#160;</td>
+          <td class="paramname"><em>grid</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -260,7 +441,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="aa409fd6a64c9d71f975abb6c85aca183" name="aa409fd6a64c9d71f975abb6c85aca183"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa409fd6a64c9d71f975abb6c85aca183">&#9670;&nbsp;</a></span>Event() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa409fd6a64c9d71f975abb6c85aca183">&#9670;&nbsp;</a></span>Event() <span class="overload">[8/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

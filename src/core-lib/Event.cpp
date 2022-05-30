@@ -37,19 +37,70 @@ Event::Event(EventType e, unsigned int i1) {
     }
 }
 
-Event::Event(EventType e, Tank *tank) {
+Event::Event(EventType e, Entity *entity) {
     type = e;
     switch (e) {
-        case TankSpawned:
-        case TankMoved:
+        case EntitySpawned:
+        case EntityMoved:
+        case EntityRemoved:
+        case TankRotated:
         case TankHit:
-        case TankRemoved:
-        case TankKilled:  {
-            info.tankInfo = {tank};
+        case TankKilled: {
+            info.entityInfo = {entity};
             break;
         }
         default: {
             throw EventConstructionException();
         }
+    }
+}
+
+Event::Event(EventType e, Entity *entity1, Entity *entity2) {
+    type = e;
+    switch (e) {
+        case EntityEntityCollision:{
+            info.entityEntityCollisionInfo = {entity1, entity2};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, Entity *entity, unsigned int x, unsigned int y) {
+    type = e;
+    switch (e) {
+        case EntityGridCollision:{
+            info.entityGridCollisionInfo = {entity, x, y};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, unsigned int x, unsigned int y, Grid *grid) {
+    type = e;
+    switch (e) {
+        case TilePlaced:
+        case TileChanged:
+        case TileDeleted: {
+            info.tileInfo = {x, y, grid};
+            break;
+        };
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, unsigned int levelNumber, Grid *grid) {
+    type = e;
+    switch (e) {
+        case LevelLoaded: {
+            info.levelInfo = {levelNumber, grid};
+            break;
+        }
+        default:
+            throw EventConstructionException();
     }
 }

@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 815;
+var viewWidth = 1148;
 var viewHeight = 596;
 var sectionId = 'dynsection-1';
 </script>
@@ -58,314 +58,348 @@ var sectionId = 'dynsection-1';
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title=" ">
-<polygon fill="#bfbfbf" stroke="black" points="213,-546.5 213,-587.5 364,-587.5 364,-546.5 213,-546.5"/>
-<text text-anchor="start" x="221" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="221" y="-564.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="288.5" y="-553.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/Event.h</text>
+<polygon fill="#bfbfbf" stroke="black" points="461,-546.5 461,-587.5 612,-587.5 612,-546.5 461,-546.5"/>
+<text text-anchor="start" x="469" y="-575.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="469" y="-564.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="536.5" y="-553.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/Event.h</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="_event_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="11,-468.5 11,-509.5 162,-509.5 162,-468.5 11,-468.5"/>
-<text text-anchor="start" x="19" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="19" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="86.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/Event.cpp</text>
+<g id="a_node2"><a xlink:href="_board_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="0,-468.5 0,-509.5 151,-509.5 151,-468.5 0,-468.5"/>
+<text text-anchor="start" x="8" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="8" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="75.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/board&#45;lib/Board.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node2 -->
 <g id="edge1" class="edge">
 <title>Node1&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M227.07,-542.89C198.71,-532.22 165.41,-519.69 138.34,-509.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="225.89,-546.18 236.48,-546.43 228.35,-539.63 225.89,-546.18"/>
+<path fill="none" stroke="midnightblue" d="M450.63,-555.39C373.98,-545.41 258.83,-529.17 159.5,-510 156.85,-509.49 154.16,-508.95 151.44,-508.39"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="450.35,-558.88 460.71,-556.7 451.24,-551.94 450.35,-558.88"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="_event_handler_8h.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="93.5,-312.5 93.5,-353.5 265.5,-353.5 265.5,-312.5 93.5,-312.5"/>
-<text text-anchor="start" x="101.5" y="-341.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="101.5" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="179.5" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/EventHandler.h</text>
+<g id="a_node3"><a xlink:href="_grid_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="169,-468.5 169,-509.5 320,-509.5 320,-468.5 169,-468.5"/>
+<text text-anchor="start" x="177" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="177" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="244.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/board&#45;lib/Grid.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node1&#45;&gt;Node3 -->
 <g id="edge2" class="edge">
 <title>Node1&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M260.21,-538.79C252.38,-530.15 244.41,-520.18 238.5,-510 208.07,-457.61 190.52,-387.25 183.34,-353.57"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="257.9,-541.44 267.31,-546.32 263,-536.64 257.9,-541.44"/>
-</g>
-<!-- Node12 -->
-<g id="node12" class="node">
-<title>Node12</title>
-<g id="a_node12"><a xlink:href="_event_publisher_8h.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="259,-390.5 259,-431.5 438,-431.5 438,-390.5 259,-390.5"/>
-<text text-anchor="start" x="267" y="-419.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="267" y="-408.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="348.5" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/EventPublisher.h</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node12 -->
-<g id="edge14" class="edge">
-<title>Node1&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M263.57,-538.59C248.35,-518.4 234.17,-490.63 247.5,-468 257.01,-451.85 273.05,-440.02 289.58,-431.52"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="260.88,-540.83 269.84,-546.48 266.35,-536.47 260.88,-540.83"/>
-</g>
-<!-- Node15 -->
-<g id="node15" class="node">
-<title>Node15</title>
-<g id="a_node15"><a xlink:href="_event_subscriber_8h.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="256,-468.5 256,-509.5 441,-509.5 441,-468.5 256,-468.5"/>
-<text text-anchor="start" x="264" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="264" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="348.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/EventSubscriber.h</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node15 -->
-<g id="edge18" class="edge">
-<title>Node1&#45;&gt;Node15</title>
-<path fill="none" stroke="midnightblue" d="M310.34,-538.34C317.89,-528.78 326.18,-518.27 333.1,-509.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="307.4,-536.41 303.95,-546.43 312.9,-540.75 307.4,-536.41"/>
-</g>
-<!-- Node16 -->
-<g id="node16" class="node">
-<title>Node16</title>
-<g id="a_node16"><a xlink:href="_keyboard_controller_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="459,-468.5 459,-509.5 638,-509.5 638,-468.5 459,-468.5"/>
-<text text-anchor="start" x="467" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="467" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="548.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/KeyboardController.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node16 -->
-<g id="edge20" class="edge">
-<title>Node1&#45;&gt;Node16</title>
-<path fill="none" stroke="midnightblue" d="M365.2,-543.58C402.2,-532.76 446.17,-519.91 481.77,-509.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="364.07,-540.26 355.46,-546.43 366.04,-546.98 364.07,-540.26"/>
-</g>
-<!-- Node17 -->
-<g id="node17" class="node">
-<title>Node17</title>
-<g id="a_node17"><a xlink:href="_tank_controller_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="656,-468.5 656,-509.5 807,-509.5 807,-468.5 656,-468.5"/>
-<text text-anchor="start" x="664" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="664" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="731.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/tank&#45;lib/TankController.cpp</text>
-</a>
-</g>
-</g>
-<!-- Node1&#45;&gt;Node17 -->
-<g id="edge21" class="edge">
-<title>Node1&#45;&gt;Node17</title>
-<path fill="none" stroke="midnightblue" d="M374.16,-554.58C447.1,-544.39 554.54,-528.29 647.5,-510 650.15,-509.48 652.84,-508.93 655.55,-508.37"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="373.52,-551.13 364.1,-555.98 374.48,-558.07 373.52,-551.13"/>
+<path fill="none" stroke="midnightblue" d="M451.42,-543.86C409.65,-532.98 359.76,-520 319.44,-509.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="450.74,-547.3 461.3,-546.43 452.51,-540.52 450.74,-547.3"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="_event_handler_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="0,-234.5 0,-275.5 151,-275.5 151,-234.5 0,-234.5"/>
-<text text-anchor="start" x="8" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="8" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="75.5" y="-241.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/EventHandler.cpp</text>
+<g id="a_node4"><a xlink:href="_event_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="338,-468.5 338,-509.5 489,-509.5 489,-468.5 338,-468.5"/>
+<text text-anchor="start" x="346" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="346" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="413.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/Event.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node4 -->
+<!-- Node1&#45;&gt;Node4 -->
 <g id="edge3" class="edge">
-<title>Node3&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M144.4,-306.35C130.61,-296.27 115.04,-284.89 102.19,-275.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="142.58,-309.35 152.72,-312.43 146.71,-303.7 142.58,-309.35"/>
+<title>Node1&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M495.91,-540.92C479.37,-530.7 460.55,-519.07 445.07,-509.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="494.48,-544.15 504.82,-546.43 498.16,-538.19 494.48,-544.15"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="_active_event_handler_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="95.5,-156.5 95.5,-197.5 277.5,-197.5 277.5,-156.5 95.5,-156.5"/>
-<text text-anchor="start" x="103.5" y="-185.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="103.5" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="186.5" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/ActiveEventHandler.cpp</text>
+<g id="a_node5"><a xlink:href="_event_handler_8h.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="420.5,-312.5 420.5,-353.5 592.5,-353.5 592.5,-312.5 420.5,-312.5"/>
+<text text-anchor="start" x="428.5" y="-341.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="428.5" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="506.5" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/EventHandler.h</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node5 -->
+<!-- Node1&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
-<title>Node3&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M180.85,-302.36C182.25,-271.61 184.39,-224.36 185.6,-197.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="177.34,-302.35 180.39,-312.5 184.34,-302.67 177.34,-302.35"/>
+<title>Node1&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M532.64,-536.11C526.41,-487.94 514.32,-394.44 509.05,-353.73"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="529.19,-536.75 533.94,-546.22 536.13,-535.85 529.19,-536.75"/>
+</g>
+<!-- Node14 -->
+<g id="node14" class="node">
+<title>Node14</title>
+<g id="a_node14"><a xlink:href="_event_publisher_8h.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="586,-390.5 586,-431.5 765,-431.5 765,-390.5 586,-390.5"/>
+<text text-anchor="start" x="594" y="-419.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="594" y="-408.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="675.5" y="-397.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/EventPublisher.h</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node14 -->
+<g id="edge16" class="edge">
+<title>Node1&#45;&gt;Node14</title>
+<path fill="none" stroke="midnightblue" d="M542.36,-536.25C547.76,-515.21 557.57,-487.41 574.5,-468 588.01,-452.51 606.89,-440.45 624.68,-431.55"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="538.89,-535.72 539.99,-546.26 545.7,-537.33 538.89,-535.72"/>
+</g>
+<!-- Node17 -->
+<g id="node17" class="node">
+<title>Node17</title>
+<g id="a_node17"><a xlink:href="_event_subscriber_8h.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="583,-468.5 583,-509.5 768,-509.5 768,-468.5 583,-468.5"/>
+<text text-anchor="start" x="591" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="591" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="675.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/include/EventSubscriber.h</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node17 -->
+<g id="edge20" class="edge">
+<title>Node1&#45;&gt;Node17</title>
+<path fill="none" stroke="midnightblue" d="M581.08,-541.63C600.07,-531.24 621.93,-519.29 639.83,-509.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="579.39,-538.56 572.3,-546.43 582.75,-544.7 579.39,-538.56"/>
+</g>
+<!-- Node18 -->
+<g id="node18" class="node">
+<title>Node18</title>
+<g id="a_node18"><a xlink:href="_keyboard_controller_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="786,-468.5 786,-509.5 965,-509.5 965,-468.5 786,-468.5"/>
+<text text-anchor="start" x="794" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="794" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="875.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/KeyboardController.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node18 -->
+<g id="edge22" class="edge">
+<title>Node1&#45;&gt;Node18</title>
+<path fill="none" stroke="midnightblue" d="M622.14,-546.8C672.99,-535.4 737.3,-520.98 788.41,-509.53"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="621.15,-543.44 612.16,-549.04 622.68,-550.27 621.15,-543.44"/>
+</g>
+<!-- Node19 -->
+<g id="node19" class="node">
+<title>Node19</title>
+<g id="a_node19"><a xlink:href="_entity_controller_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="983.5,-468.5 983.5,-509.5 1139.5,-509.5 1139.5,-468.5 983.5,-468.5"/>
+<text text-anchor="start" x="991.5" y="-497.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="991.5" y="-486.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="1061.5" y="-475.5" font-family="Helvetica,sans-Serif" font-size="10.00">/tank&#45;lib/EntityController.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node19 -->
+<g id="edge23" class="edge">
+<title>Node1&#45;&gt;Node19</title>
+<path fill="none" stroke="midnightblue" d="M622.02,-557.59C710.58,-548.3 852.78,-531.72 974.5,-510 977.4,-509.48 980.35,-508.93 983.32,-508.36"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="621.61,-554.12 612.02,-558.64 622.33,-561.08 621.61,-554.12"/>
 </g>
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="_active_event_handler_8h.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="208,-234.5 208,-275.5 417,-275.5 417,-234.5 208,-234.5"/>
-<text text-anchor="start" x="216" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="216" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="312.5" y="-241.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/include/ActiveEventHandler.h</text>
+<g id="a_node6"><a xlink:href="_event_handler_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="327,-234.5 327,-275.5 478,-275.5 478,-234.5 327,-234.5"/>
+<text text-anchor="start" x="335" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="335" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="402.5" y="-241.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/EventHandler.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node6 -->
+<!-- Node5&#45;&gt;Node6 -->
 <g id="edge5" class="edge">
-<title>Node3&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M222.89,-307.2C240.89,-296.92 261.47,-285.16 278.37,-275.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="220.7,-304.43 213.75,-312.43 224.17,-310.51 220.7,-304.43"/>
-</g>
-<!-- Node6&#45;&gt;Node5 -->
-<g id="edge6" class="edge">
-<title>Node6&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M271.39,-229.2C254.34,-218.92 234.84,-207.16 218.84,-197.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="269.68,-232.26 280.05,-234.43 273.3,-226.27 269.68,-232.26"/>
+<title>Node5&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M471.4,-306.35C457.61,-296.27 442.04,-284.89 429.19,-275.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="469.58,-309.35 479.72,-312.43 473.71,-303.7 469.58,-309.35"/>
 </g>
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="_game_state_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="237,-78.5 237,-119.5 388,-119.5 388,-78.5 237,-78.5"/>
-<text text-anchor="start" x="245" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="245" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="312.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/GameState.cpp</text>
+<g id="a_node7"><a xlink:href="_active_event_handler_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="422.5,-156.5 422.5,-197.5 604.5,-197.5 604.5,-156.5 422.5,-156.5"/>
+<text text-anchor="start" x="430.5" y="-185.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="430.5" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="513.5" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/ActiveEventHandler.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node6&#45;&gt;Node7 -->
-<g id="edge7" class="edge">
-<title>Node6&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M312.5,-224.36C312.5,-193.61 312.5,-146.36 312.5,-119.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="309,-224.5 312.5,-234.5 316,-224.5 309,-224.5"/>
+<!-- Node5&#45;&gt;Node7 -->
+<g id="edge6" class="edge">
+<title>Node5&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M507.85,-302.36C509.25,-271.61 511.39,-224.36 512.6,-197.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="504.34,-302.35 507.39,-312.5 511.34,-302.67 504.34,-302.35"/>
 </g>
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="_game_state_8h.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="336.5,-156.5 336.5,-197.5 504.5,-197.5 504.5,-156.5 336.5,-156.5"/>
-<text text-anchor="start" x="344.5" y="-185.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="344.5" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="420.5" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/include/GameState.h</text>
+<g id="a_node8"><a xlink:href="_active_event_handler_8h.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="535,-234.5 535,-275.5 744,-275.5 744,-234.5 535,-234.5"/>
+<text text-anchor="start" x="543" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="543" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="639.5" y="-241.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/include/ActiveEventHandler.h</text>
 </a>
 </g>
 </g>
-<!-- Node6&#45;&gt;Node8 -->
-<g id="edge8" class="edge">
-<title>Node6&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M348.54,-228.64C362.97,-218.49 379.32,-206.98 392.78,-197.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="346.48,-225.81 340.31,-234.43 350.51,-231.54 346.48,-225.81"/>
+<!-- Node5&#45;&gt;Node8 -->
+<g id="edge7" class="edge">
+<title>Node5&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M549.89,-307.2C567.89,-296.92 588.47,-285.16 605.37,-275.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="547.7,-304.43 540.75,-312.43 551.17,-310.51 547.7,-304.43"/>
 </g>
 <!-- Node8&#45;&gt;Node7 -->
-<g id="edge10" class="edge">
+<g id="edge8" class="edge">
 <title>Node8&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M384.46,-150.64C370.03,-140.49 353.68,-128.98 340.22,-119.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="382.49,-153.54 392.69,-156.43 386.52,-147.81 382.49,-153.54"/>
+<path fill="none" stroke="midnightblue" d="M598.39,-229.2C581.34,-218.92 561.84,-207.16 545.84,-197.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="596.68,-232.26 607.05,-234.43 600.3,-226.27 596.68,-232.26"/>
 </g>
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="_game_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="343,-0.5 343,-41.5 494,-41.5 494,-0.5 343,-0.5"/>
-<text text-anchor="start" x="351" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="351" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="418.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/Game.cpp</text>
+<g id="a_node9"><a xlink:href="_game_state_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="564,-78.5 564,-119.5 715,-119.5 715,-78.5 564,-78.5"/>
+<text text-anchor="start" x="572" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="572" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="639.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/GameState.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node8&#45;&gt;Node9 -->
 <g id="edge9" class="edge">
 <title>Node8&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M420.12,-146.36C419.72,-115.61 419.1,-68.36 418.76,-41.83"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="416.62,-146.54 420.25,-156.5 423.62,-146.45 416.62,-146.54"/>
+<path fill="none" stroke="midnightblue" d="M639.5,-224.36C639.5,-193.61 639.5,-146.36 639.5,-119.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="636,-224.5 639.5,-234.5 643,-224.5 636,-224.5"/>
 </g>
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="_game_8h.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="447,-78.5 447,-119.5 598,-119.5 598,-78.5 447,-78.5"/>
-<text text-anchor="start" x="455" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="455" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="522.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/include/Game.h</text>
+<g id="a_node10"><a xlink:href="_game_state_8h.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="663.5,-156.5 663.5,-197.5 831.5,-197.5 831.5,-156.5 663.5,-156.5"/>
+<text text-anchor="start" x="671.5" y="-185.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="671.5" y="-174.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="747.5" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/include/GameState.h</text>
 </a>
 </g>
 </g>
 <!-- Node8&#45;&gt;Node10 -->
-<g id="edge11" class="edge">
+<g id="edge10" class="edge">
 <title>Node8&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M454.92,-150.35C468.45,-140.27 483.72,-128.89 496.32,-119.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="452.7,-147.65 446.77,-156.43 456.88,-153.26 452.7,-147.65"/>
+<path fill="none" stroke="midnightblue" d="M675.54,-228.64C689.97,-218.49 706.32,-206.98 719.78,-197.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="673.48,-225.81 667.31,-234.43 677.51,-231.54 673.48,-225.81"/>
 </g>
 <!-- Node10&#45;&gt;Node9 -->
 <g id="edge12" class="edge">
 <title>Node10&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M487.4,-72.35C473.61,-62.27 458.04,-50.89 445.19,-41.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="485.58,-75.35 495.72,-78.43 489.71,-69.7 485.58,-75.35"/>
+<path fill="none" stroke="midnightblue" d="M711.46,-150.64C697.03,-140.49 680.68,-128.98 667.22,-119.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="709.49,-153.54 719.69,-156.43 713.52,-147.81 709.49,-153.54"/>
 </g>
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="tanks_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="512,-0.5 512,-41.5 663,-41.5 663,-0.5 512,-0.5"/>
-<text text-anchor="start" x="520" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="520" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="587.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/main/tanks.cpp</text>
+<g id="a_node11"><a xlink:href="_game_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="670,-0.5 670,-41.5 821,-41.5 821,-0.5 670,-0.5"/>
+<text text-anchor="start" x="678" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="678" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="745.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/Game.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node10&#45;&gt;Node11 -->
-<g id="edge13" class="edge">
+<g id="edge11" class="edge">
 <title>Node10&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M545.91,-70.63C554.15,-60.99 563.24,-50.36 570.82,-41.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="543.08,-68.55 539.24,-78.43 548.4,-73.1 543.08,-68.55"/>
+<path fill="none" stroke="midnightblue" d="M747.12,-146.36C746.72,-115.61 746.1,-68.36 745.76,-41.83"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="743.62,-146.54 747.25,-156.5 750.62,-146.45 743.62,-146.54"/>
 </g>
-<!-- Node12&#45;&gt;Node3 -->
-<g id="edge17" class="edge">
-<title>Node12&#45;&gt;Node3</title>
-<path fill="none" stroke="midnightblue" d="M295.55,-386.19C272.17,-375.67 245.03,-363.47 222.87,-353.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="294.42,-389.52 304.98,-390.43 297.29,-383.13 294.42,-389.52"/>
+<!-- Node12 -->
+<g id="node12" class="node">
+<title>Node12</title>
+<g id="a_node12"><a xlink:href="_game_8h.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="774,-78.5 774,-119.5 925,-119.5 925,-78.5 774,-78.5"/>
+<text text-anchor="start" x="782" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="782" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="849.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/include/Game.h</text>
+</a>
+</g>
+</g>
+<!-- Node10&#45;&gt;Node12 -->
+<g id="edge13" class="edge">
+<title>Node10&#45;&gt;Node12</title>
+<path fill="none" stroke="midnightblue" d="M781.92,-150.35C795.45,-140.27 810.72,-128.89 823.32,-119.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="779.7,-147.65 773.77,-156.43 783.88,-153.26 779.7,-147.65"/>
+</g>
+<!-- Node12&#45;&gt;Node11 -->
+<g id="edge14" class="edge">
+<title>Node12&#45;&gt;Node11</title>
+<path fill="none" stroke="midnightblue" d="M814.4,-72.35C800.61,-62.27 785.04,-50.89 772.19,-41.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="812.58,-75.35 822.72,-78.43 816.71,-69.7 812.58,-75.35"/>
 </g>
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
-<g id="a_node13"><a xlink:href="_event_publisher_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="283.5,-312.5 283.5,-353.5 435.5,-353.5 435.5,-312.5 283.5,-312.5"/>
-<text text-anchor="start" x="291.5" y="-341.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="291.5" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="359.5" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/EventPublisher.cpp</text>
+<g id="a_node13"><a xlink:href="tanks_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="839,-0.5 839,-41.5 990,-41.5 990,-0.5 839,-0.5"/>
+<text text-anchor="start" x="847" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="847" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="914.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/main/tanks.cpp</text>
 </a>
 </g>
 </g>
 <!-- Node12&#45;&gt;Node13 -->
 <g id="edge15" class="edge">
 <title>Node12&#45;&gt;Node13</title>
-<path fill="none" stroke="midnightblue" d="M352.8,-380.3C354.1,-371.3 355.5,-361.65 356.68,-353.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="349.3,-380.03 351.33,-390.43 356.23,-381.03 349.3,-380.03"/>
+<path fill="none" stroke="midnightblue" d="M872.91,-70.63C881.15,-60.99 890.24,-50.36 897.82,-41.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="870.08,-68.55 866.24,-78.43 875.4,-73.1 870.08,-68.55"/>
 </g>
-<!-- Node14 -->
-<g id="node14" class="node">
-<title>Node14</title>
-<g id="a_node14"><a xlink:href="_event_subscriber_8cpp.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="453.5,-312.5 453.5,-353.5 611.5,-353.5 611.5,-312.5 453.5,-312.5"/>
-<text text-anchor="start" x="461.5" y="-341.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
-<text text-anchor="start" x="461.5" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
-<text text-anchor="middle" x="532.5" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/EventSubscriber.cpp</text>
+<!-- Node14&#45;&gt;Node5 -->
+<g id="edge19" class="edge">
+<title>Node14&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M622.55,-386.19C599.17,-375.67 572.03,-363.47 549.87,-353.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="621.42,-389.52 631.98,-390.43 624.29,-383.13 621.42,-389.52"/>
+</g>
+<!-- Node15 -->
+<g id="node15" class="node">
+<title>Node15</title>
+<g id="a_node15"><a xlink:href="_event_publisher_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="610.5,-312.5 610.5,-353.5 762.5,-353.5 762.5,-312.5 610.5,-312.5"/>
+<text text-anchor="start" x="618.5" y="-341.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="618.5" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="686.5" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/EventPublisher.cpp</text>
 </a>
 </g>
 </g>
-<!-- Node12&#45;&gt;Node14 -->
-<g id="edge16" class="edge">
-<title>Node12&#45;&gt;Node14</title>
-<path fill="none" stroke="midnightblue" d="M405.13,-386.61C430.81,-376 460.83,-363.6 485.28,-353.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="403.79,-383.38 395.88,-390.43 406.46,-389.85 403.79,-383.38"/>
+<!-- Node14&#45;&gt;Node15 -->
+<g id="edge17" class="edge">
+<title>Node14&#45;&gt;Node15</title>
+<path fill="none" stroke="midnightblue" d="M679.8,-380.3C681.1,-371.3 682.5,-361.65 683.68,-353.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="676.3,-380.03 678.33,-390.43 683.23,-381.03 676.3,-380.03"/>
 </g>
-<!-- Node15&#45;&gt;Node12 -->
-<g id="edge19" class="edge">
-<title>Node15&#45;&gt;Node12</title>
-<path fill="none" stroke="midnightblue" d="M348.5,-458.3C348.5,-449.3 348.5,-439.65 348.5,-431.51"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="345,-458.43 348.5,-468.43 352,-458.43 345,-458.43"/>
+<!-- Node16 -->
+<g id="node16" class="node">
+<title>Node16</title>
+<g id="a_node16"><a xlink:href="_event_subscriber_8cpp.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="780.5,-312.5 780.5,-353.5 938.5,-353.5 938.5,-312.5 780.5,-312.5"/>
+<text text-anchor="start" x="788.5" y="-341.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
+<text text-anchor="start" x="788.5" y="-330.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
+<text text-anchor="middle" x="859.5" y="-319.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/EventSubscriber.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node14&#45;&gt;Node16 -->
+<g id="edge18" class="edge">
+<title>Node14&#45;&gt;Node16</title>
+<path fill="none" stroke="midnightblue" d="M732.13,-386.61C757.81,-376 787.83,-363.6 812.28,-353.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="730.79,-383.38 722.88,-390.43 733.46,-389.85 730.79,-383.38"/>
+</g>
+<!-- Node17&#45;&gt;Node14 -->
+<g id="edge21" class="edge">
+<title>Node17&#45;&gt;Node14</title>
+<path fill="none" stroke="midnightblue" d="M675.5,-458.3C675.5,-449.3 675.5,-439.65 675.5,-431.51"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="672,-458.43 675.5,-468.43 679,-458.43 672,-458.43"/>
 </g>
 </g>
 </svg>

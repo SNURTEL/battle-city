@@ -1,8 +1,12 @@
 <map id="PlayerTank" name="PlayerTank">
-<area shape="rect" id="node1" title=" " alt="" coords="123,624,304,760"/>
-<area shape="rect" id="node2" href="$class_tank.html" title="Base class for tank representation." alt="" coords="116,189,311,575"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,5,88,83"/>
-<area shape="rect" id="node4" title=" " alt="" coords="113,5,215,83"/>
-<area shape="rect" id="node5" title=" " alt="" coords="240,5,307,83"/>
-<area shape="rect" id="node6" title=" " alt="" coords="358,5,439,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="584,1101,755,1237"/>
+<area shape="rect" id="node2" href="$class_tank.html" title="Base class for tank representation." alt="" coords="557,564,782,1052"/>
+<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="158,204,371,487"/>
+<area shape="rect" id="node4" title=" " alt="" coords="43,5,94,83"/>
+<area shape="rect" id="node5" title=" " alt="" coords="224,5,305,83"/>
+<area shape="rect" id="node6" href="$class_simple_subscriber.html" title=" " alt="" coords="396,233,653,457"/>
+<area shape="rect" id="node7" title=" " alt="" coords="420,5,629,83"/>
+<area shape="rect" id="node8" title=" " alt="" coords="678,307,760,384"/>
+<area shape="rect" id="node9" title=" " alt="" coords="785,307,888,384"/>
+<area shape="rect" id="node10" title=" " alt="" coords="912,307,963,384"/>
 </map>

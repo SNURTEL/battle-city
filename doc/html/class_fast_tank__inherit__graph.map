@@ -1,4 +1,6 @@
 <map id="FastTank" name="FastTank">
-<area shape="rect" id="node1" title=" " alt="" coords="24,541,181,677"/>
-<area shape="rect" id="node2" href="$class_tank.html" title="Base class for tank representation." alt="" coords="5,5,200,493"/>
+<area shape="rect" id="node1" title=" " alt="" coords="164,1004,319,1125"/>
+<area shape="rect" id="node2" href="$class_tank.html" title="Base class for tank representation." alt="" coords="129,409,354,956"/>
+<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="5,5,219,361"/>
+<area shape="rect" id="node4" href="$class_simple_subscriber.html" title=" " alt="" coords="243,64,501,303"/>
 </map>

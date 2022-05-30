@@ -10,6 +10,9 @@
 #include <memory>
 
 class Tank;
+class Entity;
+
+class Grid;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
@@ -35,16 +38,27 @@ public:
      * Represents event types
      */
     enum EventType {  // TODO make Event an abstract base class; move enum to separate file and specify enum values there (EVENT SHOULD KNOW EVENT TYPE TO STORE IT)
-        KeyPressed = 0,
+        NullEvent = 0,
+
+        KeyPressed,
         KeyReleased,
 
-        TankSpawned,  // TODO replace with entity (not necessary if enum was moved to separate file)
-        TankKilled,
-        TankMoved,
-        TankHit,
-        TankRemoved,
+        EntitySpawned,
+        EntityMoved,
+        EntityRemoved,
 
-        NullEvent
+        EntityEntityCollision,
+        EntityGridCollision,
+
+        TankKilled,
+        TankRotated,
+        TankHit,
+
+        TilePlaced,
+        TileChanged,
+        TileDeleted,
+
+        LevelLoaded
     };
 
     EventType type;
@@ -68,8 +82,36 @@ public:
      * references in other objects
      * TRYING TO ACCESS MEMBER VARIABLE'S ATTRS WILL RESULT IN UNDEFINED BEHAVIOR
      */
-    struct TankInfo {  //
-        Tank* tank;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
+    struct EntityInfo {  //
+        Entity* entity;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
+    };
+
+    struct EntityEntityCollisionInfo{
+        Entity* entity1;
+        Entity* entity2;
+    };
+
+    struct EntityTileCollisionInfo{
+        Entity* entity;
+        unsigned int x;
+        unsigned int y;
+    };
+
+    /**
+     * Holds additional event info for tile related events
+     */
+    struct TileInfo {
+        unsigned int tile_x;
+        unsigned int tile_y;
+        Grid* grid;
+    };
+
+    /**
+     * Holds additional info for level related events
+     */
+    struct LevelInfo {
+        unsigned int levelNumber;
+        Grid* grid;
     };
 
     // ####################################################3
@@ -80,7 +122,11 @@ public:
      */
     union info_u {
         KeyEventInfo keyInfo;
-        TankInfo tankInfo;
+        EntityInfo entityInfo;
+        TileInfo tileInfo;
+        LevelInfo levelInfo;
+        EntityEntityCollisionInfo entityEntityCollisionInfo;
+        EntityTileCollisionInfo entityGridCollisionInfo;
 
         ~info_u(){};  // DO NOT change this to =default, or else it will stop working
     } info = {};
@@ -90,7 +136,15 @@ public:
 
     explicit Event(EventType);
 
-    Event(EventType e, Tank* tank);
+    Event(EventType e, Entity* entity);
+
+    Event(EventType e, Entity* entity1, Entity* entity2);
+
+    Event(EventType e, Entity* entity, unsigned int x, unsigned int y);
+
+    Event(EventType e, unsigned int x, unsigned int y, Grid* grid);
+
+    Event(EventType e, unsigned int levelNumber, Grid* grid);
 
     Event()=delete;
 };

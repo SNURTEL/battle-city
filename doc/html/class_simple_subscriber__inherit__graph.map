@@ -1,4 +1,10 @@
 <map id="SimpleSubscriber" name="SimpleSubscriber">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,263,244"/>
-<area shape="rect" id="node2" href="$class_keyboard_controller.html" title=" " alt="" coords="26,292,242,516"/>
+<area shape="rect" id="node1" title=" " alt="" coords="213,5,471,244"/>
+<area shape="rect" id="node2" href="$class_keyboard_controller.html" title=" " alt="" coords="111,453,327,677"/>
+<area shape="rect" id="node3" href="$class_tank.html" title="Base class for tank representation." alt="" coords="352,292,577,839"/>
+<area shape="rect" id="node4" href="$class_armor_tank.html" title=" " alt="" coords="5,894,175,1015"/>
+<area shape="rect" id="node5" href="$class_basic_tank.html" title=" " alt="" coords="199,894,363,1015"/>
+<area shape="rect" id="node6" href="$class_fast_tank.html" title=" " alt="" coords="387,894,542,1015"/>
+<area shape="rect" id="node7" href="$class_player_tank.html" title=" " alt="" coords="566,887,737,1023"/>
+<area shape="rect" id="node8" href="$class_power_tank.html" title=" " alt="" coords="761,894,931,1015"/>
 </map>

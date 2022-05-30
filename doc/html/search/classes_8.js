@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['observerexception_0',['ObserverException',['../class_observer_exception.html',1,'']]]
+  ['levelinfo_0',['LevelInfo',['../struct_event_1_1_level_info.html',1,'Event']]]
 ];
