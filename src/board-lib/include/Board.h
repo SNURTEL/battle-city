@@ -34,9 +34,11 @@ public:
     void setTankMoving(Tank* target, bool isMoving);
 
     /**
-     * Changes the targetDirection in which the tank is faced
+     * Changes the direction in which the tank is faced to targetDirection
+     * If currently faced in targetDirection, does nothing
+     * If rotating by 90 or 270 degrees, attempts to snap to grid
      *
-     * Queues Event::TankRotated
+     * Possibly queues Event::TankRotated and Event::EntityMoved
      * @param tank Target tank
      * @param targetDirection New direction
      */

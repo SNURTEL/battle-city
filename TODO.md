@@ -1,27 +1,19 @@
 ## TODO
+- [X] Dopracowanie keyboard controllera _Michał_
 - [ ] Moduł graficzny _Michał_
-- [ ] Kontrolery planszy, pocisków, potencjalnie przepisać czołgi _Tomek_
-- [ ] Stany gry _Rafał_
-  - [ ] Aktywny
-  - [ ] Pauza
-  - [ ] Menu
-  - [ ] Zakończony
-- [ ] Dopracowanie keyboard controllera _Michał_
-- [ ] Czołg gracza
+- [ ] Handlery graficzne _Michał_
+- [X] Stany gry _Rafał_
+- [ ] Handlery dla stanów _Rafał_
+- [ ] Wydzielenie pól wyboru (menu, pauza) do osobnych obiektów _Rafał_
+- [ ] Generowanie eventów dla stanów i pól wyboru _Rafał_
+- [X] Kontrolery planszy, pocisków, potencjalnie przepisać czołgi _Tomek_
+- [ ] Czołg gracza _Tomek_
+- [ ] Inicjalizacja gry _Tomek_
+- [ ] AI czołgów _Tomek_
 
 
 ### Na później
-- [ ] AI czołgów
 - [ ] Zapis i odczyt wyników
 - [ ] Dokumentacja
-
-
-
-### Board-lib
-- [x] Przepisać ruch czołgów ma oparty na prędkości
-  - [x] Zamienić wszystkie inty na floaty
-- [x] Zmodyfikować tank controller aby operował prędkością
-- [x] Snapowanie przy obrocie
-- [ ] Dostosować testy
-- [x] Fasada Board
-  - [x] Wykrywanie kolizji
+- [ ] Powerupy
+- [ ] System poziomów
