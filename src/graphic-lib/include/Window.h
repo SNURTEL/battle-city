@@ -26,7 +26,7 @@ class Grid;
  * Creates sf::RenderWindow
  * Window size is 800/800
  */
-class Window : AbstractWindow
+class Window : public AbstractWindow
 {
 public:
 
@@ -55,9 +55,12 @@ public:
      * Intiate window with apropriate size and mode
      * Initiate view object in windowView
      * Gets actual gameState, sets gameState attribute
+     * Gets pointers for board objects
+     *
+     * @todo Way of getting board might change, more pointers need to be added
      *
      */
-    Window(GameState* gameState);
+    Window(GameState* gameState, const ActiveStatePointers& activePointers);
 
 
     /**

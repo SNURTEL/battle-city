@@ -12,13 +12,14 @@ bool Window::instanceOf(T* ptr)
 {return dynamic_cast<State*>(ptr) != nullptr;}
 
 
-Window::Window(GameState* gameState)
+Window::Window(GameState* gameState, const ActiveStatePointers& activePointers)
 {
     selectgameState(gameState);
     videoMode = sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT);
     window = std::make_unique<sf::RenderWindow>(videoMode, "Tanks", sf::Style::Close);
     windowView.window = window.get();
     windowView.view = window->getView();
+    activeStatePointers = activePointers;
     conscructComposit();
 }
 

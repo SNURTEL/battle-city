@@ -19,7 +19,7 @@ void BoardGraphic::render()
 
 BoardGraphic::BoardGraphic(const WindowView& windowView, const ActiveStateGraphic::BoardPointers& boardObjects)
 : AbstractWindow(windowView), boardObjects(boardObjects)
-{}
+{conscructComposite();}
 
 
 void BoardGraphic::conscructComposite()
@@ -38,6 +38,15 @@ void BoardGraphic::conscructComposite()
     children.push_back(bullets);
 
 }
+
+
+
+const ActiveStateGraphic::BoardPointers& BoardGraphic::getPointers() const
+{return boardObjects;}
+
+
+const std::vector<std::shared_ptr<AbstractWindow>> BoardGraphic::getChildren() const
+{return children;}
 
 
 // void BoardGraphic::update()

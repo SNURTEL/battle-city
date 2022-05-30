@@ -29,11 +29,11 @@ public:
     virtual void render() override;
 
 
-    /**
-     * @brief Updates its objects
-     *
-     */
-    void update(FrameGraphic::BareFrameSize frameSize);
+    // /**
+    //  * @brief Updates its objects
+    //  *
+    //  */
+    // void update(FrameGraphic::BareFrameSize frameSize);
 
 
     /**

@@ -3,12 +3,14 @@
 #include <iostream>
 #include <vector>
 #include "../Window.h"
+// #include "Frame_dir/FrameGraphic.h"
 
 
 #ifndef PROI_PROJEKT_ACTIVESTATEGRAPHIC_H
 #define PROI_PROJEKT_ACTIVESTATEGRAPHIC_H
 
 class Bullet;
+// class FrameGraphic;
 
 /**
  * @brief Class resoponsible for coumputing ActiveState graphic

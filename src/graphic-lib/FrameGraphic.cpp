@@ -16,8 +16,16 @@ void FrameGraphic::render()
 
 FrameGraphic::FrameGraphic(const WindowView& windowView, const ActiveStateGraphic::FramePointers& frameObjects)
 : AbstractWindow(windowView), frameObjects(frameObjects)
-{}
+{
+    calculateBareFrameSize();
+    // createCop
+}
 
+
+// void FrameGraphic::conscructComposite()
+// {
+
+// }
 
 void FrameGraphic::calculateBareFrameSize()
 {
@@ -53,3 +61,7 @@ void FrameGraphic::calculateBareFrameSize()
     bareFrameSize.rightRect = sf::FloatRect(sf::Vector2f(rightRectPos, upSizeY),
                                             sf::Vector2f(rightSizeX, rightSizeY));
 }
+
+
+const ActiveStateGraphic::FramePointers& FrameGraphic::getPointers() const
+{return frameObjects;}

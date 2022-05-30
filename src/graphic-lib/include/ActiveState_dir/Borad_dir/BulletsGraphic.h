@@ -4,6 +4,7 @@
 #include <vector>
 #include "../../AbstractWindow.h"
 #include <map>
+#include "../../../../tank-lib/include/Bullet.h"
 
 #ifndef PROI_PROJEKT_BULLETSGRAPHIC_H
 #define PROI_PROJEKT_BULLETSGRAPHIC_H
@@ -11,11 +12,6 @@
 
 class Bullet;
 
-// Will be removed after fetching new code
-enum TextureType
-{
-    One=0
-};
 
 /**
  * @brief Class responsible for bullets updates and render
@@ -33,12 +29,12 @@ protected:
     struct RenderObject
     {
         sf::Vector2f coords;
-        TextureType textureType;
+        Bullet::BulletType textureType;
     };
 
 
     /// @brief Maps texture types to actual paths to textures
-    std::map<TextureType, std::string> textureMap;
+    std::map<Bullet::BulletType, std::string> textureMap;
 
     std::vector<Bullet*>* bullets;
 
