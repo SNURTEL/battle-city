@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['game_0',['Game',['../class_game.html',1,'Game'],['../class_game.html#a0885f2c9ae4b3eb78d273cfb36e7c767',1,'Game::Game()=delete'],['../class_game.html#ad602de551f1e5899d966f2c97cfb1748',1,'Game::Game(unsigned int clock_freq)']]],
   ['game_2ecpp_1',['Game.cpp',['../_game_8cpp.html',1,'']]],
   ['game_2eh_2',['Game.h',['../_game_8h.html',1,'']]],
@@ -32,6 +33,8 @@ var searchData=
   ['gridbuilder_2ecpp_28',['GridBuilder.cpp',['../_grid_builder_8cpp.html',1,'']]],
   ['gridbuilder_2eh_29',['GridBuilder.h',['../_grid_builder_8h.html',1,'']]]
 =======
+=======
+>>>>>>> origin/states
   ['game_53',['Game',['../class_game.html',1,'Game'],['../class_game.html#a0885f2c9ae4b3eb78d273cfb36e7c767',1,'Game::Game()=delete'],['../class_game.html#ad602de551f1e5899d966f2c97cfb1748',1,'Game::Game(unsigned int clock_freq)']]],
   ['game_2ecpp_54',['Game.cpp',['../_game_8cpp.html',1,'']]],
   ['game_2eh_55',['Game.h',['../_game_8h.html',1,'']]],
@@ -51,5 +54,8 @@ var searchData=
   ['gettype_69',['getType',['../class_tank.html#a6345582304a1113ad65095071dd60c5f',1,'Tank']]],
   ['getx_70',['getX',['../class_tank.html#aea44c920db4b6547209b217cecda4499',1,'Tank']]],
   ['gety_71',['getY',['../class_tank.html#ad4695759f5ca81ee61df99eb81811dd8',1,'Tank']]]
+<<<<<<< HEAD
 >>>>>>> added docs
+=======
+>>>>>>> origin/states
 ];

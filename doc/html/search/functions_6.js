@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['game_0',['Game',['../class_game.html#ad602de551f1e5899d966f2c97cfb1748',1,'Game::Game(unsigned int clock_freq)'],['../class_game.html#a0885f2c9ae4b3eb78d273cfb36e7c767',1,'Game::Game()=delete']]],
   ['gamestate_1',['GameState',['../class_game_state.html#a6c07974c68fb9f852e3585c0001e98fd',1,'GameState']]],
   ['getallentities_2',['getAllEntities',['../class_entity_controller.html#a9fcf9c6c05d2c9051641ed0d59c84b17',1,'EntityController']]],
@@ -19,6 +20,8 @@ var searchData=
   ['grid_15',['Grid',['../class_grid.html#a4ac9ff4f63552b4c61ff90fcb35ad66c',1,'Grid']]],
   ['gridbuilder_16',['GridBuilder',['../class_grid_builder.html#ae1cfcb034a2aeab344d994fed2d8acbd',1,'GridBuilder']]]
 =======
+=======
+>>>>>>> origin/states
   ['game_290',['Game',['../class_game.html#a0885f2c9ae4b3eb78d273cfb36e7c767',1,'Game::Game()=delete'],['../class_game.html#ad602de551f1e5899d966f2c97cfb1748',1,'Game::Game(unsigned int clock_freq)']]],
   ['gamestate_291',['GameState',['../class_game_state.html#a6c07974c68fb9f852e3585c0001e98fd',1,'GameState']]],
   ['get_5fposition_292',['get_position',['../class_game_state.html#a4b99cb173941844cd1df280c2ae0c1bb',1,'GameState::get_position()'],['../class_menu_game_state.html#ad965e635eb90dc424fb61eed6a08bd91',1,'MenuGameState::get_position()']]],
@@ -33,5 +36,8 @@ var searchData=
   ['gettype_301',['getType',['../class_tank.html#a6345582304a1113ad65095071dd60c5f',1,'Tank']]],
   ['getx_302',['getX',['../class_tank.html#aea44c920db4b6547209b217cecda4499',1,'Tank']]],
   ['gety_303',['getY',['../class_tank.html#ad4695759f5ca81ee61df99eb81811dd8',1,'Tank']]]
+<<<<<<< HEAD
 >>>>>>> added docs
+=======
+>>>>>>> origin/states
 ];

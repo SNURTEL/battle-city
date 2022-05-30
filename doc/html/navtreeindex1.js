@@ -1,6 +1,7 @@
 var NAVTREEINDEX1 =
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 "class_game.html#a4587d972f0b730a48c1ada4d9cb3d7e2":[0,0,17,4],
 "class_game.html#a685a8a6ce9b66ceebcbfed6725b3f8ad":[0,0,17,9],
 "class_game.html#ad602de551f1e5899d966f2c97cfb1748":[0,0,17,1],
@@ -122,6 +123,8 @@ var NAVTREEINDEX1 =
 "dir_dd008488fb0da8829e2acca19721471d.html":[1,0,0,1],
 "dir_f9968d1aa079c8b4e4a8682b301a0233.html":[1,0,0,0],
 =======
+=======
+>>>>>>> origin/states
 "class_tank.html#a5d63901be09b53cb9867a6dabe49a106":[0,0,29,18],
 "class_tank.html#a60961024124c96758edb869910694b8d":[0,0,29,5],
 "class_tank.html#a6345582304a1113ad65095071dd60c5f":[0,0,29,9],
@@ -176,9 +179,13 @@ var NAVTREEINDEX1 =
 "functions.html":[0,3,0,0],
 "functions.html":[0,3,0],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 "functions.html":[0,3,0,0],
 >>>>>>> added docs
+=======
+"functions.html":[0,3,0,0],
+>>>>>>> origin/states
 "functions_b.html":[0,3,0,1],
 "functions_c.html":[0,3,0,2],
 "functions_d.html":[0,3,0,3],
@@ -197,18 +204,24 @@ var NAVTREEINDEX1 =
 "functions_o.html":[0,3,0,13],
 "functions_p.html":[0,3,0,14],
 <<<<<<< HEAD
+<<<<<<< HEAD
 "functions_r.html":[0,3,0,15],
 "functions_s.html":[0,3,0,16],
 "functions_t.html":[0,3,0,17],
 "functions_u.html":[0,3,0,18],
 "functions_v.html":[0,3,0,19],
 =======
+=======
+>>>>>>> origin/states
 "functions_q.html":[0,3,0,15],
 "functions_r.html":[0,3,0,16],
 "functions_s.html":[0,3,0,17],
 "functions_t.html":[0,3,0,18],
 "functions_u.html":[0,3,0,19],
+<<<<<<< HEAD
 >>>>>>> added docs
+=======
+>>>>>>> origin/states
 "functions_vars.html":[0,3,2],
 "functions_w.html":[0,3,0,20],
 "functions_x.html":[0,3,0,21],

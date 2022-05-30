@@ -16,17 +16,24 @@ var functions_dup =
     [ "o", "functions_o.html", null ],
     [ "p", "functions_p.html", null ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     [ "q", "functions_q.html", null ],
 >>>>>>> added docs
+=======
+    [ "q", "functions_q.html", null ],
+>>>>>>> origin/states
     [ "r", "functions_r.html", null ],
     [ "s", "functions_s.html", null ],
     [ "t", "functions_t.html", null ],
     [ "u", "functions_u.html", null ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     [ "v", "functions_v.html", null ],
 =======
 >>>>>>> added docs
+=======
+>>>>>>> origin/states
     [ "w", "functions_w.html", null ],
     [ "x", "functions_x.html", null ],
     [ "y", "functions_y.html", null ],

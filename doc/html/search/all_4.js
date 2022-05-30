@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['east_0',['East',['../_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1a66183dce5a3b8d48fbdfe1f8ede7fcc2',1,'Entity.h']]],
   ['enemy_1',['Enemy',['../class_bullet.html#ab81b1ff6754c7931c5c5af43f352fbc9a79bebbc5f6c0b3a4c6753105c8077194',1,'Bullet']]],
   ['ensureentryexists_2',['ensureEntryExists',['../class_event_subscriber.html#adb04674a26cce9f98771161761fb3f44',1,'EventSubscriber::ensureEntryExists()'],['../class_event_publisher.html#accf099b2ef5c0a2f134e28735bd35c59',1,'EventPublisher::ensureEntryExists()']]],
@@ -53,6 +54,8 @@ var searchData=
   ['eventsubscriber_2eh_49',['EventSubscriber.h',['../_event_subscriber_8h.html',1,'']]],
   ['eventtype_50',['EventType',['../class_event.html#aa306292f6e9bf31a622e79dfc54321de',1,'Event']]]
 =======
+=======
+>>>>>>> origin/states
   ['east_20',['East',['../_tank_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa66183dce5a3b8d48fbdfe1f8ede7fcc2',1,'Tank.h']]],
   ['ensureentryexists_21',['ensureEntryExists',['../class_event_publisher.html#accf099b2ef5c0a2f134e28735bd35c59',1,'EventPublisher::ensureEntryExists()'],['../class_event_subscriber.html#adb04674a26cce9f98771161761fb3f44',1,'EventSubscriber::ensureEntryExists()']]],
   ['event_22',['Event',['../class_event.html',1,'Event'],['../class_event.html#acada8c80e07cef0cc7228145e9367c59',1,'Event::Event(EventType, unsigned int ui1)'],['../class_event.html#acc5f9d382b870fd6ae19370955d563ad',1,'Event::Event(EventType)'],['../class_event.html#a28ff8dcd5ee5c236a5445c3ef33f3359',1,'Event::Event(EventType e, Tank *tank)'],['../class_event.html#aa409fd6a64c9d71f975abb6c85aca183',1,'Event::Event()=delete']]],
@@ -78,5 +81,8 @@ var searchData=
   ['eventsubscriber_2ecpp_42',['EventSubscriber.cpp',['../_event_subscriber_8cpp.html',1,'']]],
   ['eventsubscriber_2eh_43',['EventSubscriber.h',['../_event_subscriber_8h.html',1,'']]],
   ['eventtype_44',['EventType',['../class_event.html#aa306292f6e9bf31a622e79dfc54321de',1,'Event']]]
+<<<<<<< HEAD
 >>>>>>> added docs
+=======
+>>>>>>> origin/states
 ];

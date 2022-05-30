@@ -171,12 +171,15 @@ var sectionId = 'dynsection-1';
 <g id="node5" class="node">
 <title>Node5</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node5"><a xlink:href="_clock_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="124.5,-0.5 124.5,-41.5 275.5,-41.5 275.5,-0.5 124.5,-0.5"/>
 <text text-anchor="start" x="132.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="132.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
 <text text-anchor="middle" x="200" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/Clock.cpp</text>
 =======
+=======
+>>>>>>> origin/states
 <g id="a_node5"><a xlink:href="_clock_8cpp.html" target="_top" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="273.5,-0.5 273.5,-41.5 424.5,-41.5 424.5,-0.5 273.5,-0.5"/>
 <text text-anchor="start" x="281.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
@@ -196,12 +199,15 @@ var sectionId = 'dynsection-1';
 <g id="node6" class="node">
 <title>Node6</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node6"><a xlink:href="_game_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="293.5,-0.5 293.5,-41.5 444.5,-41.5 444.5,-0.5 293.5,-0.5"/>
 <text text-anchor="start" x="301.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="301.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
 <text text-anchor="middle" x="369" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/game&#45;lib/Game.cpp</text>
 =======
+=======
+>>>>>>> origin/states
 <g id="a_node6"><a xlink:href="_game_8cpp.html" target="_top" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="442.5,-0.5 442.5,-41.5 593.5,-41.5 593.5,-0.5 442.5,-0.5"/>
 <text text-anchor="start" x="450.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>

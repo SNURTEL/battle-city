@@ -44,17 +44,24 @@ var menudata={children:[
 {text:"o",url:"functions_o.html#index_o"},
 {text:"p",url:"functions_p.html#index_p"},
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 {text:"q",url:"functions_q.html#index_q"},
 >>>>>>> added docs
+=======
+{text:"q",url:"functions_q.html#index_q"},
+>>>>>>> origin/states
 {text:"r",url:"functions_r.html#index_r"},
 {text:"s",url:"functions_s.html#index_s"},
 {text:"t",url:"functions_t.html#index_t"},
 {text:"u",url:"functions_u.html#index_u"},
 <<<<<<< HEAD
+<<<<<<< HEAD
 {text:"v",url:"functions_v.html#index_v"},
 =======
 >>>>>>> added docs
+=======
+>>>>>>> origin/states
 {text:"w",url:"functions_w.html#index_w"},
 {text:"x",url:"functions_x.html#index_x"},
 {text:"y",url:"functions_y.html#index_y"},

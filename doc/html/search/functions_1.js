@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['basictank_0',['BasicTank',['../class_basic_tank.html#a4d1503ed8e6c1b9e110e5c8de258c440',1,'BasicTank::BasicTank()=delete'],['../class_basic_tank.html#a4b578f4a3ccadde4b2da15dcf1f7c6ad',1,'BasicTank::BasicTank(float x, float y, Direction facing=North)']]],
   ['board_1',['Board',['../class_board.html#a9ee491d4fea680cf69b033374a9fdfcb',1,'Board']]],
   ['buildlevel_2',['BuildLevel',['../class_grid_builder.html#a06ba0f6ea237b3bc893eb9b55b0c2c62',1,'GridBuilder']]],
@@ -8,4 +9,7 @@ var searchData=
 =======
   ['basictank_274',['BasicTank',['../class_basic_tank.html#a4d1503ed8e6c1b9e110e5c8de258c440',1,'BasicTank::BasicTank()=delete'],['../class_basic_tank.html#aa31cb4ccec270c26cbf8012c810b8216',1,'BasicTank::BasicTank(unsigned int x, unsigned int y, Direction facing=North)']]]
 >>>>>>> added docs
+=======
+  ['basictank_274',['BasicTank',['../class_basic_tank.html#a4d1503ed8e6c1b9e110e5c8de258c440',1,'BasicTank::BasicTank()=delete'],['../class_basic_tank.html#aa31cb4ccec270c26cbf8012c810b8216',1,'BasicTank::BasicTank(unsigned int x, unsigned int y, Direction facing=North)']]]
+>>>>>>> origin/states
 ];

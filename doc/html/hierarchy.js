@@ -32,11 +32,15 @@ var hierarchy =
     [ "EventQueue< Event >", "class_event_queue.html", null ],
     [ "EventSubscriber", "class_event_subscriber.html", null ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     [ "std::exception", null, [
       [ "EntityDoesNotExistException", "class_entity_does_not_exist_exception.html", null ],
 =======
     [ "exception", null, [
 >>>>>>> added docs
+=======
+    [ "exception", null, [
+>>>>>>> origin/states
       [ "EventConstructionException", "struct_event_construction_exception.html", null ],
       [ "InvalidEventException", "class_invalid_event_exception.html", null ],
       [ "ObserverException", "class_observer_exception.html", null ],
@@ -64,6 +68,7 @@ var hierarchy =
       [ "Tank", "class_tank.html", null ]
     ] ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     [ "Event::TileInfo", "struct_event_1_1_tile_info.html", null ],
     [ "TileManager", "class_tile_manager.html", null ],
     [ "queue< std::unique_ptr< Event > >", "classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html", null ]
@@ -71,4 +76,8 @@ var hierarchy =
     [ "TankController", "class_tank_controller.html", null ],
     [ "Event::TankInfo", "struct_event_1_1_tank_info.html", null ]
 >>>>>>> added docs
+=======
+    [ "TankController", "class_tank_controller.html", null ],
+    [ "Event::TankInfo", "struct_event_1_1_tank_info.html", null ]
+>>>>>>> origin/states
 ];

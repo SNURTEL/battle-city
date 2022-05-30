@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['east_0',['East',['../_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1a66183dce5a3b8d48fbdfe1f8ede7fcc2',1,'Entity.h']]],
   ['enemy_1',['Enemy',['../class_bullet.html#ab81b1ff6754c7931c5c5af43f352fbc9a79bebbc5f6c0b3a4c6753105c8077194',1,'Bullet']]],
   ['entityentitycollision_2',['EntityEntityCollision',['../class_event.html#aa306292f6e9bf31a622e79dfc54321dea9c02913946b199e141203178007699c3',1,'Event']]],
@@ -11,4 +12,7 @@ var searchData=
 =======
   ['east_404',['East',['../_tank_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa66183dce5a3b8d48fbdfe1f8ede7fcc2',1,'Tank.h']]]
 >>>>>>> added docs
+=======
+  ['east_404',['East',['../_tank_8h.html#a224b9163917ac32fc95a60d8c1eec3aaa66183dce5a3b8d48fbdfe1f8ede7fcc2',1,'Tank.h']]]
+>>>>>>> origin/states
 ];

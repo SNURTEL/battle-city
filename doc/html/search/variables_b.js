@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['self_5f_0',['self_',['../class_clock.html#aefadbf218778afe5478ed228ca74821c',1,'Clock::self_()'],['../class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47',1,'EventQueue::self_()']]],
   ['size_5fx_1',['size_x',['../class_grid.html#ad7f84e5ac3bc5dc93811d5a7476aa47a',1,'Grid']]],
   ['size_5fx_5f_2',['size_x_',['../class_entity.html#a644276e5344c7b3bf67cf1c3f06307c9',1,'Entity']]],
@@ -13,4 +14,7 @@ var searchData=
 =======
   ['running_5f_383',['running_',['../class_game.html#a9da12a2d9125bfaa8782a61b69c49f9e',1,'Game']]]
 >>>>>>> added docs
+=======
+  ['running_5f_383',['running_',['../class_game.html#a9da12a2d9125bfaa8782a61b69c49f9e',1,'Game']]]
+>>>>>>> origin/states
 ];

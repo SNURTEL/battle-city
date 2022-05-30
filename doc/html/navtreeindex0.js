@@ -491,5 +491,8 @@ var NAVTREEINDEX0 =
 "class_tank.html#a27af4d635bd4815cf6cee5e9ba2f6d6a":[0,0,29,16],
 "class_tank.html#a3d887009683a21cff4a7cf6fc490f675":[0,0,29,3],
 "class_tank.html#a5c97d4c429df8e02d3e9a448bff4880c":[0,0,29,8]
+<<<<<<< HEAD
 >>>>>>> added docs
+=======
+>>>>>>> origin/states
 };

@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['tankhit_0',['TankHit',['../class_event.html#aa306292f6e9bf31a622e79dfc54321dea51119f14afc981239143fb1ffb333c09',1,'Event']]],
   ['tankkilled_1',['TankKilled',['../class_event.html#aa306292f6e9bf31a622e79dfc54321dea604fb8cab3e80877f5b4db8c09e5f12a',1,'Event']]],
   ['tankrotated_2',['TankRotated',['../class_event.html#aa306292f6e9bf31a622e79dfc54321dea92abf5e344dbb4337a59e83187e7746a',1,'Event']]],
@@ -11,4 +12,7 @@ var searchData=
 =======
   ['west_420',['West',['../_tank_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaedd15c5b13ad5525c46d5c9650ddde5f',1,'Tank.h']]]
 >>>>>>> added docs
+=======
+  ['west_420',['West',['../_tank_8h.html#a224b9163917ac32fc95a60d8c1eec3aaaedd15c5b13ad5525c46d5c9650ddde5f',1,'Tank.h']]]
+>>>>>>> origin/states
 ];

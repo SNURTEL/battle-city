@@ -51,10 +51,14 @@ var NAVTREEINDEX =
 [
 "_active_event_handler_8cpp.html",
 <<<<<<< HEAD
+<<<<<<< HEAD
 "class_game.html#a4587d972f0b730a48c1ada4d9cb3d7e2"
 =======
 "class_tank.html#a5d63901be09b53cb9867a6dabe49a106"
 >>>>>>> added docs
+=======
+"class_tank.html#a5d63901be09b53cb9867a6dabe49a106"
+>>>>>>> origin/states
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

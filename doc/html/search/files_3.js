@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['entity_2ecpp_0',['Entity.cpp',['../_entity_8cpp.html',1,'']]],
   ['entity_2eh_1',['Entity.h',['../_entity_8h.html',1,'']]],
   ['entitycontroller_2ecpp_2',['EntityController.cpp',['../_entity_controller_8cpp.html',1,'']]],
@@ -19,4 +20,8 @@ var searchData=
   ['finishedeventhandler_2ecpp_244',['FinishedEventHandler.cpp',['../_finished_event_handler_8cpp.html',1,'']]],
   ['finishedeventhandler_2eh_245',['FinishedEventHandler.h',['../_finished_event_handler_8h.html',1,'']]]
 >>>>>>> added docs
+=======
+  ['finishedeventhandler_2ecpp_244',['FinishedEventHandler.cpp',['../_finished_event_handler_8cpp.html',1,'']]],
+  ['finishedeventhandler_2eh_245',['FinishedEventHandler.h',['../_finished_event_handler_8h.html',1,'']]]
+>>>>>>> origin/states
 ];

@@ -69,12 +69,15 @@ var sectionId = 'dynsection-1';
 <g id="node2" class="node">
 <title>Node2</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node2"><a xlink:href="_board_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="49.99,-0.5 49.99,-41.5 200.99,-41.5 200.99,-0.5 49.99,-0.5"/>
 <text text-anchor="start" x="57.99" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="57.99" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
 <text text-anchor="middle" x="125.49" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">/board&#45;lib/Board.cpp</text>
 =======
+=======
+>>>>>>> origin/states
 <g id="a_node2"><a xlink:href="_event_queue_8cpp.html" target="_top" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-41.5 151,-41.5 151,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
@@ -94,12 +97,15 @@ var sectionId = 'dynsection-1';
 <g id="node3" class="node">
 <title>Node3</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node3"><a xlink:href="_grid_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="17.99,-78.5 17.99,-119.5 168.99,-119.5 168.99,-78.5 17.99,-78.5"/>
 <text text-anchor="start" x="25.99" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="25.99" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
 <text text-anchor="middle" x="93.49" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/board&#45;lib/Grid.cpp</text>
 =======
+=======
+>>>>>>> origin/states
 <g id="a_node3"><a xlink:href="_game_8cpp.html" target="_top" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="169,-0.5 169,-41.5 320,-41.5 320,-0.5 169,-0.5"/>
 <text text-anchor="start" x="177" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
@@ -119,12 +125,15 @@ var sectionId = 'dynsection-1';
 <g id="node4" class="node">
 <title>Node4</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node4"><a xlink:href="_board_8h.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="186.99,-78.5 186.99,-119.5 337.99,-119.5 337.99,-78.5 186.99,-78.5"/>
 <text text-anchor="start" x="194.99" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="194.99" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
 <text text-anchor="middle" x="262.49" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/board&#45;lib/include/Board.h</text>
 =======
+=======
+>>>>>>> origin/states
 <g id="a_node4"><a xlink:href="_keyboard_controller_8cpp.html" target="_top" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="338,-0.5 338,-41.5 517,-41.5 517,-0.5 338,-0.5"/>
 <text text-anchor="start" x="346" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
@@ -144,12 +153,15 @@ var sectionId = 'dynsection-1';
 <g id="node5" class="node">
 <title>Node5</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node5"><a xlink:href="_event_queue_8cpp.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="355.99,-78.5 355.99,-119.5 506.99,-119.5 506.99,-78.5 355.99,-78.5"/>
 <text text-anchor="start" x="363.99" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="363.99" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
 <text text-anchor="middle" x="431.49" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">/core&#45;lib/EventQueue.cpp</text>
 =======
+=======
+>>>>>>> origin/states
 <g id="a_node5"><a xlink:href="_tank_controller_8cpp.html" target="_top" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="535,-0.5 535,-41.5 686,-41.5 686,-0.5 535,-0.5"/>
 <text text-anchor="start" x="543" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>

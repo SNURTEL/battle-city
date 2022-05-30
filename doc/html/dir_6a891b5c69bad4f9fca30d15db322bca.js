@@ -13,5 +13,8 @@ var dir_6a891b5c69bad4f9fca30d15db322bca =
       [ "TankDoesNotExistException", "class_tank_does_not_exist_exception.html", "class_tank_does_not_exist_exception" ],
       [ "TankController", "class_tank_controller.html", "class_tank_controller" ]
     ] ]
+<<<<<<< HEAD
 >>>>>>> added docs
+=======
+>>>>>>> origin/states
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['tank_0',['Tank',['../class_tank.html',1,'Tank'],['../class_tank.html#ac8f033f365f015acf0e89eaa9e8167cd',1,'Tank::Tank()']]],
   ['tank_2ecpp_1',['Tank.cpp',['../_tank_8cpp.html',1,'']]],
   ['tank_2eh_2',['Tank.h',['../_tank_8h.html',1,'']]],
@@ -25,6 +26,8 @@ var searchData=
   ['type_21',['type',['../class_event.html#ac721e4f34b3b9a1ae302165412221724',1,'Event']]],
   ['type_5f_22',['type_',['../class_bullet.html#aadb76e40903b77348194c7147988635e',1,'Bullet::type_()'],['../class_tank.html#a94249884974479f0fb83cba0be3bf9cf',1,'Tank::type_()']]]
 =======
+=======
+>>>>>>> origin/states
   ['self_5f_134',['self_',['../class_clock.html#aefadbf218778afe5478ed228ca74821c',1,'Clock::self_()'],['../class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47',1,'EventQueue::self_()']]],
   ['set_5fposition_135',['set_position',['../class_game_state.html#a1c4dc5fadd277669bb0d3e2cb20171a0',1,'GameState::set_position()'],['../class_menu_game_state.html#a4118a0525283c8ced258450fc82ba9b0',1,'MenuGameState::set_position()']]],
   ['setactivestate_136',['setActiveState',['../class_game.html#a4587d972f0b730a48c1ada4d9cb3d7e2',1,'Game']]],
@@ -48,5 +51,8 @@ var searchData=
   ['subscribe_154',['subscribe',['../class_event_subscriber.html#a8071e41bae4c80090d06003824800daf',1,'EventSubscriber::subscribe()'],['../class_simple_subscriber.html#a85dcb8936cce17618dcb28495b19b937',1,'SimpleSubscriber::subscribe()']]],
   ['subscribedsubjects_5f_155',['subscribedSubjects_',['../class_event_subscriber.html#aff26a25676ab655cf961473927f74003',1,'EventSubscriber::subscribedSubjects_()'],['../class_simple_subscriber.html#a4d268f3e6add46ad3d832a0b15a3ca61',1,'SimpleSubscriber::subscribedSubjects_()']]],
   ['subscribers_5f_156',['subscribers_',['../class_simple_publisher.html#ab135300c5d89ab631d464af057ef66f3',1,'SimplePublisher']]]
+<<<<<<< HEAD
 >>>>>>> added docs
+=======
+>>>>>>> origin/states
 ];
