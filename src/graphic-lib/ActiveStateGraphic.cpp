@@ -1,4 +1,5 @@
 #include "include/ActiveState_dir/Borad_dir/BoardGraphic.h"
+#include "include/ActiveState_dir/Frame_dir/FrameGraphic.h"
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -70,7 +71,7 @@ void ActiveStateGraphic::render()
 void ActiveStateGraphic::conscructComposite()
 {
     std::shared_ptr<AbstractWindow> board = std::make_shared<BoardGraphic>(boardWindowView, boardObjects);
-    std::shared_ptr<AbstractWindow> frame = std::make_shared<BoardGraphic>(frameWindowView, boardObjects);
+    std::shared_ptr<AbstractWindow> frame = std::make_shared<FrameGraphic>(frameWindowView, frameObjects);
     this->children.push_back(board);
     this->children.push_back(frame);
 }

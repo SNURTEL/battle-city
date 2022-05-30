@@ -67,6 +67,7 @@ public:
     // /// @brief Updates its objects
     // virtual void update(std::vector<Tank*> tanks);
 
+    std::vector<Tank*>* getTanks() const;
 
     /**
      * @brief Get the RenderObjects objects in a vector

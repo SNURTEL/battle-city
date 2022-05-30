@@ -15,7 +15,7 @@
  * Commands its children to render the frame around the board and all the objects connected to it.
  * Sets the right SFML views for them
  */
-class FrameGraphic : AbstractWindow
+class FrameGraphic : public AbstractWindow
 {
 public:
 
@@ -42,6 +42,8 @@ public:
     // void update(ActiveStateGraphic::FramePointers frameObjects);
 
 
+    const ActiveStateGraphic::FramePointers& getPointers() const;
+
     /**
      * @brief Construct a new Board View object
      *
@@ -55,8 +57,8 @@ private:
 
     BareFrameSize bareFrameSize;
 
-    /// @brief Creates appropriate children
-    void conscructComposite();
+    // /// @brief Creates appropriate children
+    // void conscructComposite();
 
     /// @brief Calculates size of a frame around the game board
     void calculateBareFrameSize();

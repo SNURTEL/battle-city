@@ -120,7 +120,7 @@ set(graphic_lib_sources
         )
 
 add_library(graphic-lib ${graphic_lib_sources})
-target_link_libraries(graphic-lib PRIVATE game-lib tank-lib)
+target_link_libraries(graphic-lib PRIVATE board-lib game-lib tank-lib)
 
 set(graphic_lib_test_dir ../src/graphic-lib/test)
 set(graphic_lib_test_sources

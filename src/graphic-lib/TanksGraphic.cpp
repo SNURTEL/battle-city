@@ -17,7 +17,7 @@ TanksGraphic::RenderObject::RenderObject(const sf::Vector2f& coords, Direction d
 void TanksGraphic::render()
 {
     makeRenderTanks(); // updates tanks info
-
+    windowView.window->setView(windowView.view); // settings appropriate view
     sf::RenderWindow* window = windowView.window;
     std::string path;
     sf::Texture texture;
@@ -34,6 +34,8 @@ void TanksGraphic::render()
         // sprite.setScale() Might be used in the future
 
     }
+    // After rendering setting default view for other objects
+    windowView.window->setView(windowView.window->getDefaultView());
 }
 
 
@@ -110,3 +112,7 @@ void TanksGraphic::loadTextures()
     }
 
 }
+
+
+std::vector<Tank*>* TanksGraphic::getTanks() const
+{return tanks;}

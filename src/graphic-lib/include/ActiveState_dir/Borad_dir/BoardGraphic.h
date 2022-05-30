@@ -36,6 +36,11 @@ public:
      */
     virtual void render() override;
 
+
+    const ActiveStateGraphic::BoardPointers& getPointers() const;
+
+
+    const std::vector<std::shared_ptr<AbstractWindow>> getChildren() const;
     // /**
     //  * @brief Commands its children to update objects to render
     //  *
