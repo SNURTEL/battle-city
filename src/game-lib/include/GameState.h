@@ -11,6 +11,7 @@
 #include "MenuEventHandler.h"
 #include "PauseEventHandler.h"
 #include "FinishedEventHandler.h"
+#include "../../tank-lib/include/Tank.h"
 
 
 class PublisherEventHandler;
@@ -40,7 +41,10 @@ protected:
 // #####################################
 
 class ActiveGameState: public GameState{
+private:
+    std::unique_ptr<PlayerTank> playerTank_;
 public:
+    PlayerTank* get_player_tank();
     ActiveGameState()=delete;
     explicit ActiveGameState(Game* game);
 };

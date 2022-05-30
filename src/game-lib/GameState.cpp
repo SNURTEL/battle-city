@@ -14,7 +14,13 @@ PublisherEventHandler *GameState::getEventHandler() {
 
 ActiveGameState::ActiveGameState(Game* game) {
     eventHandler_ = std::make_unique<ActiveEventHandler>(game, this);
+    playerTank_ = std::make_unique<PlayerTank>(10, 10, 5);
 }
+
+PlayerTank* ActiveGameState::get_player_tank() {
+    return playerTank_.get();
+}
+
 PauseGameState::PauseGameState(Game* game) {
     eventHandler_ = std::make_unique<PauseEventHandler>(game, this);
 }

@@ -171,3 +171,5 @@ bin/*
 # Compiled
 build/*
 !build/CMakeLists.txt
+bin/tanks
+bin/test_core_lib
