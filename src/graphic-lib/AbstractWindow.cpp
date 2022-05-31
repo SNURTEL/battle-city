@@ -5,7 +5,7 @@
 #include <vector>
 
 
-WindowView::WindowView(sf::RenderWindow* window, sf::View)
+WindowView::WindowView(sf::RenderWindow* window, sf::View view)
 : window(window), view(view)
 {}
 

@@ -40,8 +40,8 @@ class AbstractWindow
 {
 protected:
 
-    const uint WINDOW_HEIGHT = 800;
-    const uint WINDOW_WIDTH = 800;
+    const uint WINDOW_HEIGHT = 700;
+    const uint WINDOW_WIDTH = 700;
     WindowView windowView;
     std::vector<std::shared_ptr<AbstractWindow>> children;
 

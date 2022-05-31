@@ -73,7 +73,6 @@ public:
     void fetchAcitveStatePointers(std::vector<Tank*>* tanks ,Grid* tiles, std::vector<Bullet*>* bullets,
                                   int* level, int* livesLeft);
 
-    GameStateGraphic gameState;
 
     /**
      * @brief Fetches pointers for ActiveState objects

@@ -4,6 +4,7 @@
 #include <vector>
 #include "FrameGraphic.h"
 
+
 #ifndef PROI_PROJEKT_BAREFRAMEGRPHIC_H
 #define PROI_PROJEKT_BAREFRAMEGRPHIC_H
 
@@ -14,11 +15,12 @@
  * Renders bare frame on the screen
  *
  */
-class BareFrameGraphic : AbstractWindow
+class BareFrameGraphic : public AbstractWindow
 {
 private:
 
-    ActiveStateGraphic::FramePointers frameObjects;
+    sf::Color color;
+    // ActiveStateGraphic::FramePointers frameObjects;
 
     FrameGraphic::BareFrameSize frameSize;
 public:
@@ -41,7 +43,7 @@ public:
      *
      * @param window
      */
-    BareFrameGraphic(sf::RenderWindow* window);
+    BareFrameGraphic(const WindowView& windowView, const FrameGraphic::BareFrameSize& bareFrameSize);
 
 };
 

@@ -1,8 +1,10 @@
 #include "include/ActiveState_dir/Frame_dir/FrameGraphic.h"
+#include "include/ActiveState_dir/Frame_dir/BareFrameGraphic.h"
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
+#include <memory>
 
 
 void FrameGraphic::render()
@@ -18,19 +20,23 @@ FrameGraphic::FrameGraphic(const WindowView& windowView, const ActiveStateGraphi
 : AbstractWindow(windowView), frameObjects(frameObjects)
 {
     calculateBareFrameSize();
-    // createCop
+    conscructComposite();
+
 }
 
 
-// void FrameGraphic::conscructComposite()
-// {
-
-// }
+void FrameGraphic::conscructComposite()
+{
+    // this->children.p
+    // children
+    std::shared_ptr<AbstractWindow> bareFrame = std::make_shared<BareFrameGraphic>(windowView, bareFrameSize);
+    children.push_back(bareFrame);
+}
 
 void FrameGraphic::calculateBareFrameSize()
 {
-    float defaultFrameX = windowView.view.getSize().x * 3/4 / 2;
-    float defaultFramey = windowView.view.getSize().y * 3/4 / 2;
+    float defaultFrameX = (windowView.view.getSize().x - 520)/2;
+    float defaultFramey = (windowView.view.getSize().y - 520)/2;
     float windowSizeX = windowView.view.getSize().x;
     float windowSizeY = windowView.view.getSize().y;
     float windowBeginPoint = 0.f;
@@ -45,17 +51,17 @@ void FrameGraphic::calculateBareFrameSize()
     float downSizeX = windowSizeX;
     float downSizeY = defaultFramey;
     float downRectPos = windowSizeY - downSizeY;
-    bareFrameSize.upRect = sf::FloatRect(sf::Vector2f(windowBeginPoint, downRectPos),
+    bareFrameSize.downRect = sf::FloatRect(sf::Vector2f(windowBeginPoint, downRectPos),
                                          sf::Vector2f(upSizeX, upSizeY));
 
     // leftRect
-    float leftSizeX = defaultFrameX / 2;
+    float leftSizeX = defaultFrameX * 2/3;
     float leftSizeY = windowSizeY - 2 * upSizeY;
     bareFrameSize.leftRect = sf::FloatRect(sf::Vector2f(windowBeginPoint, upSizeY),
                                            sf::Vector2f(leftSizeX, leftSizeY));
 
     // rightRect
-    float rightSizeX = defaultFrameX * 2;
+    float rightSizeX = defaultFrameX * 4/3;
     float rightSizeY = windowSizeY - 2 * upSizeY;
     float rightRectPos = windowSizeX - rightSizeX;
     bareFrameSize.rightRect = sf::FloatRect(sf::Vector2f(rightRectPos, upSizeY),
