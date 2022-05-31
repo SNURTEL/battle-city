@@ -93,7 +93,6 @@ public:
      */
     virtual void render() override;
 
-public:
 
     // /**
     //  * @brief Commands its children to update objects to render
