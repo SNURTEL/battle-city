@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-
+#include <cmath>
 
 ActiveStateGraphic::ActiveStateGraphic(const WindowView& windowView, const Window::ActiveStatePointers& activestatePointers)
 : AbstractWindow(windowView)
@@ -12,29 +12,41 @@ ActiveStateGraphic::ActiveStateGraphic(const WindowView& windowView, const Windo
     activeStateObjects = activestatePointers;
     setboardObjects();
     setframeObjects();
+    setframeView();
+    setboardView();
     conscructComposite();
 }
 
 
 void ActiveStateGraphic::setboardView()
 {
-    sf::View defaultView = windowView.window->getView();
-    sf::Vector2f defaultSize = defaultView.getSize();
-    sf::Vector2f boardSize(defaultSize.x * 3/4, defaultSize.y * 3/4);
-    sf::Vector2f boardPoistion = defaultSize - boardSize;
-    sf::View boardView(sf::FloatRect(boardPoistion, boardSize));
+    // sf::View defaultView = windowView.window->getView();
+    // sf::Vector2f defaultSize = defaultView.getSize();
+    // sf::Vector2f boardSize(520.f, 520.f);
 
-    boardWindowView.view = boardView;
+    // setting the view origin
+    // sf::Vector2f boardPoistion = defaultSize - boardSize;
+    // float x_move = boardSize.x * std::sqrt(2) / 2;
+    // float y_move = boardSize.y * std::sqrt(2) / 2;
+    // boardPoistion.x += x_move;
+    // boardPoistion.y += y_move;
+    // sf::View boardView(boardPoistion, boardSize);
+    // float trial = (defaultSize.x - boardSize.x) / WINDOW_HEIGHT;
+    // boardView.setViewport(sf::FloatRect(sf::Vector2f(0.5, 0.5), sf::Vector2f(trial, trial)));
+    // boardWindowView.view = boardView;
+
+    float defaultFrameX = (windowView.window->getSize().x - 520)/2;
+    float defaultFrameY = (windowView.window->getSize().y - 520)/2;
+
+    boardWindowView.leftOfset = defaultFrameX * 2/3;
+    boardWindowView.topOfset = defaultFrameY;
     boardWindowView.window = windowView.window;
 }
 
 
 void ActiveStateGraphic::setframeView()
 {
-    sf::View frameView;
-    frameView = windowView.window->getView();
-    frameWindowView.view = frameView;
-    frameWindowView.window = windowView.window;
+    frameWindowView = windowView;
 }
 
 

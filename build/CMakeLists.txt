@@ -3,7 +3,7 @@ project(PROI_PROJEKT)
 set(CMAKE_CXX_STANDARD 20)
 find_package(Catch2 REQUIRED)
 
-set(CMAKE_BINARY_DIR ../../bin)
+set(CMAKE_BINARY_DIR ../bin)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -117,6 +117,8 @@ set(graphic_lib_sources
         ${graphic_lib_dir}/BoardGraphic.cpp
         ${graphic_lib_dir}/BulletsGraphic.cpp
         ${graphic_lib_dir}/TilesGraphic.cpp
+        ${graphic_lib_dir}/BareFrameGraphic.cpp
+        ${graphic_lib_dir}/GraphicEventHandler.cpp
         )
 
 add_library(graphic-lib ${graphic_lib_sources})
@@ -124,7 +126,9 @@ target_link_libraries(graphic-lib PRIVATE board-lib game-lib tank-lib)
 
 set(graphic_lib_test_dir ../src/graphic-lib/test)
 set(graphic_lib_test_sources
-        ${graphic_lib_test_dir}/test_window.cpp)
+        ${graphic_lib_test_dir}/test_window.cpp
+        ${graphic_lib_test_dir}/test_render.cpp
+        ${graphic_lib_test_dir}/test_graphicEventHandler.cpp)
 
 add_executable(test_graphic_lib ${graphic_lib_test_sources})
 target_link_libraries(test_graphic_lib PRIVATE graphic-lib Catch2::Catch2WithMain)

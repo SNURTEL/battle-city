@@ -3,9 +3,12 @@
 #include <iostream>
 #include <vector>
 #include "../ActiveStateGraphic.h"
+// #include "BareFrameGraphic.h"
 
 #ifndef PROI_PROJEKT_FRAMEGRAPHIC_H
 #define PROI_PROJEKT_FRAMEGRAPHIC_H
+
+// class BareFrameGrafic;
 
 
 /**
@@ -57,8 +60,8 @@ private:
 
     BareFrameSize bareFrameSize;
 
-    // /// @brief Creates appropriate children
-    // void conscructComposite();
+    /// @brief Creates appropriate children
+    void conscructComposite();
 
     /// @brief Calculates size of a frame around the game board
     void calculateBareFrameSize();

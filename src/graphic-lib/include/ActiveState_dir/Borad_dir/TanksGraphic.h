@@ -24,7 +24,7 @@ class TanksGraphic : public AbstractWindow
 protected:
 
 
-    std::vector<Tank*>* tanks;
+    std::shared_ptr<std::vector<Tank*>> tanks;
 
     /// @brief Sturct that links object position with its texture
     struct RenderObject
@@ -41,7 +41,18 @@ protected:
     std::unordered_map<Tank::TankType, sf::Texture> textureMap{}; // Why before initialization compilatro was showing an error
 
     /// @brief Maps paths types to actual textures
-    std::unordered_map<Tank::TankType, std::string> pathMap{};
+    std::unordered_map<Tank::TankType, std::string> pathMap
+    {
+        {Tank::ArmorTank, "../src/graphic-lib/tanksImages/ArmorTank.png"},
+        {Tank::FastTank, "../src/graphic-lib/tanksImages/FastTank.png"},
+        {Tank::BasicTank, "../src/graphic-lib/tanksImages/BasicTank.png"},
+        {Tank::PlayerTank, "../src/graphic-lib/tanksImages/PlayerTank.png"},
+        {Tank::PowerTank, "../src/graphic-lib/tanksImages/PowerTank.png"}
+    };
+
+
+    /// @brief Sets tank's appropriate rotation
+    void setTankRotation(sf::Sprite& sprite, float angle);
 
     /**
      * @brief Makes RenderObjects vector from tanks list
@@ -67,6 +78,11 @@ public:
     // /// @brief Updates its objects
     // virtual void update(std::vector<Tank*> tanks);
 
+    /**
+     * @brief Get the Tanks object
+     *
+     * @return std::vector<Tank*>*
+     */
     std::vector<Tank*>* getTanks() const;
 
     /**
@@ -83,7 +99,7 @@ public:
      * @param window
      * @param TanksGraphic
      */
-    TanksGraphic(const WindowView& windowView, std::vector<Tank*>* tanks);
+    TanksGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Tank*>> tanks);
 };
 
 #endif //PROI_PROJEKT_TANKSGRAPHIC_H

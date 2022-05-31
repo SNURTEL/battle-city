@@ -6,20 +6,25 @@
 #include <queue>
 #include "../game-lib/include/GameState.h"
 #include "include/ActiveState_dir/Borad_dir/BoardGraphic.h"
+#include "../tank-lib/include/Tank.h"
+#include "../tank-lib/include/Bullet.h"
+
+
 
 template<typename State, typename T>
 bool Window::instanceOf(T* ptr)
 {return dynamic_cast<State*>(ptr) != nullptr;}
 
 
-Window::Window(GameState* gameState, const ActiveStatePointers& activePointers)
+Window::Window(GameState* gameState)
 {
     selectgameState(gameState);
     videoMode = sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT);
-    window = std::make_unique<sf::RenderWindow>(videoMode, "Tanks", sf::Style::Close);
+    window = std::make_unique<sf::RenderWindow>(videoMode, "Tanks", sf::Style::Default);
     windowView.window = window.get();
-    windowView.view = window->getView();
-    activeStatePointers = activePointers;
+    windowView.leftOfset = 0.f;
+    windowView.topOfset = 0.f;
+    initiateActiveStatePointers();
     conscructComposit();
 }
 
@@ -38,15 +43,13 @@ void Window::selectgameState(GameState* gameState)
 }
 
 
-void Window::fetchAcitveStatePointers(std::vector<Tank*>* tanks, Grid* tiles, std::vector<Bullet*>* bullets,
-                                      int* level, int* livesLeft)
+void Window::initiateActiveStatePointers()
 {
-    activeStatePointers.tanks = tanks;
-    activeStatePointers.bullets = bullets;
-    activeStatePointers.level = level;
-    activeStatePointers.playerLivesLeft = livesLeft;
-    activeStatePointers.tiles = tiles;
-    // And tiles but I don't know in which structure I will recieve them
+    activeStatePointers.tanks = std::make_shared<std::vector<Tank*>>(); // Why without brackets it isn't working?
+    activeStatePointers.bullets = std::make_shared<std::vector<Bullet*>>();
+    activeStatePointers.tiles = std::make_shared<Grid*>();
+    activeStatePointers.level = std::make_shared<int>();
+    activeStatePointers.playerLivesLeft = std::make_shared<int*>();
 }
 
 
@@ -61,6 +64,7 @@ void Window::render()
     {
     case GameStateGraphic::ActieveGameState:
         foundChild = children_map[gameState];
+        foundChild->render();
         break;
     case GameStateGraphic::MenuGameState:
         foundChild = children_map[gameState];
@@ -69,10 +73,10 @@ void Window::render()
     default:
         break;
     }
-    for(const std::shared_ptr<AbstractWindow>& child : children)
-    {
-        child->render();
-    }
+    // for(const std::shared_ptr<AbstractWindow>& child : children)
+    // {
+    //     child->render();
+    // }
 
 }
 
@@ -94,3 +98,79 @@ void Window::conscructComposit()
 //     }
 
 // }
+
+
+std::string Window::checkEntityType(Entity* e)
+{
+    Entity* trial = e;
+    Tank* tank = static_cast<Tank*>(e);
+    // Bullet* bullet = static_cast<Bullet*>(e);
+
+    if(tank != nullptr)
+        return "tank";
+    else
+        return "bullet";
+}
+
+
+void Window::addEntity(Entity* e)
+{
+    // Checking what type of Entity it is
+    Tank* tank = dynamic_cast<Tank*>(e);
+    Bullet* bullet = dynamic_cast<Bullet*>(e);
+
+    if(tank != nullptr)
+        activeStatePointers.tanks->push_back(tank);
+    else if (bullet != nullptr)
+        activeStatePointers.bullets->push_back(bullet);
+}
+
+
+// void Window::moveEntity(Entity* e)
+// {
+//     Tank* tank = static_cast<Tank*>(e);
+//     Bullet* bullet = static_cast<Bullet*>(e);
+//     std::vector<Tank*>* tanks = activeStatePointers.tanks;
+//     std::vector<Bullet*>* bullets = activeStatePointers.bullets;
+
+//     if(tank != nullptr)
+//     {
+//         std::vector<Tank*>::iterator it = std::find(tanks->begin(), tanks->end(), tank);
+//         if (it != tanks->end())
+//             it
+//     }
+
+
+
+//     else if (bullet != nullptr)
+//         activeStatePointers.bullets->push_back(bullet);
+// }
+
+
+void Window::removeEntity(Entity* e)
+{
+    Tank* tank = dynamic_cast<Tank*>(e);
+    Bullet* bullet = dynamic_cast<Bullet*>(e);
+    std::vector<Tank*>* tanks = activeStatePointers.tanks.get();
+    std::vector<Bullet*>* bullets = activeStatePointers.bullets.get();
+
+    if(tank != nullptr)
+    {
+        std::vector<Tank*>::iterator it = std::find(tanks->begin(), tanks->end(), tank);
+        if (it != tanks->end())
+            tanks->erase(it);
+    }
+    else if (bullet != nullptr)
+    {
+        std::vector<Bullet*>::iterator it = std::find(bullets->begin(), bullets->end(), bullet);
+        if (it != bullets->end())
+            bullets->erase(it);
+    }
+}
+
+
+void Window::loadLevel(Grid* grid, int levelNumber)
+{
+    *activeStatePointers.tiles = grid;
+    *activeStatePointers.level = levelNumber;
+}

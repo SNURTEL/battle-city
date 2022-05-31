@@ -30,20 +30,47 @@ protected:
     {
         sf::Vector2f coords;
         Bullet::BulletType textureType;
+        Direction direction;
+        RenderObject(sf::Vector2f pos, Direction direction, Bullet::BulletType type=Bullet::Enemy);
     };
 
 
     /// @brief Maps texture types to actual paths to textures
-    std::map<Bullet::BulletType, std::string> textureMap;
+    std::unordered_map<Bullet::BulletType, std::string> pathMap
+    {
+        {Bullet::Enemy, "../src/graphic-lib/bulletsImages/bullet.png"},
+        {Bullet::Friendly, "../src/graphic-lib/bulletsImages/bullet.png"}
+    };
 
-    std::vector<Bullet*>* bullets;
+    /// @brief Maps texture types to actual textures
+    std::unordered_map<Bullet::BulletType, sf::Texture> textureMap{};
 
+    std::shared_ptr<std::vector<Bullet*>> bullets;
+
+    std::vector<RenderObject> renderBullets;
     /**
      * @brief Makes RenderObjects vector from tanks list
      *
      * @return std::vector<RenderObject>
      */
     std::vector<RenderObject> makeRenderBullets() const;
+
+      /// @brief Loads textures into the textureMap
+    void loadTextures();
+
+    /// @brief Returns angle in degrees from given direction
+    float getAngle(Direction direction) const;
+
+    /// @brief Sets tank's appropriate rotation
+    void setBulletRotation(sf::Sprite& sprite, float angle);
+
+    /**
+     * @brief Makes RenderObjects vector from tanks list
+     *
+     * Stores made RenderObjects vector in vector renderTanks
+     */
+    void makeRenderBullets();
+
 public:
 
     /// @brief Renders all objects on the screen in given order
@@ -61,6 +88,13 @@ public:
      */
     std::vector<RenderObject> getRenderBullets(std::vector<Bullet*>* bullets);
 
+    /**
+     * @brief Get the Bullets object
+     *
+     * @return std::vector<Bullet*>*
+     */
+    std::vector<Bullet*>* getBullets() const;
+
 
     /**
      * @brief Construct a new BulletsGraphic object
@@ -70,7 +104,7 @@ public:
      * @param window
      * @param TanksGraphic
      */
-    BulletsGraphic(const WindowView& windowView, std::vector<Bullet*>* bullets);
+    BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Bullet*>> bullets);
 };
 
 #endif //PROI_PROJEKT_BULLETSGRAPHIC_H

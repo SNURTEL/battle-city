@@ -13,16 +13,14 @@ class GameState;
 
 
 /**
- * @brief Struct that links window with view that should be applyed before rendering
- *
- * Before rendering leafs objects sets on window given view that is set by some
- * previous composite object
+ * @brief Struct that contains the sf::RenderWindow nad offset of elements to render
  */
 struct WindowView
 {
     sf::RenderWindow* window;
-    sf::View view;
-    WindowView(sf::RenderWindow* window, sf::View);
+    float topOfset;
+    float leftOfset;
+    WindowView(sf::RenderWindow* window, float topOfset, float leftOfset);
     WindowView();
 };
 
@@ -40,8 +38,8 @@ class AbstractWindow
 {
 protected:
 
-    const uint WINDOW_HEIGHT = 800;
-    const uint WINDOW_WIDTH = 800;
+    const uint WINDOW_HEIGHT = 700;
+    const uint WINDOW_WIDTH = 700;
     WindowView windowView;
     std::vector<std::shared_ptr<AbstractWindow>> children;
 
@@ -54,13 +52,6 @@ public:
     AbstractWindow();
     AbstractWindow(const WindowView& windowView);
 
-    /**
-     * @brief Sets defoult view on windowView.window
-     *
-     * Used after drawing objects using not default view
-     *
-     */
-    void setDefalutView();
 
     // /**
     //  * @brief Commands its children to update objects to render

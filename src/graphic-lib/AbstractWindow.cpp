@@ -5,8 +5,8 @@
 #include <vector>
 
 
-WindowView::WindowView(sf::RenderWindow* window, sf::View)
-: window(window), view(view)
+WindowView::WindowView(sf::RenderWindow* window, float topOfset, float leftOfset)
+: window(window), topOfset(topOfset), leftOfset(leftOfset)
 {}
 
 
@@ -21,10 +21,3 @@ AbstractWindow::AbstractWindow(const WindowView& windowView)
 
 AbstractWindow::AbstractWindow()
 {}
-
-
-void AbstractWindow::setDefalutView()
-{
-    sf::View defaultView = windowView.window->getDefaultView();
-    windowView.window->setView(defaultView);
-}
