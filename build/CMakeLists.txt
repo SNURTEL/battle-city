@@ -56,6 +56,7 @@ set(game_lib_sources
         ${game_lib_dir}/ActiveEventHandler.cpp
         ${game_lib_dir}/PauseEventHandler.cpp
         ${game_lib_dir}/MenuEventHandler.cpp
+        ${game_lib_dir}/Menu.cpp
         ${game_lib_dir}/FinishedEventHandler.cpp
         ${game_lib_dir}/GameState.cpp
         ${game_lib_dir}/KeyboardController.cpp)

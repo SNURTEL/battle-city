@@ -12,6 +12,7 @@
 #include "PauseEventHandler.h"
 #include "FinishedEventHandler.h"
 #include "../../tank-lib/include/Tank.h"
+#include "Menu.h"
 
 
 class PublisherEventHandler;
@@ -38,37 +39,43 @@ protected:
     Game* game_{};
 };
 
-// ############### menu pos ###################
-
-class Menu {
-    private:
-        unsigned int pos_ = 1;
-        unsigned int max_pos_ = 1;
-    public:
-        explicit Menu(unsigned int);
-        unsigned int get_pos();
-        void set_pos(unsigned int);
-        void add_pos();
-        void sub_pos();
-};
-
 // #####################################
 
+/**
+ * Represents Active Game State
+ * Contains data related to it
+ */
 class ActiveGameState: public GameState{
 private:
     std::unique_ptr<PlayerTank> playerTank_;
 public:
+
+    /**
+     * Returns player tank pointer
+     * @return Player Tank pointer
+     */
     PlayerTank* get_player_tank();
+
     ActiveGameState()=delete;
     explicit ActiveGameState(Game* game);
 };
 
+
+/**
+ * Represents Pause Game State
+ * Contains data related to it
+ */
 class PauseGameState: public GameState{
 public:
     PauseGameState()=delete;
     explicit PauseGameState(Game* game);
 };
 
+
+/**
+ * Represents Menu Game State
+ * Contains data related to it
+ */
 class MenuGameState: public GameState{
 public:
     void set_position(unsigned int);
@@ -79,6 +86,11 @@ private:
     std::unique_ptr<Menu> menu_;
 };
 
+
+/**
+ * Represents Finished Game State
+ * Contains data related to it
+ */
 class FinishedGameState: public GameState{
 public:
     FinishedGameState()=delete;

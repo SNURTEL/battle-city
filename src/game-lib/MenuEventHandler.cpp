@@ -18,18 +18,13 @@ MenuEventHandler::MenuEventHandler(Game *game, MenuGameState* state) {
 void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
-            //TODO Implement response to KeyPressed
-            std::cout << "State is Menu!" << event->info.keyInfo.keyCode << std::endl;
-            break;
-        }
-        case (Event::KeyReleased):{
             if (event->info.keyInfo.keyCode == 74) {
                 state_->get_menu()->add_pos();
+                state_->get_menu()->notify();
             }
             if (event->info.keyInfo.keyCode == 73) {
                 state_->get_menu()->sub_pos();
             }
-            std::cout << "current pos: " << state_->get_menu()->get_pos() << std::endl;
             if (event->info.keyInfo.keyCode == 58) {
                 if (state_->get_menu()->get_pos() == 1)
                 {
@@ -40,6 +35,9 @@ void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
                     game_->setFinishedState();
                 }
             }
+            break;
+        }
+        case (Event::KeyReleased):{
             break;
         }
         case (Event::NullEvent):{
