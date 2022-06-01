@@ -18,18 +18,26 @@ PauseEventHandler::PauseEventHandler(Game *game, PauseGameState* state) {
 void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
-            //TODO Implement response to KeyPressed
-            std::cout << "Game is paused! " << event->info.keyInfo.keyCode << std::endl;
-            break;
-        }
-        case (Event::KeyReleased):{
-            if (event->info.keyInfo.keyCode == 36) {
-                game_->setActiveState();
+            if (event->info.keyInfo.keyCode == 74) {
+                state_->get_menu()->add_pos();
+                state_->get_menu()->notify();
+            }
+            if (event->info.keyInfo.keyCode == 73) {
+                state_->get_menu()->sub_pos();
+                state_->get_menu()->notify();
             }
             if (event->info.keyInfo.keyCode == 58) {
-                game_->setMenuState();
+                if (state_->get_menu()->get_pos() == 1)
+                {
+                    state_->get_menu()->notify_enter();
+                    game_->setActiveState();
+                }
+                if (state_->get_menu()->get_pos() == 2)
+                {
+                    state_->get_menu()->notify_enter();
+                    game_->setMenuState();
+                }
             }
-            std::cout << "Game is paused! " << event->info.keyInfo.keyCode << std::endl;
             break;
         }
         case (Event::NullEvent):{

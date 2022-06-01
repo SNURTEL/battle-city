@@ -1,18 +1,8 @@
 var searchData=
 [
-<<<<<<< HEAD
-<<<<<<< HEAD
-  ['simplepublisher_0',['SimplePublisher',['../class_simple_publisher.html',1,'']]],
-  ['simplesubscriber_1',['SimpleSubscriber',['../class_simple_subscriber.html',1,'']]],
-  ['singletonnotinitializedexception_2',['SingletonNotInitializedException',['../class_singleton_not_initialized_exception.html',1,'']]]
-=======
-  ['simplepublisher_222',['SimplePublisher',['../class_simple_publisher.html',1,'']]],
-  ['simplesubscriber_223',['SimpleSubscriber',['../class_simple_subscriber.html',1,'']]],
-  ['singletonnotinitializedexception_224',['SingletonNotInitializedException',['../class_singleton_not_initialized_exception.html',1,'']]]
->>>>>>> added docs
-=======
-  ['simplepublisher_222',['SimplePublisher',['../class_simple_publisher.html',1,'']]],
-  ['simplesubscriber_223',['SimpleSubscriber',['../class_simple_subscriber.html',1,'']]],
-  ['singletonnotinitializedexception_224',['SingletonNotInitializedException',['../class_singleton_not_initialized_exception.html',1,'']]]
->>>>>>> origin/states
+  ['pauseeventhandler_337',['PauseEventHandler',['../class_pause_event_handler.html',1,'']]],
+  ['pausegamestate_338',['PauseGameState',['../class_pause_game_state.html',1,'']]],
+  ['playertank_339',['PlayerTank',['../class_player_tank.html',1,'']]],
+  ['powertank_340',['PowerTank',['../class_power_tank.html',1,'']]],
+  ['publishereventhandler_341',['PublisherEventHandler',['../class_publisher_event_handler.html',1,'']]]
 ];

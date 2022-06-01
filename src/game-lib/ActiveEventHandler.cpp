@@ -22,34 +22,63 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
             //TODO Implement response to KeyPressed
             // DOWN
             if(event->info.keyInfo.keyCode == 74) {
-                state_->get_player_tank()->setFacing(South);
-                state_->get_player_tank()->move();
+                state_->get_board()->setTankDirection(state_->get_tank(), South);
+                state_->get_board()->setTankMoving(state_->get_tank(), true);
             }
             // UP
             if(event->info.keyInfo.keyCode == 73) {
-                state_->get_player_tank()->setFacing(North);
-                state_->get_player_tank()->move();
+                state_->get_board()->setTankDirection(state_->get_tank(), North);
+                state_->get_board()->setTankMoving(state_->get_tank(), true);
             }
             // LEFT
             if(event->info.keyInfo.keyCode == 72) {
-                state_->get_player_tank()->setFacing(West);
-                state_->get_player_tank()->move();
+                state_->get_board()->setTankDirection(state_->get_tank(), West);
+                state_->get_board()->setTankMoving(state_->get_tank(), true);
             }
             // RIGHT
             if(event->info.keyInfo.keyCode == 71) {
-                state_->get_player_tank()->setFacing(East);
-                state_->get_player_tank()->move();
+                state_->get_board()->setTankDirection(state_->get_tank(), East);
+                state_->get_board()->setTankMoving(state_->get_tank(), true);
+            }
+            // SPACEBAR
+            if(event->info.keyInfo.keyCode == 57) {
+                state_->get_board()->fireTank(state_->get_tank());
+            }
+            break;
+            // ESCAPE
+            if (event->info.keyInfo.keyCode == 36) {
+                game_->setPauseState();
+            }
+        }
+        case (Event::KeyReleased):{
+            // DOWN
+            if(event->info.keyInfo.keyCode == 74) {
+                state_->get_board()->setTankMoving(state_->get_tank(), false);
+                state_->get_board()->snapTankToGrid(state_->get_tank());
+            }
+            // UP
+            if(event->info.keyInfo.keyCode == 73) {
+                state_->get_board()->setTankMoving(state_->get_tank(), false);
+                state_->get_board()->snapTankToGrid(state_->get_tank());
+            }
+            // LEFT
+            if(event->info.keyInfo.keyCode == 72) {
+                state_->get_board()->setTankMoving(state_->get_tank(), false);
+                state_->get_board()->snapTankToGrid(state_->get_tank());
+            }
+            // RIGHT
+            if(event->info.keyInfo.keyCode == 71) {
+                state_->get_board()->setTankMoving(state_->get_tank(), false);
+                state_->get_board()->snapTankToGrid(state_->get_tank());
             }
             // SPACEBAR
             if(event->info.keyInfo.keyCode == 57) {
             }
             break;
         }
-        case (Event::KeyReleased):{
-            if (event->info.keyInfo.keyCode == 36) {
-                game_->setPauseState();
-            }
-            std::cout << "State is active " << event->info.keyInfo.keyCode << std::endl;
+        case (Event::TankKilled):{
+            if(event->info.entityInfo.entity == state_->get_tank())
+                game_->setFinishedState();
             break;
         }
         case (Event::NullEvent):{

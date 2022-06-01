@@ -6,7 +6,6 @@
 #define PROI_PROJEKT_ACTIVEEVENTHANDLER_H
 
 #include <memory>
-
 #include "../../core-lib/include/EventHandler.h"
 
 class Event;

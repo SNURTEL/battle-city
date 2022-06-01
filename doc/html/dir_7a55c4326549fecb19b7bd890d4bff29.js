@@ -7,7 +7,13 @@ var dir_7a55c4326549fecb19b7bd890d4bff29 =
       [ "EventConstructionException", "struct_event_construction_exception.html", "struct_event_construction_exception" ],
       [ "Event", "class_event.html", "class_event" ],
       [ "KeyEventInfo", "struct_event_1_1_key_event_info.html", "struct_event_1_1_key_event_info" ],
-      [ "TankInfo", "struct_event_1_1_tank_info.html", "struct_event_1_1_tank_info" ],
+      [ "EntityInfo", "struct_event_1_1_entity_info.html", "struct_event_1_1_entity_info" ],
+      [ "MenuInfo", "struct_event_1_1_menu_info.html", "struct_event_1_1_menu_info" ],
+      [ "StateInfo", "struct_event_1_1_state_info.html", "struct_event_1_1_state_info" ],
+      [ "EntityEntityCollisionInfo", "struct_event_1_1_entity_entity_collision_info.html", "struct_event_1_1_entity_entity_collision_info" ],
+      [ "EntityTileCollisionInfo", "struct_event_1_1_entity_tile_collision_info.html", "struct_event_1_1_entity_tile_collision_info" ],
+      [ "TileInfo", "struct_event_1_1_tile_info.html", "struct_event_1_1_tile_info" ],
+      [ "LevelInfo", "struct_event_1_1_level_info.html", "struct_event_1_1_level_info" ],
       [ "info_u", "union_event_1_1info__u.html", "union_event_1_1info__u" ]
     ] ],
     [ "EventHandler.h", "_event_handler_8h.html", [

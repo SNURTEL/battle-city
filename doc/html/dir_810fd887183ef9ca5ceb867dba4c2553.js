@@ -21,6 +21,9 @@ var dir_810fd887183ef9ca5ceb867dba4c2553 =
       [ "EventQueue", "class_event_queue.html", "class_event_queue" ],
       [ "KeyboardController", "class_keyboard_controller.html", "class_keyboard_controller" ]
     ] ],
+    [ "Menu.h", "_menu_8h.html", [
+      [ "Menu", "class_menu.html", "class_menu" ]
+    ] ],
     [ "MenuEventHandler.h", "_menu_event_handler_8h.html", [
       [ "MenuEventHandler", "class_menu_event_handler.html", "class_menu_event_handler" ]
     ] ],

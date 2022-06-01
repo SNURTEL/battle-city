@@ -14,23 +14,31 @@ PublisherEventHandler *GameState::getEventHandler() {
 
 ActiveGameState::ActiveGameState(Game* game) {
     eventHandler_ = std::make_unique<ActiveEventHandler>(game, this);
-    playerTank_ = std::make_unique<PlayerTank>(10, 10, 5);
 }
 
-PlayerTank* ActiveGameState::get_player_tank() {
-    return playerTank_.get();
+Board* ActiveGameState::get_board() {
+    return board_;
+}
+
+Tank* ActiveGameState::get_tank() {
+    return player_tank_;
 }
 
 PauseGameState::PauseGameState(Game* game) {
     eventHandler_ = std::make_unique<PauseEventHandler>(game, this);
+    menu_ = std::make_unique<Menu>(2);
 }
 MenuGameState::MenuGameState(Game* game) {
     eventHandler_ = std::make_unique<MenuEventHandler>(game, this);
-    menu_ = std::make_unique<Menu>(4);
+    menu_ = std::make_unique<Menu>(2);
 }
 
 
 Menu* MenuGameState::get_menu() {
+    return menu_.get();
+}
+
+Menu* PauseGameState::get_menu() {
     return menu_.get();
 }
 

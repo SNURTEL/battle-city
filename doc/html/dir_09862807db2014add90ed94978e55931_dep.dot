@@ -12,6 +12,6 @@ digraph "/home/rafalunix/proi/22l-proi-projekt-jakomulski-budnik-owienko/src/tan
   }
   }
   dir_dd008488fb0da8829e2acca19721471d [shape=box label="core-lib" color="red" URL="dir_dd008488fb0da8829e2acca19721471d.html"];
-  dir_09862807db2014add90ed94978e55931->dir_6a891b5c69bad4f9fca30d15db322bca [headlabel="2", labeldistance=1.5 headhref="dir_000006_000007.html"];
-  dir_09862807db2014add90ed94978e55931->dir_dd008488fb0da8829e2acca19721471d [headlabel="2", labeldistance=1.5 headhref="dir_000006_000001.html"];
+  dir_09862807db2014add90ed94978e55931->dir_6a891b5c69bad4f9fca30d15db322bca [headlabel="7", labeldistance=1.5 headhref="dir_000008_000009.html"];
+  dir_6a891b5c69bad4f9fca30d15db322bca->dir_dd008488fb0da8829e2acca19721471d [headlabel="2", labeldistance=1.5 headhref="dir_000009_000003.html"];
 }

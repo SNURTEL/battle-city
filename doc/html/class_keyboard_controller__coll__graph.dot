@@ -13,13 +13,13 @@ digraph "KeyboardController"
   Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +window_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node4 [label="{RenderWindow *\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +eventQueue_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node5 [label="{EventQueue\< Event \>\n||+ EventQueue()\l+ operator=()\l+ registerEvent()\l+ pop()\l+ isEmpty()\l+ instance()\l- EventQueue()\l}",height=0.2,width=0.4,color="black",URL="$class_event_queue.html",tooltip=" "];
+  Node5 [label="{EventQueue\< Event \>\n||+ EventQueue()\l+ operator=()\l+ registerEvent()\l+ pop()\l+ isEmpty()\l+ size()\l+ clear()\l+ instance()\l- EventQueue()\l}",height=0.2,width=0.4,color="black",URL="$class_event_queue.html",tooltip=" "];
   Node6 -> Node5 [color="grey25",fontsize="10",style="solid",label=" #events_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node6 [label="{queue\< std::unique\l_ptr\< Event \> \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node7 -> Node5 [color="grey25",fontsize="10",style="solid",label=" #self_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node7 [label="{unique_ptr\< EventQueue \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node8 -> Node5 [dir="back",color="orange",fontsize="10",style="solid",label=" \< Event \>" ,fontname="Helvetica"];
-  Node8 [label="{EventQueue\< E \>\n||+ EventQueue()\l+ operator=()\l+ registerEvent()\l+ pop()\l+ isEmpty()\l+ instance()\l- EventQueue()\l}",height=0.2,width=0.4,color="black",URL="$class_event_queue.html",tooltip="Singleton class wrapper for std::queue<E>."];
+  Node8 [label="{EventQueue\< E \>\n||+ EventQueue()\l+ operator=()\l+ registerEvent()\l+ pop()\l+ isEmpty()\l+ size()\l+ clear()\l+ instance()\l- EventQueue()\l}",height=0.2,width=0.4,color="black",URL="$class_event_queue.html",tooltip="Singleton class wrapper for std::queue<E>."];
   Node9 -> Node8 [color="grey25",fontsize="10",style="solid",label=" #events_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node9 [label="{queue\< std::unique\l_ptr\< E \> \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node7 -> Node8 [color="grey25",fontsize="10",style="solid",label=" #self_" ,arrowhead="odiamond",fontname="Helvetica"];

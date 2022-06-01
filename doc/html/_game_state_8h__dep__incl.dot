@@ -20,7 +20,17 @@ digraph "/home/rafalunix/proi/22l-proi-projekt-jakomulski-budnik-owienko/src/gam
   Node7 [label="/home/rafalunix/proi\l/22l-proi-projekt-jakomulski\l-budnik-owienko/src/game-lib\l/PauseEventHandler.cpp",height=0.2,width=0.4,color="black",URL="$_pause_event_handler_8cpp.html",tooltip=" "];
   Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node8 [label="/home/rafalunix/proi\l/22l-proi-projekt-jakomulski\l-budnik-owienko/src/main/tanks.cpp",height=0.2,width=0.4,color="black",URL="$tanks_8cpp.html",tooltip=" "];
-  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node9 [label="/home/rafalunix/proi\l/22l-proi-projekt-jakomulski\l-budnik-owienko/src/game-lib\l/GameState.cpp",height=0.2,width=0.4,color="black",URL="$_game_state_8cpp.html",tooltip=" "];
+  Node9 [label="/home/rafalunix/proi\l/22l-proi-projekt-jakomulski\l-budnik-owienko/src/game-lib\l/include/MenuEventHandler.h",height=0.2,width=0.4,color="black",URL="$_menu_event_handler_8h.html",tooltip=" "];
+  Node9 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="/home/rafalunix/proi\l/22l-proi-projekt-jakomulski\l-budnik-owienko/src/game-lib\l/GameState.cpp",height=0.2,width=0.4,color="black",URL="$_game_state_8cpp.html",tooltip=" "];
+  Node9 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="/home/rafalunix/proi\l/22l-proi-projekt-jakomulski\l-budnik-owienko/src/game-lib\l/include/PauseEventHandler.h",height=0.2,width=0.4,color="black",URL="$_pause_event_handler_8h.html",tooltip=" "];
+  Node11 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

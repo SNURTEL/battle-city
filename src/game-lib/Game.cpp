@@ -32,18 +32,22 @@ void Game::createRenderWindow() {
 
 void Game::setActiveState() {
     state_ = active_state_.get();
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::setFinishedState() {
     state_ = finished_state_.get();
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::setMenuState() {
     state_ = menu_state_.get();
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::setPauseState() {
     state_ = pause_state_.get();
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::quit() {

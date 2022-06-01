@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('class_pause_game_state.html',''); init
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_pause_game_state-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PauseGameState Class Reference</div>  </div>
@@ -105,6 +106,8 @@ Collaboration diagram for PauseGameState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aa50b52cdf7de547b938221590007ecbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_menu.html">Menu</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pause_game_state.html#aa50b52cdf7de547b938221590007ecbc">get_menu</a> ()</td></tr>
+<tr class="separator:aa50b52cdf7de547b938221590007ecbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c55c5ae29668194deb67dc6a4707a12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pause_game_state.html#a3c55c5ae29668194deb67dc6a4707a12">PauseGameState</a> ()=delete</td></tr>
 <tr class="separator:a3c55c5ae29668194deb67dc6a4707a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28691e83724e31dcc97452cb1ae5b3d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pause_game_state.html#a28691e83724e31dcc97452cb1ae5b3d5">PauseGameState</a> (<a class="el" href="class_game.html">Game</a> *game)</td></tr>
@@ -114,10 +117,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adc1bfdf7ee7c1f48e4841995db4e16c3 inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76377eec54575a4a6cd3523854fad385 inherit pub_methods_class_game_state"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_publisher_event_handler.html">PublisherEventHandler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#a76377eec54575a4a6cd3523854fad385">getEventHandler</a> ()</td></tr>
 <tr class="separator:a76377eec54575a4a6cd3523854fad385 inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c4dc5fadd277669bb0d3e2cb20171a0 inherit pub_methods_class_game_state"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#a1c4dc5fadd277669bb0d3e2cb20171a0">set_position</a> (unsigned int)</td></tr>
-<tr class="separator:a1c4dc5fadd277669bb0d3e2cb20171a0 inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b99cb173941844cd1df280c2ae0c1bb inherit pub_methods_class_game_state"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#a4b99cb173941844cd1df280c2ae0c1bb">get_position</a> ()</td></tr>
-<tr class="separator:a4b99cb173941844cd1df280c2ae0c1bb inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a09c21bee0ee945de86edd3718a9b38b9"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_menu.html">Menu</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pause_game_state.html#a09c21bee0ee945de86edd3718a9b38b9">menu_</a></td></tr>
+<tr class="separator:a09c21bee0ee945de86edd3718a9b38b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -130,7 +134,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a4efcc887639fa292382d03176ac0e79d inherit pro_attribs_class_game_state"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#a4efcc887639fa292382d03176ac0e79d">game_</a> {}</td></tr>
 <tr class="separator:a4efcc887639fa292382d03176ac0e79d inherit pro_attribs_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents Pause <a class="el" href="class_game.html">Game</a> State Contains data related to it </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3c55c5ae29668194deb67dc6a4707a12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c55c5ae29668194deb67dc6a4707a12">&#9670;&nbsp;</a></span>PauseGameState() <span class="overload">[1/2]</span></h2>
 
@@ -176,6 +182,48 @@ Additional Inherited Members</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa50b52cdf7de547b938221590007ecbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50b52cdf7de547b938221590007ecbc">&#9670;&nbsp;</a></span>get_menu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_menu.html">Menu</a> * PauseGameState::get_menu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns menu pointer </p><dl class="section return"><dt>Returns</dt><dd>menu pointer </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a09c21bee0ee945de86edd3718a9b38b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09c21bee0ee945de86edd3718a9b38b9">&#9670;&nbsp;</a></span>menu_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_menu.html">Menu</a>&gt; PauseGameState::menu_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

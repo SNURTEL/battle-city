@@ -106,10 +106,8 @@ Collaboration diagram for MenuGameState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4118a0525283c8ced258450fc82ba9b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu_game_state.html#a4118a0525283c8ced258450fc82ba9b0">set_position</a> (unsigned int)</td></tr>
-<tr class="separator:a4118a0525283c8ced258450fc82ba9b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad965e635eb90dc424fb61eed6a08bd91"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu_game_state.html#ad965e635eb90dc424fb61eed6a08bd91">get_position</a> ()</td></tr>
-<tr class="separator:ad965e635eb90dc424fb61eed6a08bd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a777734b456dbebfc000a37ad6f323323"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_menu.html">Menu</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu_game_state.html#a777734b456dbebfc000a37ad6f323323">get_menu</a> ()</td></tr>
+<tr class="separator:a777734b456dbebfc000a37ad6f323323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dd2de3aa523dc0e04dc87f2bf94b55f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu_game_state.html#a8dd2de3aa523dc0e04dc87f2bf94b55f">MenuGameState</a> ()=delete</td></tr>
 <tr class="separator:a8dd2de3aa523dc0e04dc87f2bf94b55f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c707680e55e941cb1f74896467a1c96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu_game_state.html#a7c707680e55e941cb1f74896467a1c96">MenuGameState</a> (<a class="el" href="class_game.html">Game</a> *game)</td></tr>
@@ -122,8 +120,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a938a1f32aca88a702168dac4afa78afd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu_game_state.html#a938a1f32aca88a702168dac4afa78afd">position_</a> = 1</td></tr>
-<tr class="separator:a938a1f32aca88a702168dac4afa78afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6540f4b3f3ad8e0e097f26de3dd7e33"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_menu.html">Menu</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_menu_game_state.html#ae6540f4b3f3ad8e0e097f26de3dd7e33">menu_</a></td></tr>
+<tr class="separator:ae6540f4b3f3ad8e0e097f26de3dd7e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -136,7 +134,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a4efcc887639fa292382d03176ac0e79d inherit pro_attribs_class_game_state"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#a4efcc887639fa292382d03176ac0e79d">game_</a> {}</td></tr>
 <tr class="separator:a4efcc887639fa292382d03176ac0e79d inherit pro_attribs_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents <a class="el" href="class_menu.html">Menu</a> <a class="el" href="class_game.html">Game</a> State Contains data related to it </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8dd2de3aa523dc0e04dc87f2bf94b55f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8dd2de3aa523dc0e04dc87f2bf94b55f">&#9670;&nbsp;</a></span>MenuGameState() <span class="overload">[1/2]</span></h2>
 
@@ -189,64 +189,27 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad965e635eb90dc424fb61eed6a08bd91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad965e635eb90dc424fb61eed6a08bd91">&#9670;&nbsp;</a></span>get_position()</h2>
+<a id="a777734b456dbebfc000a37ad6f323323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a777734b456dbebfc000a37ad6f323323">&#9670;&nbsp;</a></span>get_menu()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int MenuGameState::get_position </td>
+          <td class="memname"><a class="el" href="class_menu.html">Menu</a> * MenuGameState::get_menu </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="class_game_state.html#a4b99cb173941844cd1df280c2ae0c1bb">GameState</a>.</p>
-
-</div>
-</div>
-<a id="a4118a0525283c8ced258450fc82ba9b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4118a0525283c8ced258450fc82ba9b0">&#9670;&nbsp;</a></span>set_position()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MenuGameState::set_position </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>new_pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="class_game_state.html#a1c4dc5fadd277669bb0d3e2cb20171a0">GameState</a>.</p>
+<p>Returns menu pointer </p><dl class="section return"><dt>Returns</dt><dd>menu pointer </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a938a1f32aca88a702168dac4afa78afd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a938a1f32aca88a702168dac4afa78afd">&#9670;&nbsp;</a></span>position_</h2>
+<a id="ae6540f4b3f3ad8e0e097f26de3dd7e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6540f4b3f3ad8e0e097f26de3dd7e33">&#9670;&nbsp;</a></span>menu_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,7 +218,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int MenuGameState::position_ = 1</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_menu.html">Menu</a>&gt; MenuGameState::menu_</td>
         </tr>
       </table>
   </td>

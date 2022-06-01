@@ -104,3 +104,31 @@ Event::Event(EventType e, unsigned int levelNumber, Grid *grid) {
             throw EventConstructionException();
     }
 }
+
+Event::Event(EventType e, Menu* menu, unsigned int new_pos) {
+    type = e;
+    switch (e) {
+        case MenuSelectionChange: {
+            info.menuInfo = {menu, new_pos};
+            break;
+        }
+        case MenuEnterClicked: {
+            info.menuInfo = {menu, new_pos};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, GameState* new_state) {
+    type = e;
+    switch (e) {
+        case StateChanged: {
+            info.stateInfo = {new_state};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}

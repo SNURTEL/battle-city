@@ -24,15 +24,18 @@ void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
             }
             if (event->info.keyInfo.keyCode == 73) {
                 state_->get_menu()->sub_pos();
+                state_->get_menu()->notify();
             }
             if (event->info.keyInfo.keyCode == 58) {
                 if (state_->get_menu()->get_pos() == 1)
                 {
+                    state_->get_menu()->notify_enter();
                     game_->setActiveState();
                 }
                 if (state_->get_menu()->get_pos() == 2)
                 {
-                    game_->setFinishedState();
+                    state_->get_menu()->notify_enter();
+                    game_->quit();
                 }
             }
             break;

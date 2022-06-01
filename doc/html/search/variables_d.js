@@ -1,20 +1,13 @@
 var searchData=
 [
-<<<<<<< HEAD
-<<<<<<< HEAD
-  ['what_5fmessage_0',['what_message',['../class_invalid_event_exception.html#a2ed4831fb010b1437be55e3dd0eb3c61',1,'InvalidEventException::what_message()'],['../class_observer_exception.html#a3f569a12194315b6e2039efe44938e8c',1,'ObserverException::what_message()']]],
-  ['window_5f_1',['window_',['../class_game.html#a0fbe0254a5671d7d7c5c0df01758a1bc',1,'Game::window_()'],['../class_keyboard_controller.html#a6348f5ce48982fa6b9b6caef149bf78a',1,'KeyboardController::window_()']]]
-=======
-=======
->>>>>>> origin/states
-  ['tank_388',['tank',['../struct_event_1_1_tank_info.html#ae32943e9f152f5157341e9ab990bfadd',1,'Event::TankInfo']]],
-  ['tank_5fspeed_5f_389',['tank_speed_',['../class_tank.html#a5d63901be09b53cb9867a6dabe49a106',1,'Tank']]],
-  ['tankinfo_390',['tankInfo',['../union_event_1_1info__u.html#abc0b5c75f559fe94ca861cbef4abcf67',1,'Event::info_u']]],
-  ['tanks_5f_391',['tanks_',['../class_tank_controller.html#aa46c2a01a7e7fb9a1fc5370a11dc3cea',1,'TankController']]],
-  ['type_392',['type',['../class_event.html#ac721e4f34b3b9a1ae302165412221724',1,'Event']]],
-  ['type_5f_393',['type_',['../class_tank.html#a94249884974479f0fb83cba0be3bf9cf',1,'Tank']]]
-<<<<<<< HEAD
->>>>>>> added docs
-=======
->>>>>>> origin/states
+  ['self_5f_583',['self_',['../class_clock.html#aefadbf218778afe5478ed228ca74821c',1,'Clock::self_()'],['../class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47',1,'EventQueue::self_()']]],
+  ['size_5fx_584',['size_x',['../class_grid.html#ad7f84e5ac3bc5dc93811d5a7476aa47a',1,'Grid']]],
+  ['size_5fx_5f_585',['size_x_',['../class_entity.html#a644276e5344c7b3bf67cf1c3f06307c9',1,'Entity']]],
+  ['size_5fy_586',['size_y',['../class_grid.html#afa45b577cb3668b7fba4d0ccf265b59a',1,'Grid']]],
+  ['size_5fy_5f_587',['size_y_',['../class_entity.html#a40cf7b1e25370d9678ba65620e8dcae0',1,'Entity']]],
+  ['speed_5f_588',['speed_',['../class_entity.html#a7a7e23238d85b38df7033bcbc641cdc3',1,'Entity']]],
+  ['state_5f_589',['state_',['../struct_event_1_1_state_info.html#abe373f02f9854c3c829ec6b09d0f66ea',1,'Event::StateInfo::state_()'],['../class_active_event_handler.html#aa7d12cb289da1ffbfa938df1108f3436',1,'ActiveEventHandler::state_()'],['../class_finished_event_handler.html#a24871924c853443a822aa7c5b114ae38',1,'FinishedEventHandler::state_()'],['../class_game.html#a1f5994676777b79e8370b185d8d314d8',1,'Game::state_()'],['../class_menu_event_handler.html#a25565788e2a8804e79e2c9ec5d1c6552',1,'MenuEventHandler::state_()'],['../class_pause_event_handler.html#adf2eac9e4828261a1bc631caf8cc2b5f',1,'PauseEventHandler::state_()']]],
+  ['stateinfo_590',['stateInfo',['../union_event_1_1info__u.html#aa663d185cf69968951369bdea5d16b70',1,'Event::info_u']]],
+  ['subscribedsubjects_5f_591',['subscribedSubjects_',['../class_event_subscriber.html#aff26a25676ab655cf961473927f74003',1,'EventSubscriber::subscribedSubjects_()'],['../class_simple_subscriber.html#a4d268f3e6add46ad3d832a0b15a3ca61',1,'SimpleSubscriber::subscribedSubjects_()']]],
+  ['subscribers_5f_592',['subscribers_',['../class_simple_publisher.html#ab135300c5d89ab631d464af057ef66f3',1,'SimplePublisher']]]
 ];

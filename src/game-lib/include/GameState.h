@@ -11,11 +11,11 @@
 #include "MenuEventHandler.h"
 #include "PauseEventHandler.h"
 #include "FinishedEventHandler.h"
-#include "../../tank-lib/include/Tank.h"
 #include "Menu.h"
 
 
 class PublisherEventHandler;
+class Board;
 
 class Game;
 
@@ -47,14 +47,21 @@ protected:
  */
 class ActiveGameState: public GameState{
 private:
-    std::unique_ptr<PlayerTank> playerTank_;
+    Tank* player_tank_;
+    Board* board_;
 public:
 
     /**
-     * Returns player tank pointer
-     * @return Player Tank pointer
+     * Returns board pointer
+     * @return Board pointer
      */
-    PlayerTank* get_player_tank();
+    Board* get_board();
+
+    /**
+     * Returns player tank pointer
+     * @return player tank pointer
+     */
+    Tank* get_tank();
 
     ActiveGameState()=delete;
     explicit ActiveGameState(Game* game);
@@ -67,8 +74,17 @@ public:
  */
 class PauseGameState: public GameState{
 public:
+
+    /**
+     * Returns menu pointer
+     * @return menu pointer
+     */
+    Menu* get_menu();
+
     PauseGameState()=delete;
     explicit PauseGameState(Game* game);
+private:
+    std::unique_ptr<Menu> menu_;
 };
 
 
@@ -78,8 +94,13 @@ public:
  */
 class MenuGameState: public GameState{
 public:
-    void set_position(unsigned int);
+
+    /**
+     * Returns menu pointer
+     * @return menu pointer
+     */
     Menu* get_menu();
+
     MenuGameState()=delete;
     explicit MenuGameState(Game* game);
 private:

@@ -25,20 +25,13 @@ var annotated_dup =
     [ "GridBuilder", "class_grid_builder.html", "class_grid_builder" ],
     [ "InvalidEventException", "class_invalid_event_exception.html", "class_invalid_event_exception" ],
     [ "KeyboardController", "class_keyboard_controller.html", "class_keyboard_controller" ],
+    [ "Menu", "class_menu.html", "class_menu" ],
     [ "MenuEventHandler", "class_menu_event_handler.html", "class_menu_event_handler" ],
     [ "MenuGameState", "class_menu_game_state.html", "class_menu_game_state" ],
     [ "ObserverException", "class_observer_exception.html", "class_observer_exception" ],
-<<<<<<< HEAD
-<<<<<<< HEAD
     [ "OutOfGridException", "class_out_of_grid_exception.html", "class_out_of_grid_exception" ],
-=======
     [ "PauseEventHandler", "class_pause_event_handler.html", "class_pause_event_handler" ],
     [ "PauseGameState", "class_pause_game_state.html", "class_pause_game_state" ],
->>>>>>> added docs
-=======
-    [ "PauseEventHandler", "class_pause_event_handler.html", "class_pause_event_handler" ],
-    [ "PauseGameState", "class_pause_game_state.html", "class_pause_game_state" ],
->>>>>>> origin/states
     [ "PlayerTank", "class_player_tank.html", "class_player_tank" ],
     [ "PowerTank", "class_power_tank.html", "class_power_tank" ],
     [ "PublisherEventHandler", "class_publisher_event_handler.html", "class_publisher_event_handler" ],

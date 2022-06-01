@@ -1,17 +1,7 @@
 var searchData=
 [
-<<<<<<< HEAD
-<<<<<<< HEAD
-  ['game_0',['Game',['../class_game.html',1,'']]],
-  ['gamestate_1',['GameState',['../class_game_state.html',1,'']]],
-  ['grid_2',['Grid',['../class_grid.html',1,'']]],
-  ['gridbuilder_3',['GridBuilder',['../class_grid_builder.html',1,'']]]
-=======
-  ['game_208',['Game',['../class_game.html',1,'']]],
-  ['gamestate_209',['GameState',['../class_game_state.html',1,'']]]
->>>>>>> added docs
-=======
-  ['game_208',['Game',['../class_game.html',1,'']]],
-  ['gamestate_209',['GameState',['../class_game_state.html',1,'']]]
->>>>>>> origin/states
+  ['game_322',['Game',['../class_game.html',1,'']]],
+  ['gamestate_323',['GameState',['../class_game_state.html',1,'']]],
+  ['grid_324',['Grid',['../class_grid.html',1,'']]],
+  ['gridbuilder_325',['GridBuilder',['../class_grid_builder.html',1,'']]]
 ];

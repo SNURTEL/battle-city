@@ -1,14 +1,6 @@
 var searchData=
 [
-<<<<<<< HEAD
-<<<<<<< HEAD
-  ['playertank_0',['PlayerTank',['../class_tank.html#a8d01b214be6a1663539d0a34ae808d83a1b841dc53bb46afa5800649e29e7d0f9',1,'Tank']]],
-  ['powertank_1',['PowerTank',['../class_tank.html#a8d01b214be6a1663539d0a34ae808d83ac8694a5ab96059309797854c62dfd963',1,'Tank']]],
-  ['pressed_2',['Pressed',['../struct_event_1_1_key_event_info.html#a7d9393ce87392d51bff47dce5dd837eda488505dd1146f66b9dc879d2ba870b9a',1,'Event::KeyEventInfo']]]
-=======
-  ['released_413',['Released',['../struct_event_1_1_key_event_info.html#a7d9393ce87392d51bff47dce5dd837edae1301734e5fbddce7ae9e76ec734cc96',1,'Event::KeyEventInfo']]]
->>>>>>> added docs
-=======
-  ['released_413',['Released',['../struct_event_1_1_key_event_info.html#a7d9393ce87392d51bff47dce5dd837edae1301734e5fbddce7ae9e76ec734cc96',1,'Event::KeyEventInfo']]]
->>>>>>> origin/states
+  ['north_627',['North',['../_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1aaeb9634ef4d4fd4a5297ada06f89c3fe',1,'Entity.h']]],
+  ['nullevent_628',['NullEvent',['../class_event.html#aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c',1,'Event']]],
+  ['nulltile_629',['NullTile',['../_grid_8h.html#ae4c5928999c3565a2a27432c04591328a1885a687710c799b6ef688ced097e3ab',1,'Grid.h']]]
 ];

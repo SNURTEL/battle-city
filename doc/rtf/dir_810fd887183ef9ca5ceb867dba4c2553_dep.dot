@@ -8,5 +8,5 @@ digraph "/home/rafalunix/proi/22l-proi-projekt-jakomulski-budnik-owienko/src/gam
   dir_810fd887183ef9ca5ceb867dba4c2553 [shape=box, label="include", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_810fd887183ef9ca5ceb867dba4c2553.html"];
   }
   dir_dd008488fb0da8829e2acca19721471d [shape=box label="core-lib" color="red" URL="dir_dd008488fb0da8829e2acca19721471d.html"];
-  dir_810fd887183ef9ca5ceb867dba4c2553->dir_dd008488fb0da8829e2acca19721471d [headlabel="5", labeldistance=1.5 headhref="dir_000004_000001.html"];
+  dir_810fd887183ef9ca5ceb867dba4c2553->dir_dd008488fb0da8829e2acca19721471d [headlabel="7", labeldistance=1.5 headhref="dir_000006_000003.html"];
 }

@@ -3,6 +3,8 @@
 //
 
 #include "include/Menu.h"
+#include "../core-lib/include/EventQueue.h"
+#include "../core-lib/include/Event.h"
 
 Menu::Menu(unsigned int max_pos) {
     max_pos_ = max_pos;
@@ -29,5 +31,9 @@ unsigned int Menu::get_pos() {
 }
 
 void Menu::notify() {
-    return;
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::MenuSelectionChange, this, pos_));
+}
+
+void Menu::notify_enter() {
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::MenuEnterClicked, this, pos_));
 }

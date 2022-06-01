@@ -11,7 +11,8 @@
 
 class Tank;
 class Entity;
-
+class Menu;
+class GameState;
 class Grid;
 
 /**
@@ -58,7 +59,12 @@ public:
         TileChanged,
         TileDeleted,
 
-        LevelLoaded
+        LevelLoaded,
+
+        MenuSelectionChange,
+        MenuEnterClicked,
+
+        StateChanged
     };
 
     EventType type;
@@ -86,11 +92,32 @@ public:
         Entity* entity;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
     };
 
+    /**
+     * Holds additional event info for menu events
+     */
+    struct MenuInfo {
+        Menu* menu;
+        unsigned int new_pos;
+    };
+
+    /**
+     * Holds additional event info for state events
+     */
+    struct StateInfo {
+        GameState* state_;
+    };
+
+    /**
+     * Holds additional event info for entity-entity collision events
+     */
     struct EntityEntityCollisionInfo{
         Entity* entity1;
         Entity* entity2;
     };
 
+    /**
+     * Holds additional event info for entity-tile collision events
+     */
     struct EntityTileCollisionInfo{
         Entity* entity;
         unsigned int x;
@@ -121,6 +148,8 @@ public:
      * Trying to access any member other than initialized will result in undefined behavior
      */
     union info_u {
+        MenuInfo menuInfo;
+        StateInfo stateInfo;
         KeyEventInfo keyInfo;
         EntityInfo entityInfo;
         TileInfo tileInfo;
@@ -134,7 +163,11 @@ public:
     // FIXME not so elegant
     Event(EventType, unsigned int ui1);
 
+    Event(EventType e, GameState* new_state);
+
     explicit Event(EventType);
+
+    Event(EventType e, Menu* menu, unsigned int new_pos);
 
     Event(EventType e, Entity* entity);
 
