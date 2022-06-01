@@ -7,7 +7,7 @@ digraph "GameState"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="{GameState\n||+ ~GameState()\l+ getEventHandler()\l# GameState()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #game_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node2 [label="{Game\n||+ Game()\l+ Game()\l+ run()\l+ setActiveState()\l+ setFinishedState()\l+ setPauseState()\l+ setMenuState()\l+ quit()\l+ get_state()\l- setup()\l- createRenderWindow()\l}",height=0.2,width=0.4,color="black",URL="$class_game.html",tooltip=" "];
+  Node2 [label="{Game\n||+ Game()\l+ Game()\l+ run()\l+ setActiveState()\l+ setFinishedState()\l+ setPauseState()\l+ setMenuState()\l+ quit()\l+ get_state()\l+ get_point_system()\l- setup()\l- createRenderWindow()\l}",height=0.2,width=0.4,color="black",URL="$class_game.html",tooltip=" "];
   Node3 -> Node2 [color="grey25",fontsize="10",style="solid",label=" -keyboardController_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node3 [label="{unique_ptr\< KeyboardController \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node4 -> Node2 [color="grey25",fontsize="10",style="solid",label=" -pause_state_\n-menu_state_\n-active_state_\n-finished_state_" ,arrowhead="odiamond",fontname="Helvetica"];
@@ -39,7 +39,12 @@ digraph "GameState"
   Node16 [label="{time_point\< std::chrono\l::steady_clock \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node17 -> Node2 [color="grey25",fontsize="10",style="solid",label=" -running_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node17 [label="{bool\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node18 -> Node2 [color="grey25",fontsize="10",style="solid",label=" -points_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node18 [label="{PointSystem\n||+ PointSystem()\l+ get_points()\l+ set_points()\l+ add_points()\l}",height=0.2,width=0.4,color="black",URL="$class_point_system.html",tooltip=" "];
+  Node6 -> Node18 [color="grey25",fontsize="10",style="solid",label=" -eventQueue_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node19 -> Node18 [color="grey25",fontsize="10",style="solid",label=" -points_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node19 [label="{unsigned int\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node1 -> Node2 [color="grey25",fontsize="10",style="solid",label=" -state_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node18 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #eventHandler_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node18 [label="{unique_ptr\< PublisherEvent\lHandler \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node20 -> Node1 [color="grey25",fontsize="10",style="solid",label=" #eventHandler_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node20 [label="{unique_ptr\< PublisherEvent\lHandler \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

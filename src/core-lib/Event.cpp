@@ -132,3 +132,15 @@ Event::Event(EventType e, GameState* new_state) {
             throw EventConstructionException();
     }
 }
+
+Event::Event(EventType e, PointSystem* ptsys, unsigned int points) {
+    type = e;
+    switch (e) {
+        case PointsChanged: {
+            info.pointsInfo = {ptsys, points};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}

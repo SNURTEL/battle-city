@@ -9,7 +9,7 @@ digraph "Event::MenuInfo"
   Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +new_pos" ,arrowhead="odiamond",fontname="Helvetica"];
   Node2 [label="{unsigned int\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +menu" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node3 [label="{Menu\n||+ Menu()\l+ get_pos()\l+ set_pos()\l+ add_pos()\l+ sub_pos()\l+ notify()\l+ notify_enter()\l}",height=0.2,width=0.4,color="black",URL="$class_menu.html",tooltip=" "];
+  Node3 [label="{Menu\n||+ Menu()\l+ get_pos()\l+ get_max_pos()\l+ set_pos()\l+ add_pos()\l+ sub_pos()\l+ notify()\l+ notify_enter()\l}",height=0.2,width=0.4,color="black",URL="$class_menu.html",tooltip=" "];
   Node4 -> Node3 [color="grey25",fontsize="10",style="solid",label=" -eventQueue_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node4 [label="{EventQueue\< Event \>\n||+ EventQueue()\l+ operator=()\l+ registerEvent()\l+ pop()\l+ isEmpty()\l+ size()\l+ clear()\l+ instance()\l- EventQueue()\l}",height=0.2,width=0.4,color="black",URL="$class_event_queue.html",tooltip=" "];
   Node5 -> Node4 [color="grey25",fontsize="10",style="solid",label=" #events_" ,arrowhead="odiamond",fontname="Helvetica"];

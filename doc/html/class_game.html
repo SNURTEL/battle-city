@@ -119,6 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8272be134d16c277bb014ad6a22fc357"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a424dc36c8ace8d3bc452016a66d9d14f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_state.html">GameState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a424dc36c8ace8d3bc452016a66d9d14f">get_state</a> ()</td></tr>
 <tr class="separator:a424dc36c8ace8d3bc452016a66d9d14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4ef40ea684737384bc26d0820074d3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point_system.html">PointSystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#af4ef40ea684737384bc26d0820074d3d">get_point_system</a> ()</td></tr>
+<tr class="separator:af4ef40ea684737384bc26d0820074d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -139,6 +141,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:adcc2800f1cb970f1103c07f4596db638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f5994676777b79e8370b185d8d314d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_state.html">GameState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a1f5994676777b79e8370b185d8d314d8">state_</a> {}</td></tr>
 <tr class="separator:a1f5994676777b79e8370b185d8d314d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5ec56b38be9e23653ac18b880bbb9a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point_system.html">PointSystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#ab5ec56b38be9e23653ac18b880bbb9a9">points_</a></td></tr>
+<tr class="separator:ab5ec56b38be9e23653ac18b880bbb9a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9da12a2d9125bfaa8782a61b69c49f9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a9da12a2d9125bfaa8782a61b69c49f9e">running_</a> = true</td></tr>
 <tr class="separator:a9da12a2d9125bfaa8782a61b69c49f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a15a49e48e2b85aea3670f571c87995"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_clock.html">Clock</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a0a15a49e48e2b85aea3670f571c87995">clock_</a></td></tr>
@@ -237,6 +241,24 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af4ef40ea684737384bc26d0820074d3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4ef40ea684737384bc26d0820074d3d">&#9670;&nbsp;</a></span>get_point_system()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point_system.html">PointSystem</a> * Game::get_point_system </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns Point system state pointer </p><dl class="section return"><dt>Returns</dt><dd>point system pointer </dd></dl>
+
+</div>
+</div>
 <a id="a424dc36c8ace8d3bc452016a66d9d14f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a424dc36c8ace8d3bc452016a66d9d14f">&#9670;&nbsp;</a></span>get_state()</h2>
 
@@ -251,7 +273,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns current state pointer </p>
+<p>Returns current state pointer </p><dl class="section return"><dt>Returns</dt><dd>State pointer </dd></dl>
 
 </div>
 </div>
@@ -533,6 +555,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::unique_ptr&lt;<a class="el" href="class_game_state.html">GameState</a>&gt; Game::pause_state_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5ec56b38be9e23653ac18b880bbb9a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ec56b38be9e23653ac18b880bbb9a9">&#9670;&nbsp;</a></span>points_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point_system.html">PointSystem</a>* Game::points_</td>
         </tr>
       </table>
   </td>

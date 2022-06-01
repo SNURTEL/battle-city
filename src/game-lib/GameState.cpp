@@ -20,7 +20,7 @@ Board* ActiveGameState::get_board() {
     return board_;
 }
 
-Tank* ActiveGameState::get_tank() {
+Tank* ActiveGameState::get_player_tank() {
     return player_tank_;
 }
 

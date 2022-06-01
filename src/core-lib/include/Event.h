@@ -14,6 +14,7 @@ class Entity;
 class Menu;
 class GameState;
 class Grid;
+class PointSystem;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
@@ -64,7 +65,9 @@ public:
         MenuSelectionChange,
         MenuEnterClicked,
 
-        StateChanged
+        StateChanged,
+
+        PointsChanged
     };
 
     EventType type;
@@ -105,6 +108,14 @@ public:
      */
     struct StateInfo {
         GameState* state_;
+    };
+
+    /**
+     * Holds additional event info for points events
+     */
+    struct PointsInfo {
+        PointSystem* ptsys_;
+        unsigned int points_;
     };
 
     /**
@@ -156,12 +167,15 @@ public:
         LevelInfo levelInfo;
         EntityEntityCollisionInfo entityEntityCollisionInfo;
         EntityTileCollisionInfo entityGridCollisionInfo;
+        PointsInfo pointsInfo;
 
         ~info_u(){};  // DO NOT change this to =default, or else it will stop working
     } info = {};
 
     // FIXME not so elegant
     Event(EventType, unsigned int ui1);
+
+    Event(EventType e, PointSystem* ptsys, unsigned int points);
 
     Event(EventType e, GameState* new_state);
 

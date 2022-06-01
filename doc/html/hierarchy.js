@@ -53,6 +53,8 @@ var hierarchy =
     [ "Event::LevelInfo", "struct_event_1_1_level_info.html", null ],
     [ "Menu", "class_menu.html", null ],
     [ "Event::MenuInfo", "struct_event_1_1_menu_info.html", null ],
+    [ "Event::PointsInfo", "struct_event_1_1_points_info.html", null ],
+    [ "PointSystem", "class_point_system.html", null ],
     [ "SimplePublisher", "class_simple_publisher.html", [
       [ "Bullet", "class_bullet.html", null ],
       [ "Clock", "class_clock.html", null ]

@@ -10,6 +10,8 @@
 
 #include "GameState.h"
 #include "KeyboardController.h"
+#include "PointSystem.h"
+#include "Menu.h"
 
 class Clock;
 
@@ -17,8 +19,6 @@ template <class E>
 class EventQueue;
 
 class Event;
-
-class GameState;
 
 class KeyboardController;
 
@@ -69,8 +69,16 @@ public:
 
     /**
      * Returns current state pointer
+     * @return State pointer
      */
     GameState* get_state();
+
+
+    /**
+     * Returns Point system state pointer
+     * @return point system pointer
+     */
+    PointSystem* get_point_system();
 
 private:
     /**
@@ -87,6 +95,8 @@ private:
     std::unique_ptr<GameState> finished_state_;
     std::unique_ptr<GameState> menu_state_;
     GameState* state_{};
+
+    PointSystem* points_;
     bool running_ = true;
 
     Clock* clock_;

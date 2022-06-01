@@ -17,7 +17,7 @@ digraph "PauseEventHandler"
   Node6 -> Node5 [dir="back",color="orange",fontsize="10",style="solid",label=" \< Event \>" ,fontname="Helvetica"];
   Node6 [label="{EventHandler\< E \>\n||+ handleEvent()\l# EventHandler()\l}",height=0.2,width=0.4,color="black",URL="$class_event_handler.html",tooltip=" "];
   Node7 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -game_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node7 [label="{Game\n||+ Game()\l+ Game()\l+ run()\l+ setActiveState()\l+ setFinishedState()\l+ setPauseState()\l+ setMenuState()\l+ quit()\l+ get_state()\l- setup()\l- createRenderWindow()\l}",height=0.2,width=0.4,color="black",URL="$class_game.html",tooltip=" "];
+  Node7 [label="{Game\n||+ Game()\l+ Game()\l+ run()\l+ setActiveState()\l+ setFinishedState()\l+ setPauseState()\l+ setMenuState()\l+ quit()\l+ get_state()\l+ get_point_system()\l- setup()\l- createRenderWindow()\l}",height=0.2,width=0.4,color="black",URL="$class_game.html",tooltip=" "];
   Node8 -> Node7 [color="grey25",fontsize="10",style="solid",label=" -keyboardController_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node8 [label="{unique_ptr\< KeyboardController \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node9 -> Node7 [color="grey25",fontsize="10",style="solid",label=" -pause_state_\n-menu_state_\n-active_state_\n-finished_state_" ,arrowhead="odiamond",fontname="Helvetica"];
@@ -49,14 +49,19 @@ digraph "PauseEventHandler"
   Node21 [label="{time_point\< std::chrono\l::steady_clock \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node22 -> Node7 [color="grey25",fontsize="10",style="solid",label=" -running_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node22 [label="{bool\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
-  Node23 -> Node7 [color="grey25",fontsize="10",style="solid",label=" -state_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node23 [label="{GameState\n||+ ~GameState()\l+ getEventHandler()\l# GameState()\l}",height=0.2,width=0.4,color="black",URL="$class_game_state.html",tooltip=" "];
-  Node7 -> Node23 [color="grey25",fontsize="10",style="solid",label=" #game_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node24 -> Node23 [color="grey25",fontsize="10",style="solid",label=" #eventHandler_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node24 [label="{unique_ptr\< PublisherEvent\lHandler \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
-  Node25 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -state_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node25 [label="{PauseGameState\n||+ get_menu()\l+ PauseGameState()\l+ PauseGameState()\l}",height=0.2,width=0.4,color="black",URL="$class_pause_game_state.html",tooltip=" "];
-  Node23 -> Node25 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
-  Node26 -> Node25 [color="grey25",fontsize="10",style="solid",label=" -menu_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node26 [label="{unique_ptr\< Menu \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node23 -> Node7 [color="grey25",fontsize="10",style="solid",label=" -points_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node23 [label="{PointSystem\n||+ PointSystem()\l+ get_points()\l+ set_points()\l+ add_points()\l}",height=0.2,width=0.4,color="black",URL="$class_point_system.html",tooltip=" "];
+  Node11 -> Node23 [color="grey25",fontsize="10",style="solid",label=" -eventQueue_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node24 -> Node23 [color="grey25",fontsize="10",style="solid",label=" -points_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node24 [label="{unsigned int\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node25 -> Node7 [color="grey25",fontsize="10",style="solid",label=" -state_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node25 [label="{GameState\n||+ ~GameState()\l+ getEventHandler()\l# GameState()\l}",height=0.2,width=0.4,color="black",URL="$class_game_state.html",tooltip=" "];
+  Node7 -> Node25 [color="grey25",fontsize="10",style="solid",label=" #game_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node26 -> Node25 [color="grey25",fontsize="10",style="solid",label=" #eventHandler_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node26 [label="{unique_ptr\< PublisherEvent\lHandler \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
+  Node27 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -state_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node27 [label="{PauseGameState\n||+ get_menu()\l+ PauseGameState()\l+ PauseGameState()\l}",height=0.2,width=0.4,color="black",URL="$class_pause_game_state.html",tooltip=" "];
+  Node25 -> Node27 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node28 -> Node27 [color="grey25",fontsize="10",style="solid",label=" -menu_" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node28 [label="{unique_ptr\< Menu \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
 }

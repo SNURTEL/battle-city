@@ -58,15 +58,17 @@ set(game_lib_sources
         ${game_lib_dir}/MenuEventHandler.cpp
         ${game_lib_dir}/Menu.cpp
         ${game_lib_dir}/FinishedEventHandler.cpp
+        ${game_lib_dir}/PointSystem.cpp
         ${game_lib_dir}/GameState.cpp
         ${game_lib_dir}/KeyboardController.cpp)
 
 add_library(game-lib ${game_lib_sources})
-target_link_libraries(game-lib PRIVATE core-lib ${SFML_LIBRARIES})
+target_link_libraries(game-lib PRIVATE core-lib board-lib ${SFML_LIBRARIES})
 
 set(game_lib_test_dir ../src/game-lib/test)
 set(game_lib_test_sources
-        ${game_lib_test_dir}/test_sanity.cpp)
+        ${game_lib_test_dir}/test_sanity.cpp
+        ${game_lib_test_dir}/test_states.cpp)
 
 add_executable(test_game_lib ${game_lib_test_sources})
 target_link_libraries(test_game_lib PRIVATE game-lib Catch2::Catch2WithMain)

@@ -61,7 +61,7 @@ public:
      * Returns player tank pointer
      * @return player tank pointer
      */
-    Tank* get_tank();
+    Tank* get_player_tank();
 
     ActiveGameState()=delete;
     explicit ActiveGameState(Game* game);

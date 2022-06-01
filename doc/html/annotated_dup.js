@@ -33,6 +33,7 @@ var annotated_dup =
     [ "PauseEventHandler", "class_pause_event_handler.html", "class_pause_event_handler" ],
     [ "PauseGameState", "class_pause_game_state.html", "class_pause_game_state" ],
     [ "PlayerTank", "class_player_tank.html", "class_player_tank" ],
+    [ "PointSystem", "class_point_system.html", "class_point_system" ],
     [ "PowerTank", "class_power_tank.html", "class_power_tank" ],
     [ "PublisherEventHandler", "class_publisher_event_handler.html", "class_publisher_event_handler" ],
     [ "SimplePublisher", "class_simple_publisher.html", "class_simple_publisher" ],

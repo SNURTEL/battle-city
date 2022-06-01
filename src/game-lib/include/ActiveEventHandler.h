@@ -7,6 +7,8 @@
 
 #include <memory>
 #include "../../core-lib/include/EventHandler.h"
+#include "../../core-lib/include/EventQueue.h"
+#include "PointSystem.h"
 
 class Event;
 
@@ -38,6 +40,7 @@ public:
 private:
     Game* game_;
     ActiveGameState* state_;
+    EventQueue<Event>* eventQueue_ = EventQueue<Event>::instance();
 };
 
 

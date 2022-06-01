@@ -9,7 +9,7 @@ digraph "EventPublisher"
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
   Node2 [label="{PublisherEventHandler\n||+ handleEvent()\l+ processEvent()\l# PublisherEventHandler()\l}",height=0.2,width=0.4,color="black",URL="$class_publisher_event_handler.html",tooltip="Extended EventHandler for Event class events with publisher capabilities."];
   Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
-  Node3 [label="{ActiveEventHandler\n|- game_\l- state_\l|+ ActiveEventHandler()\l+ ActiveEventHandler()\l+ processEvent()\l}",height=0.2,width=0.4,color="black",URL="$class_active_event_handler.html",tooltip=" "];
+  Node3 [label="{ActiveEventHandler\n|- game_\l- state_\l- eventQueue_\l|+ ActiveEventHandler()\l+ ActiveEventHandler()\l+ processEvent()\l}",height=0.2,width=0.4,color="black",URL="$class_active_event_handler.html",tooltip=" "];
   Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
   Node4 [label="{FinishedEventHandler\n|- game_\l- state_\l|+ FinishedEventHandler()\l+ FinishedEventHandler()\l+ processEvent()\l}",height=0.2,width=0.4,color="black",URL="$class_finished_event_handler.html",tooltip=" "];
   Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];

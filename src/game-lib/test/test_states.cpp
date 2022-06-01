@@ -23,11 +23,4 @@ namespace helper {
 
 }
 
-SCENARIO("Creating Menu State"){
-    WHEN("Setting 2 as menu size"){
-        THEN("Menu should have 2 as max_pos"){
-            REQUIRE(game->get_state()->get_menu()->get_max_pos() == 2);
-        }
-    }
 
-}

@@ -119,6 +119,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_menu_info.html">MenuInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_points_info.html">PointsInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_state_info.html">StateInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_tile_info.html">TileInfo</a></td></tr>
@@ -148,7 +150,8 @@ Public Types</h2></td></tr>
 <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deae1e723123bc2469466c596bcd043f487">MenuSelectionChange</a>, 
 <br />
 &#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea1f669d6a6cbf0c176bc56bc14115cf17">MenuEnterClicked</a>, 
-<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea4b0a0dacfb81d6de16eb50754b71bfc2">StateChanged</a>
+<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea4b0a0dacfb81d6de16eb50754b71bfc2">StateChanged</a>, 
+<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea933a3cf957b54ece4cfded159237ddc1">PointsChanged</a>
 <br />
  }</td></tr>
 <tr class="separator:aa306292f6e9bf31a622e79dfc54321de"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,6 +160,8 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acada8c80e07cef0cc7228145e9367c59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#acada8c80e07cef0cc7228145e9367c59">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>, unsigned int ui1)</td></tr>
 <tr class="separator:acada8c80e07cef0cc7228145e9367c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bd35a6a57f81c1e243133e73e7ce76c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a8bd35a6a57f81c1e243133e73e7ce76c">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, <a class="el" href="class_point_system.html">PointSystem</a> *ptsys, unsigned int points)</td></tr>
+<tr class="separator:a8bd35a6a57f81c1e243133e73e7ce76c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32525f2e516ae963ae12bb19b0acdd6e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a32525f2e516ae963ae12bb19b0acdd6e">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, <a class="el" href="class_game_state.html">GameState</a> *new_state)</td></tr>
 <tr class="separator:a32525f2e516ae963ae12bb19b0acdd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc5f9d382b870fd6ae19370955d563ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#acc5f9d382b870fd6ae19370955d563ad">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>)</td></tr>
@@ -220,13 +225,14 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deae1e723123bc2469466c596bcd043f487"></a>MenuSelectionChange&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea1f669d6a6cbf0c176bc56bc14115cf17"></a>MenuEnterClicked&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea4b0a0dacfb81d6de16eb50754b71bfc2"></a>StateChanged&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea933a3cf957b54ece4cfded159237ddc1"></a>PointsChanged&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acada8c80e07cef0cc7228145e9367c59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acada8c80e07cef0cc7228145e9367c59">&#9670;&nbsp;</a></span>Event() <span class="overload">[1/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acada8c80e07cef0cc7228145e9367c59">&#9670;&nbsp;</a></span>Event() <span class="overload">[1/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -253,8 +259,42 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8bd35a6a57f81c1e243133e73e7ce76c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bd35a6a57f81c1e243133e73e7ce76c">&#9670;&nbsp;</a></span>Event() <span class="overload">[2/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_point_system.html">PointSystem</a> *&#160;</td>
+          <td class="paramname"><em>ptsys</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>points</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a32525f2e516ae963ae12bb19b0acdd6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32525f2e516ae963ae12bb19b0acdd6e">&#9670;&nbsp;</a></span>Event() <span class="overload">[2/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a32525f2e516ae963ae12bb19b0acdd6e">&#9670;&nbsp;</a></span>Event() <span class="overload">[3/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +322,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="acc5f9d382b870fd6ae19370955d563ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc5f9d382b870fd6ae19370955d563ad">&#9670;&nbsp;</a></span>Event() <span class="overload">[3/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5f9d382b870fd6ae19370955d563ad">&#9670;&nbsp;</a></span>Event() <span class="overload">[4/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -308,7 +348,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a9796768c131789eaffa80e5a945a10a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9796768c131789eaffa80e5a945a10a6">&#9670;&nbsp;</a></span>Event() <span class="overload">[4/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9796768c131789eaffa80e5a945a10a6">&#9670;&nbsp;</a></span>Event() <span class="overload">[5/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,7 +382,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a2241952e58ef5c00cdefbf14d708c482"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2241952e58ef5c00cdefbf14d708c482">&#9670;&nbsp;</a></span>Event() <span class="overload">[5/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2241952e58ef5c00cdefbf14d708c482">&#9670;&nbsp;</a></span>Event() <span class="overload">[6/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -370,7 +410,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="add293948c18edf4aeed5b1d1b0d0a75c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add293948c18edf4aeed5b1d1b0d0a75c">&#9670;&nbsp;</a></span>Event() <span class="overload">[6/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#add293948c18edf4aeed5b1d1b0d0a75c">&#9670;&nbsp;</a></span>Event() <span class="overload">[7/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -404,7 +444,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="aefb7c42f8a161bd2e072495442968096"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefb7c42f8a161bd2e072495442968096">&#9670;&nbsp;</a></span>Event() <span class="overload">[7/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aefb7c42f8a161bd2e072495442968096">&#9670;&nbsp;</a></span>Event() <span class="overload">[8/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -444,7 +484,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="af76a47f99f7b247c25243bb3f88d46b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af76a47f99f7b247c25243bb3f88d46b8">&#9670;&nbsp;</a></span>Event() <span class="overload">[8/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af76a47f99f7b247c25243bb3f88d46b8">&#9670;&nbsp;</a></span>Event() <span class="overload">[9/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -484,7 +524,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a57a8bf797ca0c0f842e3fd0d67a3e41b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57a8bf797ca0c0f842e3fd0d67a3e41b">&#9670;&nbsp;</a></span>Event() <span class="overload">[9/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a57a8bf797ca0c0f842e3fd0d67a3e41b">&#9670;&nbsp;</a></span>Event() <span class="overload">[10/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -518,7 +558,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="aa409fd6a64c9d71f975abb6c85aca183"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa409fd6a64c9d71f975abb6c85aca183">&#9670;&nbsp;</a></span>Event() <span class="overload">[10/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa409fd6a64c9d71f975abb6c85aca183">&#9670;&nbsp;</a></span>Event() <span class="overload">[11/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

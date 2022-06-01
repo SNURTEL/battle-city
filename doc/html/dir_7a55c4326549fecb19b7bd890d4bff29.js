@@ -10,6 +10,7 @@ var dir_7a55c4326549fecb19b7bd890d4bff29 =
       [ "EntityInfo", "struct_event_1_1_entity_info.html", "struct_event_1_1_entity_info" ],
       [ "MenuInfo", "struct_event_1_1_menu_info.html", "struct_event_1_1_menu_info" ],
       [ "StateInfo", "struct_event_1_1_state_info.html", "struct_event_1_1_state_info" ],
+      [ "PointsInfo", "struct_event_1_1_points_info.html", "struct_event_1_1_points_info" ],
       [ "EntityEntityCollisionInfo", "struct_event_1_1_entity_entity_collision_info.html", "struct_event_1_1_entity_entity_collision_info" ],
       [ "EntityTileCollisionInfo", "struct_event_1_1_entity_tile_collision_info.html", "struct_event_1_1_entity_tile_collision_info" ],
       [ "TileInfo", "struct_event_1_1_tile_info.html", "struct_event_1_1_tile_info" ],

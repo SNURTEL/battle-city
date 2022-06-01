@@ -72,3 +72,7 @@ void Game::run() {
 GameState* Game::get_state() {
     return state_;
 }
+
+PointSystem* Game::get_point_system() {
+    return points_;
+}

@@ -3,6 +3,7 @@ var class_game =
     [ "Game", "class_game.html#a0885f2c9ae4b3eb78d273cfb36e7c767", null ],
     [ "Game", "class_game.html#ad602de551f1e5899d966f2c97cfb1748", null ],
     [ "createRenderWindow", "class_game.html#a253bdb87354d6d49efca8874ff6b9d5e", null ],
+    [ "get_point_system", "class_game.html#af4ef40ea684737384bc26d0820074d3d", null ],
     [ "get_state", "class_game.html#a424dc36c8ace8d3bc452016a66d9d14f", null ],
     [ "quit", "class_game.html#a8272be134d16c277bb014ad6a22fc357", null ],
     [ "run", "class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa", null ],
@@ -18,6 +19,7 @@ var class_game =
     [ "keyboardController_", "class_game.html#a685a8a6ce9b66ceebcbfed6725b3f8ad", null ],
     [ "menu_state_", "class_game.html#adcc2800f1cb970f1103c07f4596db638", null ],
     [ "pause_state_", "class_game.html#a6bd0c915af8df17b9fb301f6818fc662", null ],
+    [ "points_", "class_game.html#ab5ec56b38be9e23653ac18b880bbb9a9", null ],
     [ "running_", "class_game.html#a9da12a2d9125bfaa8782a61b69c49f9e", null ],
     [ "state_", "class_game.html#a1f5994676777b79e8370b185d8d314d8", null ],
     [ "window_", "class_game.html#a0fbe0254a5671d7d7c5c0df01758a1bc", null ]
