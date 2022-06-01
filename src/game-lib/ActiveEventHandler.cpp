@@ -81,6 +81,12 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
                 game_->setFinishedState();
             break;
         }
+        case (Event::EntityEntityCollision):{
+            break;
+        }
+        case (Event::EntityGridCollision):{
+            break;
+        }
         case (Event::NullEvent):{
             break;
         }

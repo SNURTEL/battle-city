@@ -30,6 +30,10 @@ unsigned int Menu::get_pos() {
     return pos_;
 }
 
+unsigned int Menu::get_max_pos() {
+    return max_pos_;
+}
+
 void Menu::notify() {
     eventQueue_->registerEvent(std::make_unique<Event>(Event::MenuSelectionChange, this, pos_));
 }

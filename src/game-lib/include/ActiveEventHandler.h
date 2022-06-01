@@ -10,6 +10,8 @@
 
 class Event;
 
+class Board;
+
 class Game;
 
 class ActiveGameState;

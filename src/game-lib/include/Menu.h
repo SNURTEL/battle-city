@@ -33,6 +33,12 @@ class Menu {
         unsigned int get_pos();
 
         /**
+         * Returns menu's max position
+         * @return Menu's max position
+         */
+        unsigned int get_max_pos();
+
+        /**
          * Sets position in the menu
          * @param position
          */
