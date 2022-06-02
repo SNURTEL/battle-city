@@ -12,6 +12,9 @@
 #include "include/KeyboardController.h"
 #include "include/Scoreboard.h"
 #include "include/ScoreboardIO.h"
+#include "../board-lib/include/Board.h"
+#include "../board-lib/include/Grid.h"
+
 
 Game::Game(unsigned int clockFreq) {
     active_state_ = std::make_unique<ActiveGameState>(this);
@@ -46,6 +49,8 @@ void Game::initComponents() {
     keyboardController_->subscribe(clock_);
 
     scoreboardIO = std::make_unique<ScoreboardIO>("scoreboard.txt");  // dummy, filename is ignored for now
+
+    board_ = std::make_unique<Board>();
 }
 
 void Game::initScoreboard() {
@@ -82,6 +87,8 @@ void Game::quit() {
 
 void Game::run() {
     setup();
+
+    board_->loadLevel(1);
 
     while (running_ == true){
         clock_->tick();

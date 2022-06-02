@@ -9,6 +9,8 @@
 
 #include "../../core-lib/include/EventQueue.h"
 #include "../../tank-lib/include/Tank.h"
+#include "../../tank-lib/include/EntityController.h"
+#include "Grid.h"
 
 class Event;
 

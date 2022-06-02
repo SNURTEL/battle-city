@@ -80,9 +80,11 @@ set(tank_lib_dir ../src/tank-lib)
 set(tank_lib_sources
         ${tank_lib_dir}/Tank.cpp
         ${tank_lib_dir}/EntityController.cpp
+        ${tank_lib_dir}/Bullet.cpp
+        ${tank_lib_dir}/Entity.cpp
         )
 
-add_library(tank-lib ${tank_lib_sources} ../src/tank-lib/Bullet.cpp ../src/tank-lib/include/Bullet.h ../src/tank-lib/Entity.cpp ../src/tank-lib/include/Entity.h)
+add_library(tank-lib ${tank_lib_sources})
 target_link_libraries(tank-lib PRIVATE game-lib)
 
 set(tank_lib_test_dir ../src/tank-lib/test)
@@ -99,7 +101,7 @@ set(board_lib_dir ../src/board-lib)
 set(board_lib_sources
         ${board_lib_dir}/Grid.cpp
         ${board_lib_dir}/TileManager.cpp
-        ${board_lib_dir}/Board.cpp .
+        ${board_lib_dir}/Board.cpp
         ${board_lib_dir}/GridBuilder.cpp)
 
 add_library(board-lib ${board_lib_sources})
@@ -127,6 +129,6 @@ target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib Cat
 ############################ MAIN ################################
 
 
-add_executable(tanks ../src/main/tanks.cpp ${core_lib_sources} ${game_lib_sources} ${tank_lib_sources})
-target_link_libraries(tanks ${SFML_LIBRARIES} core-lib game-lib tank-lib)
+add_executable(tanks ../src/main/tanks.cpp ${core_lib_sources} ${game_lib_sources} ${tank_lib_sources} ${board_lib_sources})
+target_link_libraries(tanks ${SFML_LIBRARIES} core-lib game-lib tank-lib board-lib)
 

@@ -11,6 +11,8 @@
 #include "KeyboardController.h"
 #include "Menu.h"
 #include "ScoreboardIO.h"
+#include "../../board-lib/include/Board.h"
+
 
 class Clock;
 
@@ -103,6 +105,8 @@ private:
     std::unique_ptr<GameState> finished_state_;
     std::unique_ptr<GameState> menu_state_;
     GameState* state_{};
+
+    std::unique_ptr<Board> board_;
 
     std::unique_ptr<Scoreboard> scoreboard;
     std::unique_ptr<ScoreboardIO> scoreboardIO;

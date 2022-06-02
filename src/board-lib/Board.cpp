@@ -196,5 +196,5 @@ std::unique_ptr<Event> Board::createCollisionEvent(Entity *entity) {
 
 void Board::loadLevel(unsigned int levelNum) {
     removeAllEntities();
-    setGrid(std::move(GridBuilder::BuildLevel(levelNum)));  // TODO init player tank
+    setGrid(std::move(GridBuilder::buildLevel(levelNum)));  // TODO init player tank
 }
