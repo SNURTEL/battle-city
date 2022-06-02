@@ -419,7 +419,7 @@ SCENARIO("Finding entities by their position") {
         }
 
         WHEN("Trying to find an entity next to it's edge") {
-            std::optional<Entity *> found = test_entityController.findEntityAtPosition(22, 21);
+            std::optional<Entity *> found = test_entityController.findEntityAtPosition(24, 21);
 
             THEN("No entity should be returned") {
                 REQUIRE_FALSE(found.has_value());
@@ -469,14 +469,14 @@ SCENARIO("Collision detection") {
                 REQUIRE(test_entityController.checkEntityCollisions(tank1));
             }
         }WHEN("One objects sits right on other's edge (horizontally)") {
-            Tank *tank2 = spawnTank(&test_entityController, 7, 5, Tank::PlayerTank);
+            Tank *tank2 = spawnTank(&test_entityController, 9, 5, Tank::PlayerTank);
 
             THEN("Np collision should be detected") {
                 REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank1));
                 REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank2));
             }
         }WHEN("One objects sits right on other's edge (vertically)") {
-            Tank *tank2 = spawnTank(&test_entityController, 5, 7, Tank::PlayerTank);
+            Tank *tank2 = spawnTank(&test_entityController, 5, 9, Tank::PlayerTank);
 
             THEN("Np collision should be detected") {
                 REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank1));

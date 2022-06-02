@@ -10,20 +10,20 @@
 #include "GameState.h"
 #include "KeyboardController.h"
 #include "Menu.h"
-#include "ScoreboardIO.h"
+#include "GameStatsIO.h"
 #include "../../board-lib/include/Board.h"
 
 
 class Clock;
 
-template <class E>
+template<class E>
 class EventQueue;
 
 class Event;
 
 class KeyboardController;
 
-class Scoreboard;
+class GameStats;
 
 /**
  * Main container
@@ -31,7 +31,7 @@ class Scoreboard;
  */
 class Game {
 public:
-    Game()=delete;
+    Game() = delete;
 
     /**
      * Inits class Game
@@ -73,16 +73,16 @@ public:
      * Returns current state pointer
      * @return State pointer
      */
-    GameState* getState();
+    GameState *getState();
 
 
     /**
      * Returns Point system state pointer
      * @return point system pointer
      */
-    Scoreboard* getScoreboard();
+    GameStats *getStats();
 
-private:
+protected:
     /**
      * Called right before starting the event loop. Sets all remaining attrs, creates the render window,
      * loads the scoreboard and links subscribers to clock.
@@ -100,21 +100,31 @@ private:
      */
     void initUI();
 
+    void start();
+
+    void reset();
+
+    void prepareLevel(unsigned int levelNum);
+
+    void end();
+
+    void redrawUI();
+
     std::unique_ptr<GameState> active_state_;
     std::unique_ptr<GameState> pause_state_;
     std::unique_ptr<GameState> finished_state_;
     std::unique_ptr<GameState> menu_state_;
-    GameState* state_{};
+    GameState *state_{};
 
     std::unique_ptr<Board> board_;
 
-    std::unique_ptr<Scoreboard> scoreboard;
-    std::unique_ptr<ScoreboardIO> scoreboardIO;
+    std::unique_ptr<GameStats> gameStats_;
+    std::unique_ptr<GameStatsIO> gameStatsIO_;
 
-    bool running_;
+    bool running_ = true;
 
-    Clock* clock_;
-    EventQueue<Event>* eventQueue_;
+    Clock *clock_;
+    EventQueue<Event> *eventQueue_;
 
     std::unique_ptr<sf::RenderWindow> window_;
     std::unique_ptr<KeyboardController> keyboardController_;

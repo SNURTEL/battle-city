@@ -300,7 +300,7 @@ SCENARIO("Detecting entity - grid collisions") {
         }
 
         WHEN("An entity is placed in board's bottom right corner") {
-            Tank *tank = helper::placeTank(&board, board.getSizeX() - 2, board.getSizeY() - 2, Tank::PlayerTank);
+            Tank *tank = helper::placeTank(&board, board.getSizeX() - 4, board.getSizeY() - 4, Tank::PlayerTank);
 
             THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));

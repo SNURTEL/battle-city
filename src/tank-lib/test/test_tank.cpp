@@ -75,7 +75,7 @@ SCENARIO("Firing a bullet") {
     GIVEN("Some tanks") {
         std::unique_ptr<Tank> powerTank = std::make_unique<PowerTank>(10, 20, North);
         std::unique_ptr<Tank> basicTank = std::make_unique<BasicTank>(40, 50, East);
-        std::unique_ptr<Tank> playerTank = std::make_unique<PlayerTank>(30, 40, 1, South);
+        std::unique_ptr<Tank> playerTank = std::make_unique<PlayerTank>(30, 40, South);
         std::unique_ptr<Tank> armorTank = std::make_unique<ArmorTank>(100, 200, West);
 
         WHEN("Creating a bullet object") {

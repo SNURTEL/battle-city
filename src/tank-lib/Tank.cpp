@@ -126,12 +126,12 @@ std::optional<std::unique_ptr<Bullet>> Tank::createBullet() {
 void Tank::notify(SimplePublisher *pub) {}
 
 Tank::Tank(TankType type, float x, float y, float speed, float bulletSpeed, unsigned int lives, Direction direction, unsigned int points)
-        : Entity(x, y, 2, 2, speed, direction),
+        : Entity(x, y, 4, 4, speed, direction),
           bulletSpeed_(bulletSpeed), lives_(lives), type_(type), points_(points), moving_(false) {}
 
 // ##############################
 
-PlayerTank::PlayerTank(float x, float y, unsigned int lives, Direction facing) : Tank(Tank::PlayerTank, x, y, 1, 1, lives, facing, 0) {}
+PlayerTank::PlayerTank(float x, float y, Direction facing) : Tank(Tank::PlayerTank, x, y, 1, 1, 1, facing, 0) {}
 
 BasicTank::BasicTank(float x, float y, Direction facing) : Tank(Tank::BasicTank, x, y, 1, 1, 1, facing, 100) {}
 

@@ -10,8 +10,8 @@
 #include "../core-lib/include/EventQueue.h"
 #include "include/GameState.h"
 #include "include/KeyboardController.h"
-#include "include/Scoreboard.h"
-#include "include/ScoreboardIO.h"
+#include "include/GameStats.h"
+#include "include/GameStatsIO.h"
 #include "../board-lib/include/Board.h"
 #include "../board-lib/include/Grid.h"
 
@@ -32,6 +32,7 @@ void Game::setup() {
 
     initStates();
     initComponents();
+    initScoreboard();
 
     setMenuState();
     running_ = true;
@@ -48,13 +49,13 @@ void Game::initComponents() {
     keyboardController_ = std::make_unique<KeyboardController>(window_.get());
     keyboardController_->subscribe(clock_);
 
-    scoreboardIO = std::make_unique<ScoreboardIO>("scoreboard.txt");  // dummy, filename is ignored for now
+    gameStatsIO_ = std::make_unique<GameStatsIO>("scoreboard.txt");  // dummy, filename is ignored for now
 
     board_ = std::make_unique<Board>();
 }
 
 void Game::initScoreboard() {
-    scoreboard = std::move(scoreboardIO->loadScoreboard());
+    gameStats_ = std::move(gameStatsIO_->loadScoreboard());
 }
 
 void Game::initUI() {
@@ -82,13 +83,12 @@ void Game::setPauseState() {
 }
 
 void Game::quit() {
+    gameStatsIO_->saveScoreboard(std::move(gameStats_));
     running_ = false;
 }
 
 void Game::run() {
     setup();
-
-    board_->loadLevel(1);
 
     while (running_ == true){
         clock_->tick();
@@ -96,7 +96,8 @@ void Game::run() {
             state_->getEventHandler()->handleEvent(std::move(eventQueue_->pop()));
         }
 
-        //redraw UI
+        redrawUI();
+
         clock_->sleep();
     }
 }
@@ -105,6 +106,33 @@ GameState* Game::getState() {
     return state_;
 }
 
-Scoreboard* Game::getScoreboard() {
-    return scoreboard.get();
+GameStats* Game::getStats() {
+    return gameStats_.get();
+}
+
+void Game::start() {
+    reset();
+    prepareLevel(1);
+    setActiveState();
+}
+
+void Game::reset() {
+    board_->removeAllEntities();
+    gameStats_->resetStats();
+}
+
+void Game::prepareLevel(unsigned int levelNum) {
+    board_->removeAllEntities();
+    board_->loadLevel(levelNum);
+    board_->spawnPlayer(18, 48);
+}
+
+void Game::end() {
+    board_->removeAllEntities();
+    setFinishedState();
+}
+
+
+void Game::redrawUI() {
+    // put UI stuff here
 }
