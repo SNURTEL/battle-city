@@ -27,6 +27,8 @@ namespace {
 
             void testReset() { reset(); };
 
+            void testEnd() { end(); };
+
         };
 
         EventQueue<Event> *getEmptyEventQueue() {
@@ -134,6 +136,35 @@ SCENARIO("Resetting game's state") {
                 REQUIRE_FALSE(eventQueue->isEmpty());
                 event = eventQueue->pop();
                 REQUIRE(event->type == Event::StatisticsChanged);
+
+                REQUIRE(eventQueue->isEmpty());
+            }
+        }
+    }
+}
+
+SCENARIO("Ending the game") {
+    GIVEN("Game's attrs were changed") {
+        helper::TestGame game = helper::TestGame(60);
+        game.testSetup();
+        game.getStats()->setLevel(123);
+        game.getStats()->setPoints(456);
+        game.getBoard()->spawnTank(12, 34, Tank::BasicTank);
+
+        auto eventQueue = helper::getEmptyEventQueue();
+
+        WHEN("Calling the .end method") {
+            game.testEnd();
+
+            THEN("Entities should be removed and game's state should change") {
+                REQUIRE_FALSE(eventQueue->isEmpty());
+                auto event = eventQueue->pop();
+                REQUIRE(event->type == Event::EntityRemoved);
+
+                REQUIRE_FALSE(eventQueue->isEmpty());
+                event = eventQueue->pop();
+                REQUIRE(event->type == Event::StateChanged);
+                REQUIRE(dynamic_cast<FinishedGameState*>(event->info.stateInfo.state_) != nullptr);
 
                 REQUIRE(eventQueue->isEmpty());
             }
