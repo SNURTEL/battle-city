@@ -113,6 +113,17 @@ set(board_lib_test_sources
 add_executable(test_board_lib ${board_lib_test_sources})
 target_link_libraries(test_board_lib PRIVATE board-lib Catch2::Catch2WithMain)
 
+############################ ALL TESTS ################################
+
+add_executable(all_tests
+        ${core_lib_test_sources}
+        ${game_lib_test_sources}
+        ${tank_lib_test_sources}
+        ${board_lib_test_sources}
+        )
+target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib Catch2::Catch2WithMain)
+
+
 ############################ MAIN ################################
 
 

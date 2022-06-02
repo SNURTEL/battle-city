@@ -15,61 +15,63 @@
 #include "../include/Tank.h"
 #include "../include/Bullet.h"
 
-namespace helper {  // helper classes and functions
-    /**
-     * Extended EntityController for testing purposes
-     */
-    class TestEntityController : public EntityController {
-    public:
-        TestEntityController() : EntityController() {
+namespace {  // anonymous namespace to force internal linkage
+    namespace helper {  // helper classes and functions
+        /**
+         * Extended EntityController for testing purposes
+         */
+        class TestEntityController : public EntityController {
+        public:
+            TestEntityController() : EntityController() {
+            }
+
+            /**
+             * Provides access to entity vector
+             * @return A pointer to entity vector
+             */
+            std::vector<std::unique_ptr<Entity>> *getEntities() {
+                return &entities_;
+            }
+        };
+
+        /**
+         * Silently spawns a tank without adding an event to the queue
+         * @param controller EntityController instance to store the tank in
+         * @param x Tank's initial X coord
+         * @param y Tank's initial Y coord
+         * @param type Tank's type
+         * @param facing The direction in which the tank should be faced (defaults to North)
+         * @return A new tank wrapped in a unique_ptr
+         */
+        Tank *spawnTank(EntityController *controller, unsigned int x, unsigned int y, Tank::TankType type) {
+            std::unique_ptr<Tank> tank = controller->createTank(x, y, type);
+            return controller->addEntity(std::move(tank));
         }
 
         /**
-         * Provides access to entity vector
-         * @return A pointer to entity vector
+         * Silently spawns a bullet without adding an event to the queue
+         * Will not spawn a bullet if given tank already fired
+         * @param controller EntityController instance to store the tank in
+         * @param tank A tank that should fire the bullet
+         * @return If successful, a pointer to the new bullet; if failed, an std::nullopt
          */
-        std::vector<std::unique_ptr<Entity>> *getEntities() {
-            return &entities_;
+        std::optional<Bullet *> spawnBullet(EntityController *controller, Tank *tank) {
+            auto bullet = tank->createBullet();
+            if (!bullet.has_value()) {
+                return std::nullopt;
+            }
+            return controller->addEntity(std::move(bullet.value()));
         }
-    };
 
-    /**
-     * Silently spawns a tank without adding an event to the queue
-     * @param controller EntityController instance to store the tank in
-     * @param x Tank's initial X coord
-     * @param y Tank's initial Y coord
-     * @param type Tank's type
-     * @param facing The direction in which the tank should be faced (defaults to North)
-     * @return A new tank wrapped in a unique_ptr
-     */
-    Tank *spawnTank(EntityController *controller, unsigned int x, unsigned int y, Tank::TankType type) {
-        std::unique_ptr<Tank> tank = controller->createTank(x, y, type);
-        return controller->addEntity(std::move(tank));
-    }
-
-    /**
-     * Silently spawns a bullet without adding an event to the queue
-     * Will not spawn a bullet if given tank already fired
-     * @param controller EntityController instance to store the tank in
-     * @param tank A tank that should fire the bullet
-     * @return If successful, a pointer to the new bullet; if failed, an std::nullopt
-     */
-    std::optional<Bullet *> spawnBullet(EntityController *controller, Tank *tank) {
-        auto bullet = tank->createBullet();
-        if (!bullet.has_value()) {
-            return std::nullopt;
+        /**
+         * Clears the event queue and returns a pointer to it
+         * @return A pointer to EventQueue<Event> sole instance
+         */
+        EventQueue<Event> *getEmptyEventQueue() {
+            EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
+            eventQueue->clear();
+            return eventQueue;
         }
-        return controller->addEntity(std::move(bullet.value()));
-    }
-
-    /**
-     * Clears the event queue and returns a pointer to it
-     * @return A pointer to EventQueue<Event> sole instance
-     */
-    EventQueue<Event> *getEmptyEventQueue() {
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-        eventQueue->clear();
-        return eventQueue;
     }
 }
 
@@ -252,7 +254,7 @@ SCENARIO("Rotating tanks") {
     }
 }
 
-SCENARIO("Moving a single entity") {
+SCENARIO("Moving a single entity ") {
     GIVEN("An entity controller with some entities") {
         helper::TestEntityController test_entityController{};
 
