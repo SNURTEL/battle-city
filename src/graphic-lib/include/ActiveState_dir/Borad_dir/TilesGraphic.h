@@ -4,12 +4,13 @@
 #include <vector>
 #include "../../AbstractWindow.h"
 #include <map>
+#include "../../../../board-lib/include/Grid.h"
 
 #ifndef PROI_PROJEKT_TILESGRAPHIC_H
 #define PROI_PROJEKT_TILESGRAPHIC_H
 
 
-enum TileType: unsigned int;
+// enum TileType: unsigned int;
 class Grid;
 /**
  * @brief Class responsible for board updates and render
@@ -33,14 +34,18 @@ protected:
     Grid* grid;
 
     /// @brief Maps texture types to actual paths to textures
-    std::map<TileType, std::string> textureMap;
+    std::unordered_map<TileType, std::string> pathMap{
+        {TileType::Bricks, "../src/graphic-lib/tilesImages/Bricks.png"},
+        {TileType::Steel, "../src/graphic-lib/tilesImages/Steel.png"},
+        {TileType::Trees, "../src/graphic-lib/tilesImages/Grass.png"},
+        {TileType::Water, "../src/graphic-lib/tilesImages/Water.png"}
+    };
 
-    /**
-     * @brief Makes RenderObjects vector from tanks list
-     *
-     * @return std::vector<RenderObject>
-     */
-    std::vector<RenderObject> makeRenderTiles() const;
+    /// @brief Maps texture types to actual SFML textures
+    std::unordered_map<TileType, sf::Texture> textureMap;
+
+    /// @brief Sets texutres in textureMap
+    void loadTextures(); // possible to make as a friend template to all board related classes
 
 public:
 

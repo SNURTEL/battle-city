@@ -21,6 +21,9 @@ public:
     : Window(gameState, activePointers)
     {};
 
+    WindowView getWindowView() const
+    {return windowView;};
+
     GameStateGraphic get_gameState()
     {return gameState;};
 
@@ -78,5 +81,5 @@ public:
 class TestBullet : public Bullet
 {
 public:
-    TestBullet() : Bullet(10.f, 10.f, Direction::East, 5.f, BulletType::Enemy) {};
+    TestBullet() : Bullet(100.f, 100.f, Direction::East, 5.f, BulletType::Enemy) {};
 };

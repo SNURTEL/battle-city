@@ -35,10 +35,10 @@ void FrameGraphic::conscructComposite()
 
 void FrameGraphic::calculateBareFrameSize()
 {
-    float defaultFrameX = (windowView.view.getSize().x - 520)/2;
-    float defaultFramey = (windowView.view.getSize().y - 520)/2;
-    float windowSizeX = windowView.view.getSize().x;
-    float windowSizeY = windowView.view.getSize().y;
+    float defaultFrameX = (windowView.window->getSize().x - 520)/2;
+    float defaultFramey = (windowView.window->getSize().y - 520)/2;
+    float windowSizeX = windowView.window->getSize().x;
+    float windowSizeY = windowView.window->getSize().y;
     float windowBeginPoint = 0.f;
 
     // upRect

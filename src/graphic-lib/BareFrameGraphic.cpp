@@ -12,8 +12,6 @@ BareFrameGraphic::BareFrameGraphic(const WindowView& windowView, const FrameGrap
 
 void BareFrameGraphic::render()
 {
-    windowView.window->setView(windowView.view);
-
     // Render upRect
     sf::Vector2f ractSizeUp(frameSize.upRect.width, frameSize.upRect.height);
     sf::Vector2f ractPosUp(frameSize.upRect.left, frameSize.upRect.top);
@@ -45,8 +43,5 @@ void BareFrameGraphic::render()
     ractRight.setPosition(ractPosRight);
     ractRight.setFillColor(color);
     windowView.window->draw(ractRight);
-
-    // Setting default view for next objects
-    windowView.window->setView(windowView.window->getDefaultView());
 
 }

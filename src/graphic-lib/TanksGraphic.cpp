@@ -16,8 +16,10 @@ TanksGraphic::RenderObject::RenderObject(const sf::Vector2f& coords, Direction d
 
 void TanksGraphic::render()
 {
+    float leftOfset = windowView.leftOfset;
+    float topOfset = windowView.topOfset;
+
     makeRenderTanks(); // updates tanks info
-    windowView.window->setView(windowView.view); // settings appropriate view
     sf::RenderWindow* window = windowView.window;
     std::string path;
     sf::Texture texture;
@@ -28,14 +30,38 @@ void TanksGraphic::render()
         // std::map<Tank::TankType, sf::Texture>::iterator tankTypeIt = textureMap.find(tankType);
         texture = textureMap[tankType];
         sprite.setTexture(texture);
+        // sprite.set
         sprite.setPosition(tank.coords);
         float angle = getAngle(tank.direction);
-        sprite.setRotation(angle);
+        setTankRotation(sprite, angle);
+        sprite.setScale(4.f, 4.f);
         // sprite.setScale() Might be used in the future
-
+        windowView.window->draw(sprite);
     }
-    // After rendering setting default view for other objects
-    windowView.window->setView(windowView.window->getDefaultView());
+}
+
+
+void TanksGraphic::setTankRotation(sf::Sprite& sprite, float angle)
+{
+    float tankSize = 40.f;
+    sprite.setRotation(angle);
+    int angleInt = static_cast<int>(angle);
+    switch (angleInt)
+    {
+    case 0:
+        break;
+    case 90:
+        sprite.move(sf::Vector2f(tankSize, 0));
+        break;
+    case 180:
+        sprite.move(sf::Vector2f(tankSize, tankSize));
+        break;
+    case 270:
+        sprite.move(sf::Vector2f(0, tankSize));
+        break;
+    default:
+        break;
+    }
 }
 
 
@@ -65,19 +91,21 @@ float TanksGraphic::getAngle(Direction direction) const
 
 TanksGraphic::TanksGraphic(const WindowView& windowView, std::vector<Tank*>* tanks)
 : AbstractWindow(windowView), tanks(tanks)
-{}
+{loadTextures();}
 
 
 void TanksGraphic::makeRenderTanks()
 {
+    float leftOfset = windowView.leftOfset;
+    float topOfset = windowView.topOfset;
     Tank::TankType tankType;
     sf::Vector2f tankPos;
     Direction direction;
     for (const Tank* tank : *tanks)
     {
         direction = tank->getFacing();
-        tankPos.x = tank->getX();
-        tankPos.y = tank->getY();
+        tankPos.x = tank->getX() + leftOfset;
+        tankPos.y = tank->getY() + topOfset;
         tankType = tank->getType();
         renderTanks.push_back(RenderObject(tankPos, direction, tankType));
     }
@@ -87,17 +115,17 @@ void TanksGraphic::makeRenderTanks()
 void TanksGraphic::loadTextures()
 {
     std::unordered_map<Tank::TankType, std::string>::iterator it_path = pathMap.begin();
-    std::unordered_map<Tank::TankType, sf::Texture>::iterator it_texture = textureMap.begin();
+    // std::unordered_map<Tank::TankType, sf::Texture>::iterator it_texture = textureMap.begin();
     Tank::TankType type;
     sf::Texture texture;
     std::string path;
 
     // Not the best solution but iterating over an enum is problematic
-    while (it_texture != textureMap.end())
+    while (it_path != pathMap.end())
     {
 
-        type = it_texture->first;
-        texture = it_texture->second;
+        type = it_path->first;
+        // texture = it_texture->second;
         path = pathMap[type];
 
         if (!texture.loadFromFile(path))
@@ -108,9 +136,8 @@ void TanksGraphic::loadTextures()
         {
             textureMap[type] = texture;
         }
-
+        it_path ++;
     }
-
 }
 
 

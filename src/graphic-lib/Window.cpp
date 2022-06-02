@@ -16,9 +16,10 @@ Window::Window(GameState* gameState, const ActiveStatePointers& activePointers)
 {
     selectgameState(gameState);
     videoMode = sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT);
-    window = std::make_unique<sf::RenderWindow>(videoMode, "Tanks", sf::Style::Close);
+    window = std::make_unique<sf::RenderWindow>(videoMode, "Tanks", sf::Style::Default);
     windowView.window = window.get();
-    windowView.view = window->getView();
+    windowView.leftOfset = 0.f;
+    windowView.topOfset = 0.f;
     activeStatePointers = activePointers;
     conscructComposit();
 }
@@ -61,6 +62,7 @@ void Window::render()
     {
     case GameStateGraphic::ActieveGameState:
         foundChild = children_map[gameState];
+        foundChild->render();
         break;
     case GameStateGraphic::MenuGameState:
         foundChild = children_map[gameState];
@@ -69,10 +71,10 @@ void Window::render()
     default:
         break;
     }
-    for(const std::shared_ptr<AbstractWindow>& child : children)
-    {
-        child->render();
-    }
+    // for(const std::shared_ptr<AbstractWindow>& child : children)
+    // {
+    //     child->render();
+    // }
 
 }
 

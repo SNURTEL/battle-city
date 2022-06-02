@@ -41,7 +41,18 @@ protected:
     std::unordered_map<Tank::TankType, sf::Texture> textureMap{}; // Why before initialization compilatro was showing an error
 
     /// @brief Maps paths types to actual textures
-    std::unordered_map<Tank::TankType, std::string> pathMap{};
+    std::unordered_map<Tank::TankType, std::string> pathMap
+    {
+        {Tank::ArmorTank, "../src/graphic-lib/tanksImages/ArmorTank.png"},
+        {Tank::FastTank, "../src/graphic-lib/tanksImages/FastTank.png"},
+        {Tank::BasicTank, "../src/graphic-lib/tanksImages/BasicTank.png"},
+        {Tank::PlayerTank, "../src/graphic-lib/tanksImages/PlayerTank.png"},
+        {Tank::PowerTank, "../src/graphic-lib/tanksImages/PowerTank.png"}
+    };
+
+
+    /// @brief Sets tank's appropriate rotation
+    void setTankRotation(sf::Sprite& sprite, float angle);
 
     /**
      * @brief Makes RenderObjects vector from tanks list
