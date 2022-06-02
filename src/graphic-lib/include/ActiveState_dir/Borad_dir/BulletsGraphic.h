@@ -45,7 +45,7 @@ protected:
     /// @brief Maps texture types to actual textures
     std::unordered_map<Bullet::BulletType, sf::Texture> textureMap{};
 
-    std::vector<Bullet*>* bullets;
+    std::shared_ptr<std::vector<Bullet*>> bullets;
 
     std::vector<RenderObject> renderBullets;
     /**
@@ -88,6 +88,13 @@ public:
      */
     std::vector<RenderObject> getRenderBullets(std::vector<Bullet*>* bullets);
 
+    /**
+     * @brief Get the Bullets object
+     *
+     * @return std::vector<Bullet*>*
+     */
+    std::vector<Bullet*>* getBullets() const;
+
 
     /**
      * @brief Construct a new BulletsGraphic object
@@ -97,7 +104,7 @@ public:
      * @param window
      * @param TanksGraphic
      */
-    BulletsGraphic(const WindowView& windowView, std::vector<Bullet*>* bullets);
+    BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Bullet*>> bullets);
 };
 
 #endif //PROI_PROJEKT_BULLETSGRAPHIC_H

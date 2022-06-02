@@ -31,7 +31,7 @@ protected:
         TileType textureType;
     };
 
-    Grid* grid;
+    std::shared_ptr<Grid*> grid;
 
     /// @brief Maps texture types to actual paths to textures
     std::unordered_map<TileType, std::string> pathMap{
@@ -56,6 +56,12 @@ public:
     // /// @brief Updates its objects
     // void update(int *tiles[52][52]);
 
+    /**
+     * @brief Get the Grid object
+     *
+     * @return Grid*
+     */
+    Grid** getGrid();
 
     /**
      * @brief Get the RenderObjects objects in a vector
@@ -71,7 +77,7 @@ public:
      * @param windowView
      * @param grid
      */
-    TilesGraphic(WindowView windowView, Grid* grid);
+    TilesGraphic(WindowView windowView, std::shared_ptr<Grid*> grid);
 };
 
 #endif //PROI_PROJEKT_TILESGRAPHIC_H

@@ -4,6 +4,8 @@
 #include <vector>
 #include "AbstractWindow.h"
 #include <unordered_map>
+#include "../../tank-lib/include/Entity.h"
+#include "../../board-lib/include/Grid.h"
 // #include "ActiveState_dir/ActiveStateGraphic.h"
 
 
@@ -34,11 +36,11 @@ public:
     /// @brief Stores given ActiveState pointers
     struct ActiveStatePointers
     {
-        std::vector<Tank*>* tanks;
-        std::vector<Bullet*>* bullets;
-        Grid* tiles;
-        int* level;
-        int* playerLivesLeft;
+        std::shared_ptr<std::vector<Tank*>> tanks;
+        std::shared_ptr<std::vector<Bullet*>> bullets;
+        std::shared_ptr<Grid*> tiles;
+        std::shared_ptr<int> level;
+        std::shared_ptr<int*> playerLivesLeft;
         // And others ...
         // Will be added later
     };
@@ -53,25 +55,17 @@ public:
      * @brief Construct a new Window object
      *
      * Intiate window with apropriate size and mode
-     * Initiate view object in windowView
      * Gets actual gameState, sets gameState attribute
-     * Gets pointers for board objects
-     *
-     * @todo Way of getting board might change, more pointers need to be added
      *
      */
-    Window(GameState* gameState, const ActiveStatePointers& activePointers);
+    Window(GameState* gameState);
 
 
     /**
-     * @brief Fetches pointers for ActiveState objects
+     * @brief Initiates active state pointers as shared pointers
      *
-     * Fetch poitners fo ActiveStateGraphic children and store it in window data structure
-     *
-     * @param tiles
      */
-    void fetchAcitveStatePointers(std::vector<Tank*>* tanks ,Grid* tiles, std::vector<Bullet*>* bullets,
-                                  int* level, int* livesLeft);
+    void initiateActiveStatePointers();
 
 
     /**
@@ -92,6 +86,30 @@ public:
      */
     virtual void render() override;
 
+    /// @brief Adding Entity to the list of tanks or bullets
+    void addEntity(Entity* e);
+
+    // /// @brief Changing properties of given Entity
+    // void moveEntity(Entity* e);
+
+    /// @brief Removing Entity from the tanks or bullets list
+    void removeEntity(Entity* e);
+
+    // /// @brief Changing tile type of the given tile
+    // void changeTile(uint x, uint y, TileType tileType);
+
+    /// @brief Loading next level
+    void loadLevel(Grid* grid, int levelNumber);
+
+    /**
+     * @brief Cheks given Entity type
+     *
+     * Returns "tank" if it is a tank or "bullet" if it is a bullets
+     *
+     * @param e
+     * @return std::string
+     */
+    std::string checkEntityType(Entity* e);
 
     // /**
     //  * @brief Commands its children to update objects to render

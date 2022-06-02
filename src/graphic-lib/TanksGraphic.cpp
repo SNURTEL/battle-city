@@ -27,15 +27,12 @@ void TanksGraphic::render()
     for(const RenderObject& tank : renderTanks)
     {
         Tank::TankType tankType = tank.textureType;
-        // std::map<Tank::TankType, sf::Texture>::iterator tankTypeIt = textureMap.find(tankType);
         texture = textureMap[tankType];
         sprite.setTexture(texture);
-        // sprite.set
         sprite.setPosition(tank.coords);
         float angle = getAngle(tank.direction);
         setTankRotation(sprite, angle);
         sprite.setScale(4.f, 4.f);
-        // sprite.setScale() Might be used in the future
         windowView.window->draw(sprite);
     }
 }
@@ -89,7 +86,7 @@ float TanksGraphic::getAngle(Direction direction) const
 }
 
 
-TanksGraphic::TanksGraphic(const WindowView& windowView, std::vector<Tank*>* tanks)
+TanksGraphic::TanksGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Tank*>> tanks)
 : AbstractWindow(windowView), tanks(tanks)
 {loadTextures();}
 
@@ -142,4 +139,4 @@ void TanksGraphic::loadTextures()
 
 
 std::vector<Tank*>* TanksGraphic::getTanks() const
-{return tanks;}
+{return tanks.get();}

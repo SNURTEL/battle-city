@@ -10,7 +10,7 @@
 
 
 
-TilesGraphic::TilesGraphic(WindowView windowView, Grid* grid)
+TilesGraphic::TilesGraphic(WindowView windowView, std::shared_ptr<Grid*> grid)
 : AbstractWindow(windowView), grid(grid)
 {
     loadTextures();
@@ -35,7 +35,7 @@ void TilesGraphic::render()
         {
             float x_pos = j * tile_height;
             float y_pos = i * tile_width;
-            TileType tileType = grid->getTileAtPosition(j, i);
+            TileType tileType = (*grid)->getTileAtPosition(j, i);
             if(tileType != TileType::NullTile)
             {
                 sf::Texture* texture = &textureMap[tileType];
@@ -78,3 +78,7 @@ void TilesGraphic::loadTextures()
     }
 
 }
+
+
+Grid** TilesGraphic::getGrid()
+{return grid.get();};

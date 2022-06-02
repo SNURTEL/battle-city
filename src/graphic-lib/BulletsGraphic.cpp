@@ -13,7 +13,7 @@ BulletsGraphic::RenderObject::RenderObject(sf::Vector2f pos, Direction direction
 : coords(pos), direction(direction), textureType(type)
 {}
 
-BulletsGraphic::BulletsGraphic(const WindowView& windowView, std::vector<Bullet*>* bullets)
+BulletsGraphic::BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Bullet*>> bullets)
 : AbstractWindow(windowView), bullets(bullets)
 {loadTextures();}
 
@@ -132,3 +132,7 @@ void BulletsGraphic::loadTextures()
         it_path ++;
     }
 }
+
+
+std::vector<Bullet*>* BulletsGraphic::getBullets() const
+{return bullets.get();};

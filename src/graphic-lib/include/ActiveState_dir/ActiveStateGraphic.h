@@ -28,17 +28,18 @@ public:
     /// @brief Stores given board object pointers
     struct BoardPointers
     {
-        std::vector<Tank*>* tanks;
-        std::vector<Bullet*>* bullets;
-        Grid* tiles;
+        std::shared_ptr<std::vector<Tank*>> tanks;
+        std::shared_ptr<std::vector<Bullet*>> bullets;
+        std::shared_ptr<Grid*> tiles;
     };
 
 
     /// @brief Stores given frame object pointers
     struct FramePointers
     {
-        int* level;
-        int* playerLivesLeft;
+        std::shared_ptr<int> level;
+
+        std::shared_ptr<int*> playerLivesLeft;
         // And other ...
         // Will be added later
     };
