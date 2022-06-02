@@ -8,7 +8,7 @@
 #include <memory>
 #include "../../core-lib/include/EventHandler.h"
 #include "../../core-lib/include/EventQueue.h"
-#include "PointSystem.h"
+#include "Scoreboard.h"
 
 class Event;
 

@@ -133,7 +133,7 @@ Event::Event(EventType e, GameState* new_state) {
     }
 }
 
-Event::Event(EventType e, PointSystem* ptsys, unsigned int points) {
+Event::Event(EventType e, Scoreboard* ptsys, unsigned int points) {
     type = e;
     switch (e) {
         case PointsChanged: {

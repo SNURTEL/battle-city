@@ -138,6 +138,8 @@ public:
      */
     bool snapTankToGrid(Tank* target, bool snap_x=true, bool snap_y=true);
 
+    void loadLevel(unsigned int levelNum);
+
 protected:
     /**
      * Checks if an entity overlaps with any other entity, tile, or is placed out of grid

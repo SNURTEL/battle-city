@@ -43,11 +43,14 @@ void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
         case (Event::KeyReleased):{
             break;
         }
+        case (Event::StateChanged):{
+            break;
+        }
         case (Event::NullEvent):{
             break;
         }
         default:{
-            throw InvalidEventException("Invalid event for MenuEventHandler");
+            throw InvalidEventException("Invalid event for MenuEventHandler\nEvent enum cast: " + std::to_string(event->type));
         }
     }
 }

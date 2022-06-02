@@ -6,24 +6,24 @@
 #include <utility>
 #include <iostream>
 
-#include "include/PointSystem.h"
+#include "include/Scoreboard.h"
+#include "include/ScoreboardIO.h"
 
 
-
-void PointSystem::add_points(unsigned int pts) {
+void Scoreboard::add_points(unsigned int pts) {
     points_ += pts;
     eventQueue_->registerEvent(std::make_unique<Event>(Event::PointsChanged, this, points_));
 }
 
-void PointSystem::set_points(unsigned int pts) {
+void Scoreboard::set_points(unsigned int pts) {
     points_ = pts;
     eventQueue_->registerEvent(std::make_unique<Event>(Event::PointsChanged, this, points_));
 }
 
-unsigned int PointSystem::get_points() {
+unsigned int Scoreboard::get_points() {
     return points_;
 }
 
-PointSystem::PointSystem(unsigned int start_pts) {
+Scoreboard::Scoreboard(unsigned int start_pts) {
     points_ = start_pts;
 }

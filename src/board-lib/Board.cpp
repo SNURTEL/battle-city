@@ -9,6 +9,7 @@
 
 #include "include/Board.h"
 #include "include/Grid.h"
+#include "include/GridBuilder.h"
 #include "include/TileManager.h"
 #include "../tank-lib/include/EntityController.h"
 
@@ -191,4 +192,9 @@ std::unique_ptr<Event> Board::createCollisionEvent(Entity *entity) {
         collisionEvent = std::make_unique<Event>(Event::EntityGridCollision, entity, entity->getX(), entity->getY());
     }
     return std::move(collisionEvent);
+}
+
+void Board::loadLevel(unsigned int levelNum) {
+    removeAllEntities();
+    setGrid(std::move(GridBuilder::BuildLevel(levelNum)));  // TODO init player tank
 }

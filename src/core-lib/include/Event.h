@@ -14,7 +14,7 @@ class Entity;
 class Menu;
 class GameState;
 class Grid;
-class PointSystem;
+class Scoreboard;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
@@ -114,7 +114,7 @@ public:
      * Holds additional event info for points events
      */
     struct PointsInfo {
-        PointSystem* ptsys_;
+        Scoreboard* ptsys_;
         unsigned int points_;
     };
 
@@ -175,7 +175,7 @@ public:
     // FIXME not so elegant
     Event(EventType, unsigned int ui1);
 
-    Event(EventType e, PointSystem* ptsys, unsigned int points);
+    Event(EventType e, Scoreboard* ptsys, unsigned int points);
 
     Event(EventType e, GameState* new_state);
 

@@ -6,12 +6,11 @@
 #define PROI_PROJEKT_GAME_H
 
 #include <memory>
-#include <SFML/Graphics.hpp>
 
 #include "GameState.h"
 #include "KeyboardController.h"
-#include "PointSystem.h"
 #include "Menu.h"
+#include "ScoreboardIO.h"
 
 class Clock;
 
@@ -22,6 +21,7 @@ class Event;
 
 class KeyboardController;
 
+class Scoreboard;
 
 /**
  * Main container
@@ -33,9 +33,9 @@ public:
 
     /**
      * Inits class Game
-     * @param clock_freq Internal clock frequency
+     * @param clockFreq Internal clock frequency
      */
-    explicit Game(unsigned int clock_freq);
+    explicit Game(unsigned int clockFreq);
 
     /**
      * Starts the game
@@ -71,14 +71,14 @@ public:
      * Returns current state pointer
      * @return State pointer
      */
-    GameState* get_state();
+    GameState* getState();
 
 
     /**
      * Returns Point system state pointer
      * @return point system pointer
      */
-    PointSystem* get_point_system();
+    Scoreboard* getScoreboard();
 
 private:
     /**
@@ -86,18 +86,28 @@ private:
      * loads the scoreboard and links subscribers to clock.
      */
     void setup();
+
+    void initStates();
+
+    void initComponents();
+
+    void initScoreboard();
+
     /**
      * Creates an SFML render window and saves it
      */
-    void createRenderWindow();
+    void initUI();
+
     std::unique_ptr<GameState> active_state_;
     std::unique_ptr<GameState> pause_state_;
     std::unique_ptr<GameState> finished_state_;
     std::unique_ptr<GameState> menu_state_;
     GameState* state_{};
 
-    PointSystem* points_;
-    bool running_ = true;
+    std::unique_ptr<Scoreboard> scoreboard;
+    std::unique_ptr<ScoreboardIO> scoreboardIO;
+
+    bool running_;
 
     Clock* clock_;
     EventQueue<Event>* eventQueue_;

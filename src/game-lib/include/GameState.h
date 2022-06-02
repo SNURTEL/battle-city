@@ -11,9 +11,9 @@
 #include "MenuEventHandler.h"
 #include "PauseEventHandler.h"
 #include "FinishedEventHandler.h"
-#include "Menu.h"
 
 
+class Menu;
 class PublisherEventHandler;
 class Board;
 
@@ -34,9 +34,9 @@ public:
     PublisherEventHandler* getEventHandler();
 
 protected:
-    GameState()=default;
+    GameState(Game* n_game, std::unique_ptr<PublisherEventHandler> n_eventHandler) : game_(n_game), eventHandler_(std::move(n_eventHandler)) {};
     std::unique_ptr<PublisherEventHandler> eventHandler_;
-    Game* game_{};
+    Game* game_;
 };
 
 // #####################################

@@ -21,7 +21,7 @@ public:
      * @param level
      * @return
      */
-    static std::unique_ptr<Grid> BuildLevel(unsigned int level) {};
+    static std::unique_ptr<Grid> BuildLevel(unsigned int level);
 
 private:
     /**

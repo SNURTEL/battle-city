@@ -7,7 +7,7 @@
 
 #include "../include/GameState.h"
 #include "../include/Game.h"
-#include "../include/PointSystem.h"
+#include "../include/Scoreboard.h"
 #include "../include/ActiveEventHandler.h"
 #include "../include/FinishedEventHandler.h"
 #include "../include/MenuEventHandler.h"
@@ -26,7 +26,7 @@ namespace helper {
 
 SCENARIO("testing point system") {
     EventQueue<Event> * eq = helper::getEmptyEventQueue();
-    PointSystem p(0);
+    Scoreboard p(0);
     WHEN("Adding points into system") {
         p.add_points(1);
         THEN("Event should be created") {

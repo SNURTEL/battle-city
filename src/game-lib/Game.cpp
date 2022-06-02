@@ -1,32 +1,58 @@
 //
 // Created by tomek on 02.05.2022.
 //
-#include <iostream>
+
+#include <SFML/Graphics.hpp>
+
 
 #include "include/Game.h"
 #include "../core-lib/include/Clock.h"  //FIXME GROSS
 #include "../core-lib/include/EventQueue.h"
 #include "include/GameState.h"
 #include "include/KeyboardController.h"
+#include "include/Scoreboard.h"
+#include "include/ScoreboardIO.h"
 
-Game::Game(unsigned int clock_freq) {
+Game::Game(unsigned int clockFreq) {
     active_state_ = std::make_unique<ActiveGameState>(this);
     finished_state_ = std::make_unique<FinishedGameState>(this);
     pause_state_ = std::make_unique<PauseGameState>(this);
     menu_state_ = std::make_unique<MenuGameState>(this);
-    Clock::initialize(clock_freq);
+    Clock::initialize(clockFreq);
     clock_ = Clock::instance();
     eventQueue_ = EventQueue<Event>::instance();
 }
 
 void Game::setup() {
     // load scoreboard, init UI, etC
-    createRenderWindow();
-    keyboardController_ = std::make_unique<KeyboardController>(window_.get());
-    keyboardController_->subscribe(clock_);
+    initUI();
+
+    initStates();
+    initComponents();
+
+    setMenuState();
+    running_ = true;
+    }
+
+void Game::initStates() {
+    active_state_ = std::make_unique<ActiveGameState>(this);
+    pause_state_ = std::make_unique<PauseGameState>(this);
+    finished_state_ = std::make_unique<FinishedGameState>(this);
+    menu_state_ = std::make_unique<MenuGameState>(this);
 }
 
-void Game::createRenderWindow() {
+void Game::initComponents() {
+    keyboardController_ = std::make_unique<KeyboardController>(window_.get());
+    keyboardController_->subscribe(clock_);
+
+    scoreboardIO = std::make_unique<ScoreboardIO>("scoreboard.txt");  // dummy, filename is ignored for now
+}
+
+void Game::initScoreboard() {
+    scoreboard = std::move(scoreboardIO->loadScoreboard());
+}
+
+void Game::initUI() {
     window_ = std::make_unique<sf::RenderWindow>(sf::VideoMode(400, 400), ":D");
 }
 
@@ -56,7 +82,6 @@ void Game::quit() {
 
 void Game::run() {
     setup();
-    setMenuState();
 
     while (running_ == true){
         clock_->tick();
@@ -69,10 +94,10 @@ void Game::run() {
     }
 }
 
-GameState* Game::get_state() {
+GameState* Game::getState() {
     return state_;
 }
 
-PointSystem* Game::get_point_system() {
-    return points_;
+Scoreboard* Game::getScoreboard() {
+    return scoreboard.get();
 }
