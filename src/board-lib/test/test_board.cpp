@@ -420,8 +420,9 @@ SCENARIO("Moving a single entity") {
             Tank *tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
             board.setTankMoving(tank1, false);
 
-            Tank *tank2 = helper::placeTank(&board, 10, 10 + static_cast<unsigned int>(tank1->getSizeY()) + 1,
+            Tank *tank2 = helper::placeTank(&board, 10, 10,
                                             Tank::BasicTank, North);
+            tank2->setY(10 + + static_cast<unsigned int>(tank1->getSizeY()) + 0.4);
             Bullet *bullet = helper::fireBullet(&board, tank2).value();
 
             board.moveEntity(bullet);

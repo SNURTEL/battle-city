@@ -90,28 +90,28 @@ SCENARIO("Firing a bullet") {
                 REQUIRE(b->getX() == t->getX() + (t->getSizeX() - b->getSizeX()) / 2);
                 REQUIRE(b->getY() == t->getY() - b->getSizeY());
                 REQUIRE(b->getFacing() == North);
-                REQUIRE(b->getSpeed() == 3);
+                REQUIRE(b->getSpeed() == 0.7f);
                 REQUIRE(b->isFriendly() == false);
                 t = basicTank.get();
                 b = basicBullet->get();
                 REQUIRE(b->getX() == t->getX() + t->getSizeX());
                 REQUIRE(b->getY() == t->getY() + (t->getSizeY() - b->getSizeY()) / 2);
                 REQUIRE(b->getFacing() == East);
-                REQUIRE(b->getSpeed() == 1);
+                REQUIRE(b->getSpeed() == 0.3f);
                 REQUIRE(b->isFriendly() == false);
                 t = playerTank.get();
                 b = playerBullet->get();
                 REQUIRE(b->getX() == t->getX() + (t->getSizeX() - b->getSizeX()) / 2);
                 REQUIRE(b->getY() == t->getY() + t->getSizeY());
                 REQUIRE(b->getFacing() == South);
-                REQUIRE(b->getSpeed() == 1);
+                REQUIRE(b->getSpeed() == 0.4f);
                 REQUIRE(b->isFriendly() == true);
                 t = armorTank.get();
                 b = armorBullet->get();
                 REQUIRE(b->getX() == t->getX() - b->getSizeX());
                 REQUIRE(b->getY() == t->getY() + (t->getSizeY() - b->getSizeY()) / 2);
                 REQUIRE(b->getFacing() == West);
-                REQUIRE(b->getSpeed() == 2);
+                REQUIRE(b->getSpeed() == 0.5f);
                 REQUIRE(b->isFriendly() == false);
             }
         }

@@ -131,12 +131,12 @@ Tank::Tank(TankType type, float x, float y, float speed, float bulletSpeed, unsi
 
 // ##############################
 
-PlayerTank::PlayerTank(float x, float y, Direction facing) : Tank(Tank::PlayerTank, x, y, 1, 1, 1, facing, 0) {}
+PlayerTank::PlayerTank(float x, float y, Direction facing) : Tank(Tank::PlayerTank, x, y, 0.2, 0.4, 1, facing, 0) {}
 
-BasicTank::BasicTank(float x, float y, Direction facing) : Tank(Tank::BasicTank, x, y, 1, 1, 1, facing, 100) {}
+BasicTank::BasicTank(float x, float y, Direction facing) : Tank(Tank::BasicTank, x, y, 0.1, 0.3, 1, facing, 100) {}
 
-FastTank::FastTank(float x, float y, Direction facing) : Tank(Tank::FastTank, x, y, 3, 2, 1, facing, 200) {}
+FastTank::FastTank(float x, float y, Direction facing) : Tank(Tank::FastTank, x, y, 0.3, 0.5, 1, facing, 200) {}
 
-PowerTank::PowerTank(float x, float y, Direction facing) : Tank(Tank::PowerTank, x, y, 2, 3, 1, facing, 300) {}
+PowerTank::PowerTank(float x, float y, Direction facing) : Tank(Tank::PowerTank, x, y, 0.2, 0.7, 1, facing, 300) {}
 
-ArmorTank::ArmorTank(float x, float y, Direction facing) : Tank(Tank::ArmorTank, x, y, 2, 2, 4, facing, 400) {}
+ArmorTank::ArmorTank(float x, float y, Direction facing) : Tank(Tank::ArmorTank, x, y, 0.2, 0.5, 4, facing, 400) {}
