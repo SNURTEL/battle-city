@@ -7,6 +7,7 @@
 
 #include "../include/GameState.h"
 #include "../include/Game.h"
+#include "../include/PointSystem.h"
 #include "../include/ActiveEventHandler.h"
 #include "../include/FinishedEventHandler.h"
 #include "../include/MenuEventHandler.h"
@@ -23,4 +24,26 @@ namespace helper {
 
 }
 
-
+SCENARIO("testing point system") {
+    EventQueue<Event> * eq = helper::getEmptyEventQueue();
+    PointSystem p(0);
+    WHEN("Adding points into system") {
+        p.add_points(1);
+        THEN("Event should be created") {
+            REQUIRE(eq->isEmpty() == false);
+        }
+        THEN("points should be equal to 1") {
+            REQUIRE(p.get_points() == 1);
+        }
+    }
+    eq = helper::getEmptyEventQueue();
+    WHEN("Setting points into system") {
+        p.set_points(1);
+        THEN("Event should be created") {
+            REQUIRE(eq->isEmpty() == false);
+        }
+        THEN("Event should be created") {
+            REQUIRE(p.get_points() == 1);
+        }
+    }
+}
