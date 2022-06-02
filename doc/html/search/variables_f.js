@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['y_0',['y',['../struct_event_1_1_entity_tile_collision_info.html#af5c6e3f5db048adbca95d2833e6f25d5',1,'Event::EntityTileCollisionInfo']]],
-  ['y_5f_1',['y_',['../class_entity.html#a0e392942701b93375b8f8ea33b432189',1,'Entity']]]
+  ['what_5fmessage_621',['what_message',['../class_invalid_event_exception.html#a2ed4831fb010b1437be55e3dd0eb3c61',1,'InvalidEventException::what_message()'],['../class_observer_exception.html#a3f569a12194315b6e2039efe44938e8c',1,'ObserverException::what_message()']]],
+  ['window_5f_622',['window_',['../class_game.html#a0fbe0254a5671d7d7c5c0df01758a1bc',1,'Game::window_()'],['../class_keyboard_controller.html#a6348f5ce48982fa6b9b6caef149bf78a',1,'KeyboardController::window_()']]]
 ];

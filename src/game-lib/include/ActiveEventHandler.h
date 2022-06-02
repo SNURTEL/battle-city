@@ -6,12 +6,17 @@
 #define PROI_PROJEKT_ACTIVEEVENTHANDLER_H
 
 #include <memory>
-
 #include "../../core-lib/include/EventHandler.h"
+#include "../../core-lib/include/EventQueue.h"
+#include "PointSystem.h"
 
 class Event;
 
+class Board;
+
 class Game;
+
+class ActiveGameState;
 
 /**
  * Event handler for active game state. Operates on Event class events
@@ -24,7 +29,7 @@ public:
      * Inits class ActiveEventHandler.
      * @param game
      */
-    explicit ActiveEventHandler(Game* game);
+    ActiveEventHandler(Game* game, ActiveGameState* state);
 
     /**
      * Responds to event
@@ -34,6 +39,8 @@ public:
 
 private:
     Game* game_;
+    ActiveGameState* state_;
+    EventQueue<Event>* eventQueue_ = EventQueue<Event>::instance();
 };
 
 

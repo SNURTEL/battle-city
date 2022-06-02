@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['simplepublisher_2ecpp_0',['SimplePublisher.cpp',['../_simple_publisher_8cpp.html',1,'']]],
-  ['simplepublisher_2eh_1',['SimplePublisher.h',['../_simple_publisher_8h.html',1,'']]],
-  ['simplesubscriber_2ecpp_2',['SimpleSubscriber.cpp',['../_simple_subscriber_8cpp.html',1,'']]],
-  ['simplesubscriber_2eh_3',['SimpleSubscriber.h',['../_simple_subscriber_8h.html',1,'']]],
-  ['singletonexceptions_2ecpp_4',['SingletonExceptions.cpp',['../_singleton_exceptions_8cpp.html',1,'']]],
-  ['singletonexceptions_2eh_5',['SingletonExceptions.h',['../_singleton_exceptions_8h.html',1,'']]]
+  ['menu_2ecpp_396',['Menu.cpp',['../_menu_8cpp.html',1,'']]],
+  ['menu_2eh_397',['Menu.h',['../_menu_8h.html',1,'']]],
+  ['menueventhandler_2ecpp_398',['MenuEventHandler.cpp',['../_menu_event_handler_8cpp.html',1,'']]],
+  ['menueventhandler_2eh_399',['MenuEventHandler.h',['../_menu_event_handler_8h.html',1,'']]]
 ];

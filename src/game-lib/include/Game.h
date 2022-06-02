@@ -10,6 +10,8 @@
 
 #include "GameState.h"
 #include "KeyboardController.h"
+#include "PointSystem.h"
+#include "Menu.h"
 
 class Clock;
 
@@ -17,8 +19,6 @@ template <class E>
 class EventQueue;
 
 class Event;
-
-class GameState;
 
 class KeyboardController;
 
@@ -47,6 +47,39 @@ public:
      */
     void setActiveState();
 
+    /**
+     * Switches the current state to finished
+     */
+    void setFinishedState();
+
+    /**
+     * Switches the current state to pause
+     */
+    void setPauseState();
+
+    /**
+     * Switches the current state to menu
+     */
+    void setMenuState();
+
+    /**
+     * Quits the game
+     */
+    void quit();
+
+    /**
+     * Returns current state pointer
+     * @return State pointer
+     */
+    GameState* get_state();
+
+
+    /**
+     * Returns Point system state pointer
+     * @return point system pointer
+     */
+    PointSystem* get_point_system();
+
 private:
     /**
      * Called right before starting the event loop. Sets all remaining attrs, creates the render window,
@@ -58,7 +91,13 @@ private:
      */
     void createRenderWindow();
     std::unique_ptr<GameState> active_state_;
+    std::unique_ptr<GameState> pause_state_;
+    std::unique_ptr<GameState> finished_state_;
+    std::unique_ptr<GameState> menu_state_;
     GameState* state_{};
+
+    PointSystem* points_;
+    bool running_ = true;
 
     Clock* clock_;
     EventQueue<Event>* eventQueue_;
