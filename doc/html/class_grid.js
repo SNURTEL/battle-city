@@ -6,6 +6,7 @@ var class_grid =
     [ "getSizeY", "class_grid.html#a9af57efebfaf354fa3f233a96f364d27", null ],
     [ "getTileAtPosition", "class_grid.html#a1e1d0cc99bb79e8e89e3b39f7927045f", null ],
     [ "setTile", "class_grid.html#a9447d78c7d145216588c367555e05b0c", null ],
+    [ "GridBuilder", "class_grid.html#a06cae698b731676ab2d6a89dd561eaa5", null ],
     [ "eventQueue_", "class_grid.html#ae9c9a062ea0e607a1bfd7acd84e68549", null ],
     [ "grid", "class_grid.html#a78c017a6554fdb552a2fc06280e445d8", null ],
     [ "size_x", "class_grid.html#ad7f84e5ac3bc5dc93811d5a7476aa47a", null ],

@@ -9,17 +9,36 @@
 #include <string>
 #include <utility>
 
-class GameStats;
+class GameStatistics;
 
+/**
+ * Used for loading and saving scoreboards
+ */
 class GameStatsIO {
 public:
     GameStatsIO() = delete;
 
+    /**
+     * Inits class GameStatsIO
+     * @param n_scoreboardFilename Path to scoreboard file
+     */
     explicit GameStatsIO(std::string n_scoreboardFilename) : scoreboardFilename(std::move(n_scoreboardFilename)) {};
 
-    std::unique_ptr<GameStats> loadScoreboard();
+    /**
+     * Loads the scoreboard from the given file and returns a GameStatistics instance with scoreboard field filled
+     *
+     * DOES NOTHING - PLACEHOLDER
+     * @return A new scoreboard
+     */
+    std::unique_ptr<GameStatistics> loadScoreboard();
 
-    void saveScoreboard(std::unique_ptr<GameStats> scoreboard);
+    /**
+     * Extracts and saves the gameStats to given file
+     *
+     * DOES NOTHING - PLACEHOLDER
+     * @param gameStats Stats object containing the scoreboard that should be saved
+     */
+    void saveScoreboard(std::unique_ptr<GameStatistics> gameStats);
 
 private:
     std::string scoreboardFilename;

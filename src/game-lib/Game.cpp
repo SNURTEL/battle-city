@@ -10,7 +10,7 @@
 #include "../core-lib/include/EventQueue.h"
 #include "include/GameState.h"
 #include "include/KeyboardController.h"
-#include "include/GameStats.h"
+#include "include/GameStatistics.h"
 #include "include/GameStatsIO.h"
 #include "../board-lib/include/Board.h"
 #include "../board-lib/include/Grid.h"
@@ -106,7 +106,7 @@ GameState* Game::getState() {
     return state_;
 }
 
-GameStats* Game::getStats() {
+GameStatistics* Game::getStats() {
     return gameStats_.get();
 }
 

@@ -10,6 +10,9 @@
 #include "Event.h"
 #include "EventPublisher.h"
 
+/**
+ * Exception thrown, when event handler is asked to handle inappropriate event type
+ */
 class InvalidEventException : public std::exception{
 public:
     InvalidEventException()=default;

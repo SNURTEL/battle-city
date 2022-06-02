@@ -14,7 +14,7 @@ class Entity;
 class Menu;
 class GameState;
 class Grid;
-class GameStats;
+class GameStatistics;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
@@ -70,7 +70,7 @@ public:
 
         StateChanged,
 
-        StatsChanged
+        StatisticsChanged
     };
 
     EventType type;
@@ -117,7 +117,7 @@ public:
      * Holds additional event info for points events
      */
     struct StatsInfo {
-        GameStats* stats_;
+        GameStatistics* stats_;
     };
 
     /**
@@ -177,7 +177,7 @@ public:
     // FIXME not so elegant
     Event(EventType, unsigned int ui1);
 
-    Event(EventType e, GameStats* statsObject);
+    Event(EventType e, GameStatistics* statsObject);
 
     Event(EventType e, GameState* new_state);
 

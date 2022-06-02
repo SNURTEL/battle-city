@@ -73,7 +73,7 @@ SCENARIO("Starting the game") {
             THEN("Stats should reset (won't make any difference), level 1 should be loaded, player's tank should spawn, and game's state should change") {
                 REQUIRE_FALSE(eventQueue->isEmpty());
                 auto event = eventQueue->pop();
-                REQUIRE(event->type == Event::StatsChanged);
+                REQUIRE(event->type == Event::StatisticsChanged);
 
                 REQUIRE_FALSE(eventQueue->isEmpty());
                 event = eventQueue->pop();
@@ -133,7 +133,7 @@ SCENARIO("Resetting game's state") {
 
                 REQUIRE_FALSE(eventQueue->isEmpty());
                 event = eventQueue->pop();
-                REQUIRE(event->type == Event::StatsChanged);
+                REQUIRE(event->type == Event::StatisticsChanged);
 
                 REQUIRE(eventQueue->isEmpty());
             }

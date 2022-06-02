@@ -1,6 +1,5 @@
 var _grid_8h =
 [
-    [ "EventQueue", "class_event_queue.html", "class_event_queue" ],
     [ "OutOfGridException", "class_out_of_grid_exception.html", "class_out_of_grid_exception" ],
     [ "Grid", "class_grid.html", "class_grid" ],
     [ "TileType", "_grid_8h.html#ae4c5928999c3565a2a27432c04591328", [

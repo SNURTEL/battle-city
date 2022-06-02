@@ -56,9 +56,9 @@ public:
     void hitTank(Tank *target, unsigned int damage = 1);
 
     /**
-     * Kills a tank immediately
+     * Kills a tank immediately. If killed the player, queues a different event type
      *
-     * Queues Event::TankKilled
+     * Queues Event::TankKilled or Event::PlayerKilled
      * @param tank Target tank
      */
     void killTank(Tank *tank);

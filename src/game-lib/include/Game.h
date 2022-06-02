@@ -23,7 +23,7 @@ class Event;
 
 class KeyboardController;
 
-class GameStats;
+class GameStatistics;
 
 /**
  * Main container
@@ -46,21 +46,29 @@ public:
 
     /**
      * Switches the current state to active
+     *
+     * Queues Event::StateChanged
      */
     void setActiveState();
 
     /**
      * Switches the current state to finished
+     *
+     * Queues Event::StateChanged
      */
     void setFinishedState();
 
     /**
      * Switches the current state to pause
+     *
+     * Queues Event::StateChanged
      */
     void setPauseState();
 
     /**
      * Switches the current state to menu
+     *
+     * Queues Event::StateChanged
      */
     void setMenuState();
 
@@ -75,39 +83,73 @@ public:
      */
     GameState *getState();
 
-
     /**
-     * Returns Point system state pointer
-     * @return point system pointer
+     * Returns the pointer to the stats object
+     * @return stats object pointer
      */
-    GameStats *getStats();
+    GameStatistics *getStats();
 
 protected:
     /**
      * Called right before starting the event loop. Sets all remaining attrs, creates the render window,
-     * loads the scoreboard and links subscribers to clock.
+     * loads the scoreboard and links subscribers to clock; sets current state to Menu
+     *
+     * Queues Event::StateChanged
      */
     void setup();
 
+    /**
+     * Inits all internal state objects
+     */
     void initStates();
 
+    /**
+     * Inits other remaining components (clock, board, keyboard controller, etc)
+     */
     void initComponents();
 
+    /**
+     * Loads the scoreboard and inits the stats object
+     */
     void initScoreboard();
 
     /**
-     * Creates an SFML render window and saves it
+     * Inits graphical components
      */
     void initUI();
 
+    /**
+     * Starts the game at level 1
+     *
+     * Queues Event::StateChanged
+     */
     void start();
 
+    /**
+     * Resets stats and the board
+     *
+     * Possibly queues multiple instances of Event::EntityRemoved and a single instance ofEvent::StateChanged and Event::PlayerSpawned
+     */
     void reset();
 
+    /**
+     * Prepares the board to start a given level
+     *
+     * Possibly queues multiple instances of Event::EntityRemoved, always queues Event::PlayerSpawned
+     * @param levelNum Level number
+     */
     void prepareLevel(unsigned int levelNum);
 
+    /**
+     * Ends the game and clears the board
+     *
+     * Possibly queues multiple instances of Event::EntityRemoved, always queues Event::StateChanged
+     */
     void end();
 
+    /**
+     * Redraws the UI; called in every tick
+     */
     void redrawUI();
 
     std::unique_ptr<GameState> active_state_;
@@ -118,7 +160,7 @@ protected:
 
     std::unique_ptr<Board> board_;
 
-    std::unique_ptr<GameStats> gameStats_;
+    std::unique_ptr<GameStatistics> gameStats_;
     std::unique_ptr<GameStatsIO> gameStatsIO_;
 
     bool running_ = true;

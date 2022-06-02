@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['notify_500',['notify',['../class_event_subscriber.html#a4e284b8ccf69cff7f612918a3d00f085',1,'EventSubscriber::notify()'],['../class_simple_subscriber.html#a78e5a5afbedbc117d6abda455703a34b',1,'SimpleSubscriber::notify()'],['../class_keyboard_controller.html#a01f340c6b6a6146ff3d80547969f574f',1,'KeyboardController::notify()'],['../class_menu.html#ac213ca7f31745a5dcd41a06b829a46de',1,'Menu::notify()'],['../class_tank.html#af10211af3e0bb53806fec8875dc5009e',1,'Tank::notify()']]],
-  ['notify_5fenter_501',['notify_enter',['../class_menu.html#aa7ae833e42971ffa9b335b8e3a178bf5',1,'Menu']]],
-  ['notifyeventsubscribers_502',['notifyEventSubscribers',['../class_event_publisher.html#a8fdbe74a93576d9c54b661bc70e1ac09',1,'EventPublisher']]],
-  ['notifysubscribers_503',['notifySubscribers',['../class_simple_publisher.html#a34b3673f43ab301a493d104c6cd703a1',1,'SimplePublisher']]]
+  ['main_0',['main',['../tanks_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'tanks.cpp']]],
+  ['menu_1',['Menu',['../class_menu.html#a77a219d884291b19b1aa59a8109472e4',1,'Menu']]],
+  ['menueventhandler_2',['MenuEventHandler',['../class_menu_event_handler.html#ae99c382c1111fdcbf19475fdaa7778c8',1,'MenuEventHandler::MenuEventHandler()=delete'],['../class_menu_event_handler.html#a43aeb90e76fd8d2fc34046c4c7294fe9',1,'MenuEventHandler::MenuEventHandler(Game *game, MenuGameState *state)']]],
+  ['menugamestate_3',['MenuGameState',['../class_menu_game_state.html#a8dd2de3aa523dc0e04dc87f2bf94b55f',1,'MenuGameState::MenuGameState()=delete'],['../class_menu_game_state.html#a7c707680e55e941cb1f74896467a1c96',1,'MenuGameState::MenuGameState(Game *game)']]],
+  ['move_4',['move',['../class_bullet.html#a08da693ff722a4c47999e44e5a72f5a3',1,'Bullet::move()'],['../class_entity.html#a5e2e84073bff2178991445948ca6252d',1,'Entity::move()'],['../class_tank.html#a9b9dd80eb2218db83470ecee996b3360',1,'Tank::move()']]],
+  ['moveallentities_5',['moveAllEntities',['../class_board.html#ac8bb4ebce6668bd0131bdd68d00eebe4',1,'Board::moveAllEntities()'],['../class_entity_controller.html#a7ad3b0ff085f89f9989b9acdd91a58b0',1,'EntityController::moveAllEntities()']]],
+  ['moveback_6',['moveBack',['../class_bullet.html#a9bb74127e22cc31e931bf3d5f060c853',1,'Bullet::moveBack()'],['../class_entity.html#a3f3c6dfe3a28bb6e7ee1936c74238fd5',1,'Entity::moveBack()'],['../class_tank.html#a33a90a2f46e0255fb7d0df390845ce24',1,'Tank::moveBack()']]],
+  ['moveentity_7',['moveEntity',['../class_board.html#ae229dfbfee3b3ec026e4c3d38f4a64fe',1,'Board::moveEntity()'],['../class_entity_controller.html#a3383ff6aa6379b3ff3d10cdb184dac2c',1,'EntityController::moveEntity()']]]
 ];

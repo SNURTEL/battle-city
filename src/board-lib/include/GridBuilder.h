@@ -17,9 +17,18 @@ enum TileType: unsigned int;
 class GridBuilder {
 public:
     /**
-     * Builds a grid of TileType tiles for a given level
-     * @param level
-     * @return
+     * Builds a grid of TileType tiles for a given level. Tile layout is loaded from file ./levels/lvl<N>.txt
+     * Layout code:
+     *  - 'B' - bricks
+     *  - 'S' - steel
+     *  - 'T' - trees
+     *  - 'W' - water
+     *  - 'E' - eagle (currently NUllTile)
+     *  - any other char - NullTile
+     *
+     * // FIXME ADJUST THE PATH IF NOT WORKING
+     * @param level The level to be loaded. ./levels/lvl<level>.txt will be checked
+     * @return A grid constructed with the file. If file was not loaded, the grid will be filled with NullTiles
      */
     static std::unique_ptr<Grid> buildLevel(unsigned int level);
 
@@ -35,8 +44,7 @@ private:
      * @param y1
      * @param y2
      */
-    static void
-    placeChunk(Grid *targetGrid, TileType type, unsigned int x1, unsigned int x2, unsigned int y1, unsigned int y2) {};
+    [[deprecated]] static void placeChunk(Grid *targetGrid, TileType type, unsigned int x1, unsigned int x2, unsigned int y1, unsigned int y2) {};
     GridBuilder()=default;  // TODO Make it a proper builder (returns self on each operation)
 };
 

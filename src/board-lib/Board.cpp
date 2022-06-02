@@ -108,6 +108,10 @@ bool Board::fireTank(Tank *target) {
 }
 
 bool Board::spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing) {
+    if(type==Tank::PlayerTank){
+        return spawnPlayer(x, y, facing);
+    }
+
     std::unique_ptr<Tank> newTank = entityController_->createTank(x, y, type, facing);
 
     Entity *spawnedTank = entityController_->addEntity(std::move(newTank));

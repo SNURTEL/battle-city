@@ -1,14 +1,20 @@
 <map id="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/game&#45;lib/include/GameState.h" name="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/game&#45;lib/include/GameState.h">
-<area shape="rect" id="node1" title=" " alt="" coords="327,5,551,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="384,497,461,524"/>
-<area shape="rect" id="node3" href="$_active_event_handler_8h.html" title=" " alt="" coords="299,109,461,136"/>
-<area shape="rect" id="node4" href="$_event_handler_8h.html" title=" " alt="" coords="216,184,363,225"/>
-<area shape="rect" id="node5" href="$_event_8h.html" title=" " alt="" coords="47,423,118,449"/>
-<area shape="rect" id="node8" href="$_event_publisher_8h.html" title=" " alt="" coords="175,273,305,300"/>
-<area shape="rect" id="node6" title=" " alt="" coords="89,497,175,524"/>
-<area shape="rect" id="node7" title=" " alt="" coords="5,497,64,524"/>
-<area shape="rect" id="node9" title=" " alt="" coords="303,423,353,449"/>
-<area shape="rect" id="node10" title=" " alt="" coords="142,423,205,449"/>
-<area shape="rect" id="node11" href="$_event_subscriber_8h.html" title=" " alt="" coords="171,348,309,375"/>
-<area shape="rect" id="node12" title=" " alt="" coords="229,423,272,449"/>
+<area shape="rect" id="node1" title=" " alt="" coords="485,5,709,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="615,512,692,539"/>
+<area shape="rect" id="node3" href="$_active_event_handler_8h.html" title=" " alt="" coords="132,109,295,136"/>
+<area shape="rect" id="node16" href="$_menu_event_handler_8h.html" title=" " alt="" coords="519,109,676,136"/>
+<area shape="rect" id="node17" href="$_pause_event_handler_8h.html" title=" " alt="" coords="701,109,859,136"/>
+<area shape="rect" id="node18" href="$_finished_event_handler_8h.html" title=" " alt="" coords="319,109,494,136"/>
+<area shape="rect" id="node4" href="$_event_handler_8h.html" title=" " alt="" coords="400,184,547,225"/>
+<area shape="rect" id="node13" href="$_event_queue_8h.html" title=" " alt="" coords="5,423,152,464"/>
+<area shape="rect" id="node15" href="$_game_statistics_8h.html" title=" " alt="" coords="41,348,175,375"/>
+<area shape="rect" id="node5" href="$_event_8h.html" title=" " alt="" coords="177,430,247,457"/>
+<area shape="rect" id="node8" href="$_event_publisher_8h.html" title=" " alt="" coords="408,273,539,300"/>
+<area shape="rect" id="node6" title=" " alt="" coords="151,512,238,539"/>
+<area shape="rect" id="node7" title=" " alt="" coords="263,512,321,539"/>
+<area shape="rect" id="node9" title=" " alt="" coords="428,430,479,457"/>
+<area shape="rect" id="node10" title=" " alt="" coords="519,430,582,457"/>
+<area shape="rect" id="node11" href="$_event_subscriber_8h.html" title=" " alt="" coords="351,348,489,375"/>
+<area shape="rect" id="node12" title=" " alt="" coords="331,430,373,457"/>
+<area shape="rect" id="node14" title=" " alt="" coords="47,512,110,539"/>
 </map>
