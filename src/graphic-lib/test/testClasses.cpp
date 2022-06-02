@@ -10,6 +10,8 @@
 #include "../include/ActiveState_dir/Borad_dir/BoardGraphic.h"
 #include "../include/ActiveState_dir/Borad_dir/TanksGraphic.h"
 #include "../include/ActiveState_dir/Frame_dir/FrameGraphic.h"
+#include "../include/ActiveState_dir/Borad_dir/BulletsGraphic.h"
+#include "../include/ActiveState_dir/Borad_dir/TilesGraphic.h"
 
 
 
@@ -17,8 +19,8 @@
 class TestWindow : public Window
 {
 public:
-    TestWindow(GameState* gameState, ActiveStatePointers activePointers)
-    : Window(gameState, activePointers)
+    TestWindow(GameState* gameState)
+    : Window(gameState)
     {};
 
     WindowView getWindowView() const
@@ -45,6 +47,34 @@ public:
         TanksGraphic* tanksGraphic = static_cast<TanksGraphic*>(tanksGraphicAb);
         std::vector<Tank*>* tanks = tanksGraphic->getTanks();
         return tanks;
+    };
+
+    /// @brief Gets tanks pointers from leaf object for tests
+    Grid** getGrid()
+    {
+        AbstractWindow* activeStateGraphicAb = getChildren()[GameStateGraphic::ActieveGameState].get();
+        ActiveStateGraphic* activeStateGrahic = static_cast<ActiveStateGraphic*>(activeStateGraphicAb);
+        // assuming BoardGraphic is firts on the list
+        BoardGraphic* boardGraphic = static_cast<BoardGraphic*>(activeStateGrahic->getChildren()[0].get());
+        // assuming TilesGraphic is first on the list
+        AbstractWindow* tilesGraphicAb = boardGraphic->getChildren()[0].get();
+        TilesGraphic* tilesGraphic = static_cast<TilesGraphic*>(tilesGraphicAb);
+        Grid** grid = tilesGraphic->getGrid();
+        return grid;
+    };
+
+    /// @brief Gets tanks pointers from leaf object for tests
+    std::vector<Bullet*>* getBullets()
+    {
+        AbstractWindow* activeStateGraphicAb = getChildren()[GameStateGraphic::ActieveGameState].get();
+        ActiveStateGraphic* activeStateGrahic = static_cast<ActiveStateGraphic*>(activeStateGraphicAb);
+        // assuming BoardGraphic is firts on the list
+        BoardGraphic* boardGraphic = static_cast<BoardGraphic*>(activeStateGrahic->getChildren()[0].get());
+        // assuming TanksGraphic is third on the list
+        AbstractWindow* bulletsGraphicAb = boardGraphic->getChildren()[2].get();
+        BulletsGraphic* bulletsGraphic = static_cast<BulletsGraphic*>(bulletsGraphicAb);
+        std::vector<Bullet*>* bullets = bulletsGraphic->getBullets();
+        return bullets;
     };
 
     const ActiveStateGraphic::BoardPointers& getBoardPointers()

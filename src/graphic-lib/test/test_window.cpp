@@ -24,8 +24,7 @@ SCENARIO("Game states are changing")
         Game* game = nullptr;
         ActiveGameState state(game);
         GameState* gameState = &state;
-        TestWindow::ActiveStatePointers activePointers;
-        TestWindow window(gameState, activePointers);
+        TestWindow window(gameState);
 
         WHEN("Window is created and the game state is ActiveGameState")
         {
@@ -45,69 +44,4 @@ SCENARIO("Game states are changing")
 }
 
 
-SCENARIO("During the game tanks number, tiles and other game describing factor changes")
-{
-    GIVEN("TestWindow, GameState, std::vector<Tanks*>, std::vector<Bullets*>, Grid, int")
-    {
-        Game* game_ptr = nullptr;
-        Game game(60);  // Initialize to instatiate an eventque it is neede for Grid to work
-        game_ptr = &game;
-        ActiveGameState state(game_ptr);
-        GameState* gameState = &state;
-        TestWindow::ActiveStatePointers activePointers;
-        // Creating tanks
-        TestTank tank1;
-        TestTank tank2;
 
-        std::vector<Tank*> tanks;
-        tanks.push_back(&tank1);
-        tanks.push_back(&tank2);
-
-        // Creating bullets
-
-        TestBullet bullet1;
-        TestBullet bullet2;
-        std::vector<Bullet*> bullets;
-        bullets.push_back(&bullet1);
-        bullets.push_back(&bullet2);
-
-
-        Grid grid;
-        Grid* gridPointer = &grid;
-        int level = 2;
-        int playerLives = 3;
-        activePointers.bullets = &bullets;
-        activePointers.tanks = &tanks;
-        activePointers.tiles = gridPointer;
-        activePointers.level = &level;
-        activePointers.playerLivesLeft = &playerLives;
-
-        TestWindow window(gameState, activePointers);
-
-        WHEN("Some objects that composite has pointers to change")
-        {
-            playerLives = 20;
-            level = 3;
-            TestTank tank3;
-            tanks.push_back(&tank3);
-            std::vector<Tank*>* tanks_composite = window.getTanks();
-            ActiveStateGraphic::BoardPointers boardPointers_composite = window.getBoardPointers();
-            ActiveStateGraphic::FramePointers framePointers_composite = window.getFramePointers();
-
-            THEN("Tanks inside the composit change too")
-            {
-                REQUIRE(&tanks == tanks_composite);
-                REQUIRE(boardPointers_composite.tanks == tanks_composite);
-            }
-            THEN("Attribute level inside the compoiste changes too")
-            {
-                REQUIRE(level == *framePointers_composite.level);
-            }
-            THEN("Attirbute playerLives inside the composite changes too")
-            {
-                REQUIRE(playerLives == *framePointers_composite.playerLivesLeft);
-            }
-        }
-
-    }
-}
