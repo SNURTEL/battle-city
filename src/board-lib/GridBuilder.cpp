@@ -20,8 +20,6 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
         {'W', Water},
         {'E', NullTile}  // TODO add eagle
     };
-    char cwd[80];
-    getcwd(cwd, 80);
     std::string filename = "../bin/levels/lvl" + std::to_string(level) + ".txt";  // FIXME THIS **WILL** CAUSE ERRORS AND SHOULD BE FIXED AS SOON AS POSSIBLE
     std::ifstream file(filename);
     std::string line;

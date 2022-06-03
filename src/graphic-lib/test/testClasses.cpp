@@ -102,7 +102,7 @@ public:
  */
 class TestTank : public Tank {
 public:
-    TestTank() : Tank(Tank::PowerTank, 10, 10, 1, 1, 1, North, 100) {};
+    TestTank() : Tank(Tank::PowerTank, 20, 20, 1, 1, 1, North, 100) {};
 };
 
 /**

@@ -5,6 +5,7 @@
 #include "../../AbstractWindow.h"
 #include <map>
 #include "../../../../board-lib/include/Grid.h"
+#include <unordered_map>
 
 #ifndef PROI_PROJEKT_TILESGRAPHIC_H
 #define PROI_PROJEKT_TILESGRAPHIC_H
@@ -46,6 +47,11 @@ protected:
 
     /// @brief Sets texutres in textureMap
     void loadTextures(); // possible to make as a friend template to all board related classes
+
+    /// @brief Creates tile texture object and draws it on the screen
+    void createTileTexture(TileType tileType, float x_pos, float y_pos,
+                           float tile_height, float tile_width,
+                           sf::Vector2f scale = sf::Vector2f(1.f, 1.f));
 
 public:
 
