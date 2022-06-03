@@ -4,11 +4,11 @@
 
 #include "include/EventHandler.h"
 
-InvalidEventException::InvalidEventException(std::string msg) {
+InvalidEventException::InvalidEventException(std::string msg) : std::exception() {
     what_message = std::move(msg);
 }
 
-const char *InvalidEventException::what() {
+const char *InvalidEventException::what() const noexcept {
     return what_message.c_str();
 }
 

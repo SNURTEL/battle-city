@@ -7,8 +7,8 @@ var class_event =
     [ "KeyEventInfo", "struct_event_1_1_key_event_info.html", "struct_event_1_1_key_event_info" ],
     [ "LevelInfo", "struct_event_1_1_level_info.html", "struct_event_1_1_level_info" ],
     [ "MenuInfo", "struct_event_1_1_menu_info.html", "struct_event_1_1_menu_info" ],
-    [ "PointsInfo", "struct_event_1_1_points_info.html", "struct_event_1_1_points_info" ],
     [ "StateInfo", "struct_event_1_1_state_info.html", "struct_event_1_1_state_info" ],
+    [ "StatsInfo", "struct_event_1_1_stats_info.html", "struct_event_1_1_stats_info" ],
     [ "TileInfo", "struct_event_1_1_tile_info.html", "struct_event_1_1_tile_info" ],
     [ "EventType", "class_event.html#aa306292f6e9bf31a622e79dfc54321de", [
       [ "NullEvent", "class_event.html#aa306292f6e9bf31a622e79dfc54321deaee834f1e14f2d523c3cf25026ad8bd2c", null ],
@@ -17,6 +17,8 @@ var class_event =
       [ "EntitySpawned", "class_event.html#aa306292f6e9bf31a622e79dfc54321deac754b0950ae21a7db2201677affe0925", null ],
       [ "EntityMoved", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea873cb81f594e6becb8c27cab8d67fe60", null ],
       [ "EntityRemoved", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea8ebd718fd45762dcf3fc76f657994220", null ],
+      [ "PlayerSpawned", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea0cd76264419fb33c4f4f7a047a8edf28", null ],
+      [ "PlayerKilled", "class_event.html#aa306292f6e9bf31a622e79dfc54321deacfbacf834375b99bc69c16bf8b7e0f86", null ],
       [ "EntityEntityCollision", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea9c02913946b199e141203178007699c3", null ],
       [ "EntityGridCollision", "class_event.html#aa306292f6e9bf31a622e79dfc54321deac16ff7193b5df29034ebe066251e2e18", null ],
       [ "TankKilled", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea604fb8cab3e80877f5b4db8c09e5f12a", null ],
@@ -29,10 +31,10 @@ var class_event =
       [ "MenuSelectionChange", "class_event.html#aa306292f6e9bf31a622e79dfc54321deae1e723123bc2469466c596bcd043f487", null ],
       [ "MenuEnterClicked", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea1f669d6a6cbf0c176bc56bc14115cf17", null ],
       [ "StateChanged", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea4b0a0dacfb81d6de16eb50754b71bfc2", null ],
-      [ "PointsChanged", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea933a3cf957b54ece4cfded159237ddc1", null ]
+      [ "StatisticsChanged", "class_event.html#aa306292f6e9bf31a622e79dfc54321deae5f102857f7011882a09ca6f2ec011eb", null ]
     ] ],
     [ "Event", "class_event.html#acada8c80e07cef0cc7228145e9367c59", null ],
-    [ "Event", "class_event.html#a8bd35a6a57f81c1e243133e73e7ce76c", null ],
+    [ "Event", "class_event.html#a69d88aba99ec1ede7835acdc80eefa93", null ],
     [ "Event", "class_event.html#a32525f2e516ae963ae12bb19b0acdd6e", null ],
     [ "Event", "class_event.html#acc5f9d382b870fd6ae19370955d563ad", null ],
     [ "Event", "class_event.html#a9796768c131789eaffa80e5a945a10a6", null ],

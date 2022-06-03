@@ -14,7 +14,7 @@ class Entity;
 class Menu;
 class GameState;
 class Grid;
-class PointSystem;
+class GameStatistics;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
@@ -39,7 +39,7 @@ public:
     /**
      * Represents event types
      */
-    enum EventType {  // TODO make Event an abstract base class; move enum to separate file and specify enum values there (EVENT SHOULD KNOW EVENT TYPE TO STORE IT)
+    enum EventType {
         NullEvent = 0,
 
         KeyPressed,
@@ -48,6 +48,9 @@ public:
         EntitySpawned,
         EntityMoved,
         EntityRemoved,
+
+        PlayerSpawned,
+        PlayerKilled,
 
         EntityEntityCollision,
         EntityGridCollision,
@@ -67,7 +70,7 @@ public:
 
         StateChanged,
 
-        PointsChanged
+        StatisticsChanged
     };
 
     EventType type;
@@ -113,9 +116,8 @@ public:
     /**
      * Holds additional event info for points events
      */
-    struct PointsInfo {
-        PointSystem* ptsys_;
-        unsigned int points_;
+    struct StatsInfo {
+        GameStatistics* stats_;
     };
 
     /**
@@ -167,15 +169,15 @@ public:
         LevelInfo levelInfo;
         EntityEntityCollisionInfo entityEntityCollisionInfo;
         EntityTileCollisionInfo entityGridCollisionInfo;
-        PointsInfo pointsInfo;
+        StatsInfo pointsInfo;
 
-        ~info_u(){};  // DO NOT change this to =default, or else it will stop working
+        ~info_u(){};  // DO NOT change this to =default, or else it will stop working (must be '{}')
     } info = {};
 
     // FIXME not so elegant
     Event(EventType, unsigned int ui1);
 
-    Event(EventType e, PointSystem* ptsys, unsigned int points);
+    Event(EventType e, GameStatistics* statsObject);
 
     Event(EventType e, GameState* new_state);
 

@@ -10,13 +10,16 @@
 #include "Event.h"
 #include "EventPublisher.h"
 
+/**
+ * Exception thrown, when event handler is asked to handle inappropriate event type
+ */
 class InvalidEventException : public std::exception{
 public:
     InvalidEventException()=default;
 
     explicit InvalidEventException(std::string msg);  // FIXME message not showing up
 
-    const char* what();
+    const char* what() const noexcept override;
 
 private:
     std::string what_message;

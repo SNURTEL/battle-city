@@ -43,7 +43,7 @@ std::unique_ptr<Tank> EntityController::createTank(unsigned int x, unsigned int 
             break;
         }
         case Tank::PlayerTank: {
-            newTank = std::make_unique<PlayerTank>(x, y, 1, facing);    // TODO set lives
+            newTank = std::make_unique<PlayerTank>(x, y, facing);
         }
     }
     return std::move(newTank);
@@ -66,7 +66,11 @@ void EntityController::killTank(Tank *target) {
     if (iter == entities_.end()) {
         throw EntityDoesNotExistException();
     }
-    eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankKilled, target));
+    if(target->getType() == Tank::PlayerTank){
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::PlayerKilled, target));
+    }else{
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankKilled, target));
+    }
 
     entities_.erase(iter);
 }

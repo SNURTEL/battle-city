@@ -9,6 +9,8 @@
 
 #include "../../core-lib/include/EventQueue.h"
 #include "../../tank-lib/include/Tank.h"
+#include "../../tank-lib/include/EntityController.h"
+#include "Grid.h"
 
 class Event;
 
@@ -74,8 +76,9 @@ public:
     /**
      * Attempts to spawn a tank at a given location.
      * Detects collisions and queues events if one happens (does not correct colliding tank's position)
+     * If passed TankType::PlayerTank as param, spawnPlayer is called instead
      *
-     * Possibly queues Event::EntitySpawned and Event::EntityEntityCollision or Event::EntityGridCollision
+     * Possibly queues Event::EntitySpawned or Event::PlayerSpawned and Event::EntityEntityCollision or Event::EntityGridCollision
      * @param x New tank's X coord
      * @param y New tank's Y coord
      * @param type New tank's type
@@ -83,6 +86,18 @@ public:
      * @return Whether a collision was detected while spawning the tank
      */
     bool spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing = North);
+
+    /**
+     * Spawns the player at a given location
+     * Detects collisions and queues events if one happens (does not correct colliding tank's position)
+     *
+     * Queues Event::PlayerSpawned and possibly Event::EntityEntityCollision or Event::EntityGridCollision
+     * @param x Player's initial x coord
+     * @param y Player's initial y coord
+     * @param facing The direction in which the player should be faced
+     * @return True if no collisions detected, false if overlap found
+     */
+    bool spawnPlayer(unsigned int x, unsigned int y, Direction facing = North);
 
     /**
      * Sets board's grid to a given one
@@ -137,6 +152,14 @@ public:
      * @param snap_y Whether to snap in Y axis (defaults to true)
      */
     bool snapTankToGrid(Tank* target, bool snap_x=true, bool snap_y=true);
+
+    /**
+     * Removes all entities from the board and loads a new grid from GridBuilder
+     *
+     * Possibly queues multiple instances of Event::EntityRemoved and a single instance of Event::LevelLoaded
+     * @param levelNum
+     */
+    void loadLevel(unsigned int levelNum);
 
 protected:
     /**

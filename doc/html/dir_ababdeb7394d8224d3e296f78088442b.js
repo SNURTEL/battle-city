@@ -5,9 +5,10 @@ var dir_ababdeb7394d8224d3e296f78088442b =
     [ "FinishedEventHandler.cpp", "_finished_event_handler_8cpp.html", null ],
     [ "Game.cpp", "_game_8cpp.html", null ],
     [ "GameState.cpp", "_game_state_8cpp.html", null ],
+    [ "GameStatistics.cpp", "_game_statistics_8cpp.html", null ],
+    [ "GameStatsIO.cpp", "_game_stats_i_o_8cpp.html", null ],
     [ "KeyboardController.cpp", "_keyboard_controller_8cpp.html", null ],
     [ "Menu.cpp", "_menu_8cpp.html", null ],
     [ "MenuEventHandler.cpp", "_menu_event_handler_8cpp.html", null ],
-    [ "PauseEventHandler.cpp", "_pause_event_handler_8cpp.html", null ],
-    [ "PointSystem.cpp", "_point_system_8cpp.html", null ]
+    [ "PauseEventHandler.cpp", "_pause_event_handler_8cpp.html", null ]
 ];

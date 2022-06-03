@@ -64,3 +64,4 @@ unsigned int Grid::getSizeX() const {
 unsigned int Grid::getSizeY() const {
     return size_y;
 }
+

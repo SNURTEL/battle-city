@@ -9,7 +9,6 @@
 #include "../tank-lib/include/Bullet.h"
 #include "include/ActiveEventHandler.h"
 #include "include/Game.h"
-#include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
 
 ActiveEventHandler::ActiveEventHandler(Game *game, ActiveGameState* state) {
@@ -20,8 +19,6 @@ ActiveEventHandler::ActiveEventHandler(Game *game, ActiveGameState* state) {
 void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
-            //TODO Implement response to KeyPressed
-            // DOWN
             if(event->info.keyInfo.keyCode == 74) {
                 state_->get_board()->setTankDirection(state_->get_player_tank(), South);
                 state_->get_board()->setTankMoving(state_->get_player_tank(), true);
@@ -176,7 +173,7 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
             break;
         }
         default:{
-            throw InvalidEventException("Invalid event for ActiveEventHandler");
+            throw InvalidEventException("Invalid event for ActiveEventHandler\nEvent enum cast: " + std::to_string(event->type));
         }
     }
 }

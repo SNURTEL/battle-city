@@ -58,9 +58,10 @@ set(game_lib_sources
         ${game_lib_dir}/MenuEventHandler.cpp
         ${game_lib_dir}/Menu.cpp
         ${game_lib_dir}/FinishedEventHandler.cpp
-        ${game_lib_dir}/PointSystem.cpp
+        ${game_lib_dir}/GameStatistics.cpp
         ${game_lib_dir}/GameState.cpp
-        ${game_lib_dir}/KeyboardController.cpp)
+        ${game_lib_dir}/KeyboardController.cpp
+        ${game_lib_dir}/GameStatsIO.cpp)
 
 add_library(game-lib ${game_lib_sources})
 target_link_libraries(game-lib PRIVATE core-lib board-lib ${SFML_LIBRARIES})
@@ -68,7 +69,7 @@ target_link_libraries(game-lib PRIVATE core-lib board-lib ${SFML_LIBRARIES})
 set(game_lib_test_dir ../src/game-lib/test)
 set(game_lib_test_sources
         ${game_lib_test_dir}/test_sanity.cpp
-        ${game_lib_test_dir}/test_states.cpp)
+        ${game_lib_test_dir}/test_states.cpp ../src/game-lib/test/test_game.cpp)
 
 add_executable(test_game_lib ${game_lib_test_sources})
 target_link_libraries(test_game_lib PRIVATE game-lib Catch2::Catch2WithMain)
@@ -79,9 +80,11 @@ set(tank_lib_dir ../src/tank-lib)
 set(tank_lib_sources
         ${tank_lib_dir}/Tank.cpp
         ${tank_lib_dir}/EntityController.cpp
+        ${tank_lib_dir}/Bullet.cpp
+        ${tank_lib_dir}/Entity.cpp
         )
 
-add_library(tank-lib ${tank_lib_sources} ../src/tank-lib/Bullet.cpp ../src/tank-lib/include/Bullet.h ../src/tank-lib/Entity.cpp ../src/tank-lib/include/Entity.h)
+add_library(tank-lib ${tank_lib_sources})
 target_link_libraries(tank-lib PRIVATE game-lib)
 
 set(tank_lib_test_dir ../src/tank-lib/test)
@@ -98,7 +101,7 @@ set(board_lib_dir ../src/board-lib)
 set(board_lib_sources
         ${board_lib_dir}/Grid.cpp
         ${board_lib_dir}/TileManager.cpp
-        ${board_lib_dir}/Board.cpp .
+        ${board_lib_dir}/Board.cpp
         ${board_lib_dir}/GridBuilder.cpp)
 
 add_library(board-lib ${board_lib_sources})
@@ -112,9 +115,20 @@ set(board_lib_test_sources
 add_executable(test_board_lib ${board_lib_test_sources})
 target_link_libraries(test_board_lib PRIVATE board-lib Catch2::Catch2WithMain)
 
+############################ ALL TESTS ################################
+
+add_executable(all_tests
+        ${core_lib_test_sources}
+        ${game_lib_test_sources}
+        ${tank_lib_test_sources}
+        ${board_lib_test_sources}
+        )
+target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib Catch2::Catch2WithMain)
+
+
 ############################ MAIN ################################
 
 
-add_executable(tanks ../src/main/tanks.cpp ${core_lib_sources} ${game_lib_sources} ${tank_lib_sources})
-target_link_libraries(tanks ${SFML_LIBRARIES} core-lib game-lib tank-lib)
+add_executable(tanks ../src/main/tanks.cpp ${core_lib_sources} ${game_lib_sources} ${tank_lib_sources} ${board_lib_sources})
+target_link_libraries(tanks ${SFML_LIBRARIES} core-lib game-lib tank-lib board-lib)
 
