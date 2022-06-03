@@ -1,32 +1,64 @@
 //
 // Created by tomek on 02.05.2022.
 //
-#include <iostream>
+
+#include <SFML/Graphics.hpp>
+
 
 #include "include/Game.h"
 #include "../core-lib/include/Clock.h"  //FIXME GROSS
 #include "../core-lib/include/EventQueue.h"
 #include "include/GameState.h"
 #include "include/KeyboardController.h"
+#include "include/GameStatistics.h"
+#include "include/GameStatsIO.h"
+#include "../board-lib/include/Board.h"
+#include "../board-lib/include/Grid.h"
 
-Game::Game(unsigned int clock_freq) {
+
+Game::Game(unsigned int clockFreq) {
     active_state_ = std::make_unique<ActiveGameState>(this);
     finished_state_ = std::make_unique<FinishedGameState>(this);
     pause_state_ = std::make_unique<PauseGameState>(this);
     menu_state_ = std::make_unique<MenuGameState>(this);
-    Clock::initialize(clock_freq);
+    Clock::initialize(clockFreq);
     clock_ = Clock::instance();
     eventQueue_ = EventQueue<Event>::instance();
 }
 
 void Game::setup() {
     // load scoreboard, init UI, etC
-    createRenderWindow();
-    keyboardController_ = std::make_unique<KeyboardController>(window_.get());
-    keyboardController_->subscribe(clock_);
+    initUI();
+
+    initStates();
+    initComponents();
+    initScoreboard();
+
+    setMenuState();
+    running_ = true;
+    }
+
+void Game::initStates() {
+    active_state_ = std::make_unique<ActiveGameState>(this);
+    pause_state_ = std::make_unique<PauseGameState>(this);
+    finished_state_ = std::make_unique<FinishedGameState>(this);
+    menu_state_ = std::make_unique<MenuGameState>(this);
 }
 
-void Game::createRenderWindow() {
+void Game::initComponents() {
+    keyboardController_ = std::make_unique<KeyboardController>(window_.get());
+    keyboardController_->subscribe(clock_);
+
+    gameStatsIO_ = std::make_unique<GameStatsIO>("scoreboard.txt");  // dummy, filename is ignored for now
+
+    board_ = std::make_unique<Board>();
+}
+
+void Game::initScoreboard() {
+    gameStats_ = std::move(gameStatsIO_->loadScoreboard());
+}
+
+void Game::initUI() {
     window_ = std::make_unique<sf::RenderWindow>(sf::VideoMode(400, 400), ":D");
 }
 
@@ -51,12 +83,12 @@ void Game::setPauseState() {
 }
 
 void Game::quit() {
+    gameStatsIO_->saveScoreboard(std::move(gameStats_));
     running_ = false;
 }
 
 void Game::run() {
     setup();
-    setMenuState();
 
     while (running_ == true){
         clock_->tick();
@@ -64,15 +96,43 @@ void Game::run() {
             state_->getEventHandler()->handleEvent(std::move(eventQueue_->pop()));
         }
 
-        //redraw UI
+        redrawUI();
+
         clock_->sleep();
     }
 }
 
-GameState* Game::get_state() {
+GameState* Game::getState() {
     return state_;
 }
 
-PointSystem* Game::get_point_system() {
-    return points_;
+GameStatistics* Game::getStats() {
+    return gameStats_.get();
+}
+
+void Game::start() {
+    reset();
+    prepareLevel(1);
+    setActiveState();
+}
+
+void Game::reset() {
+    board_->removeAllEntities();
+    gameStats_->resetStats();
+}
+
+void Game::prepareLevel(unsigned int levelNum) {
+    board_->removeAllEntities();
+    board_->loadLevel(levelNum);
+    board_->spawnPlayer(18, 48);
+}
+
+void Game::end() {
+    board_->removeAllEntities();
+    setFinishedState();
+}
+
+
+void Game::redrawUI() {
+    // put UI stuff here
 }

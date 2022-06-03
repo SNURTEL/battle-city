@@ -9,6 +9,7 @@
 
 #include "include/Board.h"
 #include "include/Grid.h"
+#include "include/GridBuilder.h"
 #include "include/TileManager.h"
 #include "../tank-lib/include/EntityController.h"
 
@@ -107,10 +108,27 @@ bool Board::fireTank(Tank *target) {
 }
 
 bool Board::spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing) {
+    if(type==Tank::PlayerTank){
+        return spawnPlayer(x, y, facing);
+    }
+
     std::unique_ptr<Tank> newTank = entityController_->createTank(x, y, type, facing);
 
     Entity *spawnedTank = entityController_->addEntity(std::move(newTank));
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EntitySpawned, spawnedTank));
+
+    if (!validateEntityPosition(spawnedTank)) {
+        eventQueue_->registerEvent(createCollisionEvent(spawnedTank));
+        return false;
+    }
+    return true;
+}
+
+bool Board::spawnPlayer(unsigned int x, unsigned int y, Direction facing) {
+    std::unique_ptr<Tank> newTank = entityController_->createTank(x, y, Tank::PlayerTank, facing);
+
+    Entity *spawnedTank = entityController_->addEntity(std::move(newTank));
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::PlayerSpawned, spawnedTank));
 
     if (!validateEntityPosition(spawnedTank)) {
         eventQueue_->registerEvent(createCollisionEvent(spawnedTank));
@@ -191,4 +209,10 @@ std::unique_ptr<Event> Board::createCollisionEvent(Entity *entity) {
         collisionEvent = std::make_unique<Event>(Event::EntityGridCollision, entity, entity->getX(), entity->getY());
     }
     return std::move(collisionEvent);
+}
+
+void Board::loadLevel(unsigned int levelNum) {
+    removeAllEntities();
+    setGrid(std::move(GridBuilder::buildLevel(levelNum)));  // TODO init player tank
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::LevelLoaded, levelNum));
 }

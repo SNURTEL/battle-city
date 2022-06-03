@@ -31,6 +31,10 @@ Event::Event(EventType e, unsigned int i1) {
             info.keyInfo = {i1, KeyEventInfo::Released};
             break;
         }
+        case (LevelLoaded): {
+            info.levelInfo.levelNumber = {i1};
+            break;
+        }
         default: {
             throw EventConstructionException();
         }
@@ -45,7 +49,9 @@ Event::Event(EventType e, Entity *entity) {
         case EntityRemoved:
         case TankRotated:
         case TankHit:
-        case TankKilled: {
+        case TankKilled:
+        case PlayerSpawned:
+        case PlayerKilled: {
             info.entityInfo = {entity};
             break;
         }
@@ -133,11 +139,11 @@ Event::Event(EventType e, GameState* new_state) {
     }
 }
 
-Event::Event(EventType e, PointSystem* ptsys, unsigned int points) {
+Event::Event(EventType e, GameStatistics* statsObject) {
     type = e;
     switch (e) {
-        case PointsChanged: {
-            info.pointsInfo = {ptsys, points};
+        case StatisticsChanged: {
+            info.pointsInfo = {statsObject};
             break;
         }
         default:

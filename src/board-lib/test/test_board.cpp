@@ -18,54 +18,57 @@
 #include "../../core-lib/include/Event.h"
 #include "../../core-lib/include/EventQueue.h"
 
-namespace helper {
-    EventQueue<Event> *getEmptyEventQueue() {
-        EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
-        eventQueue->clear();
-        return eventQueue;
+namespace {  // anonymous namespace to force internal linkage
+    namespace helper {
+        EventQueue<Event> *getEmptyEventQueue() {
+            EventQueue<Event> *eventQueue = EventQueue<Event>::instance();
+            eventQueue->clear();
+            return eventQueue;
+        }
+
+        class TestBoard : public Board {
+        public:
+            Entity *getLastEntity() {
+                return entityController_->getAllEntities()->back().get();
+            }
+
+            Grid *getGrid() {
+                return grid_.get();
+            }
+
+            std::vector<std::unique_ptr<Entity>> *getAllEntities() {
+                return entityController_->getAllEntities();
+            }
+
+            bool testValidateEntityPosition(Entity *target) {
+                return validateEntityPosition(target);
+            }
+        };
+
+        Tank *
+        placeTank(helper::TestBoard *board, unsigned int x, unsigned int y, Tank::TankType type,
+                  Direction facing = North) {
+            bool collision = !board->spawnTank(x, y, type, facing);
+
+            Tank *result = dynamic_cast<Tank *>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
+            if (collision)
+                EventQueue<Event>::instance()->pop();
+
+            return result;
+        }
+
+        std::optional<Bullet *> fireBullet(Board *board, Tank *tank) {
+            if (!board->fireTank(tank)) {
+                return std::nullopt;
+            }
+            return dynamic_cast<Bullet *>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
+        }
+
+        Grid *placeTile(helper::TestBoard *board, unsigned int x, unsigned int y, TileType type) {
+            board->getGrid()->setTile(x, y, type);
+            return EventQueue<Event>::instance()->pop()->info.tileInfo.grid;
+        }
     }
-
-    class TestBoard : public Board {
-    public:
-        Entity *getLastEntity() {
-            return entityController_->getAllEntities()->back().get();
-        }
-
-        Grid *getGrid() {
-            return grid_.get();
-        }
-        
-        std::vector<std::unique_ptr<Entity>>* getAllEntities(){
-            return entityController_->getAllEntities();
-        }
-
-        bool testValidateEntityPosition(Entity* target){
-            return validateEntityPosition(target);
-        }
-    };
-
-    Tank * placeTank(helper::TestBoard *board, unsigned int x, unsigned int y, Tank::TankType type, Direction facing = North) {
-        bool collision = !board->spawnTank(x, y, type, facing);
-
-        Tank* result = dynamic_cast<Tank *>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
-        if(collision)
-            EventQueue<Event>::instance()->pop();
-
-        return result;
-    }
-
-    std::optional<Bullet *> fireBullet(Board *board, Tank *tank) {
-        if (!board->fireTank(tank)) {
-            return std::nullopt;
-        }
-        return dynamic_cast<Bullet *>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
-    }
-
-    Grid *placeTile(helper::TestBoard *board, unsigned int x, unsigned int y, TileType type) {
-        board->getGrid()->setTile(x, y, type);
-        return EventQueue<Event>::instance()->pop()->info.tileInfo.grid;
-    }
-
 
 }
 
@@ -277,29 +280,29 @@ SCENARIO("Rotating tanks an fractional coords") {
 }
 
 SCENARIO("Detecting entity - grid collisions") {
-    GIVEN("A board"){
+    GIVEN("A board") {
         helper::TestBoard board{};
 
-        WHEN("An entity does not collide with any tile"){
-            Tank* tank = helper::placeTank(&board, 15, 20, Tank::PlayerTank);
+        WHEN("An entity does not collide with any tile") {
+            Tank *tank = helper::placeTank(&board, 15, 20, Tank::PlayerTank);
 
-            THEN("No collisions should be detected"){
+            THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));
             }
         }
 
-        WHEN("An entity is placed in board's upper left corner"){
-            Tank* tank = helper::placeTank(&board, 0, 0, Tank::PlayerTank);
+        WHEN("An entity is placed in board's upper left corner") {
+            Tank *tank = helper::placeTank(&board, 0, 0, Tank::PlayerTank);
 
-            THEN("No collisions should be detected"){
+            THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));
             }
         }
 
-        WHEN("An entity is placed in board's bottom right corner"){
-            Tank* tank = helper::placeTank(&board, board.getSizeX()-2, board.getSizeY()-2, Tank::PlayerTank);
+        WHEN("An entity is placed in board's bottom right corner") {
+            Tank *tank = helper::placeTank(&board, board.getSizeX() - 4, board.getSizeY() - 4, Tank::PlayerTank);
 
-            THEN("No collisions should be detected"){
+            THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));
             }
         }
@@ -312,10 +315,10 @@ SCENARIO("Detecting entity - grid collisions") {
             }
         }
 
-        WHEN("An entity is placed out of map"){
-            Tank* tank = helper::placeTank(&board, 10, board.getSizeY()+20, Tank::PlayerTank);
+        WHEN("An entity is placed out of map") {
+            Tank *tank = helper::placeTank(&board, 10, board.getSizeY() + 20, Tank::PlayerTank);
 
-            THEN("Collision should be detected"){
+            THEN("Collision should be detected") {
                 REQUIRE_FALSE(board.testValidateEntityPosition(tank));
             }
         }
@@ -417,8 +420,9 @@ SCENARIO("Moving a single entity") {
             Tank *tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
             board.setTankMoving(tank1, false);
 
-            Tank *tank2 = helper::placeTank(&board, 10, 10 + static_cast<unsigned int>(tank1->getSizeY()) + 1,
+            Tank *tank2 = helper::placeTank(&board, 10, 10,
                                             Tank::BasicTank, North);
+            tank2->setY(10 + + static_cast<unsigned int>(tank1->getSizeY()) + 0.4);
             Bullet *bullet = helper::fireBullet(&board, tank2).value();
 
             board.moveEntity(bullet);
@@ -449,32 +453,32 @@ SCENARIO("Moving a single entity") {
     }
 }
 
-SCENARIO("Removing all enemy tanks from the board"){
-    GIVEN("A board with some tanks and bullets"){
+SCENARIO("Removing all enemy tanks from the board") {
+    GIVEN("A board with some tanks and bullets") {
         helper::TestBoard board{};
 
-        Tank* basicTank = helper::placeTank(&board, 5, 5, Tank::BasicTank);
-        Bullet* basicBullet = helper::fireBullet(&board, basicTank).value();
+        Tank *basicTank = helper::placeTank(&board, 5, 5, Tank::BasicTank);
+        Bullet *basicBullet = helper::fireBullet(&board, basicTank).value();
 
-        Tank* playerTank = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
-        Bullet* playerBullet = helper::fireBullet(&board, playerTank).value();
+        Tank *playerTank = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
+        Bullet *playerBullet = helper::fireBullet(&board, playerTank).value();
 
-        Tank* armorTank = helper::placeTank(&board, 15, 15, Tank::ArmorTank);
-        Bullet* armorBullet = helper::fireBullet(&board, armorTank).value();
+        Tank *armorTank = helper::placeTank(&board, 15, 15, Tank::ArmorTank);
+        Bullet *armorBullet = helper::fireBullet(&board, armorTank).value();
 
         auto eventQueue = helper::getEmptyEventQueue();
 
-        WHEN("Calling the killAllEnemyEntities() method"){
+        WHEN("Calling the killAllEnemyEntities() method") {
             board.killAllEnemyEntities();
 
-            THEN("Only friendly entities should remain on the board"){
+            THEN("Only friendly entities should remain on the board") {
                 auto entityVector = board.getAllEntities();
                 REQUIRE(entityVector->size() == 2);
-                REQUIRE(dynamic_cast<PlayerTank*>((*entityVector)[0].get()) != nullptr);
-                REQUIRE(dynamic_cast<Bullet*>((*entityVector)[1].get()) != nullptr);
-                REQUIRE(dynamic_cast<Bullet*>((*entityVector)[1].get())->isFriendly());
+                REQUIRE(dynamic_cast<PlayerTank *>((*entityVector)[0].get()) != nullptr);
+                REQUIRE(dynamic_cast<Bullet *>((*entityVector)[1].get()) != nullptr);
+                REQUIRE(dynamic_cast<Bullet *>((*entityVector)[1].get())->isFriendly());
 
-                AND_THEN("Proper events should be created"){
+                AND_THEN("Proper events should be created") {
                     REQUIRE(eventQueue->size() == 4);
 
                     auto event = eventQueue->pop();

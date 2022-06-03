@@ -44,7 +44,7 @@ void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
             break;
         }
         default:{
-            throw InvalidEventException("Invalid event for PauseEventHandler");
+            throw InvalidEventException("Invalid event for PausedEventHandler\nEvent enum cast: " + std::to_string(event->type));
         }
     }
 }

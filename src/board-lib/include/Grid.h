@@ -12,6 +12,8 @@ class Event;
 template<class E>
 class EventQueue;
 
+class GridBuilder;
+
 
 /**
  * Enum representing different tile types
@@ -82,6 +84,7 @@ public:
      */
     [[nodiscard]] unsigned int getSizeY() const;
 
+    friend class GridBuilder;
 protected:
     unsigned int size_x = 52;
     unsigned int size_y = 52;

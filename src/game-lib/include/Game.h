@@ -6,22 +6,24 @@
 #define PROI_PROJEKT_GAME_H
 
 #include <memory>
-#include <SFML/Graphics.hpp>
 
 #include "GameState.h"
 #include "KeyboardController.h"
-#include "PointSystem.h"
 #include "Menu.h"
+#include "GameStatsIO.h"
+#include "../../board-lib/include/Board.h"
+
 
 class Clock;
 
-template <class E>
+template<class E>
 class EventQueue;
 
 class Event;
 
 class KeyboardController;
 
+class GameStatistics;
 
 /**
  * Main container
@@ -29,13 +31,13 @@ class KeyboardController;
  */
 class Game {
 public:
-    Game()=delete;
+    Game() = delete;
 
     /**
      * Inits class Game
-     * @param clock_freq Internal clock frequency
+     * @param clockFreq Internal clock frequency
      */
-    explicit Game(unsigned int clock_freq);
+    explicit Game(unsigned int clockFreq);
 
     /**
      * Starts the game
@@ -44,21 +46,29 @@ public:
 
     /**
      * Switches the current state to active
+     *
+     * Queues Event::StateChanged
      */
     void setActiveState();
 
     /**
      * Switches the current state to finished
+     *
+     * Queues Event::StateChanged
      */
     void setFinishedState();
 
     /**
      * Switches the current state to pause
+     *
+     * Queues Event::StateChanged
      */
     void setPauseState();
 
     /**
      * Switches the current state to menu
+     *
+     * Queues Event::StateChanged
      */
     void setMenuState();
 
@@ -71,36 +81,92 @@ public:
      * Returns current state pointer
      * @return State pointer
      */
-    GameState* get_state();
-
+    GameState *getState();
 
     /**
-     * Returns Point system state pointer
-     * @return point system pointer
+     * Returns the pointer to the stats object
+     * @return stats object pointer
      */
-    PointSystem* get_point_system();
+    GameStatistics *getStats();
 
-private:
+protected:
     /**
      * Called right before starting the event loop. Sets all remaining attrs, creates the render window,
-     * loads the scoreboard and links subscribers to clock.
+     * loads the scoreboard and links subscribers to clock; sets current state to Menu
+     *
+     * Queues Event::StateChanged
      */
     void setup();
+
     /**
-     * Creates an SFML render window and saves it
+     * Inits all internal state objects
      */
-    void createRenderWindow();
+    void initStates();
+
+    /**
+     * Inits other remaining components (clock, board, keyboard controller, etc)
+     */
+    void initComponents();
+
+    /**
+     * Loads the scoreboard and inits the stats object
+     */
+    void initScoreboard();
+
+    /**
+     * Inits graphical components
+     */
+    void initUI();
+
+    /**
+     * Starts the game at level 1
+     *
+     * Queues Event::StateChanged
+     */
+    void start();
+
+    /**
+     * Resets stats and the board
+     *
+     * Possibly queues multiple instances of Event::EntityRemoved and a single instance ofEvent::StateChanged and Event::PlayerSpawned
+     */
+    void reset();
+
+    /**
+     * Prepares the board to start a given level
+     *
+     * Possibly queues multiple instances of Event::EntityRemoved, always queues Event::PlayerSpawned
+     * @param levelNum Level number
+     */
+    void prepareLevel(unsigned int levelNum);
+
+    /**
+     * Ends the game and clears the board
+     *
+     * Possibly queues multiple instances of Event::EntityRemoved, always queues Event::StateChanged
+     */
+    void end();
+
+    /**
+     * Redraws the UI; called in every tick
+     */
+    void redrawUI();
+
     std::unique_ptr<GameState> active_state_;
     std::unique_ptr<GameState> pause_state_;
     std::unique_ptr<GameState> finished_state_;
     std::unique_ptr<GameState> menu_state_;
-    GameState* state_{};
+    GameState *state_{};
 
-    PointSystem* points_;
+    std::unique_ptr<Board> board_;
+
+    std::unique_ptr<GameStatistics> gameStats_;
+    std::unique_ptr<GameStatsIO> gameStatsIO_;
+
     bool running_ = true;
 
-    Clock* clock_;
-    EventQueue<Event>* eventQueue_;
+    Clock *clock_;
+    EventQueue<Event> *eventQueue_;
 
     std::unique_ptr<sf::RenderWindow> window_;
     std::unique_ptr<KeyboardController> keyboardController_;

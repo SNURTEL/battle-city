@@ -1,0 +1,11 @@
+<map id="Event::StatsInfo" name="Event::StatsInfo">
+<area shape="rect" id="node1" title=" " alt="" coords="146,1284,271,1361"/>
+<area shape="rect" id="node2" href="$class_game_statistics.html" title=" " alt="" coords="109,880,309,1221"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,608,108,685"/>
+<area shape="rect" id="node4" title=" " alt="" coords="133,608,285,685"/>
+<area shape="rect" id="node5" href="$class_event_queue.html" title=" " alt="" coords="309,505,509,788"/>
+<area shape="rect" id="node6" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="211,255,361,347"/>
+<area shape="rect" id="node7" title=" " alt="" coords="309,13,509,90"/>
+<area shape="rect" id="node8" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="479,160,679,443"/>
+<area shape="rect" id="node9" title=" " alt="" coords="533,5,682,97"/>
+</map>

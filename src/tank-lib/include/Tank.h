@@ -158,7 +158,7 @@ public:
      * @param lives Initial number of lives
      * @param facing Initial direction in which the tank is faced (default=North)
      */
-    PlayerTank(float x, float y, unsigned int lives, Direction facing=North);
+    PlayerTank(float x, float y, Direction facing=North);
 };
 
 /**
