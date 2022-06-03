@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['_7eentity_0',['~Entity',['../class_entity.html#ac479d009ddde62dfb378ca0a70d81307',1,'Entity']]],
-  ['_7eeventpublisher_1',['~EventPublisher',['../class_event_publisher.html#a0874c6432bc5d42bc4c6f2d75dac043d',1,'EventPublisher']]],
-  ['_7eeventsubscriber_2',['~EventSubscriber',['../class_event_subscriber.html#afca9b6edc8aebe5844414d3e2e583d25',1,'EventSubscriber']]],
-  ['_7egamestate_3',['~GameState',['../class_game_state.html#adc1bfdf7ee7c1f48e4841995db4e16c3',1,'GameState']]],
-  ['_7einfo_5fu_4',['~info_u',['../union_event_1_1info__u.html#a5f2e4a39a79d6eade703a55405d70157',1,'Event::info_u']]],
-  ['_7esimplepublisher_5',['~SimplePublisher',['../class_simple_publisher.html#ab3138e8718c14268b5e593b4a25fae7e',1,'SimplePublisher']]],
-  ['_7esimplesubscriber_6',['~SimpleSubscriber',['../class_simple_subscriber.html#adfcf546aeab6be511e41e85cdeca1e3f',1,'SimpleSubscriber']]]
+  ['what_552',['what',['../class_out_of_grid_exception.html#a8b996b2cf064abe5e112fa8a3638958c',1,'OutOfGridException::what()'],['../struct_event_construction_exception.html#a21beb0ea2cdb5053549bf0dff5d66add',1,'EventConstructionException::what()'],['../class_invalid_event_exception.html#acf3851766157cb9f6490e409d755909f',1,'InvalidEventException::what()'],['../class_observer_exception.html#abc6401c47ef7af3e488779117444d179',1,'ObserverException::what()'],['../class_singleton_not_initialized_exception.html#aa3184c9ee95d0cdf422faaa4a111ad51',1,'SingletonNotInitializedException::what()'],['../class_entity_does_not_exist_exception.html#a32db2a43d53cd6466087cad2f5f65db4',1,'EntityDoesNotExistException::what()']]]
 ];

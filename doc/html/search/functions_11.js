@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['unsubscribe_0',['unsubscribe',['../class_event_subscriber.html#adae9004de4b07cbd0e2aafa489f57b81',1,'EventSubscriber::unsubscribe()'],['../class_simple_subscriber.html#a54f48edd65af3b061be2054bcb96a5b3',1,'SimpleSubscriber::unsubscribe()']]]
+  ['tank_547',['Tank',['../class_tank.html#ac8f033f365f015acf0e89eaa9e8167cd',1,'Tank']]],
+  ['tick_548',['tick',['../class_clock.html#a116757f0e1575348549b1f2fc346d492',1,'Clock']]],
+  ['tilemanager_549',['TileManager',['../class_tile_manager.html#a8fee2f6c4256430ee19ed3443112d74e',1,'TileManager::TileManager(TileManager &amp;)=delete'],['../class_tile_manager.html#ad1f76e566485afed3bfb9aa64b93d805',1,'TileManager::TileManager()=default']]]
 ];

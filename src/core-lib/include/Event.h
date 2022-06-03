@@ -11,8 +11,10 @@
 
 class Tank;
 class Entity;
-
+class Menu;
+class GameState;
 class Grid;
+class PointSystem;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
@@ -58,7 +60,14 @@ public:
         TileChanged,
         TileDeleted,
 
-        LevelLoaded
+        LevelLoaded,
+
+        MenuSelectionChange,
+        MenuEnterClicked,
+
+        StateChanged,
+
+        PointsChanged
     };
 
     EventType type;
@@ -86,11 +95,40 @@ public:
         Entity* entity;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
     };
 
+    /**
+     * Holds additional event info for menu events
+     */
+    struct MenuInfo {
+        Menu* menu;
+        unsigned int new_pos;
+    };
+
+    /**
+     * Holds additional event info for state events
+     */
+    struct StateInfo {
+        GameState* state_;
+    };
+
+    /**
+     * Holds additional event info for points events
+     */
+    struct PointsInfo {
+        PointSystem* ptsys_;
+        unsigned int points_;
+    };
+
+    /**
+     * Holds additional event info for entity-entity collision events
+     */
     struct EntityEntityCollisionInfo{
         Entity* entity1;
         Entity* entity2;
     };
 
+    /**
+     * Holds additional event info for entity-tile collision events
+     */
     struct EntityTileCollisionInfo{
         Entity* entity;
         unsigned int x;
@@ -121,12 +159,15 @@ public:
      * Trying to access any member other than initialized will result in undefined behavior
      */
     union info_u {
+        MenuInfo menuInfo;
+        StateInfo stateInfo;
         KeyEventInfo keyInfo;
         EntityInfo entityInfo;
         TileInfo tileInfo;
         LevelInfo levelInfo;
         EntityEntityCollisionInfo entityEntityCollisionInfo;
         EntityTileCollisionInfo entityGridCollisionInfo;
+        PointsInfo pointsInfo;
 
         ~info_u(){};  // DO NOT change this to =default, or else it will stop working
     } info = {};
@@ -134,7 +175,13 @@ public:
     // FIXME not so elegant
     Event(EventType, unsigned int ui1);
 
+    Event(EventType e, PointSystem* ptsys, unsigned int points);
+
+    Event(EventType e, GameState* new_state);
+
     explicit Event(EventType);
+
+    Event(EventType e, Menu* menu, unsigned int new_pos);
 
     Event(EventType e, Entity* entity);
 

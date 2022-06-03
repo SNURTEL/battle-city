@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="_simple_subscriber_8h.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="_simple_subscriber_8h.html" target="_top" target="_top" target="_top" target="_top" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="160,-56.5 160,-75.5 308,-75.5 308,-56.5 160,-56.5"/>
 <text text-anchor="middle" x="234" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">include/SimpleSubscriber.h</text>
 </a>
@@ -37,7 +37,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="_simple_publisher_8h.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="_simple_publisher_8h.html" target="_top" target="_top" target="_top" target="_top" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-56.5 0,-75.5 142,-75.5 142,-56.5 0,-56.5"/>
 <text text-anchor="middle" x="71" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">include/SimplePublisher.h</text>
 </a>
@@ -52,7 +52,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="_observer_exceptions_8h.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="_observer_exceptions_8h.html" target="_top" target="_top" target="_top" target="_top" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="326.5,-56.5 326.5,-75.5 487.5,-75.5 487.5,-56.5 326.5,-56.5"/>
 <text text-anchor="middle" x="407" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">include/ObserverExceptions.h</text>
 </a>
