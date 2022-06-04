@@ -7,6 +7,8 @@
 #include <map>
 #include <iterator>
 #include <string>
+#include "include/TextureLoadingError.h"
+#include <sstream>
 
 
 
@@ -94,22 +96,21 @@ void TilesGraphic::loadTextures()
 {
 
     std::unordered_map<TileType, std::string>::iterator it_path = pathMap.begin();
-    // std::unordered_map<TileType, sf::Texture>::iterator it_texture = textureMap.begin();
     TileType type;
     sf::Texture texture;
     std::string path;
 
-    // Not the best solution but iterating over an enum is problematic
     while (it_path != pathMap.end())
     {
 
         type = it_path->first;
-        // texture = it_path->second;
         path = pathMap[type];
         if(type != TileType::NullTile)
             if (!texture.loadFromFile(path))
             {
-                // Exceptions
+                std::stringstream ss;
+                ss << "Failed to load tile texture: " << path;
+                throw TextureLoadingError(ss.str());
             }
             else
             {

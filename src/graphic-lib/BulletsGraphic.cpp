@@ -1,13 +1,9 @@
 #include "include/ActiveState_dir/Borad_dir/BulletsGraphic.h"
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include <map>
 #include <iterator>
 #include <string>
 #include <unordered_map>
-
+#include "include/TextureLoadingError.h"
+#include <sstream>
 
 
 BulletsGraphic::RenderObject::RenderObject(sf::Vector2f pos, Direction direction, Bullet::BulletType type)
@@ -124,7 +120,9 @@ void BulletsGraphic::loadTextures()
 
         if (!texture.loadFromFile(path))
         {
-            // Exception
+            std::stringstream ss;
+            ss << "Failed to load bullet's texture: " << path;
+            throw TextureLoadingError(ss.str());
         }
         else
         {

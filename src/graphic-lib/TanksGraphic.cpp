@@ -3,11 +3,11 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-#include <map>
 #include <iterator>
 #include <string>
 #include <unordered_map>
-
+#include <sstream>
+#include "include/TextureLoadingError.h"
 
 TanksGraphic::RenderObject::RenderObject(const sf::Vector2f& coords, Direction direction,
                                          Tank::TankType textureType)
@@ -128,7 +128,9 @@ void TanksGraphic::loadTextures()
 
         if (!texture.loadFromFile(path))
         {
-            // Exception
+            std::stringstream ss;
+            ss << "Failed to load tank's texture: " << path;
+            throw TextureLoadingError(ss.str());
         }
         else
         {
