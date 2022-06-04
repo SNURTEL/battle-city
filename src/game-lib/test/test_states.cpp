@@ -9,6 +9,8 @@
 
 #include "../include/GameState.h"
 #include "../include/Game.h"
+#include "../../tank-lib/include/Bullet.h"
+#include "../../tank-lib/include/Entity.h"
 #include "../include/GameStatistics.h"
 #include "../include/ActiveEventHandler.h"
 #include "../include/FinishedEventHandler.h"
@@ -23,13 +25,19 @@ namespace {
         public:
             explicit TestGame(unsigned int clockFreq) : Game(clockFreq) {};
 
-            void testSetup() { setup(); }
+            void testSetup() {
+
+                initStates();
+                initComponents();
+                initScoreboard();
+
+                setMenuState();
+                running_ = true;
+            }
 
             bool checkIfStatesArePresent() { return active_state_ && pause_state_ && finished_state_ && menu_state_; }
 
             bool checkRunning() { return running_; };
-
-            Board *getBoard() { return board_.get(); };
 
             GameStatsIO *getGameStatsIO() { return gameStatsIO_.get(); };
 
@@ -38,6 +46,8 @@ namespace {
             void testReset() { reset(); };
 
             void testEnd() { end(); };
+
+            bool testIsRunning() { return running_; };
 
         };
 
@@ -74,109 +84,103 @@ SCENARIO("testing point system") {
 
 SCENARIO("Player Movement") {
     EventQueue<Event> * eq = helper::getEmptyEventQueue();
-    Game* game = std::make_unique<Game>(60).get();
-    ActiveGameState* state = std::make_unique<ActiveGameState>(game).get();
-    Tank* player_tank = std::make_unique<PlayerTank>(3, 3).get();
-    Board* board = std::make_unique<Board>().get();
-    state->set_board(board);
-    state->set_player_tank(player_tank);
-    ActiveEventHandler* handler = std::make_unique<ActiveEventHandler>(game, state).get();
+    std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
+    game->testSetup();
+    game->testStart();
+    ActiveGameState* state = dynamic_cast<ActiveGameState*>(game->getState());
+    Event keypressed(Event::KeyPressed, 74);
+    ActiveEventHandler* handler = dynamic_cast<ActiveEventHandler*>(state->getEventHandler());
     WHEN("UP arrow clicked") {
-        eq->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 73));
-        // std::unique_ptr<Event> event = eq->pop();
-        // handler->handleEvent(event);
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 73));
         THEN("Player tank should be moving") {
-            REQUIRE(player_tank->isMoving() == true);
+            REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == true);
         }
         THEN("Direction should be north") {
-            REQUIRE(player_tank->getFacing() == North);
+            REQUIRE(game->getBoard()->getPlayerTank()->getFacing() == North);
         }
-        REQUIRE(1 == 1);
     }  
     WHEN("UP arrow released") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 73));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 73));
         THEN("Should stop moving") {
-            REQUIRE(player_tank->isMoving() == false);
+            REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == false);
         }
     }
     /////////////////////////////
     WHEN("DOWN arrow clicked") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 74));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 74));
         THEN("Player tank should be moving") {
-            REQUIRE(player_tank->isMoving() == true);
+            REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == true);
         }
         THEN("Direction should be south") {
-            REQUIRE(player_tank->getFacing() == South);
+            REQUIRE(game->getBoard()->getPlayerTank()->getFacing() == South);
         }
     }  
     WHEN("DOWN arrow released") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 74));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 74));
         THEN("Should stop moving") {
-            REQUIRE(player_tank->isMoving() == false);
+            REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == false);
         }
     } 
     /////////////////////////////
     WHEN("RIGHT arrow clicked") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 71));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 71));
         THEN("Player tank should be moving") {
-            REQUIRE(player_tank->isMoving() == true);
+            REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == true);
         }
         THEN("Direction should be EAST") {
-            REQUIRE(player_tank->getFacing() == East);
+            REQUIRE(game->getBoard()->getPlayerTank()->getFacing() == East);
         }
     }  
     WHEN("RIGHT arrow released") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 71));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 71));
         THEN("Should stop moving") {
-            REQUIRE(player_tank->isMoving() == false);
+            REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == false);
         }
     } 
     /////////////////////////////
     WHEN("LEFT arrow clicked") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 72));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 72));
         THEN("Player tank should be moving") {
-            REQUIRE(player_tank->isMoving() == true);
+            REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == true);
         }
         THEN("Direction should be WEST") {
-            REQUIRE(player_tank->getFacing() == West);
+            REQUIRE(game->getBoard()->getPlayerTank()->getFacing() == West);
         }
     }  
     WHEN("LEFT arrow released") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 72));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 72));
         THEN("Should stop moving") {
-            REQUIRE(player_tank->isMoving() == false);
+            REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == false);
         }
     }
 }
 
 SCENARIO("Player Shooting") {
     EventQueue<Event> * eq = helper::getEmptyEventQueue();
-    Game* game = std::make_unique<Game>(60).get();
-    ActiveGameState* state = std::make_unique<ActiveGameState>(game).get();
-    Tank* player_tank = std::make_unique<PlayerTank>(3, 3).get();
-    Board* board = std::make_unique<Board>().get();
-    state->set_board(board);
-    state->set_player_tank(player_tank);
-    std::unique_ptr<ActiveEventHandler> handler = std::make_unique<ActiveEventHandler>(game, state);
+    std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
+    game->testSetup();
+    game->testStart();
+    ActiveGameState* state = dynamic_cast<ActiveGameState*>(game->getState());
+    Event keypressed(Event::KeyPressed, 74);
+    ActiveEventHandler* handler = dynamic_cast<ActiveEventHandler*>(state->getEventHandler());
     WHEN("SPACE clicked") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 72));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 72));
         THEN("Player should create a bullet (cant create another)") {
-           //  REQUIRE(player_tank->createBullet() == std::nullopt);
+           // REQUIRE(game->getBoard()->getPlayerTank()->createBullet() == nullptr);
         }
     }  
 }
 
 SCENARIO("Active to Pause") {
     EventQueue<Event> * eq = helper::getEmptyEventQueue();
-    Game* game = std::make_unique<Game>(60).get();
-    ActiveGameState* state = std::make_unique<ActiveGameState>(game).get();
-    Tank* player_tank = std::make_unique<PlayerTank>(3, 3).get();
-    Board* board = std::make_unique<Board>().get();
-    state->set_board(board);
-    state->set_player_tank(player_tank);
-    std::unique_ptr<ActiveEventHandler> handler = std::make_unique<ActiveEventHandler>(game, state);
+    std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
+    game->testSetup();
+    game->testStart();
+    ActiveGameState* state = dynamic_cast<ActiveGameState*>(game->getState());
+    Event keypressed(Event::KeyPressed, 74);
+    ActiveEventHandler* handler = dynamic_cast<ActiveEventHandler*>(state->getEventHandler());
     WHEN("ESC clicked") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 72));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 36));
         THEN("state should be pause") {
             REQUIRE(dynamic_cast<PauseGameState*>(game->getState()) != nullptr);
         }
@@ -185,16 +189,15 @@ SCENARIO("Active to Pause") {
 
 SCENARIO("Player tank is killed") {
     EventQueue<Event> * eq = helper::getEmptyEventQueue();
-    Game* game = std::make_unique<Game>(60).get();
-    ActiveGameState* state = std::make_unique<ActiveGameState>(game).get();
-    Tank* player_tank = std::make_unique<PlayerTank>(3, 3).get();
-    Board* board = std::make_unique<Board>().get();
-    state->set_board(board);
-    state->set_player_tank(player_tank);
-    std::unique_ptr<ActiveEventHandler> handler = std::make_unique<ActiveEventHandler>(game, state);
+    std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
+    game->testSetup();
+    game->testStart();
+    ActiveGameState* state = dynamic_cast<ActiveGameState*>(game->getState());
+    Event keypressed(Event::KeyPressed, 74);
+    ActiveEventHandler* handler = dynamic_cast<ActiveEventHandler*>(state->getEventHandler());
 
     WHEN ("Tank Killed event") {
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::TankKilled, player_tank);
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::TankKilled, game->getBoard()->getPlayerTank()));
         THEN ("State is finished") {
             REQUIRE(dynamic_cast<FinishedGameState*>(game->getState()) != nullptr);
         }
@@ -203,65 +206,83 @@ SCENARIO("Player tank is killed") {
 
 SCENARIO("Collisions") {
     EventQueue<Event> * eq = helper::getEmptyEventQueue();
-    Game* game = std::make_unique<Game>(60).get();
-    ActiveGameState* state = std::make_unique<ActiveGameState>(game).get();
-    Tank* player_tank = std::make_unique<PlayerTank>(3, 3).get();
-    Tank* other_tank = std::make_unique<FastTank>(3, 3).get();
-    Board* board = std::make_unique<Board>().get();
-    state->set_board(board);
-    state->set_player_tank(player_tank);
-    std::unique_ptr<ActiveEventHandler> handler = std::make_unique<ActiveEventHandler>(game, state);
+    std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
+    game->testSetup();
+    game->testStart();
+    game->getBoard()->spawnTank(15, 15, Tank::ArmorTank);
+    ActiveGameState* state = dynamic_cast<ActiveGameState*>(game->getState());
+    Event keypressed(Event::KeyPressed, 74);
+    ActiveEventHandler* handler = dynamic_cast<ActiveEventHandler*>(state->getEventHandler());
     
     WHEN("Tank collides with tank") {
-        handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, player_tank, other_tank));
+        // needs Entity* gets Tank*
+        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, game->getBoard()->getPlayerTank(), 
+        // game->getBoard()->getEntityController()->findEntityAtPosition(15, 15)));
         THEN("They should move back") {
-            //
+            // todo
         }
     }
-
     WHEN("Enemy bullet collides with player tank") {
-
+        Bullet* bullet_ptr = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
+        unsigned int lives = game->getBoard()->getPlayerTank()->getLives();
+        // needs Entity* and gets Bullet*
+        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, game->getBoard()->getPlayerTank(), bullet_ptr));
         THEN("Player lives -1") {
-
+            // REQUIRE(game->getBoard()->getPlayerTank()->getLives() == lives - 1); Not gonna pass now
         }
     }
 
     WHEN("Player bullet collides with enemy tank") {
-        
+        Bullet* bullet_ptr = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
+        unsigned int points = game->getStats()->getPoints();
+        // needs Entity* and gets Bullet*
+        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, game->getBoard()->getPlayerTank(), bullet_ptr));
         THEN("Player points +") {
-
+            // REQUIRE(game->getStats()->getPoints() > points); Not gonna pass now
         }
 
         THEN("Enemy tank gets deleted") {
-
+            // todo
         }
     }
 
     WHEN("Enemy bullet collides with a friendly bullet") {
-
+        Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
+        Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
+        // needs Entity* and gets Bullet*
+        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, bullet_enemy, bullet_friendly));
         THEN("Both bullets get deleted") {
-
+            // todo
         }
     }
 
     WHEN("Bullet hits breakable tile") {
-
+        Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
+        Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
+        // needs Entity* and gets Bullet*
+        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityGridCollision, bullet_enemy, 10, 10));
         THEN("Tile and bullet are deleted") {
-
+            // REQUIRE_TRUE(game->getBoard()->getGrid()->isTileDeleted(10, 10))
+            // todo
         }
     }
 
     WHEN("Bullet hits unbreakable tile") {
-
+        Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
+        Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
+        // needs Entity* and gets Bullet*
+        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityGridCollision, bullet_enemy, 10, 10));
         THEN("Only bullet gets deleted") {
-            
+            // REQUIRE_FALSE(game->getBoard()->getGrid()->isTileDeleted(10, 10))
+            // todo
         }
     }
 
     WHEN("Tank hits a tile") {
-
+        // needs Entity* and gets Tank*
+        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityGridCollision, game->getBoard()->getPlayerTank(), 10, 10));
         THEN("Tank should be moved back") {
-
+            // todo
         }
     }
 
@@ -271,38 +292,44 @@ SCENARIO("Collisions") {
 
 SCENARIO("State is menu") {
     EventQueue<Event> * eq = helper::getEmptyEventQueue();
-    Game* game = std::make_unique<Game>(60).get();
-    MenuGameState* state = std::make_unique<MenuGameState>(game).get();
-    std::unique_ptr<MenuEventHandler> handler = std::make_unique<MenuEventHandler>(game, state);
+    std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
+    game->testSetup();
+    MenuGameState* state = dynamic_cast<MenuGameState*>(game->getState());
+    MenuEventHandler* handler = dynamic_cast<MenuEventHandler*>(state->getEventHandler());
 
     WHEN("UP arrow is clicked") {
-        eq->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 73));
-        THEN("Menu pos should change (+1)") {
-
+        state->get_menu()->set_pos(2);
+        unsigned int curr_pos = state->get_menu()->get_pos();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 73));
+        THEN("Menu pos should change (-1)") {
+            REQUIRE(state->get_menu()->get_pos() == curr_pos - 1);
         }
     }
 
-    WHEN("UP arrow is clicked") {
-        eq->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 74));
-        THEN("Menu pos should change (-1)") {
-
+    WHEN("DOWN arrow is clicked") {
+        unsigned int curr_pos = state->get_menu()->get_pos();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 74));
+        THEN("Menu pos should change (+1)") {
+            REQUIRE(state->get_menu()->get_pos() == curr_pos + 1);
         }
     }
 
     WHEN("ENTER is clicked") {
-
         GIVEN("menu pos = 1") {
-
+            state->get_menu()->set_pos(1);
+            handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 58));
             THEN("State should be active") {
-
+                REQUIRE(dynamic_cast<ActiveGameState*>(game->getState()) != nullptr);
             }
         }
 
         GIVEN("menu pos = 2")
         {
-            
+            state->get_menu()->set_pos(2);
+            REQUIRE(game->testIsRunning());
+            handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 58));
             THEN("Game should end") {
-
+                REQUIRE_FALSE(game->testIsRunning());
             }
         }
     }
@@ -311,38 +338,44 @@ SCENARIO("State is menu") {
 
 SCENARIO("State is pause") {
     EventQueue<Event> * eq = helper::getEmptyEventQueue();
-    Game* game = std::make_unique<Game>(60).get();
-    PauseGameState* state = std::make_unique<PauseGameState>(game).get();
-    std::unique_ptr<PauseEventHandler> handler = std::make_unique<PauseEventHandler>(game, state);
+    std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
+    game->testSetup();
+    MenuGameState* state = dynamic_cast<MenuGameState*>(game->getState());
+    MenuEventHandler* handler = dynamic_cast<MenuEventHandler*>(state->getEventHandler());
 
     WHEN("UP arrow is clicked") {
-        eq->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 73));
-        THEN("Menu pos should change (+1)") {
-
+        state->get_menu()->set_pos(2);
+        unsigned int curr_pos = state->get_menu()->get_pos();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 73));
+        THEN("Menu pos should change (-1)") {
+            REQUIRE(state->get_menu()->get_pos() == curr_pos - 1);
         }
     }
 
     WHEN("UP arrow is clicked") {
-        eq->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 74));
-        THEN("Menu pos should change (-1)") {
-
+        unsigned int curr_pos = state->get_menu()->get_pos();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 74));
+        THEN("Menu pos should change (+1)") {
+            REQUIRE(state->get_menu()->get_pos() == curr_pos + 1);
         }
     }
 
     WHEN("ENTER is clicked") {
 
         GIVEN("menu pos = 1") {
-
+            state->get_menu()->set_pos(1);
+            handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 58));
             THEN("State should be active") {
-
+                REQUIRE(dynamic_cast<ActiveGameState*>(game->getState()) != nullptr);
             }
         }
 
         GIVEN("menu pos = 2")
         {
-            
+            state->get_menu()->set_pos(2);
+            handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 58));
             THEN("State should be menu") {
-                
+                REQUIRE(dynamic_cast<MenuGameState*>(game->getState()) != nullptr);
             }
         }
     }

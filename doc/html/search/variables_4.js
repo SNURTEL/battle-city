@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['enemybullet_0',['enemyBullet',['../struct_event_1_1_enemy_bullet_collision_info.html#a8e58d8d83dd108f5cbdbe74599aa26ef',1,'Event::EnemyBulletCollisionInfo']]],
   ['enemytank_1',['enemyTank',['../struct_event_1_1_enemy_tank_collision_info.html#a64c0b6e9a98910352c933372acbc1ded',1,'Event::EnemyTankCollisionInfo']]],
   ['entities_5f_2',['entities_',['../class_entity_controller.html#a26073e88504844429262413d8e8652d3',1,'EntityController']]],
@@ -15,4 +16,8 @@ var searchData=
   ['facing_5f_627',['facing_',['../class_entity.html#a209bf984634059504922bd6fd7b3ee24',1,'Entity']]],
   ['finished_5fstate_5f_628',['finished_state_',['../class_game.html#a753ededad8a7d3ace19e87845d5032a4',1,'Game']]]
 >>>>>>> Added test samples for active state
+=======
+  ['facing_5f_633',['facing_',['../class_entity.html#a209bf984634059504922bd6fd7b3ee24',1,'Entity']]],
+  ['finished_5fstate_5f_634',['finished_state_',['../class_game.html#a753ededad8a7d3ace19e87845d5032a4',1,'Game']]]
+>>>>>>> Implemented tests for states
 ];

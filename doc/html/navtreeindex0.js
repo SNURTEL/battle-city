@@ -134,6 +134,7 @@ var NAVTREEINDEX0 =
 "class_basic_tank.html#a4b578f4a3ccadde4b2da15dcf1f7c6ad":[0,0,3,1],
 "class_basic_tank.html#a4d1503ed8e6c1b9e110e5c8de258c440":[0,0,3,0],
 "class_board.html":[0,0,4],
+<<<<<<< HEAD
 "class_board.html#a0ab3be7337806b5dff7fa18e41773d33":[0,0,4,13],
 "class_board.html#a16db34c1c14ff45f27f6e409a338271e":[0,0,4,15],
 "class_board.html#a3a18b6cab4a4259da763ceb735b8422b":[0,0,4,12],
@@ -263,10 +264,32 @@ var NAVTREEINDEX0 =
 "class_event.html#a615125f6122d131f5334a063f96fb557":[0,0,12,25],
 "class_event.html#a69d88aba99ec1ede7835acdc80eefa93":[0,0,12,21]
 =======
+=======
+"class_board.html#a3a18b6cab4a4259da763ceb735b8422b":[0,0,4,14],
+"class_board.html#a4ebb263355a17758bd471ecd91b4fb8f":[0,0,4,7],
+"class_board.html#a57fa25288b25c8d1d022a588c2d43590":[0,0,4,1],
+"class_board.html#a6c5b7c849c64fb4740f84312281ce4fc":[0,0,4,19],
+"class_board.html#a6fa4a0e3e0ea483bbfa95921b3360482":[0,0,4,20],
+"class_board.html#a7f47bef0f41cfda3809636185757c7e8":[0,0,4,5],
+"class_board.html#a8745130347b5e1f514dbbca427349439":[0,0,4,9],
+"class_board.html#a8a45bd5b4fc4d1cfbc8908ccc44108c8":[0,0,4,6],
+"class_board.html#a8ede038461605e13fa6aa8969159bdfe":[0,0,4,4],
+"class_board.html#a9bd51535ad0c64c521e5f664bdfd9f3c":[0,0,4,22],
+"class_board.html#a9ee491d4fea680cf69b033374a9fdfcb":[0,0,4,0],
+"class_board.html#aa1e9014b904918b05d24be723e530de7":[0,0,4,12],
+"class_board.html#aa60d3244f13d1602b9ee39b06eab6a5c":[0,0,4,21],
+"class_board.html#ab4a4606663a2f29866afe4ee78a8b6e2":[0,0,4,23],
+"class_board.html#ab98b8a2074622fffa0f4c66bc5dc685d":[0,0,4,15],
+"class_board.html#abdb06aa942ce94caa39f4386d2040d48":[0,0,4,8],
+"class_board.html#ac5efcc8c0cfefe8d252d2f1a54b65845":[0,0,4,18],
+"class_board.html#ac8bb4ebce6668bd0131bdd68d00eebe4":[0,0,4,10],
+"class_board.html#acf82794404bf54d636b146dd7740aab3":[0,0,4,2],
+"class_board.html#ad556322d223d21b4674506649c034853":[0,0,4,13],
+>>>>>>> Implemented tests for states
 "class_board.html#addd18b4c9cd79ffef40ab5f1222902c1":[0,0,4,3],
-"class_board.html#ae10dd719175a6d1a2835553d3c19fc12":[0,0,4,13],
-"class_board.html#ae229dfbfee3b3ec026e4c3d38f4a64fe":[0,0,4,9],
-"class_board.html#af333035f40474678447b28f3261768cb":[0,0,4,14],
+"class_board.html#ae10dd719175a6d1a2835553d3c19fc12":[0,0,4,16],
+"class_board.html#ae229dfbfee3b3ec026e4c3d38f4a64fe":[0,0,4,11],
+"class_board.html#af333035f40474678447b28f3261768cb":[0,0,4,17],
 "class_bullet.html":[0,0,5],
 "class_bullet.html#a08da693ff722a4c47999e44e5a72f5a3":[0,0,5,4],
 "class_bullet.html#a5e8fd8844271779a2e6cf28a72b54da9":[0,0,5,1],
@@ -373,9 +396,13 @@ var NAVTREEINDEX0 =
 "class_event_handler.html#a5f5cf81e3095d31123dea5a76ff74361":[0,0,12,0],
 "class_event_publisher.html":[0,0,13],
 "class_event_publisher.html#a0874c6432bc5d42bc4c6f2d75dac043d":[0,0,13,0],
+<<<<<<< HEAD
 "class_event_publisher.html#a3471d7106453b5ca0eff3ccb1cf2fb07":[0,0,13,7],
 "class_event_publisher.html#a383bf75c0889dc353b0797d642ae2658":[0,0,13,6],
 "class_event_publisher.html#a416604ff7cb1ee5b19551e668beb2384":[0,0,13,2],
 "class_event_publisher.html#a5bfeea787cb42e37b4673bbc269f93e2":[0,0,13,3]
 >>>>>>> Added test samples for active state
+=======
+"class_event_publisher.html#a3471d7106453b5ca0eff3ccb1cf2fb07":[0,0,13,7]
+>>>>>>> Implemented tests for states
 };

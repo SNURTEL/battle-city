@@ -53,12 +53,17 @@ var NAVTREEINDEX =
 [
 "_active_event_handler_8cpp.html",
 <<<<<<< HEAD
+<<<<<<< HEAD
 "class_event.html#a7122eb20839e01574b47b77fd5b0b8ea",
 "class_singleton_not_initialized_exception.html#aa3184c9ee95d0cdf422faaa4a111ad51"
 =======
 "class_event_publisher.html#a738e77e505033234f0f687b0a2d559ed",
 "functions_e.html"
 >>>>>>> Added test samples for active state
+=======
+"class_event_publisher.html#a383bf75c0889dc353b0797d642ae2658",
+"functions.html"
+>>>>>>> Implemented tests for states
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

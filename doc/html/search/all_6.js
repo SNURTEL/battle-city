@@ -72,6 +72,7 @@ var searchData=
   ['get_5fplayer_5ftank_114',['get_player_tank',['../class_active_game_state.html#a0e7199e08e3254a7eb61f87b93adb6b5',1,'ActiveGameState']]],
   ['get_5fpos_115',['get_pos',['../class_menu.html#a28b12244c3690a2854fadd50bc22bc2d',1,'Menu']]],
   ['getallentities_116',['getAllEntities',['../class_entity_controller.html#a9fcf9c6c05d2c9051641ed0d59c84b17',1,'EntityController']]],
+<<<<<<< HEAD
   ['geteventhandler_117',['getEventHandler',['../class_game_state.html#a76377eec54575a4a6cd3523854fad385',1,'GameState']]],
   ['getfacing_118',['getFacing',['../class_entity.html#a1c9326c95bda4c9baa96195e1834c2fb',1,'Entity']]],
   ['getlevel_119',['getLevel',['../class_game_statistics.html#a0edb45c0d549b1591649251b44d9463d',1,'GameStatistics']]],
@@ -95,4 +96,31 @@ var searchData=
   ['gridbuilder_2ecpp_137',['GridBuilder.cpp',['../_grid_builder_8cpp.html',1,'']]],
   ['gridbuilder_2eh_138',['GridBuilder.h',['../_grid_builder_8h.html',1,'']]]
 >>>>>>> Added test samples for active state
+=======
+  ['getboard_117',['getBoard',['../class_game.html#aac82d38c4540fcfaef89059865d1ce31',1,'Game']]],
+  ['getentitycontroller_118',['getEntityController',['../class_board.html#a8ede038461605e13fa6aa8969159bdfe',1,'Board']]],
+  ['geteventhandler_119',['getEventHandler',['../class_game_state.html#a76377eec54575a4a6cd3523854fad385',1,'GameState']]],
+  ['getfacing_120',['getFacing',['../class_entity.html#a1c9326c95bda4c9baa96195e1834c2fb',1,'Entity']]],
+  ['getlevel_121',['getLevel',['../class_game_statistics.html#a0edb45c0d549b1591649251b44d9463d',1,'GameStatistics']]],
+  ['getlives_122',['getLives',['../class_game_statistics.html#ad3e27901a94d5d8dd16b16dcc6c07d26',1,'GameStatistics::getLives()'],['../class_tank.html#ac0e3be054e1df5bc6706002714c90af1',1,'Tank::getLives()']]],
+  ['getplayer_123',['getPlayer',['../class_entity_controller.html#aa09ffb605c6b1a5db05670620cf0f991',1,'EntityController']]],
+  ['getplayertank_124',['getPlayerTank',['../class_board.html#a7f47bef0f41cfda3809636185757c7e8',1,'Board']]],
+  ['getpoints_125',['getPoints',['../class_game_statistics.html#a3a81ada60c3c6c5d02b2aadfd3dcec58',1,'GameStatistics::getPoints()'],['../class_tank.html#a2498c2564d501d3bbe847420ee17e1ba',1,'Tank::getPoints()']]],
+  ['getsizex_126',['getSizeX',['../class_board.html#a8a45bd5b4fc4d1cfbc8908ccc44108c8',1,'Board::getSizeX()'],['../class_grid.html#a40acfe0eac4aae736e13493429c9fec1',1,'Grid::getSizeX()'],['../class_entity.html#af0002e71332932307169b80e44052592',1,'Entity::getSizeX()']]],
+  ['getsizey_127',['getSizeY',['../class_board.html#a4ebb263355a17758bd471ecd91b4fb8f',1,'Board::getSizeY()'],['../class_grid.html#a9af57efebfaf354fa3f233a96f364d27',1,'Grid::getSizeY()'],['../class_entity.html#a23aea130dbbf3637879c556a98a9ba5c',1,'Entity::getSizeY()']]],
+  ['getspeed_128',['getSpeed',['../class_entity.html#ad577b2c5aeea6d34d6c4e3c28b3cfc47',1,'Entity']]],
+  ['getstate_129',['getState',['../class_game.html#a6f686c39cbdf6d2e641fc121dd4fde0d',1,'Game']]],
+  ['getstats_130',['getStats',['../class_game.html#afc98e409934cc1af4d6f91d0d1dda91e',1,'Game']]],
+  ['gettileatposition_131',['getTileAtPosition',['../class_grid.html#a1e1d0cc99bb79e8e89e3b39f7927045f',1,'Grid']]],
+  ['gettype_132',['getType',['../class_tank.html#a6345582304a1113ad65095071dd60c5f',1,'Tank']]],
+  ['getx_133',['getX',['../class_entity.html#a43a066e3ab4376eb6afbade526c2d1e2',1,'Entity']]],
+  ['gety_134',['getY',['../class_entity.html#a1628120ebbd5b236a029eaa4a9547313',1,'Entity']]],
+  ['grid_135',['Grid',['../class_grid.html',1,'Grid'],['../class_grid.html#a78c017a6554fdb552a2fc06280e445d8',1,'Grid::grid()'],['../struct_event_1_1_tile_info.html#a75df1fb875b71c88faa42e4180ef841b',1,'Event::TileInfo::grid()'],['../struct_event_1_1_level_info.html#a5e3fb5a0479285316d922cfc19b163e0',1,'Event::LevelInfo::grid()'],['../class_grid.html#a4ac9ff4f63552b4c61ff90fcb35ad66c',1,'Grid::Grid()']]],
+  ['grid_2ecpp_136',['Grid.cpp',['../_grid_8cpp.html',1,'']]],
+  ['grid_2eh_137',['Grid.h',['../_grid_8h.html',1,'']]],
+  ['grid_5f_138',['grid_',['../class_board.html#ab4a4606663a2f29866afe4ee78a8b6e2',1,'Board']]],
+  ['gridbuilder_139',['GridBuilder',['../class_grid_builder.html',1,'GridBuilder'],['../class_grid.html#a06cae698b731676ab2d6a89dd561eaa5',1,'Grid::GridBuilder()'],['../class_grid_builder.html#ae1cfcb034a2aeab344d994fed2d8acbd',1,'GridBuilder::GridBuilder()']]],
+  ['gridbuilder_2ecpp_140',['GridBuilder.cpp',['../_grid_builder_8cpp.html',1,'']]],
+  ['gridbuilder_2eh_141',['GridBuilder.h',['../_grid_builder_8h.html',1,'']]]
+>>>>>>> Implemented tests for states
 ];

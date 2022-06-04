@@ -3,6 +3,7 @@ var class_game =
     [ "Game", "class_game.html#a0885f2c9ae4b3eb78d273cfb36e7c767", null ],
     [ "Game", "class_game.html#a00b0e85dcfda008e35e95eb39e355241", null ],
     [ "end", "class_game.html#aa2d938aa918268060e63980c7efd86f8", null ],
+    [ "getBoard", "class_game.html#aac82d38c4540fcfaef89059865d1ce31", null ],
     [ "getState", "class_game.html#a6f686c39cbdf6d2e641fc121dd4fde0d", null ],
     [ "getStats", "class_game.html#afc98e409934cc1af4d6f91d0d1dda91e", null ],
     [ "initComponents", "class_game.html#aa29d39e9096a8e25cc99f5c142500bf8", null ],

@@ -84,12 +84,16 @@ var sectionId = 'dynsection-0';
 <g id="node3" class="node">
 <title>Node3</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node3"><a xlink:href="_event_queue_8h.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="29.64,-257.5 29.64,-287.5 139.64,-287.5 139.64,-257.5 29.64,-257.5"/>
 <text text-anchor="start" x="37.64" y="-275.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../core&#45;lib/include</text>
 <text text-anchor="middle" x="84.64" y="-264.5" font-family="Helvetica,sans-Serif" font-size="10.00">/EventQueue.h</text>
 =======
 <g id="a_node3"><a xlink:href="_event_queue_8h.html" target="_top" target="_top" xlink:title=" ">
+=======
+<g id="a_node3"><a xlink:href="_event_queue_8h.html" target="_top" target="_top" target="_top" xlink:title=" ">
+>>>>>>> Implemented tests for states
 <polygon fill="none" stroke="black" points="31.19,-190.5 31.19,-220.5 141.19,-220.5 141.19,-190.5 31.19,-190.5"/>
 <text text-anchor="start" x="39.19" y="-208.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../core&#45;lib/include</text>
 <text text-anchor="middle" x="86.19" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">/EventQueue.h</text>
@@ -107,12 +111,16 @@ var sectionId = 'dynsection-0';
 <g id="node5" class="node">
 <title>Node5</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node5"><a xlink:href="_tank_8h.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="239.64,-190.5 239.64,-220.5 349.64,-220.5 349.64,-190.5 239.64,-190.5"/>
 <text text-anchor="start" x="247.64" y="-208.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../tank&#45;lib/include</text>
 <text text-anchor="middle" x="294.64" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">/Tank.h</text>
 =======
 <g id="a_node5"><a xlink:href="_tank_8h.html" target="_top" target="_top" xlink:title=" ">
+=======
+<g id="a_node5"><a xlink:href="_tank_8h.html" target="_top" target="_top" target="_top" xlink:title=" ">
+>>>>>>> Implemented tests for states
 <polygon fill="none" stroke="black" points="160.19,-123.5 160.19,-153.5 270.19,-153.5 270.19,-123.5 160.19,-123.5"/>
 <text text-anchor="start" x="168.19" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../tank&#45;lib/include</text>
 <text text-anchor="middle" x="215.19" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">/Tank.h</text>
@@ -133,7 +141,7 @@ var sectionId = 'dynsection-0';
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="_entity_controller_8h.html" target="_top" target="_top" xlink:title=" ">
+<g id="a_node10"><a xlink:href="_entity_controller_8h.html" target="_top" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="243.19,-190.5 243.19,-220.5 353.19,-220.5 353.19,-190.5 243.19,-190.5"/>
 <text text-anchor="start" x="251.19" y="-208.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../tank&#45;lib/include</text>
 <text text-anchor="middle" x="298.19" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">/EntityController.h</text>
@@ -151,12 +159,16 @@ var sectionId = 'dynsection-0';
 <g id="node11" class="node">
 <title>Node11</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node11"><a xlink:href="_entity_controller_8h.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="157.64,-257.5 157.64,-287.5 267.64,-287.5 267.64,-257.5 157.64,-257.5"/>
 <text text-anchor="start" x="165.64" y="-275.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../tank&#45;lib/include</text>
 <text text-anchor="middle" x="212.64" y="-264.5" font-family="Helvetica,sans-Serif" font-size="10.00">/EntityController.h</text>
 =======
 <g id="a_node11"><a xlink:href="_grid_8h.html" target="_top" target="_top" xlink:title=" ">
+=======
+<g id="a_node11"><a xlink:href="_grid_8h.html" target="_top" target="_top" target="_top" xlink:title=" ">
+>>>>>>> Implemented tests for states
 <polygon fill="none" stroke="black" points="400.19,-196 400.19,-215 446.19,-215 446.19,-196 400.19,-196"/>
 <text text-anchor="middle" x="423.19" y="-203" font-family="Helvetica,sans-Serif" font-size="10.00">Grid.h</text>
 >>>>>>> Added test samples for active state
@@ -230,12 +242,16 @@ var sectionId = 'dynsection-0';
 <g id="node7" class="node">
 <title>Node7</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node7"><a xlink:href="_simple_subscriber_8h.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="215.14,-56.5 215.14,-86.5 328.14,-86.5 328.14,-56.5 215.14,-56.5"/>
 <text text-anchor="start" x="223.14" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../core&#45;lib/include</text>
 <text text-anchor="middle" x="271.64" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">/SimpleSubscriber.h</text>
 =======
 <g id="a_node7"><a xlink:href="_simple_subscriber_8h.html" target="_top" target="_top" xlink:title=" ">
+=======
+<g id="a_node7"><a xlink:href="_simple_subscriber_8h.html" target="_top" target="_top" target="_top" xlink:title=" ">
+>>>>>>> Implemented tests for states
 <polygon fill="none" stroke="black" points="62.69,-56.5 62.69,-86.5 175.69,-86.5 175.69,-56.5 62.69,-56.5"/>
 <text text-anchor="start" x="70.69" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../core&#45;lib/include</text>
 <text text-anchor="middle" x="119.19" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">/SimpleSubscriber.h</text>
@@ -253,11 +269,15 @@ var sectionId = 'dynsection-0';
 <g id="node9" class="node">
 <title>Node9</title>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <g id="a_node9"><a xlink:href="_entity_8h.html" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="346.14,-62 346.14,-81 399.14,-81 399.14,-62 346.14,-62"/>
 <text text-anchor="middle" x="372.64" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00">Entity.h</text>
 =======
 <g id="a_node9"><a xlink:href="_entity_8h.html" target="_top" target="_top" xlink:title=" ">
+=======
+<g id="a_node9"><a xlink:href="_entity_8h.html" target="_top" target="_top" target="_top" xlink:title=" ">
+>>>>>>> Implemented tests for states
 <polygon fill="none" stroke="black" points="193.69,-62 193.69,-81 246.69,-81 246.69,-62 193.69,-62"/>
 <text text-anchor="middle" x="220.19" y="-69" font-family="Helvetica,sans-Serif" font-size="10.00">Entity.h</text>
 >>>>>>> Added test samples for active state

@@ -1,6 +1,7 @@
 var searchData=
 [
 <<<<<<< HEAD
+<<<<<<< HEAD
   ['pause_5fstate_5f_0',['pause_state_',['../class_game.html#a6bd0c915af8df17b9fb301f6818fc662',1,'Game']]],
   ['player_5f_1',['player_',['../class_entity_controller.html#a8f283c32cef649b0bc2e36bdbf862bdb',1,'EntityController']]],
   ['player_5ftank_5f_2',['player_tank_',['../class_active_game_state.html#a281a25598d40aa01d87cfebaf9d744ed',1,'ActiveGameState']]],
@@ -11,4 +12,7 @@ var searchData=
 =======
   ['running_5f_657',['running_',['../class_game.html#a9da12a2d9125bfaa8782a61b69c49f9e',1,'Game']]]
 >>>>>>> Added test samples for active state
+=======
+  ['running_5f_663',['running_',['../class_game.html#a9da12a2d9125bfaa8782a61b69c49f9e',1,'Game']]]
+>>>>>>> Implemented tests for states
 ];

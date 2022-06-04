@@ -19,11 +19,11 @@ void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             if (event->info.keyInfo.keyCode == 74) {
-                state_->get_menu()->add_pos();
+                state_->get_menu()->sub_pos();
                 state_->get_menu()->notify();
             }
             if (event->info.keyInfo.keyCode == 73) {
-                state_->get_menu()->sub_pos();
+                state_->get_menu()->add_pos();
                 state_->get_menu()->notify();
             }
             if (event->info.keyInfo.keyCode == 58) {
