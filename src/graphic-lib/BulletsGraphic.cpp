@@ -6,6 +6,7 @@
 #include <map>
 #include <iterator>
 #include <string>
+#include <unordered_map>
 
 
 
@@ -20,8 +21,8 @@ BulletsGraphic::BulletsGraphic(const WindowView& windowView, std::shared_ptr<std
 
 void BulletsGraphic::render()
 {
-    float leftOfset = windowView.leftOfset;
-    float topOfset = windowView.topOfset;
+    float leftOfset = windowView.leftOffset;
+    float topOfset = windowView.topOffset;
 
     makeRenderBullets(); // updates bullets info
     sf::RenderWindow* window = windowView.window;
@@ -91,8 +92,8 @@ void BulletsGraphic::setBulletRotation(sf::Sprite& sprite, float angle)
 
 void BulletsGraphic::makeRenderBullets()
 {
-    float leftOfset = windowView.leftOfset;
-    float topOfset = windowView.topOfset;
+    float leftOfset = windowView.leftOffset;
+    float topOfset = windowView.topOffset;
     Bullet::BulletType bulletType;
     sf::Vector2f bulletPos;
     Direction direction;

@@ -6,6 +6,7 @@
 #include <map>
 #include <iterator>
 #include <string>
+#include <unordered_map>
 
 
 TanksGraphic::RenderObject::RenderObject(const sf::Vector2f& coords, Direction direction,
@@ -16,8 +17,8 @@ TanksGraphic::RenderObject::RenderObject(const sf::Vector2f& coords, Direction d
 
 void TanksGraphic::render()
 {
-    float leftOfset = windowView.leftOfset;
-    float topOfset = windowView.topOfset;
+    float leftOfset = windowView.leftOffset;
+    float topOfset = windowView.topOffset;
 
     makeRenderTanks(); // updates tanks info
     sf::RenderWindow* window = windowView.window;
@@ -93,8 +94,8 @@ TanksGraphic::TanksGraphic(const WindowView& windowView, std::shared_ptr<std::ve
 
 void TanksGraphic::makeRenderTanks()
 {
-    float leftOfset = windowView.leftOfset;
-    float topOfset = windowView.topOfset;
+    float leftOfset = windowView.leftOffset;
+    float topOfset = windowView.topOffset;
     Tank::TankType tankType;
     sf::Vector2f tankPos;
     Direction direction;

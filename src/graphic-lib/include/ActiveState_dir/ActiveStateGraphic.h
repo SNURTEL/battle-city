@@ -38,10 +38,7 @@ public:
     struct FramePointers
     {
         std::shared_ptr<int> level;
-
-        std::shared_ptr<int*> playerLivesLeft;
-        // And other ...
-        // Will be added later
+        std::shared_ptr<Tank*> playerTank;
     };
 
 

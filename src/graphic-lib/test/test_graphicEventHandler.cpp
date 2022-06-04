@@ -22,9 +22,9 @@ SCENARIO("Handling events connected to graphic-lib")
         game_ptr = &game;
         ActiveGameState state(game_ptr);
         GameState* gameState = &state;
-        TestWindow window(gameState);
+        TestWindow window;
         GraphicEventHandler graphicEventHandler(game_ptr, &window);
-
+        window.selectgameState(gameState);
         // Initiating Entities
         TestTank tank1;
         Entity* eTank = &tank1;
@@ -113,6 +113,47 @@ SCENARIO("Handling events connected to graphic-lib")
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+
+SCENARIO("Game states are changing")
+{
+    GIVEN("A test window , game states, graphic event handler, game object")
+    {
+        // Initiating window, states, game and handler
+        Game* game_ptr;
+        Game game(60);
+        game_ptr = &game;
+        ActiveGameState state(game_ptr);
+        GameState* gameState = &state;
+        TestWindow window;
+        Window* window_ptr;
+        window_ptr = &window;
+        GraphicEventHandler graphicEventHandler(game_ptr, window_ptr);
+
+        Event activeStateEvent(Event::StateChanged, gameState);
+        graphicEventHandler.processEvent(std::make_unique<Event>(activeStateEvent));
+
+        WHEN("Window is created and the game state is ActiveGameState")
+        {
+            THEN("Window attribute gameState should be set to ActiveGameState")
+            {
+                REQUIRE(window.get_gameState() == TestWindow::ActieveGameState);
+            }
+        }
+
+        WHEN("When game state changes to MenuGameState")
+        {
+            PauseGameState pauseGameState(game_ptr);
+            gameState = &pauseGameState;
+            Event pauseStateEvent(Event::StateChanged, gameState);
+            graphicEventHandler.processEvent(std::make_unique<Event>(pauseStateEvent));
+            THEN("Window attribute gameState should be set to MenuGameState")
+            {
+                REQUIRE(window.get_gameState() == TestWindow::PauseGameState);
             }
         }
     }

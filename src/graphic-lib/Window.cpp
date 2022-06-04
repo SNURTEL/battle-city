@@ -8,6 +8,7 @@
 #include "include/ActiveState_dir/Borad_dir/BoardGraphic.h"
 #include "../tank-lib/include/Tank.h"
 #include "../tank-lib/include/Bullet.h"
+#include "../game-lib/include/GameState.h"
 
 
 
@@ -16,14 +17,13 @@ bool Window::instanceOf(T* ptr)
 {return dynamic_cast<State*>(ptr) != nullptr;}
 
 
-Window::Window(GameState* gameState)
+Window::Window()
 {
-    selectgameState(gameState);
     videoMode = sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT);
     window = std::make_unique<sf::RenderWindow>(videoMode, "Tanks", sf::Style::Default);
     windowView.window = window.get();
-    windowView.leftOfset = 0.f;
-    windowView.topOfset = 0.f;
+    windowView.leftOffset = 0.f;
+    windowView.topOffset = 0.f;
     initiateActiveStatePointers();
     conscructComposit();
 }
@@ -33,13 +33,12 @@ void Window::selectgameState(GameState* gameState)
 {
     if(instanceOf<ActiveGameState>(gameState))
         this->gameState = Window::ActieveGameState;
-    // else if(instanceOf<PausedGameState>(gameState))
-    //     this->gameState = Window::PauseGameState;
-    // else if(instanceOf<MenuGameState>(gameState))
-    //     this->gameState = Window::MenuGameState;
-    // else if (instanceOf<FinishedGameState>(gameState))
-    //     this->gameState = Window::FinishedGameState
-    // I need to fetch code to my branch with this states
+    else if(instanceOf<::PauseGameState>(gameState))
+        this->gameState = Window::PauseGameState;
+    else if(instanceOf<::MenuGameState>(gameState))
+        this->gameState = Window::MenuGameState;
+    else if (instanceOf<::FinishedGameState>(gameState))
+        this->gameState = Window::FinishedGameState;
 }
 
 
@@ -49,7 +48,7 @@ void Window::initiateActiveStatePointers()
     activeStatePointers.bullets = std::make_shared<std::vector<Bullet*>>();
     activeStatePointers.tiles = std::make_shared<Grid*>();
     activeStatePointers.level = std::make_shared<int>();
-    activeStatePointers.playerLivesLeft = std::make_shared<int*>();
+    activeStatePointers.playerTank = std::make_shared<Tank*>();
 }
 
 
@@ -173,4 +172,12 @@ void Window::loadLevel(Grid* grid, int levelNumber)
 {
     *activeStatePointers.tiles = grid;
     *activeStatePointers.level = levelNumber;
+}
+
+
+void Window::addPlayer(Entity* e)
+{
+    Tank* tank = dynamic_cast<Tank*>(e);
+    activeStatePointers.tanks->push_back(tank);
+    *activeStatePointers.playerTank = tank;
 }

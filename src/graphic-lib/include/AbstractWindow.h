@@ -18,9 +18,9 @@ class GameState;
 struct WindowView
 {
     sf::RenderWindow* window;
-    float topOfset;
-    float leftOfset;
-    WindowView(sf::RenderWindow* window, float topOfset, float leftOfset);
+    float topOffset;
+    float leftOffset;
+    WindowView(sf::RenderWindow* window, float topOffset, float leftOffset);
     WindowView();
 };
 

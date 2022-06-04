@@ -40,9 +40,7 @@ public:
         std::shared_ptr<std::vector<Bullet*>> bullets;
         std::shared_ptr<Grid*> tiles;
         std::shared_ptr<int> level;
-        std::shared_ptr<int*> playerLivesLeft;
-        // And others ...
-        // Will be added later
+        std::shared_ptr<Tank*> playerTank;
     };
 
     /// @brief Stores MenuState pointers
@@ -55,11 +53,12 @@ public:
      * @brief Construct a new Window object
      *
      * Intiate window with apropriate size and mode
-     * Gets actual gameState, sets gameState attribute
-     *
      */
-    Window(GameState* gameState);
+    Window();
 
+
+    /// @brief Cheks which game state was given and sets appropriate attribute
+    void selectgameState(GameState* gmaeState);
 
     /**
      * @brief Initiates active state pointers as shared pointers
@@ -77,8 +76,6 @@ public:
      */
     void fetchMenuStatePointers(int selected); // Only a concept
 
-    /// @brief Cheks wich game state was given to constructor and sets appropriate attribute
-    void selectgameState();
 
     /**
      * @brief Commands its children to render objects on the screen
@@ -86,17 +83,17 @@ public:
      */
     virtual void render() override;
 
+
     /// @brief Adding Entity to the list of tanks or bullets
     void addEntity(Entity* e);
 
-    // /// @brief Changing properties of given Entity
-    // void moveEntity(Entity* e);
+
+    /// @brief Adding player to the list of tanks and extracting playersLives
+    void addPlayer(Entity* e);
 
     /// @brief Removing Entity from the tanks or bullets list
     void removeEntity(Entity* e);
 
-    // /// @brief Changing tile type of the given tile
-    // void changeTile(uint x, uint y, TileType tileType);
 
     /// @brief Loading next level
     void loadLevel(Grid* grid, int levelNumber);
@@ -149,8 +146,6 @@ protected:
 
     sf::VideoMode videoMode;
 
-    /// @brief Cheks which game state was given to constructor and sets appropriate attribute
-    void selectgameState(GameState* gameState);
 
     /// @brief Cheks if given objects is type of declared object
     template<typename State, typename T>

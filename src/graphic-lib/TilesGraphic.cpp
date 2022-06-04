@@ -28,8 +28,8 @@ void TilesGraphic::render()
 
     float tile_height = 10;
     float tile_width = 10;
-    float leftOfset = windowView.leftOfset;
-    float topOfset = windowView.topOfset;
+    float leftOfset = windowView.leftOffset;
+    float topOfset = windowView.topOffset;
 
     for (int i = 0; i < 51; i++)
     {
@@ -79,8 +79,8 @@ void TilesGraphic::createTileTexture(TileType tileType, float x_pos, float y_pos
                                     sf::Vector2f scale)
 {
 
-    float leftOfset = windowView.leftOfset;
-    float topOfset = windowView.topOfset;
+    float leftOfset = windowView.leftOffset;
+    float topOfset = windowView.topOffset;
     sf::Texture* texture = &textureMap[tileType];
     sf::RectangleShape tile(sf::Vector2f(tile_height, tile_width));
     tile.setPosition(x_pos + leftOfset, y_pos + topOfset);

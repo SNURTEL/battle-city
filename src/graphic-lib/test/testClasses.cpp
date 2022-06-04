@@ -19,9 +19,6 @@
 class TestWindow : public Window
 {
 public:
-    TestWindow(GameState* gameState)
-    : Window(gameState)
-    {};
 
     WindowView getWindowView() const
     {return windowView;};
@@ -103,6 +100,14 @@ public:
 class TestTank : public Tank {
 public:
     TestTank() : Tank(Tank::PowerTank, 20, 20, 1, 1, 1, North, 100) {};
+};
+
+/**
+ * Extended Tank derived class for testing purposes
+ */
+class TestTankCustom : public Tank {
+public:
+    TestTankCustom() : Tank(Tank::PlayerTank, 20, 20, 1, 1, 5, North, 100) {};
 };
 
 /**

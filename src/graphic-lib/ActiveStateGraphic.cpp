@@ -38,8 +38,8 @@ void ActiveStateGraphic::setboardView()
     float defaultFrameX = (windowView.window->getSize().x - 520)/2;
     float defaultFrameY = (windowView.window->getSize().y - 520)/2;
 
-    boardWindowView.leftOfset = defaultFrameX * 2/3;
-    boardWindowView.topOfset = defaultFrameY;
+    boardWindowView.leftOffset = defaultFrameX * 2/3;
+    boardWindowView.topOffset = defaultFrameY;
     boardWindowView.window = windowView.window;
 }
 
@@ -61,7 +61,7 @@ void ActiveStateGraphic::setboardObjects()
 void ActiveStateGraphic::setframeObjects()
 {
     frameObjects.level = activeStateObjects.level;
-    frameObjects.playerLivesLeft = activeStateObjects.playerLivesLeft;
+    frameObjects.playerTank = activeStateObjects.playerTank;
 }
 
 

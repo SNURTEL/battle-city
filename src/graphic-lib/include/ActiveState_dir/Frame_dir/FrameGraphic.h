@@ -30,6 +30,12 @@ public:
         sf::FloatRect downRect;
     };
 
+    struct GameInfo
+    {
+        std::shared_ptr<int> playerLives;
+        std::shared_ptr<int> level;
+    };
+
 
     /**
      * @brief Commands its children to render objects on the screen
@@ -65,6 +71,21 @@ private:
 
     /// @brief Calculates size of a frame around the game board
     void calculateBareFrameSize();
+
+    /// @brief Calculates where draw the game info
+    void calculateInfoTextPoistion();
+
+    std::shared_ptr<Tank*> playerTank;
+
+    /// @brief Initiates game info shared pointers
+    void initiatesGameInfoPointers();
+
+    /// @brief Makes game pointers struct
+    void makeGamePointers();
+
+    GameInfo gameInfoPointers;
+
+    WindowView infoWindowView;
 
 };
 

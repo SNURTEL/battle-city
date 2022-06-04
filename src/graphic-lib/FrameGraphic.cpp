@@ -1,14 +1,17 @@
 #include "include/ActiveState_dir/Frame_dir/FrameGraphic.h"
 #include "include/ActiveState_dir/Frame_dir/BareFrameGraphic.h"
+#include "../tank-lib/include/Tank.h"
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 #include <memory>
+#include "include/ActiveState_dir/Frame_dir/GameInfoGraphic.h"
 
 
 void FrameGraphic::render()
 {
+    makeGamePointers(); // Players lives needs to be updated every render loop
     for(const std::shared_ptr<AbstractWindow>& child : children)
     {
         child->render();
@@ -19,18 +22,27 @@ void FrameGraphic::render()
 FrameGraphic::FrameGraphic(const WindowView& windowView, const ActiveStateGraphic::FramePointers& frameObjects)
 : AbstractWindow(windowView), frameObjects(frameObjects)
 {
+    initiatesGameInfoPointers();
+    calculateInfoTextPoistion();
     calculateBareFrameSize();
     conscructComposite();
+}
 
+
+void FrameGraphic::makeGamePointers()
+{
+    uint playersLives = (*frameObjects.playerTank)->getLives(); // MISTAKE !!!!!!!!!!!!!!!!!!!!!!!!!!!1
+    *gameInfoPointers.playerLives = playersLives;
+    gameInfoPointers.level = frameObjects.level;
 }
 
 
 void FrameGraphic::conscructComposite()
 {
-    // this->children.p
-    // children
     std::shared_ptr<AbstractWindow> bareFrame = std::make_shared<BareFrameGraphic>(windowView, bareFrameSize);
+    std::shared_ptr<AbstractWindow> gameInfo = std::make_shared<GameInfoGraphic>(infoWindowView, gameInfoPointers);
     children.push_back(bareFrame);
+    children.push_back(gameInfo);
 }
 
 void FrameGraphic::calculateBareFrameSize()
@@ -71,3 +83,28 @@ void FrameGraphic::calculateBareFrameSize()
 
 const ActiveStateGraphic::FramePointers& FrameGraphic::getPointers() const
 {return frameObjects;}
+
+
+void FrameGraphic::calculateInfoTextPoistion()
+{
+    float defaultFrameXRight = (windowView.window->getSize().x - 520)/2 * 4/3;
+    float windowSizeX = windowView.window->getSize().x;
+    float windowSizeY = windowView.window->getSize().y;
+
+    float extraPixelsPadding = 10;
+
+    float offsetX = windowSizeX - defaultFrameXRight + extraPixelsPadding;
+
+    float offsetY = windowSizeY * 1/3;
+
+    infoWindowView.leftOffset = offsetX;
+    infoWindowView.topOffset = offsetY;
+    infoWindowView.window = windowView.window;
+}
+
+
+void FrameGraphic::initiatesGameInfoPointers()
+{
+    gameInfoPointers.level = std::make_shared<int>();
+    gameInfoPointers.playerLives = std::make_shared<int>();
+}

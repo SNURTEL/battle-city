@@ -25,31 +25,28 @@ void GraphicEventHandler::processEvent(std::unique_ptr<Event> event)
         window->addEntity(e);
         break;
     }
-
-    // case(Event::EntityMoved):
-    //     Entity* e = event->info.entityInfo.entity;
-    //     window.moveEntity(e);
-    //     break;
+    case(Event::PlayerSpawned):
+    {
+        Entity* e = event->info.entityInfo.entity;
+        window->addEntity(e);
+    }
     case(Event::EntityRemoved):
     {
         Entity* e = event->info.entityInfo.entity;
         window->removeEntity(e);
         break;
     }
-
-    // case(Event::TilePlaced || Event::TileChanged || Event::TileDeleted):
-    //     float xPos = event->info.tileInfo.tile_x;
-    //     float yPos = event->info.tileInfo.tile_y;
-    //     Grid* grid = event->info.tileInfo.grid;
-    //     TileType tileType = grid->getTileAtPosition(xPos, yPos);
-    //     window.changeTile(xPos, yPos, tileType);
-    //     break;
     case(Event::LevelLoaded):
     {
         Grid* grid = event->info.levelInfo.grid;
         int levelNumber = event->info.levelInfo.levelNumber;
         window->loadLevel(grid, levelNumber);
         break;
+    }
+    case(Event::StateChanged):
+    {
+        GameState* gameState = event->info.stateInfo.state_;
+        window->selectgameState(gameState);
     }
 
     default:

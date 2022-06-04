@@ -128,6 +128,7 @@ set(graphic_lib_sources
         ${graphic_lib_dir}/TilesGraphic.cpp
         ${graphic_lib_dir}/BareFrameGraphic.cpp
         ${graphic_lib_dir}/GraphicEventHandler.cpp
+        ${graphic_lib_dir}/GameInfoGraphic.cpp
         )
 
 add_library(graphic-lib ${graphic_lib_sources})

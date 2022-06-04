@@ -17,10 +17,6 @@ SCENARIO("Rendering active staet board")
         ActiveGameState activeGameState(&game);
         GameState* gameStatePointer = &activeGameState;
         Window::ActiveStatePointers activeStatePointer;
-        int level = 2;
-        int playerLIvesLeft = 5;
-        activeStatePointer.level = std::make_shared<int>(level);
-        activeStatePointer.playerLivesLeft = std::make_shared<int*>(&playerLIvesLeft);
 
         // Setting grid
         Grid grid; // Why grid() is not working???
@@ -61,31 +57,32 @@ SCENARIO("Rendering active staet board")
 
         TestTank tank1;
         TestTank tank2;
+        TestTankCustom playerTank;
+        playerTank.setX(200);
+        playerTank.setY(200);
         tank2.setX(400);
         tank2.setY(300);
         Entity* tank1_ptr = &tank1;
         Entity* tank2_ptr = &tank2;
-        // std::vector<Tank*> tanks;
-        // tanks.push_back(&tank1);
-        // tanks.push_back(&tank2);
-        // activeStatePointer.tanks = std::make_shared<std::vector<Tank*>>(tanks);
+        Entity* playerTank_ptr = &playerTank;
+
 
 
         TestBullet bullet1;
         TestBullet bullet2;
-        // std::vector<Bullet*> bullets;
+
         Entity* bullet1_ptr = &bullet1;
         Entity* bullet2_ptr = &bullet2;
-        // bullets.push_back(&bullet1);
-        // bullets.push_back(&bullet2);
-        // activeStatePointer.bullets = std::make_shared<std::vector<Bullet*>>(bullets);
 
-        TestWindow window(gameStatePointer);
 
+        TestWindow window;
+
+        window.selectgameState(gameStatePointer);
         window.addEntity(tank1_ptr);
         window.addEntity(tank2_ptr);
         window.addEntity(bullet1_ptr);
         window.addEntity(bullet2_ptr);
+        window.addPlayer(playerTank_ptr);
         window.loadLevel(&grid, 1);
 
 

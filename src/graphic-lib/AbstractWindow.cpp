@@ -5,8 +5,8 @@
 #include <vector>
 
 
-WindowView::WindowView(sf::RenderWindow* window, float topOfset, float leftOfset)
-: window(window), topOfset(topOfset), leftOfset(leftOfset)
+WindowView::WindowView(sf::RenderWindow* window, float topOffset, float leftOffset)
+: window(window), topOffset(topOffset), leftOffset(leftOffset)
 {}
 
 
