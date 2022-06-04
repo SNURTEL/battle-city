@@ -63,6 +63,18 @@ public:
      */
     Tank* get_player_tank();
 
+    /**
+     * Sets player_tank_ to Tank pointer
+     * @param player_tank
+     */
+    void set_player_tank(Tank* player_tank);
+
+    /**
+     * Sets board_ to Board
+     * @param board
+     */
+    void set_board(Board* board);
+
     ActiveGameState()=delete;
     explicit ActiveGameState(Game* game);
 };

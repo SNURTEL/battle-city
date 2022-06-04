@@ -42,11 +42,11 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
             if(event->info.keyInfo.keyCode == 57) {
                 state_->get_board()->fireTank(state_->get_player_tank());
             }
-            break;
             // ESCAPE
             if (event->info.keyInfo.keyCode == 36) {
                 game_->setPauseState();
             }
+            break;
         }
         case (Event::KeyReleased):{
             // DOWN
@@ -110,7 +110,7 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
                     {
                         // IF FRIENDLY BULLET HIT ENEMY'S TANK
                         eventQueue_->registerEvent(std::make_unique<Event>(Event::TankKilled, event->info.entityEntityCollisionInfo.entity1)); // kill tank
-                            // game_->get_point_system()->add_points(event->info.entityEntityCollisionInfo.entity1->getPoints()); // get points for killing a tank
+                        // game_->getStats()->addPoints(event->info.entityEntityCollisionInfo.entity1->getPoints()); // get points for killing a tank
                         // state_->get_board()->removeEntity(event->info.entityEntityCollisionInfo.entity2) kill bullet after hit
                     }
                 }
