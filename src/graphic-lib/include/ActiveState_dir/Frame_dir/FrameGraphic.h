@@ -1,14 +1,11 @@
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include "../ActiveStateGraphic.h"
-// #include "BareFrameGraphic.h"
+// Created by Michał
+
+
 
 #ifndef PROI_PROJEKT_FRAMEGRAPHIC_H
 #define PROI_PROJEKT_FRAMEGRAPHIC_H
 
-// class BareFrameGrafic;
+#include "../ActiveStateGraphic.h"
 
 
 /**
@@ -22,6 +19,7 @@ class FrameGraphic : public AbstractWindow
 {
 public:
 
+    /// @brief Struct containing params which dictates how to draw the bare frame
     struct BareFrameSize
     {
         sf::FloatRect upRect;
@@ -30,6 +28,7 @@ public:
         sf::FloatRect downRect;
     };
 
+    /// @brief Struct contains pointers for GameInfoGraphic class
     struct GameInfo
     {
         std::shared_ptr<int> playerLives;
@@ -44,19 +43,13 @@ public:
     virtual void render() override;
 
 
-    // /**
-    //  * @brief Commands its children to update objects to render
-    //  *
-    //  */
-    // void update(ActiveStateGraphic::FramePointers frameObjects);
-
-
     const ActiveStateGraphic::FramePointers& getPointers() const;
+
 
     /**
      * @brief Construct a new Board View object
      *
-     * @param window
+     * Constructs next composite branches
      */
     FrameGraphic(const WindowView& windowView, const ActiveStateGraphic::FramePointers& frameObjects);
 
@@ -64,27 +57,36 @@ private:
 
     ActiveStateGraphic::FramePointers frameObjects;
 
+
     BareFrameSize bareFrameSize;
+
 
     /// @brief Creates appropriate children
     void conscructComposite();
 
+
     /// @brief Calculates size of a frame around the game board
     void calculateBareFrameSize();
+
 
     /// @brief Calculates where draw the game info
     void calculateInfoTextPoistion();
 
+
     std::shared_ptr<Tank*> playerTank;
+
 
     /// @brief Initiates game info shared pointers
     void initiatesGameInfoPointers();
 
+
     /// @brief Makes game pointers struct
     void makeGamePointers();
 
+
     GameInfo gameInfoPointers;
 
+    /// @brief Stores WindowView object for the GameInfoGraphic class
     WindowView infoWindowView;
 
 };

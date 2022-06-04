@@ -1,6 +1,5 @@
 #include "include/ActiveState_dir/Frame_dir/GameInfoGraphic.h"
-#include <iostream>
-#include <string>
+#include "include/TextureLoadingError.h"
 #include <sstream>
 
 GameInfoGraphic::GameInfoGraphic(const WindowView& windowView, const FrameGraphic::GameInfo& gameInfo)
@@ -42,7 +41,12 @@ void GameInfoGraphic::renderText(std::string renderText, float leftOffset, float
 
 void GameInfoGraphic::loadFont()
 {
-    if (!font.loadFromFile("../src/graphic-lib/fontFolder/CharisSIL-Regular.ttf"))
-        ;
-        // Exception
+    std::string path = "../src/graphic-lib/fontFolder/CharisSIL-Regular.ttf";
+    if (!font.loadFromFile(path))
+    {
+        std::stringstream ss;
+        ss << "Failed to load font: " << path;
+        throw TextureLoadingError(ss.str());
+    }
+
 }

@@ -129,6 +129,7 @@ set(graphic_lib_sources
         ${graphic_lib_dir}/BareFrameGraphic.cpp
         ${graphic_lib_dir}/GraphicEventHandler.cpp
         ${graphic_lib_dir}/GameInfoGraphic.cpp
+        ${graphic_lib_dir}/TextureLoadingError.cpp
         )
 
 add_library(graphic-lib ${graphic_lib_sources})
@@ -136,7 +137,6 @@ target_link_libraries(graphic-lib PRIVATE board-lib game-lib tank-lib)
 
 set(graphic_lib_test_dir ../src/graphic-lib/test)
 set(graphic_lib_test_sources
-        ${graphic_lib_test_dir}/test_window.cpp
         ${graphic_lib_test_dir}/test_render.cpp
         ${graphic_lib_test_dir}/test_graphicEventHandler.cpp)
 
@@ -149,6 +149,7 @@ add_executable(all_tests
         ${game_lib_test_sources}
         ${tank_lib_test_sources}
         ${board_lib_test_sources}
+        ${graphic_lib_test_sources}
         )
 target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib Catch2::Catch2WithMain)
 

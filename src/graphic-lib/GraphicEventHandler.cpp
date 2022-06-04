@@ -1,10 +1,3 @@
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-// #include "AbstractWindow.h"
-#include <unordered_map>
-// #include "../../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 #include "include/Window.h"
 #include "include/GraphicEventHandler.h"
 #include "../board-lib/include/Grid.h"

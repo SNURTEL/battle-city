@@ -1,20 +1,18 @@
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include "AbstractWindow.h"
-#include <unordered_map>
-#include "../../tank-lib/include/Entity.h"
-#include "../../board-lib/include/Grid.h"
-// #include "ActiveState_dir/ActiveStateGraphic.h"
+// Created by Michał
 
 
 #ifndef PROI_PROJEKT_GRAPHIC_H
 #define PROI_PROJEKT_GRAPHIC_H
 
-class Tank;
-class GameState;
-class Bullet;
+#include "AbstractWindow.h"
+#include <unordered_map>
+#include "../../tank-lib/include/Entity.h"
+#include "../../board-lib/include/Grid.h"
+#include "../../tank-lib/include/Tank.h"
+#include "../../tank-lib/include/Bullet.h"
+#include "../../game-lib/include/GameState.h"
+
+
 class Grid;
 
 

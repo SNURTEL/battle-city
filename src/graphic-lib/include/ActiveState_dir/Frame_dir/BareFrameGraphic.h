@@ -1,12 +1,14 @@
+// Created by Michał
+
+
+#ifndef PROI_PROJEKT_BAREFRAMEGRPHIC_H
+#define PROI_PROJEKT_BAREFRAMEGRPHIC_H
+
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 #include "FrameGraphic.h"
-
-
-#ifndef PROI_PROJEKT_BAREFRAMEGRPHIC_H
-#define PROI_PROJEKT_BAREFRAMEGRPHIC_H
 
 
 /**
@@ -20,7 +22,6 @@ class BareFrameGraphic : public AbstractWindow
 private:
 
     sf::Color color;
-    // ActiveStateGraphic::FramePointers frameObjects;
 
     FrameGraphic::BareFrameSize frameSize;
 public:
@@ -29,13 +30,6 @@ public:
      *
      */
     virtual void render() override;
-
-
-    // /**
-    //  * @brief Updates its objects
-    //  *
-    //  */
-    // void update(FrameGraphic::BareFrameSize frameSize);
 
 
     /**

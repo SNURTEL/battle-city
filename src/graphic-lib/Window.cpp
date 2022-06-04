@@ -1,14 +1,6 @@
 #include "include/Window.h"
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include <queue>
-#include "../game-lib/include/GameState.h"
 #include "include/ActiveState_dir/Borad_dir/BoardGraphic.h"
-#include "../tank-lib/include/Tank.h"
-#include "../tank-lib/include/Bullet.h"
-#include "../game-lib/include/GameState.h"
+
 
 
 
@@ -52,9 +44,6 @@ void Window::initiateActiveStatePointers()
 }
 
 
-// void Window::fetchMenuStatePointers()
-
-
 void Window::render()
 {
     // on which child the render method will be called denense on gameState
@@ -72,11 +61,6 @@ void Window::render()
     default:
         break;
     }
-    // for(const std::shared_ptr<AbstractWindow>& child : children)
-    // {
-    //     child->render();
-    // }
-
 }
 
 
@@ -86,17 +70,6 @@ void Window::conscructComposit()
     // Later another states should be implemented
     this->children_map[GameStateGraphic::ActieveGameState] = activeState;
 }
-
-
-// void Window::update()
-// {
-//     std::unordered_map<GameStateGraphic, std::shared_ptr<AbstractWindow>>::iterator it_children = children_map.begin();
-//     for (it_children; it_children != children_map.end(); it_children++)
-//     {
-//         it_children->second->update();
-//     }
-
-// }
 
 
 std::string Window::checkEntityType(Entity* e)

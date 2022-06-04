@@ -1,14 +1,18 @@
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include "../../AbstractWindow.h"
-#include "FrameGraphic.h"
+// Created by Michał
 
 
 #ifndef PROI_PROJKET_GAMEINFOGRAPHIC_H
 #define PROI_PROJKET_GAMEINFOGRAPHIC_H
 
+#include "../../AbstractWindow.h"
+#include "FrameGraphic.h"
+
+
+/**
+ * @brief Class responsible for writing game state info on the frame
+ *
+ * Draws on the frame "Player's lives" and "Level" writings
+ */
 class GameInfoGraphic : public AbstractWindow
 {
 public:
@@ -19,17 +23,22 @@ public:
      */
     virtual void render() override;
 
+
     /// @brief Initates GameInfoGraphic object
     GameInfoGraphic(const WindowView& windowView, const FrameGraphic::GameInfo& gameInfo);
 
 private:
+
     FrameGraphic::GameInfo gameInfo;
+
 
     /// @brief Loads font to the font object
     void loadFont();
 
+
     /// @brief Renders given text on the screen
     void renderText(std::string rednerText, float leftOffset, float topOffset);
+
 
     sf::Font font;
 };

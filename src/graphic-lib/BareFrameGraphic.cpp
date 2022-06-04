@@ -1,8 +1,4 @@
 #include "include/ActiveState_dir/Frame_dir/BareFrameGraphic.h"
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
 
 
 BareFrameGraphic::BareFrameGraphic(const WindowView& windowView, const FrameGraphic::BareFrameSize& bareFrameSize)

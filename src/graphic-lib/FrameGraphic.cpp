@@ -1,13 +1,8 @@
 #include "include/ActiveState_dir/Frame_dir/FrameGraphic.h"
 #include "include/ActiveState_dir/Frame_dir/BareFrameGraphic.h"
 #include "../tank-lib/include/Tank.h"
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include <memory>
 #include "include/ActiveState_dir/Frame_dir/GameInfoGraphic.h"
-
+#include <memory>
 
 void FrameGraphic::render()
 {
@@ -33,7 +28,7 @@ void FrameGraphic::makeGamePointers()
 {
     uint playersLives = (*frameObjects.playerTank)->getLives(); // MISTAKE !!!!!!!!!!!!!!!!!!!!!!!!!!!1
     *gameInfoPointers.playerLives = playersLives;
-    gameInfoPointers.level = frameObjects.level;
+    *gameInfoPointers.level = *frameObjects.level;
 }
 
 

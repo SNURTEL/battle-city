@@ -1,22 +1,20 @@
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include "../Window.h"
-// #include "Frame_dir/FrameGraphic.h"
+// Created by Michał
 
 
 #ifndef PROI_PROJEKT_ACTIVESTATEGRAPHIC_H
 #define PROI_PROJEKT_ACTIVESTATEGRAPHIC_H
 
+
+#include "../Window.h"
+
 class Bullet;
-// class FrameGraphic;
+
 
 /**
- * @brief Class resoponsible for coumputing ActiveState graphic
+ * @brief Class resoponsible for computing ActiveState graphic
  *
- * Sets views for board and frame rendering
- * Updates its children attributes
+ * Sets offsets in WindowView objects for board and frame rendering
+ * Updates its children
  * Commands its children to render objects
  *
  */
@@ -46,16 +44,12 @@ public:
      * @brief Construct a new Active State Graphic object
      *
      * Sets atributes boardView, frameView
+     * Constructs next composite branches
      *
      * @param window
      */
     ActiveStateGraphic(const WindowView& windowView, const Window::ActiveStatePointers& activeStatePointers);
 
-    // /**
-    //  * @brief Commands its children to update objects to render
-    //  *
-    //  */
-    // virtual void update();
 
     /**
      * @brief Commands its children to render objects on the screen
@@ -63,31 +57,41 @@ public:
      */
     virtual void render() override;
 
+
     /// @brief Returns reference to class children
     std::vector<std::shared_ptr<AbstractWindow>>& getChildren();
 
 protected:
 
+
     /// @brief Creates appropriate children
     void conscructComposite();
+
 
     WindowView boardWindowView;
     WindowView frameWindowView;
 
+
     /// @brief Calculates the view for board rendering
     void setboardView();
+
 
     /// @brief Calculates the view for frame rednering
     void setframeView();
 
+
     /// @brief Sets boardObjects from activeStateGraphic
     void setboardObjects();
+
 
     /// @brief Sets frameObjects from activeStateGraphic
     void setframeObjects();
 
+
     BoardPointers boardObjects;
     FramePointers frameObjects;
+
+
     Window::ActiveStatePointers activeStateObjects;
 
 
