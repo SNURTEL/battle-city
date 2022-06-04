@@ -261,9 +261,91 @@ SCENARIO("Collisions") {
     WHEN("Tank hits a tile") {
 
         THEN("Tank should be moved back") {
-            
+
         }
     }
 
 }
+
+
+
+SCENARIO("State is menu") {
+    EventQueue<Event> * eq = helper::getEmptyEventQueue();
+    Game* game = std::make_unique<Game>(60).get();
+    MenuGameState* state = std::make_unique<MenuGameState>(game).get();
+    std::unique_ptr<MenuEventHandler> handler = std::make_unique<MenuEventHandler>(game, state);
+
+    WHEN("UP arrow is clicked") {
+        eq->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 73));
+        THEN("Menu pos should change (+1)") {
+
+        }
+    }
+
+    WHEN("UP arrow is clicked") {
+        eq->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 74));
+        THEN("Menu pos should change (-1)") {
+
+        }
+    }
+
+    WHEN("ENTER is clicked") {
+
+        GIVEN("menu pos = 1") {
+
+            THEN("State should be active") {
+
+            }
+        }
+
+        GIVEN("menu pos = 2")
+        {
+            
+            THEN("Game should end") {
+
+            }
+        }
+    }
+}
+
+
+SCENARIO("State is pause") {
+    EventQueue<Event> * eq = helper::getEmptyEventQueue();
+    Game* game = std::make_unique<Game>(60).get();
+    PauseGameState* state = std::make_unique<PauseGameState>(game).get();
+    std::unique_ptr<PauseEventHandler> handler = std::make_unique<PauseEventHandler>(game, state);
+
+    WHEN("UP arrow is clicked") {
+        eq->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 73));
+        THEN("Menu pos should change (+1)") {
+
+        }
+    }
+
+    WHEN("UP arrow is clicked") {
+        eq->registerEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 74));
+        THEN("Menu pos should change (-1)") {
+
+        }
+    }
+
+    WHEN("ENTER is clicked") {
+
+        GIVEN("menu pos = 1") {
+
+            THEN("State should be active") {
+
+            }
+        }
+
+        GIVEN("menu pos = 2")
+        {
+            
+            THEN("State should be menu") {
+                
+            }
+        }
+    }
+}
+
 
