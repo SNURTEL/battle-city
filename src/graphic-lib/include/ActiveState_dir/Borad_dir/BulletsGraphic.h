@@ -1,16 +1,15 @@
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include "../../AbstractWindow.h"
-#include <map>
-#include "../../../../tank-lib/include/Bullet.h"
+// Created by Michał
+
 
 #ifndef PROI_PROJEKT_BULLETSGRAPHIC_H
 #define PROI_PROJEKT_BULLETSGRAPHIC_H
 
 
-class Bullet;
+#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
+#include "../../AbstractWindow.h"
+#include "../../../../tank-lib/include/Bullet.h"
+#include <queue>
 
 
 /**
@@ -31,7 +30,7 @@ protected:
         sf::Vector2f coords;
         Bullet::BulletType textureType;
         Direction direction;
-        RenderObject(sf::Vector2f pos, Direction direction, Bullet::BulletType type=Bullet::Enemy);
+        RenderObject(const sf::Vector2f& pos, Direction direction, Bullet::BulletType type=Bullet::Enemy);
     };
 
 
@@ -42,10 +41,16 @@ protected:
         {Bullet::Friendly, "../src/graphic-lib/bulletsImages/bullet.png"}
     };
 
+
     /// @brief Maps texture types to actual textures
     std::unordered_map<Bullet::BulletType, sf::Texture> textureMap{};
 
+
     std::shared_ptr<std::vector<Bullet*>> bullets;
+
+
+    std::shared_ptr<std::queue<sf::Sprite>> specialQueue;
+
 
     std::vector<RenderObject> renderBullets;
     /**
@@ -55,14 +60,18 @@ protected:
      */
     std::vector<RenderObject> makeRenderBullets() const;
 
-      /// @brief Loads textures into the textureMap
+
+    /// @brief Loads textures into the textureMap
     void loadTextures();
+
 
     /// @brief Returns angle in degrees from given direction
     float getAngle(Direction direction) const;
 
-    /// @brief Sets tank's appropriate rotation
+
+    /// @brief Sets bullet's appropriate rotation
     void setBulletRotation(sf::Sprite& sprite, float angle);
+
 
     /**
      * @brief Makes RenderObjects vector from tanks list
@@ -77,16 +86,13 @@ public:
     virtual void render() override;
 
 
-    // /// @brief Updates its objects
-    // void update(std::vector<Bullet*> bullets);
-
-
     /**
      * @brief Get the RenderObjects object in a vector
      *
      * @return std::vector<sf::Vector2f>
      */
     std::vector<RenderObject> getRenderBullets(std::vector<Bullet*>* bullets);
+
 
     /**
      * @brief Get the Bullets object
@@ -104,7 +110,8 @@ public:
      * @param window
      * @param TanksGraphic
      */
-    BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Bullet*>> bullets);
+    BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Bullet*>> bullets,
+                   std::shared_ptr<std::queue<sf::Sprite>> specialQueue);
 };
 
 #endif //PROI_PROJEKT_BULLETSGRAPHIC_H

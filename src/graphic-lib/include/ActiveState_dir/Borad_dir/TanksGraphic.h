@@ -1,15 +1,12 @@
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include "../../AbstractWindow.h"
-#include "../../../../tank-lib/include/Tank.h" // Does a better way exists?
-
+// Created by Michał
 
 
 #ifndef PROI_PROJEKT_TANKSGRAPHIC_H
 #define PROI_PROJEKT_TANKSGRAPHIC_H
 
+#include "../../AbstractWindow.h"
+#include "../../../../tank-lib/include/Tank.h"
+#include <queue>
 
 /**
  * @brief Class responsible for tanks updates and render
@@ -26,6 +23,7 @@ protected:
 
     std::shared_ptr<std::vector<Tank*>> tanks;
 
+
     /// @brief Sturct that links object position with its texture
     struct RenderObject
     {
@@ -37,8 +35,10 @@ protected:
         RenderObject();
     };
 
+
     /// @brief Maps texture types to actual textures
     std::unordered_map<Tank::TankType, sf::Texture> textureMap{}; // Why before initialization compilatro was showing an error
+
 
     /// @brief Maps paths types to actual textures
     std::unordered_map<Tank::TankType, std::string> pathMap
@@ -54,6 +54,7 @@ protected:
     /// @brief Sets tank's appropriate rotation
     void setTankRotation(sf::Sprite& sprite, float angle);
 
+
     /**
      * @brief Makes RenderObjects vector from tanks list
      *
@@ -61,10 +62,16 @@ protected:
      */
     void makeRenderTanks();
 
+
+    std::shared_ptr<std::queue<sf::Sprite>> specialQueue;
+
+
     std::vector<RenderObject> renderTanks;
+
 
     /// @brief Loads textures into the textureMap
     void loadTextures();
+
 
     /// @brief Returns angle in degrees from given direction
     float getAngle(Direction direction) const;
@@ -75,15 +82,13 @@ public:
     virtual void render() override;
 
 
-    // /// @brief Updates its objects
-    // virtual void update(std::vector<Tank*> tanks);
-
     /**
      * @brief Get the Tanks object
      *
      * @return std::vector<Tank*>*
      */
     std::vector<Tank*>* getTanks() const;
+
 
     /**
      * @brief Get the RenderObjects objects in a vector
@@ -99,7 +104,8 @@ public:
      * @param window
      * @param TanksGraphic
      */
-    TanksGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Tank*>> tanks);
+    TanksGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Tank*>> tanks,
+                 std::shared_ptr<std::queue<sf::Sprite>> specialQueue);
 };
 
 #endif //PROI_PROJEKT_TANKSGRAPHIC_H

@@ -87,8 +87,9 @@ float TanksGraphic::getAngle(Direction direction) const
 }
 
 
-TanksGraphic::TanksGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Tank*>> tanks)
-: AbstractWindow(windowView), tanks(tanks)
+TanksGraphic::TanksGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Tank*>> tanks,
+                           std::shared_ptr<std::queue<sf::Sprite>> specialQueue)
+: AbstractWindow(windowView), tanks(tanks), specialQueue(specialQueue)
 {loadTextures();}
 
 

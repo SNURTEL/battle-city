@@ -11,17 +11,13 @@
 #include <sstream>
 
 
-
-TilesGraphic::TilesGraphic(WindowView windowView, std::shared_ptr<Grid*> grid)
-: AbstractWindow(windowView), grid(grid)
+TilesGraphic::TilesGraphic(const WindowView& windowView, std::shared_ptr<Grid*> grid,
+                          std::shared_ptr<std::queue<sf::Sprite>> specialQueue)
+: AbstractWindow(windowView), grid(grid), specialQueue(specialQueue)
 {
     loadTextures();
 }
 
-// std::vector<TilesGraphic::RenderObject> TilesGraphic::getRenderTiles()
-// {
-
-// }
 
 void TilesGraphic::render()
 {
@@ -50,13 +46,17 @@ void TilesGraphic::render()
 
             if (tileType1 == TileType::Bricks && it1 == usedTiles.end())
             {
-                createTileTexture(tileType1, x_pos, y_pos1, tile_height, tile_width);
+                sf::Sprite tile;
+                setTileTexture(tile, tileType1, x_pos, y_pos1, tile_height, tile_width);
+                windowView.window->draw(tile);
                 usedTiles.push_back({g, i});
             }
 
             if (tileType2 == TileType::Bricks && it2 == usedTiles.end())
             {
-                createTileTexture(tileType2, x_pos, y_pos2, tile_height, tile_width);
+                sf::Sprite tile;
+                setTileTexture(tile, tileType2, x_pos, y_pos2, tile_height, tile_width);
+                windowView.window->draw(tile);
                 usedTiles.push_back({g, i});
             }
 
@@ -64,8 +64,13 @@ void TilesGraphic::render()
                 && tileType1 != TileType::NullTile && tileType2 != TileType::NullTile
                 && it1 == usedTiles.end() && it2 == usedTiles.end())
             {
-                createTileTexture(tileType1, x_pos, y_pos1, tile_height,
-                                  tile_width, sf::Vector2f(2.f, 2.f));
+                sf::Sprite tile;
+                setTileTexture(tile, tileType1, x_pos, y_pos1, tile_height,
+                               tile_width, sf::Vector2f(2.f, 2.f));
+                if (tileType1 != TileType::Trees)
+                    windowView.window->draw(tile);
+                else
+                    specialQueue->push(tile);
                 usedTiles.push_back({j, i});
                 usedTiles.push_back({j, g});
                 usedTiles.push_back({j+1, i});
@@ -76,19 +81,16 @@ void TilesGraphic::render()
 }
 
 
-void TilesGraphic::createTileTexture(TileType tileType, float x_pos, float y_pos,
-                                    float tile_height, float tile_width,
-                                    sf::Vector2f scale)
+void TilesGraphic::setTileTexture(sf::Sprite& tile, TileType tileType, float x_pos, float y_pos,
+                                         float tile_height, float tile_width,
+                                         sf::Vector2f scale)
 {
-
     float leftOfset = windowView.leftOffset;
     float topOfset = windowView.topOffset;
     sf::Texture* texture = &textureMap[tileType];
-    sf::RectangleShape tile(sf::Vector2f(tile_height, tile_width));
+    tile.setTexture(*texture);
     tile.setPosition(x_pos + leftOfset, y_pos + topOfset);
-    tile.setTexture(texture);
     tile.setScale(scale);
-    windowView.window->draw(tile);
 }
 
 

@@ -6,12 +6,13 @@
 #include <sstream>
 
 
-BulletsGraphic::RenderObject::RenderObject(sf::Vector2f pos, Direction direction, Bullet::BulletType type)
+BulletsGraphic::RenderObject::RenderObject(const sf::Vector2f& pos, Direction direction, Bullet::BulletType type)
 : coords(pos), direction(direction), textureType(type)
 {}
 
-BulletsGraphic::BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Bullet*>> bullets)
-: AbstractWindow(windowView), bullets(bullets)
+BulletsGraphic::BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Bullet*>> bullets,
+                               std::shared_ptr<std::queue<sf::Sprite>> specialQueue)
+: AbstractWindow(windowView), bullets(bullets), specialQueue(specialQueue)
 {loadTextures();}
 
 

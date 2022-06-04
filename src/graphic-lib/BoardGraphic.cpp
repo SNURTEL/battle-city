@@ -1,8 +1,4 @@
 #include "include/ActiveState_dir/Borad_dir/BoardGraphic.h"
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
 #include "include/ActiveState_dir/Borad_dir/TanksGraphic.h"
 #include "include/ActiveState_dir/Borad_dir/TilesGraphic.h"
 #include "include/ActiveState_dir/Borad_dir/BulletsGraphic.h"
@@ -14,12 +10,22 @@ void BoardGraphic::render()
     {
         child->render();
     }
+
+    for (int i = 0; i < extraRenderQueue->size(); i++)
+    {
+        sf::Sprite tile = extraRenderQueue->front();
+        extraRenderQueue->pop();
+        windowView.window->draw(tile);
+    }
 }
 
 
 BoardGraphic::BoardGraphic(const WindowView& windowView, const ActiveStateGraphic::BoardPointers& boardObjects)
 : AbstractWindow(windowView), boardObjects(boardObjects)
-{conscructComposite();}
+{
+    initiateRenderQueue();
+    conscructComposite();
+}
 
 
 void BoardGraphic::conscructComposite()
@@ -27,16 +33,15 @@ void BoardGraphic::conscructComposite()
     std::shared_ptr<std::vector<Tank*>> tanksList = boardObjects.tanks;
     std::shared_ptr<std::vector<Bullet*>> bulltesList = boardObjects.bullets;
     std::shared_ptr<Grid*> gridObject = boardObjects.tiles;
-    std::shared_ptr<AbstractWindow> tanks = std::make_shared<TanksGraphic>(windowView, tanksList);
-    std::shared_ptr<AbstractWindow> bullets = std::make_shared<BulletsGraphic>(windowView, bulltesList);
-    std::shared_ptr<AbstractWindow> tiles = std::make_shared<TilesGraphic>(windowView, gridObject);
+    std::shared_ptr<AbstractWindow> tanks = std::make_shared<TanksGraphic>(windowView, tanksList, extraRenderQueue);
+    std::shared_ptr<AbstractWindow> bullets = std::make_shared<BulletsGraphic>(windowView, bulltesList, extraRenderQueue);
+    std::shared_ptr<AbstractWindow> tiles = std::make_shared<TilesGraphic>(windowView, gridObject, extraRenderQueue);
 
     // ORDER IS INHERENT IN LIST OF THOSE CHILDREN !!!
 
     children.push_back(tiles);
     children.push_back(tanks);
     children.push_back(bullets);
-
 }
 
 
@@ -49,11 +54,5 @@ const std::vector<std::shared_ptr<AbstractWindow>> BoardGraphic::getChildren() c
 {return children;}
 
 
-// void BoardGraphic::update()
-// {
-
-//     for(std::shared_ptr<AbstractWindow> child : children)
-//     {
-//         child->update();
-//     }
-// }
+void BoardGraphic::initiateRenderQueue()
+{extraRenderQueue = std::make_shared<std::queue<sf::Sprite>>();}
