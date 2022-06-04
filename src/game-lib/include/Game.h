@@ -89,6 +89,12 @@ public:
      */
     GameStatistics *getStats();
 
+    /**
+     * Returns the pointer to the board object
+     * @return board object pointer
+     */
+    Board* getBoard();
+
 protected:
     /**
      * Called right before starting the event loop. Sets all remaining attrs, creates the render window,

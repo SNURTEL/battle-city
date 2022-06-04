@@ -161,6 +161,24 @@ public:
      */
     void loadLevel(unsigned int levelNum);
 
+    /**
+     * Returns pointer on the player tank object
+     * @return Player Tank pointer
+     */
+    PlayerTank* getPlayerTank();
+
+    /**
+     * Removes entity
+     * @param entity pointer
+     */
+    void removeEntity(Entity* entity);
+
+    /**
+     * Returns entity controller pointer
+     * @return entity controller pointer
+     */
+    EntityController* getEntityController();
+
 protected:
     /**
      * Checks if an entity overlaps with any other entity, tile, or is placed out of grid

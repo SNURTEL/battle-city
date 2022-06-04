@@ -125,7 +125,7 @@ bool Board::spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direc
 }
 
 bool Board::spawnPlayer(unsigned int x, unsigned int y, Direction facing) {
-    std::unique_ptr<Tank> newTank = entityController_->createTank(x, y, Tank::PlayerTank, facing);
+    std::unique_ptr<PlayerTank> newTank = std::unique_ptr<PlayerTank>(dynamic_cast<PlayerTank*>(entityController_->createTank(x, y, Tank::PlayerTank, facing).release()));
 
     Entity *spawnedTank = entityController_->addEntity(std::move(newTank));
     eventQueue_->registerEvent(std::make_unique<Event>(Event::PlayerSpawned, spawnedTank));
@@ -215,4 +215,16 @@ void Board::loadLevel(unsigned int levelNum) {
     removeAllEntities();
     setGrid(std::move(GridBuilder::buildLevel(levelNum)));  // TODO init player tank
     eventQueue_->registerEvent(std::make_unique<Event>(Event::LevelLoaded, levelNum));
+}
+
+PlayerTank* Board::getPlayerTank() {
+    return entityController_->getPlayer();
+}
+
+void Board::removeEntity(Entity* entity) {
+    entityController_->removeEntity(entity);
+}
+
+EntityController* Board::getEntityController() {
+    return entityController_.get();
 }

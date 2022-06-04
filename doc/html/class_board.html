@@ -136,6 +136,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af333035f40474678447b28f3261768cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8745130347b5e1f514dbbca427349439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a8745130347b5e1f514dbbca427349439">loadLevel</a> (unsigned int levelNum)</td></tr>
 <tr class="separator:a8745130347b5e1f514dbbca427349439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f47bef0f41cfda3809636185757c7e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_player_tank.html">PlayerTank</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a7f47bef0f41cfda3809636185757c7e8">getPlayerTank</a> ()</td></tr>
+<tr class="separator:a7f47bef0f41cfda3809636185757c7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad556322d223d21b4674506649c034853"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#ad556322d223d21b4674506649c034853">removeEntity</a> (<a class="el" href="class_entity.html">Entity</a> *entity)</td></tr>
+<tr class="separator:ad556322d223d21b4674506649c034853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ede038461605e13fa6aa8969159bdfe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity_controller.html">EntityController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a8ede038461605e13fa6aa8969159bdfe">getEntityController</a> ()</td></tr>
+<tr class="separator:a8ede038461605e13fa6aa8969159bdfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -267,6 +273,42 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Whether a collision was detected while spawning the bullet </dd></dl>
+
+</div>
+</div>
+<a id="a8ede038461605e13fa6aa8969159bdfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ede038461605e13fa6aa8969159bdfe">&#9670;&nbsp;</a></span>getEntityController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_entity_controller.html">EntityController</a> * Board::getEntityController </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns entity controller pointer </p><dl class="section return"><dt>Returns</dt><dd>entity controller pointer </dd></dl>
+
+</div>
+</div>
+<a id="a7f47bef0f41cfda3809636185757c7e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f47bef0f41cfda3809636185757c7e8">&#9670;&nbsp;</a></span>getPlayerTank()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_player_tank.html">PlayerTank</a> * Board::getPlayerTank </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns pointer on the player tank object </p><dl class="section return"><dt>Returns</dt><dd>Player <a class="el" href="class_tank.html" title="Base class for tank representation.">Tank</a> pointer </dd></dl>
 
 </div>
 </div>
@@ -410,6 +452,30 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Removes all entities from the board</p>
 <p>Possibly queues multiple instances of <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea8ebd718fd45762dcf3fc76f657994220">Event::EntityRemoved</a> </p>
+
+</div>
+</div>
+<a id="ad556322d223d21b4674506649c034853"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad556322d223d21b4674506649c034853">&#9670;&nbsp;</a></span>removeEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Board::removeEntity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_entity.html">Entity</a> *&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Removes entity </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>pointer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

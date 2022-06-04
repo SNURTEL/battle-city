@@ -63,7 +63,7 @@ digraph "Event::info_u"
   Node24 -> Node23 [color="grey25",fontsize="10",style="solid",label=" +state_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node24 [label="{GameState\n||+ ~GameState()\l+ getEventHandler()\l# GameState()\l}",height=0.2,width=0.4,color="black",URL="$class_game_state.html",tooltip=" "];
   Node25 -> Node24 [color="grey25",fontsize="10",style="solid",label=" #game_" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node25 [label="{Game\n||+ Game()\l+ Game()\l+ run()\l+ setActiveState()\l+ setFinishedState()\l+ setPauseState()\l+ setMenuState()\l+ quit()\l+ getState()\l+ getStats()\l# setup()\l# initStates()\l# initComponents()\l# initScoreboard()\l# initUI()\l# start()\l# reset()\l# prepareLevel()\l# end()\l# redrawUI()\l}",height=0.2,width=0.4,color="black",URL="$class_game.html",tooltip=" "];
+  Node25 [label="{Game\n||+ Game()\l+ Game()\l+ run()\l+ setActiveState()\l+ setFinishedState()\l+ setPauseState()\l+ setMenuState()\l+ quit()\l+ getState()\l+ getStats()\l+ getBoard()\l# setup()\l# initStates()\l# initComponents()\l# initScoreboard()\l# initUI()\l# start()\l# reset()\l# prepareLevel()\l# end()\l# redrawUI()\l}",height=0.2,width=0.4,color="black",URL="$class_game.html",tooltip=" "];
   Node26 -> Node25 [color="grey25",fontsize="10",style="solid",label=" #keyboardController_" ,arrowhead="odiamond",fontname="Helvetica"];
   Node26 [label="{unique_ptr\< KeyboardController \>\n||}",height=0.2,width=0.4,color="grey75",tooltip=" "];
   Node27 -> Node25 [color="grey25",fontsize="10",style="solid",label=" #gameStats_" ,arrowhead="odiamond",fontname="Helvetica"];
