@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['max_5fpos_5f_0',['max_pos_',['../class_menu.html#a54cfc75c5233f7444d47d4e5412eae0d',1,'Menu']]],
   ['maxdecisioncooldown_1',['maxDecisionCooldown',['../class_bot.html#a41a0d241c533f9c36be36d3785f62703',1,'Bot']]],
   ['maxregisteredbots_5f_2',['maxRegisteredBots_',['../class_bot_controller.html#a2526c6b100fbb6b9d7153e287182f536',1,'BotController']]],
@@ -12,4 +13,7 @@ var searchData=
   ['menuinfo_9',['menuInfo',['../union_event_1_1info__u.html#af28f7914816bfa89bcabc1e00e233289',1,'Event::info_u']]],
   ['movedecisioninfo_10',['moveDecisionInfo',['../union_event_1_1info__u.html#a29e8d453d9bf0e220372575601d24b78',1,'Event::info_u']]],
   ['moving_5f_11',['moving_',['../class_tank.html#abedb1b99229f0f1413ad302d7a89047f',1,'Tank']]]
+=======
+  ['new_5fpos_650',['new_pos',['../struct_event_1_1_menu_info.html#a7b448ded5efffc5cd7c822a339a5e519',1,'Event::MenuInfo']]]
+>>>>>>> Added test samples for active state
 ];

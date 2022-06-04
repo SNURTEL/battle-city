@@ -43,7 +43,7 @@ var hierarchy =
     [ "EventQueue< E >", "class_event_queue.html", null ],
     [ "EventQueue< Event >", "class_event_queue.html", null ],
     [ "EventSubscriber", "class_event_subscriber.html", null ],
-    [ "std::exception", null, [
+    [ "exception", null, [
       [ "EntityDoesNotExistException", "class_entity_does_not_exist_exception.html", null ],
       [ "EventConstructionException", "struct_event_construction_exception.html", null ],
       [ "InvalidEventException", "class_invalid_event_exception.html", null ],
@@ -86,6 +86,5 @@ var hierarchy =
     [ "Event::StateInfo", "struct_event_1_1_state_info.html", null ],
     [ "Event::StatsInfo", "struct_event_1_1_stats_info.html", null ],
     [ "Event::TileInfo", "struct_event_1_1_tile_info.html", null ],
-    [ "TileManager", "class_tile_manager.html", null ],
-    [ "queue< std::unique_ptr< Event > >", "classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html", null ]
+    [ "TileManager", "class_tile_manager.html", null ]
 ];

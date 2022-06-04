@@ -7,6 +7,7 @@
 #include <fstream>
 #include <algorithm>
 #include <map>
+#include <unistd.h>
 
 #include "include/GridBuilder.h"
 #include "include/Grid.h"

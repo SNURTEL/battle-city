@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+<<<<<<< HEAD
 "class_singleton_not_initialized_exception.html#aa3184c9ee95d0cdf422faaa4a111ad51":[0,0,42,0],
 "class_tank.html":[0,0,43],
 "class_tank.html#a016ada45dc6d1636830e72371793f807":[0,0,43,12],
@@ -57,9 +58,14 @@ var NAVTREEINDEX2 =
 "functions_e.html":[0,3,0,4],
 "functions_enum.html":[0,3,4],
 "functions_eval.html":[0,3,5],
+=======
+"functions_e.html":[0,3,0,4],
+"functions_enum.html":[0,3,3],
+"functions_eval.html":[0,3,4],
+>>>>>>> Added test samples for active state
 "functions_f.html":[0,3,0,5],
-"functions_func.html":[0,3,1],
 "functions_func.html":[0,3,1,0],
+"functions_func.html":[0,3,1],
 "functions_func_b.html":[0,3,1,1],
 "functions_func_c.html":[0,3,1,2],
 "functions_func_d.html":[0,3,1,3],
