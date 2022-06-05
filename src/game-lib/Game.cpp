@@ -46,7 +46,7 @@ void Game::initStates() {
 }
 
 void Game::initComponents() {
-    keyboardController_ = std::make_unique<KeyboardController>(window_.get());
+    keyboardController_ = std::make_unique<KeyboardController>(window_->getWindow());
     keyboardController_->subscribe(clock_);
 
     gameStatsIO_ = std::make_unique<GameStatsIO>("scoreboard.txt");  // dummy, filename is ignored for now
@@ -59,7 +59,7 @@ void Game::initScoreboard() {
 }
 
 void Game::initUI() {
-    window_ = std::make_unique<sf::RenderWindow>(sf::VideoMode(400, 400), ":D");
+    window_ = std::make_unique<Window>();
 }
 
 void Game::setActiveState() {
@@ -134,5 +134,7 @@ void Game::end() {
 
 
 void Game::redrawUI() {
-    // put UI stuff here
+    window_->getWindow()->clear(sf::Color::Black);
+    window_->render();
+    window_->getWindow()->display();
 }

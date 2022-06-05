@@ -64,7 +64,7 @@ set(game_lib_sources
         ${game_lib_dir}/GameStatsIO.cpp)
 
 add_library(game-lib ${game_lib_sources})
-target_link_libraries(game-lib PRIVATE core-lib board-lib ${SFML_LIBRARIES})
+target_link_libraries(game-lib PRIVATE core-lib board-lib graphic-lib ${SFML_LIBRARIES})
 
 set(game_lib_test_dir ../src/game-lib/test)
 set(game_lib_test_sources

@@ -20,3 +20,7 @@ AbstractWindow::AbstractWindow()
 
 AbstractWindow::~AbstractWindow()
 {}
+
+
+sf::RenderWindow* AbstractWindow::getWindow()
+{return windowView.window;}

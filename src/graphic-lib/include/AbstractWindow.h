@@ -48,6 +48,13 @@ protected:
 public:
 
     /**
+     * @brief Get the Window View object
+     *
+     * @return const WindowView&
+     */
+    sf::RenderWindow* getWindow();
+
+    /**
      * @brief Commands its children to render objects on the screen
      *
      */
