@@ -1,6 +1,7 @@
 #include "include/Window.h"
 #include "include/GraphicEventHandler.h"
 #include "../board-lib/include/Grid.h"
+#include "../game-lib/include/GameStatistics.h"
 
 
 GraphicEventHandler::GraphicEventHandler(Game* game, Window* window)
@@ -41,7 +42,17 @@ void GraphicEventHandler::processEvent(std::unique_ptr<Event> event)
         GameState* gameState = event->info.stateInfo.state_;
         window->selectgameState(gameState);
     }
-
+    case(Event::MenuSelectionChange):
+    {
+        int menuPos = event->info.menuInfo.new_pos;
+        // window->changeMenuPos(menuPos);
+    }
+    case(Event::StatisticsChanged):
+    {
+        int playerLives = event->info.pointsInfo.stats_->getLives();
+        int points = event->info.pointsInfo.stats_->getPoints();
+        window->loadStats(playerLives, points);
+    }
     default:
         break;
     }

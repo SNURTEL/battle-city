@@ -38,7 +38,7 @@ public:
         std::shared_ptr<std::vector<Bullet*>> bullets;
         std::shared_ptr<Grid*> tiles;
         std::shared_ptr<int> level;
-        std::shared_ptr<Tank*> playerTank;
+        std::shared_ptr<int> playerLives;
     };
 
     /// @brief Stores MenuState pointers
@@ -86,15 +86,17 @@ public:
     void addEntity(Entity* e);
 
 
-    /// @brief Adding player to the list of tanks and extracting playersLives
-    void addPlayer(Entity* e);
-
     /// @brief Removing Entity from the tanks or bullets list
     void removeEntity(Entity* e);
 
 
     /// @brief Loading next level
     void loadLevel(Grid* grid, int levelNumber);
+
+
+    /// @brief Loads player stats
+    void loadStats(int playerLives, int points);
+
 
     /**
      * @brief Cheks given Entity type
@@ -106,11 +108,6 @@ public:
      */
     std::string checkEntityType(Entity* e);
 
-    // /**
-    //  * @brief Commands its children to update objects to render
-    //  *
-    //  */
-    // virtual void update();
 
     /// @brief Enum that determine actual game state
     enum GameStateGraphic

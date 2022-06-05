@@ -40,7 +40,7 @@ void Window::initiateActiveStatePointers()
     activeStatePointers.bullets = std::make_shared<std::vector<Bullet*>>();
     activeStatePointers.tiles = std::make_shared<Grid*>();
     activeStatePointers.level = std::make_shared<int>();
-    activeStatePointers.playerTank = std::make_shared<Tank*>();
+    activeStatePointers.playerLives = std::make_shared<int>();
 }
 
 
@@ -148,9 +148,8 @@ void Window::loadLevel(Grid* grid, int levelNumber)
 }
 
 
-void Window::addPlayer(Entity* e)
+void Window::loadStats(int playerLives, int points)
 {
-    Tank* tank = dynamic_cast<Tank*>(e);
-    activeStatePointers.tanks->push_back(tank);
-    *activeStatePointers.playerTank = tank;
+    *activeStatePointers.playerLives = playerLives;
+    // *activeStatePointers. = points;
 }

@@ -43,7 +43,7 @@ void ActiveStateGraphic::setboardObjects()
 void ActiveStateGraphic::setframeObjects()
 {
     frameObjects.level = activeStateObjects.level;
-    frameObjects.playerTank = activeStateObjects.playerTank;
+    frameObjects.playerLives = activeStateObjects.playerLives;
 }
 
 

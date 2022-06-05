@@ -73,9 +73,6 @@ private:
     void calculateInfoTextPoistion();
 
 
-    std::shared_ptr<Tank*> playerTank;
-
-
     /// @brief Initiates game info shared pointers
     void initiatesGameInfoPointers();
 

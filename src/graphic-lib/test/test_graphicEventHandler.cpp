@@ -8,12 +8,13 @@
 #include "../include/ActiveState_dir/Borad_dir/TanksGraphic.h"
 #include "../include/GraphicEventHandler.h"
 #include "testClasses.cpp"
+#include "../../game-lib/include/GameStatistics.h"
 
 
 
 SCENARIO("Handling events connected to graphic-lib")
 {
-    GIVEN("TestWindow, GameState, tanks, bullets, Grid, GraphicEventHandler, Events")
+    GIVEN("TestWindow, GameState, tanks, bullets, Grid, GraphicEventHandler, Events, GameStatistics")
     {
 
         // Initiating window, states, game and handler
@@ -40,19 +41,22 @@ SCENARIO("Handling events connected to graphic-lib")
         // Initiating level and playerLIvesLeft
 
         int level = 5;
-        int playersLivesLeft = 5;
+        int playerLives = 5;
+        GameStatistics gameStats(playerLives, level, 5);
 
         // Creating Events
 
         Event tankSpawned(Event::EntitySpawned, eTank);
         Event bulletSpawned(Event::EntitySpawned, eBullet);
         Event levelLoaded(Event::LevelLoaded, level, &grid);
+        Event statisticsChanged(Event::StatisticsChanged, &gameStats);
 
         WHEN("Handling given events")
         {
             graphicEventHandler.processEvent(std::make_unique<Event>(tankSpawned));
             graphicEventHandler.processEvent(std::make_unique<Event>(bulletSpawned));
             graphicEventHandler.processEvent(std::make_unique<Event>(levelLoaded));
+            graphicEventHandler.processEvent(std::make_unique<Event>(statisticsChanged));
 
             THEN("Composite sturcture should be updated")
             {
@@ -86,10 +90,14 @@ SCENARIO("Handling events connected to graphic-lib")
                         std::vector<Tank*>* tanksComposite = window.getTanks();
                         std::vector<Bullet*>* bulletsComposite = window.getBullets();
                         Grid** gridComposite = window.getGrid();
+                        ActiveStateGraphic::BoardPointers boardPointers = window.getBoardPointers();
+                        ActiveStateGraphic::FramePointers framePointers = window.getFramePointers();
                         REQUIRE((*(*tanksComposite)[0]).getX() == tank1.getX());
                         REQUIRE((*bulletsComposite)[0] == &bullet);
                         REQUIRE((*bulletsComposite)[1] == &bullet2);
                         REQUIRE((*gridComposite)->getTileAtPosition(5, 5) == TileType::Steel);
+                        REQUIRE(*framePointers.level == level);
+                        REQUIRE(*framePointers.playerLives == playerLives);
                     }
 
 

@@ -26,8 +26,7 @@ FrameGraphic::FrameGraphic(const WindowView& windowView, const ActiveStateGraphi
 
 void FrameGraphic::makeGamePointers()
 {
-    uint playersLives = (*frameObjects.playerTank)->getLives(); // MISTAKE !!!!!!!!!!!!!!!!!!!!!!!!!!!1
-    *gameInfoPointers.playerLives = playersLives;
+    *gameInfoPointers.playerLives = *frameObjects.playerLives;
     *gameInfoPointers.level = *frameObjects.level;
 }
 
