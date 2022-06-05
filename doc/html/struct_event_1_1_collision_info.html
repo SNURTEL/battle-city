@@ -93,8 +93,7 @@ $(document).ready(function(){initNavTree('struct_event_1_1_collision_info.html',
 <div class="dynheader">
 Collaboration diagram for Event::CollisionInfo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="struct_event_1_1_collision_info__coll__graph.svg" width="343" height="287"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="struct_event_1_1_collision_info__coll__graph.svg" width="343" height="287"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -104,7 +103,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a9ff5c68f7aee82fc5ec973ef52145cde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html#a614a1a2df0877e0a3e510fa8baf5ec66">CollisionMember</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_collision_info.html#a9ff5c68f7aee82fc5ec973ef52145cde">member2</a></td></tr>
 <tr class="separator:a9ff5c68f7aee82fc5ec973ef52145cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Holds two collision members. Individual CollisionInfos are accessible with std::get&lt;T&gt;() or (preferred) std::visit().</p>
+<p >Collision handling can be provided by creating a handleCollision() function and overloading it with different CollisionInfos. The function can then be called in a lambda expression inside std::visit:</p>
+<p >std::visit([](auto &amp;&amp;arg1, auto &amp;&amp;arg2){ handleCollision(arg1, arg2); }, collisionEvent.member1, collisionEvent.member2);</p>
+<p >In practice, friendly bullet and player tank members are always stored as member1, and grid member is always member2 </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a2fbd6bdef3b418070cebb38101414b8c" name="a2fbd6bdef3b418070cebb38101414b8c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2fbd6bdef3b418070cebb38101414b8c">&#9670;&nbsp;</a></span>member1</h2>
 

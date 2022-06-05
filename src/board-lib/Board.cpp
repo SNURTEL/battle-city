@@ -229,9 +229,8 @@ std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entit
     }
 
     // set member 2
-    std::optional<std::shared_ptr<Entity>> collidingEntity = entityController_->findEntityAtPosition(entity->getX(),
-                                                                                                     entity->getY(),
-                                                                                                     entity);
+    std::optional<std::shared_ptr<Entity>> collidingEntity = entityController_->checkEntityCollisions(entity);
+
     if (!collidingEntity.has_value()) {
         // board
         member2 = Event::BoardCollisionInfo{

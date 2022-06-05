@@ -141,24 +141,36 @@ public:
     // collision events
 
     /**
-     * Holds additional event info for entity-entity collision events
+     * Holds additional event info for player tank collision members
      */
     struct PlayerTankCollisionInfo {
         std::shared_ptr<PlayerTank> playerTank;
     };
 
+    /**
+     * Holds additional event info for enemy tank collision members
+     */
     struct EnemyTankCollisionInfo {
         std::shared_ptr<Tank> enemyTank;
     };
 
+    /**
+     * Holds additional event info for friendly bullet collision members
+     */
     struct FriendlyBulletCollisionInfo {
         std::shared_ptr<Bullet> friendlyBullet;
     };
 
+    /**
+     * Holds additional event info for enemy bullet collision members
+     */
     struct EnemyBulletCollisionInfo {
         std::shared_ptr<Bullet> enemyBullet;
     };
 
+    /**
+     * Holds additional event info for board collision members
+     */
     struct BoardCollisionInfo {
         unsigned int tile_x;
         unsigned int tile_y;
@@ -167,12 +179,25 @@ public:
 
     // #####
 
+    /**
+     * Can be one of all collision members
+     */
     typedef std::variant<PlayerTankCollisionInfo,
             EnemyTankCollisionInfo,
             FriendlyBulletCollisionInfo,
             EnemyBulletCollisionInfo,
             BoardCollisionInfo> CollisionMember;
 
+    /**
+     * Holds two collision members. Individual CollisionInfos are accessible with std::get<T>() or (preferred) std::visit().
+     *
+     * Collision handling can be provided by creating a handleCollision() function and overloading it with different CollisionInfos.
+     * The function can then be called in a lambda expression inside std::visit:
+     *
+     * std::visit([](auto &&arg1, auto &&arg2){ handleCollision(arg1, arg2); }, collisionEvent.member1, collisionEvent.member2);
+     *
+     * In practice, friendly bullet and player tank members are always stored as member1, and grid member is always member2
+     */
     struct CollisionInfo {
         CollisionMember member1;
         CollisionMember member2;

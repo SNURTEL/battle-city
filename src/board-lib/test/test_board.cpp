@@ -43,6 +43,10 @@ namespace {  // anonymous namespace to force internal linkage
             bool testValidateEntityPosition(std::shared_ptr<Entity> target) {
                 return validateEntityPosition(target);
             }
+
+            std::unique_ptr<Event> testCreateCollisionEvent(std::shared_ptr<Entity> entity) {
+                return std::move(createCollisionEvent(entity));
+            }
         };
 
         std::shared_ptr<Tank>
@@ -60,8 +64,12 @@ namespace {  // anonymous namespace to force internal linkage
         }
 
         std::optional<std::shared_ptr<Bullet>> fireBullet(Board *board, std::shared_ptr<Tank> tank) {
+            unsigned int prevSize = EventQueue<Event>::instance()->size();
             if (!board->fireTank(tank)) {
                 return std::nullopt;
+            }
+            if (prevSize + 1 != EventQueue<Event>::instance()->size()) {
+                EventQueue<Event>::instance()->pop();
             }
             return std::static_pointer_cast<Bullet>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
         }
@@ -410,12 +418,14 @@ SCENARIO("Moving a single entity") {
                 eventQueue->pop();
                 auto collisionEvent = eventQueue->pop();
                 REQUIRE(collisionEvent->type == Event::Collision);
-                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(collisionEvent->info.collisionInfo.member1).enemyTank == tank1);
+                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(collisionEvent->info.collisionInfo.member1).enemyTank ==
+                        tank1);
 
                 eventQueue->pop();
                 collisionEvent = eventQueue->pop();
                 REQUIRE(collisionEvent->type == Event::Collision);
-                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(collisionEvent->info.collisionInfo.member1).enemyTank == tank2);
+                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(collisionEvent->info.collisionInfo.member1).enemyTank ==
+                        tank2);
                 REQUIRE(eventQueue->isEmpty());
 
             }
@@ -437,8 +447,10 @@ SCENARIO("Moving a single entity") {
                 eventQueue->pop();
                 auto collisionEvent = eventQueue->pop();
                 REQUIRE(collisionEvent->type == Event::Collision);
-                REQUIRE(std::get<Event::EnemyBulletCollisionInfo>(collisionEvent->info.collisionInfo.member1).enemyBullet == bullet);
-                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(collisionEvent->info.collisionInfo.member2).enemyTank == tank1);
+                REQUIRE(std::get<Event::EnemyBulletCollisionInfo>(
+                        collisionEvent->info.collisionInfo.member1).enemyBullet == bullet);
+                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(collisionEvent->info.collisionInfo.member2).enemyTank ==
+                        tank1);
             }
         }
 
@@ -502,6 +514,175 @@ SCENARIO("Removing all enemy tanks from the board") {
                     REQUIRE(event->type == Event::TankKilled);
                     REQUIRE(event->info.entityInfo.entity == basicTank);
                 }
+            }
+        }
+    }
+}
+
+SCENARIO("Generating collision events") {
+    GIVEN("A board") {
+        helper::TestBoard board{};
+
+        auto eventQueue = helper::getEmptyEventQueue();
+
+        WHEN("Two enemy tanks collide") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
+            auto tank2 = helper::placeTank(&board, 11, 11, Tank::ArmorTank);
+
+            auto event = board.testCreateCollisionEvent(tank1);
+
+            THEN("Event should be created as expected") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(event->info.collisionInfo.member1).enemyTank == tank1);
+                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(event->info.collisionInfo.member2).enemyTank == tank2);
+            }
+        }WHEN("An enemy tank collides with board") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
+            helper::placeTile(&board, 11, 11, Bricks);
+
+            auto event = board.testCreateCollisionEvent(tank1);
+
+            THEN("Event should be created as expected") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(event->info.collisionInfo.member1).enemyTank == tank1);
+                REQUIRE(std::get<Event::BoardCollisionInfo>(event->info.collisionInfo.member2).grid == board.getGrid());
+            }
+        }WHEN("An enemy tank collides with enemy bullet") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
+            auto tank2 = helper::placeTank(&board, 10, 14, Tank::ArmorTank);
+            auto bullet = helper::fireBullet(&board, tank2).value();
+
+            auto event = board.testCreateCollisionEvent(tank1);
+
+            THEN("Event should be created as expected") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(event->info.collisionInfo.member1).enemyTank ==
+                        tank1);
+                REQUIRE(std::get<Event::EnemyBulletCollisionInfo>(event->info.collisionInfo.member2).enemyBullet ==
+                        bullet);
+            }
+        }WHEN("An enemy tank collides with friendly bullet") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
+            auto tank2 = helper::placeTank(&board, 10, 14, Tank::PlayerTank);
+            auto bullet = helper::fireBullet(&board, tank2).value();
+
+            auto event = board.testCreateCollisionEvent(tank1);
+
+            THEN("Event should be created as expected (friendly bullet should be the first member)") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::FriendlyBulletCollisionInfo>(
+                        event->info.collisionInfo.member1).friendlyBullet ==
+                        bullet);
+                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(event->info.collisionInfo.member2).enemyTank ==
+                        tank1);
+            }
+        }
+        WHEN("Two enemy bullets collide") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East);
+            auto tank2 = helper::placeTank(&board, 12, 12, Tank::BasicTank);
+            tank2->setX(12.2);
+            tank2->setY(12.2);
+            auto bullet1 = helper::fireBullet(&board, tank1).value();
+            auto bullet2 = helper::fireBullet(&board, tank2).value();
+
+            auto event = board.testCreateCollisionEvent(bullet1);
+
+            THEN("Event should be created as expected (friendly bullet should be the first member)") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::EnemyBulletCollisionInfo>(
+                        event->info.collisionInfo.member1).enemyBullet ==
+                        bullet1);
+                REQUIRE(std::get<Event::EnemyBulletCollisionInfo>(
+                        event->info.collisionInfo.member2).enemyBullet ==
+                        bullet2);
+            }
+        }WHEN("Enemy bullet collides with friendly bullet (friendly bullet should be the first member)") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East);
+            auto tank2 = helper::placeTank(&board, 12, 12, Tank::PlayerTank);
+            tank2->setX(12.2);
+            tank2->setY(12.2);
+            auto bullet1 = helper::fireBullet(&board, tank1).value();
+            auto bullet2 = helper::fireBullet(&board, tank2).value();
+
+            auto event = board.testCreateCollisionEvent(bullet1);
+
+            THEN("Event should be created as expected (friendly bullet should be the first member)") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::FriendlyBulletCollisionInfo>(
+                        event->info.collisionInfo.member1).friendlyBullet ==
+                        bullet2);
+                REQUIRE(std::get<Event::EnemyBulletCollisionInfo>(
+                        event->info.collisionInfo.member2).enemyBullet ==
+                        bullet1);
+            }
+        }WHEN("Enemy bullet collides with grid") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
+            helper::placeTile(&board, 11, 9, Steel);
+            auto bullet = helper::fireBullet(&board, tank1).value();
+
+            auto event = board.testCreateCollisionEvent(bullet);
+
+            THEN("Event should be created as expected") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::EnemyBulletCollisionInfo>(
+                        event->info.collisionInfo.member1).enemyBullet ==
+                        bullet);
+                REQUIRE(std::get<Event::BoardCollisionInfo>(
+                        event->info.collisionInfo.member2).grid ==
+                        board.getGrid());
+            }
+        }WHEN("Friendly bullet collides with grid") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
+            helper::placeTile(&board, 11, 9, Steel);
+            auto bullet = helper::fireBullet(&board, tank1).value();
+
+            auto event = board.testCreateCollisionEvent(bullet);
+
+            THEN("Event should be created as expected (friendly bullet should be the first member)") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::FriendlyBulletCollisionInfo>(
+                        event->info.collisionInfo.member1).friendlyBullet ==
+                        bullet);
+                REQUIRE(std::get<Event::BoardCollisionInfo>(
+                        event->info.collisionInfo.member2).grid ==
+                        board.getGrid());
+            }
+        }WHEN("Player collides with enemy tank") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
+            auto tank2 = helper::placeTank(&board, 11, 11, Tank::PlayerTank);
+
+            auto event = board.testCreateCollisionEvent(tank1);
+
+            THEN("Event should be created as expected") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::PlayerTankCollisionInfo>(event->info.collisionInfo.member1).playerTank == tank2);
+                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(event->info.collisionInfo.member2).enemyTank == tank1);
+            }
+        }WHEN("Player collides with enemy bullet") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
+            auto tank2 = helper::placeTank(&board, 10, 14, Tank::BasicTank);
+            auto bullet = helper::fireBullet(&board, tank2).value();
+
+            auto event = board.testCreateCollisionEvent(tank1);
+
+            THEN("Event should be created as expected (friendly bullet should be the first member)") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::PlayerTankCollisionInfo>(
+                        event->info.collisionInfo.member1).playerTank ==
+                        tank1);
+                REQUIRE(std::get<Event::EnemyBulletCollisionInfo>(event->info.collisionInfo.member2).enemyBullet ==
+                        bullet);
+            }
+        }WHEN("Player collides with board") {
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
+            helper::placeTile(&board, 11, 11, Bricks);
+
+            auto event = board.testCreateCollisionEvent(tank1);
+
+            THEN("Event should be created as expected") {
+                REQUIRE(event->type == Event::Collision);
+                REQUIRE(std::get<Event::PlayerTankCollisionInfo>(event->info.collisionInfo.member1).playerTank == tank1);
+                REQUIRE(std::get<Event::BoardCollisionInfo>(event->info.collisionInfo.member2).grid == board.getGrid());
             }
         }
     }
