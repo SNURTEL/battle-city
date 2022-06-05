@@ -95,7 +95,7 @@ public:
      * TRYING TO ACCESS MEMBER VARIABLE'S ATTRS WILL RESULT IN UNDEFINED BEHAVIOR
      */
     struct EntityInfo {  //
-        Entity* entity;  // FIXME WILL POINT TO DEALLOCATED MEMORY IF TANK WAS DELETED (create a separate struct with unique_ptr or only pass deleted tank attrs)
+        std::shared_ptr<Entity> entity;
     };
 
     /**
@@ -124,15 +124,15 @@ public:
      * Holds additional event info for entity-entity collision events
      */
     struct EntityEntityCollisionInfo{
-        Entity* entity1;
-        Entity* entity2;
+        std::shared_ptr<Entity> entity1;
+        std::shared_ptr<Entity> entity2;
     };
 
     /**
      * Holds additional event info for entity-tile collision events
      */
     struct EntityTileCollisionInfo{
-        Entity* entity;
+        std::shared_ptr<Entity> entity;
         unsigned int x;
         unsigned int y;
     };
@@ -185,11 +185,11 @@ public:
 
     Event(EventType e, Menu* menu, unsigned int new_pos);
 
-    Event(EventType e, Entity* entity);
+    Event(EventType e, std::shared_ptr<Entity> entity);
 
-    Event(EventType e, Entity* entity1, Entity* entity2);
+    Event(EventType e, std::shared_ptr<Entity> entity1, std::shared_ptr<Entity> entity2);
 
-    Event(EventType e, Entity* entity, unsigned int x, unsigned int y);
+    Event(EventType e, std::shared_ptr<Entity> entity, unsigned int x, unsigned int y);
 
     Event(EventType e, unsigned int x, unsigned int y, Grid* grid);
 

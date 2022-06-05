@@ -19,11 +19,11 @@
 
 Board::Board() : entityController_(std::make_unique<EntityController>()), grid_(std::make_unique<Grid>()) {}
 
-void Board::setTankMoving(Tank *target, bool isMoving) {
+void Board::setTankMoving(const std::shared_ptr<Tank>& target, bool isMoving) {
     entityController_->setTankMoving(target, isMoving);
 }
 
-void Board::setTankDirection(Tank *tank, Direction targetDirection) {
+void Board::setTankDirection(const std::shared_ptr<Tank>& tank, Direction targetDirection) {
     Direction initialDirection = tank->getFacing();
 
     if (initialDirection == targetDirection) {
@@ -41,7 +41,7 @@ void Board::setTankDirection(Tank *tank, Direction targetDirection) {
 
 }
 
-bool Board::snapTankToGrid(Tank *target, bool snap_x, bool snap_y) {
+bool Board::snapTankToGrid(const std::shared_ptr<Tank>& target, bool snap_x, bool snap_y) {
     float initial_x = target->getX();
     float initial_y = target->getY();
 
@@ -74,12 +74,12 @@ void Board::deleteTile(unsigned int x, unsigned int y) {
 }
 
 void Board::moveAllEntities() {
-    for (std::unique_ptr<Entity> &entity: *(entityController_->getAllEntities())) {
-        moveEntity(entity.get());
+    for (const std::shared_ptr<Entity>& entity: *(entityController_->getAllEntities())) {
+        moveEntity(entity);
     }
 }
 
-bool Board::moveEntity(Entity *target) {
+bool Board::moveEntity(const std::shared_ptr<Entity>& target) {
     if (!target->move()) {
         return false;
     }
@@ -91,18 +91,18 @@ bool Board::moveEntity(Entity *target) {
     return true;
 }
 
-bool Board::fireTank(Tank *target) {
-    std::optional<std::unique_ptr<Bullet>> newBullet = target->createBullet();
+bool Board::fireTank(const std::shared_ptr<Tank>& target) {
+    std::optional<std::shared_ptr<Bullet>> newBullet = target->createBullet();
 
     if (!newBullet.has_value()) {
         return false;
     }
 
-    if (!validateEntityPosition(dynamic_cast<Entity *>(newBullet->get()))) {
+    if (!validateEntityPosition(std::static_pointer_cast<Entity>(newBullet.value()))) {
         eventQueue_->registerEvent(createCollisionEvent(target));
     }
 
-    Entity *addedEntity = entityController_->addEntity(std::move(newBullet.value()));
+    std::shared_ptr<Entity> addedEntity = entityController_->addEntity(newBullet.value());
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EntitySpawned, addedEntity));
     return true;
 }
@@ -112,9 +112,9 @@ bool Board::spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direc
         return spawnPlayer(x, y, facing);
     }
 
-    std::unique_ptr<Tank> newTank = entityController_->createTank(x, y, type, facing);
+    std::shared_ptr<Tank> newTank = entityController_->createTank(x, y, type, facing);
 
-    Entity *spawnedTank = entityController_->addEntity(std::move(newTank));
+    std::shared_ptr<Entity> spawnedTank = entityController_->addEntity(newTank);
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EntitySpawned, spawnedTank));
 
     if (!validateEntityPosition(spawnedTank)) {
@@ -125,9 +125,9 @@ bool Board::spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direc
 }
 
 bool Board::spawnPlayer(unsigned int x, unsigned int y, Direction facing) {
-    std::unique_ptr<Tank> newTank = entityController_->createTank(x, y, Tank::PlayerTank, facing);
+    std::shared_ptr<Entity> newTank = entityController_->createTank(x, y, Tank::PlayerTank, facing);
 
-    Entity *spawnedTank = entityController_->addEntity(std::move(newTank));
+    std::shared_ptr<Entity> spawnedTank = entityController_->addEntity(newTank);
     eventQueue_->registerEvent(std::make_unique<Event>(Event::PlayerSpawned, spawnedTank));
 
     if (!validateEntityPosition(spawnedTank)) {
@@ -137,7 +137,7 @@ bool Board::spawnPlayer(unsigned int x, unsigned int y, Direction facing) {
     return true;
 }
 
-bool Board::validateEntityPosition(Entity *target) {
+bool Board::validateEntityPosition(const std::shared_ptr<Entity>& target) {
     if (target->getX() < 0 || target->getY() < 0) {
         return false;
     }
@@ -166,13 +166,13 @@ bool Board::validateEntityPosition(Entity *target) {
     return true;
 }
 
-void Board::killAllEnemyEntities() {
-    std::vector<std::unique_ptr<Entity>>* entityVector = entityController_->getAllEntities();
+void Board::killAllEnemyEntities() {   // FIXME this should be in EntityController
+    std::vector<std::shared_ptr<Entity>>* entityVector = entityController_->getAllEntities();
     for (auto iter = entityVector->rbegin(); iter != entityVector->rend(); iter++) {
-        Entity* entity = iter->get();
-        Tank *possiblyATank = dynamic_cast<Tank *>(entity);
+        std::shared_ptr<Entity> entity = *iter;
+        Tank *possiblyATank = dynamic_cast<Tank *>(entity.get());
         if (possiblyATank == nullptr) {  // bullet
-            auto *possiblyABullet = dynamic_cast<Bullet *>(entity);
+            auto *possiblyABullet = dynamic_cast<Bullet *>(entity.get());
             if (possiblyABullet != nullptr && possiblyABullet->isFriendly()) {
                 continue;
             }
@@ -183,7 +183,7 @@ void Board::killAllEnemyEntities() {
             continue;
         }
 
-        entityController_->killTank(possiblyATank);
+        entityController_->killTank(std::static_pointer_cast<Tank>(entity));
     }
 }
 
@@ -199,9 +199,9 @@ unsigned int Board::getSizeY() {
     return grid_->getSizeY();
 }
 
-std::unique_ptr<Event> Board::createCollisionEvent(Entity *entity) {
+std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entity) {
     std::unique_ptr<Event> collisionEvent;
-    std::optional<Entity *> collidingEntity = entityController_->findEntityAtPosition(entity->getX(), entity->getY(),
+    std::optional<std::shared_ptr<Entity>> collidingEntity = entityController_->findEntityAtPosition(entity->getX(), entity->getY(),
                                                                                       entity);
     if (collidingEntity.has_value()) {  // collision with entity
         collisionEvent = std::make_unique<Event>(Event::EntityEntityCollision, entity, collidingEntity.value());

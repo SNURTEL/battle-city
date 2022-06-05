@@ -8,6 +8,8 @@
 #include "include/PauseEventHandler.h"
 #include "include/MenuEventHandler.h"
 #include "include/Menu.h"
+#include "../tank-lib/include/Tank.h"
+
 
 PublisherEventHandler *GameState::getEventHandler() {
     return eventHandler_.get();
@@ -19,7 +21,7 @@ Board* ActiveGameState::get_board() {
     return board_;
 }
 
-Tank* ActiveGameState::get_player_tank() {
+std::shared_ptr<PlayerTank> ActiveGameState::get_player_tank() {
     return player_tank_;
 }
 
