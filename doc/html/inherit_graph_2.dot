@@ -1,0 +1,10 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="ActiveStateGraphic\l::FramePointers",height=0.2,width=0.4,color="black",URL="$struct_active_state_graphic_1_1_frame_pointers.html",tooltip="Stores given frame object pointers."];
+}

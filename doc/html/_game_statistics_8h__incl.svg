@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="_event_queue_8h.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="_event_queue_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="50,-56.5 50,-86.5 160,-86.5 160,-56.5 50,-56.5"/>
 <text text-anchor="start" x="58" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../core&#45;lib/include</text>
 <text text-anchor="middle" x="105" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">/EventQueue.h</text>
@@ -53,7 +53,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="_event_8h.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="_event_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="178,-56.5 178,-86.5 288,-86.5 288,-56.5 178,-56.5"/>
 <text text-anchor="start" x="186" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../core&#45;lib/include</text>
 <text text-anchor="middle" x="233" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">/Event.h</text>

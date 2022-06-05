@@ -1,4 +1,4 @@
-digraph "/home/rafalunix/proi/22l-proi-projekt-jakomulski-budnik-owienko/src/main" {
+digraph "/home/michal/proi/projekt2/22l-proi-projekt-jakomulski-budnik-owienko/src/main" {
   bgcolor=transparent;
   compound=true
   node [ fontsize="10", fontname="Helvetica"];
@@ -8,5 +8,5 @@ digraph "/home/rafalunix/proi/22l-proi-projekt-jakomulski-budnik-owienko/src/mai
   dir_5eb159725f84c66aafd839904a4acdd0 [shape=box, label="main", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_5eb159725f84c66aafd839904a4acdd0.html"];
   }
   dir_ababdeb7394d8224d3e296f78088442b [shape=box label="game-lib" color="red" URL="dir_ababdeb7394d8224d3e296f78088442b.html"];
-  dir_5eb159725f84c66aafd839904a4acdd0->dir_ababdeb7394d8224d3e296f78088442b [headlabel="1", labeldistance=1.5 headhref="dir_000007_000005.html"];
+  dir_5eb159725f84c66aafd839904a4acdd0->dir_ababdeb7394d8224d3e296f78088442b [headlabel="1", labeldistance=1.5 headhref="dir_000013_000005.html"];
 }

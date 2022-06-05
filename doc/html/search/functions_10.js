@@ -1,11 +1,16 @@
 var searchData=
 [
-  ['redrawui_0',['redrawUI',['../class_game.html#ac0e9694ae3c3d6bf157b1f57818a4fcd',1,'Game']]],
-  ['registerevent_1',['registerEvent',['../class_event_queue.html#a53b631d69b1a0acbafde454b67f2a5c7',1,'EventQueue']]],
-  ['removeallentities_2',['removeAllEntities',['../class_board.html#aa1e9014b904918b05d24be723e530de7',1,'Board']]],
-  ['removedeletedsubject_3',['removeDeletedSubject',['../class_event_subscriber.html#a409f6722e16e76d696f56aa1153de2a2',1,'EventSubscriber::removeDeletedSubject()'],['../class_simple_subscriber.html#afd95af2dd6e2bac34cb6e6cf54160f60',1,'SimpleSubscriber::removeDeletedSubject()']]],
-  ['removeentity_4',['removeEntity',['../class_entity_controller.html#a13df4535e1712892850bdd79502d17a5',1,'EntityController']]],
-  ['reset_5',['reset',['../class_game.html#a39bb2fd26b5ea6b164f28f9f6723582e',1,'Game']]],
-  ['resetstats_6',['resetStats',['../class_game_statistics.html#a765fcdde14c6ff080884582a5c1b6b5f',1,'GameStatistics']]],
-  ['run_7',['run',['../class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
+  ['redrawui_804',['redrawUI',['../class_game.html#ac0e9694ae3c3d6bf157b1f57818a4fcd',1,'Game']]],
+  ['registerevent_805',['registerEvent',['../class_event_queue.html#a53b631d69b1a0acbafde454b67f2a5c7',1,'EventQueue']]],
+  ['removeallentities_806',['removeAllEntities',['../class_board.html#aa1e9014b904918b05d24be723e530de7',1,'Board']]],
+  ['removedeletedsubject_807',['removeDeletedSubject',['../class_event_subscriber.html#a409f6722e16e76d696f56aa1153de2a2',1,'EventSubscriber::removeDeletedSubject()'],['../class_simple_subscriber.html#afd95af2dd6e2bac34cb6e6cf54160f60',1,'SimpleSubscriber::removeDeletedSubject()']]],
+  ['removeentity_808',['removeEntity',['../class_window.html#af90082bc8418f8b8b45d5ea337f7bd5e',1,'Window::removeEntity()'],['../class_entity_controller.html#a13df4535e1712892850bdd79502d17a5',1,'EntityController::removeEntity()']]],
+  ['render_809',['render',['../class_abstract_window.html#ac8e0b3d75f14ec2ccfa86ea974a6adb8',1,'AbstractWindow::render()'],['../class_active_state_graphic.html#a7757acde971fc4494a126c91da2d68fc',1,'ActiveStateGraphic::render()'],['../class_board_graphic.html#a82e0c30e6bbf10cd4cd9423e8de4ea96',1,'BoardGraphic::render()'],['../class_bullets_graphic.html#acb257bd4037655b0fe585cc3d36e66c3',1,'BulletsGraphic::render()'],['../class_tanks_graphic.html#ab1f93cb1b78157851378597f2997ed5a',1,'TanksGraphic::render()'],['../class_tiles_graphic.html#ac9f8102f5a056846e677195a74e9398e',1,'TilesGraphic::render()'],['../class_bare_frame_graphic.html#a9084ab8eab186481acba6f5149759305',1,'BareFrameGraphic::render()'],['../class_frame_graphic.html#a0711f4025597cdf03a58dfb730d5121b',1,'FrameGraphic::render()'],['../class_game_info_graphic.html#ac9844fd9cc3ed6123e7df3148280843d',1,'GameInfoGraphic::render()'],['../class_menu_state_graphic.html#a24332c2c18a2cd171ac1f530d38e5731',1,'MenuStateGraphic::render()'],['../class_static_graphic.html#a6273ada866898838f5a8a2d8b21aa6ef',1,'StaticGraphic::render()'],['../class_window.html#a312cbfa1f7c78b4d0c3217bada7777e3',1,'Window::render()']]],
+  ['renderbuttons_810',['renderButtons',['../class_menu_state_graphic.html#a8821b048b19ea3cf77d6a96b02f48353',1,'MenuStateGraphic']]],
+  ['renderheader_811',['renderHeader',['../class_menu_state_graphic.html#ae97bfc41bc7de1466240351911afc1b9',1,'MenuStateGraphic']]],
+  ['renderobject_812',['RenderObject',['../struct_bullets_graphic_1_1_render_object.html#acb23007c7734988c5bb055f3a69ce741',1,'BulletsGraphic::RenderObject::RenderObject()'],['../struct_tanks_graphic_1_1_render_object.html#afc424f91f403e9cfa86b84ec36efecdb',1,'TanksGraphic::RenderObject::RenderObject(const sf::Vector2f &amp;coords, Direction direction, Tank::TankType textureType)'],['../struct_tanks_graphic_1_1_render_object.html#ad7f8b58dc8c88f4e042b5aec16bb719a',1,'TanksGraphic::RenderObject::RenderObject()']]],
+  ['rendertext_813',['renderText',['../class_game_info_graphic.html#a38328cffd7a56bf052de4e9b47447383',1,'GameInfoGraphic::renderText()'],['../class_menu_state_graphic.html#a198b8d43d983c9d037b52c8365bc18eb',1,'MenuStateGraphic::renderText()']]],
+  ['reset_814',['reset',['../class_game.html#a39bb2fd26b5ea6b164f28f9f6723582e',1,'Game']]],
+  ['resetstats_815',['resetStats',['../class_game_statistics.html#a765fcdde14c6ff080884582a5c1b6b5f',1,'GameStatistics']]],
+  ['run_816',['run',['../class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
 ];

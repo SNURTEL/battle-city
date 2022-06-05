@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['game_5f_0',['game_',['../class_active_event_handler.html#aebaa0b2149bf6598d5a0397eacd830c1',1,'ActiveEventHandler::game_()'],['../class_finished_event_handler.html#a38b76902e41a185531fd63cfa6432942',1,'FinishedEventHandler::game_()'],['../class_game_state.html#a4efcc887639fa292382d03176ac0e79d',1,'GameState::game_()'],['../class_menu_event_handler.html#a182bf2cd2ef1e736a427449f01f8ba6c',1,'MenuEventHandler::game_()'],['../class_pause_event_handler.html#ac489b93499ce7f1845dc2b76a262f003',1,'PauseEventHandler::game_()']]],
-  ['gamestats_5f_1',['gameStats_',['../class_game.html#a9d07dd00444351da727ce6b6585430a9',1,'Game']]],
-  ['gamestatsio_5f_2',['gameStatsIO_',['../class_game.html#a94a9bc8899afb9479e49dc2c83fe1370',1,'Game']]],
-  ['grid_3',['grid',['../class_grid.html#a78c017a6554fdb552a2fc06280e445d8',1,'Grid::grid()'],['../struct_event_1_1_tile_info.html#a75df1fb875b71c88faa42e4180ef841b',1,'Event::TileInfo::grid()'],['../struct_event_1_1_level_info.html#a5e3fb5a0479285316d922cfc19b163e0',1,'Event::LevelInfo::grid()']]],
-  ['grid_5f_4',['grid_',['../class_board.html#ab4a4606663a2f29866afe4ee78a8b6e2',1,'Board']]]
+  ['facing_5f_910',['facing_',['../class_entity.html#a209bf984634059504922bd6fd7b3ee24',1,'Entity']]],
+  ['finished_5fstate_5f_911',['finished_state_',['../class_game.html#a753ededad8a7d3ace19e87845d5032a4',1,'Game']]],
+  ['finishedstateview_912',['finishedStateView',['../class_static_graphic.html#a1f8678271308e991f5d0a50e9dae9986',1,'StaticGraphic']]],
+  ['finishstateheader_913',['finishStateHeader',['../class_menu_state_graphic.html#a3841a556dcb5e38d73cbbc954c08537c',1,'MenuStateGraphic']]],
+  ['finishstatetext_914',['finishStateText',['../class_menu_state_graphic.html#a835dbe45682cdc18ea69ce5f5b69f08d',1,'MenuStateGraphic']]],
+  ['font_915',['font',['../class_game_info_graphic.html#a1526394b48a72674854321edc209a97c',1,'GameInfoGraphic::font()'],['../class_menu_state_graphic.html#a86bbf8ea9c3b60d5630ec9e8efc51f4a',1,'MenuStateGraphic::font()']]],
+  ['frameobjects_916',['frameObjects',['../class_active_state_graphic.html#ac14e1001d1b8f47a3dc126909cf6ea4d',1,'ActiveStateGraphic::frameObjects()'],['../class_frame_graphic.html#a4a94f691f5e1d12bf0fbcb93d638b377',1,'FrameGraphic::frameObjects()']]],
+  ['framesize_917',['frameSize',['../class_bare_frame_graphic.html#ab80040c2e9ba0c8a72e3982287bda4a2',1,'BareFrameGraphic']]],
+  ['framewindowview_918',['frameWindowView',['../class_active_state_graphic.html#ac5f685b54a1d91dedf0ea008e0f2d49a',1,'ActiveStateGraphic']]]
 ];

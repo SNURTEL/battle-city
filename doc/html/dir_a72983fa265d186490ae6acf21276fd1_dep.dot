@@ -1,0 +1,20 @@
+digraph "/home/michal/proi/projekt2/22l-proi-projekt-jakomulski-budnik-owienko/src/graphic-lib/include/ActiveState_dir" {
+  bgcolor=transparent;
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_ec77ab512a0817bed8cc07eeb3e7ef4d {
+    graph [ bgcolor="#ddddee", pencolor="black", label="include" fontname="Helvetica", fontsize="10", URL="dir_ec77ab512a0817bed8cc07eeb3e7ef4d.html"]
+  subgraph clusterdir_a72983fa265d186490ae6acf21276fd1 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_a72983fa265d186490ae6acf21276fd1.html"];
+    dir_a72983fa265d186490ae6acf21276fd1 [shape=plaintext label="ActiveState_dir"];
+    dir_0cee904257f2e35fdc3c5f2abdc683af [shape=box label="Borad_dir" color="black" fillcolor="white" style="filled" URL="dir_0cee904257f2e35fdc3c5f2abdc683af.html"];
+    dir_8ebacc26f31fe05d91db52fb91bec5b6 [shape=box label="Frame_dir" color="black" fillcolor="white" style="filled" URL="dir_8ebacc26f31fe05d91db52fb91bec5b6.html"];
+  }
+  }
+  dir_f9968d1aa079c8b4e4a8682b301a0233 [shape=box label="board-lib" color="red" URL="dir_f9968d1aa079c8b4e4a8682b301a0233.html"];
+  dir_09862807db2014add90ed94978e55931 [shape=box label="tank-lib" color="red" URL="dir_09862807db2014add90ed94978e55931.html"];
+  dir_f9968d1aa079c8b4e4a8682b301a0233->dir_09862807db2014add90ed94978e55931 [headlabel="5", labeldistance=1.5 headhref="dir_000001_000014.html"];
+  dir_0cee904257f2e35fdc3c5f2abdc683af->dir_f9968d1aa079c8b4e4a8682b301a0233 [headlabel="1", labeldistance=1.5 headhref="dir_000010_000001.html"];
+  dir_0cee904257f2e35fdc3c5f2abdc683af->dir_09862807db2014add90ed94978e55931 [headlabel="2", labeldistance=1.5 headhref="dir_000010_000014.html"];
+}

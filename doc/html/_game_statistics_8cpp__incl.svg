@@ -52,7 +52,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="_game_statistics_8h.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="_game_statistics_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="56,-123.5 56,-142.5 194,-142.5 194,-123.5 56,-123.5"/>
 <text text-anchor="middle" x="125" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">include/GameStatistics.h</text>
 </a>
@@ -67,7 +67,7 @@
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="_game_stats_i_o_8h.html" target="_top" xlink:title=" ">
+<g id="a_node12"><a xlink:href="_game_stats_i_o_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="290,-123.5 290,-142.5 418,-142.5 418,-123.5 290,-123.5"/>
 <text text-anchor="middle" x="354" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">include/GameStatsIO.h</text>
 </a>
@@ -97,7 +97,7 @@
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="_event_queue_8h.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="_event_queue_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-56.5 0,-86.5 110,-86.5 110,-56.5 0,-56.5"/>
 <text text-anchor="start" x="8" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../core&#45;lib/include</text>
 <text text-anchor="middle" x="55" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">/EventQueue.h</text>
@@ -113,7 +113,7 @@
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="_event_8h.html" target="_top" xlink:title=" ">
+<g id="a_node9"><a xlink:href="_event_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="216,-56.5 216,-86.5 326,-86.5 326,-56.5 216,-56.5"/>
 <text text-anchor="start" x="224" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">../../core&#45;lib/include</text>
 <text text-anchor="middle" x="271" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">/Event.h</text>

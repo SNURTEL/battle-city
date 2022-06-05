@@ -10,6 +10,7 @@
 #include "testClasses.cpp"
 #include "../../game-lib/include/GameStatistics.h"
 #include "../../game-lib/include/Menu.h"
+#include "../include/GraphicEventHandler.h"
 
 
 

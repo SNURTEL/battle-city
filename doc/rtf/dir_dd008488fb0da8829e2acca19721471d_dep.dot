@@ -1,4 +1,4 @@
-digraph "/home/rafalunix/proi/22l-proi-projekt-jakomulski-budnik-owienko/src/core-lib" {
+digraph "/home/michal/proi/projekt2/22l-proi-projekt-jakomulski-budnik-owienko/src/core-lib" {
   bgcolor=transparent;
   compound=true
   node [ fontsize="10", fontname="Helvetica"];

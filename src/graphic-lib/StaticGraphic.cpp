@@ -8,7 +8,6 @@ StaticGraphic::StaticGraphic(const WindowView& windowView, const Window::StaticS
     gameState = staticPointers.gameState;
     setMenuView();
     calculateButtonsPos();
-    setFinishedView();
     constructComposite();
 }
 
@@ -32,14 +31,14 @@ void StaticGraphic::calculateButtonsPos()
 }
 
 
-void StaticGraphic::setFinishedView()
-{
-    float sizeX = windowView.window->getSize().x;
-    float sizeY = windowView.window->getSize().y;
+// void StaticGraphic::setFinishedView()
+// {
+//     float sizeX = windowView.window->getSize().x;
+//     float sizeY = windowView.window->getSize().y;
 
-    windowView.leftOffset = sizeX / 3;
-    windowView.topOffset = sizeY / 3;
-}
+//     windowView.leftOffset = sizeX / 3;
+//     windowView.topOffset = sizeY / 3;
+// }
 
 
 void StaticGraphic::constructComposite()
@@ -71,7 +70,7 @@ void StaticGraphic::setMenuView()
 }
 
 
-std::unordered_map<Window::GameStateGraphic, std::shared_ptr<AbstractWindow>>& StaticGraphic::getChildren()
+const std::vector<std::shared_ptr<AbstractWindow>>& StaticGraphic::getChildren()
 {
-    return childrensMap;
+    return children;
 }
