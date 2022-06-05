@@ -83,7 +83,7 @@ void Tank::offsetInCurrentDirection(float offset) {
     }
 }
 
-std::optional<std::unique_ptr<Bullet>> Tank::createBullet() {
+std::optional<std::shared_ptr<Bullet>> Tank::createBullet() {
     if (!subscribedSubjects_.empty()) {
         return std::nullopt;
     }
@@ -93,26 +93,26 @@ std::optional<std::unique_ptr<Bullet>> Tank::createBullet() {
 
     auto bulletType = static_cast<Bullet::BulletType>(type_ == TankType::PlayerTank);
 
-    std::unique_ptr<Bullet> bullet;
+    std::shared_ptr<Bullet> bullet;
 
     switch (facing_) {
         case North: {
-            bullet = std::make_unique<Bullet>(x_ + (size_x_ - bulletSizeX) / 2, y_ - bulletSizeY, facing_, bulletSpeed_,
+            bullet = std::make_shared<Bullet>(x_ + (size_x_ - bulletSizeX) / 2, y_ - bulletSizeY, facing_, bulletSpeed_,
                                               bulletType);
             break;
         }
         case East: {
-            bullet = std::make_unique<Bullet>(x_ + size_x_, y_ + (size_y_ - bulletSizeY) / 2, facing_, bulletSpeed_,
+            bullet = std::make_shared<Bullet>(x_ + size_x_, y_ + (size_y_ - bulletSizeY) / 2, facing_, bulletSpeed_,
                                               bulletType);
             break;
         }
         case South: {
-            bullet = std::make_unique<Bullet>(x_ + (size_x_ - bulletSizeX) / 2, y_ + size_y_, facing_, bulletSpeed_,
+            bullet = std::make_shared<Bullet>(x_ + (size_x_ - bulletSizeX) / 2, y_ + size_y_, facing_, bulletSpeed_,
                                               bulletType);
             break;
         }
         case West: {
-            bullet = std::make_unique<Bullet>(x_ - bulletSizeX, y_ + (size_y_ - bulletSizeY) / 2, facing_, bulletSpeed_,
+            bullet = std::make_shared<Bullet>(x_ - bulletSizeX, y_ + (size_y_ - bulletSizeY) / 2, facing_, bulletSpeed_,
                                               bulletType);
             break;
         }

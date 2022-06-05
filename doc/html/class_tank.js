@@ -8,7 +8,7 @@ var class_tank =
       [ "ArmorTank", "class_tank.html#a8d01b214be6a1663539d0a34ae808d83ab62da79e88b4acddfce968351f52ae68", null ]
     ] ],
     [ "Tank", "class_tank.html#ac8f033f365f015acf0e89eaa9e8167cd", null ],
-    [ "createBullet", "class_tank.html#a7c0d66ae8333592c849d4cec33c43eab", null ],
+    [ "createBullet", "class_tank.html#a05dab5cd286bd54c04bae2384ddb4f2b", null ],
     [ "deltaLives", "class_tank.html#a3d887009683a21cff4a7cf6fc490f675", null ],
     [ "getLives", "class_tank.html#ac0e3be054e1df5bc6706002714c90af1", null ],
     [ "getPoints", "class_tank.html#a2498c2564d501d3bbe847420ee17e1ba", null ],

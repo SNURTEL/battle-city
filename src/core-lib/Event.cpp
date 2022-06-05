@@ -2,6 +2,7 @@
 // Created by tomek on 26.04.2022.
 //
 #include <memory>
+#include <utility>
 
 #include "include/Event.h"
 
@@ -41,7 +42,7 @@ Event::Event(EventType e, unsigned int i1) {
     }
 }
 
-Event::Event(EventType e, Entity *entity) {
+Event::Event(EventType e, std::shared_ptr<Entity> entity) {
     type = e;
     switch (e) {
         case EntitySpawned:
@@ -52,7 +53,7 @@ Event::Event(EventType e, Entity *entity) {
         case TankKilled:
         case PlayerSpawned:
         case PlayerKilled: {
-            info.entityInfo = {entity};
+            info.entityInfo = {std::move(entity)};
             break;
         }
         default: {
@@ -61,7 +62,7 @@ Event::Event(EventType e, Entity *entity) {
     }
 }
 
-Event::Event(EventType e, Entity *entity1, Entity *entity2) {
+Event::Event(EventType e, std::shared_ptr<Entity> entity1, std::shared_ptr<Entity> entity2) {
     type = e;
     switch (e) {
         case EntityEntityCollision:{
@@ -73,7 +74,7 @@ Event::Event(EventType e, Entity *entity1, Entity *entity2) {
     }
 }
 
-Event::Event(EventType e, Entity *entity, unsigned int x, unsigned int y) {
+Event::Event(EventType e, std::shared_ptr<Entity> entity, unsigned int x, unsigned int y) {
     type = e;
     switch (e) {
         case EntityGridCollision:{
@@ -114,10 +115,7 @@ Event::Event(EventType e, unsigned int levelNumber, Grid *grid) {
 Event::Event(EventType e, Menu* menu, unsigned int new_pos) {
     type = e;
     switch (e) {
-        case MenuSelectionChange: {
-            info.menuInfo = {menu, new_pos};
-            break;
-        }
+        case MenuSelectionChange:
         case MenuEnterClicked: {
             info.menuInfo = {menu, new_pos};
             break;

@@ -33,7 +33,7 @@ public:
      * @param target Target tank
      * @param isMoving New flag value
      */
-    void setTankMoving(Tank* target, bool isMoving);
+    void setTankMoving(const std::shared_ptr<Tank>& target, bool isMoving);
 
     /**
      * Changes the direction in which the tank is faced to targetDirection
@@ -44,7 +44,7 @@ public:
      * @param tank Target tank
      * @param targetDirection New direction
      */
-    void setTankDirection(Tank* tank, Direction targetDirection);
+    void setTankDirection(const std::shared_ptr<Tank>& tank, Direction targetDirection);
 
     /**
      * Attempt to move all entities on the board (tanks will move only if moving flag is set)
@@ -61,7 +61,7 @@ public:
      * Possibly queues Event::TankMoved and Event::EntityEntityCollision or Event::EntityGridCollision
      * @param target Target entity
      */
-    bool moveEntity(Entity *target);
+    bool moveEntity(const std::shared_ptr<Entity>& target);
 
     /**
      * Attempts to create a bullet using the given tanks and adds it to internal EntityController.
@@ -71,7 +71,7 @@ public:
      * @param target A tank that should fire the bullet
      * @return Whether a collision was detected while spawning the bullet
      */
-    bool fireTank(Tank* target);
+    bool fireTank(const std::shared_ptr<Tank>& target);
 
     /**
      * Attempts to spawn a tank at a given location.
@@ -151,7 +151,7 @@ public:
      * @param snap_x Whether to snap in X axis (defaults to true)
      * @param snap_y Whether to snap in Y axis (defaults to true)
      */
-    bool snapTankToGrid(Tank* target, bool snap_x=true, bool snap_y=true);
+    bool snapTankToGrid(const std::shared_ptr<Tank>& target, bool snap_x= true, bool snap_y= true);
 
     /**
      * Removes all entities from the board and loads a new grid from GridBuilder
@@ -169,14 +169,14 @@ protected:
      * @param target Entity to check
      * @return True if no collisions detected, false if position is invalid
      */
-    bool validateEntityPosition(Entity* target);
+    bool validateEntityPosition(const std::shared_ptr<Entity>& target);
 
     /**
      * Builds an Event::EntityEntityCollision or Event::EntityGridCollision event for a given entity, should be called after detecting a collision
      * @param entity Entity to check
      * @return A collision event wrapped in a unique_ptr
      */
-    std::unique_ptr<Event> createCollisionEvent(Entity* entity);
+    std::unique_ptr<Event> createCollisionEvent(std::shared_ptr<Entity> entity);
 
     std::unique_ptr<Grid> grid_;
     std::unique_ptr<EntityController> entityController_;

@@ -19,6 +19,8 @@ class Board;
 
 class Game;
 
+class PlayerTank;
+
 /**
  * Encapsulates game's state and holds data related to it.
  * Each state contains an event handler, which defines game's responses to internal events
@@ -47,7 +49,7 @@ protected:
  */
 class ActiveGameState: public GameState{
 private:
-    Tank* player_tank_;
+    std::shared_ptr<PlayerTank> player_tank_;
     Board* board_;
 public:
 
@@ -61,7 +63,7 @@ public:
      * Returns player tank pointer
      * @return player tank pointer
      */
-    Tank* get_player_tank();
+    std::shared_ptr<PlayerTank> get_player_tank();
 
     ActiveGameState()=delete;
     explicit ActiveGameState(Game* game);

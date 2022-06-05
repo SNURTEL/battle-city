@@ -1,5 +1,5 @@
 <map id="Board" name="Board">
-<area shape="rect" id="node1" title="Aggregates and manipulates tank, bullet, and tile objects." alt="" coords="177,851,401,1471"/>
+<area shape="rect" id="node1" title="Aggregates and manipulates tank, bullet, and tile objects." alt="" coords="177,851,401,1573"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,608,153,685"/>
 <area shape="rect" id="node3" title=" " alt="" coords="177,608,400,685"/>
 <area shape="rect" id="node4" href="$class_event_queue.html" title=" " alt="" coords="423,505,623,788"/>
