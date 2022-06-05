@@ -1,6 +1,10 @@
 var hierarchy =
 [
     [ "Board", "class_board.html", null ],
+    [ "Event::BoardCollisionInfo", "struct_event_1_1_board_collision_info.html", null ],
+    [ "Event::CollisionInfo", "struct_event_1_1_collision_info.html", null ],
+    [ "Event::EnemyBulletCollisionInfo", "struct_event_1_1_enemy_bullet_collision_info.html", null ],
+    [ "Event::EnemyTankCollisionInfo", "struct_event_1_1_enemy_tank_collision_info.html", null ],
     [ "Entity", "class_entity.html", [
       [ "Bullet", "class_bullet.html", null ],
       [ "Tank", "class_tank.html", [
@@ -12,9 +16,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "EntityController", "class_entity_controller.html", null ],
-    [ "Event::EntityEntityCollisionInfo", "struct_event_1_1_entity_entity_collision_info.html", null ],
     [ "Event::EntityInfo", "struct_event_1_1_entity_info.html", null ],
-    [ "Event::EntityTileCollisionInfo", "struct_event_1_1_entity_tile_collision_info.html", null ],
     [ "Event", "class_event.html", null ],
     [ "EventHandler< E >", "class_event_handler.html", null ],
     [ "EventHandler< Event >", "class_event_handler.html", [
@@ -39,6 +41,7 @@ var hierarchy =
       [ "OutOfGridException", "class_out_of_grid_exception.html", null ],
       [ "SingletonNotInitializedException", "class_singleton_not_initialized_exception.html", null ]
     ] ],
+    [ "Event::FriendlyBulletCollisionInfo", "struct_event_1_1_friendly_bullet_collision_info.html", null ],
     [ "Game", "class_game.html", null ],
     [ "GameState", "class_game_state.html", [
       [ "ActiveGameState", "class_active_game_state.html", null ],
@@ -55,6 +58,7 @@ var hierarchy =
     [ "Event::LevelInfo", "struct_event_1_1_level_info.html", null ],
     [ "Menu", "class_menu.html", null ],
     [ "Event::MenuInfo", "struct_event_1_1_menu_info.html", null ],
+    [ "Event::PlayerTankCollisionInfo", "struct_event_1_1_player_tank_collision_info.html", null ],
     [ "SimplePublisher", "class_simple_publisher.html", [
       [ "Bullet", "class_bullet.html", null ],
       [ "Clock", "class_clock.html", null ]

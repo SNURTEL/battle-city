@@ -7,9 +7,13 @@ var _event_8h =
     [ "Event::MenuInfo", "struct_event_1_1_menu_info.html", "struct_event_1_1_menu_info" ],
     [ "Event::StateInfo", "struct_event_1_1_state_info.html", "struct_event_1_1_state_info" ],
     [ "Event::StatsInfo", "struct_event_1_1_stats_info.html", "struct_event_1_1_stats_info" ],
-    [ "Event::EntityEntityCollisionInfo", "struct_event_1_1_entity_entity_collision_info.html", "struct_event_1_1_entity_entity_collision_info" ],
-    [ "Event::EntityTileCollisionInfo", "struct_event_1_1_entity_tile_collision_info.html", "struct_event_1_1_entity_tile_collision_info" ],
     [ "Event::TileInfo", "struct_event_1_1_tile_info.html", "struct_event_1_1_tile_info" ],
+    [ "Event::PlayerTankCollisionInfo", "struct_event_1_1_player_tank_collision_info.html", "struct_event_1_1_player_tank_collision_info" ],
+    [ "Event::EnemyTankCollisionInfo", "struct_event_1_1_enemy_tank_collision_info.html", "struct_event_1_1_enemy_tank_collision_info" ],
+    [ "Event::FriendlyBulletCollisionInfo", "struct_event_1_1_friendly_bullet_collision_info.html", "struct_event_1_1_friendly_bullet_collision_info" ],
+    [ "Event::EnemyBulletCollisionInfo", "struct_event_1_1_enemy_bullet_collision_info.html", "struct_event_1_1_enemy_bullet_collision_info" ],
+    [ "Event::BoardCollisionInfo", "struct_event_1_1_board_collision_info.html", "struct_event_1_1_board_collision_info" ],
+    [ "Event::CollisionInfo", "struct_event_1_1_collision_info.html", "struct_event_1_1_collision_info" ],
     [ "Event::LevelInfo", "struct_event_1_1_level_info.html", "struct_event_1_1_level_info" ],
     [ "Event::info_u", "union_event_1_1info__u.html", "union_event_1_1info__u" ]
 ];

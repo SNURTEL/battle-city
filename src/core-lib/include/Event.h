@@ -8,19 +8,29 @@
 #include <exception>
 #include <string>
 #include <memory>
+#include <variant>
 
 class Tank;
+
+class PlayerTank;
+
+class Bullet;
+
 class Entity;
+
 class Menu;
+
 class GameState;
+
 class Grid;
+
 class GameStatistics;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
  */
 struct EventConstructionException : public std::exception {
-    [[nodiscard]] const char * what () const noexcept override;
+    [[nodiscard]] const char *what() const noexcept override;
 };
 
 /**
@@ -52,8 +62,7 @@ public:
         PlayerSpawned,
         PlayerKilled,
 
-        EntityEntityCollision,
-        EntityGridCollision,
+        Collision,
 
         TankKilled,
         TankRotated,
@@ -79,8 +88,8 @@ public:
      * Holds additional event info for keyboard related events
      */
     struct KeyEventInfo {
-        enum KeyAction{
-            Pressed =0,
+        enum KeyAction {
+            Pressed = 0,
             Released
         };
         unsigned int keyCode;
@@ -102,7 +111,7 @@ public:
      * Holds additional event info for menu events
      */
     struct MenuInfo {
-        Menu* menu;
+        Menu *menu;
         unsigned int new_pos;
     };
 
@@ -110,40 +119,63 @@ public:
      * Holds additional event info for state events
      */
     struct StateInfo {
-        GameState* state_;
+        GameState *state_;
     };
 
     /**
      * Holds additional event info for points events
      */
     struct StatsInfo {
-        GameStatistics* stats_;
+        GameStatistics *stats_;
     };
+
+    /**
+    * Holds additional event info for tile related events
+    */
+    struct TileInfo {
+        unsigned int tile_x;
+        unsigned int tile_y;
+        Grid *grid;
+    };
+
+    // collision events
 
     /**
      * Holds additional event info for entity-entity collision events
      */
-    struct EntityEntityCollisionInfo{
-        std::shared_ptr<Entity> entity1;
-        std::shared_ptr<Entity> entity2;
+    struct PlayerTankCollisionInfo {
+        std::shared_ptr<PlayerTank> playerTank;
     };
 
-    /**
-     * Holds additional event info for entity-tile collision events
-     */
-    struct EntityTileCollisionInfo{
-        std::shared_ptr<Entity> entity;
-        unsigned int x;
-        unsigned int y;
+    struct EnemyTankCollisionInfo {
+        std::shared_ptr<Tank> enemyTank;
     };
 
-    /**
-     * Holds additional event info for tile related events
-     */
-    struct TileInfo {
+    struct FriendlyBulletCollisionInfo {
+        std::shared_ptr<Bullet> friendlyBullet;
+    };
+
+    struct EnemyBulletCollisionInfo {
+        std::shared_ptr<Bullet> enemyBullet;
+    };
+
+    struct BoardCollisionInfo {
         unsigned int tile_x;
         unsigned int tile_y;
-        Grid* grid;
+        Grid *grid;
+    };
+
+    // #####
+
+    typedef std::variant<PlayerTankCollisionInfo,
+            EnemyTankCollisionInfo,
+            FriendlyBulletCollisionInfo,
+            EnemyBulletCollisionInfo,
+            BoardCollisionInfo> CollisionMember;
+
+    struct CollisionInfo {
+        CollisionMember member1;
+        CollisionMember member2;
     };
 
     /**
@@ -151,7 +183,7 @@ public:
      */
     struct LevelInfo {
         unsigned int levelNumber;
-        Grid* grid;
+        Grid *grid;
     };
 
     // ####################################################3
@@ -167,35 +199,32 @@ public:
         EntityInfo entityInfo;
         TileInfo tileInfo;
         LevelInfo levelInfo;
-        EntityEntityCollisionInfo entityEntityCollisionInfo;
-        EntityTileCollisionInfo entityGridCollisionInfo;
+        CollisionInfo collisionInfo;
         StatsInfo pointsInfo;
 
-        ~info_u(){};  // DO NOT change this to =default, or else it will stop working (must be '{}')
+        ~info_u() {};  // DO NOT change this to =default, or else it will stop working (must be '{}')
     } info = {};
 
     // FIXME not so elegant
     Event(EventType, unsigned int ui1);
 
-    Event(EventType e, GameStatistics* statsObject);
+    Event(EventType e, GameStatistics *statsObject);
 
-    Event(EventType e, GameState* new_state);
+    Event(EventType e, GameState *new_state);
 
     explicit Event(EventType);
 
-    Event(EventType e, Menu* menu, unsigned int new_pos);
+    Event(EventType e, Menu *menu, unsigned int new_pos);
 
     Event(EventType e, std::shared_ptr<Entity> entity);
 
-    Event(EventType e, std::shared_ptr<Entity> entity1, std::shared_ptr<Entity> entity2);
+    Event(EventType e, unsigned int x, unsigned int y, Grid *grid);
 
-    Event(EventType e, std::shared_ptr<Entity> entity, unsigned int x, unsigned int y);
+    Event(EventType e, unsigned int levelNumber, Grid *grid);
 
-    Event(EventType e, unsigned int x, unsigned int y, Grid* grid);
+    Event(EventType e, CollisionMember mem1, CollisionMember mem2);
 
-    Event(EventType e, unsigned int levelNumber, Grid* grid);
-
-    Event()=delete;
+    Event() = delete;
 };
 
 

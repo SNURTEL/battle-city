@@ -1,13 +1,14 @@
 <map id="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/game&#45;lib/include/FinishedEventHandler.h" name="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/game&#45;lib/include/FinishedEventHandler.h">
-<area shape="rect" id="node1" title=" " alt="" coords="271,5,501,76"/>
-<area shape="rect" id="node2" title=" " alt="" coords="354,437,431,464"/>
-<area shape="rect" id="node3" href="$_event_handler_8h.html" title=" " alt="" coords="258,124,405,165"/>
-<area shape="rect" id="node4" href="$_event_8h.html" title=" " alt="" coords="251,363,321,389"/>
-<area shape="rect" id="node7" href="$_event_publisher_8h.html" title=" " alt="" coords="169,213,299,240"/>
-<area shape="rect" id="node5" title=" " alt="" coords="243,437,329,464"/>
-<area shape="rect" id="node6" title=" " alt="" coords="159,437,218,464"/>
-<area shape="rect" id="node8" title=" " alt="" coords="175,363,226,389"/>
-<area shape="rect" id="node9" title=" " alt="" coords="5,363,68,389"/>
-<area shape="rect" id="node10" href="$_event_subscriber_8h.html" title=" " alt="" coords="59,288,198,315"/>
-<area shape="rect" id="node11" title=" " alt="" coords="107,363,150,389"/>
+<area shape="rect" id="node1" title=" " alt="" coords="267,5,498,76"/>
+<area shape="rect" id="node2" title=" " alt="" coords="351,437,428,464"/>
+<area shape="rect" id="node3" href="$_event_handler_8h.html" title=" " alt="" coords="255,124,401,165"/>
+<area shape="rect" id="node4" href="$_event_8h.html" title=" " alt="" coords="246,363,317,389"/>
+<area shape="rect" id="node8" href="$_event_publisher_8h.html" title=" " alt="" coords="161,213,292,240"/>
+<area shape="rect" id="node5" title=" " alt="" coords="239,437,326,464"/>
+<area shape="rect" id="node6" title=" " alt="" coords="64,437,123,464"/>
+<area shape="rect" id="node7" title=" " alt="" coords="147,437,215,464"/>
+<area shape="rect" id="node9" title=" " alt="" coords="5,363,56,389"/>
+<area shape="rect" id="node10" title=" " alt="" coords="159,363,222,389"/>
+<area shape="rect" id="node11" href="$_event_subscriber_8h.html" title=" " alt="" coords="52,288,191,315"/>
+<area shape="rect" id="node12" title=" " alt="" coords="92,363,135,389"/>
 </map>

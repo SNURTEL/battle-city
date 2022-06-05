@@ -19,11 +19,11 @@
 
 Board::Board() : entityController_(std::make_unique<EntityController>()), grid_(std::make_unique<Grid>()) {}
 
-void Board::setTankMoving(const std::shared_ptr<Tank>& target, bool isMoving) {
+void Board::setTankMoving(const std::shared_ptr<Tank> &target, bool isMoving) {
     entityController_->setTankMoving(target, isMoving);
 }
 
-void Board::setTankDirection(const std::shared_ptr<Tank>& tank, Direction targetDirection) {
+void Board::setTankDirection(const std::shared_ptr<Tank> &tank, Direction targetDirection) {
     Direction initialDirection = tank->getFacing();
 
     if (initialDirection == targetDirection) {
@@ -41,7 +41,7 @@ void Board::setTankDirection(const std::shared_ptr<Tank>& tank, Direction target
 
 }
 
-bool Board::snapTankToGrid(const std::shared_ptr<Tank>& target, bool snap_x, bool snap_y) {
+bool Board::snapTankToGrid(const std::shared_ptr<Tank> &target, bool snap_x, bool snap_y) {
     float initial_x = target->getX();
     float initial_y = target->getY();
 
@@ -74,12 +74,12 @@ void Board::deleteTile(unsigned int x, unsigned int y) {
 }
 
 void Board::moveAllEntities() {
-    for (const std::shared_ptr<Entity>& entity: *(entityController_->getAllEntities())) {
+    for (const std::shared_ptr<Entity> &entity: *(entityController_->getAllEntities())) {
         moveEntity(entity);
     }
 }
 
-bool Board::moveEntity(const std::shared_ptr<Entity>& target) {
+bool Board::moveEntity(const std::shared_ptr<Entity> &target) {
     if (!target->move()) {
         return false;
     }
@@ -91,7 +91,7 @@ bool Board::moveEntity(const std::shared_ptr<Entity>& target) {
     return true;
 }
 
-bool Board::fireTank(const std::shared_ptr<Tank>& target) {
+bool Board::fireTank(const std::shared_ptr<Tank> &target) {
     std::optional<std::shared_ptr<Bullet>> newBullet = target->createBullet();
 
     if (!newBullet.has_value()) {
@@ -108,7 +108,7 @@ bool Board::fireTank(const std::shared_ptr<Tank>& target) {
 }
 
 bool Board::spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing) {
-    if(type==Tank::PlayerTank){
+    if (type == Tank::PlayerTank) {
         return spawnPlayer(x, y, facing);
     }
 
@@ -137,7 +137,7 @@ bool Board::spawnPlayer(unsigned int x, unsigned int y, Direction facing) {
     return true;
 }
 
-bool Board::validateEntityPosition(const std::shared_ptr<Entity>& target) {
+bool Board::validateEntityPosition(const std::shared_ptr<Entity> &target) {
     if (target->getX() < 0 || target->getY() < 0) {
         return false;
     }
@@ -167,7 +167,7 @@ bool Board::validateEntityPosition(const std::shared_ptr<Entity>& target) {
 }
 
 void Board::killAllEnemyEntities() {   // FIXME this should be in EntityController
-    std::vector<std::shared_ptr<Entity>>* entityVector = entityController_->getAllEntities();
+    std::vector<std::shared_ptr<Entity>> *entityVector = entityController_->getAllEntities();
     for (auto iter = entityVector->rbegin(); iter != entityVector->rend(); iter++) {
         std::shared_ptr<Entity> entity = *iter;
         Tank *possiblyATank = dynamic_cast<Tank *>(entity.get());
@@ -200,15 +200,75 @@ unsigned int Board::getSizeY() {
 }
 
 std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entity) {
-    std::unique_ptr<Event> collisionEvent;
-    std::optional<std::shared_ptr<Entity>> collidingEntity = entityController_->findEntityAtPosition(entity->getX(), entity->getY(),
-                                                                                      entity);
-    if (collidingEntity.has_value()) {  // collision with entity
-        collisionEvent = std::make_unique<Event>(Event::EntityEntityCollision, entity, collidingEntity.value());
-    } else {
-        collisionEvent = std::make_unique<Event>(Event::EntityGridCollision, entity, entity->getX(), entity->getY());
+    // wdym typechecking is a bad thing
+
+    Event::CollisionMember member1;
+    Event::CollisionMember member2;
+
+    // set member 1
+    if (dynamic_cast<PlayerTank *>(entity.get()) != nullptr) {
+        // player
+        member1 = Event::PlayerTankCollisionInfo{
+                std::static_pointer_cast<PlayerTank>(entity)};
+
+    } else if (dynamic_cast<Tank *>(entity.get()) != nullptr) {
+        // enemy
+        member1 = Event::EnemyTankCollisionInfo{
+                std::static_pointer_cast<Tank>(entity)};
+
+    } else if (dynamic_cast<Bullet *>(entity.get())!= nullptr &&
+               dynamic_cast<Bullet *>(entity.get())->isFriendly()) {
+        // friendly bullet
+        member1 = Event::FriendlyBulletCollisionInfo{
+                std::static_pointer_cast<Bullet>(entity)};
+
+    } else if (dynamic_cast<Bullet *>(entity.get())!= nullptr) {
+        // enemy bullet
+        member1 = Event::EnemyBulletCollisionInfo{
+                std::static_pointer_cast<Bullet>(entity)};
     }
-    return std::move(collisionEvent);
+
+    // set member 2
+    std::optional<std::shared_ptr<Entity>> collidingEntity = entityController_->findEntityAtPosition(entity->getX(),
+                                                                                                     entity->getY(),
+                                                                                                     entity);
+    if (!collidingEntity.has_value()) {
+        // board
+        member2 = Event::BoardCollisionInfo{
+                static_cast<unsigned int>(entity->getX()),
+                static_cast<unsigned int>(entity->getY()),
+                grid_.get()};
+
+    } else {
+        entity = collidingEntity.value();
+        if (dynamic_cast<PlayerTank *>(entity.get()) != nullptr) {
+            // player
+            member2 = Event::PlayerTankCollisionInfo{
+                    std::static_pointer_cast<PlayerTank>(entity)};
+            // swap to guarantee player being the first member
+            std::swap(member1, member2);
+
+        } else if (dynamic_cast<Tank *>(entity.get()) != nullptr) {
+            // enemy
+            member2 = Event::EnemyTankCollisionInfo{
+                    std::static_pointer_cast<Tank>(entity)};
+
+        } else if (dynamic_cast<Bullet *>(entity.get())!= nullptr &&
+                   dynamic_cast<Bullet *>(entity.get())->isFriendly()) {
+            // friendly bullet
+            member2 = Event::FriendlyBulletCollisionInfo{
+                    std::static_pointer_cast<Bullet>(entity)};
+            // swap to guarantee friendly bullet being the first member
+            std::swap(member1, member2);
+
+        } else if (dynamic_cast<Bullet *>(entity.get())!= nullptr) {
+            // enemy bullet
+            member2 = Event::EnemyBulletCollisionInfo{
+                    std::static_pointer_cast<Bullet>(entity)};
+        }
+    }
+
+    return std::move(std::make_unique<Event>(Event::Collision, member1, member2));
 }
 
 void Board::loadLevel(unsigned int levelNum) {
