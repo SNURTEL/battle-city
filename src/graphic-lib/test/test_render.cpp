@@ -86,12 +86,12 @@ SCENARIO("Rendering active staet board")
         window.addEntity(tank2_ptr);
         window.addEntity(bullet1_ptr);
         window.addEntity(bullet2_ptr);
-        // window.addPlayer(playerTank_ptr);
         window.loadLevel(&grid, 1);
         window.loadStats(5, 5);
+        window.changeMenuPos(1);
 
         // // State changed
-        PauseGameState menuGameState(&game);
+        FinishedGameState menuGameState(&game);
         gameStatePointer = &menuGameState;
         window.selectgameState(gameStatePointer);
 
@@ -101,13 +101,13 @@ SCENARIO("Rendering active staet board")
         THEN("Render board")
         {
 
-            // while (true)
-            // {
-            //     renderWindow->clear(sf::Color::Black);
-            //     window.render();
-            //     renderWindow->display();
+            while (true)
+            {
+                renderWindow->clear(sf::Color::Black);
+                window.render();
+                renderWindow->display();
 
-            // }
+            }
         }
     }
 }

@@ -29,7 +29,7 @@ void MenuStateGraphic::renderText(std::string renderText, float leftOffset, floa
 }
 
 
-MenuStateGraphic::MenuStateGraphic(const WindowView& windowView, const StaticGraphic::ButtonsPosition& buttonPos,
+MenuStateGraphic::MenuStateGraphic(const WindowView& windowView, const StaticGraphic::ButtonsPositionMenu& buttonPos,
                                    const Window::StaticStatePointers& staticPointers)
 : AbstractWindow(windowView), buttonPos(buttonPos), staticPointers(staticPointers), color(sf::Color(153, 153, 153))
 {loadFont();}
@@ -37,11 +37,11 @@ MenuStateGraphic::MenuStateGraphic(const WindowView& windowView, const StaticGra
 
 void MenuStateGraphic::render()
 {
-    initiatePauseStateHeader(); // Amount of points might vary every render sesion
+    initiatePointsStateHeader(); // Amount of points might vary every render sesion
 
     Window::GameStateGraphic gameState = *(*staticPointers.gameState);
-    Text textButtons = (gameState==Window::GameStateGraphic::MenuGameState) ? menuStateText : pauseStateText;
-    Text textHeader = (gameState==Window::GameStateGraphic::MenuGameState) ? menuStateHeader : pauseStateHeader;
+    // Text textButtons = (gameState==Window::GameStateGraphic::MenuGameState) ? menuStateText : pauseStateText;
+    // Text textHeader = (gameState==Window::GameStateGraphic::MenuGameState) ? menuStateHeader : pauseStateHeader;
 
     renderHeader(gameState);
 
@@ -49,17 +49,25 @@ void MenuStateGraphic::render()
 }
 
 
-void MenuStateGraphic::initiatePauseStateHeader()
+void MenuStateGraphic::initiatePointsStateHeader()
 {
     std::stringstream ss;
-    ss << "PLAYER POINTS: " << std::to_string(*staticPointers.points);
+    ss << "\t\t\t\t  " << "PLAYER POINTS: " << std::to_string(*staticPointers.points);
     pauseStateHeader.text2 = ss.str();
+    finishStateHeader.text2 = ss.str();
 }
 
 
 void MenuStateGraphic::renderHeader(Window::GameStateGraphic gameState)
 {
-    Text textHeader = (gameState==Window::GameStateGraphic::MenuGameState) ? menuStateHeader : pauseStateHeader;
+    Text textHeader;
+    if (gameState == Window::GameStateGraphic::MenuGameState)
+        textHeader = menuStateHeader;
+    else if (gameState == Window::GameStateGraphic::PauseGameState)
+        textHeader = pauseStateHeader;
+    else
+        textHeader = finishStateHeader;
+
     float leftOffset = windowView.leftOffset;
     float topOffset = windowView.topOffset;
     float fontSize = 60;
@@ -78,18 +86,25 @@ void MenuStateGraphic::renderButtons(Window::GameStateGraphic gameState)
 {
     float leftOffset = windowView.leftOffset;
     float topOffset = windowView.topOffset;
-    Text textButtons = (gameState==Window::GameStateGraphic::MenuGameState) ? menuStateText : pauseStateText;
+    Text textButtons;
+    if (gameState == Window::GameStateGraphic::MenuGameState)
+        textButtons = menuStateText;
+    else if (gameState == Window::GameStateGraphic::PauseGameState)
+        textButtons = pauseStateText;
+    else
+        textButtons = finishStateText;
+
     uint selection = *staticPointers.menuPos;
 
     sf::Color color1(sf::Color::White);
     sf::Color color2(sf::Color::White);
 
 
-   if (selection == 1)
+   if (selection != 1 && gameState != Window::GameStateGraphic::FinishedGameState)
    {
        color1 = this->color;
    }
-   else
+   else if (gameState != Window::GameStateGraphic::FinishedGameState)
    {
        color2 = this->color;
    }
@@ -100,10 +115,13 @@ void MenuStateGraphic::renderButtons(Window::GameStateGraphic gameState)
     button.setFillColor(color1);
     windowView.window->draw(button);
 
-    sf::RectangleShape button2(buttonPos.button2Size);
-    button2.setPosition(buttonPos.button2Pos);
-    button2.setFillColor(color2);
-    windowView.window->draw(button2);
+    if (gameState != Window::GameStateGraphic::FinishedGameState)
+    {
+        sf::RectangleShape button2(buttonPos.button2Size);
+        button2.setPosition(buttonPos.button2Pos);
+        button2.setFillColor(color2);
+        windowView.window->draw(button2);
+    }
 
     // Render texts
     leftOffset = buttonPos.button1Pos.x + 40;

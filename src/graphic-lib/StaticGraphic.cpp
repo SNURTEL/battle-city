@@ -46,28 +46,25 @@ void StaticGraphic::constructComposite()
 {
     std::shared_ptr<AbstractWindow> menuGameState = std::make_shared<MenuStateGraphic>
                                                     (menuStatesView, buttonsPosition,staticPointers);
-    childrensMap[Window::GameStateGraphic::MenuGameState] = menuGameState;
+    // childrensMap[Window::GameStateGraphic::MenuGameState] = menuGameState;
+    children.push_back(menuGameState);
+
 }
 
 
 void StaticGraphic::render()
 {
-    switch (*(*gameState))
-    {
-    case Window::GameStateGraphic::FinishedGameState:
-        /* code */
-        break;
-    default:
-        childrensMap[Window::GameStateGraphic::MenuGameState]->render();
-        break;
-    }
+   for (const auto& child : children)
+   {
+       child->render();
+   }
 }
 
 
 void StaticGraphic::setMenuView()
 {
     menuStatesView.window = windowView.window;
-    float leftOffset = menuStatesView.window->getSize().x / 3;
+    float leftOffset = menuStatesView.window->getSize().x / 6;
     float topOffset = menuStatesView.window->getSize().y / 17;
     menuStatesView.leftOffset = leftOffset;
     menuStatesView.topOffset = topOffset;

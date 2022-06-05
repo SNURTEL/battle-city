@@ -26,12 +26,18 @@ public:
     void constructComposite();
 
 
-    struct ButtonsPosition
+    struct ButtonsPositionMenu
     {
         sf::Vector2f button1Pos;
         sf::Vector2f button1Size;
         sf::Vector2f button2Pos;
         sf::Vector2f button2Size;
+    };
+
+    struct ButtonPoistionFinish
+    {
+        sf::Vector2f buttonPos;
+        sf::Vector2f buttonSize;
     };
 
     virtual void render() override;
@@ -45,7 +51,7 @@ protected:
 
     std::shared_ptr<Window::GameStateGraphic*> gameState;
 
-    ButtonsPosition buttonsPosition;
+    ButtonsPositionMenu buttonsPosition;
 
 
     void calculateButtonsPos();

@@ -13,7 +13,7 @@ class MenuStateGraphic : public AbstractWindow
 {
 public:
 
-    MenuStateGraphic(const WindowView& windowView, const StaticGraphic::ButtonsPosition& buttonPos,
+    MenuStateGraphic(const WindowView& windowView, const StaticGraphic::ButtonsPositionMenu& buttonPos,
                      const Window::StaticStatePointers& staticPointers);
 
 
@@ -23,7 +23,7 @@ public:
 
 protected:
 
-    StaticGraphic::ButtonsPosition buttonPos;
+    StaticGraphic::ButtonsPositionMenu buttonPos;
 
     Window::StaticStatePointers staticPointers;
 
@@ -47,21 +47,32 @@ protected:
 
     Text menuStateHeader
     {
-        .text1 = " MENU",
+        .text1 = "       MENU",
         .text2 = ""
     };
 
     Text pauseStateHeader
     {
-        .text1 = "PAUSE",
+        .text1 = "       PAUSE",
     };
+
+    Text finishStateHeader
+    {
+        .text1 = "GAME FINISHED"
+    };
+
+    Text finishStateText
+    {
+        .text1 = "      QUIT"
+    };
+
 
     void renderText(std::string renderText, float leftOffset,
                     float topOffset, float fontSize=25,
                     sf::Color color=sf::Color::Black);
 
 
-    void initiatePauseStateHeader();
+    void initiatePointsStateHeader();
 
 
     void renderHeader(Window::GameStateGraphic gameState);
