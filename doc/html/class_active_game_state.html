@@ -56,7 +56,7 @@ $(function() {
       <div id="nav-sync" class="sync"></div>
     </div>
   </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
+  <div id="splitbar" style="-moz-user-select:none;"
        class="ui-resizable-handle">
   </div>
 </div>
@@ -75,7 +75,7 @@ $(document).ready(function(){initNavTree('class_active_game_state.html',''); ini
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
-<iframe src="javascript:void(0)" frameborder="0" 
+<iframe src="javascript:void(0)" frameborder="0"
         name="MSearchResults" id="MSearchResults">
 </iframe>
 </div>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('class_active_game_state.html',''); ini
 <div class="dynheader">
 Inheritance diagram for ActiveGameState:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 0 -->
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_active_game_state__inherit__graph.svg" width="235" height="463"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -108,8 +108,8 @@ Collaboration diagram for ActiveGameState:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9c344ee02f034c46a4d777b467c0158"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_board.html">Board</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_game_state.html#ab9c344ee02f034c46a4d777b467c0158">get_board</a> ()</td></tr>
 <tr class="separator:ab9c344ee02f034c46a4d777b467c0158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e7199e08e3254a7eb61f87b93adb6b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tank.html">Tank</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_game_state.html#a0e7199e08e3254a7eb61f87b93adb6b5">get_player_tank</a> ()</td></tr>
-<tr class="separator:a0e7199e08e3254a7eb61f87b93adb6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fa4c898a8c4489fbbb8e8cace22efee"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_player_tank.html">PlayerTank</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_game_state.html#a3fa4c898a8c4489fbbb8e8cace22efee">get_player_tank</a> ()</td></tr>
+<tr class="separator:a3fa4c898a8c4489fbbb8e8cace22efee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64c49952b97959c562bf3ab5965820e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_game_state.html#a64c49952b97959c562bf3ab5965820e8">ActiveGameState</a> ()=delete</td></tr>
 <tr class="separator:a64c49952b97959c562bf3ab5965820e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a332ad3828882e9c93d0374d33dc26c3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_game_state.html#a332ad3828882e9c93d0374d33dc26c3c">ActiveGameState</a> (<a class="el" href="class_game.html">Game</a> *game)</td></tr>
@@ -122,8 +122,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8021f2f0fc8aa557dfb8431a32ee1143"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tank.html">Tank</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_game_state.html#a8021f2f0fc8aa557dfb8431a32ee1143">player_tank_</a></td></tr>
-<tr class="separator:a8021f2f0fc8aa557dfb8431a32ee1143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a25598d40aa01d87cfebaf9d744ed"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_player_tank.html">PlayerTank</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_game_state.html#a281a25598d40aa01d87cfebaf9d744ed">player_tank_</a></td></tr>
+<tr class="separator:a281a25598d40aa01d87cfebaf9d744ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cd8851091382b61d6668aff54e15dd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_board.html">Board</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_active_game_state.html#a0cd8851091382b61d6668aff54e15dd3">board_</a></td></tr>
 <tr class="separator:a0cd8851091382b61d6668aff54e15dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -211,14 +211,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a0e7199e08e3254a7eb61f87b93adb6b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e7199e08e3254a7eb61f87b93adb6b5">&#9670;&nbsp;</a></span>get_player_tank()</h2>
+<a id="a3fa4c898a8c4489fbbb8e8cace22efee" name="a3fa4c898a8c4489fbbb8e8cace22efee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa4c898a8c4489fbbb8e8cace22efee">&#9670;&nbsp;</a></span>get_player_tank()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_tank.html">Tank</a> * ActiveGameState::get_player_tank </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_player_tank.html">PlayerTank</a> &gt; ActiveGameState::get_player_tank </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -252,8 +252,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a8021f2f0fc8aa557dfb8431a32ee1143"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8021f2f0fc8aa557dfb8431a32ee1143">&#9670;&nbsp;</a></span>player_tank_</h2>
+<a id="a281a25598d40aa01d87cfebaf9d744ed" name="a281a25598d40aa01d87cfebaf9d744ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a281a25598d40aa01d87cfebaf9d744ed">&#9670;&nbsp;</a></span>player_tank_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +262,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_tank.html">Tank</a>* ActiveGameState::player_tank_</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_player_tank.html">PlayerTank</a>&gt; ActiveGameState::player_tank_</td>
         </tr>
       </table>
   </td>

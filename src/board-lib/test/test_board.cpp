@@ -28,40 +28,41 @@ namespace {  // anonymous namespace to force internal linkage
 
         class TestBoard : public Board {
         public:
-            Entity *getLastEntity() {
-                return entityController_->getAllEntities()->back().get();
+            std::shared_ptr<Entity> getLastEntity() {
+                return entityController_->getAllEntities()->back();
             }
 
             Grid *getGrid() {
                 return grid_.get();
             }
 
-            std::vector<std::unique_ptr<Entity>> *getAllEntities() {
+            std::vector<std::shared_ptr<Entity>> *getAllEntities() {
                 return entityController_->getAllEntities();
             }
 
-            bool testValidateEntityPosition(Entity *target) {
+            bool testValidateEntityPosition(std::shared_ptr<Entity> target) {
                 return validateEntityPosition(target);
             }
         };
 
-        Tank *
+        std::shared_ptr<Tank>
         placeTank(helper::TestBoard *board, unsigned int x, unsigned int y, Tank::TankType type,
                   Direction facing = North) {
             bool collision = !board->spawnTank(x, y, type, facing);
 
-            Tank *result = dynamic_cast<Tank *>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
+            std::shared_ptr<Tank> result = std::static_pointer_cast<Tank>(
+                    EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
             if (collision)
                 EventQueue<Event>::instance()->pop();
 
             return result;
         }
 
-        std::optional<Bullet *> fireBullet(Board *board, Tank *tank) {
+        std::optional<std::shared_ptr<Bullet>> fireBullet(Board *board, std::shared_ptr<Tank> tank) {
             if (!board->fireTank(tank)) {
                 return std::nullopt;
             }
-            return dynamic_cast<Bullet *>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
+            return std::static_pointer_cast<Bullet>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
         }
 
         Grid *placeTile(helper::TestBoard *board, unsigned int x, unsigned int y, TileType type) {
@@ -84,7 +85,7 @@ SCENARIO("Spawning tanks") {
             THEN("An event should be created") {
                 auto event = eventQueue->pop();
                 REQUIRE(event->type == Event::EntitySpawned);
-                Tank *spawnedTank = dynamic_cast<Tank *>(board.getLastEntity());
+                std::shared_ptr<Tank> spawnedTank = std::static_pointer_cast<Tank>(board.getLastEntity());
                 REQUIRE(event->info.entityInfo.entity == spawnedTank);
 
                 AND_THEN("Tank's attrs should be set as expected") {
@@ -92,7 +93,7 @@ SCENARIO("Spawning tanks") {
                     REQUIRE(spawnedTank->getY() == 10);
                     REQUIRE(spawnedTank->getFacing() == East);
                     REQUIRE(spawnedTank->getType() == Tank::FastTank);
-                    REQUIRE(dynamic_cast<FastTank *>(spawnedTank) != nullptr);
+                    REQUIRE(std::static_pointer_cast<Tank>(spawnedTank) != nullptr);
                 }
             }
         }
@@ -139,10 +140,10 @@ SCENARIO("Spawning tanks") {
     }
 }
 
-SCENARIO("Rotating tanks an integer coords") {
+SCENARIO("Rotating tanks at integer coords") {
     GIVEN("A board with some tanks") {
         helper::TestBoard board{};
-        Tank *tank1 = helper::placeTank(&board, 5, 5, Tank::FastTank);
+        std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 5, 5, Tank::FastTank);
 
         auto eventQueue = helper::getEmptyEventQueue();
 
@@ -151,18 +152,19 @@ SCENARIO("Rotating tanks an integer coords") {
 
             THEN("Tank should be rotated") {
                 REQUIRE(tank1->getFacing() == West);
-            }THEN("Two events should be created") {
-                REQUIRE_FALSE(eventQueue->isEmpty());
-                auto event = eventQueue->pop();
-                REQUIRE(event->type == Event::EntityMoved);
-                REQUIRE(event->info.entityInfo.entity == tank1);
+                AND_THEN("Two events should be created") {
+                    REQUIRE_FALSE(eventQueue->isEmpty());
+                    auto event = eventQueue->pop();
+                    REQUIRE(event->type == Event::EntityMoved);
+                    REQUIRE(event->info.entityInfo.entity == tank1);
 
-                REQUIRE_FALSE(eventQueue->isEmpty());
-                event = eventQueue->pop();
-                REQUIRE(event->type == Event::TankRotated);
-                REQUIRE(event->info.entityInfo.entity == tank1);
+                    REQUIRE_FALSE(eventQueue->isEmpty());
+                    event = eventQueue->pop();
+                    REQUIRE(event->type == Event::TankRotated);
+                    REQUIRE(event->info.entityInfo.entity == tank1);
 
-                REQUIRE(eventQueue->isEmpty());
+                    REQUIRE(eventQueue->isEmpty());
+                }
             }
         }
     }
@@ -172,10 +174,10 @@ SCENARIO("Rotating tanks an fractional coords") {
     GIVEN("A board with some tanks") {
         helper::TestBoard board{};
 
-        Tank *tank1 = helper::placeTank(&board, 5, 5, Tank::FastTank);
+        std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 5, 5, Tank::FastTank);
         tank1->setY(17.8);
 
-        Tank *tank2 = helper::placeTank(&board, 8, 8, Tank::BasicTank, West);
+        std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 8, 8, Tank::BasicTank, West);
         tank2->setX(9.2);
 
         auto eventQueue = helper::getEmptyEventQueue();
@@ -262,7 +264,7 @@ SCENARIO("Rotating tanks an fractional coords") {
         }
 
         WHEN("Cannot snap to grid - would collide with another entity") {
-            Tank *obstacleTank = helper::placeTank(&board, 5, 5, Tank::FastTank);
+            std::shared_ptr<Tank> obstacleTank = helper::placeTank(&board, 5, 5, Tank::FastTank);
             obstacleTank->setY(19.9);
 
             board.setTankDirection(tank1, West);
@@ -284,7 +286,7 @@ SCENARIO("Detecting entity - grid collisions") {
         helper::TestBoard board{};
 
         WHEN("An entity does not collide with any tile") {
-            Tank *tank = helper::placeTank(&board, 15, 20, Tank::PlayerTank);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 15, 20, Tank::PlayerTank);
 
             THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));
@@ -292,7 +294,7 @@ SCENARIO("Detecting entity - grid collisions") {
         }
 
         WHEN("An entity is placed in board's upper left corner") {
-            Tank *tank = helper::placeTank(&board, 0, 0, Tank::PlayerTank);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 0, 0, Tank::PlayerTank);
 
             THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));
@@ -300,7 +302,7 @@ SCENARIO("Detecting entity - grid collisions") {
         }
 
         WHEN("An entity is placed in board's bottom right corner") {
-            Tank *tank = helper::placeTank(&board, board.getSizeX() - 4, board.getSizeY() - 4, Tank::PlayerTank);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, board.getSizeX() - 4, board.getSizeY() - 4, Tank::PlayerTank);
 
             THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));
@@ -308,7 +310,7 @@ SCENARIO("Detecting entity - grid collisions") {
         }
 
         WHEN("An entity is placed on map's edge") {
-            Tank *tank = helper::placeTank(&board, 10, board.getSizeY() - 1, Tank::PlayerTank);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 10, board.getSizeY() - 1, Tank::PlayerTank);
 
             THEN("Collision should be detected") {
                 REQUIRE_FALSE(board.testValidateEntityPosition(tank));
@@ -316,7 +318,7 @@ SCENARIO("Detecting entity - grid collisions") {
         }
 
         WHEN("An entity is placed out of map") {
-            Tank *tank = helper::placeTank(&board, 10, board.getSizeY() + 20, Tank::PlayerTank);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 10, board.getSizeY() + 20, Tank::PlayerTank);
 
             THEN("Collision should be detected") {
                 REQUIRE_FALSE(board.testValidateEntityPosition(tank));
@@ -331,12 +333,12 @@ SCENARIO("Moving a single entity") {
 
         auto eventQueue = helper::getEmptyEventQueue();
         WHEN("Movement would not result in a collision") {
-            Tank *tank = helper::placeTank(&board, 4, 8, Tank::PlayerTank);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 4, 8, Tank::PlayerTank);
             board.setTankMoving(tank, true);
-            Tank *stationaryTank = helper::placeTank(&board, 20, 22, Tank::PowerTank);
+            std::shared_ptr<Tank> stationaryTank = helper::placeTank(&board, 20, 22, Tank::PowerTank);
             board.setTankMoving(stationaryTank, false);
             auto b = helper::fireBullet(&board, stationaryTank);
-            Bullet *bullet = b.value();
+            std::shared_ptr<Bullet> bullet = b.value();
 
             float initialBulletX = bullet->getX();
             float initialBulletY = bullet->getY();
@@ -371,11 +373,11 @@ SCENARIO("Moving a single entity") {
         }
 
         WHEN("Movement would result in placing the entity right on the board's edge") {
-            Tank *tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East);
+            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East);
             board.setTankMoving(tank1, true);
             tank1->setX(board.getSizeX() - tank1->getSizeX() - tank1->getSpeed());
 
-            Tank *tank2 = helper::placeTank(&board, 10, 10, Tank::BasicTank, North);
+            std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 10, 10, Tank::BasicTank, North);
             tank2->setY(0 + tank2->getSizeX() + tank2->getSpeed());
             board.setTankMoving(tank2, true);
 
@@ -391,10 +393,10 @@ SCENARIO("Moving a single entity") {
         }
 
         WHEN("Moving over map's border") {
-            Tank *tank1 = helper::placeTank(&board, 0, 10, Tank::BasicTank, West);
+            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 0, 10, Tank::BasicTank, West);
             board.setTankMoving(tank1, true);
 
-            Tank *tank2 = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
+            std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
             tank2->setY(board.getSizeY() - tank2->getSizeY());
             board.setTankMoving(tank2, true);
 
@@ -417,13 +419,13 @@ SCENARIO("Moving a single entity") {
         }
 
         WHEN("Two entities collide with each other") {
-            Tank *tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
+            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
             board.setTankMoving(tank1, false);
 
-            Tank *tank2 = helper::placeTank(&board, 10, 10,
+            std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 10, 10,
                                             Tank::BasicTank, North);
-            tank2->setY(10 + + static_cast<unsigned int>(tank1->getSizeY()) + 0.4);
-            Bullet *bullet = helper::fireBullet(&board, tank2).value();
+            tank2->setY(10 + +static_cast<unsigned int>(tank1->getSizeY()) + 0.4);
+            std::shared_ptr<Bullet> bullet = helper::fireBullet(&board, tank2).value();
 
             board.moveEntity(bullet);
 
@@ -438,7 +440,7 @@ SCENARIO("Moving a single entity") {
         }
 
         WHEN("Entity collides with grid") {
-            Tank *tank = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
             board.setTankMoving(tank, true);
             helper::placeTile(&board, 11, 12, TileType::Bricks);
 
@@ -457,14 +459,14 @@ SCENARIO("Removing all enemy tanks from the board") {
     GIVEN("A board with some tanks and bullets") {
         helper::TestBoard board{};
 
-        Tank *basicTank = helper::placeTank(&board, 5, 5, Tank::BasicTank);
-        Bullet *basicBullet = helper::fireBullet(&board, basicTank).value();
+        std::shared_ptr<Tank> basicTank = helper::placeTank(&board, 5, 5, Tank::BasicTank);
+        std::shared_ptr<Bullet> basicBullet = helper::fireBullet(&board, basicTank).value();
 
-        Tank *playerTank = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
-        Bullet *playerBullet = helper::fireBullet(&board, playerTank).value();
+        std::shared_ptr<Tank> playerTank = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
+        std::shared_ptr<Bullet> playerBullet = helper::fireBullet(&board, playerTank).value();
 
-        Tank *armorTank = helper::placeTank(&board, 15, 15, Tank::ArmorTank);
-        Bullet *armorBullet = helper::fireBullet(&board, armorTank).value();
+        std::shared_ptr<Tank> armorTank = helper::placeTank(&board, 15, 15, Tank::ArmorTank);
+        std::shared_ptr<Bullet> armorBullet = helper::fireBullet(&board, armorTank).value();
 
         auto eventQueue = helper::getEmptyEventQueue();
 
@@ -474,9 +476,9 @@ SCENARIO("Removing all enemy tanks from the board") {
             THEN("Only friendly entities should remain on the board") {
                 auto entityVector = board.getAllEntities();
                 REQUIRE(entityVector->size() == 2);
-                REQUIRE(dynamic_cast<PlayerTank *>((*entityVector)[0].get()) != nullptr);
-                REQUIRE(dynamic_cast<Bullet *>((*entityVector)[1].get()) != nullptr);
-                REQUIRE(dynamic_cast<Bullet *>((*entityVector)[1].get())->isFriendly());
+                REQUIRE(std::static_pointer_cast<PlayerTank>((*entityVector)[0]) != nullptr);
+                REQUIRE(std::static_pointer_cast<Bullet>((*entityVector)[1]) != nullptr);
+                REQUIRE(std::static_pointer_cast<Bullet>((*entityVector)[1])->isFriendly());
 
                 AND_THEN("Proper events should be created") {
                     REQUIRE(eventQueue->size() == 4);

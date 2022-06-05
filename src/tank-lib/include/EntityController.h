@@ -37,14 +37,14 @@ public:
     EntityController();
 
     /**
-     * Creates a tank using given params and return a unique_ptr with the created tank
+     * Creates a tank using given params and return a shared_ptr with the created tank
      * @param x Tank's initial X coord
      * @param y Tank's initial Y coord
      * @param type Tank's type
      * @param facing The direction in which the tank should be faced (defaults to North)
-     * @return A new tank wrapped in a unique_ptr
+     * @return A new tank wrapped in a shared_ptr
      */
-    std::unique_ptr<Tank> createTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing = North);
+    std::shared_ptr<Tank> createTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing = North);
 
     /**
      * Deals damage to a tank (and kills it if health drops to 0)
@@ -53,7 +53,7 @@ public:
      * @param target Target tank
      * @param damage Damage value
      */
-    void hitTank(Tank *target, unsigned int damage = 1);
+    void hitTank(std::shared_ptr<Tank> target, unsigned int damage = 1);
 
     /**
      * Kills a tank immediately. If killed the player, queues a different event type
@@ -61,7 +61,7 @@ public:
      * Queues Event::TankKilled or Event::PlayerKilled
      * @param tank Target tank
      */
-    void killTank(Tank *tank);
+    void killTank(std::shared_ptr<Tank> tank);
 
     /**
      * Removes and deletes an entity from pool without killing it
@@ -69,7 +69,7 @@ public:
      * Queues Event::EntityRemoved
      * @param entity
      */
-    void removeEntity(Entity *entity);
+    void removeEntity(std::shared_ptr<Entity> entity);
 
     /**
      * Attempt to move all entities on the board (tanks will move only if moving flag is set, bullets will move unconditionally)
@@ -87,14 +87,14 @@ public:
      * @param target Target entity
      * @param direction Direction in which to move the entity
      */
-    void moveEntity(Entity *target);
+    void moveEntity(std::shared_ptr<Entity> target);
 
     /**
      * Sets tank's moving_ flag to a given value
      * @param target Target tank
      * @param isMoving New flag value
      */
-    void setTankMoving(Tank *target, bool isMoving);
+    void setTankMoving(const std::shared_ptr<Tank>& target, bool isMoving);
 
     /**
      * Sets the direction in which a tank is faced
@@ -103,7 +103,7 @@ public:
      * @param target Target tank
      * @param direction New direction
      */
-    void setTankDirection(Tank *target, Direction direction);
+    void setTankDirection(const std::shared_ptr<Tank>& target, Direction direction);
 
     /**
      * Checks if a given point is located inside any entity's bounding box. If so, returns a pointer to the entity
@@ -113,45 +113,46 @@ public:
      * @param y Y coord to check
      * @return If an entity was found, a pointer to the entity; if not, an std::nullopt
      */
-    std::optional<Entity *> findEntityAtPosition(float x, float y, std::optional<Entity *> ignored = std::nullopt);
+    std::optional<std::shared_ptr<Entity>>
+    findEntityAtPosition(float x, float y, std::optional<std::shared_ptr<Entity>> ignored = std::nullopt);
 
     /**
      * Returns a pointer to the player-controlled tank
      * @return A pointer to the player-controlled tank
      */
-    PlayerTank *getPlayer();
+    std::shared_ptr<PlayerTank> getPlayer();
 
     /**
      * Adds a PlayerTank type entity to the controller and saves a reference to it in the player_ field.
      * Does not queue events
-     * @param playerTank A new PlayerTank instance wrapped in a unique_ptr
+     * @param playerTank A new PlayerTank instance wrapped in a shared_ptr
      * @return A pointer to the new PlayerTank (old pointers are now invalid)
      */
-    PlayerTank *addEntity(std::unique_ptr<PlayerTank> playerTank);
+    std::shared_ptr<PlayerTank> addEntity(const std::shared_ptr<PlayerTank>& playerTank);
 
     /**
      * Adds a Tank (but not PlayerTank) type entity to the controller.
      * Does not queue events
-     * @param newTank A new Tank instance wrapped in a unique_ptr
+     * @param newTank A new Tank instance wrapped in a shared_ptr
      * @return A pointer to the new Tank (old pointers are now invalid)
      */
-    Tank *addEntity(std::unique_ptr<Tank> newTank);
+    std::shared_ptr<Tank> addEntity(std::shared_ptr<Tank> newTank);
 
     /**
      * Adds a Bullet type entity to the controller.
     * Does not queue events
-    * @param newBullet A new Bullet instance wrapped in a unique_ptr
+    * @param newBullet A new Bullet instance wrapped in a shared_ptr
     * @return A pointer to the new Bullet (old pointers are now invalid)
     */
-    Bullet *addEntity(std::unique_ptr<Bullet> newBullet);
+    std::shared_ptr<Bullet> addEntity(std::shared_ptr<Bullet> newBullet);
 
     /**
      * Adds a Entity (but not Tank or Bullet) type entity to the controller.
     * Does not queue events
-    * @param newEntity A new Entity instance wrapped in a unique_ptr
+    * @param newEntity A new Entity instance wrapped in a shared_ptr
     * @return A pointer to the new Entity (old pointers are now invalid)
     */
-    Entity *addEntity(std::unique_ptr<Entity> newEntity);
+    std::shared_ptr<Entity> addEntity(std::shared_ptr<Entity> newEntity);
 
     /**
      * Checks if an entity overlaps with any other entity
@@ -159,7 +160,7 @@ public:
      * @param target An entity to check
      * @return Whether a given entity overlaps with any other entity
      */
-    bool checkEntityCollisions(Entity *target);
+    bool checkEntityCollisions(const std::shared_ptr<Entity>& target);
 
     /**
      * Provides access to entity vector
@@ -167,7 +168,7 @@ public:
      *
      * @return A pointer to the internal vector containing Entity instances
      */
-    std::vector<std::unique_ptr<Entity>> *getAllEntities();  //TODO const reference lol
+    std::vector<std::shared_ptr<Entity>> *getAllEntities();  //TODO const reference lol
 
     /**
      * Erases all entities from the controller
@@ -179,9 +180,9 @@ public:
 protected:
 
     EventQueue<Event> *eventQueue_;
-    std::vector<std::unique_ptr<Entity>> entities_;
+    std::vector<std::shared_ptr<Entity>> entities_;
 
-    PlayerTank *player_;
+    std::shared_ptr<PlayerTank> player_;
 };
 
 

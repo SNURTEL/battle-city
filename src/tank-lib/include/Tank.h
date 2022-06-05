@@ -112,9 +112,9 @@ public:
     /**
      * Creates a bullet located right in front of the tank and faced in the same direction as the tank.
      * Bullet will not be created if a Bullet instance created by the tank already exists
-     * @return A Bullet instance wrapped in a unique_ptr if the bullet was created; otherwise, an std::nullopt
+     * @return A Bullet instance wrapped in a shared_ptr if the bullet was created; otherwise, an std::nullopt
      */
-    std::optional<std::unique_ptr<Bullet>> createBullet();
+    std::optional<std::shared_ptr<Bullet>> createBullet();
 
     /**
      * Does nothing. All bullet - tank communication is done just with subscribing and unsubscribing.
