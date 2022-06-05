@@ -122,7 +122,7 @@ std::shared_ptr<PlayerTank> EntityController::getPlayer() {
     return player_;
 }
 
-bool EntityController::checkEntityCollisions(const std::shared_ptr<Entity>& target) {
+std::optional<std::shared_ptr<Entity>> EntityController::checkEntityCollisions(const std::shared_ptr<Entity>& target) {
     for (std::shared_ptr<Entity> entity: entities_) {
         if (target->getX() >= entity->getX() + entity->getSizeX() ||
             target->getX() + target->getSizeX() <= entity->getX() ||
@@ -130,10 +130,10 @@ bool EntityController::checkEntityCollisions(const std::shared_ptr<Entity>& targ
             target->getY() + target->getSizeY() <= entity->getY()) {
             continue;  // no collision
         } else if (target != entity) {
-            return true;  // collision detected
+            return entity;  // collision detected
         }
     }
-    return false;  // went through all entities and found no collisions
+    return std::nullopt;  // went through all entities and found no collisions
 }
 
 std::shared_ptr<PlayerTank> EntityController::addEntity(const std::shared_ptr<PlayerTank>& playerTank) {

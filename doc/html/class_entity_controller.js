@@ -5,7 +5,7 @@ var class_entity_controller =
     [ "addEntity", "class_entity_controller.html#a3ab3c0563bc962b53aef6f07e54084b8", null ],
     [ "addEntity", "class_entity_controller.html#ab55a10cc61c570ce2e4f6601c77853ca", null ],
     [ "addEntity", "class_entity_controller.html#a098b31db8c8a6609dddeb06e7f91b76f", null ],
-    [ "checkEntityCollisions", "class_entity_controller.html#a3e58c8845023d204ba1dffafd2270927", null ],
+    [ "checkEntityCollisions", "class_entity_controller.html#a8f51a07cea3b8bad1ce3e5c9f7c1486c", null ],
     [ "clear", "class_entity_controller.html#a38db732e6ab191af3f7011a3820dabd4", null ],
     [ "createTank", "class_entity_controller.html#a5707e7ac4d86f96198a00c4bcb601a50", null ],
     [ "findEntityAtPosition", "class_entity_controller.html#a51675ea9fcccc12baaa9c87e343e7226", null ],

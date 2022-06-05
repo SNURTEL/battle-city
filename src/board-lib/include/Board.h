@@ -172,7 +172,8 @@ protected:
     bool validateEntityPosition(const std::shared_ptr<Entity>& target);
 
     /**
-     * Builds an Event::EntityEntityCollision or Event::EntityGridCollision event for a given entity, should be called after detecting a collision
+     * Builds an Event::Collision event for a given entity, should be called after detecting a collision
+     * This function assumes the collision did happen. Calling the function when there was no collision will result in undefined behavior (usually creating some kind of Entity-Board collision event)
      * @param entity Entity to check
      * @return A collision event wrapped in a unique_ptr
      */

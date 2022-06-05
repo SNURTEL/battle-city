@@ -8,19 +8,29 @@
 #include <exception>
 #include <string>
 #include <memory>
+#include <variant>
 
 class Tank;
+
+class PlayerTank;
+
+class Bullet;
+
 class Entity;
+
 class Menu;
+
 class GameState;
+
 class Grid;
+
 class GameStatistics;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
  */
 struct EventConstructionException : public std::exception {
-    [[nodiscard]] const char * what () const noexcept override;
+    [[nodiscard]] const char *what() const noexcept override;
 };
 
 /**
@@ -52,8 +62,7 @@ public:
         PlayerSpawned,
         PlayerKilled,
 
-        EntityEntityCollision,
-        EntityGridCollision,
+        Collision,
 
         TankKilled,
         TankRotated,
@@ -79,8 +88,8 @@ public:
      * Holds additional event info for keyboard related events
      */
     struct KeyEventInfo {
-        enum KeyAction{
-            Pressed =0,
+        enum KeyAction {
+            Pressed = 0,
             Released
         };
         unsigned int keyCode;
@@ -102,7 +111,7 @@ public:
      * Holds additional event info for menu events
      */
     struct MenuInfo {
-        Menu* menu;
+        Menu *menu;
         unsigned int new_pos;
     };
 
@@ -110,40 +119,88 @@ public:
      * Holds additional event info for state events
      */
     struct StateInfo {
-        GameState* state_;
+        GameState *state_;
     };
 
     /**
      * Holds additional event info for points events
      */
     struct StatsInfo {
-        GameStatistics* stats_;
+        GameStatistics *stats_;
     };
 
     /**
-     * Holds additional event info for entity-entity collision events
-     */
-    struct EntityEntityCollisionInfo{
-        std::shared_ptr<Entity> entity1;
-        std::shared_ptr<Entity> entity2;
-    };
-
-    /**
-     * Holds additional event info for entity-tile collision events
-     */
-    struct EntityTileCollisionInfo{
-        std::shared_ptr<Entity> entity;
-        unsigned int x;
-        unsigned int y;
-    };
-
-    /**
-     * Holds additional event info for tile related events
-     */
+    * Holds additional event info for tile related events
+    */
     struct TileInfo {
         unsigned int tile_x;
         unsigned int tile_y;
-        Grid* grid;
+        Grid *grid;
+    };
+
+    // collision events
+
+    /**
+     * Holds additional event info for player tank collision members
+     */
+    struct PlayerTankCollisionInfo {
+        std::shared_ptr<PlayerTank> playerTank;
+    };
+
+    /**
+     * Holds additional event info for enemy tank collision members
+     */
+    struct EnemyTankCollisionInfo {
+        std::shared_ptr<Tank> enemyTank;
+    };
+
+    /**
+     * Holds additional event info for friendly bullet collision members
+     */
+    struct FriendlyBulletCollisionInfo {
+        std::shared_ptr<Bullet> friendlyBullet;
+    };
+
+    /**
+     * Holds additional event info for enemy bullet collision members
+     */
+    struct EnemyBulletCollisionInfo {
+        std::shared_ptr<Bullet> enemyBullet;
+    };
+
+    /**
+     * Holds additional event info for board collision members
+     */
+    struct BoardCollisionInfo {
+        unsigned int tile_x;
+        unsigned int tile_y;
+        Grid *grid;
+    };
+
+    // #####
+
+    /**
+     * Can be one of all collision members
+     */
+    typedef std::variant<PlayerTankCollisionInfo,
+            EnemyTankCollisionInfo,
+            FriendlyBulletCollisionInfo,
+            EnemyBulletCollisionInfo,
+            BoardCollisionInfo> CollisionMember;
+
+    /**
+     * Holds two collision members. Individual CollisionInfos are accessible with std::get<T>() or (preferred) std::visit().
+     *
+     * Collision handling can be provided by creating a handleCollision() function and overloading it with different CollisionInfos.
+     * The function can then be called in a lambda expression inside std::visit:
+     *
+     * std::visit([](auto &&arg1, auto &&arg2){ handleCollision(arg1, arg2); }, collisionEvent.member1, collisionEvent.member2);
+     *
+     * In practice, friendly bullet and player tank members are always stored as member1, and grid member is always member2
+     */
+    struct CollisionInfo {
+        CollisionMember member1;
+        CollisionMember member2;
     };
 
     /**
@@ -151,7 +208,7 @@ public:
      */
     struct LevelInfo {
         unsigned int levelNumber;
-        Grid* grid;
+        Grid *grid;
     };
 
     // ####################################################3
@@ -167,35 +224,32 @@ public:
         EntityInfo entityInfo;
         TileInfo tileInfo;
         LevelInfo levelInfo;
-        EntityEntityCollisionInfo entityEntityCollisionInfo;
-        EntityTileCollisionInfo entityGridCollisionInfo;
+        CollisionInfo collisionInfo;
         StatsInfo pointsInfo;
 
-        ~info_u(){};  // DO NOT change this to =default, or else it will stop working (must be '{}')
+        ~info_u() {};  // DO NOT change this to =default, or else it will stop working (must be '{}')
     } info = {};
 
     // FIXME not so elegant
     Event(EventType, unsigned int ui1);
 
-    Event(EventType e, GameStatistics* statsObject);
+    Event(EventType e, GameStatistics *statsObject);
 
-    Event(EventType e, GameState* new_state);
+    Event(EventType e, GameState *new_state);
 
     explicit Event(EventType);
 
-    Event(EventType e, Menu* menu, unsigned int new_pos);
+    Event(EventType e, Menu *menu, unsigned int new_pos);
 
     Event(EventType e, std::shared_ptr<Entity> entity);
 
-    Event(EventType e, std::shared_ptr<Entity> entity1, std::shared_ptr<Entity> entity2);
+    Event(EventType e, unsigned int x, unsigned int y, Grid *grid);
 
-    Event(EventType e, std::shared_ptr<Entity> entity, unsigned int x, unsigned int y);
+    Event(EventType e, unsigned int levelNumber, Grid *grid);
 
-    Event(EventType e, unsigned int x, unsigned int y, Grid* grid);
+    Event(EventType e, CollisionMember mem1, CollisionMember mem2);
 
-    Event(EventType e, unsigned int levelNumber, Grid* grid);
-
-    Event()=delete;
+    Event() = delete;
 };
 
 

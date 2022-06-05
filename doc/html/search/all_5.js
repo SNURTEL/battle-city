@@ -10,5 +10,7 @@ var searchData=
   ['finishedeventhandler_2eh_7',['FinishedEventHandler.h',['../_finished_event_handler_8h.html',1,'']]],
   ['finishedgamestate_8',['FinishedGameState',['../class_finished_game_state.html',1,'FinishedGameState'],['../class_finished_game_state.html#a4cdad15e55dc3545da1ba5816531240e',1,'FinishedGameState::FinishedGameState()=delete'],['../class_finished_game_state.html#a883761fa6d15e2c257e426cae69bf7b6',1,'FinishedGameState::FinishedGameState(Game *game)']]],
   ['firetank_9',['fireTank',['../class_board.html#afc45d1a6360ea45a04b0e5b0c1c562bc',1,'Board']]],
-  ['friendly_10',['Friendly',['../class_bullet.html#ab81b1ff6754c7931c5c5af43f352fbc9a751a84ecfe2806e65d68d32a21e2dac5',1,'Bullet']]]
+  ['friendly_10',['Friendly',['../class_bullet.html#ab81b1ff6754c7931c5c5af43f352fbc9a751a84ecfe2806e65d68d32a21e2dac5',1,'Bullet']]],
+  ['friendlybullet_11',['friendlyBullet',['../struct_event_1_1_friendly_bullet_collision_info.html#acccd87d7b3fcd0d51e1d8210830affed',1,'Event::FriendlyBulletCollisionInfo']]],
+  ['friendlybulletcollisioninfo_12',['FriendlyBulletCollisionInfo',['../struct_event_1_1_friendly_bullet_collision_info.html',1,'Event']]]
 ];

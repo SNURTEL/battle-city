@@ -62,29 +62,6 @@ Event::Event(EventType e, std::shared_ptr<Entity> entity) {
     }
 }
 
-Event::Event(EventType e, std::shared_ptr<Entity> entity1, std::shared_ptr<Entity> entity2) {
-    type = e;
-    switch (e) {
-        case EntityEntityCollision:{
-            info.entityEntityCollisionInfo = {entity1, entity2};
-            break;
-        }
-        default:
-            throw EventConstructionException();
-    }
-}
-
-Event::Event(EventType e, std::shared_ptr<Entity> entity, unsigned int x, unsigned int y) {
-    type = e;
-    switch (e) {
-        case EntityGridCollision:{
-            info.entityGridCollisionInfo = {entity, x, y};
-            break;
-        }
-        default:
-            throw EventConstructionException();
-    }
-}
 
 Event::Event(EventType e, unsigned int x, unsigned int y, Grid *grid) {
     type = e;
@@ -142,6 +119,18 @@ Event::Event(EventType e, GameStatistics* statsObject) {
     switch (e) {
         case StatisticsChanged: {
             info.pointsInfo = {statsObject};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, CollisionMember mem1, CollisionMember mem2) {
+    type = e;
+    switch (e) {
+        case Collision: {
+            info.collisionInfo = {std::move(mem1), std::move(mem2)};
             break;
         }
         default:
