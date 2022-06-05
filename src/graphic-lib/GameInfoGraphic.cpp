@@ -11,8 +11,9 @@ void GameInfoGraphic::render()
 {
     float offsetLeft = windowView.leftOffset;
     float offsetTop = windowView.topOffset;
+    int playerLives = *gameInfo.playerLives;
     std::stringstream ss;
-    ss << "Player's lives:" << "\n\t\t   " << std::to_string(*gameInfo.playerLives);
+    ss << "Player's lives:" << "\n\t\t   " << std::to_string(playerLives);
     std::string renderText = ss.str();
     this->renderText(renderText, offsetLeft, offsetTop);
 

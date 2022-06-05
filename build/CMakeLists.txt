@@ -130,6 +130,8 @@ set(graphic_lib_sources
         ${graphic_lib_dir}/GraphicEventHandler.cpp
         ${graphic_lib_dir}/GameInfoGraphic.cpp
         ${graphic_lib_dir}/TextureLoadingError.cpp
+        ${graphic_lib_dir}/StaticGraphic.cpp
+        ${graphic_lib_dir}/MenuStateGraphic.cpp
         )
 
 add_library(graphic-lib ${graphic_lib_sources})

@@ -9,6 +9,7 @@
 #include "../include/GraphicEventHandler.h"
 #include "testClasses.cpp"
 #include "../../game-lib/include/GameStatistics.h"
+#include "../../game-lib/include/Menu.h"
 
 
 
@@ -38,11 +39,15 @@ SCENARIO("Handling events connected to graphic-lib")
 
         grid.setTile(0, 0, TileType::Bricks);
 
-        // Initiating level and playerLIvesLeft
+        // Initiating level and playerLivesLeft
 
         int level = 5;
         int playerLives = 5;
         GameStatistics gameStats(playerLives, level, 5);
+
+        // Creating Menu
+
+        Menu menu(2);
 
         // Creating Events
 
@@ -50,6 +55,7 @@ SCENARIO("Handling events connected to graphic-lib")
         Event bulletSpawned(Event::EntitySpawned, eBullet);
         Event levelLoaded(Event::LevelLoaded, level, &grid);
         Event statisticsChanged(Event::StatisticsChanged, &gameStats);
+        Event menuSelectionChanged(Event::MenuSelectionChange, &menu, 2);
 
         WHEN("Handling given events")
         {
@@ -57,15 +63,24 @@ SCENARIO("Handling events connected to graphic-lib")
             graphicEventHandler.processEvent(std::make_unique<Event>(bulletSpawned));
             graphicEventHandler.processEvent(std::make_unique<Event>(levelLoaded));
             graphicEventHandler.processEvent(std::make_unique<Event>(statisticsChanged));
+            graphicEventHandler.processEvent(std::make_unique<Event>(menuSelectionChanged));
 
             THEN("Composite sturcture should be updated")
             {
                 std::vector<Tank*>* tanksComposite = window.getTanks();
                 std::vector<Bullet*>* bulletsComposite = window.getBullets();
                 Grid** gridComposite = window.getGrid();
+                ActiveStateGraphic::BoardPointers boardPointers = window.getBoardPointers();
+                ActiveStateGraphic::FramePointers framePointers = window.getFramePointers();
+                Window::StaticStatePointers staticPointers = window.getStaticPointersLeaf();
+
                 REQUIRE((*tanksComposite)[0] == &tank1);
                 REQUIRE((*bulletsComposite)[0] == &bullet);
                 REQUIRE((*gridComposite) == &grid);
+                REQUIRE(*framePointers.level == level);
+                REQUIRE(*framePointers.playerLives == playerLives);
+                REQUIRE(*staticPointers.menuPos == 2);
+                REQUIRE(*staticPointers.points == 5);
             }
 
             GIVEN("More Events")
@@ -85,7 +100,7 @@ SCENARIO("Handling events connected to graphic-lib")
 
                     graphicEventHandler.processEvent(std::make_unique<Event>(tankMoved));
                     graphicEventHandler.processEvent(std::make_unique<Event>(bulletSpawned));
-                    THEN("Composite structure should be updated")
+                    THEN("The composite structure should be updated")
                     {
                         std::vector<Tank*>* tanksComposite = window.getTanks();
                         std::vector<Bullet*>* bulletsComposite = window.getBullets();
@@ -110,7 +125,7 @@ SCENARIO("Handling events connected to graphic-lib")
                             graphicEventHandler.processEvent(std::make_unique<Event>(tankRemoved));
                             graphicEventHandler.processEvent(std::make_unique<Event>(bulletRemoved));
 
-                            THEN("Composite structure should be updated")
+                            THEN("The composite structure should be updated")
                             {
                                 std::vector<Tank*>* tanksComposite = window.getTanks();
                                 std::vector<Bullet*>* bulletsComposite = window.getBullets();
@@ -125,6 +140,7 @@ SCENARIO("Handling events connected to graphic-lib")
         }
     }
 }
+
 
 
 SCENARIO("Game states are changing")

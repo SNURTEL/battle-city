@@ -4,9 +4,8 @@
 #include <cmath>
 
 ActiveStateGraphic::ActiveStateGraphic(const WindowView& windowView, const Window::ActiveStatePointers& activestatePointers)
-: AbstractWindow(windowView)
+: AbstractWindow(windowView), activeStateObjects(activestatePointers)
 {
-    activeStateObjects = activestatePointers;
     setboardObjects();
     setframeObjects();
     setframeView();
@@ -69,14 +68,3 @@ void ActiveStateGraphic::conscructComposite()
     this->children.push_back(board);
     this->children.push_back(frame);
 }
-
-
-// void ActiveStateGraphic::update()
-// {
-//     // setframeObjects();
-//     // setboardObjects();
-//     for(std::shared_ptr<AbstractWindow> child : children)
-//     {
-//         child->update();
-//     }
-// }

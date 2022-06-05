@@ -1,5 +1,6 @@
 #include "include/Window.h"
 #include "include/ActiveState_dir/Borad_dir/BoardGraphic.h"
+#include "include/StaticStates_dir/StaticGraphic.h"
 
 
 
@@ -17,6 +18,7 @@ Window::Window()
     windowView.leftOffset = 0.f;
     windowView.topOffset = 0.f;
     initiateActiveStatePointers();
+    initateStaticStatePointers();
     conscructComposit();
 }
 
@@ -54,12 +56,9 @@ void Window::render()
         foundChild = children_map[gameState];
         foundChild->render();
         break;
-    case GameStateGraphic::MenuGameState:
-        foundChild = children_map[gameState];
-        break;
-
     default:
-        break;
+        foundChild = children_map[GameStateGraphic::StaticStates];
+        foundChild->render();
     }
 }
 
@@ -67,18 +66,18 @@ void Window::render()
 void Window::conscructComposit()
 {
     std::shared_ptr<AbstractWindow> activeState = std::make_shared<ActiveStateGraphic>(windowView, activeStatePointers);
-    // Later another states should be implemented
+    std::shared_ptr<AbstractWindow> staticState = std::make_shared<StaticGraphic>(windowView, staticStatesPointers);
     this->children_map[GameStateGraphic::ActieveGameState] = activeState;
+    this->children_map[GameStateGraphic::StaticStates] = staticState;
 }
 
 
 std::string Window::checkEntityType(Entity* e)
 {
-    Entity* trial = e;
-    Tank* tank = static_cast<Tank*>(e);
-    // Bullet* bullet = static_cast<Bullet*>(e);
-
-    if(tank != nullptr)
+    // Entity* trial = e;
+    // Tank* tank = static_cast<Tank*>(e);
+    // // Bullet* bullet = static_cast<Bullet*>(e);
+    if(instanceOf<Tank, Entity>(e))
         return "tank";
     else
         return "bullet";
@@ -96,27 +95,6 @@ void Window::addEntity(Entity* e)
     else if (bullet != nullptr)
         activeStatePointers.bullets->push_back(bullet);
 }
-
-
-// void Window::moveEntity(Entity* e)
-// {
-//     Tank* tank = static_cast<Tank*>(e);
-//     Bullet* bullet = static_cast<Bullet*>(e);
-//     std::vector<Tank*>* tanks = activeStatePointers.tanks;
-//     std::vector<Bullet*>* bullets = activeStatePointers.bullets;
-
-//     if(tank != nullptr)
-//     {
-//         std::vector<Tank*>::iterator it = std::find(tanks->begin(), tanks->end(), tank);
-//         if (it != tanks->end())
-//             it
-//     }
-
-
-
-//     else if (bullet != nullptr)
-//         activeStatePointers.bullets->push_back(bullet);
-// }
 
 
 void Window::removeEntity(Entity* e)
@@ -151,5 +129,20 @@ void Window::loadLevel(Grid* grid, int levelNumber)
 void Window::loadStats(int playerLives, int points)
 {
     *activeStatePointers.playerLives = playerLives;
-    // *activeStatePointers. = points;
+    *staticStatesPointers.points = points;
+}
+
+
+void Window::initateStaticStatePointers()
+{
+    staticStatesPointers.menuPos = std::make_shared<int>();
+    staticStatesPointers.points = std::make_shared<int>();
+    staticStatesPointers.gameState = std::make_shared<GameStateGraphic*>(&gameState);
+
+}
+
+
+void Window::changeMenuPos(uint menuPos)
+{
+    *staticStatesPointers.menuPos = menuPos;
 }

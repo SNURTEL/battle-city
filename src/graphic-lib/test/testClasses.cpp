@@ -12,6 +12,8 @@
 #include "../include/ActiveState_dir/Frame_dir/FrameGraphic.h"
 #include "../include/ActiveState_dir/Borad_dir/BulletsGraphic.h"
 #include "../include/ActiveState_dir/Borad_dir/TilesGraphic.h"
+#include "../include/StaticStates_dir/MenuStateGraphic.h"
+#include "../include/StaticStates_dir/StaticGraphic.h"
 
 
 
@@ -36,12 +38,12 @@ public:
     std::vector<Tank*>* getTanks()
     {
         AbstractWindow* activeStateGraphicAb = getChildren()[GameStateGraphic::ActieveGameState].get();
-        ActiveStateGraphic* activeStateGrahic = static_cast<ActiveStateGraphic*>(activeStateGraphicAb);
+        ActiveStateGraphic* activeStateGrahic = dynamic_cast<ActiveStateGraphic*>(activeStateGraphicAb);
         // assuming BoardGraphic is firts on the list
-        BoardGraphic* boardGraphic = static_cast<BoardGraphic*>(activeStateGrahic->getChildren()[0].get());
+        BoardGraphic* boardGraphic = dynamic_cast<BoardGraphic*>(activeStateGrahic->getChildren()[0].get());
         // assuming TanksGraphic is second on the list
         AbstractWindow* tanksGraphicAb = boardGraphic->getChildren()[1].get();
-        TanksGraphic* tanksGraphic = static_cast<TanksGraphic*>(tanksGraphicAb);
+        TanksGraphic* tanksGraphic = dynamic_cast<TanksGraphic*>(tanksGraphicAb);
         std::vector<Tank*>* tanks = tanksGraphic->getTanks();
         return tanks;
     };
@@ -88,9 +90,17 @@ public:
         AbstractWindow* activeStateGraphicAb = getChildren()[GameStateGraphic::ActieveGameState].get();
         ActiveStateGraphic* activeStateGrahic = static_cast<ActiveStateGraphic*>(activeStateGraphicAb);
         // assuming FrameGraphic is second on the list
-        FrameGraphic* boardGraphic = static_cast<FrameGraphic*>(activeStateGrahic->getChildren()[1].get());
-        return boardGraphic->getPointers();
+        FrameGraphic* frameGraphic = static_cast<FrameGraphic*>(activeStateGrahic->getChildren()[1].get());
+        return frameGraphic->getPointers();
     }
+
+    const Window::StaticStatePointers& getStaticPointersLeaf()
+    {
+        AbstractWindow* staticStateGraphicAb = getChildren()[GameStateGraphic::StaticStates].get();
+        StaticGraphic* staticStateGrahic = static_cast<StaticGraphic*>(staticStateGraphicAb);
+        MenuStateGraphic* menuGraphic = static_cast<MenuStateGraphic*>(staticStateGrahic->getChildren()[Window::GameStateGraphic::MenuGameState].get());
+        return menuGraphic->getStaticPointers();
+    };
 };
 
 

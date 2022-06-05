@@ -11,9 +11,12 @@
 #include "../../tank-lib/include/Tank.h"
 #include "../../tank-lib/include/Bullet.h"
 #include "../../game-lib/include/GameState.h"
+// #include "StaticStates_dir/StaticGraphic.h"
 
 
 class Grid;
+
+
 
 
 /**
@@ -30,6 +33,16 @@ class Window : public AbstractWindow
 {
 public:
 
+    /// @brief Enum that determine actual game state
+    enum GameStateGraphic
+    {
+        ActieveGameState=0,
+        PauseGameState,
+        MenuGameState,
+        FinishedGameState,
+        StaticStates
+    };
+
 
     /// @brief Stores given ActiveState pointers
     struct ActiveStatePointers
@@ -42,10 +55,14 @@ public:
     };
 
     /// @brief Stores MenuState pointers
-    struct MenuStatePointers
+    struct StaticStatePointers
     {
-        // Will be added later
+        std::shared_ptr<Window::GameStateGraphic*> gameState;
+        std::shared_ptr<int> points;
+        std::shared_ptr<int> menuPos;
     };
+
+
 
     /**
      * @brief Construct a new Window object
@@ -58,11 +75,19 @@ public:
     /// @brief Cheks which game state was given and sets appropriate attribute
     void selectgameState(GameState* gmaeState);
 
+
     /**
      * @brief Initiates active state pointers as shared pointers
      *
      */
     void initiateActiveStatePointers();
+
+
+    /**
+     * @brief Initiates static state pointers as shared pointers
+     *
+     */
+    void initateStaticStatePointers();
 
 
     /**
@@ -98,6 +123,10 @@ public:
     void loadStats(int playerLives, int points);
 
 
+    /// @brief Loads curren menu position selected
+    void changeMenuPos(uint menuPos);
+
+
     /**
      * @brief Cheks given Entity type
      *
@@ -109,17 +138,6 @@ public:
     std::string checkEntityType(Entity* e);
 
 
-    /// @brief Enum that determine actual game state
-    enum GameStateGraphic
-    {
-        ActieveGameState=0,
-        PauseGameState,
-        MenuGameState,
-        FinishedGameState
-    };
-
-
-    // virtual ~Window();
 protected:
 
     /**
@@ -134,10 +152,12 @@ protected:
     void conscructComposit();
 
 
-    GameStateGraphic gameState;
+    GameStateGraphic gameState{};
 
-    /// @brief Map that contains Window children
+
+    /// @brief Map that contains Window childrens
     std::unordered_map<GameStateGraphic, std::shared_ptr<AbstractWindow>> children_map{};
+
 
     sf::VideoMode videoMode;
 
@@ -148,6 +168,8 @@ protected:
 
 
     ActiveStatePointers activeStatePointers;
+
+    StaticStatePointers staticStatesPointers;
 
 };
 

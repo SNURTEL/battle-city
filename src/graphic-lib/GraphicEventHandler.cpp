@@ -41,17 +41,20 @@ void GraphicEventHandler::processEvent(std::unique_ptr<Event> event)
     {
         GameState* gameState = event->info.stateInfo.state_;
         window->selectgameState(gameState);
+        break;
     }
     case(Event::MenuSelectionChange):
     {
         int menuPos = event->info.menuInfo.new_pos;
-        // window->changeMenuPos(menuPos);
+        window->changeMenuPos(menuPos);
+        break;
     }
     case(Event::StatisticsChanged):
     {
         int playerLives = event->info.pointsInfo.stats_->getLives();
         int points = event->info.pointsInfo.stats_->getPoints();
         window->loadStats(playerLives, points);
+        break;
     }
     default:
         break;
