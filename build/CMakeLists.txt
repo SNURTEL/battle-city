@@ -153,7 +153,7 @@ add_executable(all_tests
         ${board_lib_test_sources}
         ${graphic_lib_test_sources}
         )
-target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib Catch2::Catch2WithMain)
+target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib graphic-lib Catch2::Catch2WithMain)
 
 
 ############################ MAIN ################################
