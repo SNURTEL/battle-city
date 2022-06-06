@@ -11,10 +11,7 @@
 #include <variant>
 
 #include "../../tank-lib/include/Entity.h"
-
-class Tank;
-
-class PlayerTank;
+#include "../../tank-lib/include/Tank.h"
 
 class Bullet;
 
@@ -148,21 +145,34 @@ public:
 
     // bot events
 
+    /**
+     * Holds additional info about bot requests
+     */
     struct BotInfo {  //
         std::shared_ptr<Bot> bot;
     };
 
+    /**
+     * Holds all info necessary for spawning a tank (used only with bots)
+     */
     struct SpawnDecisionInfo {  //
         unsigned int x;
         unsigned int y;
+        Tank::TankType type;
         Direction direction=North;
     };
 
+    /**
+     * Holds move instructions for bots
+     */
     struct MoveDecisionInfo {  //
         std::shared_ptr<Bot> bot;
         bool flag;
     };
 
+    /**
+     * Holds rotation instructions for bots
+     */
     struct RotateDecisionInfo {  //
         std::shared_ptr<Bot> bot;
         Direction direction;
@@ -284,7 +294,7 @@ public:
 
     Event(EventType e, std::shared_ptr<Bot> bot);
 
-    Event(EventType e, unsigned int x, unsigned int y, Direction direction=North);
+    Event(EventType e, unsigned int x, unsigned int y, Tank::TankType tankType, Direction direction=North);
 
     Event(EventType e, std::shared_ptr<Bot> bot, Direction direction);
 

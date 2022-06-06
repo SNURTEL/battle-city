@@ -10,15 +10,34 @@
 
 class BotController;
 
-class Bot : public SimpleSubscriber, public Entity, public std::enable_shared_from_this<Bot>{
+/**
+ * Represents an """AI"""-controlled Entity. Managed via BotController
+ */
+class Bot : virtual public Entity, public SimpleSubscriber,  public std::enable_shared_from_this<Bot>{
 public:
     ~Bot() override;
 
+    /**
+     * Decreases decision cooldown by 1; queues Event::BotDecisionRequest and re-sets the cooldown after reaching 0
+     * @param pub
+     */
     void notify(SimplePublisher *pub) override;
 
+    /**
+     * Queues an Event::BotDecisionRequest
+     */
     void requestDecision();
 protected:
     Bot()=default;
+    /**
+     * Upon creation, subscribes to Clock and increments BotController's bot counter
+     * @param x
+     * @param y
+     * @param sizeX
+     * @param sizeY
+     * @param speed
+     * @param facing
+     */
     Bot(float x, float y, float sizeX, float sizeY, float speed, Direction facing);
     unsigned int maxDecisionCooldown;
     unsigned int decisionCooldown;

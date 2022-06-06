@@ -19,7 +19,6 @@ BotController::BotController(unsigned int n_maxRegisteredBots, unsigned int n_sp
                                                                                                maxRegisteredBots_(n_maxRegisteredBots),
                                                                                                registeredBots_(0),
                                                                                                eventQueue_(EventQueue<Event>::instance()){
-    subscribe(Clock::instance());
 };
 
 void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
@@ -87,7 +86,7 @@ void BotController::notify(SimplePublisher *pub) {
 std::unique_ptr<BotController> BotController::self_ = nullptr;
 
 BotController *BotController::instance() {
-    if(!self_){
+    if(self_== nullptr){
         throw SingletonNotInitializedException();
     }
     return self_.get();
@@ -106,6 +105,13 @@ void BotController::requestSpawnBot() {
         throw NoSpawnpointException();
     }
 
+    if(types_.empty()){
+        return;
+    }
+
+    Tank::TankType type = types_.front();
+    types_.pop();
+
     std::vector<std::pair<unsigned int, unsigned int>> out;
     std::sample(
             spawnpoints_.begin(),
@@ -119,5 +125,10 @@ void BotController::requestSpawnBot() {
     EventQueue<Event>::instance()->registerEvent(std::make_unique<Event>(Event::BotSpawnDecision,
                                                                          spawnpoint.first,
                                                                          spawnpoint.second,
+                                                                         type,
                                                                          South));
+}
+
+void BotController::setTypes(const std::queue<Tank::TankType> &types) {
+    types_ = types;
 }

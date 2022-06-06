@@ -85,7 +85,7 @@ set(tank_lib_sources
         )
 
 add_library(tank-lib ${tank_lib_sources})
-target_link_libraries(tank-lib PRIVATE game-lib)
+target_link_libraries(tank-lib PRIVATE game-lib bot-lib)
 
 set(tank_lib_test_dir ../src/tank-lib/test)
 set(tank_lib_test_sources

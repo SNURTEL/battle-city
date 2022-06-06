@@ -41,10 +41,15 @@ namespace {
         }
 
         BotController *getEmptyBotController() {
-            BotController::initialize(4, 240);
             BotController *botController = BotController::instance();
             botController->deregisterAllBots();
             return botController;
+        }
+
+        void initSingletons() {
+            Clock::initialize(60);
+            BotController::initialize(4, 240);
+            BotController::instance()->subscribe(Clock::instance());
         }
     }
 }
@@ -62,13 +67,21 @@ SCENARIO("Initializing the controller object") {
 
 SCENARIO("Requesting to spawn tanks") {
     GIVEN("Some objects idk it's 4:28 AM") {
-        Clock::initialize(60);
+        helper::initSingletons();
         auto clock = Clock::instance();
         auto eventQueue = helper::getEmptyEventQueue();
         auto botController = helper::getEmptyBotController();
 
         WHEN("A certain amount of time passes") {
             botController->setSpawnpoints({{1, 2}});
+
+            std::vector<Tank::TankType> tt = {Tank::BasicTank, Tank::ArmorTank, Tank::BasicTank, Tank::BasicTank,
+                                              Tank::FastTank};
+
+            std::queue<Tank::TankType, std::deque<Tank::TankType>> t(std::deque<Tank::TankType>(tt.begin(),
+                                                                              tt.end()));
+            botController->setTypes(t);
+
 
             for (int i = 0; i < 239; ++i) {
                 clock->tick();
@@ -82,8 +95,15 @@ SCENARIO("Requesting to spawn tanks") {
                 REQUIRE(event->type == Event::BotSpawnDecision);
                 REQUIRE(event->info.spawnDecisionInfo.x == 1);
                 REQUIRE(event->info.spawnDecisionInfo.y == 2);
+                REQUIRE(event->info.spawnDecisionInfo.type == Tank::BasicTank);
 
                 REQUIRE(eventQueue->isEmpty());
+                std::vector<Tank::TankType> tt = {Tank::BasicTank, Tank::ArmorTank, Tank::BasicTank, Tank::BasicTank,
+                                                  Tank::FastTank};
+
+                std::queue<Tank::TankType, std::deque<Tank::TankType>> t(std::deque<Tank::TankType>(tt.begin(),
+                                                                                                        tt.end()));
+                botController->setTypes(t);
 
                 AND_WHEN("The maximum number of registered bots is reached") {
                     std::shared_ptr<helper::TestBot> b1 = std::make_shared<helper::TestBot>();
@@ -105,6 +125,13 @@ SCENARIO("Requesting to spawn tanks") {
             }
         }WHEN("No spawnpoints are provided") {
             BotController::initialize(4, 5);
+            BotController::instance()->subscribe(Clock::instance());
+            std::vector<Tank::TankType> tt = {Tank::BasicTank, Tank::ArmorTank, Tank::BasicTank, Tank::BasicTank,
+                                              Tank::FastTank};
+
+            std::queue<Tank::TankType, std::deque<Tank::TankType>> t(std::deque<Tank::TankType>(tt.begin(),
+                                                                                                    tt.end()));
+            botController->setTypes(t);
 
             for (int i = 0; i < 4; ++i) {
                 clock->tick();
@@ -113,6 +140,18 @@ SCENARIO("Requesting to spawn tanks") {
 
             THEN("An exception should be thrown") {
                 REQUIRE_THROWS_AS(clock->tick(), NoSpawnpointException);
+            }
+        }WHEN("Type queue is empty"){
+            BotController::initialize(4, 5);
+            BotController::instance()->subscribe(Clock::instance());
+            botController = BotController::instance();
+            botController->setSpawnpoints({{1, 2}});
+
+            THEN("No events should be created"){
+                for (int i = 0; i < 20; ++i) {
+                    clock->tick();
+                    REQUIRE(eventQueue->isEmpty());
+                }
             }
         }
     }
@@ -124,35 +163,35 @@ SCENARIO("Making random bot decisions") {
         auto clock = Clock::instance();
         auto eventQueue = helper::getEmptyEventQueue();
         auto botController = helper::getEmptyBotController();
+        botController->initialize(4, 2);
 
         std::shared_ptr<helper::TestBot> bot = std::make_shared<helper::TestBot>();
 
         WHEN("Making random decisions for the bot") {
             THEN("Nothing should break lol") {
                 std::unique_ptr<Event> event;
-                for (int i = 0; i < 80; ++i) {
+                for (int i = 0; i < 30; ++i) {
                     botController->makeBotDecision(bot);
                     event = eventQueue->pop();
 
                     switch (event->type) {
-                        case Event::BotMoveDecision:{
+                        case Event::BotMoveDecision: {
                             REQUIRE(event->info.moveDecisionInfo.bot == bot);
                             REQUIRE(event->info.moveDecisionInfo.flag == true);
                             break;
                         }
-                        case Event::BotRotateDecision:{
+                        case Event::BotRotateDecision: {
                             REQUIRE(event->info.rotateDecisionInfo.bot == bot);
                             REQUIRE(event->info.rotateDecisionInfo.direction % 2 != bot->getFacing() % 2);
                             break;
                         }
-                        case Event::BotFireDecision:{
+                        case Event::BotFireDecision: {
                             REQUIRE(event->info.fireDecisionInfo.bot == bot);
                             break;
                         }
                         default:
                             FAIL("what the\nwhat the hell dude :(");  // invalid event type
                     }
-
                 }
             }
         }

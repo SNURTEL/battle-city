@@ -1,11 +1,13 @@
 <map id="Event::TileInfo" name="Event::TileInfo">
-<area shape="rect" id="node1" title=" " alt="" coords="5,1167,121,1244"/>
-<area shape="rect" id="node2" title=" " alt="" coords="41,608,144,685"/>
-<area shape="rect" id="node3" href="$class_grid.html" title="Represents a grid of tiles." alt="" coords="118,865,342,1104"/>
-<area shape="rect" id="node4" title=" " alt="" coords="177,608,253,685"/>
-<area shape="rect" id="node5" href="$class_event_queue.html" title=" " alt="" coords="277,505,477,788"/>
-<area shape="rect" id="node6" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="179,255,329,347"/>
-<area shape="rect" id="node7" title=" " alt="" coords="277,13,477,90"/>
-<area shape="rect" id="node8" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="447,160,647,443"/>
-<area shape="rect" id="node9" title=" " alt="" coords="501,5,650,97"/>
+<area shape="rect" id="node1" title=" " alt="" coords="20,1269,136,1347"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,608,108,685"/>
+<area shape="rect" id="node3" href="$class_grid.html" title="Represents a grid of tiles." alt="" coords="170,865,394,1207"/>
+<area shape="rect" id="node4" title=" " alt="" coords="132,608,208,685"/>
+<area shape="rect" id="node5" title=" " alt="" coords="233,593,406,700"/>
+<area shape="rect" id="node6" title=" " alt="" coords="431,608,621,685"/>
+<area shape="rect" id="node7" href="$class_event_queue.html" title=" " alt="" coords="646,505,846,788"/>
+<area shape="rect" id="node8" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="549,255,698,347"/>
+<area shape="rect" id="node9" title=" " alt="" coords="646,13,846,90"/>
+<area shape="rect" id="node10" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="817,160,1017,443"/>
+<area shape="rect" id="node11" title=" " alt="" coords="870,5,1019,97"/>
 </map>

@@ -98,7 +98,8 @@ $(document).ready(function(){initNavTree('class_board.html',''); initResizable()
 <div class="dynheader">
 Collaboration diagram for Board:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_board__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_board__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -151,6 +152,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aa60d3244f13d1602b9ee39b06eab6a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bd51535ad0c64c521e5f664bdfd9f3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event_queue.html">EventQueue</a>&lt; <a class="el" href="class_event.html">Event</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a9bd51535ad0c64c521e5f664bdfd9f3c">eventQueue_</a> = <a class="el" href="class_event_queue.html">EventQueue</a>&lt;<a class="el" href="class_event.html">Event</a>&gt;::instance()</td></tr>
 <tr class="separator:a9bd51535ad0c64c521e5f664bdfd9f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7427b91c8905aecfbc9c40ac4a5e14c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bot_controller.html">BotController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#af7427b91c8905aecfbc9c40ac4a5e14c">botController</a></td></tr>
+<tr class="separator:af7427b91c8905aecfbc9c40ac4a5e14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Aggregates and manipulates tank, bullet, and tile objects. </p>
@@ -427,7 +430,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Sets board's grid to a given one This function should only be used after removing all entities from the board in order to prevent overlaps</p>
+<p >Sets board's grid to a given one. Loads enemy spawnpoints and types to <a class="el" href="class_bot_controller.html">BotController</a> This function should only be used after removing all entities from the board in order to prevent overlaps</p>
 <p >Does not queue events (yet...) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">grid</td><td>New <a class="el" href="class_grid.html" title="Represents a grid of tiles.">Grid</a> object wrapped in a unique_ptr </td></tr>
@@ -681,6 +684,28 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af7427b91c8905aecfbc9c40ac4a5e14c" name="af7427b91c8905aecfbc9c40ac4a5e14c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7427b91c8905aecfbc9c40ac4a5e14c">&#9670;&nbsp;</a></span>botController</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_bot_controller.html">BotController</a>* Board::botController</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa60d3244f13d1602b9ee39b06eab6a5c" name="aa60d3244f13d1602b9ee39b06eab6a5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa60d3244f13d1602b9ee39b06eab6a5c">&#9670;&nbsp;</a></span>entityController_</h2>
 

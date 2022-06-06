@@ -100,7 +100,7 @@ public:
     bool spawnPlayer(unsigned int x, unsigned int y, Direction facing = North);
 
     /**
-     * Sets board's grid to a given one
+     * Sets board's grid to a given one. Loads enemy spawnpoints and types to BotController
      * This function should only be used after removing all entities from the board in order to prevent overlaps
      *
      * Does not queue events (yet...)
@@ -183,6 +183,9 @@ protected:
     std::unique_ptr<EntityController> entityController_;
 
     EventQueue<Event>* eventQueue_ = EventQueue<Event>::instance();
+
+    BotController* botController;
+
 
 };
 

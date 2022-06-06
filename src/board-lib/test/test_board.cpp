@@ -17,6 +17,9 @@
 
 #include "../../core-lib/include/Event.h"
 #include "../../core-lib/include/EventQueue.h"
+#include "../../core-lib/include/Clock.h"
+
+#include "../../bot-lib/include/BotController.h"
 
 namespace {  // anonymous namespace to force internal linkage
     namespace helper {
@@ -28,6 +31,8 @@ namespace {  // anonymous namespace to force internal linkage
 
         class TestBoard : public Board {
         public:
+            TestBoard(): Board() {};
+
             std::shared_ptr<Entity> getLastEntity() {
                 return entityController_->getAllEntities()->back();
             }
@@ -56,7 +61,7 @@ namespace {  // anonymous namespace to force internal linkage
 
             auto tank = EventQueue<Event>::instance()->pop()->info.entityInfo.entity;
 
-            std::shared_ptr<Tank> result = std::static_pointer_cast<Tank>(tank);
+            std::shared_ptr<Tank> result = std::dynamic_pointer_cast<Tank>(tank);
             if (collision)
                 EventQueue<Event>::instance()->pop();
 
@@ -68,21 +73,31 @@ namespace {  // anonymous namespace to force internal linkage
             if (!board->fireTank(tank)) {
                 return std::nullopt;
             }
-            if (prevSize + 1 != EventQueue<Event>::instance()->size()) {
+
+            auto bullet = std::dynamic_pointer_cast<Bullet>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
+
+            if (prevSize + 1 == EventQueue<Event>::instance()->size()) {
                 EventQueue<Event>::instance()->pop();
             }
-            return std::static_pointer_cast<Bullet>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
+            return bullet;
         }
 
         Grid *placeTile(helper::TestBoard *board, unsigned int x, unsigned int y, TileType type) {
             board->getGrid()->setTile(x, y, type);
             return EventQueue<Event>::instance()->pop()->info.tileInfo.grid;
         }
+
+        void initSingletons(){
+            Clock::initialize(60);
+            BotController::initialize(4, 240);
+            BotController::instance()->subscribe(Clock::instance());
+        }
     }
 
 }
 
 SCENARIO("Spawning tanks") {
+    helper::initSingletons();
     GIVEN("An empty board") {
         helper::TestBoard board{};
 
@@ -94,7 +109,7 @@ SCENARIO("Spawning tanks") {
             THEN("An event should be created") {
                 auto event = eventQueue->pop();
                 REQUIRE(event->type == Event::EntitySpawned);
-                std::shared_ptr<Tank> spawnedTank = std::static_pointer_cast<Tank>(board.getLastEntity());
+                std::shared_ptr<Tank> spawnedTank = std::dynamic_pointer_cast<Tank>(board.getLastEntity());
                 REQUIRE(event->info.entityInfo.entity == spawnedTank);
 
                 AND_THEN("Tank's attrs should be set as expected") {
@@ -102,7 +117,7 @@ SCENARIO("Spawning tanks") {
                     REQUIRE(spawnedTank->getY() == 10);
                     REQUIRE(spawnedTank->getFacing() == East);
                     REQUIRE(spawnedTank->getType() == Tank::FastTank);
-                    REQUIRE(std::static_pointer_cast<Tank>(spawnedTank) != nullptr);
+                    REQUIRE(std::dynamic_pointer_cast<Tank>(spawnedTank) != nullptr);
                 }
             }
         }
@@ -150,6 +165,7 @@ SCENARIO("Spawning tanks") {
 }
 
 SCENARIO("Rotating tanks at integer coords") {
+    helper::initSingletons();
     GIVEN("A board with some tanks") {
         helper::TestBoard board{};
         std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 5, 5, Tank::FastTank);
@@ -180,6 +196,7 @@ SCENARIO("Rotating tanks at integer coords") {
 }
 
 SCENARIO("Rotating tanks an fractional coords") {
+    helper::initSingletons();
     GIVEN("A board with some tanks") {
         helper::TestBoard board{};
 
@@ -291,6 +308,7 @@ SCENARIO("Rotating tanks an fractional coords") {
 }
 
 SCENARIO("Detecting entity - grid collisions") {
+    helper::initSingletons();
     GIVEN("A board") {
         helper::TestBoard board{};
 
@@ -338,6 +356,7 @@ SCENARIO("Detecting entity - grid collisions") {
 }
 
 SCENARIO("Moving a single entity") {
+    helper::initSingletons();
     GIVEN("A board") {
         helper::TestBoard board{};
 
@@ -471,6 +490,7 @@ SCENARIO("Moving a single entity") {
 }
 
 SCENARIO("Removing all enemy tanks from the board") {
+    helper::initSingletons();
     GIVEN("A board with some tanks and bullets") {
         helper::TestBoard board{};
 
@@ -491,9 +511,9 @@ SCENARIO("Removing all enemy tanks from the board") {
             THEN("Only friendly entities should remain on the board") {
                 auto entityVector = board.getAllEntities();
                 REQUIRE(entityVector->size() == 2);
-                REQUIRE(std::static_pointer_cast<PlayerTank>((*entityVector)[0]) != nullptr);
-                REQUIRE(std::static_pointer_cast<Bullet>((*entityVector)[1]) != nullptr);
-                REQUIRE(std::static_pointer_cast<Bullet>((*entityVector)[1])->isFriendly());
+                REQUIRE(std::dynamic_pointer_cast<PlayerTank>((*entityVector)[0]) != nullptr);
+                REQUIRE(std::dynamic_pointer_cast<Bullet>((*entityVector)[1]) != nullptr);
+                REQUIRE(std::dynamic_pointer_cast<Bullet>((*entityVector)[1])->isFriendly());
 
                 AND_THEN("Proper events should be created") {
                     REQUIRE(eventQueue->size() == 4);
@@ -520,6 +540,7 @@ SCENARIO("Removing all enemy tanks from the board") {
 }
 
 SCENARIO("Generating collision events") {
+    helper::initSingletons();
     GIVEN("A board") {
         helper::TestBoard board{};
 
@@ -608,6 +629,7 @@ SCENARIO("Generating collision events") {
 
             THEN("Event should be created as expected (friendly bullet should be the first member)") {
                 REQUIRE(event->type == Event::Collision);
+
                 REQUIRE(std::get<Event::FriendlyBulletCollisionInfo>(
                         event->info.collisionInfo.member1).friendlyBullet ==
                         bullet2);

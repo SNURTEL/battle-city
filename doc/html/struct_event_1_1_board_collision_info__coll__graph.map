@@ -1,11 +1,13 @@
 <map id="Event::BoardCollisionInfo" name="Event::BoardCollisionInfo">
-<area shape="rect" id="node1" title=" " alt="" coords="5,1167,192,1244"/>
-<area shape="rect" id="node2" title=" " alt="" coords="77,608,179,685"/>
-<area shape="rect" id="node3" href="$class_grid.html" title="Represents a grid of tiles." alt="" coords="153,865,377,1104"/>
-<area shape="rect" id="node4" title=" " alt="" coords="213,608,289,685"/>
-<area shape="rect" id="node5" href="$class_event_queue.html" title=" " alt="" coords="312,505,512,788"/>
-<area shape="rect" id="node6" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="215,255,364,347"/>
-<area shape="rect" id="node7" title=" " alt="" coords="312,13,512,90"/>
-<area shape="rect" id="node8" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="483,160,683,443"/>
-<area shape="rect" id="node9" title=" " alt="" coords="536,5,685,97"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,1269,192,1347"/>
+<area shape="rect" id="node2" title=" " alt="" coords="26,608,129,685"/>
+<area shape="rect" id="node3" href="$class_grid.html" title="Represents a grid of tiles." alt="" coords="191,865,415,1207"/>
+<area shape="rect" id="node4" title=" " alt="" coords="153,608,229,685"/>
+<area shape="rect" id="node5" title=" " alt="" coords="253,593,427,700"/>
+<area shape="rect" id="node6" title=" " alt="" coords="451,608,642,685"/>
+<area shape="rect" id="node7" href="$class_event_queue.html" title=" " alt="" coords="667,505,867,788"/>
+<area shape="rect" id="node8" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="569,255,719,347"/>
+<area shape="rect" id="node9" title=" " alt="" coords="667,13,867,90"/>
+<area shape="rect" id="node10" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="837,160,1037,443"/>
+<area shape="rect" id="node11" title=" " alt="" coords="891,5,1040,97"/>
 </map>

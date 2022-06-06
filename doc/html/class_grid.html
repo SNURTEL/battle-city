@@ -98,7 +98,8 @@ $(document).ready(function(){initNavTree('class_grid.html',''); initResizable();
 <div class="dynheader">
 Collaboration diagram for Grid:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_grid__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_grid__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -115,6 +116,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a40acfe0eac4aae736e13493429c9fec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9af57efebfaf354fa3f233a96f364d27"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grid.html#a9af57efebfaf354fa3f233a96f364d27">getSizeY</a> () const</td></tr>
 <tr class="separator:a9af57efebfaf354fa3f233a96f364d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a920362412f6366cd4e04cbe1b2d7f544"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::pair&lt; unsigned int, unsigned int &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grid.html#a920362412f6366cd4e04cbe1b2d7f544">getSpawnpoints</a> () const</td></tr>
+<tr class="separator:a920362412f6366cd4e04cbe1b2d7f544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab939dac9564f6d07fc9158c4bc8c2208"><td class="memItemLeft" align="right" valign="top">const std::queue&lt; <a class="el" href="class_tank.html#a8d01b214be6a1663539d0a34ae808d83">Tank::TankType</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grid.html#ab939dac9564f6d07fc9158c4bc8c2208">getTankTypes</a> () const</td></tr>
+<tr class="separator:ab939dac9564f6d07fc9158c4bc8c2208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -124,6 +129,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:afa45b577cb3668b7fba4d0ccf265b59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78c017a6554fdb552a2fc06280e445d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_grid_8h.html#ae4c5928999c3565a2a27432c04591328">TileType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grid.html#a78c017a6554fdb552a2fc06280e445d8">grid</a> [52][52] = {<a class="el" href="_grid_8h.html#ae4c5928999c3565a2a27432c04591328a1885a687710c799b6ef688ced097e3ab">TileType::NullTile</a>}</td></tr>
 <tr class="separator:a78c017a6554fdb552a2fc06280e445d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abddaee80522fac36c47077ccf124f981"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; unsigned int, unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grid.html#abddaee80522fac36c47077ccf124f981">spawnpoints</a></td></tr>
+<tr class="separator:abddaee80522fac36c47077ccf124f981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc0e75325f6b2e3b541550edb006a2c5"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="class_tank.html#a8d01b214be6a1663539d0a34ae808d83">Tank::TankType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grid.html#afc0e75325f6b2e3b541550edb006a2c5">tankTypes</a></td></tr>
+<tr class="separator:afc0e75325f6b2e3b541550edb006a2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9c9a062ea0e607a1bfd7acd84e68549"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event_queue.html">EventQueue</a>&lt; <a class="el" href="class_event.html">Event</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_grid.html#ae9c9a062ea0e607a1bfd7acd84e68549">eventQueue_</a></td></tr>
 <tr class="separator:ae9c9a062ea0e607a1bfd7acd84e68549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -223,6 +232,42 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Returns board's Y size </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_board.html" title="Aggregates and manipulates tank, bullet, and tile objects.">Board</a>'s Y axis size </dd></dl>
+
+</div>
+</div>
+<a id="a920362412f6366cd4e04cbe1b2d7f544" name="a920362412f6366cd4e04cbe1b2d7f544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a920362412f6366cd4e04cbe1b2d7f544">&#9670;&nbsp;</a></span>getSpawnpoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; std::pair&lt; unsigned int, unsigned int &gt; &gt; &amp; Grid::getSpawnpoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Returns a vector of enemy spawn points </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ab939dac9564f6d07fc9158c4bc8c2208" name="ab939dac9564f6d07fc9158c4bc8c2208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab939dac9564f6d07fc9158c4bc8c2208">&#9670;&nbsp;</a></span>getTankTypes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::queue&lt; <a class="el" href="class_tank.html#a8d01b214be6a1663539d0a34ae808d83">Tank::TankType</a> &gt; &amp; Grid::getTankTypes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Returns subsequent enemy types that should appear on the level </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -406,6 +451,50 @@ Friends</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">unsigned int Grid::size_y = 52</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abddaee80522fac36c47077ccf124f981" name="abddaee80522fac36c47077ccf124f981"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abddaee80522fac36c47077ccf124f981">&#9670;&nbsp;</a></span>spawnpoints</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::pair&lt;unsigned int, unsigned int&gt; &gt; Grid::spawnpoints</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc0e75325f6b2e3b541550edb006a2c5" name="afc0e75325f6b2e3b541550edb006a2c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc0e75325f6b2e3b541550edb006a2c5">&#9670;&nbsp;</a></span>tankTypes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;<a class="el" href="class_tank.html#a8d01b214be6a1663539d0a34ae808d83">Tank::TankType</a>&gt; Grid::tankTypes</td>
         </tr>
       </table>
   </td>

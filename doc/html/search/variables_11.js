@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['y_5f_0',['y_',['../class_entity.html#a0e392942701b93375b8f8ea33b432189',1,'Entity']]]
+  ['x_0',['x',['../struct_event_1_1_spawn_decision_info.html#a8a4168c9348e37744d018dbd352716cc',1,'Event::SpawnDecisionInfo']]],
+  ['x_5f_1',['x_',['../class_entity.html#af6fadfd6093eacc828096f59999f5c56',1,'Entity']]]
 ];

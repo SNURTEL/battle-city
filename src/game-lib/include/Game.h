@@ -25,6 +25,8 @@ class KeyboardController;
 
 class GameStatistics;
 
+class BotController;
+
 /**
  * Main container
  * Hold references to all other objects and runs the main event loop

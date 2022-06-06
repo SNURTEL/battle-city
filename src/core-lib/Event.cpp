@@ -145,11 +145,11 @@ Event::Event(EventType e, std::shared_ptr<Bot> bot) {
     }
 }
 
-Event::Event(EventType e, unsigned int x, unsigned int y, Direction direction) {
+Event::Event(EventType e, unsigned int x, unsigned int y, Tank::TankType tankType, Direction direction) {
     type = e;
     switch (e) {
         case BotSpawnDecision: {
-            info.spawnDecisionInfo = {x, y, direction};
+            info.spawnDecisionInfo = {x, y, tankType, direction};
             break;
         }
         default:

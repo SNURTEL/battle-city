@@ -14,7 +14,7 @@
  */
 class TestTank : public Tank {
 public:
-    TestTank() : Tank(Tank::PowerTank, 10, 10, 1, 1, 1, North, 100) {};
+    TestTank() : Entity(10, 10, 4, 4, 1, North), Tank(Tank::PowerTank, 10, 10, 1, 1, 1, North, 100) {};
 };
 
 SCENARIO("Moving the tank in the direction it is faced") {

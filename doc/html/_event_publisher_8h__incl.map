@@ -1,12 +1,17 @@
 <map id="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/core&#45;lib/include/EventPublisher.h" name="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/core&#45;lib/include/EventPublisher.h">
-<area shape="rect" id="node1" title=" " alt="" coords="15,5,254,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,184,56,211"/>
-<area shape="rect" id="node3" title=" " alt="" coords="81,184,143,211"/>
-<area shape="rect" id="node4" href="$_event_8h.html" title=" " alt="" coords="247,184,318,211"/>
-<area shape="rect" id="node9" href="$_event_subscriber_8h.html" title=" " alt="" coords="119,109,257,136"/>
-<area shape="rect" id="node5" title=" " alt="" coords="97,259,183,285"/>
-<area shape="rect" id="node6" title=" " alt="" coords="208,259,267,285"/>
-<area shape="rect" id="node7" title=" " alt="" coords="291,259,368,285"/>
-<area shape="rect" id="node8" title=" " alt="" coords="393,259,461,285"/>
-<area shape="rect" id="node10" title=" " alt="" coords="168,184,211,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,244,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="46,184,97,211"/>
+<area shape="rect" id="node3" title=" " alt="" coords="169,527,232,553"/>
+<area shape="rect" id="node4" href="$_event_8h.html" title=" " alt="" coords="647,184,717,211"/>
+<area shape="rect" id="node14" href="$_event_subscriber_8h.html" title=" " alt="" coords="109,109,247,136"/>
+<area shape="rect" id="node5" title=" " alt="" coords="680,266,767,293"/>
+<area shape="rect" id="node6" title=" " alt="" coords="791,266,850,293"/>
+<area shape="rect" id="node7" title=" " alt="" coords="426,527,503,553"/>
+<area shape="rect" id="node8" title=" " alt="" coords="875,266,943,293"/>
+<area shape="rect" id="node9" href="$_entity_8h.html" title=" " alt="" coords="541,437,687,479"/>
+<area shape="rect" id="node10" href="$_tank_8h.html" title=" " alt="" coords="414,259,561,300"/>
+<area shape="rect" id="node11" title=" " alt="" coords="502,355,577,382"/>
+<area shape="rect" id="node12" href="$_simple_subscriber_8h.html" title=" " alt="" coords="257,437,408,479"/>
+<area shape="rect" id="node13" href="$_bot_8h.html" title=" " alt="" coords="289,348,427,389"/>
+<area shape="rect" id="node15" title=" " alt="" coords="121,184,163,211"/>
 </map>
