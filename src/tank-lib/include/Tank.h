@@ -10,6 +10,7 @@
 
 #include "../../core-lib/include/SimpleSubscriber.h"
 #include "Entity.h"
+#include "../../bot-lib/include/Bot.h"
 
 class SimplePublisher;
 
@@ -23,7 +24,7 @@ class Bullet;
  *
  * Tanks provide no input validation whatsoever and should only be manipulated by EntityController.
  */
-class Tank: public Entity, public SimpleSubscriber{
+class Tank: virtual public Entity, public SimpleSubscriber{
 public:
     /**
      * Represents tank types, should match names of derived classes
@@ -148,7 +149,7 @@ protected:
 /**
  * Represents a tank controlled by the player
  */
-class PlayerTank: public Tank{
+class PlayerTank: virtual public Tank{
 public:
     PlayerTank()=delete;
     /**
@@ -164,7 +165,7 @@ public:
 /**
  * Represents a tank worth 100 points
  */
-class BasicTank: public Tank{
+class BasicTank:  virtual public Tank,  public Bot {
 public:
     BasicTank()=delete;
     /**
@@ -179,7 +180,7 @@ public:
 /**
  * Represents a tank worth 200 points
  */
-class FastTank: public Tank{
+class FastTank: virtual public Tank,  public Bot {
 public:
     FastTank()=delete;
     /**
@@ -194,7 +195,7 @@ public:
 /**
  * Represents a tank worth 300 points
  */
-class PowerTank: public Tank{
+class PowerTank:  virtual public Tank,  public Bot {
 public:
     PowerTank()=delete;
     /**
@@ -209,7 +210,7 @@ public:
 /**
  * Represents a tank worth 400 points
  */
-class ArmorTank: public Tank{
+class ArmorTank: virtual public Tank,  public Bot {
 public:
     ArmorTank()=delete;
     /**

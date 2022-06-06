@@ -6,6 +6,10 @@
 #define PROI_PROJEKT_GRID_H
 
 #include <exception>
+#include <vector>
+#include <queue>
+
+#include "../../tank-lib/include/Tank.h"
 
 class Event;
 
@@ -84,11 +88,25 @@ public:
      */
     [[nodiscard]] unsigned int getSizeY() const;
 
+    /**
+     * Returns a vector of enemy spawn points
+     * @return
+     */
+    [[nodiscard]] const std::vector<std::pair<unsigned int, unsigned int>> &getSpawnpoints() const;
+
+    /**
+     * Returns subsequent enemy types that should appear on the level
+     * @return
+     */
+    [[nodiscard]] const std::queue<Tank::TankType> &getTankTypes() const;
+
     friend class GridBuilder;
 protected:
     unsigned int size_x = 52;
     unsigned int size_y = 52;
     TileType grid[52][52] = {TileType::NullTile};
+    std::vector<std::pair<unsigned int, unsigned int>> spawnpoints;
+    std::queue<Tank::TankType> tankTypes;
 
     EventQueue<Event> *eventQueue_;
 };

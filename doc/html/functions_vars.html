@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
 <li>board_&#160;:&#160;<a class="el" href="class_active_game_state.html#a0cd8851091382b61d6668aff54e15dd3">ActiveGameState</a>, <a class="el" href="class_game.html#a471685d00632aaeda2ca59b5fd5355eb">Game</a></li>
+<li>bot&#160;:&#160;<a class="el" href="struct_event_1_1_bot_info.html#a2b90800b53cc18628c98cbde44e0e51d">Event::BotInfo</a>, <a class="el" href="struct_event_1_1_move_decision_info.html#a4a69e8b6a871fe1e122344f15c4424f9">Event::MoveDecisionInfo</a>, <a class="el" href="struct_event_1_1_rotate_decision_info.html#a1fb4e24bfd2cb208f7c88225e2ba28a8">Event::RotateDecisionInfo</a></li>
+<li>botController&#160;:&#160;<a class="el" href="class_board.html#af7427b91c8905aecfbc9c40ac4a5e14c">Board</a>, <a class="el" href="class_bot.html#ad8ce4ebbf2e77313b244b5795af3e9c6">Bot</a></li>
+<li>botInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#a5b91483472bc4bac258fef2ed982d16f">Event::info_u</a></li>
 <li>bulletSpeed_&#160;:&#160;<a class="el" href="class_tank.html#a2a152556e5272f0c4b07a10f69450f45">Tank</a></li>
 </ul>
 
@@ -99,6 +102,12 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>clock_&#160;:&#160;<a class="el" href="class_game.html#a0a15a49e48e2b85aea3670f571c87995">Game</a></li>
 <li>collisionInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#ac54bdb77b265c1711ef21dc5ae96643b">Event::info_u</a></li>
+</ul>
+
+
+<h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
+<li>decisionCooldown&#160;:&#160;<a class="el" href="class_bot.html#a03aef087c919f8bcf0585d2c65bd1858">Bot</a></li>
+<li>direction&#160;:&#160;<a class="el" href="struct_event_1_1_rotate_decision_info.html#addba5cd2d5888dc983a7dd00e8bdd9b9">Event::RotateDecisionInfo</a>, <a class="el" href="struct_event_1_1_spawn_decision_info.html#a2d3960c1d23d34e03cb6284fc254d264">Event::SpawnDecisionInfo</a></li>
 </ul>
 
 
@@ -111,7 +120,7 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>entityInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#a57b66516f44f59a94931486720fa2019">Event::info_u</a></li>
 <li>event_subscribers_&#160;:&#160;<a class="el" href="class_event_publisher.html#a738e77e505033234f0f687b0a2d559ed">EventPublisher</a></li>
 <li>eventHandler_&#160;:&#160;<a class="el" href="class_game_state.html#af01995afceb7c309c856622d94053bd7">GameState</a></li>
-<li>eventQueue_&#160;:&#160;<a class="el" href="class_active_event_handler.html#a08d02864a419cef309fae152af5fc592">ActiveEventHandler</a>, <a class="el" href="class_board.html#a9bd51535ad0c64c521e5f664bdfd9f3c">Board</a>, <a class="el" href="class_entity_controller.html#a6dd93277500e154b03fbcfe5fb37d5b7">EntityController</a>, <a class="el" href="class_game.html#adf5cb414245c87871f2a0f0b2cd87129">Game</a>, <a class="el" href="class_game_statistics.html#aa592737e1729e1679ab6065957e1d2ee">GameStatistics</a>, <a class="el" href="class_grid.html#ae9c9a062ea0e607a1bfd7acd84e68549">Grid</a>, <a class="el" href="class_keyboard_controller.html#a10b7e6e03d06955bb214e9c3b747e11f">KeyboardController</a>, <a class="el" href="class_menu.html#aa9cc5bfa14ea3ef444cf3f4c1160985c">Menu</a></li>
+<li>eventQueue_&#160;:&#160;<a class="el" href="class_active_event_handler.html#a08d02864a419cef309fae152af5fc592">ActiveEventHandler</a>, <a class="el" href="class_board.html#a9bd51535ad0c64c521e5f664bdfd9f3c">Board</a>, <a class="el" href="class_bot_controller.html#a7da865626c40d52c45ef80a78e885e1d">BotController</a>, <a class="el" href="class_entity_controller.html#a6dd93277500e154b03fbcfe5fb37d5b7">EntityController</a>, <a class="el" href="class_game.html#adf5cb414245c87871f2a0f0b2cd87129">Game</a>, <a class="el" href="class_game_statistics.html#aa592737e1729e1679ab6065957e1d2ee">GameStatistics</a>, <a class="el" href="class_grid.html#ae9c9a062ea0e607a1bfd7acd84e68549">Grid</a>, <a class="el" href="class_keyboard_controller.html#a10b7e6e03d06955bb214e9c3b747e11f">KeyboardController</a>, <a class="el" href="class_menu.html#aa9cc5bfa14ea3ef444cf3f4c1160985c">Menu</a></li>
 <li>events_&#160;:&#160;<a class="el" href="class_event_queue.html#a83a749137b64d37e19193532967c64d2">EventQueue&lt; E &gt;</a></li>
 </ul>
 
@@ -119,6 +128,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
 <li>facing_&#160;:&#160;<a class="el" href="class_entity.html#a209bf984634059504922bd6fd7b3ee24">Entity</a></li>
 <li>finished_state_&#160;:&#160;<a class="el" href="class_game.html#a753ededad8a7d3ace19e87845d5032a4">Game</a></li>
+<li>fireDecisionInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#a81e1147008d8c5672d3fc93a6dd8bad3">Event::info_u</a></li>
+<li>flag&#160;:&#160;<a class="el" href="struct_event_1_1_move_decision_info.html#a622698f59557a6c8adf4e17b3a8b90cf">Event::MoveDecisionInfo</a></li>
 <li>friendlyBullet&#160;:&#160;<a class="el" href="struct_event_1_1_friendly_bullet_collision_info.html#acccd87d7b3fcd0d51e1d8210830affed">Event::FriendlyBulletCollisionInfo</a></li>
 </ul>
 
@@ -156,12 +167,16 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
 <li>max_pos_&#160;:&#160;<a class="el" href="class_menu.html#a54cfc75c5233f7444d47d4e5412eae0d">Menu</a></li>
+<li>maxDecisionCooldown&#160;:&#160;<a class="el" href="class_bot.html#a41a0d241c533f9c36be36d3785f62703">Bot</a></li>
+<li>maxRegisteredBots_&#160;:&#160;<a class="el" href="class_bot_controller.html#a2526c6b100fbb6b9d7153e287182f536">BotController</a></li>
+<li>maxSpawnCooldown&#160;:&#160;<a class="el" href="class_bot_controller.html#aa9c40d247c8d83bcfd579616a2fd46c6">BotController</a></li>
 <li>member1&#160;:&#160;<a class="el" href="struct_event_1_1_collision_info.html#a2fbd6bdef3b418070cebb38101414b8c">Event::CollisionInfo</a></li>
 <li>member2&#160;:&#160;<a class="el" href="struct_event_1_1_collision_info.html#a9ff5c68f7aee82fc5ec973ef52145cde">Event::CollisionInfo</a></li>
 <li>menu&#160;:&#160;<a class="el" href="struct_event_1_1_menu_info.html#a226f9b10c453fa9ce2d69fdc6eb5094e">Event::MenuInfo</a></li>
 <li>menu_&#160;:&#160;<a class="el" href="class_menu_game_state.html#ae6540f4b3f3ad8e0e097f26de3dd7e33">MenuGameState</a>, <a class="el" href="class_pause_game_state.html#a09c21bee0ee945de86edd3718a9b38b9">PauseGameState</a></li>
 <li>menu_state_&#160;:&#160;<a class="el" href="class_game.html#adcc2800f1cb970f1103c07f4596db638">Game</a></li>
 <li>menuInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#af28f7914816bfa89bcabc1e00e233289">Event::info_u</a></li>
+<li>moveDecisionInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#a29e8d453d9bf0e220372575601d24b78">Event::info_u</a></li>
 <li>moving_&#160;:&#160;<a class="el" href="class_tank.html#abedb1b99229f0f1413ad302d7a89047f">Tank</a></li>
 </ul>
 
@@ -183,6 +198,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
+<li>registeredBots_&#160;:&#160;<a class="el" href="class_bot_controller.html#a7df226cd3785d10dc5b9e0a20375be5b">BotController</a></li>
+<li>rotateDecisionInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#a37ead160b870a286a91b41b0f69bb659">Event::info_u</a></li>
 <li>running_&#160;:&#160;<a class="el" href="class_game.html#a9da12a2d9125bfaa8782a61b69c49f9e">Game</a></li>
 </ul>
 
@@ -190,11 +207,15 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>scoreboard_&#160;:&#160;<a class="el" href="class_game_statistics.html#ab69778775a02d3e1f910dda73ef66496">GameStatistics</a></li>
 <li>scoreboardFilename&#160;:&#160;<a class="el" href="class_game_stats_i_o.html#a13c4fd94fc0e1ee99906c97ea786bba9">GameStatsIO</a></li>
-<li>self_&#160;:&#160;<a class="el" href="class_clock.html#aefadbf218778afe5478ed228ca74821c">Clock</a>, <a class="el" href="class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47">EventQueue&lt; E &gt;</a></li>
+<li>self_&#160;:&#160;<a class="el" href="class_bot_controller.html#a7adaaab5a37200a7e2c728afa7dc2281">BotController</a>, <a class="el" href="class_clock.html#aefadbf218778afe5478ed228ca74821c">Clock</a>, <a class="el" href="class_event_queue.html#a2c7b5c4f3744940a36017f2532f8fd47">EventQueue&lt; E &gt;</a></li>
 <li>size_x&#160;:&#160;<a class="el" href="class_grid.html#ad7f84e5ac3bc5dc93811d5a7476aa47a">Grid</a></li>
 <li>size_x_&#160;:&#160;<a class="el" href="class_entity.html#a644276e5344c7b3bf67cf1c3f06307c9">Entity</a></li>
 <li>size_y&#160;:&#160;<a class="el" href="class_grid.html#afa45b577cb3668b7fba4d0ccf265b59a">Grid</a></li>
 <li>size_y_&#160;:&#160;<a class="el" href="class_entity.html#a40cf7b1e25370d9678ba65620e8dcae0">Entity</a></li>
+<li>spawnCooldown&#160;:&#160;<a class="el" href="class_bot_controller.html#a726373bef27480ee47e4171e02d72e9a">BotController</a></li>
+<li>spawnDecisionInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#aedd84e657a80ba325a6cb3d82b80f776">Event::info_u</a></li>
+<li>spawnpoints&#160;:&#160;<a class="el" href="class_grid.html#abddaee80522fac36c47077ccf124f981">Grid</a></li>
+<li>spawnpoints_&#160;:&#160;<a class="el" href="class_bot_controller.html#a64eb922a6c7fda67b3a1fbb3e0683a54">BotController</a></li>
 <li>speed_&#160;:&#160;<a class="el" href="class_entity.html#a7a7e23238d85b38df7033bcbc641cdc3">Entity</a></li>
 <li>state_&#160;:&#160;<a class="el" href="class_active_event_handler.html#aa7d12cb289da1ffbfa938df1108f3436">ActiveEventHandler</a>, <a class="el" href="struct_event_1_1_state_info.html#abe373f02f9854c3c829ec6b09d0f66ea">Event::StateInfo</a>, <a class="el" href="class_finished_event_handler.html#a24871924c853443a822aa7c5b114ae38">FinishedEventHandler</a>, <a class="el" href="class_game.html#a1f5994676777b79e8370b185d8d314d8">Game</a>, <a class="el" href="class_menu_event_handler.html#a25565788e2a8804e79e2c9ec5d1c6552">MenuEventHandler</a>, <a class="el" href="class_pause_event_handler.html#adf2eac9e4828261a1bc631caf8cc2b5f">PauseEventHandler</a></li>
 <li>stateInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#aa663d185cf69968951369bdea5d16b70">Event::info_u</a></li>
@@ -205,11 +226,13 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
+<li>tankTypes&#160;:&#160;<a class="el" href="class_grid.html#afc0e75325f6b2e3b541550edb006a2c5">Grid</a></li>
 <li>tile_x&#160;:&#160;<a class="el" href="struct_event_1_1_board_collision_info.html#ad3a37b3ccfced5b65e461b4b09800166">Event::BoardCollisionInfo</a>, <a class="el" href="struct_event_1_1_tile_info.html#a819804522341c0f3e694f27ece31127f">Event::TileInfo</a></li>
 <li>tile_y&#160;:&#160;<a class="el" href="struct_event_1_1_board_collision_info.html#ad1ff8896e61d50aabf32f36b10a61414">Event::BoardCollisionInfo</a>, <a class="el" href="struct_event_1_1_tile_info.html#a1bfde14a7c5bce395337e7c46754d8ae">Event::TileInfo</a></li>
 <li>tileInfo&#160;:&#160;<a class="el" href="union_event_1_1info__u.html#a62c4acb646e7f5bc82104aece92cf22f">Event::info_u</a></li>
-<li>type&#160;:&#160;<a class="el" href="class_event.html#ac721e4f34b3b9a1ae302165412221724">Event</a></li>
+<li>type&#160;:&#160;<a class="el" href="struct_event_1_1_spawn_decision_info.html#a737509e953e9afb6297b8d428c13589f">Event::SpawnDecisionInfo</a>, <a class="el" href="class_event.html#ac721e4f34b3b9a1ae302165412221724">Event</a></li>
 <li>type_&#160;:&#160;<a class="el" href="class_bullet.html#aadb76e40903b77348194c7147988635e">Bullet</a>, <a class="el" href="class_tank.html#a94249884974479f0fb83cba0be3bf9cf">Tank</a></li>
+<li>types_&#160;:&#160;<a class="el" href="class_bot_controller.html#a7f373fd51e1c656eb6ffb42649e652b1">BotController</a></li>
 </ul>
 
 
@@ -220,11 +243,13 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_x" name="index_x"></a>- x -</h3><ul>
+<li>x&#160;:&#160;<a class="el" href="struct_event_1_1_spawn_decision_info.html#a8a4168c9348e37744d018dbd352716cc">Event::SpawnDecisionInfo</a></li>
 <li>x_&#160;:&#160;<a class="el" href="class_entity.html#af6fadfd6093eacc828096f59999f5c56">Entity</a></li>
 </ul>
 
 
 <h3><a id="index_y" name="index_y"></a>- y -</h3><ul>
+<li>y&#160;:&#160;<a class="el" href="struct_event_1_1_spawn_decision_info.html#a7aade6e3b7fb720b5fabd8e1fa57933d">Event::SpawnDecisionInfo</a></li>
 <li>y_&#160;:&#160;<a class="el" href="class_entity.html#a0e392942701b93375b8f8ea33b432189">Entity</a></li>
 </ul>
 </div><!-- contents -->

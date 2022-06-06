@@ -84,7 +84,7 @@ SCENARIO("Creating tanks") {
             std::shared_ptr<Tank> tank1 = test_entityController.createTank(12, 99, Tank::ArmorTank);
 
             THEN("A tank of correct type should be returned") {
-                REQUIRE(std::static_pointer_cast<ArmorTank>(tank1)!= nullptr);
+                REQUIRE(std::dynamic_pointer_cast<ArmorTank>(tank1)!= nullptr);
 
                 AND_THEN("All fields should be set as expected") {
                     REQUIRE(tank1->getX() == 12);
@@ -112,9 +112,9 @@ SCENARIO("Spawning entities") {
             std::shared_ptr<Tank> tank2 = test_entityController.addEntity(std::move(t2));
 
             THEN("Tanks should be added to the controller") {
-                REQUIRE(std::static_pointer_cast<Tank>((*(test_entityController.getEntities()))[0])->getType()==
+                REQUIRE(std::dynamic_pointer_cast<Tank>((*(test_entityController.getEntities()))[0])->getType()==
                         Tank::BasicTank);
-                REQUIRE(std::static_pointer_cast<Tank>((*(test_entityController.getEntities()))[1])->getType()==
+                REQUIRE(std::dynamic_pointer_cast<Tank>((*(test_entityController.getEntities()))[1])->getType()==
                         Tank::PowerTank);
             }
         }
@@ -126,13 +126,13 @@ SCENARIO("Spawning entities") {
             std::shared_ptr<Bullet> bullet = test_entityController.addEntity(std::move(b1));
 
             THEN("Bullet should be added to the controller") {
-                REQUIRE(std::static_pointer_cast<Bullet>((*(test_entityController.getEntities()))[0]) != nullptr);
+                REQUIRE(std::dynamic_pointer_cast<Bullet>((*(test_entityController.getEntities()))[0]) != nullptr);
             }
         }
 
         WHEN("Spawning the player") {
             std::shared_ptr<Tank> t = test_entityController.createTank(5, 5, Tank::PlayerTank);
-            auto pt = std::static_pointer_cast<PlayerTank>(t);
+            auto pt = std::dynamic_pointer_cast<PlayerTank>(t);
             std::shared_ptr<PlayerTank> newTank = test_entityController.addEntity(pt);
 
             THEN("New tank should be stored in a separate place") {
@@ -388,7 +388,7 @@ SCENARIO("Finding entities by their position") {
 
             THEN("A correct entity should be returned") {
                 REQUIRE(found.has_value());
-                REQUIRE(std::static_pointer_cast<Bullet>(found.value()) != nullptr);
+                REQUIRE(std::dynamic_pointer_cast<Bullet>(found.value()) != nullptr);
             }
         }
 
@@ -397,7 +397,7 @@ SCENARIO("Finding entities by their position") {
 
             THEN("A correct entity should be returned") {
                 REQUIRE(found.has_value());
-                REQUIRE(std::static_pointer_cast<Tank>(found.value()) != nullptr);
+                REQUIRE(std::dynamic_pointer_cast<Tank>(found.value()) != nullptr);
             }
         }
 
@@ -406,7 +406,7 @@ SCENARIO("Finding entities by their position") {
 
             THEN("A correct entity should be returned") {
                 REQUIRE(found.has_value());
-                REQUIRE(std::static_pointer_cast<Tank>(found.value()) != nullptr);
+                REQUIRE(std::dynamic_pointer_cast<Tank>(found.value()) != nullptr);
             }
         }
 
@@ -439,7 +439,7 @@ SCENARIO("Finding entities by their position") {
             THEN("Entity on the right should be returned") {
 
                 REQUIRE(found.has_value());
-                REQUIRE(std::static_pointer_cast<Tank>(found.value()) != nullptr);
+                REQUIRE(std::dynamic_pointer_cast<Tank>(found.value()) != nullptr);
             }
 
         }
@@ -465,8 +465,8 @@ SCENARIO("Collision detection") {
             std::shared_ptr<Tank> tank2 = spawnTank(&test_entityController, 6, 6, Tank::PlayerTank);
 
             THEN("A collision should be detected") {
-                REQUIRE(test_entityController.checkEntityCollisions(tank2));
-                REQUIRE(test_entityController.checkEntityCollisions(tank1));
+                REQUIRE(test_entityController.checkEntityCollisions(tank2).has_value());
+                REQUIRE(test_entityController.checkEntityCollisions(tank1).has_value());
             }
         }WHEN("One objects sits right on other's edge (horizontally)") {
             std::shared_ptr<Tank> tank2 = spawnTank(&test_entityController, 9, 5, Tank::PlayerTank);

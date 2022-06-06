@@ -85,7 +85,7 @@ set(tank_lib_sources
         )
 
 add_library(tank-lib ${tank_lib_sources})
-target_link_libraries(tank-lib PRIVATE game-lib)
+target_link_libraries(tank-lib PRIVATE game-lib bot-lib)
 
 set(tank_lib_test_dir ../src/tank-lib/test)
 set(tank_lib_test_sources
@@ -115,6 +115,27 @@ set(board_lib_test_sources
 add_executable(test_board_lib ${board_lib_test_sources})
 target_link_libraries(test_board_lib PRIVATE board-lib Catch2::Catch2WithMain)
 
+############################ BOT-LIB ################################
+
+set(bot_lib_dir ../src/bot-lib)
+set(bot_lib_sources
+        ${bot_lib_dir}/Bot.cpp
+        ${bot_lib_dir}/BotController.cpp
+        )
+
+add_library(bot-lib ${bot_lib_sources})
+target_link_libraries(bot-lib PRIVATE core-lib tank-lib)
+
+set(bot_lib_test_dir ../src/bot-lib/test)
+set(bot_lib_test_sources
+        ${bot_lib_test_dir}/test_bot.cpp
+        ${bot_lib_test_dir}/test_botController.cpp)
+
+add_executable(test_bot_lib ${bot_lib_test_sources})
+target_link_libraries(test_bot_lib PRIVATE tank-lib bot-lib Catch2::Catch2WithMain)
+
+
+
 ############################ ALL TESTS ################################
 
 add_executable(all_tests
@@ -122,13 +143,14 @@ add_executable(all_tests
         ${game_lib_test_sources}
         ${tank_lib_test_sources}
         ${board_lib_test_sources}
+        ${bot_lib_test_sources}
         )
-target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib Catch2::Catch2WithMain)
+target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib bot-lib Catch2::Catch2WithMain)
 
 
 ############################ MAIN ################################
 
 
-add_executable(tanks ../src/main/tanks.cpp ${core_lib_sources} ${game_lib_sources} ${tank_lib_sources} ${board_lib_sources})
-target_link_libraries(tanks ${SFML_LIBRARIES} core-lib game-lib tank-lib board-lib)
+add_executable(tanks ../src/main/tanks.cpp ${core_lib_sources} ${game_lib_sources} ${tank_lib_sources} ${board_lib_sources} ${bot_lib_sources})
+target_link_libraries(tanks ${SFML_LIBRARIES} core-lib game-lib tank-lib board-lib bot-lib)
 

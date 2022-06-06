@@ -120,6 +120,16 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac54bdb77b265c1711ef21dc5ae96643b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a817f99a9f14900991f14c46d52e6135c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_event_1_1_stats_info.html">StatsInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_event_1_1info__u.html#a817f99a9f14900991f14c46d52e6135c">pointsInfo</a></td></tr>
 <tr class="separator:a817f99a9f14900991f14c46d52e6135c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b91483472bc4bac258fef2ed982d16f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_event_1_1_bot_info.html">BotInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_event_1_1info__u.html#a5b91483472bc4bac258fef2ed982d16f">botInfo</a></td></tr>
+<tr class="separator:a5b91483472bc4bac258fef2ed982d16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedd84e657a80ba325a6cb3d82b80f776"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_event_1_1_spawn_decision_info.html">SpawnDecisionInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_event_1_1info__u.html#aedd84e657a80ba325a6cb3d82b80f776">spawnDecisionInfo</a></td></tr>
+<tr class="separator:aedd84e657a80ba325a6cb3d82b80f776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ead160b870a286a91b41b0f69bb659"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_event_1_1_rotate_decision_info.html">RotateDecisionInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_event_1_1info__u.html#a37ead160b870a286a91b41b0f69bb659">rotateDecisionInfo</a></td></tr>
+<tr class="separator:a37ead160b870a286a91b41b0f69bb659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e8d453d9bf0e220372575601d24b78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_event_1_1_move_decision_info.html">MoveDecisionInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_event_1_1info__u.html#a29e8d453d9bf0e220372575601d24b78">moveDecisionInfo</a></td></tr>
+<tr class="separator:a29e8d453d9bf0e220372575601d24b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81e1147008d8c5672d3fc93a6dd8bad3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_event_1_1_bot_info.html">BotInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_event_1_1info__u.html#a81e1147008d8c5672d3fc93a6dd8bad3">fireDecisionInfo</a></td></tr>
+<tr class="separator:a81e1147008d8c5672d3fc93a6dd8bad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Contains additional event info. Unions member is initialized according to EventType enum passed to the constructor Trying to access any member other than initialized will result in undefined behavior </p>
@@ -150,6 +160,20 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5b91483472bc4bac258fef2ed982d16f" name="a5b91483472bc4bac258fef2ed982d16f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b91483472bc4bac258fef2ed982d16f">&#9670;&nbsp;</a></span>botInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_event_1_1_bot_info.html">BotInfo</a> Event::info_u::botInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac54bdb77b265c1711ef21dc5ae96643b" name="ac54bdb77b265c1711ef21dc5ae96643b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac54bdb77b265c1711ef21dc5ae96643b">&#9670;&nbsp;</a></span>collisionInfo</h2>
 
@@ -172,6 +196,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="struct_event_1_1_entity_info.html">EntityInfo</a> Event::info_u::entityInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81e1147008d8c5672d3fc93a6dd8bad3" name="a81e1147008d8c5672d3fc93a6dd8bad3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81e1147008d8c5672d3fc93a6dd8bad3">&#9670;&nbsp;</a></span>fireDecisionInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_event_1_1_bot_info.html">BotInfo</a> Event::info_u::fireDecisionInfo</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -220,6 +258,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a29e8d453d9bf0e220372575601d24b78" name="a29e8d453d9bf0e220372575601d24b78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e8d453d9bf0e220372575601d24b78">&#9670;&nbsp;</a></span>moveDecisionInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_event_1_1_move_decision_info.html">MoveDecisionInfo</a> Event::info_u::moveDecisionInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a817f99a9f14900991f14c46d52e6135c" name="a817f99a9f14900991f14c46d52e6135c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a817f99a9f14900991f14c46d52e6135c">&#9670;&nbsp;</a></span>pointsInfo</h2>
 
@@ -228,6 +280,34 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="struct_event_1_1_stats_info.html">StatsInfo</a> Event::info_u::pointsInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37ead160b870a286a91b41b0f69bb659" name="a37ead160b870a286a91b41b0f69bb659"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37ead160b870a286a91b41b0f69bb659">&#9670;&nbsp;</a></span>rotateDecisionInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_event_1_1_rotate_decision_info.html">RotateDecisionInfo</a> Event::info_u::rotateDecisionInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedd84e657a80ba325a6cb3d82b80f776" name="aedd84e657a80ba325a6cb3d82b80f776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedd84e657a80ba325a6cb3d82b80f776">&#9670;&nbsp;</a></span>spawnDecisionInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_event_1_1_spawn_decision_info.html">SpawnDecisionInfo</a> Event::info_u::spawnDecisionInfo</td>
         </tr>
       </table>
 </div><div class="memdoc">

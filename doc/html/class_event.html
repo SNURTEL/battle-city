@@ -106,6 +106,8 @@ Collaboration diagram for Event:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_board_collision_info.html">BoardCollisionInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_bot_info.html">BotInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_collision_info.html">CollisionInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_enemy_bullet_collision_info.html">EnemyBulletCollisionInfo</a></td></tr>
@@ -124,7 +126,13 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_menu_info.html">MenuInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_move_decision_info.html">MoveDecisionInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_player_tank_collision_info.html">PlayerTankCollisionInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_rotate_decision_info.html">RotateDecisionInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_spawn_decision_info.html">SpawnDecisionInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_event_1_1_state_info.html">StateInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,15 +159,22 @@ Public Types</h2></td></tr>
 , <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea92abf5e344dbb4337a59e83187e7746a">TankRotated</a>
 , <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea51119f14afc981239143fb1ffb333c09">TankHit</a>
 , <br />
-&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaef0743881bb0aed5901c650563827ab4">TilePlaced</a>
+&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deafd35891e0d4d401aff92bda74e647e9d">BotDecisionRequest</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea222b70af80075717838945c67d86cb61">BotSpawnDecision</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea43a354145c41815d035eae0e27f96e3b">BotMoveDecision</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea2ca76d9118ada6f6321d6310357efab4">BotRotateDecision</a>
+, <br />
+&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea6a859d35cd5c707ebf4577a2832c96b8">BotFireDecision</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deaef0743881bb0aed5901c650563827ab4">TilePlaced</a>
 , <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea9780f2629f1251f516640ee1eb7d7b63">TileChanged</a>
 , <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea2b659b21c38eb50be0473f069151676d">TileDeleted</a>
-, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea2e5413f3d18c411514f8e44e39582ac2">LevelLoaded</a>
 , <br />
-&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deae1e723123bc2469466c596bcd043f487">MenuSelectionChange</a>
+&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea2e5413f3d18c411514f8e44e39582ac2">LevelLoaded</a>
+, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deae1e723123bc2469466c596bcd043f487">MenuSelectionChange</a>
 , <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea1f669d6a6cbf0c176bc56bc14115cf17">MenuEnterClicked</a>
 , <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea4b0a0dacfb81d6de16eb50754b71bfc2">StateChanged</a>
-, <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deae5f102857f7011882a09ca6f2ec011eb">StatisticsChanged</a>
+, <br />
+&#160;&#160;<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321deae5f102857f7011882a09ca6f2ec011eb">StatisticsChanged</a>
 <br />
  }</td></tr>
 <tr class="separator:aa306292f6e9bf31a622e79dfc54321de"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,6 +199,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af76a47f99f7b247c25243bb3f88d46b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57a8bf797ca0c0f842e3fd0d67a3e41b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a57a8bf797ca0c0f842e3fd0d67a3e41b">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, unsigned int levelNumber, <a class="el" href="class_grid.html">Grid</a> *grid)</td></tr>
 <tr class="separator:a57a8bf797ca0c0f842e3fd0d67a3e41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7288081e339ea7539bae74019b9acd74"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a7288081e339ea7539bae74019b9acd74">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, std::shared_ptr&lt; <a class="el" href="class_bot.html">Bot</a> &gt; bot)</td></tr>
+<tr class="separator:a7288081e339ea7539bae74019b9acd74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42a78bd3c61d6bef4760f8aaae4f99f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a42a78bd3c61d6bef4760f8aaae4f99f7">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, unsigned int x, unsigned int y, <a class="el" href="class_tank.html#a8d01b214be6a1663539d0a34ae808d83">Tank::TankType</a> tankType, <a class="el" href="_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1">Direction</a> direction=<a class="el" href="_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1aaeb9634ef4d4fd4a5297ada06f89c3fe">North</a>)</td></tr>
+<tr class="separator:a42a78bd3c61d6bef4760f8aaae4f99f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac34a6f0eb0cc7183e68becc4353d21c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#ac34a6f0eb0cc7183e68becc4353d21c8">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, std::shared_ptr&lt; <a class="el" href="class_bot.html">Bot</a> &gt; bot, <a class="el" href="_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1">Direction</a> direction)</td></tr>
+<tr class="separator:ac34a6f0eb0cc7183e68becc4353d21c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b1c7715a93f69dd1a7954a78551beef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a9b1c7715a93f69dd1a7954a78551beef">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, std::shared_ptr&lt; <a class="el" href="class_bot.html">Bot</a> &gt; bot, bool flag)</td></tr>
+<tr class="separator:a9b1c7715a93f69dd1a7954a78551beef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7122eb20839e01574b47b77fd5b0b8ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#a7122eb20839e01574b47b77fd5b0b8ea">Event</a> (<a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a> e, <a class="el" href="class_event.html#a614a1a2df0877e0a3e510fa8baf5ec66">CollisionMember</a> mem1, <a class="el" href="class_event.html#a614a1a2df0877e0a3e510fa8baf5ec66">CollisionMember</a> mem2)</td></tr>
 <tr class="separator:a7122eb20839e01574b47b77fd5b0b8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa409fd6a64c9d71f975abb6c85aca183"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_event.html#aa409fd6a64c9d71f975abb6c85aca183">Event</a> ()=delete</td></tr>
@@ -243,6 +266,11 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea604fb8cab3e80877f5b4db8c09e5f12a" name="aa306292f6e9bf31a622e79dfc54321dea604fb8cab3e80877f5b4db8c09e5f12a"></a>TankKilled&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea92abf5e344dbb4337a59e83187e7746a" name="aa306292f6e9bf31a622e79dfc54321dea92abf5e344dbb4337a59e83187e7746a"></a>TankRotated&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea51119f14afc981239143fb1ffb333c09" name="aa306292f6e9bf31a622e79dfc54321dea51119f14afc981239143fb1ffb333c09"></a>TankHit&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deafd35891e0d4d401aff92bda74e647e9d" name="aa306292f6e9bf31a622e79dfc54321deafd35891e0d4d401aff92bda74e647e9d"></a>BotDecisionRequest&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea222b70af80075717838945c67d86cb61" name="aa306292f6e9bf31a622e79dfc54321dea222b70af80075717838945c67d86cb61"></a>BotSpawnDecision&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea43a354145c41815d035eae0e27f96e3b" name="aa306292f6e9bf31a622e79dfc54321dea43a354145c41815d035eae0e27f96e3b"></a>BotMoveDecision&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea2ca76d9118ada6f6321d6310357efab4" name="aa306292f6e9bf31a622e79dfc54321dea2ca76d9118ada6f6321d6310357efab4"></a>BotRotateDecision&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea6a859d35cd5c707ebf4577a2832c96b8" name="aa306292f6e9bf31a622e79dfc54321dea6a859d35cd5c707ebf4577a2832c96b8"></a>BotFireDecision&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321deaef0743881bb0aed5901c650563827ab4" name="aa306292f6e9bf31a622e79dfc54321deaef0743881bb0aed5901c650563827ab4"></a>TilePlaced&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea9780f2629f1251f516640ee1eb7d7b63" name="aa306292f6e9bf31a622e79dfc54321dea9780f2629f1251f516640ee1eb7d7b63"></a>TileChanged&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa306292f6e9bf31a622e79dfc54321dea2b659b21c38eb50be0473f069151676d" name="aa306292f6e9bf31a622e79dfc54321dea2b659b21c38eb50be0473f069151676d"></a>TileDeleted&#160;</td><td class="fielddoc"></td></tr>
@@ -257,7 +285,7 @@ Public Attributes</h2></td></tr>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acada8c80e07cef0cc7228145e9367c59" name="acada8c80e07cef0cc7228145e9367c59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acada8c80e07cef0cc7228145e9367c59">&#9670;&nbsp;</a></span>Event() <span class="overload">[1/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acada8c80e07cef0cc7228145e9367c59">&#9670;&nbsp;</a></span>Event() <span class="overload">[1/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +313,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a69d88aba99ec1ede7835acdc80eefa93" name="a69d88aba99ec1ede7835acdc80eefa93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69d88aba99ec1ede7835acdc80eefa93">&#9670;&nbsp;</a></span>Event() <span class="overload">[2/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d88aba99ec1ede7835acdc80eefa93">&#9670;&nbsp;</a></span>Event() <span class="overload">[2/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +341,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a32525f2e516ae963ae12bb19b0acdd6e" name="a32525f2e516ae963ae12bb19b0acdd6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32525f2e516ae963ae12bb19b0acdd6e">&#9670;&nbsp;</a></span>Event() <span class="overload">[3/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a32525f2e516ae963ae12bb19b0acdd6e">&#9670;&nbsp;</a></span>Event() <span class="overload">[3/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,7 +369,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="acc5f9d382b870fd6ae19370955d563ad" name="acc5f9d382b870fd6ae19370955d563ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc5f9d382b870fd6ae19370955d563ad">&#9670;&nbsp;</a></span>Event() <span class="overload">[4/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5f9d382b870fd6ae19370955d563ad">&#9670;&nbsp;</a></span>Event() <span class="overload">[4/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -367,7 +395,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a9796768c131789eaffa80e5a945a10a6" name="a9796768c131789eaffa80e5a945a10a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9796768c131789eaffa80e5a945a10a6">&#9670;&nbsp;</a></span>Event() <span class="overload">[5/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9796768c131789eaffa80e5a945a10a6">&#9670;&nbsp;</a></span>Event() <span class="overload">[5/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -401,7 +429,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a615125f6122d131f5334a063f96fb557" name="a615125f6122d131f5334a063f96fb557"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a615125f6122d131f5334a063f96fb557">&#9670;&nbsp;</a></span>Event() <span class="overload">[6/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a615125f6122d131f5334a063f96fb557">&#9670;&nbsp;</a></span>Event() <span class="overload">[6/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -429,7 +457,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="af76a47f99f7b247c25243bb3f88d46b8" name="af76a47f99f7b247c25243bb3f88d46b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af76a47f99f7b247c25243bb3f88d46b8">&#9670;&nbsp;</a></span>Event() <span class="overload">[7/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af76a47f99f7b247c25243bb3f88d46b8">&#9670;&nbsp;</a></span>Event() <span class="overload">[7/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -469,7 +497,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a57a8bf797ca0c0f842e3fd0d67a3e41b" name="a57a8bf797ca0c0f842e3fd0d67a3e41b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57a8bf797ca0c0f842e3fd0d67a3e41b">&#9670;&nbsp;</a></span>Event() <span class="overload">[8/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a57a8bf797ca0c0f842e3fd0d67a3e41b">&#9670;&nbsp;</a></span>Event() <span class="overload">[8/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -502,8 +530,150 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7288081e339ea7539bae74019b9acd74" name="a7288081e339ea7539bae74019b9acd74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7288081e339ea7539bae74019b9acd74">&#9670;&nbsp;</a></span>Event() <span class="overload">[9/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_bot.html">Bot</a> &gt;&#160;</td>
+          <td class="paramname"><em>bot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42a78bd3c61d6bef4760f8aaae4f99f7" name="a42a78bd3c61d6bef4760f8aaae4f99f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42a78bd3c61d6bef4760f8aaae4f99f7">&#9670;&nbsp;</a></span>Event() <span class="overload">[10/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tank.html#a8d01b214be6a1663539d0a34ae808d83">Tank::TankType</a>&#160;</td>
+          <td class="paramname"><em>tankType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1">Direction</a>&#160;</td>
+          <td class="paramname"><em>direction</em> = <code><a class="el" href="_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1aaeb9634ef4d4fd4a5297ada06f89c3fe">North</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac34a6f0eb0cc7183e68becc4353d21c8" name="ac34a6f0eb0cc7183e68becc4353d21c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac34a6f0eb0cc7183e68becc4353d21c8">&#9670;&nbsp;</a></span>Event() <span class="overload">[11/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_bot.html">Bot</a> &gt;&#160;</td>
+          <td class="paramname"><em>bot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_entity_8h.html#a442261faa8fef50825fb201bb1b8aad1">Direction</a>&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b1c7715a93f69dd1a7954a78551beef" name="a9b1c7715a93f69dd1a7954a78551beef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b1c7715a93f69dd1a7954a78551beef">&#9670;&nbsp;</a></span>Event() <span class="overload">[12/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321de">EventType</a>&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_bot.html">Bot</a> &gt;&#160;</td>
+          <td class="paramname"><em>bot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7122eb20839e01574b47b77fd5b0b8ea" name="a7122eb20839e01574b47b77fd5b0b8ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7122eb20839e01574b47b77fd5b0b8ea">&#9670;&nbsp;</a></span>Event() <span class="overload">[9/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7122eb20839e01574b47b77fd5b0b8ea">&#9670;&nbsp;</a></span>Event() <span class="overload">[13/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -537,7 +707,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="aa409fd6a64c9d71f975abb6c85aca183" name="aa409fd6a64c9d71f975abb6c85aca183"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa409fd6a64c9d71f975abb6c85aca183">&#9670;&nbsp;</a></span>Event() <span class="overload">[10/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa409fd6a64c9d71f975abb6c85aca183">&#9670;&nbsp;</a></span>Event() <span class="overload">[14/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

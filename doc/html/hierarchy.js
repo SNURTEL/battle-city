@@ -2,10 +2,20 @@ var hierarchy =
 [
     [ "Board", "class_board.html", null ],
     [ "Event::BoardCollisionInfo", "struct_event_1_1_board_collision_info.html", null ],
+    [ "Event::BotInfo", "struct_event_1_1_bot_info.html", null ],
     [ "Event::CollisionInfo", "struct_event_1_1_collision_info.html", null ],
+    [ "std::enable_shared_from_this", null, [
+      [ "Bot", "class_bot.html", [
+        [ "ArmorTank", "class_armor_tank.html", null ],
+        [ "BasicTank", "class_basic_tank.html", null ],
+        [ "FastTank", "class_fast_tank.html", null ],
+        [ "PowerTank", "class_power_tank.html", null ]
+      ] ]
+    ] ],
     [ "Event::EnemyBulletCollisionInfo", "struct_event_1_1_enemy_bullet_collision_info.html", null ],
     [ "Event::EnemyTankCollisionInfo", "struct_event_1_1_enemy_tank_collision_info.html", null ],
     [ "Entity", "class_entity.html", [
+      [ "Bot", "class_bot.html", null ],
       [ "Bullet", "class_bullet.html", null ],
       [ "Tank", "class_tank.html", [
         [ "ArmorTank", "class_armor_tank.html", null ],
@@ -37,6 +47,7 @@ var hierarchy =
       [ "EntityDoesNotExistException", "class_entity_does_not_exist_exception.html", null ],
       [ "EventConstructionException", "struct_event_construction_exception.html", null ],
       [ "InvalidEventException", "class_invalid_event_exception.html", null ],
+      [ "NoSpawnpointException", "class_no_spawnpoint_exception.html", null ],
       [ "ObserverException", "class_observer_exception.html", null ],
       [ "OutOfGridException", "class_out_of_grid_exception.html", null ],
       [ "SingletonNotInitializedException", "class_singleton_not_initialized_exception.html", null ]
@@ -58,15 +69,20 @@ var hierarchy =
     [ "Event::LevelInfo", "struct_event_1_1_level_info.html", null ],
     [ "Menu", "class_menu.html", null ],
     [ "Event::MenuInfo", "struct_event_1_1_menu_info.html", null ],
+    [ "Event::MoveDecisionInfo", "struct_event_1_1_move_decision_info.html", null ],
     [ "Event::PlayerTankCollisionInfo", "struct_event_1_1_player_tank_collision_info.html", null ],
+    [ "Event::RotateDecisionInfo", "struct_event_1_1_rotate_decision_info.html", null ],
     [ "SimplePublisher", "class_simple_publisher.html", [
       [ "Bullet", "class_bullet.html", null ],
       [ "Clock", "class_clock.html", null ]
     ] ],
     [ "SimpleSubscriber", "class_simple_subscriber.html", [
+      [ "Bot", "class_bot.html", null ],
+      [ "BotController", "class_bot_controller.html", null ],
       [ "KeyboardController", "class_keyboard_controller.html", null ],
       [ "Tank", "class_tank.html", null ]
     ] ],
+    [ "Event::SpawnDecisionInfo", "struct_event_1_1_spawn_decision_info.html", null ],
     [ "Event::StateInfo", "struct_event_1_1_state_info.html", null ],
     [ "Event::StatsInfo", "struct_event_1_1_stats_info.html", null ],
     [ "Event::TileInfo", "struct_event_1_1_tile_info.html", null ],
