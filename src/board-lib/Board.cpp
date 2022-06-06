@@ -129,10 +129,14 @@ bool Board::spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direc
 
 bool Board::spawnPlayer(unsigned int x, unsigned int y, Direction facing) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     std::shared_ptr<Entity> newTank = entityController_->createTank(x, y, Tank::PlayerTank, facing);
 =======
     std::unique_ptr<PlayerTank> newTank = std::unique_ptr<PlayerTank>(dynamic_cast<PlayerTank*>(entityController_->createTank(x, y, Tank::PlayerTank, facing).release()));
 >>>>>>> Implemented tests for states
+=======
+    std::unique_ptr<PlayerTank> newTank = std::unique_ptr<PlayerTank>(dynamic_cast<PlayerTank*>(entityController_->createTank(x, y, Tank::PlayerTank, facing).release()));
+>>>>>>> d1b72793aef237377fc20017580ffa5f3226a0c1
 
     std::shared_ptr<Entity> spawnedTank = entityController_->addEntity(newTank);
     eventQueue_->registerEvent(std::make_unique<Event>(Event::PlayerSpawned, spawnedTank));

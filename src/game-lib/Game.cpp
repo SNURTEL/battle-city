@@ -102,8 +102,11 @@ void Game::run() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 GameState *Game::getState() {
 =======
+=======
+>>>>>>> d1b72793aef237377fc20017580ffa5f3226a0c1
 Board* Game::getBoard() {
     return board_.get();
 }
