@@ -126,6 +126,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acf82794404bf54d636b146dd7740aab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdb06aa942ce94caa39f4386d2040d48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#abdb06aa942ce94caa39f4386d2040d48">killAllEnemyEntities</a> ()</td></tr>
 <tr class="separator:abdb06aa942ce94caa39f4386d2040d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc91a6e713284681e5dfd82aba56bc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a8bc91a6e713284681e5dfd82aba56bc1">removeEntity</a> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; entity)</td></tr>
+<tr class="separator:a8bc91a6e713284681e5dfd82aba56bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1e9014b904918b05d24be723e530de7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#aa1e9014b904918b05d24be723e530de7">removeAllEntities</a> ()</td></tr>
 <tr class="separator:aa1e9014b904918b05d24be723e530de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a45bd5b4fc4d1cfbc8908ccc44108c8"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a8a45bd5b4fc4d1cfbc8908ccc44108c8">getSizeX</a> ()</td></tr>
@@ -412,6 +414,26 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p >Removes all entities from the board</p>
 <p >Possibly queues multiple instances of <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea8ebd718fd45762dcf3fc76f657994220">Event::EntityRemoved</a> </p>
+
+</div>
+</div>
+<a id="a8bc91a6e713284681e5dfd82aba56bc1" name="a8bc91a6e713284681e5dfd82aba56bc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bc91a6e713284681e5dfd82aba56bc1">&#9670;&nbsp;</a></span>removeEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Board::removeEntity </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Removes an entity from the board</p>
+<p >Queues <a class="el" href="class_event.html#aa306292f6e9bf31a622e79dfc54321dea8ebd718fd45762dcf3fc76f657994220">Event::EntityRemoved</a> </p>
 
 </div>
 </div>

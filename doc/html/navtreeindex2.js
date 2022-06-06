@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"class_singleton_not_initialized_exception.html#aa3184c9ee95d0cdf422faaa4a111ad51":[0,0,42,0],
 "class_tank.html":[0,0,43],
 "class_tank.html#a016ada45dc6d1636830e72371793f807":[0,0,43,12],
 "class_tank.html#a05dab5cd286bd54c04bae2384ddb4f2b":[0,0,43,2],

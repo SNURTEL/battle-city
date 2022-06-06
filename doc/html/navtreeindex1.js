@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"class_event.html#a7122eb20839e01574b47b77fd5b0b8ea":[0,0,12,32],
 "class_event.html#a7288081e339ea7539bae74019b9acd74":[0,0,12,28],
 "class_event.html#a9796768c131789eaffa80e5a945a10a6":[0,0,12,24],
 "class_event.html#a9b1c7715a93f69dd1a7954a78551beef":[0,0,12,31],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "class_simple_subscriber.html#adb3f75c1f79529979b8448b8897e138f":[0,0,41,1],
 "class_simple_subscriber.html#adfcf546aeab6be511e41e85cdeca1e3f":[0,0,41,0],
 "class_simple_subscriber.html#afd95af2dd6e2bac34cb6e6cf54160f60":[0,0,41,3],
-"class_singleton_not_initialized_exception.html":[0,0,42],
-"class_singleton_not_initialized_exception.html#aa3184c9ee95d0cdf422faaa4a111ad51":[0,0,42,0]
+"class_singleton_not_initialized_exception.html":[0,0,42]
 };

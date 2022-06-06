@@ -125,6 +125,13 @@ public:
     void killAllEnemyEntities();
 
     /**
+     * Removes an entity from the board
+     *
+     * Queues Event::EntityRemoved
+     */
+    void removeEntity(std::shared_ptr<Entity> entity);
+
+    /**
      * Removes all entities from the board
      *
      * Possibly queues multiple instances of Event::EntityRemoved

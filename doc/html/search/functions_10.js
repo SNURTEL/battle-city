@@ -5,7 +5,7 @@ var searchData=
   ['registerevent_2',['registerEvent',['../class_event_queue.html#a53b631d69b1a0acbafde454b67f2a5c7',1,'EventQueue']]],
   ['removeallentities_3',['removeAllEntities',['../class_board.html#aa1e9014b904918b05d24be723e530de7',1,'Board']]],
   ['removedeletedsubject_4',['removeDeletedSubject',['../class_event_subscriber.html#a409f6722e16e76d696f56aa1153de2a2',1,'EventSubscriber::removeDeletedSubject()'],['../class_simple_subscriber.html#afd95af2dd6e2bac34cb6e6cf54160f60',1,'SimpleSubscriber::removeDeletedSubject()']]],
-  ['removeentity_5',['removeEntity',['../class_entity_controller.html#abb8d33687ca8a3355359623929e5ed12',1,'EntityController']]],
+  ['removeentity_5',['removeEntity',['../class_board.html#a8bc91a6e713284681e5dfd82aba56bc1',1,'Board::removeEntity()'],['../class_entity_controller.html#abb8d33687ca8a3355359623929e5ed12',1,'EntityController::removeEntity()']]],
   ['requestdecision_6',['requestDecision',['../class_bot.html#ac0891f3f9e497f3193506c64b080b4c6',1,'Bot']]],
   ['requestspawnbot_7',['requestSpawnBot',['../class_bot_controller.html#a67c21b0d3390d6b256a9a96411cbaeb9',1,'BotController']]],
   ['reset_8',['reset',['../class_game.html#a39bb2fd26b5ea6b164f28f9f6723582e',1,'Game']]],

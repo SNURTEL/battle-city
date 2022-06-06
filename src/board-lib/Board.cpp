@@ -190,6 +190,10 @@ void Board::killAllEnemyEntities() {   // FIXME this should be in EntityControll
     }
 }
 
+void Board::removeEntity(std::shared_ptr<Entity> entity) {
+    entityController_->removeEntity(entity);
+}
+
 void Board::removeAllEntities() {
     entityController_->clear();
 }

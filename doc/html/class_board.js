@@ -11,6 +11,7 @@ var class_board =
     [ "moveAllEntities", "class_board.html#ac8bb4ebce6668bd0131bdd68d00eebe4", null ],
     [ "moveEntity", "class_board.html#a57c0b593ca35b096421b9dc6db8a953d", null ],
     [ "removeAllEntities", "class_board.html#aa1e9014b904918b05d24be723e530de7", null ],
+    [ "removeEntity", "class_board.html#a8bc91a6e713284681e5dfd82aba56bc1", null ],
     [ "setGrid", "class_board.html#a3a18b6cab4a4259da763ceb735b8422b", null ],
     [ "setTankDirection", "class_board.html#a0ab3be7337806b5dff7fa18e41773d33", null ],
     [ "setTankMoving", "class_board.html#ad04032d931dc7b6e8d41a2e690c2a94d", null ],
