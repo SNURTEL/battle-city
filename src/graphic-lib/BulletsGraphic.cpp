@@ -10,7 +10,7 @@ BulletsGraphic::RenderObject::RenderObject(const sf::Vector2f& pos, Direction di
 : coords(pos), direction(direction), textureType(type)
 {}
 
-BulletsGraphic::BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Bullet*>> bullets,
+BulletsGraphic::BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<std::shared_ptr<Bullet>>> bullets,
                                std::shared_ptr<std::queue<sf::Sprite>> specialQueue)
 : AbstractWindow(windowView), bullets(bullets), specialQueue(specialQueue)
 {loadTextures();}
@@ -94,7 +94,7 @@ void BulletsGraphic::makeRenderBullets()
     Bullet::BulletType bulletType;
     sf::Vector2f bulletPos;
     Direction direction;
-    for (const Bullet* bullet : *bullets)
+    for (const std::shared_ptr<Bullet> bullet : *bullets)
     {
         direction = bullet->getFacing();
         bulletPos.x = bullet->getX() + leftOfset;
@@ -107,12 +107,10 @@ void BulletsGraphic::makeRenderBullets()
 void BulletsGraphic::loadTextures()
 {
     std::unordered_map<Bullet::BulletType, std::string>::iterator it_path = pathMap.begin();
-    // std::unordered_map<Bullet::BulletType, sf::Texture>::iterator it_texture = textureMap.begin();
     Bullet::BulletType type;
     sf::Texture texture;
     std::string path;
 
-    // Not the best solution but iterating over an enum is problematic
     while (it_path != pathMap.end())
     {
 
@@ -134,5 +132,5 @@ void BulletsGraphic::loadTextures()
 }
 
 
-std::vector<Bullet*>* BulletsGraphic::getBullets() const
+std::vector<std::shared_ptr<Bullet>>* BulletsGraphic::getBullets() const
 {return bullets.get();};

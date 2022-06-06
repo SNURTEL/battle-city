@@ -35,7 +35,7 @@ public:
     {return activeStatePointers;};
 
     /// @brief Gets tanks pointers from leaf object
-    std::vector<Tank*>* getTanks()
+    std::vector<std::shared_ptr<Tank>>* getTanks()
     {
         AbstractWindow* activeStateGraphicAb = getChildren()[GameStateGraphic::ActieveGameState].get();
         ActiveStateGraphic* activeStateGrahic = dynamic_cast<ActiveStateGraphic*>(activeStateGraphicAb);
@@ -44,7 +44,7 @@ public:
         // assuming TanksGraphic is second on the list
         AbstractWindow* tanksGraphicAb = boardGraphic->getChildren()[1].get();
         TanksGraphic* tanksGraphic = dynamic_cast<TanksGraphic*>(tanksGraphicAb);
-        std::vector<Tank*>* tanks = tanksGraphic->getTanks();
+        std::vector<std::shared_ptr<Tank>>* tanks = tanksGraphic->getTanks();
         return tanks;
     };
 
@@ -63,7 +63,7 @@ public:
     };
 
     /// @brief Gets tanks pointers from leaf object
-    std::vector<Bullet*>* getBullets()
+    std::vector<std::shared_ptr<Bullet>>* getBullets()
     {
         AbstractWindow* activeStateGraphicAb = getChildren()[GameStateGraphic::ActieveGameState].get();
         ActiveStateGraphic* activeStateGrahic = static_cast<ActiveStateGraphic*>(activeStateGraphicAb);
@@ -72,7 +72,7 @@ public:
         // assuming TanksGraphic is third on the list
         AbstractWindow* bulletsGraphicAb = boardGraphic->getChildren()[2].get();
         BulletsGraphic* bulletsGraphic = static_cast<BulletsGraphic*>(bulletsGraphicAb);
-        std::vector<Bullet*>* bullets = bulletsGraphic->getBullets();
+        std::vector<std::shared_ptr<Bullet>>* bullets = bulletsGraphic->getBullets();
         return bullets;
     };
 
@@ -112,7 +112,7 @@ public:
  */
 class TestTank : public Tank {
 public:
-    TestTank() : Tank(Tank::PowerTank, 20, 20, 1, 1, 1, North, 100) {};
+    TestTank() : Tank(Tank::PowerTank, 40, 40, 1, 1, 1, North, 100) {};
 };
 
 /**

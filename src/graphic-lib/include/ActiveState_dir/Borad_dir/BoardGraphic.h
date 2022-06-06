@@ -1,8 +1,8 @@
 // Created by Michał
 
 
-#ifndef PROI_PROJEKT_BoardGraphic_H
-#define PROI_PROJEKT_BoardGraphic_H
+#ifndef PROI_PROJEKT_BOARDGRAPHIC_H
+#define PROI_PROJEKT_BOARDGRAPHIC_H
 
 #include "../ActiveStateGraphic.h"
 #include <queue>
@@ -62,4 +62,4 @@ public:
     BoardGraphic(const WindowView& windowView, const ActiveStateGraphic::BoardPointers& boardObjects);
 };
 
-#endif //PROI_PROJEKT_BoardGraphic_H
+#endif //PROI_PROJEKT_BOARDGRAPHIC_H

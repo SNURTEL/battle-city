@@ -26,8 +26,8 @@ public:
     /// @brief Stores given board object pointers
     struct BoardPointers
     {
-        std::shared_ptr<std::vector<Tank*>> tanks;
-        std::shared_ptr<std::vector<Bullet*>> bullets;
+        std::shared_ptr<std::vector<std::shared_ptr<Tank>>> tanks;
+        std::shared_ptr<std::vector<std::shared_ptr<Bullet>>> bullets;
         std::shared_ptr<Grid*> tiles;
     };
 

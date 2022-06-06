@@ -38,8 +38,8 @@ void Window::selectgameState(GameState* gameState)
 
 void Window::initiateActiveStatePointers()
 {
-    activeStatePointers.tanks = std::make_shared<std::vector<Tank*>>(); // Why without brackets it isn't working?
-    activeStatePointers.bullets = std::make_shared<std::vector<Bullet*>>();
+    activeStatePointers.tanks = std::make_shared<std::vector<std::shared_ptr<Tank>>>(); // Why without brackets it isn't working?
+    activeStatePointers.bullets = std::make_shared<std::vector<std::shared_ptr<Bullet>>>();
     activeStatePointers.tiles = std::make_shared<Grid*>();
     activeStatePointers.level = std::make_shared<int>();
     activeStatePointers.playerLives = std::make_shared<int>();
@@ -72,23 +72,23 @@ void Window::conscructComposit()
 }
 
 
-std::string Window::checkEntityType(Entity* e)
-{
-    // Entity* trial = e;
-    // Tank* tank = static_cast<Tank*>(e);
-    // // Bullet* bullet = static_cast<Bullet*>(e);
-    if(instanceOf<Tank, Entity>(e))
-        return "tank";
-    else
-        return "bullet";
-}
+// std::string Window::checkEntityType(std::shared_ptr<Entity> e)
+// {
+//     // std::shared_ptr<Entity> trial = e;
+//     // std::shared_ptr<Tank> tank = static_cast<std::shared_ptr<Tank>>(e);
+//     // // std::shared_ptr<Bullet> bullet = static_cast<std::shared_ptr<Bullet>>(e);
+//     if()
+//         return "tank";
+//     else
+//         return "bullet";
+// }
 
 
-void Window::addEntity(Entity* e)
+void Window::addEntity(std::shared_ptr<Entity> e)
 {
     // Checking what type of Entity it is
-    Tank* tank = dynamic_cast<Tank*>(e);
-    Bullet* bullet = dynamic_cast<Bullet*>(e);
+    std::shared_ptr<Tank> tank = std::dynamic_pointer_cast<Tank>(e);
+    std::shared_ptr<Bullet> bullet = std::dynamic_pointer_cast<Bullet>(e);
 
     if(tank != nullptr)
         activeStatePointers.tanks->push_back(tank);
@@ -97,22 +97,22 @@ void Window::addEntity(Entity* e)
 }
 
 
-void Window::removeEntity(Entity* e)
+void Window::removeEntity(std::shared_ptr<Entity> e)
 {
-    Tank* tank = dynamic_cast<Tank*>(e);
-    Bullet* bullet = dynamic_cast<Bullet*>(e);
-    std::vector<Tank*>* tanks = activeStatePointers.tanks.get();
-    std::vector<Bullet*>* bullets = activeStatePointers.bullets.get();
+    std::shared_ptr<Tank> tank = std::dynamic_pointer_cast<Tank>(e);
+    std::shared_ptr<Bullet> bullet = std::dynamic_pointer_cast<Bullet>(e);
+    std::vector<std::shared_ptr<Tank>>* tanks = activeStatePointers.tanks.get();
+    std::vector<std::shared_ptr<Bullet>>* bullets = activeStatePointers.bullets.get();
 
     if(tank != nullptr)
     {
-        std::vector<Tank*>::iterator it = std::find(tanks->begin(), tanks->end(), tank);
+        std::vector<std::shared_ptr<Tank>>::iterator it = std::find(tanks->begin(), tanks->end(), tank);
         if (it != tanks->end())
             tanks->erase(it);
     }
     else if (bullet != nullptr)
     {
-        std::vector<Bullet*>::iterator it = std::find(bullets->begin(), bullets->end(), bullet);
+        std::vector<std::shared_ptr<Bullet>>::iterator it = std::find(bullets->begin(), bullets->end(), bullet);
         if (it != bullets->end())
             bullets->erase(it);
     }

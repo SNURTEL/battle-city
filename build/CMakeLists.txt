@@ -135,7 +135,7 @@ set(graphic_lib_sources
         )
 
 add_library(graphic-lib ${graphic_lib_sources})
-target_link_libraries(graphic-lib PRIVATE board-lib game-lib tank-lib)
+target_link_libraries(graphic-lib PRIVATE board-lib game-lib tank-lib core-lib bot-lib)
 
 set(graphic_lib_test_dir ../src/graphic-lib/test)
 set(graphic_lib_test_sources
@@ -143,7 +143,7 @@ set(graphic_lib_test_sources
         ${graphic_lib_test_dir}/test_graphicEventHandler.cpp)
 
 add_executable(test_graphic_lib ${graphic_lib_test_sources})
-target_link_libraries(test_graphic_lib PRIVATE graphic-lib Catch2::Catch2WithMain)
+target_link_libraries(test_graphic_lib PRIVATE graphic-lib core-lib Catch2::Catch2WithMain)
 ############################ BOT-LIB ################################
 
 set(bot_lib_dir ../src/bot-lib)

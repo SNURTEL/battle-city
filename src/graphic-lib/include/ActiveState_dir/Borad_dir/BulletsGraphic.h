@@ -46,7 +46,7 @@ protected:
     std::unordered_map<Bullet::BulletType, sf::Texture> textureMap{};
 
 
-    std::shared_ptr<std::vector<Bullet*>> bullets;
+    std::shared_ptr<std::vector<std::shared_ptr<Bullet>>> bullets;
 
 
     std::shared_ptr<std::queue<sf::Sprite>> specialQueue;
@@ -91,15 +91,15 @@ public:
      *
      * @return std::vector<sf::Vector2f>
      */
-    std::vector<RenderObject> getRenderBullets(std::vector<Bullet*>* bullets);
+    std::vector<RenderObject> getRenderBullets(std::vector<std::shared_ptr<Bullet>>* bullets);
 
 
     /**
      * @brief Get the Bullets object
      *
-     * @return std::vector<Bullet*>*
+     * @return std::vector<std::shared_ptr<Bullet>>*
      */
-    std::vector<Bullet*>* getBullets() const;
+    std::vector<std::shared_ptr<Bullet>>* getBullets() const;
 
 
     /**
@@ -110,7 +110,7 @@ public:
      * @param window
      * @param TanksGraphic
      */
-    BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<Bullet*>> bullets,
+    BulletsGraphic(const WindowView& windowView, std::shared_ptr<std::vector<std::shared_ptr<Bullet>>> bullets,
                    std::shared_ptr<std::queue<sf::Sprite>> specialQueue);
 };
 

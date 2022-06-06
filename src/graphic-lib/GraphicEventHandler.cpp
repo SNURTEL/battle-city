@@ -15,18 +15,18 @@ void GraphicEventHandler::processEvent(std::unique_ptr<Event> event)
     {
     case(Event::EntitySpawned):
     {
-        Entity* e = event->info.entityInfo.entity;
+        std::shared_ptr<Entity> e = event->info.entityInfo.entity;
         window->addEntity(e);
         break;
     }
     case(Event::PlayerSpawned):
     {
-        Entity* e = event->info.entityInfo.entity;
+        std::shared_ptr<Entity> e = event->info.entityInfo.entity;
         window->addEntity(e);
     }
     case(Event::EntityRemoved):
     {
-        Entity* e = event->info.entityInfo.entity;
+        std::shared_ptr<Entity> e = event->info.entityInfo.entity;
         window->removeEntity(e);
         break;
     }

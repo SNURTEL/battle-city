@@ -30,8 +30,8 @@ BoardGraphic::BoardGraphic(const WindowView& windowView, const ActiveStateGraphi
 
 void BoardGraphic::conscructComposite()
 {
-    std::shared_ptr<std::vector<Tank*>> tanksList = boardObjects.tanks;
-    std::shared_ptr<std::vector<Bullet*>> bulltesList = boardObjects.bullets;
+    std::shared_ptr<std::vector<std::shared_ptr<Tank>>> tanksList = boardObjects.tanks;
+    std::shared_ptr<std::vector<std::shared_ptr<Bullet>>> bulltesList = boardObjects.bullets;
     std::shared_ptr<Grid*> gridObject = boardObjects.tiles;
     std::shared_ptr<AbstractWindow> tanks = std::make_shared<TanksGraphic>(windowView, tanksList, extraRenderQueue);
     std::shared_ptr<AbstractWindow> bullets = std::make_shared<BulletsGraphic>(windowView, bulltesList, extraRenderQueue);

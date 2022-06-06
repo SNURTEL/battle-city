@@ -47,8 +47,8 @@ public:
     /// @brief Stores given ActiveState pointers
     struct ActiveStatePointers
     {
-        std::shared_ptr<std::vector<Tank*>> tanks;
-        std::shared_ptr<std::vector<Bullet*>> bullets;
+        std::shared_ptr<std::vector<std::shared_ptr<Tank>>> tanks;
+        std::shared_ptr<std::vector<std::shared_ptr<Bullet>>> bullets;
         std::shared_ptr<Grid*> tiles;
         std::shared_ptr<int> level;
         std::shared_ptr<int> playerLives;
@@ -108,11 +108,11 @@ public:
 
 
     /// @brief Adding Entity to the list of tanks or bullets
-    void addEntity(Entity* e);
+    void addEntity(std::shared_ptr<Entity> e);
 
 
     /// @brief Removing Entity from the tanks or bullets list
-    void removeEntity(Entity* e);
+    void removeEntity(std::shared_ptr<Entity> e);
 
 
     /// @brief Loading next level
@@ -135,7 +135,7 @@ public:
      * @param e
      * @return std::string
      */
-    std::string checkEntityType(Entity* e);
+    std::string checkEntityType(std::shared_ptr<Entity> e);
 
 
 protected:

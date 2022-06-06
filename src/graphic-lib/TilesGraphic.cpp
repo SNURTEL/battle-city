@@ -49,7 +49,7 @@ void TilesGraphic::render()
                 sf::Sprite tile;
                 setTileTexture(tile, tileType1, x_pos, y_pos1, tile_height, tile_width);
                 windowView.window->draw(tile);
-                usedTiles.push_back({g, i});
+                usedTiles.push_back({j, i});
             }
 
             if (tileType2 == TileType::Bricks && it2 == usedTiles.end())
@@ -57,7 +57,7 @@ void TilesGraphic::render()
                 sf::Sprite tile;
                 setTileTexture(tile, tileType2, x_pos, y_pos2, tile_height, tile_width);
                 windowView.window->draw(tile);
-                usedTiles.push_back({g, i});
+                usedTiles.push_back({j, g});
             }
 
             if (tileType1 != TileType::Bricks && tileType2 != TileType::Bricks

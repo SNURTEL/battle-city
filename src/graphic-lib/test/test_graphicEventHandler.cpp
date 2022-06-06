@@ -28,12 +28,13 @@ SCENARIO("Handling events connected to graphic-lib")
         TestWindow window;
         GraphicEventHandler graphicEventHandler(game_ptr, &window);
         window.selectgameState(gameState);
+
         // Initiating Entities
         TestTank tank1;
-        Entity* eTank = &tank1;
+        std::shared_ptr<Entity> eTank = std::make_shared<Tank>(tank1);
 
         TestBullet bullet;
-        Entity* eBullet = &bullet;
+        std::shared_ptr<Entity> eBullet = std::make_shared<Bullet>(bullet);
 
         // Initiating Grid
         Grid grid;
@@ -52,31 +53,31 @@ SCENARIO("Handling events connected to graphic-lib")
 
         // Creating Events
 
-        Event tankSpawned(Event::EntitySpawned, eTank);
-        Event bulletSpawned(Event::EntitySpawned, eBullet);
-        Event levelLoaded(Event::LevelLoaded, level, &grid);
-        Event statisticsChanged(Event::StatisticsChanged, &gameStats);
-        Event menuSelectionChanged(Event::MenuSelectionChange, &menu, 2);
+        // Event tankSpawned(Event::EntitySpawned, eTank);
+        // Event bulletSpawned(Event::EntitySpawned, eBullet);
+        // Event levelLoaded(Event::LevelLoaded, level, &grid);
+        // Event statisticsChanged(Event::StatisticsChanged, &gameStats);
+        // Event menuSelectionChanged(Event::MenuSelectionChange, &menu, 2);
 
         WHEN("Handling given events")
         {
-            graphicEventHandler.processEvent(std::make_unique<Event>(tankSpawned));
-            graphicEventHandler.processEvent(std::make_unique<Event>(bulletSpawned));
-            graphicEventHandler.processEvent(std::make_unique<Event>(levelLoaded));
-            graphicEventHandler.processEvent(std::make_unique<Event>(statisticsChanged));
-            graphicEventHandler.processEvent(std::make_unique<Event>(menuSelectionChanged));
+            graphicEventHandler.processEvent(std::make_unique<Event>(Event::EntitySpawned, eTank));
+            graphicEventHandler.processEvent(std::make_unique<Event>(Event::EntitySpawned, eBullet));
+            graphicEventHandler.processEvent(std::make_unique<Event>(Event::LevelLoaded, level, &grid));
+            graphicEventHandler.processEvent(std::make_unique<Event>(Event::StatisticsChanged, &gameStats));
+            graphicEventHandler.processEvent(std::make_unique<Event>(Event::MenuSelectionChange, &menu, 2));
 
             THEN("Composite sturcture should be updated")
             {
-                std::vector<Tank*>* tanksComposite = window.getTanks();
-                std::vector<Bullet*>* bulletsComposite = window.getBullets();
+                std::vector<std::shared_ptr<Tank>>* tanksComposite = window.getTanks();
+                std::vector<std::shared_ptr<Bullet>>* bulletsComposite = window.getBullets();
                 Grid** gridComposite = window.getGrid();
                 ActiveStateGraphic::BoardPointers boardPointers = window.getBoardPointers();
                 ActiveStateGraphic::FramePointers framePointers = window.getFramePointers();
                 Window::StaticStatePointers staticPointers = window.getStaticPointersLeaf();
 
-                REQUIRE((*tanksComposite)[0] == &tank1);
-                REQUIRE((*bulletsComposite)[0] == &bullet);
+                REQUIRE((*tanksComposite)[0] == eTank);
+                REQUIRE((*bulletsComposite)[0] == eBullet);
                 REQUIRE((*gridComposite) == &grid);
                 REQUIRE(*framePointers.level == level);
                 REQUIRE(*framePointers.playerLives == playerLives);
@@ -90,27 +91,27 @@ SCENARIO("Handling events connected to graphic-lib")
 
                 tank1.setX(200);
                 TestBullet bullet2;
-                Entity* eBullet2 = &bullet2;
-                Event tankMoved(Event::EntityMoved, eTank);
-                Event bulletSpawned(Event::EntitySpawned, eBullet2);
+                std::shared_ptr<Bullet> eBullet2 = std::make_shared<Bullet>(bullet2);
+                // Event tankMoved(Event::EntityMoved, eTank);
+                // Event bulletSpawned(Event::EntitySpawned, eBullet2);
 
                 WHEN("Handling events and changing grid")
                 {
                     // Grid changes
                     grid.setTile(5, 5, TileType::Steel);
 
-                    graphicEventHandler.processEvent(std::make_unique<Event>(tankMoved));
-                    graphicEventHandler.processEvent(std::make_unique<Event>(bulletSpawned));
+                    graphicEventHandler.processEvent(std::make_unique<Event>(Event::EntityMoved, eTank));
+                    graphicEventHandler.processEvent(std::make_unique<Event>(Event::EntitySpawned, eBullet2));
                     THEN("The composite structure should be updated")
                     {
-                        std::vector<Tank*>* tanksComposite = window.getTanks();
-                        std::vector<Bullet*>* bulletsComposite = window.getBullets();
+                        std::vector<std::shared_ptr<Tank>>* tanksComposite = window.getTanks();
+                        std::vector<std::shared_ptr<Bullet>>* bulletsComposite = window.getBullets();
                         Grid** gridComposite = window.getGrid();
                         ActiveStateGraphic::BoardPointers boardPointers = window.getBoardPointers();
                         ActiveStateGraphic::FramePointers framePointers = window.getFramePointers();
-                        REQUIRE((*(*tanksComposite)[0]).getX() == tank1.getX());
-                        REQUIRE((*bulletsComposite)[0] == &bullet);
-                        REQUIRE((*bulletsComposite)[1] == &bullet2);
+                        REQUIRE((*(*tanksComposite)[0]).getX() == eTank->getX());
+                        REQUIRE((*bulletsComposite)[0].get() == &bullet);
+                        REQUIRE((*bulletsComposite)[1].get() == &bullet2);
                         REQUIRE((*gridComposite)->getTileAtPosition(5, 5) == TileType::Steel);
                         REQUIRE(*framePointers.level == level);
                         REQUIRE(*framePointers.playerLives == playerLives);
@@ -119,20 +120,20 @@ SCENARIO("Handling events connected to graphic-lib")
 
                     GIVEN("RemoveEntity event")
                     {
-                        Event tankRemoved(Event::EntityRemoved, eTank);
-                        Event bulletRemoved(Event::EntityRemoved, eBullet);
+                        // Event tankRemoved(Event::EntityRemoved, eTank);
+                        // Event bulletRemoved(Event::EntityRemoved, eBullet);
                         WHEN("Handling RemoveEntity event")
                         {
-                            graphicEventHandler.processEvent(std::make_unique<Event>(tankRemoved));
-                            graphicEventHandler.processEvent(std::make_unique<Event>(bulletRemoved));
+                            graphicEventHandler.processEvent(std::make_unique<Event>(Event::EntityRemoved, eTank));
+                            graphicEventHandler.processEvent(std::make_unique<Event>(Event::EntityRemoved, eBullet));
 
                             THEN("The composite structure should be updated")
                             {
-                                std::vector<Tank*>* tanksComposite = window.getTanks();
-                                std::vector<Bullet*>* bulletsComposite = window.getBullets();
+                                std::vector<std::shared_ptr<Tank>>* tanksComposite = window.getTanks();
+                                std::vector<std::shared_ptr<Bullet>>* bulletsComposite = window.getBullets();
                                 Grid** gridComposite = window.getGrid();
                                 REQUIRE((*tanksComposite).size() == 0);
-                                REQUIRE((*bulletsComposite)[0] == &bullet2);
+                                REQUIRE((*bulletsComposite)[0] == eBullet2);
                             }
                         }
                     }
@@ -159,8 +160,8 @@ SCENARIO("Game states are changing")
         window_ptr = &window;
         GraphicEventHandler graphicEventHandler(game_ptr, window_ptr);
 
-        Event activeStateEvent(Event::StateChanged, gameState);
-        graphicEventHandler.processEvent(std::make_unique<Event>(activeStateEvent));
+        // Event activeStateEvent(Event::StateChanged, gameState);
+        graphicEventHandler.processEvent(std::make_unique<Event>(Event::StateChanged, gameState));
 
         WHEN("Window is created and the game state is ActiveGameState")
         {
@@ -174,8 +175,8 @@ SCENARIO("Game states are changing")
         {
             PauseGameState pauseGameState(game_ptr);
             gameState = &pauseGameState;
-            Event pauseStateEvent(Event::StateChanged, gameState);
-            graphicEventHandler.processEvent(std::make_unique<Event>(pauseStateEvent));
+            // Event pauseStateEvent(Event::StateChanged, gameState);
+            graphicEventHandler.processEvent(std::make_unique<Event>(Event::StateChanged, gameState));
             THEN("Window attribute gameState should be set to MenuGameState")
             {
                 REQUIRE(window.get_gameState() == TestWindow::PauseGameState);
