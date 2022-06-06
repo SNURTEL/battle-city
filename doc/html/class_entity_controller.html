@@ -97,8 +97,7 @@ $(document).ready(function(){initNavTree('class_entity_controller.html',''); ini
 <div class="dynheader">
 Collaboration diagram for EntityController:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 0 -->
-</div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_entity_controller__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -133,8 +132,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3ab3c0563bc962b53aef6f07e54084b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab55a10cc61c570ce2e4f6601c77853ca"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#ab55a10cc61c570ce2e4f6601c77853ca">addEntity</a> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; newEntity)</td></tr>
 <tr class="separator:ab55a10cc61c570ce2e4f6601c77853ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e58c8845023d204ba1dffafd2270927"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a3e58c8845023d204ba1dffafd2270927">checkEntityCollisions</a> (const std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &amp;target)</td></tr>
-<tr class="separator:a3e58c8845023d204ba1dffafd2270927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f51a07cea3b8bad1ce3e5c9f7c1486c"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a8f51a07cea3b8bad1ce3e5c9f7c1486c">checkEntityCollisions</a> (const std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &amp;target)</td></tr>
+<tr class="separator:a8f51a07cea3b8bad1ce3e5c9f7c1486c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4acbe2be0b7d0c8fccc1837b41359b98"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a4acbe2be0b7d0c8fccc1837b41359b98">getAllEntities</a> ()</td></tr>
 <tr class="separator:a4acbe2be0b7d0c8fccc1837b41359b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38db732e6ab191af3f7011a3820dabd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_controller.html#a38db732e6ab191af3f7011a3820dabd4">clear</a> ()</td></tr>
@@ -272,14 +271,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3e58c8845023d204ba1dffafd2270927" name="a3e58c8845023d204ba1dffafd2270927"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e58c8845023d204ba1dffafd2270927">&#9670;&nbsp;</a></span>checkEntityCollisions()</h2>
+<a id="a8f51a07cea3b8bad1ce3e5c9f7c1486c" name="a8f51a07cea3b8bad1ce3e5c9f7c1486c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f51a07cea3b8bad1ce3e5c9f7c1486c">&#9670;&nbsp;</a></span>checkEntityCollisions()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool EntityController::checkEntityCollisions </td>
+          <td class="memname">std::optional&lt; std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &gt; EntityController::checkEntityCollisions </td>
           <td>(</td>
           <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>target</em></td><td>)</td>

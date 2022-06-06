@@ -100,7 +100,7 @@ public:
     bool spawnPlayer(unsigned int x, unsigned int y, Direction facing = North);
 
     /**
-     * Sets board's grid to a given one
+     * Sets board's grid to a given one. Loads enemy spawnpoints and types to BotController
      * This function should only be used after removing all entities from the board in order to prevent overlaps
      *
      * Does not queue events (yet...)
@@ -123,6 +123,13 @@ public:
      * Possibly queues multiple instances of Event::TankKilled and Event::EntityRemoved
      */
     void killAllEnemyEntities();
+
+    /**
+     * Removes an entity from the board
+     *
+     * Queues Event::EntityRemoved
+     */
+    void removeEntity(std::shared_ptr<Entity> entity);
 
     /**
      * Removes all entities from the board
@@ -172,7 +179,8 @@ protected:
     bool validateEntityPosition(const std::shared_ptr<Entity>& target);
 
     /**
-     * Builds an Event::EntityEntityCollision or Event::EntityGridCollision event for a given entity, should be called after detecting a collision
+     * Builds an Event::Collision event for a given entity, should be called after detecting a collision
+     * This function assumes the collision did happen. Calling the function when there was no collision will result in undefined behavior (usually creating some kind of Entity-Board collision event)
      * @param entity Entity to check
      * @return A collision event wrapped in a unique_ptr
      */
@@ -182,6 +190,9 @@ protected:
     std::unique_ptr<EntityController> entityController_;
 
     EventQueue<Event>* eventQueue_ = EventQueue<Event>::instance();
+
+    BotController* botController;
+
 
 };
 

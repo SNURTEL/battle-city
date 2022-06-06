@@ -160,7 +160,7 @@ public:
      * @param target An entity to check
      * @return Whether a given entity overlaps with any other entity
      */
-    bool checkEntityCollisions(const std::shared_ptr<Entity>& target);
+    std::optional<std::shared_ptr<Entity>> checkEntityCollisions(const std::shared_ptr<Entity>& target);
 
     /**
      * Provides access to entity vector

@@ -5,6 +5,8 @@
 #include <utility>
 
 #include "include/Event.h"
+#include "../tank-lib/include/Entity.h"
+#include "../bot-lib/include/Bot.h"
 
 const char *EventConstructionException::what() const noexcept {
     return "Could not initialize event instance";
@@ -52,37 +54,13 @@ Event::Event(EventType e, std::shared_ptr<Entity> entity) {
         case TankHit:
         case TankKilled:
         case PlayerSpawned:
-        case PlayerKilled: {
+        case PlayerKilled:{
             info.entityInfo = {std::move(entity)};
             break;
         }
         default: {
             throw EventConstructionException();
         }
-    }
-}
-
-Event::Event(EventType e, std::shared_ptr<Entity> entity1, std::shared_ptr<Entity> entity2) {
-    type = e;
-    switch (e) {
-        case EntityEntityCollision:{
-            info.entityEntityCollisionInfo = {entity1, entity2};
-            break;
-        }
-        default:
-            throw EventConstructionException();
-    }
-}
-
-Event::Event(EventType e, std::shared_ptr<Entity> entity, unsigned int x, unsigned int y) {
-    type = e;
-    switch (e) {
-        case EntityGridCollision:{
-            info.entityGridCollisionInfo = {entity, x, y};
-            break;
-        }
-        default:
-            throw EventConstructionException();
     }
 }
 
@@ -99,6 +77,7 @@ Event::Event(EventType e, unsigned int x, unsigned int y, Grid *grid) {
             throw EventConstructionException();
     }
 }
+
 
 Event::Event(EventType e, unsigned int levelNumber, Grid *grid) {
     type = e;
@@ -142,6 +121,72 @@ Event::Event(EventType e, GameStatistics* statsObject) {
     switch (e) {
         case StatisticsChanged: {
             info.pointsInfo = {statsObject};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, std::shared_ptr<Bot> bot) {
+    type = e;
+    switch (e) {
+        case BotDecisionRequest:{
+            info.botInfo = {std::move(bot)};
+            break;
+        }
+        case BotFireDecision:{
+            info.fireDecisionInfo = {std::move(bot)};
+            break;
+        }
+        default: {
+            throw EventConstructionException();
+        }
+    }
+}
+
+Event::Event(EventType e, unsigned int x, unsigned int y, Tank::TankType tankType, Direction direction) {
+    type = e;
+    switch (e) {
+        case BotSpawnDecision: {
+            info.spawnDecisionInfo = {x, y, tankType, direction};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, std::shared_ptr<Bot> bot, Direction direction) {
+    type = e;
+    switch (e) {
+        case BotRotateDecision: {
+            info.rotateDecisionInfo = {std::move(bot), direction};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}
+
+
+Event::Event(EventType e, std::shared_ptr<Bot> bot, bool flag) {
+    type = e;
+    switch (e) {
+        case BotMoveDecision: {
+            info.moveDecisionInfo = {std::move(bot),flag};
+            break;
+        }
+        default:
+            throw EventConstructionException();
+    }
+}
+
+Event::Event(EventType e, CollisionMember mem1, CollisionMember mem2) {
+    type = e;
+    switch (e) {
+        case Collision: {
+            info.collisionInfo = {std::move(mem1), std::move(mem2)};
             break;
         }
         default:

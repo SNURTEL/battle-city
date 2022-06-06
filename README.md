@@ -230,11 +230,15 @@ When working on the project:
    ```
    git rebase origin main
    ```
-4. Push your commits to remote repo:
+4. ...or merge `main` into your branch:
+   ```
+   git merge origin main
+   ```
+5. Push your commits to remote repo:
    ```
    git push [-u] origin feature-branch-foo
    ```
-5. Open a merge request, address all merge conflicts and **ask someone to review your code**.
+6. Open a merge request, address all merge conflicts and **ask someone to review your code**.
 
 ## Full documentation
 Check [`doc`](/doc):

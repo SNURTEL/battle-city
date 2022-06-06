@@ -165,12 +165,17 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Builds a grid of TileType tiles for a given level. Tile layout is loaded from file ./levels/lvl&lt;N&gt;.txt Layout code:</p><ul>
+<p >Loads a level from file ./levels/lvl&lt;N&gt;.txt, where N is level number. First line in file is reserved for for enemy tank type sequence, coded as shown:</p><ul>
+<li>'B' - basic tank</li>
+<li>'F' - fast tank</li>
+<li>'P' - power tank</li>
+<li>'A' - armor tank The rest of the file represents a 52x52 grid Layout code:</li>
 <li>'B' - bricks</li>
 <li>'S' - steel</li>
 <li>'T' - trees</li>
 <li>'W' - water</li>
 <li>'E' - eagle (currently NUllTile)</li>
+<li>'*' - spawn point</li>
 <li>any other char - NullTile</li>
 </ul>
 <p>// FIXME ADJUST THE PATH IF NOT WORKING </p><dl class="params"><dt>Parameters</dt><dd>

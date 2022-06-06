@@ -16,9 +16,21 @@ var hierarchy =
     [ "Window::ActiveStatePointers", "struct_window_1_1_active_state_pointers.html", null ],
     [ "FrameGraphic::BareFrameSize", "struct_frame_graphic_1_1_bare_frame_size.html", null ],
     [ "Board", "class_board.html", null ],
-    [ "ActiveStateGraphic::BoardPointers", "struct_active_state_graphic_1_1_board_pointers.html", null ],
-    [ "StaticGraphic::ButtonsPositionMenu", "struct_static_graphic_1_1_buttons_position_menu.html", null ],
+    [ "Event::BoardCollisionInfo", "struct_event_1_1_board_collision_info.html", null ],
+    [ "Event::BotInfo", "struct_event_1_1_bot_info.html", null ],
+    [ "Event::CollisionInfo", "struct_event_1_1_collision_info.html", null ],
+    [ "std::enable_shared_from_this", null, [
+      [ "Bot", "class_bot.html", [
+        [ "ArmorTank", "class_armor_tank.html", null ],
+        [ "BasicTank", "class_basic_tank.html", null ],
+        [ "FastTank", "class_fast_tank.html", null ],
+        [ "PowerTank", "class_power_tank.html", null ]
+      ] ]
+    ] ],
+    [ "Event::EnemyBulletCollisionInfo", "struct_event_1_1_enemy_bullet_collision_info.html", null ],
+    [ "Event::EnemyTankCollisionInfo", "struct_event_1_1_enemy_tank_collision_info.html", null ],
     [ "Entity", "class_entity.html", [
+      [ "Bot", "class_bot.html", null ],
       [ "Bullet", "class_bullet.html", null ],
       [ "Tank", "class_tank.html", [
         [ "ArmorTank", "class_armor_tank.html", null ],
@@ -29,9 +41,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "EntityController", "class_entity_controller.html", null ],
-    [ "Event::EntityEntityCollisionInfo", "struct_event_1_1_entity_entity_collision_info.html", null ],
     [ "Event::EntityInfo", "struct_event_1_1_entity_info.html", null ],
-    [ "Event::EntityTileCollisionInfo", "struct_event_1_1_entity_tile_collision_info.html", null ],
     [ "Event", "class_event.html", null ],
     [ "EventHandler< E >", "class_event_handler.html", null ],
     [ "EventHandler< Event >", "class_event_handler.html", [
@@ -52,12 +62,13 @@ var hierarchy =
       [ "EntityDoesNotExistException", "class_entity_does_not_exist_exception.html", null ],
       [ "EventConstructionException", "struct_event_construction_exception.html", null ],
       [ "InvalidEventException", "class_invalid_event_exception.html", null ],
+      [ "NoSpawnpointException", "class_no_spawnpoint_exception.html", null ],
       [ "ObserverException", "class_observer_exception.html", null ],
       [ "OutOfGridException", "class_out_of_grid_exception.html", null ],
       [ "SingletonNotInitializedException", "class_singleton_not_initialized_exception.html", null ],
       [ "TextureLoadingError", "class_texture_loading_error.html", null ]
     ] ],
-    [ "ActiveStateGraphic::FramePointers", "struct_active_state_graphic_1_1_frame_pointers.html", null ],
+    [ "Event::FriendlyBulletCollisionInfo", "struct_event_1_1_friendly_bullet_collision_info.html", null ],
     [ "Game", "class_game.html", null ],
     [ "FrameGraphic::GameInfo", "struct_frame_graphic_1_1_game_info.html", null ],
     [ "GameState", "class_game_state.html", [
@@ -76,17 +87,20 @@ var hierarchy =
     [ "Event::LevelInfo", "struct_event_1_1_level_info.html", null ],
     [ "Menu", "class_menu.html", null ],
     [ "Event::MenuInfo", "struct_event_1_1_menu_info.html", null ],
-    [ "BulletsGraphic::RenderObject", "struct_bullets_graphic_1_1_render_object.html", null ],
-    [ "TanksGraphic::RenderObject", "struct_tanks_graphic_1_1_render_object.html", null ],
-    [ "TilesGraphic::RenderObject", "struct_tiles_graphic_1_1_render_object.html", null ],
+    [ "Event::MoveDecisionInfo", "struct_event_1_1_move_decision_info.html", null ],
+    [ "Event::PlayerTankCollisionInfo", "struct_event_1_1_player_tank_collision_info.html", null ],
+    [ "Event::RotateDecisionInfo", "struct_event_1_1_rotate_decision_info.html", null ],
     [ "SimplePublisher", "class_simple_publisher.html", [
       [ "Bullet", "class_bullet.html", null ],
       [ "Clock", "class_clock.html", null ]
     ] ],
     [ "SimpleSubscriber", "class_simple_subscriber.html", [
+      [ "Bot", "class_bot.html", null ],
+      [ "BotController", "class_bot_controller.html", null ],
       [ "KeyboardController", "class_keyboard_controller.html", null ],
       [ "Tank", "class_tank.html", null ]
     ] ],
+    [ "Event::SpawnDecisionInfo", "struct_event_1_1_spawn_decision_info.html", null ],
     [ "Event::StateInfo", "struct_event_1_1_state_info.html", null ],
     [ "Window::StaticStatePointers", "struct_window_1_1_static_state_pointers.html", null ],
     [ "Event::StatsInfo", "struct_event_1_1_stats_info.html", null ],

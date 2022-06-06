@@ -1,6 +1,7 @@
+APBFFPBA
+--------*---SSSS------------SSSS*-------------------
 ------------SSSS------------SSSS--------------------
-------------SSSS------------SSSS--------------------
-------------SSSS------------SSSS--------------------
+--###-------SSSS------------SSSS--------------------
 ------------SSSS------------SSSS--------------------
 TTTTBBBB----SSSS------------BBBB----BBBB----BBBB----
 TTTTBBBB----SSSS------------BBBB----BBBB----BBBB----
@@ -46,7 +47,7 @@ WWWWBBBB----------------------------BBBB----BBBBWWWW
 WWWWBBBB----------------------------BBBB----BBBBWWWW
 WWWWBBBB--------------BBBBBBBB------BBBB----BBBBWWWW
 WWWWBBBB--------------BBBBBBBB------BBBB----BBBBWWWW
-WWWWBBBB----BBBB------BBEEEEBB------BBBBBBBBBBBBWWWW
-WWWWBBBB----BBBB------BBEEEEBB------BBBBBBBBBBBBWWWW
-WWWWBBBB----BBBB------BBEEEEBB------BBBBBBBBBBBBWWWW
-WWWWBBBB----BBBB------BBEEEEBB------BBBBBBBBBBBBWWWW
+WWWWBBBB----BBBB------BBE---BB------BBBBBBBBBBBBWWWW
+WWWWBBBB----BBBB------BB----BB------BBBBBBBBBBBBWWWW
+WWWWBBBB----BBBB------BB----BB------BBBBBBBBBBBBWWWW
+WWWWBBBB----BBBB------BB----BB------BBBBBBBBBBBBWWWW

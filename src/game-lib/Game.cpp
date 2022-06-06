@@ -14,6 +14,7 @@
 #include "include/GameStatsIO.h"
 #include "../board-lib/include/Board.h"
 #include "../board-lib/include/Grid.h"
+#include "../bot-lib/include/BotController.h"
 
 
 Game::Game(unsigned int clockFreq) {
@@ -36,7 +37,7 @@ void Game::setup() {
 
     setMenuState();
     running_ = true;
-    }
+}
 
 void Game::initStates() {
     active_state_ = std::make_unique<ActiveGameState>(this);
@@ -50,6 +51,8 @@ void Game::initComponents() {
     keyboardController_->subscribe(clock_);
 
     gameStatsIO_ = std::make_unique<GameStatsIO>("scoreboard.txt");  // dummy, filename is ignored for now
+
+    BotController::initialize(4, 240);
 
     board_ = std::make_unique<Board>();
 }
@@ -90,9 +93,9 @@ void Game::quit() {
 void Game::run() {
     setup();
 
-    while (running_ == true){
+    while (running_ == true) {
         clock_->tick();
-        while (!eventQueue_->isEmpty()){
+        while (!eventQueue_->isEmpty()) {
             state_->getEventHandler()->handleEvent(std::move(eventQueue_->pop()));
         }
 
@@ -102,11 +105,11 @@ void Game::run() {
     }
 }
 
-GameState* Game::getState() {
+GameState *Game::getState() {
     return state_;
 }
 
-GameStatistics* Game::getStats() {
+GameStatistics *Game::getStats() {
     return gameStats_.get();
 }
 

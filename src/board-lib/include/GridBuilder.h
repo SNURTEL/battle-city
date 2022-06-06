@@ -17,13 +17,20 @@ enum TileType: unsigned int;
 class GridBuilder {
 public:
     /**
-     * Builds a grid of TileType tiles for a given level. Tile layout is loaded from file ./levels/lvl<N>.txt
+     * Loads a level from file ./levels/lvl<N>.txt, where N is level number. First line in file is reserved for
+     * for enemy tank type sequence, coded as shown:
+     *  - 'B' - basic tank
+     *  - 'F' - fast tank
+     *  - 'P' - power tank
+     *  - 'A' - armor tank
+     * The rest of the file represents a 52x52 grid
      * Layout code:
      *  - 'B' - bricks
      *  - 'S' - steel
      *  - 'T' - trees
      *  - 'W' - water
      *  - 'E' - eagle (currently NUllTile)
+     *  - '*' - spawn point
      *  - any other char - NullTile
      *
      * // FIXME ADJUST THE PATH IF NOT WORKING
