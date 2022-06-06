@@ -10,6 +10,8 @@
 #include <memory>
 #include <variant>
 
+#include "../../tank-lib/include/Entity.h"
+
 class Tank;
 
 class PlayerTank;
@@ -25,6 +27,10 @@ class GameState;
 class Grid;
 
 class GameStatistics;
+
+class Bot;
+
+enum Direction : unsigned int;
 
 /**
  * Indicates an error encountered while constructing an Event instance.
@@ -46,7 +52,7 @@ struct EventConstructionException : public std::exception {
 class Event {
 public:
 
-    /**
+/**
      * Represents event types
      */
     enum EventType {
@@ -67,6 +73,12 @@ public:
         TankKilled,
         TankRotated,
         TankHit,
+
+        BotDecisionRequest,
+        BotSpawnDecision,
+        BotMoveDecision,
+        BotRotateDecision,
+        BotFireDecision,
 
         TilePlaced,
         TileChanged,
@@ -98,10 +110,6 @@ public:
 
     /**
      * Holds additional event info for tank related events
-     * If an event was created as a result of deleting a tank, member variable
-     * will point to deallocated memory and should only be used for removing empty
-     * references in other objects
-     * TRYING TO ACCESS MEMBER VARIABLE'S ATTRS WILL RESULT IN UNDEFINED BEHAVIOR
      */
     struct EntityInfo {  //
         std::shared_ptr<Entity> entity;
@@ -136,6 +144,28 @@ public:
         unsigned int tile_x;
         unsigned int tile_y;
         Grid *grid;
+    };
+
+    // bot events
+
+    struct BotInfo {  //
+        std::shared_ptr<Bot> bot;
+    };
+
+    struct SpawnDecisionInfo {  //
+        unsigned int x;
+        unsigned int y;
+        Direction direction=North;
+    };
+
+    struct MoveDecisionInfo {  //
+        std::shared_ptr<Bot> bot;
+        bool flag;
+    };
+
+    struct RotateDecisionInfo {  //
+        std::shared_ptr<Bot> bot;
+        Direction direction;
     };
 
     // collision events
@@ -226,6 +256,11 @@ public:
         LevelInfo levelInfo;
         CollisionInfo collisionInfo;
         StatsInfo pointsInfo;
+        BotInfo botInfo;
+        SpawnDecisionInfo spawnDecisionInfo;
+        RotateDecisionInfo rotateDecisionInfo;
+        MoveDecisionInfo moveDecisionInfo;
+        BotInfo fireDecisionInfo;
 
         ~info_u() {};  // DO NOT change this to =default, or else it will stop working (must be '{}')
     } info = {};
@@ -246,6 +281,14 @@ public:
     Event(EventType e, unsigned int x, unsigned int y, Grid *grid);
 
     Event(EventType e, unsigned int levelNumber, Grid *grid);
+
+    Event(EventType e, std::shared_ptr<Bot> bot);
+
+    Event(EventType e, unsigned int x, unsigned int y, Direction direction=North);
+
+    Event(EventType e, std::shared_ptr<Bot> bot, Direction direction);
+
+    Event(EventType e, std::shared_ptr<Bot> bot, bool flag);
 
     Event(EventType e, CollisionMember mem1, CollisionMember mem2);
 
