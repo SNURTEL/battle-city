@@ -52,7 +52,7 @@ void GameStatistics::setLives(unsigned int lives) {
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StatisticsChanged, this));
 
     if(lives_ == 0){
-        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded, this));
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
     }
 }
 
