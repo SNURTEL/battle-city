@@ -19,36 +19,44 @@ std::unique_ptr<Event> MenuEventHandler::processEvent(std::unique_ptr<Event> eve
     switch (event->type) {
         case(Event::KeyPressed): {
             if (event->info.keyInfo.keyCode == 74) {
-                state_->get_menu()->add_pos();
+                state_->get_menu()->sub_pos();
                 state_->get_menu()->notify();
             }
             if (event->info.keyInfo.keyCode == 73) {
-                state_->get_menu()->sub_pos();
+                state_->get_menu()->add_pos();
                 state_->get_menu()->notify();
             }
             if (event->info.keyInfo.keyCode == 58) {
                 if (state_->get_menu()->get_pos() == 1)
                 {
-                    state_->get_menu()->notify_enter();
-                    game_->setActiveState();
+                    game_->start();
                 }
                 if (state_->get_menu()->get_pos() == 2)
                 {
-                    state_->get_menu()->notify_enter();
                     game_->quit();
                 }
             }
             break;
         }
-        case (Event::KeyReleased):{
-            break;
-        }
-        case (Event::StateChanged):{
-            break;
-        }
-        case (Event::NullEvent):{
-            break;
-        }
+       case (Event::KeyReleased):
+       case (Event::EntityMoved):
+       case (Event::EntityRemoved):
+       case (Event::EntitySpawned):
+       case (Event::StateChanged):
+       case (Event::TilePlaced):
+       case (Event::TileChanged):
+       case (Event::TileDeleted):
+       case (Event::PlayerSpawned):
+       case (Event::TankKilled):
+       case (Event::TankRotated):
+       case (Event::TankHit):
+       case (Event::MenuEnterClicked):
+       case (Event::MenuSelectionChange):
+       case (Event::NullEvent):
+       case (Event::StatisticsChanged):
+       case (Event::LevelLoaded): {
+           break;
+       }
         default:{
             throw InvalidEventException("Invalid event for MenuEventHandler\nEvent enum cast: " + std::to_string(event->type));
         }

@@ -142,4 +142,9 @@ void Game::redrawUI() {
     window_->getWindow()->clear(sf::Color::Black);
     window_->render();
     window_->getWindow()->display();
+    // put UI stuff here
+}
+
+Board* Game::getBoard() {
+    return board_.get();
 }

@@ -39,6 +39,7 @@ namespace {
 }
 
 SCENARIO("Initializing the game") {
+    helper::getEmptyEventQueue();
     GIVEN("Program just started running") {
         WHEN("Initializing the main container") {
             helper::TestGame game = helper::TestGame(60);

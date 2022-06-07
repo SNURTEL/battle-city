@@ -133,7 +133,7 @@ Tank::Tank(TankType type, float x, float y, float speed, float bulletSpeed, unsi
 // ##############################
 
 PlayerTank::PlayerTank(float x, float y, Direction facing) : Entity(x, y, 4, 4, 0.2, facing),
-                                                             Tank(Tank::PlayerTank, x, y, 0.2, 0.4, 1, facing, 0) {}
+                                                             Tank(Tank::PlayerTank, x, y, 0.2, 0.4, 999, facing, 0) {}
 
 BasicTank::BasicTank(float x, float y, Direction facing) : Entity(x, y, 4, 4, 0.1, facing),
                                                            Tank(Tank::BasicTank, x, y, 0.1, 0.3, 1, facing, 100),

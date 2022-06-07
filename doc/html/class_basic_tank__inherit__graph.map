@@ -1,8 +1,0 @@
-<map id="BasicTank" name="BasicTank">
-<area shape="rect" id="node1" title=" " alt="" coords="184,1004,348,1125"/>
-<area shape="rect" id="node2" href="$class_tank.html" title="Base class for tank representation." alt="" coords="25,409,251,956"/>
-<area shape="rect" id="node3" href="$class_entity.html" title=" " alt="" coords="287,5,501,361"/>
-<area shape="rect" id="node5" href="$class_bot.html" title=" " alt="" coords="275,563,513,802"/>
-<area shape="rect" id="node4" href="$class_simple_subscriber.html" title=" " alt="" coords="5,64,263,303"/>
-<area shape="rect" id="node6" title=" " alt="" coords="525,137,671,229"/>
-</map>

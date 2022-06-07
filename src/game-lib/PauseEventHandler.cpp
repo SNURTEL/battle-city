@@ -40,9 +40,25 @@ std::unique_ptr<Event> PauseEventHandler::processEvent(std::unique_ptr<Event> ev
             }
             break;
         }
-        case (Event::NullEvent):{
-            break;
-        }
+       case (Event::KeyReleased):
+       case (Event::EntityMoved):
+       case (Event::EntityRemoved):
+       case (Event::EntitySpawned):
+       case (Event::StateChanged):
+       case (Event::TilePlaced):
+       case (Event::TileChanged):
+       case (Event::TileDeleted):
+       case (Event::PlayerSpawned):
+       case (Event::TankKilled):
+       case (Event::TankRotated):
+       case (Event::TankHit):
+       case (Event::MenuEnterClicked):
+       case (Event::MenuSelectionChange):
+       case (Event::NullEvent):
+       case (Event::StatisticsChanged):
+       case (Event::LevelLoaded): {
+           break;
+       }
         default:{
             throw InvalidEventException("Invalid event for PausedEventHandler\nEvent enum cast: " + std::to_string(event->type));
         }
