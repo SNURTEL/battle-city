@@ -119,7 +119,8 @@ Event::Event(EventType e, GameState* new_state) {
 Event::Event(EventType e, GameStatistics* statsObject) {
     type = e;
     switch (e) {
-        case StatisticsChanged: {
+        case StatisticsChanged:
+        case GameEnded: {
             info.pointsInfo = {statsObject};
             break;
         }

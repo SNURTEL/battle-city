@@ -11,6 +11,15 @@ class Grid;
 
 enum TileType: unsigned int;
 
+class InvalidLevelFile : public std::exception{
+public:
+    const char* what() const noexcept override;
+
+private:
+    std::string what_message;
+};
+
+
 /**
  * Used for building an initial grid for different levels. Class does not provide a constructor and all of it's methods are static, making it a primitive singleton
  */
@@ -30,7 +39,8 @@ public:
      *  - 'T' - trees
      *  - 'W' - water
      *  - 'E' - eagle (currently NUllTile)
-     *  - '*' - spawn point
+     *  - '*' - enemy spawn point
+     *  - '+' - player spawn point
      *  - any other char - NullTile
      *
      * // FIXME ADJUST THE PATH IF NOT WORKING

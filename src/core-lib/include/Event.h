@@ -27,6 +27,8 @@ class GameStatistics;
 
 class Bot;
 
+class Eagle;
+
 enum Direction : unsigned int;
 
 /**
@@ -88,7 +90,9 @@ public:
 
         StateChanged,
 
-        StatisticsChanged
+        StatisticsChanged,
+
+        GameEnded
     };
 
     EventType type;
@@ -208,6 +212,10 @@ public:
         std::shared_ptr<Bullet> enemyBullet;
     };
 
+    struct EagleCollisionInfo {
+        std::shared_ptr<Eagle> eagle;
+    };
+
     /**
      * Holds additional event info for board collision members
      */
@@ -226,7 +234,8 @@ public:
             EnemyTankCollisionInfo,
             FriendlyBulletCollisionInfo,
             EnemyBulletCollisionInfo,
-            BoardCollisionInfo> CollisionMember;
+            BoardCollisionInfo,
+            EagleCollisionInfo> CollisionMember;
 
     /**
      * Holds two collision members. Individual CollisionInfos are accessible with std::get<T>() or (preferred) std::visit().
@@ -236,7 +245,7 @@ public:
      *
      * std::visit([](auto &&arg1, auto &&arg2){ handleCollision(arg1, arg2); }, collisionEvent.member1, collisionEvent.member2);
      *
-     * In practice, friendly bullet and player tank members are always stored as member1, and grid member is always member2
+     * In practice, friendly bullet, player tank and eagle members are always stored as member1, and grid member is always member2
      */
     struct CollisionInfo {
         CollisionMember member1;
@@ -251,7 +260,6 @@ public:
         Grid *grid;
     };
 
-    // ####################################################3
     /**
      * Contains additional event info.
      * Unions member is initialized according to EventType enum passed to the constructor
@@ -275,14 +283,16 @@ public:
         ~info_u() {};  // DO NOT change this to =default, or else it will stop working (must be '{}')
     } info = {};
 
-    // FIXME not so elegant
+    // ####################################################3
+    // FIXME uh
+
     Event(EventType, unsigned int ui1);
+
+    explicit Event(EventType);
 
     Event(EventType e, GameStatistics *statsObject);
 
     Event(EventType e, GameState *new_state);
-
-    explicit Event(EventType);
 
     Event(EventType e, Menu *menu, unsigned int new_pos);
 

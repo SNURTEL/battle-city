@@ -5,6 +5,7 @@
 
 #include <utility>
 #include <iostream>
+#include <algorithm>
 
 #include "include/GameStatistics.h"
 #include "include/GameStatsIO.h"
@@ -49,4 +50,12 @@ unsigned int GameStatistics::getLives() const {
 void GameStatistics::setLives(unsigned int lives) {
     lives_ = lives;
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StatisticsChanged, this));
+
+    if(lives_ == 0){
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded, this));
+    }
+}
+
+void GameStatistics::decrementLives(unsigned int deltaLives) {
+    setLives(std::min(0u, lives_-deltaLives));
 }
