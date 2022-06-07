@@ -135,7 +135,7 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
     game->getBoard()->removeEntity(member1.friendlyBullet);
     game->getStats()->addPoints(member2.enemyTank->getPoints());
     game->getBoard()->removeEntity(member2.enemyTank);
-    BotController::instance()->deregisterBot();
+//    BotController::instance()->deregisterBot();
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
