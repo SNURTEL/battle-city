@@ -73,6 +73,8 @@ public:
      */
     void setLives(unsigned int lives);
 
+    void decrementLives(unsigned int deltaLives);
+
     /**
      * Resets stats to:
      * Score = 0
@@ -90,7 +92,6 @@ private:
     unsigned int level_;
     unsigned int lives_;
 
-private:
     std::list<unsigned int> scoreboard_;
 
     EventQueue<Event> *eventQueue_ = EventQueue<Event>::instance();

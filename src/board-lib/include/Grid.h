@@ -100,12 +100,17 @@ public:
      */
     [[nodiscard]] const std::queue<Tank::TankType> &getTankTypes() const;
 
+    const std::pair<unsigned int, unsigned int> &getPlayerSpawnpoint() const;
+
     friend class GridBuilder;
 protected:
     unsigned int size_x = 52;
     unsigned int size_y = 52;
     TileType grid[52][52] = {TileType::NullTile};
-    std::vector<std::pair<unsigned int, unsigned int>> spawnpoints;
+    std::vector<std::pair<unsigned int, unsigned int>> enemySpawnpoints;
+    std::pair<unsigned int, unsigned int > playerSpawnpoint;
+
+protected:
     std::queue<Tank::TankType> tankTypes;
 
     EventQueue<Event> *eventQueue_;

@@ -68,8 +68,8 @@ target_link_libraries(game-lib PRIVATE core-lib board-lib graphic-lib ${SFML_LIB
 
 set(game_lib_test_dir ../src/game-lib/test)
 set(game_lib_test_sources
-        ${game_lib_test_dir}/test_sanity.cpp
-        ${game_lib_test_dir}/test_states.cpp ../src/game-lib/test/test_game.cpp)
+        ${game_lib_test_dir}/test_game.cpp
+        ${game_lib_test_dir}/test_states.cpp ../src/game-lib/test/test_stats.cpp)
 
 add_executable(test_game_lib ${game_lib_test_sources})
 target_link_libraries(test_game_lib PRIVATE game-lib Catch2::Catch2WithMain)
@@ -102,7 +102,7 @@ set(board_lib_sources
         ${board_lib_dir}/Grid.cpp
         ${board_lib_dir}/TileManager.cpp
         ${board_lib_dir}/Board.cpp
-        ${board_lib_dir}/GridBuilder.cpp)
+        ${board_lib_dir}/GridBuilder.cpp ../src/board-lib/Eagle.cpp ../src/board-lib/include/Eagle.h)
 
 add_library(board-lib ${board_lib_sources})
 target_link_libraries(board-lib PRIVATE tank-lib game-lib)

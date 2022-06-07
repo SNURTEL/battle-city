@@ -129,14 +129,13 @@ void Game::reset() {
 void Game::prepareLevel(unsigned int levelNum) {
     board_->removeAllEntities();
     board_->loadLevel(levelNum);
-    board_->spawnPlayer(18, 48);
+    board_->spawnPlayer();
 }
 
 void Game::end() {
     board_->removeAllEntities();
     setFinishedState();
 }
-
 
 void Game::redrawUI() {
     window_->getWindow()->clear(sf::Color::Black);

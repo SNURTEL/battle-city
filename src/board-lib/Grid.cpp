@@ -66,10 +66,14 @@ unsigned int Grid::getSizeY() const {
 }
 
 const std::vector<std::pair<unsigned int, unsigned int>> &Grid::getSpawnpoints() const {
-    return spawnpoints;
+    return enemySpawnpoints;
 }
 
 const std::queue<Tank::TankType> &Grid::getTankTypes() const {
     return tankTypes;
+}
+
+const std::pair<unsigned int, unsigned int> &Grid::getPlayerSpawnpoint() const {
+    return playerSpawnpoint;
 }
 
