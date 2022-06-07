@@ -245,7 +245,7 @@ public:
      *
      * std::visit([](auto &&arg1, auto &&arg2){ handleCollision(arg1, arg2); }, collisionEvent.member1, collisionEvent.member2);
      *
-     * In practice, friendly bullet, player tank and eagle members are always stored as member1, and grid member is always member2
+     * In practice, friendly bullet and player tank are always stored as member1, grid member is always member2
      */
     struct CollisionInfo {
         CollisionMember member1;

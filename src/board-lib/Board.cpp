@@ -13,6 +13,7 @@
 #include "include/TileManager.h"
 #include "../tank-lib/include/Bullet.h"
 #include "../bot-lib/include/BotController.h"
+#include "include/Eagle.h"
 
 
 Board::Board() : entityController_(std::make_unique<EntityController>()), grid_(std::make_unique<Grid>()) {
@@ -66,6 +67,7 @@ void Board::setGrid(std::unique_ptr<Grid> grid) {
     grid_ = std::move(grid);
     botController->setSpawnpoints(grid_->getSpawnpoints());
     botController->setTypes(grid_->getTankTypes());
+    entityController_->addEntity(std::make_shared<Eagle>());
 }
 
 void Board::deleteTile(unsigned int x, unsigned int y) {
@@ -128,7 +130,8 @@ bool Board::spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direc
 }
 
 bool Board::spawnPlayer(unsigned int x, unsigned int y, Direction facing) {
-    std::shared_ptr<PlayerTank> newTank = std::dynamic_pointer_cast<PlayerTank> (entityController_->createTank(x, y, Tank::PlayerTank, facing));
+    std::shared_ptr<PlayerTank> newTank = std::dynamic_pointer_cast<PlayerTank>(
+            entityController_->createTank(x, y, Tank::PlayerTank, facing));
 
     std::shared_ptr<Entity> spawnedTank = entityController_->addEntity(newTank);
     eventQueue_->registerEvent(std::make_unique<Event>(Event::PlayerSpawned, spawnedTank));
@@ -223,16 +226,18 @@ std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entit
         member1 = Event::EnemyTankCollisionInfo{
                 std::dynamic_pointer_cast<Tank>(entity)};
 
-    } else if (dynamic_cast<Bullet *>(entity.get())!= nullptr &&
+    } else if (dynamic_cast<Bullet *>(entity.get()) != nullptr &&
                dynamic_cast<Bullet *>(entity.get())->isFriendly()) {
         // friendly bullet
         member1 = Event::FriendlyBulletCollisionInfo{
                 std::dynamic_pointer_cast<Bullet>(entity)};
 
-    } else if (dynamic_cast<Bullet *>(entity.get())!= nullptr) {
+    } else if (dynamic_cast<Bullet *>(entity.get()) != nullptr) {
         // enemy bullet
         member1 = Event::EnemyBulletCollisionInfo{
                 std::dynamic_pointer_cast<Bullet>(entity)};
+    } else if (dynamic_cast<Eagle *>(entity.get()) != nullptr) {
+        member1 = Event::EagleCollisionInfo{std::dynamic_pointer_cast<Eagle>(entity)};
     }
 
     // set member 2
@@ -259,7 +264,7 @@ std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entit
             member2 = Event::EnemyTankCollisionInfo{
                     std::dynamic_pointer_cast<Tank>(entity)};
 
-        } else if (dynamic_cast<Bullet *>(entity.get())!= nullptr &&
+        } else if (dynamic_cast<Bullet *>(entity.get()) != nullptr &&
                    dynamic_cast<Bullet *>(entity.get())->isFriendly()) {
             // friendly bullet
             member2 = Event::FriendlyBulletCollisionInfo{
@@ -267,10 +272,12 @@ std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entit
             // swap to guarantee friendly bullet being the first member
             std::swap(member1, member2);
 
-        } else if (dynamic_cast<Bullet *>(entity.get())!= nullptr) {
+        } else if (dynamic_cast<Bullet *>(entity.get()) != nullptr) {
             // enemy bullet
             member2 = Event::EnemyBulletCollisionInfo{
                     std::dynamic_pointer_cast<Bullet>(entity)};
+        } else if (dynamic_cast<Eagle *>(entity.get()) != nullptr) {
+            member2 = Event::EagleCollisionInfo{std::dynamic_pointer_cast<Eagle>(entity)};
         }
     }
 
@@ -280,7 +287,7 @@ std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entit
 void Board::loadLevel(unsigned int levelNum) {
     removeAllEntities();
     setGrid(std::move(GridBuilder::buildLevel(levelNum)));  // TODO init player tank
-    eventQueue_->registerEvent(std::make_unique<Event>(Event::LevelLoaded, levelNum));
+    eventQueue_->registerEvent(std::make_unique<Event>(Event::LevelLoaded, levelNum, grid_.get()));
 }
 
 std::shared_ptr<PlayerTank> Board::getPlayerTank() {
@@ -291,7 +298,7 @@ void Board::hitTank(std::shared_ptr<Tank> target, unsigned int damage) {
     entityController_->hitTank(target, damage);
 }
 
-Grid* Board::getGrid() {
+Grid *Board::getGrid() {
     return grid_.get();
 }
 
