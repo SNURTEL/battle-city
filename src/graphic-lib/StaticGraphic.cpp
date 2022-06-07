@@ -31,16 +31,6 @@ void StaticGraphic::calculateButtonsPos()
 }
 
 
-// void StaticGraphic::setFinishedView()
-// {
-//     float sizeX = windowView.window->getSize().x;
-//     float sizeY = windowView.window->getSize().y;
-
-//     windowView.leftOffset = sizeX / 3;
-//     windowView.topOffset = sizeY / 3;
-// }
-
-
 void StaticGraphic::constructComposite()
 {
     std::shared_ptr<AbstractWindow> menuGameState = std::make_shared<MenuStateGraphic>

@@ -63,6 +63,7 @@ void Game::initScoreboard() {
 
 void Game::initUI() {
     window_ = std::make_unique<Window>();
+    graphicEventHandler_ = std::make_unique<GraphicEventHandler>(window_.get());
 }
 
 void Game::setActiveState() {
@@ -96,7 +97,8 @@ void Game::run() {
     while (running_ == true) {
         clock_->tick();
         while (!eventQueue_->isEmpty()) {
-            state_->getEventHandler()->handleEvent(std::move(eventQueue_->pop()));
+            std::unique_ptr<Event> event =  state_->getEventHandler()->handleEvent(std::move(eventQueue_->pop()));
+            graphicEventHandler_->processEvent(std::move(event));
         }
 
         redrawUI();

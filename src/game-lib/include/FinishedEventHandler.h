@@ -32,7 +32,7 @@ public:
      * Responds to event
      * @param event
      */
-    void processEvent(std::unique_ptr<Event> event) override;
+    std::unique_ptr<Event> processEvent(std::unique_ptr<Event> event) override;
 
 private:
     Game* game_;

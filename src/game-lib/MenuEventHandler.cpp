@@ -15,7 +15,7 @@ MenuEventHandler::MenuEventHandler(Game *game, MenuGameState* state) {
     state_ = state;
 }
 
-void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
+std::unique_ptr<Event> MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             if (event->info.keyInfo.keyCode == 74) {
@@ -53,4 +53,5 @@ void MenuEventHandler::processEvent(std::unique_ptr<Event> event) {
             throw InvalidEventException("Invalid event for MenuEventHandler\nEvent enum cast: " + std::to_string(event->type));
         }
     }
+    return std::move(event);
 }

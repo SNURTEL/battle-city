@@ -16,7 +16,7 @@ ActiveEventHandler::ActiveEventHandler(Game *game, ActiveGameState* state) {
     state_ = state;
 }
 
-void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
+std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
 //    switch (event->type) {  //FIXME commented out to avoid refactoring the same code twice
 //        case(Event::KeyPressed): {
 //            if(event->info.keyInfo.keyCode == 74) {
@@ -176,4 +176,5 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
 //            throw InvalidEventException("Invalid event for ActiveEventHandler\nEvent enum cast: " + std::to_string(event->type));
 //        }
 //    }
+    return std::move(event);
 }

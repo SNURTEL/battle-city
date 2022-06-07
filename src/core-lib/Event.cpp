@@ -193,3 +193,9 @@ Event::Event(EventType e, CollisionMember mem1, CollisionMember mem2) {
             throw EventConstructionException();
     }
 }
+
+
+// Event::Event(std::unique_ptr<Event> ev)
+// {
+//     *this = *ev;
+// }

@@ -15,7 +15,7 @@ FinishedEventHandler::FinishedEventHandler(Game *game, FinishedGameState* state)
     state_ = state;
 }
 
-void FinishedEventHandler::processEvent(std::unique_ptr<Event> event) {
+std::unique_ptr<Event> FinishedEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             //TODO Implement response to KeyPressed
@@ -36,4 +36,5 @@ void FinishedEventHandler::processEvent(std::unique_ptr<Event> event) {
             throw InvalidEventException("Invalid event for FinishedEventHandler\nEvent enum cast: " + std::to_string(event->type));
         }
     }
+    return std::move(event);
 }

@@ -303,6 +303,8 @@ public:
     Event(EventType e, CollisionMember mem1, CollisionMember mem2);
 
     Event() = delete;
+
+    Event(const Event& event);
 };
 
 

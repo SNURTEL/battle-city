@@ -12,7 +12,7 @@ const char *InvalidEventException::what() const noexcept {
     return what_message.c_str();
 }
 
-void PublisherEventHandler::handleEvent(std::unique_ptr<Event> event) {
+std::unique_ptr<Event> PublisherEventHandler::handleEvent(std::unique_ptr<Event> event) {
     notifyEventSubscribers(event->type);
-    processEvent(std::move(event));
+    return std::move(processEvent(std::move(event)));
 }

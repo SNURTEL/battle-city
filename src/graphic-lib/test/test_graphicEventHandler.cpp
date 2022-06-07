@@ -26,7 +26,7 @@ SCENARIO("Handling events connected to graphic-lib")
         ActiveGameState state(game_ptr);
         GameState* gameState = &state;
         TestWindow window;
-        GraphicEventHandler graphicEventHandler(game_ptr, &window);
+        GraphicEventHandler graphicEventHandler(&window);
         window.selectgameState(gameState);
 
         // Initiating Entities
@@ -51,13 +51,6 @@ SCENARIO("Handling events connected to graphic-lib")
 
         Menu menu(2);
 
-        // Creating Events
-
-        // Event tankSpawned(Event::EntitySpawned, eTank);
-        // Event bulletSpawned(Event::EntitySpawned, eBullet);
-        // Event levelLoaded(Event::LevelLoaded, level, &grid);
-        // Event statisticsChanged(Event::StatisticsChanged, &gameStats);
-        // Event menuSelectionChanged(Event::MenuSelectionChange, &menu, 2);
 
         WHEN("Handling given events")
         {
@@ -110,8 +103,8 @@ SCENARIO("Handling events connected to graphic-lib")
                         ActiveStateGraphic::BoardPointers boardPointers = window.getBoardPointers();
                         ActiveStateGraphic::FramePointers framePointers = window.getFramePointers();
                         REQUIRE((*(*tanksComposite)[0]).getX() == eTank->getX());
-                        REQUIRE((*bulletsComposite)[0].get() == &bullet);
-                        REQUIRE((*bulletsComposite)[1].get() == &bullet2);
+                        REQUIRE((*bulletsComposite)[0] == eBullet);
+                        REQUIRE((*bulletsComposite)[1] == eBullet2);
                         REQUIRE((*gridComposite)->getTileAtPosition(5, 5) == TileType::Steel);
                         REQUIRE(*framePointers.level == level);
                         REQUIRE(*framePointers.playerLives == playerLives);
@@ -120,8 +113,6 @@ SCENARIO("Handling events connected to graphic-lib")
 
                     GIVEN("RemoveEntity event")
                     {
-                        // Event tankRemoved(Event::EntityRemoved, eTank);
-                        // Event bulletRemoved(Event::EntityRemoved, eBullet);
                         WHEN("Handling RemoveEntity event")
                         {
                             graphicEventHandler.processEvent(std::make_unique<Event>(Event::EntityRemoved, eTank));
@@ -158,9 +149,8 @@ SCENARIO("Game states are changing")
         TestWindow window;
         Window* window_ptr;
         window_ptr = &window;
-        GraphicEventHandler graphicEventHandler(game_ptr, window_ptr);
+        GraphicEventHandler graphicEventHandler(window_ptr);
 
-        // Event activeStateEvent(Event::StateChanged, gameState);
         graphicEventHandler.processEvent(std::make_unique<Event>(Event::StateChanged, gameState));
 
         WHEN("Window is created and the game state is ActiveGameState")
@@ -175,7 +165,6 @@ SCENARIO("Game states are changing")
         {
             PauseGameState pauseGameState(game_ptr);
             gameState = &pauseGameState;
-            // Event pauseStateEvent(Event::StateChanged, gameState);
             graphicEventHandler.processEvent(std::make_unique<Event>(Event::StateChanged, gameState));
             THEN("Window attribute gameState should be set to MenuGameState")
             {

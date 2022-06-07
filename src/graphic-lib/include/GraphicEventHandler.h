@@ -22,10 +22,9 @@ public:
     /**
      * @brief Construct a new Graphic Event Handler object
      *
-     * @param game
      * @param window
      */
-    GraphicEventHandler(Game* game, Window* window);
+    GraphicEventHandler(Window* window);
 
     /// @brief Process given event using proper Window class function
     void processEvent(std::unique_ptr<Event> event);
@@ -33,7 +32,6 @@ public:
 protected:
 
     Window* window;
-    Game* game;
 };
 
 #endif //PROI_PROJEKT__GRAPHICEVENTHANDLER_H

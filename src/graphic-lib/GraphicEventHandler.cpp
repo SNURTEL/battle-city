@@ -4,8 +4,8 @@
 #include "../game-lib/include/GameStatistics.h"
 
 
-GraphicEventHandler::GraphicEventHandler(Game* game, Window* window)
-: game(game), window(window)
+GraphicEventHandler::GraphicEventHandler(Window* window)
+: window(window)
 {}
 
 

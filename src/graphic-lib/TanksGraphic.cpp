@@ -114,12 +114,10 @@ void TanksGraphic::makeRenderTanks()
 void TanksGraphic::loadTextures()
 {
     std::unordered_map<Tank::TankType, std::string>::iterator it_path = pathMap.begin();
-    // std::unordered_map<Tank::TankType, sf::Texture>::iterator it_texture = textureMap.begin();
     Tank::TankType type;
     sf::Texture texture;
     std::string path;
 
-    // Not the best solution but iterating over an enum is problematic
     while (it_path != pathMap.end())
     {
 
