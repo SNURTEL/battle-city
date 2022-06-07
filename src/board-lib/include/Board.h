@@ -87,6 +87,8 @@ public:
      */
     bool spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing = North);
 
+    bool spawnPlayer(Direction facing = North);
+
     /**
      * Spawns the player at a given location
      * Detects collisions and queues events if one happens (does not correct colliding tank's position)

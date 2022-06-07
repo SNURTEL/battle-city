@@ -14,5 +14,5 @@ const char *InvalidEventException::what() const noexcept {
 
 void PublisherEventHandler::handleEvent(std::unique_ptr<Event> event) {
     notifyEventSubscribers(event->type);
-    processEvent(std::move(event));
+    return processEvent(std::move(event));
 }

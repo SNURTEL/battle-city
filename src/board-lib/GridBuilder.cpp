@@ -59,8 +59,11 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
                     break;
                 }
                 case '*':{
-                    newGrid->spawnpoints.emplace_back(std::make_pair(i, lineIdx));
+                    newGrid->enemySpawnpoints.emplace_back(std::make_pair(i, lineIdx));
                     break;
+                }
+                case '+':{
+                    newGrid->playerSpawnpoint = std::make_pair(i, lineIdx);
                 }
                 default:{
                 }
@@ -74,6 +77,9 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
         lineIdx++;
     }
 
-
     return std::move(newGrid);
+}
+
+const char *InvalidLevelFile::what() const noexcept {
+    return "Invalid level file";
 }

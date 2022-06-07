@@ -294,3 +294,7 @@ void Board::hitTank(std::shared_ptr<Tank> target, unsigned int damage) {
 Grid* Board::getGrid() {
     return grid_.get();
 }
+
+bool Board::spawnPlayer(Direction facing) {
+    spawnTank(grid_->getPlayerSpawnpoint().first, grid_->getPlayerSpawnpoint().second, Tank::PlayerTank, facing);
+}
