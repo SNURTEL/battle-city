@@ -123,6 +123,8 @@ public:
      */
     void notify(SimplePublisher* pub) override;
 
+    void setHasBullet(bool hasBullet);
+
 protected:
     /**
      * Inits class Tank
@@ -144,6 +146,8 @@ protected:
     unsigned int points_;
 
     float bulletSpeed_;
+
+    bool hasBullet = false;
 };
 
 /**

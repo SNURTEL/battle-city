@@ -194,6 +194,10 @@ void Board::killAllEnemyEntities() {   // FIXME this should be in EntityControll
 }
 
 void Board::removeEntity(std::shared_ptr<Entity> entity) {
+    if(dynamic_cast<Bot*>(entity.get()) != nullptr){
+        BotController::instance()->deregisterBot();
+    }
+
     entityController_->removeEntity(entity);
 }
 

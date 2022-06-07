@@ -54,6 +54,8 @@ public:
      */
     bool isFriendly();
 
+    void unlink();
+
 protected:
     /**
      * Offsets the bullet in the direction it is faced

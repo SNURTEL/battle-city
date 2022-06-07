@@ -343,7 +343,6 @@ SCENARIO("Collisions") {
             REQUIRE(dynamic_cast<FinishedGameState*>(game->getState()) != nullptr);
         }  
     }
-
 }
 
 SCENARIO("Bot events") {
@@ -405,6 +404,8 @@ SCENARIO("Bot events") {
         eq->pop();
         eq->pop();
         aaa = testEnemyTank.use_count();
+
+//        game->getBoard()->removeEntity(testBullet);
 
         REQUIRE(bot_controller->getRegisteredBotsCount() == 0);
 

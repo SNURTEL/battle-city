@@ -23,7 +23,8 @@ EntityController::EntityController() {
 }
 
 
-std::shared_ptr<Tank> EntityController::createTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing) {
+std::shared_ptr<Tank>
+EntityController::createTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing) {
     std::unique_ptr<Tank> newTank;
     switch (type) {
         case Tank::BasicTank: {
@@ -64,9 +65,9 @@ void EntityController::killTank(std::shared_ptr<Tank> tank) {
     if (iter == entities_.end()) {
         throw EntityDoesNotExistException();
     }
-    if(tank->getType() == Tank::PlayerTank){
+    if (tank->getType() == Tank::PlayerTank) {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::PlayerKilled, tank));
-    }else{
+    } else {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::TankKilled, tank));
     }
 
@@ -80,6 +81,12 @@ void EntityController::removeEntity(std::shared_ptr<Entity> entity) {
         throw EntityDoesNotExistException();
     }
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EventType::EntityRemoved, entity));
+
+    if (dynamic_cast<Bullet *>(entity.get()) != nullptr) {
+        dynamic_cast<Bullet *>(entity.get())->unlink();
+    }
+
+    auto found = *iter;
 
     entities_.erase(iter);
 }
@@ -96,11 +103,11 @@ void EntityController::moveEntity(std::shared_ptr<Entity> target) {
     }
 }
 
-void EntityController::setTankMoving(const std::shared_ptr<Tank>& target, bool isMoving) {
+void EntityController::setTankMoving(const std::shared_ptr<Tank> &target, bool isMoving) {
     target->setMoving(isMoving);
 }
 
-void EntityController::setTankDirection(const std::shared_ptr<Tank>& target, Direction direction) {
+void EntityController::setTankDirection(const std::shared_ptr<Tank> &target, Direction direction) {
     target->setFacing(direction);
 }
 
@@ -109,7 +116,7 @@ EntityController::findEntityAtPosition(float x, float y, std::optional<std::shar
     for (auto entity: entities_) {
         if (x >= entity->getX() && entity->getX() + entity->getSizeX() > x) {   //try as a single expression
             if (y >= entity->getY() && entity->getY() + entity->getSizeY() > y) {
-                if((ignored.has_value() && ignored.value() != entity) || !ignored.has_value()){
+                if ((ignored.has_value() && ignored.value() != entity) || !ignored.has_value()) {
                     return entity;
                 }
             }
@@ -122,7 +129,7 @@ std::shared_ptr<PlayerTank> EntityController::getPlayer() {
     return player_;
 }
 
-std::optional<std::shared_ptr<Entity>> EntityController::checkEntityCollisions(const std::shared_ptr<Entity>& target) {
+std::optional<std::shared_ptr<Entity>> EntityController::checkEntityCollisions(const std::shared_ptr<Entity> &target) {
     for (std::shared_ptr<Entity> entity: entities_) {
         if (target->getX() >= entity->getX() + entity->getSizeX() ||
             target->getX() + target->getSizeX() <= entity->getX() ||
@@ -136,7 +143,7 @@ std::optional<std::shared_ptr<Entity>> EntityController::checkEntityCollisions(c
     return std::nullopt;  // went through all entities and found no collisions
 }
 
-std::shared_ptr<PlayerTank> EntityController::addEntity(const std::shared_ptr<PlayerTank>& playerTank) {
+std::shared_ptr<PlayerTank> EntityController::addEntity(const std::shared_ptr<PlayerTank> &playerTank) {
     entities_.push_back(playerTank);
     player_ = playerTank;
     return player_;
@@ -162,7 +169,7 @@ std::vector<std::shared_ptr<Entity>> *EntityController::getAllEntities() {
 }
 
 void EntityController::clear() {
-    for(auto iter = entities_.rbegin(); iter != entities_.rend(); iter++){
+    for (auto iter = entities_.rbegin(); iter != entities_.rend(); iter++) {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityRemoved, *iter));
         entities_.erase(iter.base());
     }

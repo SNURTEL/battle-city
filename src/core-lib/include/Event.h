@@ -284,28 +284,8 @@ public:
         MoveDecisionInfo moveDecisionInfo;
         BotInfo fireDecisionInfo;
 
-        ~info_u() { entityInfo.entity.reset(); }  // DO NOT change this to =default, or else it will stop working (must be '{}')
-    };
-
-
-    struct InfoUnionWrapper {
-        info_u dataStructs{};
-        std::optional<std::shared_ptr<Entity>*> entity_ptr = nullptr;
-        std::optional<std::shared_ptr<Bot>*> bot_ptr;
-
-        info_u& getInfo(){
-            return dataStructs;
-        }
-
-        ~InfoUnionWrapper(){
-            if(entity_ptr.has_value()){
-                entity_ptr.value()->reset();
-            }
-            if(bot_ptr.has_value()){
-                entity_ptr.value()->reset();
-            }
-        }
-    } info;
+        ~info_u() { }  // DO NOT change this to =default, or else it will stop working (must be '{}')
+    } info = {};
 
 
     // ####################################################3
