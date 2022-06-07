@@ -56,7 +56,7 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
         for (int i = 0; i < endIndex; ++i) {  // FIXME I am pretty sure this can be done with an iterator
             switch (line[i]) {
                 case 'E': { // TODO add eagle
-                    break;
+                    newGrid->eagleLocation = std::make_pair(i, lineIdx);
                 }
                 case '*':{
                     newGrid->enemySpawnpoints.emplace_back(std::make_pair(i, lineIdx));

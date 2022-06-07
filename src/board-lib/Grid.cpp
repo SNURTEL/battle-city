@@ -77,3 +77,7 @@ const std::pair<unsigned int, unsigned int> &Grid::getPlayerSpawnpoint() const {
     return playerSpawnpoint;
 }
 
+const std::pair<unsigned int, unsigned int> &Grid::getEagleLocation() const {
+    return eagleLocation;
+}
+

@@ -56,7 +56,7 @@ SCENARIO("Creating and deleting a bot") {
     auto botController = helper::getEmptyBotController();
 
     WHEN("Initializing a bot object") {
-        std::unique_ptr<helper::TestBot> bot = std::make_unique<helper::TestBot>();
+        std::shared_ptr<helper::TestBot> bot = std::make_shared<helper::TestBot>();
 
         THEN("Object should be subscribed to Clock and added to BotController") {
             REQUIRE(bot->getSubscribedSubjects()->size() == 1);

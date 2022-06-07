@@ -38,7 +38,6 @@ SCENARIO("Player was killed"){
                 event = eventQueue->pop();
 
                 REQUIRE(event->type == Event::GameEnded);
-                REQUIRE(event->info.pointsInfo.stats_ == &stats);
 
                 REQUIRE(eventQueue->isEmpty());
             }

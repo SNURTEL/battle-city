@@ -15,6 +15,7 @@ const char *EventConstructionException::what() const noexcept {
 Event::Event(EventType e) {
     type = e;
     switch (e) {
+        case GameEnded:
         case NullEvent: {
             break;
         }
@@ -32,10 +33,6 @@ Event::Event(EventType e, unsigned int i1) {
         }
         case (KeyReleased): {
             info.keyInfo = {i1, KeyEventInfo::Released};
-            break;
-        }
-        case (LevelLoaded): {
-            info.levelInfo.levelNumber = {i1};
             break;
         }
         default: {
@@ -119,8 +116,7 @@ Event::Event(EventType e, GameState* new_state) {
 Event::Event(EventType e, GameStatistics* statsObject) {
     type = e;
     switch (e) {
-        case StatisticsChanged:
-        case GameEnded: {
+        case StatisticsChanged:{
             info.pointsInfo = {statsObject};
             break;
         }
