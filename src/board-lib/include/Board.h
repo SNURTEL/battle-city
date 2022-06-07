@@ -193,6 +193,12 @@ public:
      */
     void hitTank(std::shared_ptr<Tank> target, unsigned int damage);
 
+    /**
+     * Returns grid pointer
+     * @return grid pointer
+     */
+    Grid* getGrid();
+
 protected:
     /**
      * Checks if an entity overlaps with any other entity, tile, or is placed out of grid

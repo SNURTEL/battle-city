@@ -290,3 +290,7 @@ std::shared_ptr<PlayerTank> Board::getPlayerTank() {
 void Board::hitTank(std::shared_ptr<Tank> target, unsigned int damage) {
     entityController_->hitTank(target, damage);
 }
+
+Grid* Board::getGrid() {
+    return grid_.get();
+}

@@ -21,11 +21,9 @@ void FinishedEventHandler::processEvent(std::unique_ptr<Event> event) {
             if (event->info.keyInfo.keyCode == 36 || event->info.keyInfo.keyCode == 58) {
                 game_->quit();
             }
-            std::cout << "State is finished! " << event->info.keyInfo.keyCode << std::endl;
             break;
         }
         case (Event::KeyReleased):{
-            std::cout << "State is finished! " << event->info.keyInfo.keyCode << std::endl;
             break;
         }
        case (Event::EntityMoved):

@@ -16,6 +16,8 @@
 #include "../include/FinishedEventHandler.h"
 #include "../include/MenuEventHandler.h"
 #include "../include/PauseEventHandler.h"
+#include "../../bot-lib/include/BotController.h"
+#include "../../core-lib/include/Clock.h"
 #include "../../core-lib/include/Event.h"
 
 //TODO test the constructor lmao
@@ -81,6 +83,16 @@ namespace {
                 EventQueue<Event>::instance()->pop();
             }
             return bullet;
+        }
+        BotController *getEmptyBotController() {
+            BotController *botController = BotController::instance();
+            botController->deregisterAllBots();
+            return botController;
+        }
+
+        void initSingletons() {
+            BotController::initialize(4, 240);
+            BotController::instance()->subscribe(Clock::instance());
         }
     }
 }
@@ -276,51 +288,137 @@ SCENARIO("Collisions") {
             REQUIRE(game->getStats()->getPoints() == points + delta_points);
         }
 
-        THEN("Enemy tank gets deleted") {
-            REQUIRE(eq->size() > 0);
+        THEN("Enemy tank gets deleted (3 events: remove bullet, remove tank, add points)") {
+            REQUIRE(eq->size() == 3);
         }
     }
 
     WHEN("Enemy bullet collides with a friendly bullet") {
-        //Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
-        //Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
-        // needs Entity* and gets Bullet*
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, bullet_enemy, bullet_friendly));
-        THEN("Both bullets get deleted") {
-            // todo
+        Event::CollisionMember member1 = Event::FriendlyBulletCollisionInfo{player_bullet};
+        Event::CollisionMember member2 = Event::EnemyBulletCollisionInfo{enemy_bullet};
+        eq->clear();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::Collision, member1, member2));
+        THEN("Nothing happens") {
+            REQUIRE(eq->size() == 0);
         }
     }
 
     WHEN("Bullet hits breakable tile") {
-        //Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
-        //Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
-        // needs Entity* and gets Bullet*
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityGridCollision, bullet_enemy, 10, 10));
-        THEN("Tile and bullet are deleted") {
-            // REQUIRE_TRUE(game->getBoard()->getGrid()->isTileDeleted(10, 10))
-            // todo
+        Event::CollisionMember member1 = Event::FriendlyBulletCollisionInfo{player_bullet};
+        game->getBoard()->getGrid()->setTile(10, 10, TileType::Bricks);
+        Event::CollisionMember member2 = Event::BoardCollisionInfo{10, 10, game->getBoard()->getGrid()};
+        eq->clear();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::Collision, member1, member2));
+        THEN("Tile and bullet are deleted (two events)") {
+            REQUIRE(eq->size() == 2);
+
         }
     }
 
     WHEN("Bullet hits unbreakable tile") {
-        //Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
-       // Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
-        // needs Entity* and gets Bullet*
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityGridCollision, bullet_enemy, 10, 10));
-        THEN("Only bullet gets deleted") {
-            // REQUIRE_FALSE(game->getBoard()->getGrid()->isTileDeleted(10, 10))
-            // todo
+        Event::CollisionMember member1 = Event::FriendlyBulletCollisionInfo{player_bullet};
+        game->getBoard()->getGrid()->setTile(10, 10, TileType::Steel);
+        Event::CollisionMember member2 = Event::BoardCollisionInfo{10, 10, game->getBoard()->getGrid()};
+        eq->clear();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::Collision, member1, member2));
+        THEN("Only bullet gets deleted (one event)") {
+            REQUIRE(eq->size() == 1);
         }
     }
 
     WHEN("Tank hits a tile") {
-        // needs Entity* and gets Tank*
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityGridCollision, game->getBoard()->getPlayerTank(), 10, 10));
+        Event::CollisionMember member1 = Event::PlayerTankCollisionInfo{player_tank};
+        Event::CollisionMember member2 = Event::BoardCollisionInfo{10, 10, game->getBoard()->getGrid()};
+        eq->clear();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::Collision, member1, member2));
         THEN("Tank should be moved back") {
-            // todo
+            REQUIRE(eq->size() == 1);
         }
     }
 
+    WHEN("Player tank dies") {
+        eq->clear();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::PlayerKilled, player_tank));  
+        THEN("game should end (Finished state") {
+            REQUIRE(dynamic_cast<FinishedGameState*>(game->getState()) != nullptr);
+        }  
+    }
+
+}
+
+SCENARIO("Bot events") {
+    EventQueue<Event> * eq = helper::getEmptyEventQueue();
+    std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
+    game->testSetup();
+    game->testStart();
+    ActiveGameState* state = dynamic_cast<ActiveGameState*>(game->getState());
+    ActiveEventHandler* handler = dynamic_cast<ActiveEventHandler*>(state->getEventHandler());
+    std::shared_ptr<PlayerTank> player_tank = game->getBoard()->getPlayerTank();
+    eq->clear();
+    std::shared_ptr<Tank> enemy_tank = helper::placeTank(game->getBoard(), 10, 10, Tank::ArmorTank);
+    std::shared_ptr<Bullet> enemy_bullet = helper::fireBullet(game->getBoard(), enemy_tank).value();
+    eq->clear();
+    std::shared_ptr<Bullet> player_bullet = helper::fireBullet(game->getBoard(), player_tank).value();
+    eq->clear();
+    helper::initSingletons();
+    BotController* bot_controller = helper::getEmptyBotController();
+
+    WHEN("Bot spawn decision") {
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::BotSpawnDecision, 5, 5, Tank::ArmorTank));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::BotSpawnDecision, 5, 7, Tank::ArmorTank));
+        THEN("Bot should be registered") {
+            REQUIRE(bot_controller->getRegisteredBotsCount() == 2);
+        }
+    }
+    WHEN("Bot gets killed") {
+        bot_controller = helper::getEmptyBotController();
+        bot_controller->registerBot();
+        Event::CollisionMember member1 = Event::FriendlyBulletCollisionInfo{player_bullet};
+        Event::CollisionMember member2 = Event::EnemyTankCollisionInfo{enemy_tank};
+        eq->clear();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::Collision, member1, member2));
+        THEN("Bot should be registered") {
+            REQUIRE(bot_controller->getRegisteredBotsCount() == 0);
+        }
+    }
+
+    WHEN("Bot Move decision (true)") {
+        bot_controller = helper::getEmptyBotController();
+        bot_controller->registerBot();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::BotMoveDecision, std::dynamic_pointer_cast<Bot>(enemy_tank), true));
+        THEN("Bot should be moving") {
+            REQUIRE(enemy_tank->isMoving() == true);
+        }
+    }
+    
+    WHEN("Bot Move decision (false)") {
+        bot_controller = helper::getEmptyBotController();
+        bot_controller->registerBot();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::BotMoveDecision, std::dynamic_pointer_cast<Bot>(enemy_tank), false));
+        THEN("Bot should be not moving") {
+            REQUIRE(enemy_tank->isMoving() == false);
+        }
+    }
+
+    WHEN("Bot Rotate decision (to South)")
+    {
+        REQUIRE(enemy_tank->getFacing() == North);
+        bot_controller = helper::getEmptyBotController();
+        bot_controller->registerBot();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::BotRotateDecision, std::dynamic_pointer_cast<Bot>(enemy_tank), South));
+        THEN("Facing should be South") {
+            REQUIRE(enemy_tank->getFacing() == South);
+        }
+    }
+
+    WHEN("Bot Fire decision") {
+        bot_controller = helper::getEmptyBotController();
+        bot_controller->registerBot();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::BotFireDecision, std::dynamic_pointer_cast<Bot>(enemy_tank)));
+        THEN("Bot should create a bullet (cant create another)") {
+           REQUIRE_FALSE(enemy_tank->createBullet().has_value());
+        }
+    }
 }
 
 
@@ -416,4 +514,26 @@ SCENARIO("State is pause") {
     }
 }
 
+SCENARIO("State is finished") {
+    EventQueue<Event> * eq = helper::getEmptyEventQueue();
+    std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
+    game->testSetup();
+    game->setFinishedState();
+    FinishedGameState* state = dynamic_cast<FinishedGameState*>(game->getState());
+    FinishedEventHandler* handler = dynamic_cast<FinishedEventHandler*>(state->getEventHandler());
+
+    WHEN("Enter is clicked") {
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 58));\
+        THEN("Game should quit") {
+            REQUIRE_FALSE(game->testIsRunning());
+        }
+    }
+
+    WHEN("Esc is clicked") {
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 36));
+        THEN("Game should quit") {
+            REQUIRE_FALSE(game->testIsRunning());
+        }
+    }
+}
 
