@@ -97,6 +97,20 @@ public:
      */
     Board* getBoard();
 
+    /**
+     * Starts the game at level 1
+     *
+     * Queues Event::StateChanged
+     */
+    void start();
+
+    /**
+     * Ends the game and clears the board
+     *
+     * Possibly queues multiple instances of Event::EntityRemoved, always queues Event::StateChanged
+     */
+    void end();
+
 protected:
     /**
      * Called right before starting the event loop. Sets all remaining attrs, creates the render window,
@@ -127,13 +141,6 @@ protected:
     void initUI();
 
     /**
-     * Starts the game at level 1
-     *
-     * Queues Event::StateChanged
-     */
-    void start();
-
-    /**
      * Resets stats and the board
      *
      * Possibly queues multiple instances of Event::EntityRemoved and a single instance ofEvent::StateChanged and Event::PlayerSpawned
@@ -147,13 +154,6 @@ protected:
      * @param levelNum Level number
      */
     void prepareLevel(unsigned int levelNum);
-
-    /**
-     * Ends the game and clears the board
-     *
-     * Possibly queues multiple instances of Event::EntityRemoved, always queues Event::StateChanged
-     */
-    void end();
 
     /**
      * Redraws the UI; called in every tick

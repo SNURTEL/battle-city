@@ -18,6 +18,10 @@
 
 
 Game::Game(unsigned int clockFreq) {
+    active_state_ = std::make_unique<ActiveGameState>(this);
+    finished_state_ = std::make_unique<FinishedGameState>(this);
+    pause_state_ = std::make_unique<PauseGameState>(this);
+    menu_state_ = std::make_unique<MenuGameState>(this);
     Clock::initialize(clockFreq);
     clock_ = Clock::instance();
     eventQueue_ = EventQueue<Event>::instance();
@@ -101,18 +105,7 @@ void Game::run() {
     }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 GameState *Game::getState() {
-=======
-=======
->>>>>>> d1b72793aef237377fc20017580ffa5f3226a0c1
-Board* Game::getBoard() {
-    return board_.get();
-}
-
-GameState* Game::getState() {
->>>>>>> Implemented tests for states
     return state_;
 }
 
@@ -145,4 +138,8 @@ void Game::end() {
 
 void Game::redrawUI() {
     // put UI stuff here
+}
+
+Board* Game::getBoard() {
+    return board_.get();
 }

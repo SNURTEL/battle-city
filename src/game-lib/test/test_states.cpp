@@ -55,6 +55,33 @@ namespace {
             EventQueue<Event>::instance()->clear();
             return EventQueue<Event>::instance();
         }
+        std::shared_ptr<Tank>
+        placeTank(Board *board, unsigned int x, unsigned int y, Tank::TankType type,
+                  Direction facing = North) {
+            bool collision = !board->spawnTank(x, y, type, facing);
+
+            auto tank = EventQueue<Event>::instance()->pop()->info.entityInfo.entity;
+
+            std::shared_ptr<Tank> result = std::dynamic_pointer_cast<Tank>(tank);
+            if (collision)
+                EventQueue<Event>::instance()->pop();
+
+            return result;
+        }
+
+        std::optional<std::shared_ptr<Bullet>> fireBullet(Board *board, std::shared_ptr<Tank> tank) {
+            unsigned int prevSize = EventQueue<Event>::instance()->size();
+            if (!board->fireTank(tank)) {
+                return std::nullopt;
+            }
+
+            auto bullet = std::dynamic_pointer_cast<Bullet>(EventQueue<Event>::instance()->pop()->info.entityInfo.entity);
+
+            if (prevSize + 1 == EventQueue<Event>::instance()->size()) {
+                EventQueue<Event>::instance()->pop();
+            }
+            return bullet;
+        }
     }
 }
 
@@ -164,9 +191,9 @@ SCENARIO("Player Shooting") {
     Event keypressed(Event::KeyPressed, 74);
     ActiveEventHandler* handler = dynamic_cast<ActiveEventHandler*>(state->getEventHandler());
     WHEN("SPACE clicked") {
-        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 72));
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 57));
         THEN("Player should create a bullet (cant create another)") {
-           // REQUIRE(game->getBoard()->getPlayerTank()->createBullet() == nullptr);
+           REQUIRE_FALSE(game->getBoard()->getPlayerTank()->createBullet().has_value());
         }
     }  
 }
@@ -196,8 +223,8 @@ SCENARIO("Player tank is killed") {
     Event keypressed(Event::KeyPressed, 74);
     ActiveEventHandler* handler = dynamic_cast<ActiveEventHandler*>(state->getEventHandler());
 
-    WHEN ("Tank Killed event") {
-        handler->handleEvent(std::make_unique<Event>(Event::EventType::TankKilled, game->getBoard()->getPlayerTank()));
+    WHEN ("Player Killed event") {
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::PlayerKilled, game->getBoard()->getPlayerTank()));
         THEN ("State is finished") {
             REQUIRE(dynamic_cast<FinishedGameState*>(game->getState()) != nullptr);
         }
@@ -209,46 +236,54 @@ SCENARIO("Collisions") {
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();
     game->testStart();
-    game->getBoard()->spawnTank(15, 15, Tank::ArmorTank);
     ActiveGameState* state = dynamic_cast<ActiveGameState*>(game->getState());
     Event keypressed(Event::KeyPressed, 74);
     ActiveEventHandler* handler = dynamic_cast<ActiveEventHandler*>(state->getEventHandler());
+    std::shared_ptr<PlayerTank> player_tank = game->getBoard()->getPlayerTank();
+    eq->clear();
+    std::shared_ptr<Tank> enemy_tank = helper::placeTank(game->getBoard(), 10, 10, Tank::ArmorTank);
+    std::shared_ptr<Bullet> enemy_bullet = helper::fireBullet(game->getBoard(), enemy_tank).value();
+    eq->clear();
+    std::shared_ptr<Bullet> player_bullet = helper::fireBullet(game->getBoard(), player_tank).value();
     
     WHEN("Tank collides with tank") {
-        // needs Entity* gets Tank*
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, game->getBoard()->getPlayerTank(), 
-        // game->getBoard()->getEntityController()->findEntityAtPosition(15, 15)));
+        Event::CollisionMember member1 = Event::PlayerTankCollisionInfo{player_tank};
+        Event::CollisionMember member2 = Event::EnemyTankCollisionInfo{enemy_tank};
+        eq->clear();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::Collision, member1, member2));
         THEN("They should move back") {
-            // todo
+            REQUIRE(eq->size() > 0);
         }
     }
     WHEN("Enemy bullet collides with player tank") {
-        Bullet* bullet_ptr = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
         unsigned int lives = game->getBoard()->getPlayerTank()->getLives();
-        // needs Entity* and gets Bullet*
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, game->getBoard()->getPlayerTank(), bullet_ptr));
+        Event::CollisionMember member1 = Event::PlayerTankCollisionInfo{player_tank};
+        Event::CollisionMember member2 = Event::EnemyBulletCollisionInfo{enemy_bullet};
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::Collision, member1, member2));
         THEN("Player lives -1") {
-            // REQUIRE(game->getBoard()->getPlayerTank()->getLives() == lives - 1); Not gonna pass now
+            REQUIRE(game->getBoard()->getPlayerTank()->getLives() == lives - 1);
         }
     }
 
     WHEN("Player bullet collides with enemy tank") {
-        Bullet* bullet_ptr = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
         unsigned int points = game->getStats()->getPoints();
-        // needs Entity* and gets Bullet*
-        // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, game->getBoard()->getPlayerTank(), bullet_ptr));
+        Event::CollisionMember member1 = Event::FriendlyBulletCollisionInfo{player_bullet};
+        Event::CollisionMember member2 = Event::EnemyTankCollisionInfo{enemy_tank};
+        unsigned int delta_points = enemy_tank->getPoints();
+        eq->clear();
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::Collision, member1, member2));
         THEN("Player points +") {
-            // REQUIRE(game->getStats()->getPoints() > points); Not gonna pass now
+            REQUIRE(game->getStats()->getPoints() == points + delta_points);
         }
 
         THEN("Enemy tank gets deleted") {
-            // todo
+            REQUIRE(eq->size() > 0);
         }
     }
 
     WHEN("Enemy bullet collides with a friendly bullet") {
-        Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
-        Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
+        //Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
+        //Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
         // needs Entity* and gets Bullet*
         // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityEntityCollision, bullet_enemy, bullet_friendly));
         THEN("Both bullets get deleted") {
@@ -257,8 +292,8 @@ SCENARIO("Collisions") {
     }
 
     WHEN("Bullet hits breakable tile") {
-        Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
-        Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
+        //Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
+        //Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
         // needs Entity* and gets Bullet*
         // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityGridCollision, bullet_enemy, 10, 10));
         THEN("Tile and bullet are deleted") {
@@ -268,8 +303,8 @@ SCENARIO("Collisions") {
     }
 
     WHEN("Bullet hits unbreakable tile") {
-        Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
-        Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
+        //Bullet* bullet_enemy = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Enemy));
+       // Bullet* bullet_friendly = game->getBoard()->getEntityController()->addEntity(std::make_unique<Bullet>(1, 1, North, 1, Bullet::Friendly));
         // needs Entity* and gets Bullet*
         // handler->handleEvent(std::make_unique<Event>(Event::EventType::EntityGridCollision, bullet_enemy, 10, 10));
         THEN("Only bullet gets deleted") {

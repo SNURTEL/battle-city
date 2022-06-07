@@ -25,16 +25,7 @@ std::shared_ptr<PlayerTank> ActiveGameState::get_player_tank() {
     return player_tank_;
 }
 
-void ActiveGameState::set_player_tank(Tank* player_tank) {
-    player_tank_ = player_tank;
-}
-
-void ActiveGameState::set_board(Board* board) {
-    board_ = board;
-}
-
 PauseGameState::PauseGameState(Game* game) : GameState(game, std::make_unique<PauseEventHandler>(game, this)), menu_(std::make_unique<Menu>(2)) {}
-
 MenuGameState::MenuGameState(Game* game) : GameState(game, std::make_unique<MenuEventHandler>(game, this)), menu_(std::make_unique<Menu>(2)) {}
 
 
