@@ -87,6 +87,9 @@ std::optional<std::shared_ptr<Bullet>> Tank::createBullet() {
     if (!subscribedSubjects_.empty()) {
         return std::nullopt;
     }
+//    if (hasBullet) {
+//        return std::nullopt;
+//    }
 
     float bulletSizeX = 0.4;
     float bulletSizeY = 0.4;
@@ -120,6 +123,7 @@ std::optional<std::shared_ptr<Bullet>> Tank::createBullet() {
 
     subscribe(bullet.get());
 
+    hasBullet = true;
     return std::move(bullet);
 }
 
@@ -129,6 +133,10 @@ Tank::Tank(TankType type, float x, float y, float speed, float bulletSpeed, unsi
            unsigned int points)
         : Entity(x, y, 4, 4, speed, direction),
           bulletSpeed_(bulletSpeed), lives_(lives), type_(type), points_(points), moving_(false) {}
+
+void Tank::setHasBullet(bool hasBullet) {
+    Tank::hasBullet = hasBullet;
+}
 
 // ##############################
 
