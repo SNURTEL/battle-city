@@ -38,3 +38,10 @@ void Bullet::offsetInCurrentDirection(float offset) {
 bool Bullet::isFriendly() {
     return static_cast<bool>(type_);
 }
+
+void Bullet::unlink() {
+    if(subscribers_.empty()){
+        return;
+    }
+    subscribers_.front()->unsubscribe(this);
+}

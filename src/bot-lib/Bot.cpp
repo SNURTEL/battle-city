@@ -18,7 +18,7 @@ Bot::Bot(float x, float y, float sizeX, float sizeY, float speed, Direction faci
 }
 
 Bot::~Bot() {
-    botController->deregisterBot();
+//    botController->deregisterBot();
 }
 
 void Bot::notify(SimplePublisher *pub) {

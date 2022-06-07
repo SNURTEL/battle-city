@@ -41,7 +41,7 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
 
 void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::EnemyBulletCollisionInfo member2, Game *game_) {
-
+    throw "37645982734";
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
@@ -66,7 +66,7 @@ void handleCollision(Event::EnemyBulletCollisionInfo member1,
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game_) {
-
+    throw "24523452345";
 }
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
