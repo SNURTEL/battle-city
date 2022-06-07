@@ -9,6 +9,8 @@
 #include <string>
 #include <memory>
 #include <variant>
+#include <iostream>
+#include <optional>
 
 #include "../../tank-lib/include/Entity.h"
 #include "../../tank-lib/include/Tank.h"
@@ -50,6 +52,7 @@ struct EventConstructionException : public std::exception {
  */
 class Event {
 public:
+    ~Event() = default;
 
 /**
      * Represents event types
@@ -163,7 +166,7 @@ public:
         unsigned int x;
         unsigned int y;
         Tank::TankType type;
-        Direction direction=North;
+        Direction direction = North;
     };
 
     /**
@@ -260,6 +263,7 @@ public:
         Grid *grid;
     };
 
+
     /**
      * Contains additional event info.
      * Unions member is initialized according to EventType enum passed to the constructor
@@ -280,8 +284,29 @@ public:
         MoveDecisionInfo moveDecisionInfo;
         BotInfo fireDecisionInfo;
 
-        ~info_u() {};  // DO NOT change this to =default, or else it will stop working (must be '{}')
-    } info = {};
+        ~info_u() { entityInfo.entity.reset(); }  // DO NOT change this to =default, or else it will stop working (must be '{}')
+    };
+
+
+    struct InfoUnionWrapper {
+        info_u dataStructs{};
+        std::optional<std::shared_ptr<Entity>*> entity_ptr = nullptr;
+        std::optional<std::shared_ptr<Bot>*> bot_ptr;
+
+        info_u& getInfo(){
+            return dataStructs;
+        }
+
+        ~InfoUnionWrapper(){
+            if(entity_ptr.has_value()){
+                entity_ptr.value()->reset();
+            }
+            if(bot_ptr.has_value()){
+                entity_ptr.value()->reset();
+            }
+        }
+    } info;
+
 
     // ####################################################3
     // FIXME uh
@@ -304,7 +329,7 @@ public:
 
     Event(EventType e, std::shared_ptr<Bot> bot);
 
-    Event(EventType e, unsigned int x, unsigned int y, Tank::TankType tankType, Direction direction=North);
+    Event(EventType e, unsigned int x, unsigned int y, Tank::TankType tankType, Direction direction = North);
 
     Event(EventType e, std::shared_ptr<Bot> bot, Direction direction);
 

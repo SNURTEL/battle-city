@@ -372,20 +372,20 @@ SCENARIO("Bot events") {
     }
     WHEN("Bot gets killed") {
 //        bot_controller = helper::getEmptyBotController();
-//        std::shared_ptr<Tank> testTank = helper::placeTank(game->getBoard(), 40, 40, Tank::BasicTank);
+//        std::shared_ptr<Tank> testPlayerTank = helper::placeTank(game->getBoard(), 40, 40, Tank::BasicTank);
 //        std::unique_ptr<Event::CollisionMember> member1 = std::make_unique<Event::CollisionMember>(Event::FriendlyBulletCollisionInfo{player_bullet});
-//        std::unique_ptr<Event::CollisionMember> member2 = std::make_unique<Event::CollisionMember>(Event::EnemyTankCollisionInfo{testTank});
+//        std::unique_ptr<Event::CollisionMember> member2 = std::make_unique<Event::CollisionMember>(Event::EnemyTankCollisionInfo{testPlayerTank});
 //        eq->clear();
-////        testTank.reset();
+////        testPlayerTank.reset();
 //        auto collisionEvent = std::make_unique<Event>(Event::EventType::Collision, *(member1.get()), *(member2.get()));
 //
-//        eq->clear();  // ensure no additional testTank shared_ptrs exist
+//        eq->clear();  // ensure no additional testPlayerTank shared_ptrs exist
 //        member1.reset();
 //        member2.reset();
 //
 //        handler->handleEvent(std::move(collisionEvent));
 //
-//        eq->clear();  // ensure no additional testTank shared_ptrs exist
+//        eq->clear();  // ensure no additional testPlayerTank shared_ptrs exist
 //
 //        THEN("Bot should be registered") {
 //
@@ -394,16 +394,17 @@ SCENARIO("Bot events") {
 
         bot_controller = helper::getEmptyBotController();
 //        for(int i = 0; i<1; i++){
-            std::shared_ptr<Tank> testTank = helper::placeTank(game->getBoard(), 40, 40, Tank::BasicTank);
-            std::shared_ptr<Bullet> testBullet = helper::fireBullet(game->getBoard(), testTank).value();
-            eq->registerEvent(std::make_unique<Event>(Event::Collision, Event::FriendlyBulletCollisionInfo{testBullet}, Event::EnemyTankCollisionInfo{testTank}));
+            std::shared_ptr<Tank> testPlayerTank = helper::placeTank(game->getBoard(), 40, 40, Tank::PlayerTank);
+            std::shared_ptr<Tank> testEnemyTank = helper::placeTank(game->getBoard(), 40, 40, Tank::BasicTank);
+            std::shared_ptr<Bullet> testBullet = helper::fireBullet(game->getBoard(), testPlayerTank).value();
+            eq->registerEvent(std::make_unique<Event>(Event::Collision, Event::FriendlyBulletCollisionInfo{testBullet}, Event::EnemyTankCollisionInfo{testEnemyTank}));
 //        }
         handler->handleEvent(eq->pop());
-        auto aaa = testTank.use_count();
+        auto aaa = testEnemyTank.use_count();
         eq->pop();
         eq->pop();
         eq->pop();
-        aaa = testTank.use_count();
+        aaa = testEnemyTank.use_count();
 
         REQUIRE(bot_controller->getRegisteredBotsCount() == 0);
 

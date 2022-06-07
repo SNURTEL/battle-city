@@ -28,11 +28,11 @@ Event::Event(EventType e, unsigned int i1) {
     type = e;
     switch (e) {
         case (KeyPressed): {
-            info.keyInfo = {i1, KeyEventInfo::Pressed};
+            info.dataStructs.keyInfo = {i1, KeyEventInfo::Pressed};
             break;
         }
         case (KeyReleased): {
-            info.keyInfo = {i1, KeyEventInfo::Released};
+            info.dataStructs.keyInfo = {i1, KeyEventInfo::Released};
             break;
         }
         default: {
@@ -52,7 +52,8 @@ Event::Event(EventType e, std::shared_ptr<Entity> entity) {
         case TankKilled:
         case PlayerSpawned:
         case PlayerKilled:{
-            info.entityInfo = {std::move(entity)};
+            info.dataStructs.entityInfo = {std::move(entity)};
+            info.entity_ptr = &(info.dataStructs.entityInfo.entity);
             break;
         }
         default: {
@@ -67,7 +68,7 @@ Event::Event(EventType e, unsigned int x, unsigned int y, Grid *grid) {
         case TilePlaced:
         case TileChanged:
         case TileDeleted: {
-            info.tileInfo = {x, y, grid};
+            info.dataStructs.tileInfo = {x, y, grid};
             break;
         };
         default:
@@ -80,7 +81,7 @@ Event::Event(EventType e, unsigned int levelNumber, Grid *grid) {
     type = e;
     switch (e) {
         case LevelLoaded: {
-            info.levelInfo = {levelNumber, grid};
+            info.dataStructs.levelInfo = {levelNumber, grid};
             break;
         }
         default:
@@ -93,7 +94,7 @@ Event::Event(EventType e, Menu* menu, unsigned int new_pos) {
     switch (e) {
         case MenuSelectionChange:
         case MenuEnterClicked: {
-            info.menuInfo = {menu, new_pos};
+            info.dataStructs.menuInfo = {menu, new_pos};
             break;
         }
         default:
@@ -105,7 +106,7 @@ Event::Event(EventType e, GameState* new_state) {
     type = e;
     switch (e) {
         case StateChanged: {
-            info.stateInfo = {new_state};
+            info.dataStructs.stateInfo = {new_state};
             break;
         }
         default:
@@ -117,7 +118,7 @@ Event::Event(EventType e, GameStatistics* statsObject) {
     type = e;
     switch (e) {
         case StatisticsChanged:{
-            info.pointsInfo = {statsObject};
+            info.dataStructs.pointsInfo = {statsObject};
             break;
         }
         default:
@@ -129,11 +130,13 @@ Event::Event(EventType e, std::shared_ptr<Bot> bot) {
     type = e;
     switch (e) {
         case BotDecisionRequest:{
-            info.botInfo = {std::move(bot)};
+            info.dataStructs.botInfo = {std::move(bot)};
+            info.bot_ptr = &(info.dataStructs.botInfo.bot);
             break;
         }
         case BotFireDecision:{
-            info.fireDecisionInfo = {std::move(bot)};
+            info.dataStructs.fireDecisionInfo = {std::move(bot)};
+            info.bot_ptr = &(info.dataStructs.botInfo.bot);
             break;
         }
         default: {
@@ -146,7 +149,7 @@ Event::Event(EventType e, unsigned int x, unsigned int y, Tank::TankType tankTyp
     type = e;
     switch (e) {
         case BotSpawnDecision: {
-            info.spawnDecisionInfo = {x, y, tankType, direction};
+            info.dataStructs.spawnDecisionInfo = {x, y, tankType, direction};
             break;
         }
         default:
@@ -158,7 +161,8 @@ Event::Event(EventType e, std::shared_ptr<Bot> bot, Direction direction) {
     type = e;
     switch (e) {
         case BotRotateDecision: {
-            info.rotateDecisionInfo = {std::move(bot), direction};
+            info.dataStructs.rotateDecisionInfo = {std::move(bot), direction};
+            info.bot_ptr = &(info.dataStructs.botInfo.bot);
             break;
         }
         default:
@@ -171,7 +175,8 @@ Event::Event(EventType e, std::shared_ptr<Bot> bot, bool flag) {
     type = e;
     switch (e) {
         case BotMoveDecision: {
-            info.moveDecisionInfo = {std::move(bot),flag};
+            info.dataStructs.moveDecisionInfo = {std::move(bot),flag};
+            info.bot_ptr = &(info.dataStructs.botInfo.bot);
             break;
         }
         default:
@@ -183,7 +188,7 @@ Event::Event(EventType e, CollisionMember mem1, CollisionMember mem2) {
     type = e;
     switch (e) {
         case Collision: {
-            info.collisionInfo = {std::move(mem1), std::move(mem2)};
+            info.dataStructs.collisionInfo = {std::move(mem1), std::move(mem2)};
             break;
         }
         default:
