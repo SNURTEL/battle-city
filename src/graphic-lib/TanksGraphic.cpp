@@ -95,6 +95,7 @@ TanksGraphic::TanksGraphic(const WindowView& windowView, std::shared_ptr<std::ve
 
 void TanksGraphic::makeRenderTanks()
 {
+    renderTanks.clear();
     float leftOfset = windowView.leftOffset;
     float topOfset = windowView.topOffset;
     Tank::TankType tankType;
@@ -103,8 +104,8 @@ void TanksGraphic::makeRenderTanks()
     for (const std::shared_ptr<Tank> tank : *tanks)
     {
         direction = tank->getFacing();
-        tankPos.x = tank->getX() + leftOfset;
-        tankPos.y = tank->getY() + topOfset;
+        tankPos.x = tank->getX() * 10 + leftOfset;
+        tankPos.y = tank->getY() * 10 + topOfset;
         tankType = tank->getType();
         renderTanks.push_back(RenderObject(tankPos, direction, tankType));
     }

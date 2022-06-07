@@ -89,6 +89,7 @@ void BulletsGraphic::setBulletRotation(sf::Sprite& sprite, float angle)
 
 void BulletsGraphic::makeRenderBullets()
 {
+    renderBullets.clear();
     float leftOfset = windowView.leftOffset;
     float topOfset = windowView.topOffset;
     Bullet::BulletType bulletType;
@@ -97,8 +98,8 @@ void BulletsGraphic::makeRenderBullets()
     for (const std::shared_ptr<Bullet> bullet : *bullets)
     {
         direction = bullet->getFacing();
-        bulletPos.x = bullet->getX() + leftOfset;
-        bulletPos.y = bullet->getY() + topOfset;
+        bulletPos.x = bullet->getX() * 10 + leftOfset;
+        bulletPos.y = bullet->getY() * 10 + topOfset;
         renderBullets.push_back(BulletsGraphic::RenderObject(bulletPos, direction));
     }
 }

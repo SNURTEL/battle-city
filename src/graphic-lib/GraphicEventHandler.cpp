@@ -23,6 +23,7 @@ void GraphicEventHandler::processEvent(std::unique_ptr<Event> event)
     {
         std::shared_ptr<Entity> e = event->info.entityInfo.entity;
         window->addEntity(e);
+        break;
     }
     case(Event::EntityRemoved):
     {

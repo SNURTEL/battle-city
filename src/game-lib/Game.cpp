@@ -101,6 +101,7 @@ void Game::run() {
             graphicEventHandler_->processEvent(std::move(event));
         }
 
+        board_->moveAllEntities();
         redrawUI();
 
         clock_->sleep();
