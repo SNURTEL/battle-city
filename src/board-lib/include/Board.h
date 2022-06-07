@@ -168,6 +168,37 @@ public:
      */
     void loadLevel(unsigned int levelNum);
 
+    /**
+     * Returns pointer on the player tank object
+     * @return Player Tank pointer
+     */
+    std::shared_ptr<PlayerTank> getPlayerTank();
+
+    /**
+     * Removes entity
+     * @param entity pointer
+     */
+    void removeEntity(Entity* entity);
+
+    /**
+     * Returns entity controller pointer
+     * @return entity controller pointer
+     */
+    EntityController* getEntityController();
+
+    /**
+     * Hits tank
+     * @param target (Tank)
+     * @param damage (int)
+     */
+    void hitTank(std::shared_ptr<Tank> target, unsigned int damage);
+
+    /**
+     * Returns grid pointer
+     * @return grid pointer
+     */
+    Grid* getGrid();
+
 protected:
     /**
      * Checks if an entity overlaps with any other entity, tile, or is placed out of grid

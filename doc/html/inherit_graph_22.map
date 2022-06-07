@@ -1,9 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_event_handler.html" title=" " alt="" coords="5,56,183,83"/>
-<area shape="rect" id="node2" href="$class_publisher_event_handler.html" title="Extended EventHandler for Event class events with publisher capabilities." alt="" coords="231,81,401,108"/>
-<area shape="rect" id="node3" href="$class_active_event_handler.html" title=" " alt="" coords="456,5,607,32"/>
-<area shape="rect" id="node4" href="$class_finished_event_handler.html" title=" " alt="" coords="449,56,613,83"/>
-<area shape="rect" id="node5" href="$class_menu_event_handler.html" title=" " alt="" coords="458,107,605,133"/>
-<area shape="rect" id="node6" href="$class_pause_event_handler.html" title=" " alt="" coords="457,157,605,184"/>
-<area shape="rect" id="node7" href="$class_event_publisher.html" title=" " alt="" coords="35,107,153,133"/>
-</map>

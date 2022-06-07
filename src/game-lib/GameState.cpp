@@ -26,7 +26,6 @@ std::shared_ptr<PlayerTank> ActiveGameState::get_player_tank() {
 }
 
 PauseGameState::PauseGameState(Game* game) : GameState(game, std::make_unique<PauseEventHandler>(game, this)), menu_(std::make_unique<Menu>(2)) {}
-
 MenuGameState::MenuGameState(Game* game) : GameState(game, std::make_unique<MenuEventHandler>(game, this)), menu_(std::make_unique<Menu>(2)) {}
 
 

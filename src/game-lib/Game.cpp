@@ -139,3 +139,7 @@ void Game::end() {
 void Game::redrawUI() {
     // put UI stuff here
 }
+
+Board* Game::getBoard() {
+    return board_.get();
+}
