@@ -11,7 +11,7 @@
 Bot::Bot(float x, float y, float sizeX, float sizeY, float speed, Direction facing) :
         Entity(x, y, sizeX, sizeY, speed, facing),
         botController(BotController::instance()),
-        maxDecisionCooldown(15),
+        maxDecisionCooldown(12),
         decisionCooldown(maxDecisionCooldown) {
     botController->registerBot();
     subscribe(Clock::instance());

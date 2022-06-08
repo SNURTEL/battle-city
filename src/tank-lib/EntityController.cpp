@@ -62,10 +62,9 @@ void EntityController::hitTank(std::shared_ptr<Tank> target, unsigned int damage
 }
 
 void EntityController::killTank(std::shared_ptr<Tank> tank) {
-    if (dynamic_cast<Bot*>(tank.get()) != nullptr)
-    {
+    if (dynamic_cast<Bot *>(tank.get()) != nullptr) {
         BotController::instance()->deregisterBot();
-        dynamic_cast<Bot*>(tank.get())->unsubscribe(Clock::instance());
+        dynamic_cast<Bot *>(tank.get())->unsubscribe(Clock::instance());
     }
 
     auto iter = std::find(entities_.begin(), entities_.end(), tank);
@@ -97,6 +96,7 @@ void EntityController::removeEntity(std::shared_ptr<Entity> entity) {
     auto found = *iter;
 
     entities_.erase(iter);
+
 }
 
 void EntityController::moveAllEntities() {
@@ -145,6 +145,7 @@ std::optional<std::shared_ptr<Entity>> EntityController::checkEntityCollisions(c
             target->getY() + target->getSizeY() <= entity->getY()) {
             continue;  // no collision
         } else if (target != entity) {
+
             return entity;  // collision detected
         }
     }

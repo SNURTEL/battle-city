@@ -68,7 +68,6 @@ void Board::setGrid(std::unique_ptr<Grid> grid) {
     grid_ = std::move(grid);
     botController->setSpawnpoints(grid_->getSpawnpoints());
     botController->setTypes(grid_->getTankTypes());
-    entityController_->addEntity(std::make_shared<Eagle>());
 }
 
 void Board::deleteTile(unsigned int x, unsigned int y) {
@@ -202,6 +201,10 @@ void Board::removeEntity(std::shared_ptr<Entity> entity) {
     }
 
     entityController_->removeEntity(entity);
+
+    if(entityController_->getAllEntities()->size()==1 && grid_->getTankTypes().empty()){
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
+    }
 }
 
 void Board::removeAllEntities() {
@@ -293,7 +296,8 @@ std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entit
 
 void Board::loadLevel(unsigned int levelNum) {
     removeAllEntities();
-    setGrid(std::move(GridBuilder::buildLevel(levelNum)));  // TODO init player tank
+    setGrid(std::move(GridBuilder::buildLevel(levelNum)));
+    entityController_->addEntity(std::make_shared<Eagle>(grid_->getEagleLocation().first, grid_->getEagleLocation().second));
     eventQueue_->registerEvent(std::make_unique<Event>(Event::LevelLoaded, levelNum, grid_.get()));
 }
 
@@ -303,6 +307,9 @@ std::shared_ptr<PlayerTank> Board::getPlayerTank() {
 
 void Board::hitTank(std::shared_ptr<Tank> target, unsigned int damage) {
     entityController_->hitTank(target, damage);
+    if(entityController_->getAllEntities()->size()==1 && grid_->getTankTypes().empty()){
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
+    }
 }
 
 Grid *Board::getGrid() {
