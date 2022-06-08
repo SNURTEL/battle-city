@@ -36,7 +36,7 @@ void BoardGraphic::conscructComposite()
     std::shared_ptr<AbstractWindow> tanks = std::make_shared<TanksGraphic>(windowView, tanksList, extraRenderQueue);
     std::shared_ptr<AbstractWindow> bullets = std::make_shared<BulletsGraphic>(windowView, bulltesList, extraRenderQueue);
     std::shared_ptr<AbstractWindow> tiles = std::make_shared<TilesGraphic>(windowView, gridObject, extraRenderQueue);
-
+    // std::shared_ptr<AbstractWindow> eagle = std::make_shared<EagleGraphic>(windowView, eagle, extraRenderQueue)
     // ORDER IS INHERENT IN LIST OF THOSE CHILDREN !!!
 
     children.push_back(tiles);

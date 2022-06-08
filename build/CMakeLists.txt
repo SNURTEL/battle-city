@@ -132,6 +132,7 @@ set(graphic_lib_sources
         ${graphic_lib_dir}/TextureLoadingError.cpp
         ${graphic_lib_dir}/StaticGraphic.cpp
         ${graphic_lib_dir}/MenuStateGraphic.cpp
+        ${graphic_lib_dir}/EagleGraphic.cpp
         )
 
 add_library(graphic-lib ${graphic_lib_sources})

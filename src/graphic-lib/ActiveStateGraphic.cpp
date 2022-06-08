@@ -36,6 +36,7 @@ void ActiveStateGraphic::setboardObjects()
     boardObjects.tiles = activeStateObjects.tiles;
     boardObjects.tanks = activeStateObjects.tanks;
     boardObjects.bullets = activeStateObjects.bullets;
+    boardObjects.eagle = activeStateObjects.eagle;
 }
 
 
@@ -43,6 +44,7 @@ void ActiveStateGraphic::setframeObjects()
 {
     frameObjects.level = activeStateObjects.level;
     frameObjects.playerLives = activeStateObjects.playerLives;
+    frameObjects.points = activeStateObjects.points;
 }
 
 

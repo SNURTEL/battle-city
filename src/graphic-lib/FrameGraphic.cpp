@@ -28,6 +28,7 @@ void FrameGraphic::makeGamePointers()
 {
     *gameInfoPointers.playerLives = *frameObjects.playerLives;
     *gameInfoPointers.level = *frameObjects.level;
+    *gameInfoPointers.points = *frameObjects.points;
 }
 
 
@@ -89,7 +90,7 @@ void FrameGraphic::calculateInfoTextPoistion()
 
     float offsetX = windowSizeX - defaultFrameXRight + extraPixelsPadding;
 
-    float offsetY = windowSizeY * 1/3;
+    float offsetY = windowSizeY * 1/4;
 
     infoWindowView.leftOffset = offsetX;
     infoWindowView.topOffset = offsetY;
@@ -101,4 +102,5 @@ void FrameGraphic::initiatesGameInfoPointers()
 {
     gameInfoPointers.level = std::make_shared<int>();
     gameInfoPointers.playerLives = std::make_shared<int>();
+    gameInfoPointers.points = std::make_shared<int>();
 }
