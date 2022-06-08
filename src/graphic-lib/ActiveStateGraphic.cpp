@@ -36,7 +36,7 @@ void ActiveStateGraphic::setboardObjects()
     boardObjects.tiles = activeStateObjects.tiles;
     boardObjects.tanks = activeStateObjects.tanks;
     boardObjects.bullets = activeStateObjects.bullets;
-    boardObjects.eagle = activeStateObjects.eagle;
+    boardObjects.eaglePos = activeStateObjects.eaglePos;
 }
 
 

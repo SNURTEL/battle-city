@@ -41,7 +41,8 @@ void GraphicEventHandler::processEvent(std::unique_ptr<Event> event)
     {
         Grid* grid = event->info.levelInfo.grid;
         int levelNumber = event->info.levelInfo.levelNumber;
-        window->loadLevel(grid, levelNumber);
+        std::pair<unsigned int, unsigned int> eagleLocation = grid->getEagleLocation();
+        window->loadLevel(grid, levelNumber, eagleLocation);
         break;
     }
     case(Event::StateChanged):

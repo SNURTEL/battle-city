@@ -67,15 +67,15 @@ void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
     }
 
 
-    if (rotateRoll == 0) {
-        eventQueue_->registerEvent(
-                std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() - 1) % 4)));
+    // if (rotateRoll == 0) {
+    //     eventQueue_->registerEvent(
+    //             std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() - 1) % 4)));
 
-    } else if (rotateRoll == 1) {
-        eventQueue_->registerEvent(
-                std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() + 1) % 4)));
+    // } else if (rotateRoll == 1) {
+    //     eventQueue_->registerEvent(
+    //             std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() + 1) % 4)));
 
-    }
+    // }
 
 
 

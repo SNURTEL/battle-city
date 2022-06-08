@@ -2,6 +2,7 @@
 #include "include/ActiveState_dir/Borad_dir/TanksGraphic.h"
 #include "include/ActiveState_dir/Borad_dir/TilesGraphic.h"
 #include "include/ActiveState_dir/Borad_dir/BulletsGraphic.h"
+#include "include/ActiveState_dir/Borad_dir/EagleGraphic.h"
 
 
 void BoardGraphic::render()
@@ -36,12 +37,13 @@ void BoardGraphic::conscructComposite()
     std::shared_ptr<AbstractWindow> tanks = std::make_shared<TanksGraphic>(windowView, tanksList, extraRenderQueue);
     std::shared_ptr<AbstractWindow> bullets = std::make_shared<BulletsGraphic>(windowView, bulltesList, extraRenderQueue);
     std::shared_ptr<AbstractWindow> tiles = std::make_shared<TilesGraphic>(windowView, gridObject, extraRenderQueue);
-    // std::shared_ptr<AbstractWindow> eagle = std::make_shared<EagleGraphic>(windowView, eagle, extraRenderQueue)
+    std::shared_ptr<AbstractWindow> eagle = std::make_shared<EagleGraphic>(windowView, boardObjects.eaglePos, extraRenderQueue);
     // ORDER IS INHERENT IN LIST OF THOSE CHILDREN !!!
 
     children.push_back(tiles);
     children.push_back(tanks);
     children.push_back(bullets);
+    children.push_back(eagle);
 }
 
 
