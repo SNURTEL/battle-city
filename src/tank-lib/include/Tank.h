@@ -123,7 +123,8 @@ public:
      */
     void notify(SimplePublisher* pub) override;
 
-    void setHasBullet(bool hasBullet);
+    std::optional<Bullet*> getBullet();
+
 
 protected:
     /**
@@ -146,8 +147,6 @@ protected:
     unsigned int points_;
 
     float bulletSpeed_;
-
-    bool hasBullet = false;
 };
 
 /**

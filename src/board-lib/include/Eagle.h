@@ -11,6 +11,8 @@
 
 class Eagle : public Entity {
 public:
+    Eagle(unsigned int x, unsigned int y);
+
     bool move() override { return false; };
 
     bool moveBack() override { return false; };

@@ -14,45 +14,72 @@ const char *NoSpawnpointException::what() const noexcept {
     return "At least one spawnpoint is needed to spawn a bot";
 }
 
-BotController::BotController(unsigned int n_maxRegisteredBots, unsigned int n_spawnCooldown) : maxSpawnCooldown(n_spawnCooldown),
-                                                                                               spawnCooldown(maxSpawnCooldown),
-                                                                                               maxRegisteredBots_(n_maxRegisteredBots),
+BotController::BotController(unsigned int n_maxRegisteredBots, unsigned int n_spawnCooldown) : maxSpawnCooldown(
+        n_spawnCooldown),
+                                                                                               spawnCooldown(
+                                                                                                       maxSpawnCooldown),
+                                                                                               maxRegisteredBots_(
+                                                                                                       n_maxRegisteredBots),
                                                                                                registeredBots_(0),
-                                                                                               eventQueue_(EventQueue<Event>::instance()){
+                                                                                               eventQueue_(
+                                                                                                       EventQueue<Event>::instance()) {
 };
 
-void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
-    enum action : unsigned int {
-        MoveForward = 0,
-        RotateLeft,
-        RotateRight,
-        Fire
-    };
+void BotController::makeBotDecision(const std::shared_ptr<Bot> &bot) {
+//    enum action : unsigned int {
+//        MoveForward = 0,
+//        RotateLeft,
+//        RotateRight,
+//        Fire
+//    };
+//    std::default_random_engine generator;
+//    std::discrete_distribution<int> distribution {1, 2, 2, 3};
+//    auto pick = std::rand() % 4;
+////     auto pick = static_cast<action>(distribution(generator));
+//    switch (pick) {
+//        case MoveForward:{
+//            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotMoveDecision, bot, true));
+//            break;
+//        }
+//        case RotateLeft:{
+//            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()-1)%4)));
+//            break;
+//        }
+//        case RotateRight:{
+//            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()+1)%4)));
+//            break;
+//        }
+//        case Fire:{
+//            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotFireDecision, bot));
+//            break;
+//        }
+//        default: {};
+//    }
 
-    std::default_random_engine generator;
-    std::discrete_distribution<int> distribution {1, 2, 2, 3};
-    auto pick = std::rand() % 4;
-    // auto pick = static_cast<action>(distribution(generator));
+    int rotateRoll = rand() % 10;
 
-    switch (pick) {
-        case MoveForward:{
-            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotMoveDecision, bot, true));
-            break;
-        }
-        case RotateLeft:{
-            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()-1)%4)));
-            break;
-        }
-        case RotateRight:{
-            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()+1)%4)));
-            break;
-        }
-        case Fire:{
-            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotFireDecision, bot));
-            break;
-        }
-        default: {};
+    int moveRoll = rand() % 2;
+    if (moveRoll == 1) {
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::BotMoveDecision, bot, true));
+
     }
+
+    int fireRoll = rand() % 7;
+    if (fireRoll < 3) {
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::BotFireDecision, bot));
+    }
+
+
+    if (rotateRoll == 0) {
+        eventQueue_->registerEvent(
+                std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() - 1) % 4)));
+
+    } else if (rotateRoll == 1) {
+        eventQueue_->registerEvent(
+                std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() + 1) % 4)));
+
+    }
+
 
 
 }
@@ -77,7 +104,7 @@ unsigned int BotController::getRegisteredBotsCount() const {
 }
 
 void BotController::notify(SimplePublisher *pub) {
-    if(!counting)
+    if (!counting)
         return;
     spawnCooldown = std::min(spawnCooldown, spawnCooldown - 1); // prevent overflow
     if (registeredBots_ < maxRegisteredBots_ && spawnCooldown == 0) {
@@ -89,7 +116,7 @@ void BotController::notify(SimplePublisher *pub) {
 std::unique_ptr<BotController> BotController::self_ = nullptr;
 
 BotController *BotController::instance() {
-    if(self_== nullptr){
+    if (self_ == nullptr) {
         throw SingletonNotInitializedException();
     }
     return self_.get();
@@ -104,11 +131,11 @@ void BotController::setSpawnpoints(const std::vector<std::pair<unsigned int, uns
 }
 
 void BotController::requestSpawnBot() {
-    if(spawnpoints_.empty()){
+    if (spawnpoints_.empty()) {
         throw NoSpawnpointException();
     }
 
-    if(types_.empty()){
+    if (types_.empty()) {
         return;
     }
 
@@ -137,7 +164,6 @@ void BotController::setTypes(const std::queue<Tank::TankType> &types) {
 }
 
 
-void BotController::setCounting(bool nCounting)
-{
+void BotController::setCounting(bool nCounting) {
     counting = nCounting;
 }
