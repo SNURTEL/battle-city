@@ -1,6 +1,7 @@
 #include "include/Window.h"
 #include "include/ActiveState_dir/Borad_dir/BoardGraphic.h"
 #include "include/StaticStates_dir/StaticGraphic.h"
+#include "../board-lib/include/Eagle.h"
 
 
 
