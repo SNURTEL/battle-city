@@ -1,0 +1,4 @@
+<map id="StaticGraphic" name="StaticGraphic">
+<area shape="rect" id="node1" title="Class responsible for static graphic settings." alt="" coords="5,292,253,648"/>
+<area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="18,5,241,244"/>
+</map>

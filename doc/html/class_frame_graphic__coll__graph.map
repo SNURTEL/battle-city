@@ -1,0 +1,14 @@
+<map id="FrameGraphic" name="FrameGraphic">
+<area shape="rect" id="node1" title="Class responsible for frame upadates and render." alt="" coords="477,616,720,884"/>
+<area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="271,388,481,553"/>
+<area shape="rect" id="node3" title=" " alt="" coords="497,182,583,259"/>
+<area shape="rect" id="node4" href="$struct_window_view.html" title="Struct that contains the sf::RenderWindow nad offset of elements to render." alt="" coords="7,160,249,281"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,5,136,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="160,5,211,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="274,175,473,267"/>
+<area shape="rect" id="node8" href="$struct_active_state_graphic_1_1_frame_pointers.html" title="Stores given frame object pointers." alt="" coords="716,425,863,517"/>
+<area shape="rect" id="node9" title=" " alt="" coords="664,182,803,259"/>
+<area shape="rect" id="node12" href="$struct_frame_graphic_1_1_game_info.html" title="Struct contains pointers for GameInfoGraphic class." alt="" coords="506,432,691,509"/>
+<area shape="rect" id="node10" href="$struct_frame_graphic_1_1_bare_frame_size.html" title="Struct containing params which dictates how to draw the bare frame." alt="" coords="887,432,1105,509"/>
+<area shape="rect" id="node11" title=" " alt="" coords="954,182,1038,259"/>
+</map>

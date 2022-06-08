@@ -1,0 +1,4 @@
+<map id="FrameGraphic" name="FrameGraphic">
+<area shape="rect" id="node1" title="Class responsible for frame upadates and render." alt="" coords="5,292,248,619"/>
+<area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="15,5,238,244"/>
+</map>
