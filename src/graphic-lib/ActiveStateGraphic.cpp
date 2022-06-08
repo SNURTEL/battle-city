@@ -44,6 +44,7 @@ void ActiveStateGraphic::setframeObjects()
 {
     frameObjects.level = activeStateObjects.level;
     frameObjects.playerLives = activeStateObjects.playerLives;
+    frameObjects.points = activeStateObjects.points;
 }
 
 

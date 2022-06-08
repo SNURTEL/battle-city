@@ -19,8 +19,8 @@ Window::Window()
     windowView.window = window.get();
     windowView.leftOffset = 0.f;
     windowView.topOffset = 0.f;
+    initateStaticStatePointers(); // Order of initiation is important
     initiateActiveStatePointers();
-    initateStaticStatePointers();
     conscructComposit();
 }
 
@@ -46,6 +46,7 @@ void Window::initiateActiveStatePointers()
     activeStatePointers.level = std::make_shared<int>();
     activeStatePointers.playerLives = std::make_shared<int>();
     activeStatePointers.eagle = std::make_shared<std::shared_ptr<Eagle>>();
+    activeStatePointers.points = staticStatesPointers.points;
 }
 
 

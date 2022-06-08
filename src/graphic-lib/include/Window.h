@@ -53,6 +53,7 @@ public:
         std::shared_ptr<Grid*> tiles;
         std::shared_ptr<int> level;
         std::shared_ptr<int> playerLives;
+        std::shared_ptr<int> points;
     };
 
     /// @brief Stores MenuState pointers
