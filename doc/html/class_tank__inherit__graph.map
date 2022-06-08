@@ -1,0 +1,10 @@
+<map id="Tank" name="Tank">
+<area shape="rect" id="node1" title="Base class for tank representation." alt="" coords="352,409,577,985"/>
+<area shape="rect" id="node4" href="$class_armor_tank.html" title=" " alt="" coords="5,1033,175,1155"/>
+<area shape="rect" id="node5" href="$class_basic_tank.html" title=" " alt="" coords="199,1033,363,1155"/>
+<area shape="rect" id="node6" href="$class_fast_tank.html" title=" " alt="" coords="387,1033,542,1155"/>
+<area shape="rect" id="node7" href="$class_player_tank.html" title=" " alt="" coords="566,1033,737,1155"/>
+<area shape="rect" id="node8" href="$class_power_tank.html" title=" " alt="" coords="761,1033,931,1155"/>
+<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="229,5,442,361"/>
+<area shape="rect" id="node3" href="$class_simple_subscriber.html" title=" " alt="" coords="467,64,724,303"/>
+</map>

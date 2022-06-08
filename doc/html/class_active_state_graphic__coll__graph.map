@@ -1,0 +1,17 @@
+<map id="ActiveStateGraphic" name="ActiveStateGraphic">
+<area shape="rect" id="node1" title="Class resoponsible for computing ActiveState graphic." alt="" coords="757,601,1009,869"/>
+<area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="372,373,583,539"/>
+<area shape="rect" id="node3" title=" " alt="" coords="497,182,583,259"/>
+<area shape="rect" id="node4" href="$struct_window_view.html" title="Struct that contains the sf::RenderWindow nad offset of elements to render." alt="" coords="7,160,249,281"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,5,136,83"/>
+<area shape="rect" id="node6" title=" " alt="" coords="160,5,211,83"/>
+<area shape="rect" id="node7" title=" " alt="" coords="274,175,473,267"/>
+<area shape="rect" id="node8" href="$struct_active_state_graphic_1_1_board_pointers.html" title="Stores given board object pointers." alt="" coords="809,410,956,502"/>
+<area shape="rect" id="node9" title=" " alt="" coords="608,175,832,267"/>
+<area shape="rect" id="node15" href="$struct_window_1_1_active_state_pointers.html" title="Stores given ActiveState pointers." alt="" coords="1101,417,1310,495"/>
+<area shape="rect" id="node10" title=" " alt="" coords="856,175,1088,267"/>
+<area shape="rect" id="node11" title=" " alt="" coords="1113,182,1271,259"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1296,182,1491,259"/>
+<area shape="rect" id="node13" href="$struct_active_state_graphic_1_1_frame_pointers.html" title="Stores given frame object pointers." alt="" coords="1451,410,1597,502"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1515,182,1653,259"/>
+</map>

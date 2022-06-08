@@ -1,0 +1,4 @@
+<map id="BoardGraphic" name="BoardGraphic">
+<area shape="rect" id="node1" title="Class responsible for board updates and render." alt="" coords="5,292,237,619"/>
+<area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="10,5,233,244"/>
+</map>

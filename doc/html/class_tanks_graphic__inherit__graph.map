@@ -1,0 +1,4 @@
+<map id="TanksGraphic" name="TanksGraphic">
+<area shape="rect" id="node1" title="Class responsible for tanks updates and render." alt="" coords="11,292,222,853"/>
+<area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="5,5,228,244"/>
+</map>

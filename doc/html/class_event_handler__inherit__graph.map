@@ -1,0 +1,9 @@
+<map id="EventHandler&lt; E &gt;" name="EventHandler&lt; E &gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="406,5,633,127"/>
+<area shape="rect" id="node2" href="$class_event_handler.html" title=" " alt="" coords="420,189,619,325"/>
+<area shape="rect" id="node3" href="$class_publisher_event_handler.html" title="Extended EventHandler for Event class events with publisher capabilities." alt="" coords="410,375,629,569"/>
+<area shape="rect" id="node4" href="$class_active_event_handler.html" title=" " alt="" coords="5,619,241,843"/>
+<area shape="rect" id="node5" href="$class_finished_event_handler.html" title=" " alt="" coords="265,626,515,835"/>
+<area shape="rect" id="node6" href="$class_menu_event_handler.html" title=" " alt="" coords="539,633,758,828"/>
+<area shape="rect" id="node7" href="$class_pause_event_handler.html" title=" " alt="" coords="783,633,1016,828"/>
+</map>

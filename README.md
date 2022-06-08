@@ -1,8 +1,9 @@
 # 22L-PROI-projekt-Jakomulski-Budnik-Owienko
 
 ---
-Some cool description waiting to be added
+## Full documentation in >>> [doc](doc) <<<
 
+---
 
 ## Contents
 - [Repository structure](#repository-structure)
