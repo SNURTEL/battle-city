@@ -13,7 +13,11 @@ void GameInfoGraphic::render()
     float offsetTop = windowView.topOffset;
     int playerLives = *gameInfo.playerLives;
     std::stringstream ss;
-    ss << "Player's lives:" << "\n\t\t   " << std::to_string(playerLives);
+    if (*gameInfo.points < 100)
+        ss << "  \tPoints" << "\n\t\t" << std::to_string(*gameInfo.points) << "00";
+    else
+        ss << "  \tPoints" << "\n\t\t" << std::to_string(*gameInfo.points);
+
     std::string renderText = ss.str();
     this->renderText(renderText, offsetLeft, offsetTop);
 
@@ -22,6 +26,15 @@ void GameInfoGraphic::render()
     ss.str("");
 
     ss << "   \tLevel:" << "\n   \t\t" << std::to_string(*gameInfo.level);
+    renderText = ss.str();
+    offsetTop += 100;
+    this->renderText(renderText, offsetLeft, offsetTop);
+
+    // To clear ss
+    ss.clear();
+    ss.str("");
+
+    ss << "Player's lives:" << "\n\t\t   " << std::to_string(playerLives);
     renderText = ss.str();
     offsetTop += 100;
     this->renderText(renderText, offsetLeft, offsetTop);

@@ -14,11 +14,15 @@ const char *NoSpawnpointException::what() const noexcept {
     return "At least one spawnpoint is needed to spawn a bot";
 }
 
-BotController::BotController(unsigned int n_maxRegisteredBots, unsigned int n_spawnCooldown) : maxSpawnCooldown(n_spawnCooldown),
-                                                                                               spawnCooldown(maxSpawnCooldown),
-                                                                                               maxRegisteredBots_(n_maxRegisteredBots),
+BotController::BotController(unsigned int n_maxRegisteredBots, unsigned int n_spawnCooldown) : maxSpawnCooldown(
+        n_spawnCooldown),
+                                                                                               spawnCooldown(
+                                                                                                       maxSpawnCooldown),
+                                                                                               maxRegisteredBots_(
+                                                                                                       n_maxRegisteredBots),
                                                                                                registeredBots_(0),
-                                                                                               eventQueue_(EventQueue<Event>::instance()){
+                                                                                               eventQueue_(
+                                                                                                       EventQueue<Event>::instance()) {
 };
 
 void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
@@ -63,6 +67,18 @@ void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
     }
 
 
+    if (rotateRoll == 0) {
+        eventQueue_->registerEvent(
+                std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() - 1) % 4)));
+
+    } else if (rotateRoll == 1) {
+        eventQueue_->registerEvent(
+                std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() + 1) % 4)));
+
+    }
+
+
+
 }
 
 void BotController::registerBot() {
@@ -85,7 +101,7 @@ unsigned int BotController::getRegisteredBotsCount() const {
 }
 
 void BotController::notify(SimplePublisher *pub) {
-    if(!counting)
+    if (!counting)
         return;
     spawnCooldown = std::min(spawnCooldown, spawnCooldown - 1); // prevent overflow
     if (registeredBots_ < maxRegisteredBots_ && spawnCooldown == 0) {
@@ -97,7 +113,7 @@ void BotController::notify(SimplePublisher *pub) {
 std::unique_ptr<BotController> BotController::self_ = nullptr;
 
 BotController *BotController::instance() {
-    if(self_== nullptr){
+    if (self_ == nullptr) {
         throw SingletonNotInitializedException();
     }
     return self_.get();
@@ -112,11 +128,11 @@ void BotController::setSpawnpoints(const std::vector<std::pair<unsigned int, uns
 }
 
 void BotController::requestSpawnBot() {
-    if(spawnpoints_.empty()){
+    if (spawnpoints_.empty()) {
         throw NoSpawnpointException();
     }
 
-    if(types_.empty()){
+    if (types_.empty()) {
         return;
     }
 
@@ -145,7 +161,6 @@ void BotController::setTypes(const std::queue<Tank::TankType> &types) {
 }
 
 
-void BotController::setCounting(bool nCounting)
-{
+void BotController::setCounting(bool nCounting) {
     counting = nCounting;
 }

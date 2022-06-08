@@ -28,11 +28,13 @@ public:
         sf::FloatRect downRect;
     };
 
+
     /// @brief Struct contains pointers for GameInfoGraphic class
     struct GameInfo
     {
         std::shared_ptr<int> playerLives;
         std::shared_ptr<int> level;
+        std::shared_ptr<int> points;
     };
 
 
@@ -82,6 +84,7 @@ private:
 
 
     GameInfo gameInfoPointers;
+
 
     /// @brief Stores WindowView object for the GameInfoGraphic class
     WindowView infoWindowView;

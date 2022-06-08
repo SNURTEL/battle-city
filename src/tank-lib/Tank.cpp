@@ -123,8 +123,15 @@ std::optional<std::shared_ptr<Bullet>> Tank::createBullet() {
 
     subscribe(bullet.get());
 
-    hasBullet = true;
     return std::move(bullet);
+}
+
+std::optional<Bullet *> Tank::getBullet() {
+    if(subscribedSubjects_.empty()){
+        return std::nullopt;
+    }
+
+    return dynamic_cast<Bullet*>(subscribedSubjects_.front());
 }
 
 void Tank::notify(SimplePublisher *pub) {}
@@ -134,9 +141,6 @@ Tank::Tank(TankType type, float x, float y, float speed, float bulletSpeed, unsi
         : Entity(x, y, 4, 4, speed, direction),
           bulletSpeed_(bulletSpeed), lives_(lives), type_(type), points_(points), moving_(false) {}
 
-void Tank::setHasBullet(bool hasBullet) {
-    Tank::hasBullet = hasBullet;
-}
 
 // ##############################
 
