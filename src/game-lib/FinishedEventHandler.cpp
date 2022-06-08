@@ -45,7 +45,8 @@ std::unique_ptr<Event> FinishedEventHandler::processEvent(std::unique_ptr<Event>
            break;
        }
         default:{
-            throw InvalidEventException("Invalid event for FinishedEventHandler\nEvent enum cast: " + std::to_string(event->type));
+            // throw InvalidEventException("Invalid event for FinishedEventHandler\nEvent enum cast: " + std::to_string(event->type));
+            break;
         }
     }
     return std::move(event);

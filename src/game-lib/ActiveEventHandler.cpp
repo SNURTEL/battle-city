@@ -41,7 +41,12 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
 
 void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::EnemyBulletCollisionInfo member2, Game *game_) {
-    game_->getBoard()->removeEntity(member2.enemyBullet);
+    try
+    {
+        game_->getBoard()->removeEntity(member2.enemyBullet);
+    }
+    catch (EntityDoesNotExistException)
+        {}
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
@@ -66,7 +71,12 @@ void handleCollision(Event::EnemyBulletCollisionInfo member1,
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game_) {
-    game_->getBoard()->removeEntity(member1.enemyBullet);
+    try
+    {
+        game_->getBoard()->removeEntity(member1.enemyBullet);
+    }
+    catch(EntityDoesNotExistException)
+        {}
 }
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
@@ -128,8 +138,12 @@ void handleCollision(Event::PlayerTankCollisionInfo member1,
 
 void handleCollision(Event::PlayerTankCollisionInfo member1,
                      Event::EnemyBulletCollisionInfo member2, Game *game) {
-    game->getBoard()->hitTank(member1.playerTank, 1);
-    game->getBoard()->removeEntity(member2.enemyBullet);
+    try{
+        game->getBoard()->removeEntity(member2.enemyBullet);
+        game->getStats()->decrementLives(1);
+    }
+    catch(EntityDoesNotExistException)
+    {}
 }
 
 void handleCollision(Event::PlayerTankCollisionInfo member1,
@@ -140,14 +154,27 @@ void handleCollision(Event::PlayerTankCollisionInfo member1,
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game) {
-    game->getBoard()->removeEntity(member1.friendlyBullet);
-    game->getStats()->addPoints(member2.enemyTank->getPoints());
-    game->getBoard()->removeEntity(member2.enemyTank);
+    try
+    {
+        game->getBoard()->removeEntity(member1.friendlyBullet);
+        game->getBoard()->hitTank(member2.enemyTank, 1);
+
+    }
+    catch(EntityDoesNotExistException)
+        {}
+
 //    BotController::instance()->deregisterBot();
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
+    try
+    {
+        game->getBoard()->removeEntity(member1.friendlyBullet);
+    }
+    catch(EntityDoesNotExistException)
+        {return;}
+
     for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
             {member2.tile_x, member2.tile_y},
             {std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y},
@@ -159,7 +186,8 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
         }
         game->getBoard()->deleteTile(coords.first, coords.second);
     }
-    game->getBoard()->removeEntity(member1.friendlyBullet);
+
+
     // game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
     // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y);
     // game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY()));
@@ -170,18 +198,24 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
-     for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
-            {member2.tile_x, member2.tile_y},
-            {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y},
-            {member2.tile_x, std::ceil(member2.tile_y + member1.enemyBullet->getSizeY())},
-            {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), std::ceil(member2.tile_y + member1.enemyBullet->getSizeY())}
+    try
+    {
+        game->getBoard()->removeEntity(member1.enemyBullet);
+    }
+    catch(EntityDoesNotExistException)
+        {return;}
+
+    for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
+        {member2.tile_x, member2.tile_y},
+        {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y},
+        {member2.tile_x, std::ceil(member2.tile_y + member1.enemyBullet->getSizeY())},
+        {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), std::ceil(member2.tile_y + member1.enemyBullet->getSizeY())}
     }){
         if(coords.first > game->getBoard()->getSizeX() - 1 || coords.second > game->getBoard()->getSizeY() - 1){
         continue;
         }
         game->getBoard()->deleteTile(coords.first, coords.second);
     }
-    // game->getBoard()->removeEntity(member1.enemyBullet);
     // game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
     // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y);
     // game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.enemyBullet->getSizeY()));
@@ -337,6 +371,17 @@ std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> e
                        event->info.collisionInfo.member1, event.get()->info.collisionInfo.member2);
             break;
         }
+        case (Event::TankKilled):
+        {
+            if (std::dynamic_pointer_cast<Tank>(event->info.entityInfo.entity) != nullptr)
+                game_->getStats()->addPoints(std::dynamic_pointer_cast<Tank>(event->info.entityInfo.entity)->getPoints());
+                break;
+        }
+        case (Event::GameEnded):
+        {
+            game_->setFinishedState();
+            break;
+        }
         case (Event::EntityMoved):
         case (Event::EntityRemoved):
         case (Event::EntitySpawned):
@@ -345,7 +390,6 @@ std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> e
         case (Event::TileChanged):
         case (Event::TileDeleted):
         case (Event::PlayerSpawned):
-        case (Event::TankKilled):
         case (Event::TankRotated):
         case (Event::TankHit):
         case (Event::MenuEnterClicked):

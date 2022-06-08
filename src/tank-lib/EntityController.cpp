@@ -12,6 +12,8 @@
 
 #include "../core-lib/include/EventQueue.h"
 #include "../core-lib/include/Event.h"
+#include "../core-lib/include/Clock.h"
+#include "../bot-lib/include/BotController.h"
 
 
 const char *EntityDoesNotExistException::what() {
@@ -60,6 +62,12 @@ void EntityController::hitTank(std::shared_ptr<Tank> target, unsigned int damage
 }
 
 void EntityController::killTank(std::shared_ptr<Tank> tank) {
+    if (dynamic_cast<Bot*>(tank.get()) != nullptr)
+    {
+        BotController::instance()->deregisterBot();
+        dynamic_cast<Bot*>(tank.get())->unsubscribe(Clock::instance());
+    }
+
     auto iter = std::find(entities_.begin(), entities_.end(), tank);
 
     if (iter == entities_.end()) {

@@ -57,5 +57,5 @@ void GameStatistics::setLives(unsigned int lives) {
 }
 
 void GameStatistics::decrementLives(unsigned int deltaLives) {
-    setLives(std::min(0u, lives_-deltaLives));
+    setLives(std::max(0u, lives_-deltaLives));
 }

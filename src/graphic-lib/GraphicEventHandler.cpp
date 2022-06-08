@@ -31,6 +31,12 @@ void GraphicEventHandler::processEvent(std::unique_ptr<Event> event)
         window->removeEntity(e);
         break;
     }
+    case(Event::TankKilled):
+    {
+        std::shared_ptr<Entity> e = event->info.entityInfo.entity;
+        window->removeEntity(e);
+        break;
+    }
     case(Event::LevelLoaded):
     {
         Grid* grid = event->info.levelInfo.grid;

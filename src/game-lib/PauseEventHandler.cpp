@@ -57,6 +57,11 @@ std::unique_ptr<Event> PauseEventHandler::processEvent(std::unique_ptr<Event> ev
        case (Event::NullEvent):
        case (Event::StatisticsChanged):
        case (Event::Collision):
+       case (Event::BotDecisionRequest):
+       case (Event::BotMoveDecision):
+       case (Event::BotFireDecision):
+       case (Event::BotSpawnDecision):
+       case (Event::BotRotateDecision):
        case (Event::LevelLoaded): {
            break;
        }

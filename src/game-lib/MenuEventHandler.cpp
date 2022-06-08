@@ -58,7 +58,8 @@ std::unique_ptr<Event> MenuEventHandler::processEvent(std::unique_ptr<Event> eve
            break;
        }
         default:{
-            throw InvalidEventException("Invalid event for MenuEventHandler\nEvent enum cast: " + std::to_string(event->type));
+            break;
+            // throw InvalidEventException("Invalid event for MenuEventHandler\nEvent enum cast: " + std::to_string(event->type));
         }
     }
     return std::move(event);

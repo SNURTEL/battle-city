@@ -14,6 +14,7 @@
 #include "../tank-lib/include/Bullet.h"
 #include "../bot-lib/include/BotController.h"
 #include "include/Eagle.h"
+#include "../core-lib/include/Clock.h"
 
 
 Board::Board() : entityController_(std::make_unique<EntityController>()), grid_(std::make_unique<Grid>()) {
@@ -196,6 +197,7 @@ void Board::killAllEnemyEntities() {   // FIXME this should be in EntityControll
 
 void Board::removeEntity(std::shared_ptr<Entity> entity) {
     if(dynamic_cast<Bot*>(entity.get()) != nullptr){
+        dynamic_cast<Bot*>(entity.get())->unsubscribe(Clock::instance());
         BotController::instance()->deregisterBot();
     }
 
