@@ -56,6 +56,7 @@ std::unique_ptr<Event> PauseEventHandler::processEvent(std::unique_ptr<Event> ev
        case (Event::MenuSelectionChange):
        case (Event::NullEvent):
        case (Event::StatisticsChanged):
+       case (Event::Collision):
        case (Event::LevelLoaded): {
            break;
        }

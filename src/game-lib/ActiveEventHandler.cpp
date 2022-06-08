@@ -41,7 +41,7 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
 
 void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::EnemyBulletCollisionInfo member2, Game *game_) {
-    throw "37645982734";
+    game_->getBoard()->removeEntity(member2.enemyBullet);
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
@@ -66,7 +66,7 @@ void handleCollision(Event::EnemyBulletCollisionInfo member1,
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game_) {
-    throw "24523452345";
+    game_->getBoard()->removeEntity(member1.enemyBullet);
 }
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
@@ -113,6 +113,8 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game) {
     game->getBoard()->snapTankToGrid(member1.enemyTank);
     game->getBoard()->snapTankToGrid(member2.enemyTank);
+    game->getBoard()->setTankMoving(member1.enemyTank, false);
+    game->getBoard()->setTankMoving(member2.enemyTank, false);
 }
 
 void handleCollision(Event::PlayerTankCollisionInfo member1,
@@ -120,6 +122,8 @@ void handleCollision(Event::PlayerTankCollisionInfo member1,
 
     game->getBoard()->snapTankToGrid(member1.playerTank);
     game->getBoard()->snapTankToGrid(member2.enemyTank);
+    game->getBoard()->setTankMoving(member1.playerTank, false);
+    game->getBoard()->setTankMoving(member2.enemyTank, false);
 }
 
 void handleCollision(Event::PlayerTankCollisionInfo member1,
@@ -131,6 +135,7 @@ void handleCollision(Event::PlayerTankCollisionInfo member1,
 void handleCollision(Event::PlayerTankCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
     game->getBoard()->snapTankToGrid(member1.playerTank);
+    game->getBoard()->setTankMoving(member1.playerTank, false);
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
@@ -143,22 +148,44 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
+    for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
+            {member2.tile_x, member2.tile_y},
+            {std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y},
+            {member2.tile_x, std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY())},
+            {std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY())}
+    }){
+        if(coords.first > game->getBoard()->getSizeX() - 1 || coords.second > game->getBoard()->getSizeY() - 1){
+        continue;
+        }
+        game->getBoard()->deleteTile(coords.first, coords.second);
+    }
     game->getBoard()->removeEntity(member1.friendlyBullet);
-    game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
-    game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y);
-    game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY()));
-    game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY()));
+    // game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+    // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y);
+    // game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY()));
+    // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY()));
     // game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
 
 }
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
-    game->getBoard()->removeEntity(member1.enemyBullet);
-    game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
-    game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y);
-    game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.enemyBullet->getSizeY()));
-    game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), std::ceil(member2.tile_y + member1.enemyBullet->getSizeY()));
+     for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
+            {member2.tile_x, member2.tile_y},
+            {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y},
+            {member2.tile_x, std::ceil(member2.tile_y + member1.enemyBullet->getSizeY())},
+            {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), std::ceil(member2.tile_y + member1.enemyBullet->getSizeY())}
+    }){
+        if(coords.first > game->getBoard()->getSizeX() - 1 || coords.second > game->getBoard()->getSizeY() - 1){
+        continue;
+        }
+        game->getBoard()->deleteTile(coords.first, coords.second);
+    }
+    // game->getBoard()->removeEntity(member1.enemyBullet);
+    // game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+    // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y);
+    // game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.enemyBullet->getSizeY()));
+    // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), std::ceil(member2.tile_y + member1.enemyBullet->getSizeY()));
 }
 
 // ######
@@ -232,12 +259,12 @@ std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> e
                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
            }
            // LEFT
-           if(event->info.keyInfo.keyCode == 72) {
+           if(event->info.keyInfo.keyCode == 71) {
                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), West);
                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
            }
            // RIGHT
-           if(event->info.keyInfo.keyCode == 71) {
+           if(event->info.keyInfo.keyCode == 72) {
                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), East);
                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
            }

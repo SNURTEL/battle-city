@@ -57,6 +57,7 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
             switch (line[i]) {
                 case 'E': { // TODO add eagle
                     newGrid->eagleLocation = std::make_pair(i, lineIdx);
+                    break;
                 }
                 case '*':{
                     newGrid->enemySpawnpoints.emplace_back(std::make_pair(i, lineIdx));
@@ -64,6 +65,7 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
                 }
                 case '+':{
                     newGrid->playerSpawnpoint = std::make_pair(i, lineIdx);
+                    break;
                 }
                 default:{
                 }

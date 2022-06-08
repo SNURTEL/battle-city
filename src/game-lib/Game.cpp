@@ -54,6 +54,8 @@ void Game::initComponents() {
 
     BotController::initialize(4, 240);
 
+    BotController::instance()->subscribe(clock_);
+
     board_ = std::make_unique<Board>();
 }
 
@@ -67,21 +69,25 @@ void Game::initUI() {
 }
 
 void Game::setActiveState() {
+    BotController::instance()->setCounting(true);
     state_ = active_state_.get();
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::setFinishedState() {
+    BotController::instance()->setCounting(false);
     state_ = finished_state_.get();
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::setMenuState() {
+    BotController::instance()->setCounting(false);
     state_ = menu_state_.get();
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::setPauseState() {
+    BotController::instance()->setCounting(false);
     state_ = pause_state_.get();
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }

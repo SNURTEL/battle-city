@@ -71,6 +71,7 @@ void Board::setGrid(std::unique_ptr<Grid> grid) {
 }
 
 void Board::deleteTile(unsigned int x, unsigned int y) {
+    ;
     if (!TileManager::isTileDestructible(grid_->getTileAtPosition(x, y))) {
         return;
     }
