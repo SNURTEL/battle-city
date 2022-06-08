@@ -147,9 +147,9 @@ BasicTank::BasicTank(float x, float y, Direction facing) : Entity(x, y, 4, 4, 0.
                                                            Tank(Tank::BasicTank, x, y, 0.1, 0.3, 1, facing, 100),
                                                            Bot(x, y, 4, 4, 0.1, facing) {}
 
-FastTank::FastTank(float x, float y, Direction facing) : Entity(x, y, 4, 4, 0.3, facing),
+FastTank::FastTank(float x, float y, Direction facing) : Entity(x, y, 4, 4, 0.25, facing),
                                                          Tank(Tank::FastTank, x, y, 0.3, 0.5, 1, facing, 200),
-                                                         Bot(x, y, 4, 4, 0.3, facing) {}
+                                                         Bot(x, y, 4, 4, 0.25, facing) {}
 
 PowerTank::PowerTank(float x, float y, Direction facing) : Entity(x, y, 4, 4, 0.2, facing),
                                                            Tank(Tank::PowerTank, x, y, 0.2, 0.7, 1, facing, 300),

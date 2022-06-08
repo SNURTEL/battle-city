@@ -8,6 +8,7 @@
 
 Menu::Menu(unsigned int max_pos) {
     max_pos_ = max_pos;
+    pos_ = max_pos;
 }
 
 void Menu::add_pos() {

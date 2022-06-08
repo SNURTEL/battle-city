@@ -30,8 +30,16 @@ void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
     };
 
     std::default_random_engine generator;
-    std::discrete_distribution<int> distribution {1, 2, 2, 3};
-    auto pick = std::rand() % 4;
+    std::vector<int> distribution {4, 1, 1, 2};
+    auto pick = std::rand() % 8;
+    for (int i = 0; i < distribution.size(); i++) {
+        pick -= distribution[i];
+        if (pick < 0) {
+            pick = i;
+            break;
+        }
+    }
+
     // auto pick = static_cast<action>(distribution(generator));
 
     switch (pick) {
