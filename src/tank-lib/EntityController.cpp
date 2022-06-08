@@ -12,6 +12,8 @@
 
 #include "../core-lib/include/EventQueue.h"
 #include "../core-lib/include/Event.h"
+#include "../core-lib/include/Clock.h"
+#include "../bot-lib/include/BotController.h"
 
 
 const char *EntityDoesNotExistException::what() {
@@ -25,26 +27,26 @@ EntityController::EntityController() {
 
 std::shared_ptr<Tank>
 EntityController::createTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing) {
-    std::unique_ptr<Tank> newTank;
+    std::shared_ptr<Tank> newTank;
     switch (type) {
         case Tank::BasicTank: {
-            newTank = std::make_unique<BasicTank>(x, y, facing);
+            newTank = std::make_shared<BasicTank>(x, y, facing);
             break;
         }
         case Tank::FastTank: {
-            newTank = std::make_unique<FastTank>(x, y, facing);
+            newTank = std::make_shared<FastTank>(x, y, facing);
             break;
         }
         case Tank::PowerTank: {
-            newTank = std::make_unique<PowerTank>(x, y, facing);
+            newTank = std::make_shared<PowerTank>(x, y, facing);
             break;
         }
         case Tank::ArmorTank: {
-            newTank = std::make_unique<ArmorTank>(x, y, facing);
+            newTank = std::make_shared<ArmorTank>(x, y, facing);
             break;
         }
         case Tank::PlayerTank: {
-            newTank = std::make_unique<PlayerTank>(x, y, facing);
+            newTank = std::make_shared<PlayerTank>(x, y, facing);
         }
     }
     return std::move(newTank);
@@ -60,6 +62,12 @@ void EntityController::hitTank(std::shared_ptr<Tank> target, unsigned int damage
 }
 
 void EntityController::killTank(std::shared_ptr<Tank> tank) {
+    if (dynamic_cast<Bot*>(tank.get()) != nullptr)
+    {
+        BotController::instance()->deregisterBot();
+        dynamic_cast<Bot*>(tank.get())->unsubscribe(Clock::instance());
+    }
+
     auto iter = std::find(entities_.begin(), entities_.end(), tank);
 
     if (iter == entities_.end()) {

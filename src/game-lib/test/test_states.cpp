@@ -29,6 +29,8 @@ namespace {
 
             void testSetup() {
 
+                initUI();
+
                 initStates();
                 initComponents();
                 initScoreboard();
@@ -137,7 +139,7 @@ SCENARIO("Player Movement") {
         THEN("Direction should be north") {
             REQUIRE(game->getBoard()->getPlayerTank()->getFacing() == North);
         }
-    }  
+    }
     WHEN("UP arrow released") {
         handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 73));
         THEN("Should stop moving") {
@@ -153,13 +155,13 @@ SCENARIO("Player Movement") {
         THEN("Direction should be south") {
             REQUIRE(game->getBoard()->getPlayerTank()->getFacing() == South);
         }
-    }  
+    }
     WHEN("DOWN arrow released") {
         handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 74));
         THEN("Should stop moving") {
             REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == false);
         }
-    } 
+    }
     /////////////////////////////
     WHEN("RIGHT arrow clicked") {
         handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 71));
@@ -169,13 +171,13 @@ SCENARIO("Player Movement") {
         THEN("Direction should be EAST") {
             REQUIRE(game->getBoard()->getPlayerTank()->getFacing() == East);
         }
-    }  
+    }
     WHEN("RIGHT arrow released") {
         handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 71));
         THEN("Should stop moving") {
             REQUIRE(game->getBoard()->getPlayerTank()->isMoving() == false);
         }
-    } 
+    }
     /////////////////////////////
     WHEN("LEFT arrow clicked") {
         handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyPressed, 72));
@@ -185,7 +187,7 @@ SCENARIO("Player Movement") {
         THEN("Direction should be WEST") {
             REQUIRE(game->getBoard()->getPlayerTank()->getFacing() == West);
         }
-    }  
+    }
     WHEN("LEFT arrow released") {
         handler->handleEvent(std::make_unique<Event>(Event::EventType::KeyReleased, 72));
         THEN("Should stop moving") {
@@ -207,7 +209,7 @@ SCENARIO("Player Shooting") {
         THEN("Player should create a bullet (cant create another)") {
            REQUIRE_FALSE(game->getBoard()->getPlayerTank()->createBullet().has_value());
         }
-    }  
+    }
 }
 
 SCENARIO("Active to Pause") {
@@ -223,7 +225,7 @@ SCENARIO("Active to Pause") {
         THEN("state should be pause") {
             REQUIRE(dynamic_cast<PauseGameState*>(game->getState()) != nullptr);
         }
-    }  
+    }
 }
 
 SCENARIO("Player tank is killed") {
@@ -257,7 +259,7 @@ SCENARIO("Collisions") {
     std::shared_ptr<Bullet> enemy_bullet = helper::fireBullet(game->getBoard(), enemy_tank).value();
     eq->clear();
     std::shared_ptr<Bullet> player_bullet = helper::fireBullet(game->getBoard(), player_tank).value();
-    
+
     WHEN("Tank collides with tank") {
         Event::CollisionMember member1 = Event::PlayerTankCollisionInfo{player_tank};
         Event::CollisionMember member2 = Event::EnemyTankCollisionInfo{enemy_tank};
@@ -338,10 +340,10 @@ SCENARIO("Collisions") {
 
     WHEN("Player tank dies") {
         eq->clear();
-        handler->handleEvent(std::make_unique<Event>(Event::EventType::PlayerKilled, player_tank));  
+        handler->handleEvent(std::make_unique<Event>(Event::EventType::PlayerKilled, player_tank));
         THEN("game should end (Finished state") {
             REQUIRE(dynamic_cast<FinishedGameState*>(game->getState()) != nullptr);
-        }  
+        }
     }
 }
 
@@ -421,7 +423,7 @@ SCENARIO("Bot events") {
             REQUIRE(enemy_tank->isMoving() == true);
         }
     }
-    
+
     WHEN("Bot Move decision (false)") {
         bot_controller = helper::getEmptyBotController();
         bot_controller->registerBot();

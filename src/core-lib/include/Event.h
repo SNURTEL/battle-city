@@ -311,13 +311,15 @@ public:
 
     Event(EventType e, unsigned int x, unsigned int y, Tank::TankType tankType, Direction direction = North);
 
-    Event(EventType e, std::shared_ptr<Bot> bot, Direction direction);
+    Event(EventType e, std::shared_ptr<Bot> bot, int direction);
 
     Event(EventType e, std::shared_ptr<Bot> bot, bool flag);
 
     Event(EventType e, CollisionMember mem1, CollisionMember mem2);
 
     Event() = delete;
+
+    Event(const Event& event);
 };
 
 

@@ -64,7 +64,7 @@ set(game_lib_sources
         ${game_lib_dir}/GameStatsIO.cpp)
 
 add_library(game-lib ${game_lib_sources})
-target_link_libraries(game-lib PRIVATE core-lib board-lib ${SFML_LIBRARIES})
+target_link_libraries(game-lib PRIVATE core-lib board-lib graphic-lib ${SFML_LIBRARIES})
 
 set(game_lib_test_dir ../src/game-lib/test)
 set(game_lib_test_sources
@@ -115,6 +115,35 @@ set(board_lib_test_sources
 add_executable(test_board_lib ${board_lib_test_sources})
 target_link_libraries(test_board_lib PRIVATE board-lib Catch2::Catch2WithMain)
 
+######################### GRAPHIC-LIB ####################################
+set(graphic_lib_dir ../src/graphic-lib)
+set(graphic_lib_sources
+        ${graphic_lib_dir}/Window.cpp
+        ${graphic_lib_dir}/TanksGraphic.cpp
+        ${graphic_lib_dir}/FrameGraphic.cpp
+        ${graphic_lib_dir}/ActiveStateGraphic.cpp
+        ${graphic_lib_dir}/AbstractWindow.cpp
+        ${graphic_lib_dir}/BoardGraphic.cpp
+        ${graphic_lib_dir}/BulletsGraphic.cpp
+        ${graphic_lib_dir}/TilesGraphic.cpp
+        ${graphic_lib_dir}/BareFrameGraphic.cpp
+        ${graphic_lib_dir}/GraphicEventHandler.cpp
+        ${graphic_lib_dir}/GameInfoGraphic.cpp
+        ${graphic_lib_dir}/TextureLoadingError.cpp
+        ${graphic_lib_dir}/StaticGraphic.cpp
+        ${graphic_lib_dir}/MenuStateGraphic.cpp
+        )
+
+add_library(graphic-lib ${graphic_lib_sources})
+target_link_libraries(graphic-lib PRIVATE board-lib game-lib tank-lib core-lib bot-lib)
+
+set(graphic_lib_test_dir ../src/graphic-lib/test)
+set(graphic_lib_test_sources
+        ${graphic_lib_test_dir}/test_render.cpp
+        ${graphic_lib_test_dir}/test_graphicEventHandler.cpp)
+
+add_executable(test_graphic_lib ${graphic_lib_test_sources})
+target_link_libraries(test_graphic_lib PRIVATE graphic-lib core-lib Catch2::Catch2WithMain)
 ############################ BOT-LIB ################################
 
 set(bot_lib_dir ../src/bot-lib)
@@ -143,9 +172,10 @@ add_executable(all_tests
         ${game_lib_test_sources}
         ${tank_lib_test_sources}
         ${board_lib_test_sources}
+        ${graphic_lib_test_sources}
         ${bot_lib_test_sources}
         )
-target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib bot-lib Catch2::Catch2WithMain)
+target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib graphic-lib bot-lib Catch2::Catch2WithMain)
 
 
 ############################ MAIN ################################

@@ -15,7 +15,7 @@ FinishedEventHandler::FinishedEventHandler(Game *game, FinishedGameState* state)
     state_ = state;
 }
 
-void FinishedEventHandler::processEvent(std::unique_ptr<Event> event) {
+std::unique_ptr<Event> FinishedEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             if (event->info.keyInfo.keyCode == 36 || event->info.keyInfo.keyCode == 58) {
@@ -45,7 +45,9 @@ void FinishedEventHandler::processEvent(std::unique_ptr<Event> event) {
            break;
        }
         default:{
-            throw InvalidEventException("Invalid event for FinishedEventHandler\nEvent enum cast: " + std::to_string(event->type));
+            // throw InvalidEventException("Invalid event for FinishedEventHandler\nEvent enum cast: " + std::to_string(event->type));
+            break;
         }
     }
+    return std::move(event);
 }

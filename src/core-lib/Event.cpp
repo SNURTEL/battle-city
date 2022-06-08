@@ -154,11 +154,11 @@ Event::Event(EventType e, unsigned int x, unsigned int y, Tank::TankType tankTyp
     }
 }
 
-Event::Event(EventType e, std::shared_ptr<Bot> bot, Direction direction) {
+Event::Event(EventType e, std::shared_ptr<Bot> bot, int direction) {
     type = e;
     switch (e) {
         case BotRotateDecision: {
-            info.rotateDecisionInfo = {std::move(bot), direction};
+            info.rotateDecisionInfo = {std::move(bot), static_cast<Direction>(direction)};
             break;
         }
         default:
@@ -190,3 +190,9 @@ Event::Event(EventType e, CollisionMember mem1, CollisionMember mem2) {
             throw EventConstructionException();
     }
 }
+
+
+// Event::Event(std::unique_ptr<Event> ev)
+// {
+//     *this = *ev;
+// }

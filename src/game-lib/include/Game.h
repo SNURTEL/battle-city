@@ -12,6 +12,9 @@
 #include "Menu.h"
 #include "GameStatsIO.h"
 #include "../../board-lib/include/Board.h"
+#include "../../graphic-lib/include/Window.h"
+#include "../../graphic-lib/include/GraphicEventHandler.h"
+
 
 
 class Clock;
@@ -176,8 +179,10 @@ protected:
     Clock *clock_;
     EventQueue<Event> *eventQueue_;
 
-    std::unique_ptr<sf::RenderWindow> window_;
+    std::unique_ptr<Window> window_;
     std::unique_ptr<KeyboardController> keyboardController_;
+
+    std::unique_ptr<GraphicEventHandler> graphicEventHandler_;
 
 };
 

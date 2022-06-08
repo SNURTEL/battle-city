@@ -91,6 +91,8 @@ public:
      */
     void setTypes(const std::queue<Tank::TankType> &types);
 
+    void setCounting(bool counting);
+
 protected:
     /**
      * Upon creation, subscribes to Clock
@@ -110,6 +112,8 @@ protected:
     unsigned int spawnCooldown;
     unsigned int maxRegisteredBots_;
     unsigned int registeredBots_;
+
+    bool counting = false;
 
     static std::unique_ptr<BotController> self_;
 

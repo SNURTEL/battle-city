@@ -38,7 +38,7 @@ public:
      * events differentiated by some kind of enum, and throws an exception if an event cannot be handled.
      * @param event The event that should be handed
      */
-    virtual void handleEvent(std::unique_ptr<E> event)=0;
+    virtual std::unique_ptr<Event> handleEvent(std::unique_ptr<E> event)=0;
 
 protected:
     EventHandler()=default;
@@ -56,14 +56,14 @@ public:
      * and then proceeds with ::processEvent.
      * @param event The event that should be handed
      */
-    void handleEvent(std::unique_ptr<Event> event) override;
+    std::unique_ptr<Event> handleEvent(std::unique_ptr<Event> event) override;
 
     /**
      * Called by ::handleEvent, does the actual processing. This is the method that should be overloaded in
      * derived classes instead of ::handleEvent
      * @param event The event that should be handed
      */
-    virtual void processEvent(std::unique_ptr<Event> event)=0;
+    virtual std::unique_ptr<Event> processEvent(std::unique_ptr<Event> event)=0;
 
 protected:
     PublisherEventHandler()=default;

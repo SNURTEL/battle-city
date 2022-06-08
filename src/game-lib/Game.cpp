@@ -47,12 +47,14 @@ void Game::initStates() {
 }
 
 void Game::initComponents() {
-    keyboardController_ = std::make_unique<KeyboardController>(window_.get());
+    keyboardController_ = std::make_unique<KeyboardController>(window_->getWindow());
     keyboardController_->subscribe(clock_);
 
     gameStatsIO_ = std::make_unique<GameStatsIO>("scoreboard.txt");  // dummy, filename is ignored for now
 
     BotController::initialize(4, 240);
+
+    BotController::instance()->subscribe(clock_);
 
     board_ = std::make_unique<Board>();
 }
@@ -62,25 +64,30 @@ void Game::initScoreboard() {
 }
 
 void Game::initUI() {
-    window_ = std::make_unique<sf::RenderWindow>(sf::VideoMode(400, 400), ":D");
+    window_ = std::make_unique<Window>();
+    graphicEventHandler_ = std::make_unique<GraphicEventHandler>(window_.get());
 }
 
 void Game::setActiveState() {
+    BotController::instance()->setCounting(true);
     state_ = active_state_.get();
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::setFinishedState() {
+    BotController::instance()->setCounting(false);
     state_ = finished_state_.get();
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::setMenuState() {
+    BotController::instance()->setCounting(false);
     state_ = menu_state_.get();
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
 
 void Game::setPauseState() {
+    BotController::instance()->setCounting(false);
     state_ = pause_state_.get();
     eventQueue_->registerEvent(std::make_unique<Event>(Event::StateChanged, state_));
 }
@@ -96,9 +103,11 @@ void Game::run() {
     while (running_ == true) {
         clock_->tick();
         while (!eventQueue_->isEmpty()) {
-            state_->getEventHandler()->handleEvent(std::move(eventQueue_->pop()));
+            std::unique_ptr<Event> event =  state_->getEventHandler()->handleEvent(std::move(eventQueue_->pop()));
+            graphicEventHandler_->processEvent(std::move(event));
         }
 
+        board_->moveAllEntities();
         redrawUI();
 
         clock_->sleep();
@@ -136,6 +145,9 @@ void Game::end() {
 }
 
 void Game::redrawUI() {
+    window_->getWindow()->clear(sf::Color::Black);
+    window_->render();
+    window_->getWindow()->display();
     // put UI stuff here
 }
 

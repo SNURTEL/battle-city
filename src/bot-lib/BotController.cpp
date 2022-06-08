@@ -30,8 +30,9 @@ void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
     };
 
     std::default_random_engine generator;
-    std::discrete_distribution<int> distribution {10, 2, 2, 3};
-    auto pick = static_cast<action>(distribution(generator));
+    std::discrete_distribution<int> distribution {1, 2, 2, 3};
+    auto pick = std::rand() % 4;
+    // auto pick = static_cast<action>(distribution(generator));
 
     switch (pick) {
         case MoveForward:{
@@ -39,11 +40,11 @@ void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
             break;
         }
         case RotateLeft:{
-            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, (bot->getFacing()-1)%4));
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()-1)%4)));
             break;
         }
         case RotateRight:{
-            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, (bot->getFacing()+1)%4));
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()+1)%4)));
             break;
         }
         case Fire:{
@@ -76,6 +77,8 @@ unsigned int BotController::getRegisteredBotsCount() const {
 }
 
 void BotController::notify(SimplePublisher *pub) {
+    if(!counting)
+        return;
     spawnCooldown = std::min(spawnCooldown, spawnCooldown - 1); // prevent overflow
     if (registeredBots_ < maxRegisteredBots_ && spawnCooldown == 0) {
         requestSpawnBot();
@@ -131,4 +134,10 @@ void BotController::requestSpawnBot() {
 
 void BotController::setTypes(const std::queue<Tank::TankType> &types) {
     types_ = types;
+}
+
+
+void BotController::setCounting(bool nCounting)
+{
+    counting = nCounting;
 }

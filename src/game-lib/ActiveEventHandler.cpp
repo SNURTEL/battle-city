@@ -12,7 +12,7 @@
 #include "../bot-lib/include/BotController.h"
 #include "include/Game.h"
 #include "../board-lib/include/Eagle.h"
-
+#include <cmath>
 
 ActiveEventHandler::ActiveEventHandler(Game *game, ActiveGameState *state) {
     game_ = game;
@@ -41,7 +41,12 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
 
 void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::EnemyBulletCollisionInfo member2, Game *game_) {
-    throw "37645982734";
+    try
+    {
+        game_->getBoard()->removeEntity(member2.enemyBullet);
+    }
+    catch (EntityDoesNotExistException)
+        {}
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
@@ -66,7 +71,12 @@ void handleCollision(Event::EnemyBulletCollisionInfo member1,
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game_) {
-    throw "24523452345";
+    try
+    {
+        game_->getBoard()->removeEntity(member1.enemyBullet);
+    }
+    catch(EntityDoesNotExistException)
+        {}
 }
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
@@ -113,6 +123,8 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game) {
     game->getBoard()->snapTankToGrid(member1.enemyTank);
     game->getBoard()->snapTankToGrid(member2.enemyTank);
+    game->getBoard()->setTankMoving(member1.enemyTank, false);
+    game->getBoard()->setTankMoving(member2.enemyTank, false);
 }
 
 void handleCollision(Event::PlayerTankCollisionInfo member1,
@@ -120,37 +132,94 @@ void handleCollision(Event::PlayerTankCollisionInfo member1,
 
     game->getBoard()->snapTankToGrid(member1.playerTank);
     game->getBoard()->snapTankToGrid(member2.enemyTank);
+    game->getBoard()->setTankMoving(member1.playerTank, false);
+    game->getBoard()->setTankMoving(member2.enemyTank, false);
 }
 
 void handleCollision(Event::PlayerTankCollisionInfo member1,
                      Event::EnemyBulletCollisionInfo member2, Game *game) {
-    game->getBoard()->hitTank(member1.playerTank, 1);
-    game->getBoard()->removeEntity(member2.enemyBullet);
+    try{
+        game->getBoard()->removeEntity(member2.enemyBullet);
+        game->getStats()->decrementLives(1);
+    }
+    catch(EntityDoesNotExistException)
+    {}
 }
 
 void handleCollision(Event::PlayerTankCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
     game->getBoard()->snapTankToGrid(member1.playerTank);
+    game->getBoard()->setTankMoving(member1.playerTank, false);
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game) {
-    game->getBoard()->removeEntity(member1.friendlyBullet);
-    game->getStats()->addPoints(member2.enemyTank->getPoints());
-    game->getBoard()->removeEntity(member2.enemyTank);
+    try
+    {
+        game->getBoard()->removeEntity(member1.friendlyBullet);
+        game->getBoard()->hitTank(member2.enemyTank, 1);
+
+    }
+    catch(EntityDoesNotExistException)
+        {}
+
 //    BotController::instance()->deregisterBot();
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
-    game->getBoard()->removeEntity(member1.friendlyBullet);
-    game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+    try
+    {
+        game->getBoard()->removeEntity(member1.friendlyBullet);
+    }
+    catch(EntityDoesNotExistException)
+        {return;}
+
+    for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
+            {member2.tile_x, member2.tile_y},
+            {std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y},
+            {member2.tile_x, std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY())},
+            {std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY())}
+    }){
+        if(coords.first > game->getBoard()->getSizeX() - 1 || coords.second > game->getBoard()->getSizeY() - 1){
+        continue;
+        }
+        game->getBoard()->deleteTile(coords.first, coords.second);
+    }
+
+
+    // game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+    // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y);
+    // game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY()));
+    // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY()));
+    // game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+
 }
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
-    game->getBoard()->removeEntity(member1.enemyBullet);
-    game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+    try
+    {
+        game->getBoard()->removeEntity(member1.enemyBullet);
+    }
+    catch(EntityDoesNotExistException)
+        {return;}
+
+    for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
+        {member2.tile_x, member2.tile_y},
+        {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y},
+        {member2.tile_x, std::ceil(member2.tile_y + member1.enemyBullet->getSizeY())},
+        {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), std::ceil(member2.tile_y + member1.enemyBullet->getSizeY())}
+    }){
+        if(coords.first > game->getBoard()->getSizeX() - 1 || coords.second > game->getBoard()->getSizeY() - 1){
+        continue;
+        }
+        game->getBoard()->deleteTile(coords.first, coords.second);
+    }
+    // game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+    // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y);
+    // game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.enemyBullet->getSizeY()));
+    // game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), std::ceil(member2.tile_y + member1.enemyBullet->getSizeY()));
 }
 
 // ######
@@ -211,65 +280,65 @@ void handleCollision(Event::BoardCollisionInfo member1,
 }
 
 
-void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
-    switch (event->type) {
-        case (Event::KeyPressed): {
-            if (event->info.keyInfo.keyCode == 74) {
-                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), South);
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-            }
-            // UP
-            if (event->info.keyInfo.keyCode == 73) {
-                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), North);
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-            }
-            // LEFT
-            if (event->info.keyInfo.keyCode == 72) {
-                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), West);
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-            }
-            // RIGHT
-            if (event->info.keyInfo.keyCode == 71) {
-                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), East);
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-            }
-            // SPACEBAR
-            if (event->info.keyInfo.keyCode == 57) {
-                game_->getBoard()->fireTank(game_->getBoard()->getPlayerTank());
-            }
-            // ESCAPE
-            if (event->info.keyInfo.keyCode == 36) {
-                game_->setPauseState();
-            }
-            break;
-        }
-        case (Event::KeyReleased): {
-            // DOWN
-            if (event->info.keyInfo.keyCode == 74) {
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-                game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-            }
-            // UP
-            if (event->info.keyInfo.keyCode == 73) {
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-                game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-            }
-            // LEFT
-            if (event->info.keyInfo.keyCode == 72) {
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-                game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-            }
-            // RIGHT
-            if (event->info.keyInfo.keyCode == 71) {
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-                game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-            }
-            // SPACEBAR
-            if (event->info.keyInfo.keyCode == 57) {
-            }
-            break;
-        }
-        case (Event::PlayerKilled): {
+std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
+   switch (event->type) {
+       case(Event::KeyPressed): {
+           if(event->info.keyInfo.keyCode == 74) {
+               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), South);
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+           }
+           // UP
+           if(event->info.keyInfo.keyCode == 73) {
+               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), North);
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+           }
+           // LEFT
+           if(event->info.keyInfo.keyCode == 71) {
+               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), West);
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+           }
+           // RIGHT
+           if(event->info.keyInfo.keyCode == 72) {
+               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), East);
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+           }
+           // SPACEBAR
+           if(event->info.keyInfo.keyCode == 57) {
+               game_->getBoard()->fireTank(game_->getBoard()->getPlayerTank());
+           }
+           // ESCAPE
+           if (event->info.keyInfo.keyCode == 36) {
+               game_->setPauseState();
+           }
+           break;
+       }
+       case (Event::KeyReleased):{
+           // DOWN
+           if(event->info.keyInfo.keyCode == 74) {
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+               game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+           }
+           // UP
+           if(event->info.keyInfo.keyCode == 73) {
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+               game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+           }
+           // LEFT
+           if(event->info.keyInfo.keyCode == 72) {
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+               game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+           }
+           // RIGHT
+           if(event->info.keyInfo.keyCode == 71) {
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+               game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+           }
+           // SPACEBAR
+           if(event->info.keyInfo.keyCode == 57) {
+           }
+           break;
+       }
+       case (Event::PlayerKilled):{
             game_->end();
             break;
         }
@@ -302,6 +371,17 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
                        event->info.collisionInfo.member1, event.get()->info.collisionInfo.member2);
             break;
         }
+        case (Event::TankKilled):
+        {
+            if (std::dynamic_pointer_cast<Tank>(event->info.entityInfo.entity) != nullptr)
+                game_->getStats()->addPoints(std::dynamic_pointer_cast<Tank>(event->info.entityInfo.entity)->getPoints());
+                break;
+        }
+        case (Event::GameEnded):
+        {
+            game_->setFinishedState();
+            break;
+        }
         case (Event::EntityMoved):
         case (Event::EntityRemoved):
         case (Event::EntitySpawned):
@@ -310,7 +390,6 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
         case (Event::TileChanged):
         case (Event::TileDeleted):
         case (Event::PlayerSpawned):
-        case (Event::TankKilled):
         case (Event::TankRotated):
         case (Event::TankHit):
         case (Event::MenuEnterClicked):
@@ -319,10 +398,10 @@ void ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
         case (Event::StatisticsChanged):
         case (Event::LevelLoaded): {
             break;
-        }
-        default: {
-            throw InvalidEventException(
-                    "Invalid event for ActiveEventHandler\nEvent enum cast: " + std::to_string(event->type));
-        }
-    }
+       }
+       default:{
+           throw InvalidEventException("Invalid event for ActiveEventHandler\nEvent enum cast: " + std::to_string(event->type));
+       }
+   }
+   return std::move(event);
 }

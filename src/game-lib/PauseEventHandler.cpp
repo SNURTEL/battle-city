@@ -15,7 +15,7 @@ PauseEventHandler::PauseEventHandler(Game *game, PauseGameState* state) {
     state_ = state;
 }
 
-void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
+std::unique_ptr<Event> PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
     switch (event->type) {
         case(Event::KeyPressed): {
             if (event->info.keyInfo.keyCode == 74) {
@@ -56,6 +56,12 @@ void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
        case (Event::MenuSelectionChange):
        case (Event::NullEvent):
        case (Event::StatisticsChanged):
+       case (Event::Collision):
+       case (Event::BotDecisionRequest):
+       case (Event::BotMoveDecision):
+       case (Event::BotFireDecision):
+       case (Event::BotSpawnDecision):
+       case (Event::BotRotateDecision):
        case (Event::LevelLoaded): {
            break;
        }
@@ -63,4 +69,5 @@ void PauseEventHandler::processEvent(std::unique_ptr<Event> event) {
             throw InvalidEventException("Invalid event for PausedEventHandler\nEvent enum cast: " + std::to_string(event->type));
         }
     }
+    return std::move(event);
 }
