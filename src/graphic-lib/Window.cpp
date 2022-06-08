@@ -2,6 +2,7 @@
 #include "include/ActiveState_dir/Borad_dir/BoardGraphic.h"
 #include "include/StaticStates_dir/StaticGraphic.h"
 #include "../board-lib/include/Eagle.h"
+#include "../game-lib/include/Menu.h"
 
 
 
@@ -31,9 +32,15 @@ void Window::selectgameState(GameState* gameState)
     if(instanceOf<ActiveGameState>(gameState))
         this->gameState = Window::ActieveGameState;
     else if(instanceOf<::PauseGameState>(gameState))
+    {
+        *staticStatesPointers.menuPos = dynamic_cast<::PauseGameState*>(gameState)->get_menu()->get_pos();
         this->gameState = Window::PauseGameState;
+    }
     else if(instanceOf<::MenuGameState>(gameState))
+    {
+        *staticStatesPointers.menuPos = dynamic_cast<::MenuGameState*>(gameState)->get_menu()->get_pos();
         this->gameState = Window::MenuGameState;
+    }
     else if (instanceOf<::FinishedGameState>(gameState))
         this->gameState = Window::FinishedGameState;
 }

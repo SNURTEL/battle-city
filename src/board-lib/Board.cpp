@@ -47,10 +47,37 @@ bool Board::snapTankToGrid(const std::shared_ptr<Tank> &target, bool snap_x, boo
     float initial_x = target->getX();
     float initial_y = target->getY();
 
-    if (snap_x)
-        target->setX(std::round(target->getX()));
-    if (snap_y)
-        target->setY(std::round(target->getY()));
+
+
+
+    switch (target->getFacing())
+    {
+    case (Direction::North) :
+        if (snap_y)
+        target->setY(std::ceil(target->getY()));
+        break;
+    case (Direction::East):
+        if (snap_x)
+        target->setX(std::floor(target->getX()));
+        break;
+    case (Direction::South):
+        if (snap_y)
+        target->setY(std::floor(target->getY()));
+        break;
+    case (Direction::West):
+        if (snap_x)
+        target->setX(std::ceil(target->getX()));
+        break;
+
+
+    default:
+        break;
+    }
+
+    // if (snap_x)
+    //     target->setX(std::round(target->getX()));
+    // if (snap_y)
+    //     target->setY(std::round(target->getY()));
 
     if (!validateEntityPosition(target)) {
         target->setX(initial_x);
