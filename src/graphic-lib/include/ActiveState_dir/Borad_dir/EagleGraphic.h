@@ -19,10 +19,7 @@ class EagleGraphic : public AbstractWindow
 {
 protected:
 
-
-    std::shared_ptr<std::shared_ptr<Eagle>> eagle;
-
-    sf::Vector2f eaglePos;
+    std::shared_ptr<sf::Vector2f> eaglePos;
 
     std::string pathToTexture = "../src/graphic-lib/eagleImage/Eagle.png";
 
@@ -56,7 +53,7 @@ public:
      * @param eagle
      * @param specialQueue
      */
-    EagleGraphic(const WindowView& windowView, std::shared_ptr<std::shared_ptr<Eagle>> eagle,
+    EagleGraphic(const WindowView& windowView, std::shared_ptr<sf::Vector2f> eagle,
                  std::shared_ptr<std::queue<sf::Sprite>> specialQueue);
 };
 

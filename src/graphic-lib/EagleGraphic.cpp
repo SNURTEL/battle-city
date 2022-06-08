@@ -22,25 +22,28 @@ void EagleGraphic::render()
     sf::RenderWindow* window = windowView.window;
     sf::Sprite sprite;
 
+
     sprite.setTexture(eagleTexture);
-    sprite.setPosition(eaglePos);
+    sprite.setPosition(*eaglePos);
     windowView.window->draw(sprite);
 
 }
 
 
-EagleGraphic::EagleGraphic(const WindowView& windowView, std::shared_ptr<std::shared_ptr<Eagle>> eagle,
+EagleGraphic::EagleGraphic(const WindowView& windowView, std::shared_ptr<sf::Vector2f> eaglePos,
                            std::shared_ptr<std::queue<sf::Sprite>> specialQueue)
-: AbstractWindow(windowView), eagle(eagle), specialQueue(specialQueue)
-{loadTexture();}
+: AbstractWindow(windowView), eaglePos(eaglePos), specialQueue(specialQueue)
+{
+    loadTexture();
+}
 
 
 void EagleGraphic::setEaglePos()
 {
     float leftOffset = windowView.leftOffset;
     float topOffset = windowView.topOffset;
-    eaglePos.x = (*eagle)->getX() * 10 + leftOffset;
-    eaglePos.y = (*eagle)->getY() * 10 + topOffset;
+    (*eaglePos).x = (*eaglePos).x * 10 + leftOffset;
+    (*eaglePos).y = (*eaglePos).y * 10 + topOffset;
 }
 
 

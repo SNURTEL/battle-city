@@ -46,7 +46,7 @@ void Window::initiateActiveStatePointers()
     activeStatePointers.tiles = std::make_shared<Grid*>();
     activeStatePointers.level = std::make_shared<int>();
     activeStatePointers.playerLives = std::make_shared<int>();
-    activeStatePointers.eagle = std::make_shared<std::shared_ptr<Eagle>>();
+    activeStatePointers.eaglePos = std::make_shared<sf::Vector2f>();
     activeStatePointers.points = staticStatesPointers.points;
 }
 
@@ -82,14 +82,12 @@ void Window::addEntity(std::shared_ptr<Entity> e)
     // Checking what type of Entity it is
     std::shared_ptr<Tank> tank = std::dynamic_pointer_cast<Tank>(e);
     std::shared_ptr<Bullet> bullet = std::dynamic_pointer_cast<Bullet>(e);
-    std::shared_ptr<Eagle> eagle = std::dynamic_pointer_cast<Eagle>(e);
 
     if(tank != nullptr)
         activeStatePointers.tanks->push_back(tank);
     else if (bullet != nullptr)
         activeStatePointers.bullets->push_back(bullet);
-    else if (bullet != nullptr)
-        *activeStatePointers.eagle = eagle;
+
 }
 
 
@@ -115,10 +113,14 @@ void Window::removeEntity(std::shared_ptr<Entity> e)
 }
 
 
-void Window::loadLevel(Grid* grid, int levelNumber)
+void Window::loadLevel(Grid* grid, int levelNumber, std::pair<uint, uint> eaglePos)
 {
+    sf::Vector2f position;
+    position.x = eaglePos.first;
+    position.y = eaglePos.second;
     *activeStatePointers.tiles = grid;
     *activeStatePointers.level = levelNumber;
+    *activeStatePointers.eaglePos = position;
 }
 
 

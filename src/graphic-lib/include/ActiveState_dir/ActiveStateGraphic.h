@@ -29,7 +29,7 @@ public:
         std::shared_ptr<std::vector<std::shared_ptr<Tank>>> tanks;
         std::shared_ptr<std::vector<std::shared_ptr<Bullet>>> bullets;
         std::shared_ptr<Grid*> tiles;
-        std::shared_ptr<std::shared_ptr<Eagle>> eagle;
+        std::shared_ptr<sf::Vector2f> eaglePos;
     };
 
 
