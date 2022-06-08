@@ -35,7 +35,6 @@ Celem projektu była implementacja gry zręcznościowej wzorowanej na tytule *Ba
 
 ![](Attachments/Pasted%20image%2020220606201335.png)
 
-*coś o założeniach*
 
 ## 1.2 Plan realizacji
 Założono liniową realizację projektu zgodnie z metodyką *waterfall* wg następującego planu:
@@ -64,7 +63,7 @@ Gra zaimplementowana została w języku C++ w standardzie C++20. Moduł graficzn
 ## 2.1 Organizacja kodu
 Do przechowywania kodu źródłowego projektu wykorzystano platformę GitLab, a repozytorium zorganizowano w ramach modelu GitHub Flow:
 
-![](Pasted image 20220606230115.png)
+![](Attachments/Pasted%20image%2020220606230115.png)
 
 Pliki źródłowe projektu zorganizowano wg. następującej struktury:
 ```
@@ -93,7 +92,7 @@ Wszystkie testy zostały napisane w oparciu o zaczerpniętą z *behavior-driven 
 ## 3.1 Struktura projektu
 Projekt został podzielony na sześć bibliotek oraz moduł główny, a zależności między nimi opisane są na poniższym diagramie:
 
-![](Pasted image 20220606224102.png|600)
+![](Attachments/Pasted%20image%2020220606224102.png)
 
 ## 3.2 Działanie gry
 ### 3.2.1 System zdarzeń
@@ -125,12 +124,12 @@ Klasa Board i podsystem planszy, czołgi, boty, kolizje, ładowanie planszy z pl
 
 Podsystem planszy zbudowany jest zgodnie z poniższym diagramem:
 
-![](Pasted image 20220608104801.png)
+![](Attachments/Pasted%20image%2020220608104801.png)
 
 Klasa `Board` będąca mediatorem podsystemu przechowuje w sobie obiekty `Grid` (płytki na planszy) i `EntityController` (byty na planszy). `Board` udostępnia interfejs pozwalający na manipulację obiektami `Grid` i `Entity`.
 Zgodnie z założeniami wzorca *mediator*, cała interakcja pomiędzy obiektami podsystemu odbywa się za pośrednictwem klasy `Board`. W związku z tym, klasa `Board` jako jedyna potrafi wykonywać operacje związane z detekcją kolizji między obiektami.
 Obiekty `Grid` tworzone są na podstawie plików tekstowych zawierające graficzne reprezentacje poziomów. Przykładowy plik:
-![](Pasted image 20220608110559.png)
+![](Attachments/Pasted%20image%2020220608110559.png)
 ( … )
 
 Pojedyncze znaki w pliku reprezentują różne rodzaje płytek na planszy, oraz punkty na mapie o specjalnym przeznaczeniu. Przykładowo, ‘B’ symbolizuje płytkę reprezentującą ceglaną ścianę, a ‘\*’ to punkt, w którym mogą zostać utworzone obiekty wrogich czołgów.
@@ -202,6 +201,7 @@ Sterowanie w grze odbywa się za pomocą strzałek, zatwierdzanie wyboru przy u�
 	- *Stan* (stany gry)
 	- *Kompozyt* (biblioteka graficzna)
 	- *Metoda wytwórcza* (*GridBuilder*)
+	- *Mediator* (podsystem planszy)
 - Skorzystanie z globalnej kolejki zdarzeń
 
 ## 5.2 Możliwe dalsze modyfikacje
