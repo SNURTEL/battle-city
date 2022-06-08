@@ -40,11 +40,12 @@ void Window::selectgameState(GameState* gameState)
 
 void Window::initiateActiveStatePointers()
 {
-    activeStatePointers.tanks = std::make_shared<std::vector<std::shared_ptr<Tank>>>(); // Why without brackets it isn't working?
+    activeStatePointers.tanks = std::make_shared<std::vector<std::shared_ptr<Tank>>>();
     activeStatePointers.bullets = std::make_shared<std::vector<std::shared_ptr<Bullet>>>();
     activeStatePointers.tiles = std::make_shared<Grid*>();
     activeStatePointers.level = std::make_shared<int>();
     activeStatePointers.playerLives = std::make_shared<int>();
+    activeStatePointers.eagle = std::make_shared<std::shared_ptr<Eagle>>();
 }
 
 
@@ -74,28 +75,19 @@ void Window::conscructComposit()
 }
 
 
-// std::string Window::checkEntityType(std::shared_ptr<Entity> e)
-// {
-//     // std::shared_ptr<Entity> trial = e;
-//     // std::shared_ptr<Tank> tank = static_cast<std::shared_ptr<Tank>>(e);
-//     // // std::shared_ptr<Bullet> bullet = static_cast<std::shared_ptr<Bullet>>(e);
-//     if()
-//         return "tank";
-//     else
-//         return "bullet";
-// }
-
-
 void Window::addEntity(std::shared_ptr<Entity> e)
 {
     // Checking what type of Entity it is
     std::shared_ptr<Tank> tank = std::dynamic_pointer_cast<Tank>(e);
     std::shared_ptr<Bullet> bullet = std::dynamic_pointer_cast<Bullet>(e);
+    std::shared_ptr<Eagle> eagle = std::dynamic_pointer_cast<Eagle>(e);
 
     if(tank != nullptr)
         activeStatePointers.tanks->push_back(tank);
     else if (bullet != nullptr)
         activeStatePointers.bullets->push_back(bullet);
+    else if (bullet != nullptr)
+        *activeStatePointers.eagle = eagle;
 }
 
 

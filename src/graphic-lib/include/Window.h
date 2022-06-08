@@ -47,6 +47,7 @@ public:
     /// @brief Stores given ActiveState pointers
     struct ActiveStatePointers
     {
+        std::shared_ptr<std::shared_ptr<Eagle>> eagle;
         std::shared_ptr<std::vector<std::shared_ptr<Tank>>> tanks;
         std::shared_ptr<std::vector<std::shared_ptr<Bullet>>> bullets;
         std::shared_ptr<Grid*> tiles;
