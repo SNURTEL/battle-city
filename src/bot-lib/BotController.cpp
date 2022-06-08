@@ -25,48 +25,45 @@ BotController::BotController(unsigned int n_maxRegisteredBots, unsigned int n_sp
                                                                                                        EventQueue<Event>::instance()) {
 };
 
-void BotController::makeBotDecision(const std::shared_ptr<Bot> &bot) {
-//    enum action : unsigned int {
-//        MoveForward = 0,
-//        RotateLeft,
-//        RotateRight,
-//        Fire
-//    };
-//    std::default_random_engine generator;
-//    std::discrete_distribution<int> distribution {1, 2, 2, 3};
-//    auto pick = std::rand() % 4;
-////     auto pick = static_cast<action>(distribution(generator));
-//    switch (pick) {
-//        case MoveForward:{
-//            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotMoveDecision, bot, true));
-//            break;
-//        }
-//        case RotateLeft:{
-//            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()-1)%4)));
-//            break;
-//        }
-//        case RotateRight:{
-//            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()+1)%4)));
-//            break;
-//        }
-//        case Fire:{
-//            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotFireDecision, bot));
-//            break;
-//        }
-//        default: {};
-//    }
+void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
+    enum action : unsigned int {
+        MoveForward = 0,
+        RotateLeft,
+        RotateRight,
+        Fire
+    };
 
-    int rotateRoll = rand() % 10;
-
-    int moveRoll = rand() % 2;
-    if (moveRoll == 1) {
-        eventQueue_->registerEvent(std::make_unique<Event>(Event::BotMoveDecision, bot, true));
-
+    std::default_random_engine generator;
+    std::vector<int> distribution {4, 1, 1, 2};
+    auto pick = std::rand() % 8;
+    for (int i = 0; i < distribution.size(); i++) {
+        pick -= distribution[i];
+        if (pick < 0) {
+            pick = i;
+            break;
+        }
     }
 
-    int fireRoll = rand() % 7;
-    if (fireRoll < 3) {
-        eventQueue_->registerEvent(std::make_unique<Event>(Event::BotFireDecision, bot));
+    // auto pick = static_cast<action>(distribution(generator));
+
+    switch (pick) {
+        case MoveForward:{
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotMoveDecision, bot, true));
+            break;
+        }
+        case RotateLeft:{
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()-1)%4)));
+            break;
+        }
+        case RotateRight:{
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing()+1)%4)));
+            break;
+        }
+        case Fire:{
+            eventQueue_->registerEvent(std::make_unique<Event>(Event::BotFireDecision, bot));
+            break;
+        }
+        default: {};
     }
 
 

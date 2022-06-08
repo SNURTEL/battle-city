@@ -374,64 +374,64 @@ void handleCollision(Event::BoardCollisionInfo member1,
 
 
 std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
-    switch (event->type) {
-        case (Event::KeyPressed): {
-            if (event->info.keyInfo.keyCode == 74) {
-                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), South);
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-            }
-            // UP
-            if (event->info.keyInfo.keyCode == 73) {
-                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), North);
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-            }
-            // LEFT
-            if (event->info.keyInfo.keyCode == 71) {
-                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), West);
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-            }
-            // RIGHT
-            if (event->info.keyInfo.keyCode == 72) {
-                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), East);
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-            }
-            // SPACEBAR
-            if (event->info.keyInfo.keyCode == 57) {
-                game_->getBoard()->fireTank(game_->getBoard()->getPlayerTank());
-            }
-            // ESCAPE
-            if (event->info.keyInfo.keyCode == 36) {
-                game_->setPauseState();
-            }
-            break;
-        }
-        case (Event::KeyReleased): {
-            // DOWN
-            if (event->info.keyInfo.keyCode == 74) {
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-                game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-            }
-            // UP
-            if (event->info.keyInfo.keyCode == 73) {
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-                game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-            }
-            // LEFT
-            if (event->info.keyInfo.keyCode == 72) {
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-                game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-            }
-            // RIGHT
-            if (event->info.keyInfo.keyCode == 71) {
-                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-                game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-            }
-            // SPACEBAR
-            if (event->info.keyInfo.keyCode == 57) {
-            }
-            break;
-        }
-        case (Event::PlayerKilled): {
+   switch (event->type) {
+       case(Event::KeyPressed): {
+           if(event->info.keyInfo.keyCode == 74) {
+               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), South);
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+           }
+           // UP
+           if(event->info.keyInfo.keyCode == 73) {
+               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), North);
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+           }
+           // LEFT
+           if(event->info.keyInfo.keyCode == 71) {
+               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), West);
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+           }
+           // RIGHT
+           if(event->info.keyInfo.keyCode == 72) {
+               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), East);
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+           }
+           // SPACEBAR
+           if(event->info.keyInfo.keyCode == 57) {
+               game_->getBoard()->fireTank(game_->getBoard()->getPlayerTank());
+           }
+           // ESCAPE
+           if (event->info.keyInfo.keyCode == 36) {
+               game_->setPauseState();
+           }
+           break;
+       }
+       case (Event::KeyReleased):{
+           // DOWN
+           if(event->info.keyInfo.keyCode == 74) {
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+               //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+           }
+           // UP
+           if(event->info.keyInfo.keyCode == 73) {
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+               //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+           }
+           // LEFT
+           if(event->info.keyInfo.keyCode == 72) {
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+               //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+           }
+           // RIGHT
+           if(event->info.keyInfo.keyCode == 71) {
+               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+               //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+           }
+           // SPACEBAR
+           if(event->info.keyInfo.keyCode == 57) {
+           }
+           break;
+       }
+       case (Event::PlayerKilled):{
             game_->end();
             break;
         }
