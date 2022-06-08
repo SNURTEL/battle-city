@@ -32,9 +32,10 @@ void BulletsGraphic::render()
         texture = textureMap[bulletType];
         sprite.setTexture(texture);
         sprite.setPosition(bullet.coords);
+        sprite.setOrigin(50.f, 50.f);
         float angle = getAngle(bullet.direction);
         setBulletRotation(sprite, angle);
-        sprite.setScale(0.1f, 0.1f);
+        sprite.setScale(0.2f, 0.2f);
         windowView.window->draw(sprite);
     }
 }
@@ -67,23 +68,6 @@ void BulletsGraphic::setBulletRotation(sf::Sprite& sprite, float angle)
 {
     float bulletSize = 40.f;
     sprite.setRotation(angle);
-    int angleInt = static_cast<int>(angle);
-    switch (angleInt)
-    {
-    case 0:
-        break;
-    case 90:
-        sprite.move(sf::Vector2f(bulletSize, 0));
-        break;
-    case 180:
-        sprite.move(sf::Vector2f(bulletSize, bulletSize));
-        break;
-    case 270:
-        sprite.move(sf::Vector2f(0, bulletSize));
-        break;
-    default:
-        break;
-    }
 }
 
 

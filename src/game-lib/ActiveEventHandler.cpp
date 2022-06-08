@@ -12,7 +12,7 @@
 #include "../bot-lib/include/BotController.h"
 #include "include/Game.h"
 #include "../board-lib/include/Eagle.h"
-
+#include <cmath>
 
 ActiveEventHandler::ActiveEventHandler(Game *game, ActiveGameState *state) {
     game_ = game;
@@ -145,12 +145,20 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
     game->getBoard()->removeEntity(member1.friendlyBullet);
     game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+    game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y);
+    game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY()));
+    game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY()));
+    // game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+
 }
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
     game->getBoard()->removeEntity(member1.enemyBullet);
     game->getBoard()->deleteTile(member2.tile_x, member2.tile_y);
+    game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y);
+    game->getBoard()->deleteTile(member2.tile_x, std::ceil(member2.tile_y + member1.enemyBullet->getSizeY()));
+    game->getBoard()->deleteTile(std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), std::ceil(member2.tile_y + member1.enemyBullet->getSizeY()));
 }
 
 // ######
