@@ -218,7 +218,7 @@ SCENARIO("Rotating tanks an fractional coords") {
                 REQUIRE(tank1->getY() == 18);
 
                 REQUIRE(tank2->getFacing() == South);
-                REQUIRE(tank2->getX() == 9);
+                REQUIRE(tank2->getX() == 10); // Target initial dierction was NOrth so ceil is called
                 REQUIRE(tank2->getY() == 8);
 
                 AND_THEN("Two events should be created") {
