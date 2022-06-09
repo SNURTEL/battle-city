@@ -125,10 +125,11 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
 
 void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game) {
-   game->getBoard()->snapTankToGrid(member1.enemyTank);
-   game->getBoard()->snapTankToGrid(member2.enemyTank);
-   game->getBoard()->setTankMoving(member1.enemyTank, false);
-   game->getBoard()->setTankMoving(member2.enemyTank, false);
+    // disable collisions for enemy tanks
+//   game->getBoard()->snapTankToGrid(member1.enemyTank);
+//   game->getBoard()->snapTankToGrid(member2.enemyTank);
+//   game->getBoard()->setTankMoving(member1.enemyTank, false);
+//   game->getBoard()->setTankMoving(member2.enemyTank, false);
 }
 
 void handleCollision(Event::PlayerTankCollisionInfo member1,

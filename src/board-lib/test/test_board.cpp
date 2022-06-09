@@ -135,11 +135,11 @@ SCENARIO("Spawning tanks") {
         }
 
         WHEN("Overlapping with another tank") {
-            helper::placeTank(&board, 5, 5, Tank::BasicTank);
+            helper::placeTank(&board, 5, 5, Tank::PlayerTank);
 
             bool result = board.spawnTank(6, 6, Tank::ArmorTank);
 
-            THEN("Operation should fail") {
+            THEN("Operation should return false") {
                 REQUIRE_FALSE(result);
             }THEN("A collision event should be created") {
                 eventQueue->pop();
@@ -290,18 +290,14 @@ SCENARIO("Rotating tanks an fractional coords") {
         }
 
         WHEN("Cannot snap to grid - would collide with another entity") {
-            std::shared_ptr<Tank> obstacleTank = helper::placeTank(&board, 5, 5, Tank::FastTank);
+            std::shared_ptr<Tank> obstacleTank = helper::placeTank(&board, 5, 5, Tank::PlayerTank);
             obstacleTank->setY(19.9);
 
             board.setTankDirection(tank1, West);
-            THEN("Tank should not be rotated, nor snapped to grid") {
+            THEN("Tank should not be rotated") {
                 REQUIRE(tank1->getX() == 5);
                 REQUIRE(tank1->getY() == 17.8f);
                 REQUIRE(tank1->getFacing() == North);
-
-                AND_THEN("No events should be created") {
-                    REQUIRE(eventQueue->isEmpty());
-                }
             }
         }
     }
@@ -450,8 +446,8 @@ SCENARIO("Moving a single entity") {
             }
         }
 
-        WHEN("Two entities collide with each other") {
-            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
+        WHEN("Two entities collide with each other (and it is not an enemy tank - enemy tank collision)") {
+            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank, South);
             board.setTankMoving(tank1, false);
 
             std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 10, 10,
@@ -461,15 +457,11 @@ SCENARIO("Moving a single entity") {
 
             board.moveEntity(bullet);
 
-            THEN("Collision event should be added to the queue") {
+            THEN("Collision event should be additionally added to the queue") {
                 REQUIRE(eventQueue->size() == 2);
-                eventQueue->pop();
-                auto collisionEvent = eventQueue->pop();
-                REQUIRE(collisionEvent->type == Event::Collision);
-                REQUIRE(std::get<Event::EnemyBulletCollisionInfo>(
-                        collisionEvent->info.collisionInfo.member1).enemyBullet == bullet);
-                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(collisionEvent->info.collisionInfo.member2).enemyTank ==
-                        tank1);
+                REQUIRE(eventQueue->pop()->type == Event::EntityMoved);
+                REQUIRE(eventQueue->pop()->type == Event::Collision);
+
             }
         }
 

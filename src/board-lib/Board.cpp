@@ -48,47 +48,33 @@ bool Board::snapTankToGrid(const std::shared_ptr<Tank> &target, bool snap_x, boo
     float initial_y = target->getY();
 
 
+//    }
 
+    if (snap_x)
+        target->setX(std::round(target->getX()));
+    if (snap_y)
+        target->setY(std::round(target->getY()));
 
-    switch (target->getFacing())
-    {
-    case (Direction::North) :
-        if (snap_y)
-        target->setY(std::ceil(target->getY()));
-        break;
-    case (Direction::East):
-        if (snap_x)
-        target->setX(std::floor(target->getX()));
-        break;
-    case (Direction::South):
-        if (snap_y)
-        target->setY(std::floor(target->getY()));
-        break;
-    case (Direction::West):
-        if (snap_x)
-        target->setX(std::ceil(target->getX()));
-        break;
-
-
-    default:
-        break;
+    if (validateEntityPosition(target)) {
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
+        return true;
     }
 
-    // if (snap_x)
-    //     target->setX(std::round(target->getX()));
-    // if (snap_y)
-    //     target->setY(std::round(target->getY()));
+    if (snap_x)
+        target->setX(std::round(initial_x + ((initial_x > target->getX()) ? 0.5 : -0.5)));
+    if (snap_y)
+        target->setY(std::round(initial_y + ((initial_y > target->getY()) ? 0.5 : -0.5)));
 
-    if (!validateEntityPosition(target)) {
-        target->setX(initial_x);
-        target->setY(initial_y);
-
-        return false;
+    if (validateEntityPosition(target)) {
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
+        return true;
     }
 
-    eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
+    target->setX(initial_x);
+    target->setY(initial_y);
 
-    return true;
+    return false;
+
 }
 
 void Board::setGrid(std::unique_ptr<Grid> grid) {
@@ -118,6 +104,9 @@ bool Board::moveEntity(const std::shared_ptr<Entity> &target) {
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
     if (!validateEntityPosition(target)) {
         eventQueue_->registerEvent(createCollisionEvent(target));
+        if (dynamic_cast<Bullet *>(target.get()) == nullptr) {
+            target->moveBack();
+        }
         return false;
     }
     return true;
@@ -193,11 +182,15 @@ bool Board::validateEntityPosition(const std::shared_ptr<Entity> &target) {
         return false;
     }
 
-    if (entityController_->checkEntityCollisions(target)) {
-        return false;
+    auto c = entityController_->checkEntityCollisions(target);
+    if (!c.has_value()) {
+        return true;
     }
 
-    return true;
+    return (dynamic_cast<Tank*>(c.value().get())!= nullptr
+    and dynamic_cast<PlayerTank *>(target.get()) == nullptr
+    and dynamic_cast<PlayerTank *>(c.value().get()) == nullptr);
+
 }
 
 void Board::killAllEnemyEntities() {   // FIXME this should be in EntityController
@@ -222,14 +215,14 @@ void Board::killAllEnemyEntities() {   // FIXME this should be in EntityControll
 }
 
 void Board::removeEntity(std::shared_ptr<Entity> entity) {
-    if(dynamic_cast<Bot*>(entity.get()) != nullptr){
-        dynamic_cast<Bot*>(entity.get())->unsubscribe(Clock::instance());
+    if (dynamic_cast<Bot *>(entity.get()) != nullptr) {
+        dynamic_cast<Bot *>(entity.get())->unsubscribe(Clock::instance());
         BotController::instance()->deregisterBot();
     }
 
     entityController_->removeEntity(entity);
 
-    if(entityController_->getAllEntities()->size()==1 && grid_->getTankTypes().empty()){
+    if (entityController_->getAllEntities()->size() == 1 && grid_->getTankTypes().empty()) {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
     }
 }
@@ -324,7 +317,8 @@ std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entit
 void Board::loadLevel(unsigned int levelNum) {
     removeAllEntities();
     setGrid(std::move(GridBuilder::buildLevel(levelNum)));
-    entityController_->addEntity(std::make_shared<Eagle>(grid_->getEagleLocation().first, grid_->getEagleLocation().second));
+    entityController_->addEntity(
+            std::make_shared<Eagle>(grid_->getEagleLocation().first, grid_->getEagleLocation().second));
     eventQueue_->registerEvent(std::make_unique<Event>(Event::LevelLoaded, levelNum, grid_.get()));
 }
 
@@ -334,7 +328,7 @@ std::shared_ptr<PlayerTank> Board::getPlayerTank() {
 
 void Board::hitTank(std::shared_ptr<Tank> target, unsigned int damage) {
     entityController_->hitTank(target, damage);
-    if(entityController_->getAllEntities()->size()==1 && grid_->getTankTypes().empty()){
+    if (entityController_->getAllEntities()->size() == 1 && grid_->getTankTypes().empty()) {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
     }
 }
