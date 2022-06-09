@@ -98,7 +98,7 @@ void Board::moveAllEntities() {
 }
 
 bool Board::moveEntity(const std::shared_ptr<Entity> &target) {
-    if (!target->move()) {
+    if (!entityController_->moveEntity(target)) {
         return false;
     }
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
@@ -136,13 +136,14 @@ bool Board::spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direc
 
     std::shared_ptr<Tank> newTank = entityController_->createTank(x, y, type, facing);
 
+    if (!validateEntityPosition(newTank)) {
+        return false;
+    }
+
     std::shared_ptr<Entity> spawnedTank = entityController_->addEntity(newTank);
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EntitySpawned, spawnedTank));
 
-    if (!validateEntityPosition(spawnedTank)) {
-        eventQueue_->registerEvent(createCollisionEvent(spawnedTank));
-        return false;
-    }
+
     return true;
 }
 
@@ -150,13 +151,13 @@ bool Board::spawnPlayer(unsigned int x, unsigned int y, Direction facing) {
     std::shared_ptr<PlayerTank> newTank = std::dynamic_pointer_cast<PlayerTank>(
             entityController_->createTank(x, y, Tank::PlayerTank, facing));
 
+    if (!validateEntityPosition(newTank)) {
+        return false;
+    }
+
     std::shared_ptr<Entity> spawnedTank = entityController_->addEntity(newTank);
     eventQueue_->registerEvent(std::make_unique<Event>(Event::PlayerSpawned, spawnedTank));
 
-    if (!validateEntityPosition(spawnedTank)) {
-        eventQueue_->registerEvent(createCollisionEvent(spawnedTank));
-        return false;
-    }
     return true;
 }
 

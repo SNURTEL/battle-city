@@ -93,6 +93,8 @@ public:
 
     void setCounting(bool counting);
 
+    void zeroCooldown();
+
 protected:
     /**
      * Upon creation, subscribes to Clock

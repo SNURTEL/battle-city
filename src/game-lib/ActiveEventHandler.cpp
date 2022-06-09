@@ -41,7 +41,7 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
 
 void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::EnemyBulletCollisionInfo member2, Game *game_) {
-    if(member1.enemyTank->getBullet() == member2.enemyBullet.get()){
+    if (member1.enemyTank->getBullet() == member2.enemyBullet.get()) {
         return;
     }
     try {
@@ -72,7 +72,7 @@ void handleCollision(Event::EnemyBulletCollisionInfo member1,
 
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game_) {
-    if(member2.enemyTank->getBullet() == member1.enemyBullet.get()){
+    if (member2.enemyTank->getBullet() == member1.enemyBullet.get()) {
         return;
     }
     try {
@@ -227,7 +227,8 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
     }
 
     for (std::pair<unsigned int, unsigned int> tileCoords: tilesToDestroy) {
-        if (tileCoords.first > game->getBoard()->getSizeX() - 1 || tileCoords.second > game->getBoard()->getSizeY() - 1) {
+        if (tileCoords.first > game->getBoard()->getSizeX() - 1 ||
+            tileCoords.second > game->getBoard()->getSizeY() - 1) {
             continue;
         }
         game->getBoard()->deleteTile(tileCoords.first, tileCoords.second);
@@ -293,7 +294,8 @@ void handleCollision(Event::EnemyBulletCollisionInfo member1,
     }
 
     for (std::pair<unsigned int, unsigned int> tileCoords: tilesToDestroy) {
-        if (tileCoords.first > game->getBoard()->getSizeX() - 1 || tileCoords.second > game->getBoard()->getSizeY() - 1) {
+        if (tileCoords.first > game->getBoard()->getSizeX() - 1 ||
+            tileCoords.second > game->getBoard()->getSizeY() - 1) {
             continue;
         }
         game->getBoard()->deleteTile(tileCoords.first, tileCoords.second);
@@ -377,64 +379,64 @@ void handleCollision(Event::BoardCollisionInfo member1,
 
 
 std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> event) {
-   switch (event->type) {
-       case(Event::KeyPressed): {
-           if(event->info.keyInfo.keyCode == 74) {
-               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), South);
-               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-           }
-           // UP
-           if(event->info.keyInfo.keyCode == 73) {
-               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), North);
-               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-           }
-           // LEFT
-           if(event->info.keyInfo.keyCode == 71) {
-               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), West);
-               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-           }
-           // RIGHT
-           if(event->info.keyInfo.keyCode == 72) {
-               game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), East);
-               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
-           }
-           // SPACEBAR
-           if(event->info.keyInfo.keyCode == 57) {
-               game_->getBoard()->fireTank(game_->getBoard()->getPlayerTank());
-           }
-           // ESCAPE
-           if (event->info.keyInfo.keyCode == 36) {
-               game_->setPauseState();
-           }
-           break;
-       }
-       case (Event::KeyReleased):{
-           // DOWN
-           if(event->info.keyInfo.keyCode == 74) {
-               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-               //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-           }
-           // UP
-           if(event->info.keyInfo.keyCode == 73) {
-               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-               //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-           }
-           // LEFT
-           if(event->info.keyInfo.keyCode == 72) {
-               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-               //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-           }
-           // RIGHT
-           if(event->info.keyInfo.keyCode == 71) {
-               game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
-               //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
-           }
-           // SPACEBAR
-           if(event->info.keyInfo.keyCode == 57) {
-           }
-           break;
-       }
-       case (Event::PlayerKilled):{
+    switch (event->type) {
+        case (Event::KeyPressed): {
+            if (event->info.keyInfo.keyCode == 74) {
+                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), South);
+                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+            }
+            // UP
+            if (event->info.keyInfo.keyCode == 73) {
+                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), North);
+                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+            }
+            // LEFT
+            if (event->info.keyInfo.keyCode == 71) {
+                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), West);
+                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+            }
+            // RIGHT
+            if (event->info.keyInfo.keyCode == 72) {
+                game_->getBoard()->setTankDirection(game_->getBoard()->getPlayerTank(), East);
+                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), true);
+            }
+            // SPACEBAR
+            if (event->info.keyInfo.keyCode == 57) {
+                game_->getBoard()->fireTank(game_->getBoard()->getPlayerTank());
+            }
+            // ESCAPE
+            if (event->info.keyInfo.keyCode == 36) {
+                game_->setPauseState();
+            }
+            break;
+        }
+        case (Event::KeyReleased): {
+            // DOWN
+            if (event->info.keyInfo.keyCode == 74) {
+                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+                //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+            }
+            // UP
+            if (event->info.keyInfo.keyCode == 73) {
+                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+                //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+            }
+            // LEFT
+            if (event->info.keyInfo.keyCode == 72) {
+                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+                //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+            }
+            // RIGHT
+            if (event->info.keyInfo.keyCode == 71) {
+                game_->getBoard()->setTankMoving(game_->getBoard()->getPlayerTank(), false);
+                //game_->getBoard()->snapTankToGrid(game_->getBoard()->getPlayerTank());
+            }
+            // SPACEBAR
+            if (event->info.keyInfo.keyCode == 57) {
+            }
+            break;
+        }
+        case (Event::PlayerKilled): {
             game_->end();
             break;
         }
@@ -457,8 +459,13 @@ std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> e
             break;
         }
         case (Event::BotSpawnDecision): {
-            game_->getBoard()->spawnTank(event->info.spawnDecisionInfo.x, event->info.spawnDecisionInfo.y,
-                                         event->info.spawnDecisionInfo.type, event->info.spawnDecisionInfo.direction);
+            if (!game_->getBoard()->spawnTank(event->info.spawnDecisionInfo.x,
+                                              event->info.spawnDecisionInfo.y,
+                                              event->info.spawnDecisionInfo.type,
+                                              event->info.spawnDecisionInfo.direction)) {
+                BotController::instance()->deregisterBot();
+                BotController::instance()->zeroCooldown();
+            }
             break;
         }
         case (Event::Collision): {

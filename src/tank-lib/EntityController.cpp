@@ -105,10 +105,12 @@ void EntityController::moveAllEntities() {
     }
 }
 
-void EntityController::moveEntity(std::shared_ptr<Entity> target) {
+bool EntityController::moveEntity(std::shared_ptr<Entity> target) {
     if (target->move()) {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
+        return true;
     }
+    return false;
 }
 
 void EntityController::setTankMoving(const std::shared_ptr<Tank> &target, bool isMoving) {
