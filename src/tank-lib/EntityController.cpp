@@ -181,6 +181,11 @@ std::vector<std::shared_ptr<Entity>> *EntityController::getAllEntities() {
 
 void EntityController::clear() {
     for (auto iter = entities_.rbegin(); iter != entities_.rend(); iter++) {
+        if (dynamic_cast<Bot *>(iter->get()) != nullptr) {
+            dynamic_cast<Bot *>(iter->get())->unsubscribe(Clock::instance());
+            BotController::instance()->deregisterBot();
+        }
+
         eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityRemoved, *iter));
         entities_.erase(iter.base());
     }
