@@ -105,10 +105,12 @@ void EntityController::moveAllEntities() {
     }
 }
 
-void EntityController::moveEntity(std::shared_ptr<Entity> target) {
+bool EntityController::moveEntity(std::shared_ptr<Entity> target) {
     if (target->move()) {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
+        return true;
     }
+    return false;
 }
 
 void EntityController::setTankMoving(const std::shared_ptr<Tank> &target, bool isMoving) {
@@ -145,7 +147,6 @@ std::optional<std::shared_ptr<Entity>> EntityController::checkEntityCollisions(c
             target->getY() + target->getSizeY() <= entity->getY()) {
             continue;  // no collision
         } else if (target != entity) {
-
             return entity;  // collision detected
         }
     }
@@ -179,6 +180,11 @@ std::vector<std::shared_ptr<Entity>> *EntityController::getAllEntities() {
 
 void EntityController::clear() {
     for (auto iter = entities_.rbegin(); iter != entities_.rend(); iter++) {
+        if (dynamic_cast<Bot *>(iter->get()) != nullptr) {
+            dynamic_cast<Bot *>(iter->get())->unsubscribe(Clock::instance());
+            BotController::instance()->deregisterBot();
+        }
+
         eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityRemoved, *iter));
         entities_.erase(iter.base());
     }

@@ -50,6 +50,7 @@ namespace {
             Clock::initialize(60);
             BotController::initialize(4, 240);
             BotController::instance()->subscribe(Clock::instance());
+            BotController::instance()->setCounting(true);
         }
     }
 }
@@ -126,6 +127,7 @@ SCENARIO("Requesting to spawn tanks") {
         }WHEN("No spawnpoints are provided") {
             BotController::initialize(4, 5);
             BotController::instance()->subscribe(Clock::instance());
+            BotController::instance()->setCounting(true);
             std::vector<Tank::TankType> tt = {Tank::BasicTank, Tank::ArmorTank, Tank::BasicTank, Tank::BasicTank,
                                               Tank::FastTank};
 

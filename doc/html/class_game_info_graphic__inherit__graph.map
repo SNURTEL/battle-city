@@ -1,0 +1,4 @@
+<map id="GameInfoGraphic" name="GameInfoGraphic">
+<area shape="rect" id="node1" title="Class responsible for writing game state info on the frame." alt="" coords="5,292,233,545"/>
+<area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="8,5,231,244"/>
+</map>

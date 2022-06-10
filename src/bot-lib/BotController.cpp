@@ -164,3 +164,11 @@ void BotController::setTypes(const std::queue<Tank::TankType> &types) {
 void BotController::setCounting(bool nCounting) {
     counting = nCounting;
 }
+
+void BotController::zeroCooldown() {
+    spawnCooldown=0;
+}
+
+unsigned int BotController::getRemainingBotsCount() {
+    return types_.size();
+}

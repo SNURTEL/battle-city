@@ -1,8 +1,9 @@
 # 22L-PROI-projekt-Jakomulski-Budnik-Owienko
 
 ---
-Some cool description waiting to be added
+## Full documentation in >>> [doc](doc) <<<
 
+---
 
 ## Contents
 - [Repository structure](#repository-structure)
@@ -242,8 +243,9 @@ When working on the project:
 
 ## Full documentation
 Check [`doc`](/doc):
-- [`doc/html`](doc/html) and [`doc/rtf`](doc/rtf) for Doxygen-style project documentation:
+- [`doc/html`](doc/html) and [`doc/rtf`](doc/rtf) for Doxygen-style code documentation:
    ```bash
   cd ./doc/html/
    opera ./index.html
    ```
+- `doc/project_doc` for full project documentation

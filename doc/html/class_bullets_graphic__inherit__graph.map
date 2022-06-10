@@ -1,0 +1,4 @@
+<map id="BulletsGraphic" name="BulletsGraphic">
+<area shape="rect" id="node1" title="Class responsible for bullets updates and render." alt="" coords="8,292,225,912"/>
+<area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="5,5,228,244"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="GameState" name="GameState">
+<area shape="rect" id="node1" title=" " alt="" coords="325,5,549,215"/>
+<area shape="rect" id="node2" href="$class_active_game_state.html" title=" " alt="" coords="5,263,225,457"/>
+<area shape="rect" id="node3" href="$class_finished_game_state.html" title=" " alt="" coords="249,299,413,421"/>
+<area shape="rect" id="node4" href="$class_menu_game_state.html" title=" " alt="" coords="438,292,646,428"/>
+<area shape="rect" id="node5" href="$class_pause_game_state.html" title=" " alt="" coords="670,292,881,428"/>
+</map>

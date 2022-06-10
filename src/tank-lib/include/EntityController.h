@@ -87,7 +87,7 @@ public:
      * @param target Target entity
      * @param direction Direction in which to move the entity
      */
-    void moveEntity(std::shared_ptr<Entity> target);
+    bool moveEntity(std::shared_ptr<Entity> target);
 
     /**
      * Sets tank's moving_ flag to a given value

@@ -1,0 +1,4 @@
+<map id="BareFrameGraphic" name="BareFrameGraphic">
+<area shape="rect" id="node1" title="Class responsible for bare frame render." alt="" coords="5,292,268,472"/>
+<area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="25,5,248,244"/>
+</map>

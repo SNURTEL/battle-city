@@ -52,7 +52,7 @@ void Game::initComponents() {
 
     gameStatsIO_ = std::make_unique<GameStatsIO>("scoreboard.txt");  // dummy, filename is ignored for now
 
-    BotController::initialize(4, 420);
+    BotController::initialize(4, 180);
 
     BotController::instance()->subscribe(clock_);
 

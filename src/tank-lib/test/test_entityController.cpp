@@ -482,6 +482,14 @@ SCENARIO("Collision detection") {
                 REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank1));
                 REQUIRE_FALSE(test_entityController.checkEntityCollisions(tank2));
             }
+        }WHEN("One object is located inside another"){
+            tank1->setX(5);
+            tank1->setY(3);
+
+            THEN("A collision should be detected") {
+                REQUIRE(test_entityController.checkEntityCollisions(tank1).has_value());
+                REQUIRE(test_entityController.checkEntityCollisions(bullet1).has_value());
+            }
         }
         eventQueue->clear();
 

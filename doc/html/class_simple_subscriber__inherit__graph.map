@@ -1,0 +1,12 @@
+<map id="SimpleSubscriber" name="SimpleSubscriber">
+<area shape="rect" id="node1" title=" " alt="" coords="531,5,788,244"/>
+<area shape="rect" id="node2" href="$class_bot.html" title=" " alt="" coords="152,578,391,817"/>
+<area shape="rect" id="node7" href="$class_bot_controller.html" title=" " alt="" coords="664,292,921,1103"/>
+<area shape="rect" id="node8" href="$class_keyboard_controller.html" title=" " alt="" coords="946,585,1162,809"/>
+<area shape="rect" id="node9" href="$class_tank.html" title="Base class for tank representation." alt="" coords="415,409,640,985"/>
+<area shape="rect" id="node3" href="$class_armor_tank.html" title=" " alt="" coords="567,1151,736,1272"/>
+<area shape="rect" id="node4" href="$class_basic_tank.html" title=" " alt="" coords="5,1151,169,1272"/>
+<area shape="rect" id="node5" href="$class_fast_tank.html" title=" " alt="" coords="194,1151,349,1272"/>
+<area shape="rect" id="node6" href="$class_power_tank.html" title=" " alt="" coords="373,1151,543,1272"/>
+<area shape="rect" id="node10" href="$class_player_tank.html" title=" " alt="" coords="761,1151,931,1272"/>
+</map>
