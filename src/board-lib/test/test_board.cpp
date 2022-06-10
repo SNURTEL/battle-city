@@ -540,7 +540,8 @@ SCENARIO("Generating collision events") {
 
         WHEN("Two enemy tanks collide") {
             auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank).value();
-            auto tank2 = helper::placeTank(&board, 11, 11, Tank::ArmorTank).value();
+            auto tank2 = helper::placeTank(&board, 15, 10, Tank::ArmorTank).value();
+            tank2->setX(12);
 
             auto event = board.testCreateCollisionEvent(tank1);
 
@@ -592,7 +593,7 @@ SCENARIO("Generating collision events") {
         }
         WHEN("Two enemy bullets collide") {
             auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East).value();
-            auto tank2 = helper::placeTank(&board, 12, 12, Tank::BasicTank).value();
+            auto tank2 = helper::placeTank(&board, 15, 15, Tank::BasicTank).value();
             tank2->setX(12.2);
             tank2->setY(12.2);
             auto bullet1 = helper::fireBullet(&board, tank1).value();

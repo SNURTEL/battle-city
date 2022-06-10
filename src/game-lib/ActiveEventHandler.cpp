@@ -157,7 +157,7 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game) {
 
     try {
-        game->getBoard()->removeEntity(memgber1.friendlyBullet);
+        game->getBoard()->removeEntity(member1.friendlyBullet);
         game->getBoard()->hitTank(member2.enemyTank, 1);
 
     }
