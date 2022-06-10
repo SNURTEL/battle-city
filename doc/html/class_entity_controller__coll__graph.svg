@@ -78,7 +78,7 @@ var sectionId = 'dynsection-0';
 <text text-anchor="start" x="215" y="-480.5" font-family="Helvetica,sans-Serif" font-size="10.00">::shared_ptr&lt; Entity</text>
 <text text-anchor="start" x="215" y="-469.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; entity)</text>
 <text text-anchor="start" x="215" y="-458.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void moveAllEntities()</text>
-<text text-anchor="start" x="215" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void moveEntity(std</text>
+<text text-anchor="start" x="215" y="-447.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ bool moveEntity(std</text>
 <text text-anchor="start" x="215" y="-436.5" font-family="Helvetica,sans-Serif" font-size="10.00">::shared_ptr&lt; Entity</text>
 <text text-anchor="start" x="215" y="-425.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &gt; target)</text>
 <text text-anchor="start" x="215" y="-414.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ void setTankMoving</text>

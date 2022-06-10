@@ -1,12 +1,12 @@
 <map id="Bot" name="Bot">
-<area shape="rect" id="node1" title=" " alt="" coords="668,1533,884,1728"/>
-<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="5,1056,219,1339"/>
+<area shape="rect" id="node1" title=" " alt="" coords="668,1577,884,1772"/>
+<area shape="rect" id="node2" href="$class_entity.html" title=" " alt="" coords="5,1078,219,1361"/>
 <area shape="rect" id="node3" title=" " alt="" coords="12,608,63,685"/>
 <area shape="rect" id="node4" title=" " alt="" coords="91,608,173,685"/>
 <area shape="rect" id="node5" href="$class_simple_subscriber.html" title=" " alt="" coords="1282,535,1539,759"/>
-<area shape="rect" id="node9" href="$class_bot_controller.html" title=" " alt="" coords="655,924,897,1471"/>
+<area shape="rect" id="node9" href="$class_bot_controller.html" title=" " alt="" coords="655,924,897,1515"/>
 <area shape="rect" id="node6" title=" " alt="" coords="1363,263,1573,340"/>
-<area shape="rect" id="node7" title=" " alt="" coords="1174,1151,1319,1243"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1174,1173,1319,1265"/>
 <area shape="rect" id="node8" title=" " alt="" coords="210,608,313,685"/>
 <area shape="rect" id="node10" title=" " alt="" coords="337,593,511,700"/>
 <area shape="rect" id="node11" title=" " alt="" coords="535,608,726,685"/>

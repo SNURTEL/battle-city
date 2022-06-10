@@ -177,18 +177,6 @@ public:
     std::shared_ptr<PlayerTank> getPlayerTank();
 
     /**
-     * Removes entity
-     * @param entity pointer
-     */
-    void removeEntity(Entity* entity);
-
-    /**
-     * Returns entity controller pointer
-     * @return entity controller pointer
-     */
-    EntityController* getEntityController();
-
-    /**
      * Hits tank
      * @param target (Tank)
      * @param damage (int)

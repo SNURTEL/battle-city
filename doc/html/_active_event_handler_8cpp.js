@@ -1,5 +1,6 @@
 var _active_event_handler_8cpp =
 [
+    [ "destroyBulletCollisionTiles", "_active_event_handler_8cpp.html#a2fe9af6896a8971b5c8740423719ed25", null ],
     [ "handleCollision", "_active_event_handler_8cpp.html#af5b9b3b4956ab2bb0e883d810fa9df26", null ],
     [ "handleCollision", "_active_event_handler_8cpp.html#aeea92978338f2bd7bc67dbfc8d8f0e8c", null ],
     [ "handleCollision", "_active_event_handler_8cpp.html#aac80c4e49d4e924f7d0e5632f18af086", null ],

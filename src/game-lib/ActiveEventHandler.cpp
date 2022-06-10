@@ -389,7 +389,7 @@ std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> e
         case (Event::Collision): {
             Game *g = game_;
             std::visit([g](auto &&arg1, auto &&arg2) { handleCollision(arg1, arg2, g); },
-                       event->info.collisionInfo.member1, event.get()->info.collisionInfo.member2);
+                       event->info.collisionInfo.member1, event->info.collisionInfo.member2);
             break;
         }
         case (Event::TankKilled): {
