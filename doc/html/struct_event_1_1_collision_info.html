@@ -105,7 +105,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Holds two collision members. Individual CollisionInfos are accessible with std::get&lt;T&gt;() or (preferred) std::visit().</p>
-<p >Collision handling can be provided by creating a <a class="el" href="_active_event_handler_8cpp.html#a348106881cd633d29fdc227ce20f63ea">handleCollision()</a> function and overloading it with different CollisionInfos. The function can then be called in a lambda expression inside std::visit:</p>
+<p >Collision handling can be provided by creating a <a class="el" href="_active_event_handler_8cpp.html#a67a4a9cf40586b212cc4e4c5aea9aaf4">handleCollision()</a> function and overloading it with different CollisionInfos. The function can then be called in a lambda expression inside std::visit:</p>
 <p >std::visit([](auto &amp;&amp;arg1, auto &amp;&amp;arg2){ handleCollision(arg1, arg2); }, collisionEvent.member1, collisionEvent.member2);</p>
 <p >In practice, friendly bullet and player tank are always stored as member1, grid member is always member2 </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
