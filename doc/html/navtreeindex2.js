@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"class_finished_game_state.html":[0,0,27],
+"class_finished_game_state.html#a4cdad15e55dc3545da1ba5816531240e":[0,0,27,0],
+"class_finished_game_state.html#a883761fa6d15e2c257e426cae69bf7b6":[0,0,27,1],
+"class_frame_graphic.html":[0,0,28],
 "class_frame_graphic.html#a0711f4025597cdf03a58dfb730d5121b":[0,0,28,9],
 "class_frame_graphic.html#a284854c3f57f3e93f29b4f86277a4a0f":[0,0,28,6],
 "class_frame_graphic.html#a2e23e1c9a1f4b2ee1c43a00928a3dde8":[0,0,28,7],
@@ -245,9 +249,5 @@ var NAVTREEINDEX2 =
 "class_tank.html#a8c023d11c5a46d723d81fcf023447d44":[0,0,56,8],
 "class_tank.html#a8d01b214be6a1663539d0a34ae808d83":[0,0,56,0],
 "class_tank.html#a8d01b214be6a1663539d0a34ae808d83a1b841dc53bb46afa5800649e29e7d0f9":[0,0,56,0,0],
-"class_tank.html#a8d01b214be6a1663539d0a34ae808d83a44698422a4937961bff37db4b771ba6b":[0,0,56,0,2],
-"class_tank.html#a8d01b214be6a1663539d0a34ae808d83a94338fdcf50ee3c7d9aa1c9463ea90ea":[0,0,56,0,1],
-"class_tank.html#a8d01b214be6a1663539d0a34ae808d83ab62da79e88b4acddfce968351f52ae68":[0,0,56,0,4],
-"class_tank.html#a8d01b214be6a1663539d0a34ae808d83ac8694a5ab96059309797854c62dfd963":[0,0,56,0,3],
-"class_tank.html#a8da8f054031c1ceb54fe79b3a3712f89":[0,0,56,20]
+"class_tank.html#a8d01b214be6a1663539d0a34ae808d83a44698422a4937961bff37db4b771ba6b":[0,0,56,0,2]
 };

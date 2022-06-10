@@ -16,7 +16,7 @@ Window::Window()
 {
     videoMode = sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT);
     window = std::make_unique<sf::RenderWindow>(videoMode, "Tanks", sf::Style::Default);
-    window->setKeyRepeatEnabled(false);
+//    window->setKeyRepeatEnabled(false);
     window->setFramerateLimit(60);
     windowView.window = window.get();
     windowView.leftOffset = 0.f;

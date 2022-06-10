@@ -14,7 +14,7 @@
 
 
 
-SCENARIO("Handling events connected to graphic-lib")
+SCENARIO("Handling events connected to graphic-lib", "[FileAccess]")
 {
     GIVEN("TestWindow, GameState, tanks, bullets, Grid, GraphicEventHandler, Events, GameStatistics")
     {
@@ -136,7 +136,7 @@ SCENARIO("Handling events connected to graphic-lib")
 
 
 
-SCENARIO("Game states are changing")
+SCENARIO("Game states are changing", "[FileAccess]")
 {
     GIVEN("A test window , game states, graphic event handler, game object")
     {

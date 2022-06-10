@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('_active_event_handler_8cpp.html',''); 
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;utility&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &quot;<a class="el" href="_board_8h_source.html">../board-lib/include/Board.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_bullet_8h_source.html">../tank-lib/include/Bullet.h</a>&quot;</code><br />
@@ -96,7 +96,8 @@ $(document).ready(function(){initNavTree('_active_event_handler_8cpp.html',''); 
 <code>#include &quot;<a class="el" href="_bot_controller_8h_source.html">../bot-lib/include/BotController.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_game_8h_source.html">include/Game.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_eagle_8h_source.html">../board-lib/include/Eagle.h</a>&quot;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="_observer_exceptions_8h_source.html">../core-lib/include/ObserverExceptions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_tile_manager_8h_source.html">../board-lib/include/TileManager.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ActiveEventHandler.cpp:</div>
 <div class="dyncontent">
@@ -112,8 +113,6 @@ Functions</h2></td></tr>
 <tr class="separator:a9a15bd399fec16adc18c02e30b690f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a208d039f41a5b1dd1455f64f82972d43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_active_event_handler_8cpp.html#a208d039f41a5b1dd1455f64f82972d43">handleCollision</a> (<a class="el" href="struct_event_1_1_enemy_tank_collision_info.html">Event::EnemyTankCollisionInfo</a> member1, <a class="el" href="struct_event_1_1_player_tank_collision_info.html">Event::PlayerTankCollisionInfo</a> member2, <a class="el" href="class_game.html">Game</a> *game_)</td></tr>
 <tr class="separator:a208d039f41a5b1dd1455f64f82972d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2ddfa671a26df0e0d1596057cbf8c33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_active_event_handler_8cpp.html#ae2ddfa671a26df0e0d1596057cbf8c33">handleCollision</a> (<a class="el" href="struct_event_1_1_enemy_tank_collision_info.html">Event::EnemyTankCollisionInfo</a> member1, <a class="el" href="struct_event_1_1_friendly_bullet_collision_info.html">Event::FriendlyBulletCollisionInfo</a> member2, <a class="el" href="class_game.html">Game</a> *game_)</td></tr>
-<tr class="separator:ae2ddfa671a26df0e0d1596057cbf8c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90a266e74c2a6d6770b570bfc9e4a25b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_active_event_handler_8cpp.html#a90a266e74c2a6d6770b570bfc9e4a25b">handleCollision</a> (<a class="el" href="struct_event_1_1_enemy_tank_collision_info.html">Event::EnemyTankCollisionInfo</a> member1, <a class="el" href="struct_event_1_1_enemy_bullet_collision_info.html">Event::EnemyBulletCollisionInfo</a> member2, <a class="el" href="class_game.html">Game</a> *game_)</td></tr>
 <tr class="separator:a90a266e74c2a6d6770b570bfc9e4a25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af056a2eae97956b8fa2ee7177c98deec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_active_event_handler_8cpp.html#af056a2eae97956b8fa2ee7177c98deec">handleCollision</a> (<a class="el" href="struct_event_1_1_friendly_bullet_collision_info.html">Event::FriendlyBulletCollisionInfo</a> member1, <a class="el" href="struct_event_1_1_player_tank_collision_info.html">Event::PlayerTankCollisionInfo</a> member2, <a class="el" href="class_game.html">Game</a> *game_)</td></tr>
@@ -152,6 +151,10 @@ Functions</h2></td></tr>
 <tr class="separator:aea48038ae7d9dc3b8866582dfc639a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a289ee60840358e8b80dbfa614b08e61c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_active_event_handler_8cpp.html#a289ee60840358e8b80dbfa614b08e61c">handleCollision</a> (<a class="el" href="struct_event_1_1_friendly_bullet_collision_info.html">Event::FriendlyBulletCollisionInfo</a> member1, <a class="el" href="struct_event_1_1_enemy_tank_collision_info.html">Event::EnemyTankCollisionInfo</a> member2, <a class="el" href="class_game.html">Game</a> *game)</td></tr>
 <tr class="separator:a289ee60840358e8b80dbfa614b08e61c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2ddfa671a26df0e0d1596057cbf8c33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_active_event_handler_8cpp.html#ae2ddfa671a26df0e0d1596057cbf8c33">handleCollision</a> (<a class="el" href="struct_event_1_1_enemy_tank_collision_info.html">Event::EnemyTankCollisionInfo</a> member1, <a class="el" href="struct_event_1_1_friendly_bullet_collision_info.html">Event::FriendlyBulletCollisionInfo</a> member2, <a class="el" href="class_game.html">Game</a> *game_)</td></tr>
+<tr class="separator:ae2ddfa671a26df0e0d1596057cbf8c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe9af6896a8971b5c8740423719ed25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_active_event_handler_8cpp.html#a2fe9af6896a8971b5c8740423719ed25">destroyBulletCollisionTiles</a> (std::shared_ptr&lt; <a class="el" href="class_bullet.html">Bullet</a> &gt; b, <a class="el" href="class_game.html">Game</a> *game)</td></tr>
+<tr class="separator:a2fe9af6896a8971b5c8740423719ed25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad18f964ab4c371f055a50c9896da5f33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_active_event_handler_8cpp.html#ad18f964ab4c371f055a50c9896da5f33">handleCollision</a> (<a class="el" href="struct_event_1_1_friendly_bullet_collision_info.html">Event::FriendlyBulletCollisionInfo</a> member1, <a class="el" href="struct_event_1_1_board_collision_info.html">Event::BoardCollisionInfo</a> member2, <a class="el" href="class_game.html">Game</a> *game)</td></tr>
 <tr class="separator:ad18f964ab4c371f055a50c9896da5f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932dc3ec9726d0e0d9fe76f0eec5a7a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_active_event_handler_8cpp.html#a932dc3ec9726d0e0d9fe76f0eec5a7a6">handleCollision</a> (<a class="el" href="struct_event_1_1_enemy_bullet_collision_info.html">Event::EnemyBulletCollisionInfo</a> member1, <a class="el" href="struct_event_1_1_board_collision_info.html">Event::BoardCollisionInfo</a> member2, <a class="el" href="class_game.html">Game</a> *game)</td></tr>
@@ -180,6 +183,34 @@ Functions</h2></td></tr>
 <tr class="separator:aeea92978338f2bd7bc67dbfc8d8f0e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a2fe9af6896a8971b5c8740423719ed25" name="a2fe9af6896a8971b5c8740423719ed25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fe9af6896a8971b5c8740423719ed25">&#9670;&nbsp;</a></span>destroyBulletCollisionTiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyBulletCollisionTiles </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_bullet.html">Bullet</a> &gt;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_game.html">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af5b9b3b4956ab2bb0e883d810fa9df26" name="af5b9b3b4956ab2bb0e883d810fa9df26"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5b9b3b4956ab2bb0e883d810fa9df26">&#9670;&nbsp;</a></span>handleCollision() <span class="overload">[1/36]</span></h2>
 

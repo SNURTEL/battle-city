@@ -1,5 +1,11 @@
 var NAVTREEINDEX4 =
 {
+"struct_frame_graphic_1_1_bare_frame_size.html#a439897aac73f77e6bf14f92a3f0e9e5f":[0,0,28,0,1],
+"struct_frame_graphic_1_1_bare_frame_size.html#a6c940a5f3e37acba9aa4310c2ac7e94d":[0,0,28,0,0],
+"struct_frame_graphic_1_1_bare_frame_size.html#ac0115287da24509885ca1113e9b97e5b":[0,0,28,0,3],
+"struct_frame_graphic_1_1_game_info.html":[0,0,28,1],
+"struct_frame_graphic_1_1_game_info.html#a092123962e1d38742b09f4463332a001":[0,0,28,1,1],
+"struct_frame_graphic_1_1_game_info.html#a47ff5a1fb1b4b0e4ba089f12d3512262":[0,0,28,1,0],
 "struct_frame_graphic_1_1_game_info.html#a6684082eb7e6107ac37bb2596e49d756":[0,0,28,1,2],
 "struct_static_graphic_1_1_buttons_position_menu.html":[0,0,55,0],
 "struct_static_graphic_1_1_buttons_position_menu.html#a3634ad623b76759dab74e3e4473696bc":[0,0,55,0,2],

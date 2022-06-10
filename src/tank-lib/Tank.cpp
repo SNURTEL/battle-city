@@ -87,9 +87,6 @@ std::optional<std::shared_ptr<Bullet>> Tank::createBullet() {
     if (!subscribedSubjects_.empty()) {
         return std::nullopt;
     }
-//    if (hasBullet) {
-//        return std::nullopt;
-//    }
 
     float bulletSizeX = 0.4;
     float bulletSizeY = 0.4;

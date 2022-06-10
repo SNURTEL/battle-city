@@ -1,5 +1,9 @@
 var NAVTREEINDEX3 =
 {
+"class_tank.html#a8d01b214be6a1663539d0a34ae808d83a94338fdcf50ee3c7d9aa1c9463ea90ea":[0,0,56,0,1],
+"class_tank.html#a8d01b214be6a1663539d0a34ae808d83ab62da79e88b4acddfce968351f52ae68":[0,0,56,0,4],
+"class_tank.html#a8d01b214be6a1663539d0a34ae808d83ac8694a5ab96059309797854c62dfd963":[0,0,56,0,3],
+"class_tank.html#a8da8f054031c1ceb54fe79b3a3712f89":[0,0,56,20],
 "class_tank.html#a94249884974479f0fb83cba0be3bf9cf":[0,0,56,21],
 "class_tank.html#a9b9dd80eb2218db83470ecee996b3360":[0,0,56,9],
 "class_tank.html#ab40363ea34ada8be91851998010004a1":[0,0,56,4],
@@ -91,8 +95,8 @@ var NAVTREEINDEX3 =
 "dir_ec77ab512a0817bed8cc07eeb3e7ef4d.html":[1,0,0,4,0],
 "dir_f9968d1aa079c8b4e4a8682b301a0233.html":[1,0,0,0],
 "files.html":[1,0],
-"functions.html":[0,3,0,0],
 "functions.html":[0,3,0],
+"functions.html":[0,3,0,0],
 "functions_b.html":[0,3,0,1],
 "functions_c.html":[0,3,0,2],
 "functions_d.html":[0,3,0,3],
@@ -123,7 +127,8 @@ var NAVTREEINDEX3 =
 "functions_func_u.html":[0,3,1,19],
 "functions_func_v.html":[0,3,1,20],
 "functions_func_w.html":[0,3,1,21],
-"functions_func_~.html":[0,3,1,22],
+"functions_func_z.html":[0,3,1,22],
+"functions_func_~.html":[0,3,1,23],
 "functions_g.html":[0,3,0,6],
 "functions_h.html":[0,3,0,7],
 "functions_i.html":[0,3,0,8],
@@ -166,7 +171,8 @@ var NAVTREEINDEX3 =
 "functions_w.html":[0,3,0,21],
 "functions_x.html":[0,3,0,22],
 "functions_y.html":[0,3,0,23],
-"functions_~.html":[0,3,0,24],
+"functions_z.html":[0,3,0,24],
+"functions_~.html":[0,3,0,25],
 "globals.html":[1,1,0],
 "globals_enum.html":[1,1,2],
 "globals_eval.html":[1,1,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX3 =
 "struct_event_construction_exception.html":[0,0,20],
 "struct_event_construction_exception.html#a21beb0ea2cdb5053549bf0dff5d66add":[0,0,20,0],
 "struct_frame_graphic_1_1_bare_frame_size.html":[0,0,28,0],
-"struct_frame_graphic_1_1_bare_frame_size.html#a16b078661a13bf86f1596954f08d540c":[0,0,28,0,2],
-"struct_frame_graphic_1_1_bare_frame_size.html#a439897aac73f77e6bf14f92a3f0e9e5f":[0,0,28,0,1],
-"struct_frame_graphic_1_1_bare_frame_size.html#a6c940a5f3e37acba9aa4310c2ac7e94d":[0,0,28,0,0],
-"struct_frame_graphic_1_1_bare_frame_size.html#ac0115287da24509885ca1113e9b97e5b":[0,0,28,0,3],
-"struct_frame_graphic_1_1_game_info.html":[0,0,28,1],
-"struct_frame_graphic_1_1_game_info.html#a092123962e1d38742b09f4463332a001":[0,0,28,1,1],
-"struct_frame_graphic_1_1_game_info.html#a47ff5a1fb1b4b0e4ba089f12d3512262":[0,0,28,1,0]
+"struct_frame_graphic_1_1_bare_frame_size.html#a16b078661a13bf86f1596954f08d540c":[0,0,28,0,2]
 };

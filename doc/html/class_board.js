@@ -3,6 +3,7 @@ var class_board =
     [ "Board", "class_board.html#a9ee491d4fea680cf69b033374a9fdfcb", null ],
     [ "createCollisionEvent", "class_board.html#a79b90afce006b639546e6c2aa48017ec", null ],
     [ "deleteTile", "class_board.html#acf82794404bf54d636b146dd7740aab3", null ],
+    [ "endIfNoBotsLeft", "class_board.html#af0388db90498edc9a31eea6aabcac642", null ],
     [ "fireTank", "class_board.html#afc45d1a6360ea45a04b0e5b0c1c562bc", null ],
     [ "getEntityController", "class_board.html#a8ede038461605e13fa6aa8969159bdfe", null ],
     [ "getGrid", "class_board.html#ad590ae76460673f1c52234c6f507b3bb", null ],

@@ -177,18 +177,6 @@ public:
     std::shared_ptr<PlayerTank> getPlayerTank();
 
     /**
-     * Removes entity
-     * @param entity pointer
-     */
-    void removeEntity(Entity* entity);
-
-    /**
-     * Returns entity controller pointer
-     * @return entity controller pointer
-     */
-    EntityController* getEntityController();
-
-    /**
      * Hits tank
      * @param target (Tank)
      * @param damage (int)
@@ -218,6 +206,8 @@ protected:
      * @return A collision event wrapped in a unique_ptr
      */
     std::unique_ptr<Event> createCollisionEvent(std::shared_ptr<Entity> entity);
+
+    void endIfNoBotsLeft();
 
     std::unique_ptr<Grid> grid_;
     std::unique_ptr<EntityController> entityController_;
