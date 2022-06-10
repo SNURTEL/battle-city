@@ -64,6 +64,10 @@ void GraphicEventHandler::processEvent(std::unique_ptr<Event> event)
         window->loadStats(playerLives, points);
         break;
     }
+    case(Event::GameWon):
+    {
+        window->gameWon();
+    }
     default:
         break;
     }
