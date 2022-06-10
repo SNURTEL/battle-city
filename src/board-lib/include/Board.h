@@ -219,6 +219,8 @@ protected:
      */
     std::unique_ptr<Event> createCollisionEvent(std::shared_ptr<Entity> entity);
 
+    void endIfNoBotsLeft();
+
     std::unique_ptr<Grid> grid_;
     std::unique_ptr<EntityController> entityController_;
 

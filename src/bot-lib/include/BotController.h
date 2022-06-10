@@ -95,6 +95,8 @@ public:
 
     void zeroCooldown();
 
+    unsigned int getRemainingBotsCount();
+
 protected:
     /**
      * Upon creation, subscribes to Clock

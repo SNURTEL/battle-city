@@ -3,7 +3,7 @@
 //
 
 #include <utility>
-#include <iostream>
+#include <cmath>
 #include <type_traits>
 
 #include "../board-lib/include/Board.h"
@@ -12,7 +12,7 @@
 #include "../bot-lib/include/BotController.h"
 #include "include/Game.h"
 #include "../board-lib/include/Eagle.h"
-#include <cmath>
+#include "../core-lib/include/ObserverExceptions.h"
 
 ActiveEventHandler::ActiveEventHandler(Game *game, ActiveGameState *state) {
     game_ = game;
@@ -34,10 +34,7 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
 
 }
 
-void handleCollision(Event::EnemyTankCollisionInfo member1,
-                     Event::FriendlyBulletCollisionInfo member2, Game *game_) {
 
-}
 
 void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::EnemyBulletCollisionInfo member2, Game *game_) {
@@ -158,14 +155,20 @@ void handleCollision(Event::PlayerTankCollisionInfo member1,
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
                      Event::EnemyTankCollisionInfo member2, Game *game) {
+
     try {
-        game->getBoard()->removeEntity(member1.friendlyBullet);
+        game->getBoard()->removeEntity(memgber1.friendlyBullet);
         game->getBoard()->hitTank(member2.enemyTank, 1);
 
     }
-    catch (EntityDoesNotExistException) {}
-
+    catch (EntityDoesNotExistException &) {}
+    catch (ObserverException &) {}
 //    BotController::instance()->deregisterBot();
+}
+
+void handleCollision(Event::EnemyTankCollisionInfo member1,
+                     Event::FriendlyBulletCollisionInfo member2, Game *game_) {
+    handleCollision(member2, member1, game_);
 }
 
 void handleCollision(Event::FriendlyBulletCollisionInfo member1,
@@ -173,7 +176,7 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
     try {
         game->getBoard()->removeEntity(member1.friendlyBullet);
     }
-    catch (EntityDoesNotExistException) { return; }
+    catch (EntityDoesNotExistException &) { return; }
 
 //    for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
 //            {member2.tile_x, member2.tile_y},

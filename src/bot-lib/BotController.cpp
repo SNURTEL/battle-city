@@ -168,3 +168,7 @@ void BotController::setCounting(bool nCounting) {
 void BotController::zeroCooldown() {
     spawnCooldown=0;
 }
+
+unsigned int BotController::getRemainingBotsCount() {
+    return types_.size();
+}

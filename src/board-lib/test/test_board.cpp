@@ -10,6 +10,7 @@
 
 #include "../include/Board.h"
 #include "../include/Grid.h"
+#include "../include/GridBuilder.h"
 
 #include "../../tank-lib/include/EntityController.h"
 #include "../../tank-lib/include/Tank.h"
@@ -31,7 +32,9 @@ namespace {  // anonymous namespace to force internal linkage
 
         class TestBoard : public Board {
         public:
-            TestBoard(): Board() {};
+            TestBoard(): Board() {
+                clear();
+            };
 
             std::shared_ptr<Entity> getLastEntity() {
                 return entityController_->getAllEntities()->back();
@@ -52,18 +55,24 @@ namespace {  // anonymous namespace to force internal linkage
             std::unique_ptr<Event> testCreateCollisionEvent(std::shared_ptr<Entity> entity) {
                 return std::move(createCollisionEvent(entity));
             }
+
+            void clear() {
+                setGrid(GridBuilder::buildLevel(9999));
+            }
         };
 
-        std::shared_ptr<Tank>
+        std::optional<std::shared_ptr<Tank>>
         placeTank(helper::TestBoard *board, unsigned int x, unsigned int y, Tank::TankType type,
                   Direction facing = North) {
-            bool collision = !board->spawnTank(x, y, type, facing);
+            bool spawned = board->spawnTank(x, y, type, facing);
+
+            if(!spawned){
+                return std::nullopt;
+            }
 
             auto tank = EventQueue<Event>::instance()->pop()->info.entityInfo.entity;
 
             std::shared_ptr<Tank> result = std::dynamic_pointer_cast<Tank>(tank);
-            if (collision)
-                EventQueue<Event>::instance()->pop();
 
             return result;
         }
@@ -127,10 +136,6 @@ SCENARIO("Spawning tanks") {
 
             THEN("Operation should fail") {
                 REQUIRE_FALSE(result);
-            }THEN("A collision event should be created") {
-                eventQueue->pop();
-                auto event = eventQueue->pop();
-                REQUIRE(event->type == Event::Collision);
             }
         }
 
@@ -141,10 +146,6 @@ SCENARIO("Spawning tanks") {
 
             THEN("Operation should return false") {
                 REQUIRE_FALSE(result);
-            }THEN("A collision event should be created") {
-                eventQueue->pop();
-                auto event = eventQueue->pop();
-                REQUIRE(event->type == Event::Collision);
             }
         }
 
@@ -155,10 +156,6 @@ SCENARIO("Spawning tanks") {
 
             THEN("Operation should fail") {
                 REQUIRE_FALSE(result);
-            }THEN("A collision event should be created") {
-                eventQueue->pop();
-                auto event = eventQueue->pop();
-                REQUIRE(event->type == Event::Collision);
             }
         }
     }
@@ -168,7 +165,7 @@ SCENARIO("Rotating tanks at integer coords") {
     helper::initSingletons();
     GIVEN("A board with some tanks") {
         helper::TestBoard board{};
-        std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 5, 5, Tank::FastTank);
+        std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 5, 5, Tank::FastTank).value();
 
         auto eventQueue = helper::getEmptyEventQueue();
 
@@ -200,10 +197,10 @@ SCENARIO("Rotating tanks an fractional coords") {
     GIVEN("A board with some tanks") {
         helper::TestBoard board{};
 
-        std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 5, 5, Tank::FastTank);
+        std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 5, 5, Tank::FastTank).value();
         tank1->setY(17.8);
 
-        std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 8, 8, Tank::BasicTank, West);
+        std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 8, 8, Tank::BasicTank, West).value();
         tank2->setX(9.2);
 
         auto eventQueue = helper::getEmptyEventQueue();
@@ -290,7 +287,7 @@ SCENARIO("Rotating tanks an fractional coords") {
         }
 
         WHEN("Cannot snap to grid - would collide with another entity") {
-            std::shared_ptr<Tank> obstacleTank = helper::placeTank(&board, 5, 5, Tank::PlayerTank);
+            std::shared_ptr<Tank> obstacleTank = helper::placeTank(&board, 5, 5, Tank::PlayerTank).value();
             obstacleTank->setY(19.9);
 
             board.setTankDirection(tank1, West);
@@ -309,7 +306,7 @@ SCENARIO("Detecting entity - grid collisions") {
         helper::TestBoard board{};
 
         WHEN("An entity does not collide with any tile") {
-            std::shared_ptr<Tank> tank = helper::placeTank(&board, 15, 20, Tank::PlayerTank);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 15, 20, Tank::PlayerTank).value();
 
             THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));
@@ -317,7 +314,7 @@ SCENARIO("Detecting entity - grid collisions") {
         }
 
         WHEN("An entity is placed in board's upper left corner") {
-            std::shared_ptr<Tank> tank = helper::placeTank(&board, 0, 0, Tank::PlayerTank);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 0, 0, Tank::PlayerTank).value();
 
             THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));
@@ -326,26 +323,26 @@ SCENARIO("Detecting entity - grid collisions") {
 
         WHEN("An entity is placed in board's bottom right corner") {
             std::shared_ptr<Tank> tank = helper::placeTank(&board, board.getSizeX() - 4, board.getSizeY() - 4,
-                                                           Tank::PlayerTank);
+                                                           Tank::PlayerTank).value();
 
             THEN("No collisions should be detected") {
                 REQUIRE(board.testValidateEntityPosition(tank));
             }
         }
 
-        WHEN("An entity is placed on map's edge") {
-            std::shared_ptr<Tank> tank = helper::placeTank(&board, 10, board.getSizeY() - 1, Tank::PlayerTank);
+        WHEN("Trying to place an entity on map's edge") {
+            auto tank = helper::placeTank(&board, 10, board.getSizeY() - 1, Tank::PlayerTank);
 
             THEN("Collision should be detected") {
-                REQUIRE_FALSE(board.testValidateEntityPosition(tank));
+                REQUIRE_FALSE(tank.has_value());
             }
         }
 
-        WHEN("An entity is placed out of map") {
-            std::shared_ptr<Tank> tank = helper::placeTank(&board, 10, board.getSizeY() + 20, Tank::PlayerTank);
+        WHEN("Trying to place an entity out of the map") {
+            auto tank = helper::placeTank(&board, 10, board.getSizeY() + 20, Tank::PlayerTank);
 
-            THEN("Collision should be detected") {
-                REQUIRE_FALSE(board.testValidateEntityPosition(tank));
+            THEN("Entity should not be placed") {
+                REQUIRE_FALSE(tank.has_value());
             }
         }
     }
@@ -358,9 +355,9 @@ SCENARIO("Moving a single entity") {
 
         auto eventQueue = helper::getEmptyEventQueue();
         WHEN("Movement would not result in a collision") {
-            std::shared_ptr<Tank> tank = helper::placeTank(&board, 4, 8, Tank::PlayerTank);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 4, 8, Tank::PlayerTank).value();
             board.setTankMoving(tank, true);
-            std::shared_ptr<Tank> stationaryTank = helper::placeTank(&board, 20, 22, Tank::PowerTank);
+            std::shared_ptr<Tank> stationaryTank = helper::placeTank(&board, 20, 22, Tank::PowerTank).value();
             board.setTankMoving(stationaryTank, false);
             auto b = helper::fireBullet(&board, stationaryTank);
             std::shared_ptr<Bullet> bullet = b.value();
@@ -392,17 +389,20 @@ SCENARIO("Moving a single entity") {
                     REQUIRE(event->type == Event::EntityMoved);
                     REQUIRE(event->info.entityInfo.entity == bullet);
 
+
+
+
                     REQUIRE(eventQueue->isEmpty());
                 }
             }
         }
 
         WHEN("Movement would result in placing the entity right on the board's edge") {
-            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East);
+            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East).value();
             board.setTankMoving(tank1, true);
             tank1->setX(board.getSizeX() - tank1->getSizeX() - tank1->getSpeed());
 
-            std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 10, 10, Tank::BasicTank, North);
+            std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 10, 10, Tank::BasicTank, North).value();
             tank2->setY(0 + tank2->getSizeX() + tank2->getSpeed());
             board.setTankMoving(tank2, true);
 
@@ -418,10 +418,10 @@ SCENARIO("Moving a single entity") {
         }
 
         WHEN("Moving over map's border") {
-            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 0, 10, Tank::BasicTank, West);
+            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 0, 10, Tank::BasicTank, West).value();
             board.setTankMoving(tank1, true);
 
-            std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
+            std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 10, 10, Tank::BasicTank, South).value();
             tank2->setY(board.getSizeY() - tank2->getSizeY());
             board.setTankMoving(tank2, true);
 
@@ -447,12 +447,12 @@ SCENARIO("Moving a single entity") {
         }
 
         WHEN("Two entities collide with each other (and it is not an enemy tank - enemy tank collision)") {
-            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank, South);
+            std::shared_ptr<Tank> tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank, South).value();
             board.setTankMoving(tank1, false);
 
-            std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 10, 10,
-                                                            Tank::BasicTank, North);
-            tank2->setY(10 + +static_cast<unsigned int>(tank1->getSizeY()) + 0.4);
+            std::shared_ptr<Tank> tank2 = helper::placeTank(&board, 15, 10,
+                                                            Tank::BasicTank, West).value();
+            tank2->setX(10 + +static_cast<unsigned int>(tank1->getSizeX()) + 0.5);
             std::shared_ptr<Bullet> bullet = helper::fireBullet(&board, tank2).value();
 
             board.moveEntity(bullet);
@@ -466,7 +466,7 @@ SCENARIO("Moving a single entity") {
         }
 
         WHEN("Entity collides with grid") {
-            std::shared_ptr<Tank> tank = helper::placeTank(&board, 10, 10, Tank::BasicTank, South);
+            std::shared_ptr<Tank> tank = helper::placeTank(&board, 10, 10, Tank::BasicTank, South).value();
             board.setTankMoving(tank, true);
             helper::placeTile(&board, 11, 12, TileType::Bricks);
 
@@ -486,13 +486,13 @@ SCENARIO("Removing all enemy tanks from the board") {
     GIVEN("A board with some tanks and bullets") {
         helper::TestBoard board{};
 
-        std::shared_ptr<Tank> basicTank = helper::placeTank(&board, 5, 5, Tank::BasicTank);
+        std::shared_ptr<Tank> basicTank = helper::placeTank(&board, 5, 5, Tank::BasicTank).value();
         std::shared_ptr<Bullet> basicBullet = helper::fireBullet(&board, basicTank).value();
 
-        std::shared_ptr<Tank> playerTank = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
+        std::shared_ptr<Tank> playerTank = helper::placeTank(&board, 10, 10, Tank::PlayerTank).value();
         std::shared_ptr<Bullet> playerBullet = helper::fireBullet(&board, playerTank).value();
 
-        std::shared_ptr<Tank> armorTank = helper::placeTank(&board, 15, 15, Tank::ArmorTank);
+        std::shared_ptr<Tank> armorTank = helper::placeTank(&board, 15, 15, Tank::ArmorTank).value();
         std::shared_ptr<Bullet> armorBullet = helper::fireBullet(&board, armorTank).value();
 
         auto eventQueue = helper::getEmptyEventQueue();
@@ -539,8 +539,8 @@ SCENARIO("Generating collision events") {
         auto eventQueue = helper::getEmptyEventQueue();
 
         WHEN("Two enemy tanks collide") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
-            auto tank2 = helper::placeTank(&board, 11, 11, Tank::ArmorTank);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank).value();
+            auto tank2 = helper::placeTank(&board, 11, 11, Tank::ArmorTank).value();
 
             auto event = board.testCreateCollisionEvent(tank1);
 
@@ -550,7 +550,7 @@ SCENARIO("Generating collision events") {
                 REQUIRE(std::get<Event::EnemyTankCollisionInfo>(event->info.collisionInfo.member2).enemyTank == tank2);
             }
         }WHEN("An enemy tank collides with board") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank).value();
             helper::placeTile(&board, 11, 11, Bricks);
 
             auto event = board.testCreateCollisionEvent(tank1);
@@ -561,8 +561,8 @@ SCENARIO("Generating collision events") {
                 REQUIRE(std::get<Event::BoardCollisionInfo>(event->info.collisionInfo.member2).grid == board.getGrid());
             }
         }WHEN("An enemy tank collides with enemy bullet") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
-            auto tank2 = helper::placeTank(&board, 10, 14, Tank::ArmorTank);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank).value();
+            auto tank2 = helper::placeTank(&board, 10, 14, Tank::ArmorTank).value();
             auto bullet = helper::fireBullet(&board, tank2).value();
 
             auto event = board.testCreateCollisionEvent(tank1);
@@ -575,8 +575,8 @@ SCENARIO("Generating collision events") {
                         bullet);
             }
         }WHEN("An enemy tank collides with friendly bullet") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
-            auto tank2 = helper::placeTank(&board, 10, 14, Tank::PlayerTank);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank).value();
+            auto tank2 = helper::placeTank(&board, 10, 14, Tank::PlayerTank).value();
             auto bullet = helper::fireBullet(&board, tank2).value();
 
             auto event = board.testCreateCollisionEvent(tank1);
@@ -591,8 +591,8 @@ SCENARIO("Generating collision events") {
             }
         }
         WHEN("Two enemy bullets collide") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East);
-            auto tank2 = helper::placeTank(&board, 12, 12, Tank::BasicTank);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East).value();
+            auto tank2 = helper::placeTank(&board, 12, 12, Tank::BasicTank).value();
             tank2->setX(12.2);
             tank2->setY(12.2);
             auto bullet1 = helper::fireBullet(&board, tank1).value();
@@ -610,12 +610,12 @@ SCENARIO("Generating collision events") {
                         bullet2);
             }
         }WHEN("Enemy bullet collides with friendly bullet (friendly bullet should be the first member)") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East);
-            auto tank2 = helper::placeTank(&board, 12, 12, Tank::PlayerTank);
-            tank2->setX(12.2);
-            tank2->setY(12.2);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank, East).value();
+            auto tank2 = helper::placeTank(&board, 15, 10, Tank::PlayerTank, West).value();
+            tank2->setX(14.5f);
             auto bullet1 = helper::fireBullet(&board, tank1).value();
             auto bullet2 = helper::fireBullet(&board, tank2).value();
+
 
             auto event = board.testCreateCollisionEvent(bullet1);
 
@@ -630,7 +630,7 @@ SCENARIO("Generating collision events") {
                         bullet1);
             }
         }WHEN("Enemy bullet collides with grid") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank).value();
             helper::placeTile(&board, 11, 9, Steel);
             auto bullet = helper::fireBullet(&board, tank1).value();
 
@@ -646,7 +646,7 @@ SCENARIO("Generating collision events") {
                         board.getGrid());
             }
         }WHEN("Friendly bullet collides with grid") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank).value();
             helper::placeTile(&board, 11, 9, Steel);
             auto bullet = helper::fireBullet(&board, tank1).value();
 
@@ -661,20 +661,9 @@ SCENARIO("Generating collision events") {
                         event->info.collisionInfo.member2).grid ==
                         board.getGrid());
             }
-        }WHEN("Player collides with enemy tank") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::BasicTank);
-            auto tank2 = helper::placeTank(&board, 11, 11, Tank::PlayerTank);
-
-            auto event = board.testCreateCollisionEvent(tank1);
-
-            THEN("Event should be created as expected") {
-                REQUIRE(event->type == Event::Collision);
-                REQUIRE(std::get<Event::PlayerTankCollisionInfo>(event->info.collisionInfo.member1).playerTank == tank2);
-                REQUIRE(std::get<Event::EnemyTankCollisionInfo>(event->info.collisionInfo.member2).enemyTank == tank1);
-            }
         }WHEN("Player collides with enemy bullet") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
-            auto tank2 = helper::placeTank(&board, 10, 14, Tank::BasicTank);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank).value();
+            auto tank2 = helper::placeTank(&board, 10, 14, Tank::BasicTank).value();
             auto bullet = helper::fireBullet(&board, tank2).value();
 
             auto event = board.testCreateCollisionEvent(tank1);
@@ -688,7 +677,7 @@ SCENARIO("Generating collision events") {
                         bullet);
             }
         }WHEN("Player collides with board") {
-            auto tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank);
+            auto tank1 = helper::placeTank(&board, 10, 10, Tank::PlayerTank).value();
             helper::placeTile(&board, 11, 11, Bricks);
 
             auto event = board.testCreateCollisionEvent(tank1);

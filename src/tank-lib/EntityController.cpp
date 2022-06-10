@@ -147,7 +147,6 @@ std::optional<std::shared_ptr<Entity>> EntityController::checkEntityCollisions(c
             target->getY() + target->getSizeY() <= entity->getY()) {
             continue;  // no collision
         } else if (target != entity) {
-
             return entity;  // collision detected
         }
     }

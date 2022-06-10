@@ -16,6 +16,7 @@
 #include "include/Eagle.h"
 #include "../core-lib/include/Clock.h"
 
+#include <iostream>
 
 Board::Board() : entityController_(std::make_unique<EntityController>()), grid_(std::make_unique<Grid>()) {
     botController = BotController::instance();
@@ -92,17 +93,24 @@ void Board::deleteTile(unsigned int x, unsigned int y) {
 }
 
 void Board::moveAllEntities() {
-    for (const std::shared_ptr<Entity> &entity: *(entityController_->getAllEntities())) {
+    for (std::shared_ptr<Entity> entity: *(entityController_->getAllEntities())) {
         moveEntity(entity);
     }
 }
 
 bool Board::moveEntity(const std::shared_ptr<Entity> &target) {
+
+    if(dynamic_cast<Bullet*>(target.get())!= nullptr && dynamic_cast<Bullet*>(target.get())->isFriendly()){
+        int a = 6;  // debugging breakpoint
+    }
+
     if (!entityController_->moveEntity(target)) {
         return false;
     }
-    eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
     if (!validateEntityPosition(target)) {
+
+
+
         eventQueue_->registerEvent(createCollisionEvent(target));
         if (dynamic_cast<Bullet *>(target.get()) == nullptr) {
             target->moveBack();
@@ -188,9 +196,17 @@ bool Board::validateEntityPosition(const std::shared_ptr<Entity> &target) {
         return true;
     }
 
-    return (dynamic_cast<Tank*>(c.value().get())!= nullptr
-    and dynamic_cast<PlayerTank *>(target.get()) == nullptr
-    and dynamic_cast<PlayerTank *>(c.value().get()) == nullptr);
+    bool c1 = dynamic_cast<Tank*>(c.value().get())!= nullptr;
+    bool c2 = dynamic_cast<PlayerTank *>(target.get()) == nullptr;
+    bool c3 = dynamic_cast<PlayerTank *>(c.value().get()) == nullptr;
+
+    return (dynamic_cast<Bullet*>(c.value().get())!= nullptr
+    && (dynamic_cast<PlayerTank *>(target.get()) != nullptr
+    || dynamic_cast<PlayerTank *>(c.value().get()) != nullptr));
+//
+//    return (dynamic_cast<Tank*>(c.value().get())!= nullptr
+//    && dynamic_cast<PlayerTank *>(target.get()) == nullptr
+//    && dynamic_cast<PlayerTank *>(c.value().get()) == nullptr);
 
 }
 
@@ -222,10 +238,8 @@ void Board::removeEntity(std::shared_ptr<Entity> entity) {
     }
 
     entityController_->removeEntity(entity);
-
-    if (entityController_->getAllEntities()->size() == 1 && grid_->getTankTypes().empty()) {
-        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
-    }
+                                            // player + eagle
+    endIfNoBotsLeft();
 }
 
 void Board::removeAllEntities() {
@@ -272,6 +286,7 @@ std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entit
     }
 
     // set member 2
+
     std::optional<std::shared_ptr<Entity>> collidingEntity = entityController_->checkEntityCollisions(entity);
 
     if (!collidingEntity.has_value()) {
@@ -329,9 +344,7 @@ std::shared_ptr<PlayerTank> Board::getPlayerTank() {
 
 void Board::hitTank(std::shared_ptr<Tank> target, unsigned int damage) {
     entityController_->hitTank(target, damage);
-    if (entityController_->getAllEntities()->size() == 1 && grid_->getTankTypes().empty()) {
-        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
-    }
+    endIfNoBotsLeft();
 }
 
 Grid *Board::getGrid() {
@@ -340,4 +353,10 @@ Grid *Board::getGrid() {
 
 bool Board::spawnPlayer(Direction facing) {
     spawnTank(grid_->getPlayerSpawnpoint().first, grid_->getPlayerSpawnpoint().second, Tank::PlayerTank, facing);
+}
+
+void Board::endIfNoBotsLeft() {
+    if (entityController_->getAllEntities()->size() == 2 && botController->getRemainingBotsCount()==0) {
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
+    }
 }
