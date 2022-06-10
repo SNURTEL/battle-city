@@ -17,7 +17,7 @@ class InvalidEventException : public std::exception{
 public:
     InvalidEventException()=default;
 
-    explicit InvalidEventException(std::string msg);  // FIXME message not showing up
+    explicit InvalidEventException(std::string msg);
 
     const char* what() const noexcept override;
 

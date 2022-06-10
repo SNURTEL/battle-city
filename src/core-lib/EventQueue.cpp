@@ -40,5 +40,3 @@
 
 //template class EventQueue<Event>;
 //template class EventQueue<ExtendedEvent>;
-
-#include "./include/EventQueue.h"

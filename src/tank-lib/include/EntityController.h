@@ -53,7 +53,7 @@ public:
      * @param target Target tank
      * @param damage Damage value
      */
-    void hitTank(std::shared_ptr<Tank> target, unsigned int damage = 1);
+    void hitTank(const std::shared_ptr<Tank>& target, unsigned int damage = 1);
 
     /**
      * Kills a tank immediately. If killed the player, queues a different event type
@@ -61,7 +61,7 @@ public:
      * Queues Event::TankKilled or Event::PlayerKilled
      * @param tank Target tank
      */
-    void killTank(std::shared_ptr<Tank> tank);
+    void killTank(const std::shared_ptr<Tank>& tank);
 
     /**
      * Removes and deletes an entity from pool without killing it
@@ -69,7 +69,7 @@ public:
      * Queues Event::EntityRemoved
      * @param entity
      */
-    void removeEntity(std::shared_ptr<Entity> entity);
+    void removeEntity(const std::shared_ptr<Entity>& entity);
 
     /**
      * Attempt to move all entities on the board (tanks will move only if moving flag is set, bullets will move unconditionally)
@@ -87,7 +87,7 @@ public:
      * @param target Target entity
      * @param direction Direction in which to move the entity
      */
-    bool moveEntity(std::shared_ptr<Entity> target);
+    bool moveEntity(const std::shared_ptr<Entity> &target);
 
     /**
      * Sets tank's moving_ flag to a given value
@@ -168,7 +168,7 @@ public:
      *
      * @return A pointer to the internal vector containing Entity instances
      */
-    std::vector<std::shared_ptr<Entity>> *getAllEntities();  //TODO const reference lol
+    std::vector<std::shared_ptr<Entity>> *getAllEntities();
 
     /**
      * Erases all entities from the controller

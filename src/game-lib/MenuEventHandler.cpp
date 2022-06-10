@@ -3,11 +3,9 @@
 //
 
 #include <utility>
-#include <iostream>
 
 #include "include/MenuEventHandler.h"
 #include "include/Game.h"
-#include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
 
 MenuEventHandler::MenuEventHandler(Game *game, MenuGameState* state) {

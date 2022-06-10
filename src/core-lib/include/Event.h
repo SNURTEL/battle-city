@@ -289,7 +289,6 @@ public:
 
 
     // ####################################################3
-    // FIXME uh
 
     Event(EventType, unsigned int ui1);
 

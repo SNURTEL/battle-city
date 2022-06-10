@@ -5,8 +5,6 @@
 #include <utility>
 
 #include "include/Event.h"
-#include "../tank-lib/include/Entity.h"
-#include "../bot-lib/include/Bot.h"
 
 const char *EventConstructionException::what() const noexcept {
     return "Could not initialize event instance";

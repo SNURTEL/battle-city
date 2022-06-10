@@ -7,7 +7,6 @@
 
 #include "include/PauseEventHandler.h"
 #include "include/Game.h"
-#include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
 
 PauseEventHandler::PauseEventHandler(Game *game, PauseGameState* state) {

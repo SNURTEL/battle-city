@@ -4,7 +4,6 @@
 
 #include <utility>
 #include <cmath>
-#include <type_traits>
 
 #include "../board-lib/include/Board.h"
 #include "../tank-lib/include/Bullet.h"
@@ -20,91 +19,91 @@ ActiveEventHandler::ActiveEventHandler(Game *game, ActiveGameState *state) {
     state_ = state;
 }
 
-void handleCollision(Event::PlayerTankCollisionInfo member1,
-                     Event::PlayerTankCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::PlayerTankCollisionInfo& member1,
+                     const Event::PlayerTankCollisionInfo& member2, Game *game_) {
 
 }
 
-void handleCollision(Event::PlayerTankCollisionInfo member1,
-                     Event::FriendlyBulletCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::PlayerTankCollisionInfo& member1,
+                     const Event::FriendlyBulletCollisionInfo& member2, Game *game_) {
 
 }
 
-void handleCollision(Event::EnemyTankCollisionInfo member1,
-                     Event::PlayerTankCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::EnemyTankCollisionInfo& member1,
+                     const Event::PlayerTankCollisionInfo& member2, Game *game_) {
 
 }
 
 
-void handleCollision(Event::EnemyTankCollisionInfo member1,
-                     Event::EnemyBulletCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::EnemyTankCollisionInfo& member1,
+                     const Event::EnemyBulletCollisionInfo& member2, Game *game_) {
     if (member1.enemyTank->getBullet() == member2.enemyBullet.get()) {
         return;
     }
     try {
         game_->getBoard()->removeEntity(member2.enemyBullet);
     }
-    catch (EntityDoesNotExistException) {}
+    catch (EntityDoesNotExistException &) {}
 }
 
-void handleCollision(Event::FriendlyBulletCollisionInfo member1,
-                     Event::PlayerTankCollisionInfo member2, Game *game_) {
-
-}
-
-void handleCollision(Event::FriendlyBulletCollisionInfo member1,
-                     Event::FriendlyBulletCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::FriendlyBulletCollisionInfo& member1,
+                     const Event::PlayerTankCollisionInfo& member2, Game *game_) {
 
 }
 
-void handleCollision(Event::FriendlyBulletCollisionInfo member1,
-                     Event::EnemyBulletCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::FriendlyBulletCollisionInfo& member1,
+                     const Event::FriendlyBulletCollisionInfo& member2, Game *game_) {
 
 }
 
-void handleCollision(Event::EnemyBulletCollisionInfo member1,
-                     Event::PlayerTankCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::FriendlyBulletCollisionInfo& member1,
+                     const Event::EnemyBulletCollisionInfo& member2, Game *game_) {
 
 }
 
-void handleCollision(Event::EnemyBulletCollisionInfo member1,
-                     Event::EnemyTankCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::EnemyBulletCollisionInfo& member1,
+                     const Event::PlayerTankCollisionInfo& member2, Game *game_) {
+
+}
+
+void handleCollision(const Event::EnemyBulletCollisionInfo& member1,
+                     const Event::EnemyTankCollisionInfo& member2, Game *game_) {
     if (member2.enemyTank->getBullet() == member1.enemyBullet.get()) {
         return;
     }
     try {
         game_->getBoard()->removeEntity(member1.enemyBullet);
     }
-    catch (EntityDoesNotExistException) {}
+    catch (EntityDoesNotExistException &) {}
 }
 
-void handleCollision(Event::EnemyBulletCollisionInfo member1,
-                     Event::FriendlyBulletCollisionInfo member2, Game *game_) {
-
-}
-
-void handleCollision(Event::EnemyBulletCollisionInfo member1,
-                     Event::EnemyBulletCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::EnemyBulletCollisionInfo& member1,
+                     const Event::FriendlyBulletCollisionInfo& member2, Game *game_) {
 
 }
 
-void handleCollision(Event::BoardCollisionInfo member1,
-                     Event::PlayerTankCollisionInfo member2, Game *game_) {
+void handleCollision(const Event::EnemyBulletCollisionInfo& member1,
+                     const Event::EnemyBulletCollisionInfo& member2, Game *game_) {
 
 }
 
 void handleCollision(Event::BoardCollisionInfo member1,
-                     Event::EnemyTankCollisionInfo member2, Game *game_) {
+                     const Event::PlayerTankCollisionInfo& member2, Game *game_) {
 
 }
 
 void handleCollision(Event::BoardCollisionInfo member1,
-                     Event::FriendlyBulletCollisionInfo member2, Game *game_) {
+                     const Event::EnemyTankCollisionInfo& member2, Game *game_) {
 
 }
 
 void handleCollision(Event::BoardCollisionInfo member1,
-                     Event::EnemyBulletCollisionInfo member2, Game *game_) {
+                     const Event::FriendlyBulletCollisionInfo& member2, Game *game_) {
+
+}
+
+void handleCollision(Event::BoardCollisionInfo member1,
+                     const Event::EnemyBulletCollisionInfo& member2, Game *game_) {
 
 }
 
@@ -113,15 +112,15 @@ void handleCollision(Event::BoardCollisionInfo member1,
 
 }
 
-void handleCollision(Event::EnemyTankCollisionInfo member1,
+void handleCollision(const Event::EnemyTankCollisionInfo& member1,
                      Event::BoardCollisionInfo member2, Game *game) {
     game->getBoard()->snapTankToGrid(member1.enemyTank);
     game->getBoard()->setTankMoving(member1.enemyTank, false);
 
 }
 
-void handleCollision(Event::EnemyTankCollisionInfo member1,
-                     Event::EnemyTankCollisionInfo member2, Game *game) {
+void handleCollision(const Event::EnemyTankCollisionInfo& member1,
+                     const Event::EnemyTankCollisionInfo& member2, Game *game) {
     // disable collisions for enemy tanks
 //   game->getBoard()->snapTankToGrid(member1.enemyTank);
 //   game->getBoard()->snapTankToGrid(member2.enemyTank);
@@ -129,8 +128,8 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
 //   game->getBoard()->setTankMoving(member2.enemyTank, false);
 }
 
-void handleCollision(Event::PlayerTankCollisionInfo member1,
-                     Event::EnemyTankCollisionInfo member2, Game *game) {
+void handleCollision(const Event::PlayerTankCollisionInfo& member1,
+                     const Event::EnemyTankCollisionInfo& member2, Game *game) {
 
     game->getBoard()->snapTankToGrid(member1.playerTank);
     game->getBoard()->snapTankToGrid(member2.enemyTank);
@@ -138,23 +137,23 @@ void handleCollision(Event::PlayerTankCollisionInfo member1,
     game->getBoard()->setTankMoving(member2.enemyTank, false);
 }
 
-void handleCollision(Event::PlayerTankCollisionInfo member1,
-                     Event::EnemyBulletCollisionInfo member2, Game *game) {
+void handleCollision(const Event::PlayerTankCollisionInfo& member1,
+                     const Event::EnemyBulletCollisionInfo& member2, Game *game) {
     try {
         game->getBoard()->removeEntity(member2.enemyBullet);
         game->getStats()->decrementLives(1);
     }
-    catch (EntityDoesNotExistException) {}
+    catch (EntityDoesNotExistException &) {}
 }
 
-void handleCollision(Event::PlayerTankCollisionInfo member1,
+void handleCollision(const Event::PlayerTankCollisionInfo& member1,
                      Event::BoardCollisionInfo member2, Game *game) {
     game->getBoard()->snapTankToGrid(member1.playerTank);
     game->getBoard()->setTankMoving(member1.playerTank, false);
 }
 
-void handleCollision(Event::FriendlyBulletCollisionInfo member1,
-                     Event::EnemyTankCollisionInfo member2, Game *game) {
+void handleCollision(const Event::FriendlyBulletCollisionInfo& member1,
+                     const Event::EnemyTankCollisionInfo& member2, Game *game) {
 
     try {
         game->getBoard()->removeEntity(member1.friendlyBullet);
@@ -172,7 +171,7 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
 }
 
 
-void destroyBulletCollisionTiles(std::shared_ptr<Bullet> b, Game *game) {
+void destroyBulletCollisionTiles(const std::shared_ptr<Bullet>& b, Game *game) {
     std::vector<std::pair<unsigned int, unsigned int>> tilesToDestroy{};
 
     if (b->getFacing() % 2 == 0) {
@@ -218,7 +217,7 @@ void destroyBulletCollisionTiles(std::shared_ptr<Bullet> b, Game *game) {
     }
 }
 
-void handleCollision(Event::FriendlyBulletCollisionInfo member1,
+void handleCollision(const Event::FriendlyBulletCollisionInfo& member1,
                      Event::BoardCollisionInfo member2, Game *game) {
     try {
         game->getBoard()->removeEntity(member1.friendlyBullet);
@@ -228,7 +227,7 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
     destroyBulletCollisionTiles(member1.friendlyBullet, game);
 }
 
-void handleCollision(Event::EnemyBulletCollisionInfo member1,
+void handleCollision(const Event::EnemyBulletCollisionInfo& member1,
                      Event::BoardCollisionInfo member2, Game *game) {
     try {
         game->getBoard()->removeEntity(member1.enemyBullet);
@@ -240,33 +239,33 @@ void handleCollision(Event::EnemyBulletCollisionInfo member1,
 
 // ######
 
-void handleCollision(Event::EagleCollisionInfo member1,
-                     Event::EnemyTankCollisionInfo member2, Game *game) {
+void handleCollision(const Event::EagleCollisionInfo& member1,
+                     const Event::EnemyTankCollisionInfo& member2, Game *game) {
     game->getBoard()->snapTankToGrid(member2.enemyTank);
 
 }
 
-void handleCollision(Event::EagleCollisionInfo member1,
-                     Event::PlayerTankCollisionInfo member2, Game *game) {
+void handleCollision(const Event::EagleCollisionInfo& member1,
+                     const Event::PlayerTankCollisionInfo& member2, Game *game) {
     game->getBoard()->snapTankToGrid(member2.playerTank);
 
 }
 
-void handleCollision(Event::EagleCollisionInfo member1,
-                     Event::FriendlyBulletCollisionInfo member2, Game *game) {
+void handleCollision(const Event::EagleCollisionInfo& member1,
+                     const Event::FriendlyBulletCollisionInfo& member2, Game *game) {
     member1.eagle->kill();
 }
 
-void handleCollision(Event::EagleCollisionInfo member1,
-                     Event::EnemyBulletCollisionInfo member2, Game *game) {
+void handleCollision(const Event::EagleCollisionInfo& member1,
+                     const Event::EnemyBulletCollisionInfo& member2, Game *game) {
     member1.eagle->kill();
 }
 
-void handleCollision(Event::EagleCollisionInfo member1,
-                     Event::EagleCollisionInfo member2, Game *game) {
+void handleCollision(const Event::EagleCollisionInfo& member1,
+                     const Event::EagleCollisionInfo& member2, Game *game) {
 }
 
-void handleCollision(Event::EagleCollisionInfo member1,
+void handleCollision(const Event::EagleCollisionInfo& member1,
                      Event::BoardCollisionInfo member2, Game *game) {
 }
 

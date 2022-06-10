@@ -73,6 +73,10 @@ public:
      */
     void setLives(unsigned int lives);
 
+    /**
+     * Decrements remaining lives count by a given number
+     * @param deltaLives
+     */
     void decrementLives(unsigned int deltaLives);
 
     /**

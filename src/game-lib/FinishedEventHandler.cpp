@@ -3,11 +3,9 @@
 //
 
 #include <utility>
-#include <iostream>
 
 #include "include/FinishedEventHandler.h"
 #include "include/Game.h"
-#include "../core-lib/include/EventHandler.h"  //FIXME SUPER UGLY
 
 
 FinishedEventHandler::FinishedEventHandler(Game *game, FinishedGameState* state) {

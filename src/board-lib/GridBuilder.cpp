@@ -2,16 +2,12 @@
 // Created by tomek on 26.05.2022.
 //
 
-#include <sstream>
 #include <string>
 #include <fstream>
-#include <algorithm>
 #include <map>
-#include <unistd.h>
 
 #include "include/GridBuilder.h"
 #include "include/Grid.h"
-#include "../tank-lib/include/Tank.h"
 
 std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
     static std::map<char, TileType> charToTileMapping{
@@ -33,7 +29,7 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
     };
 
     std::string filename = "./levels/lvl" + std::to_string(level) +
-                           ".txt";  // FIXME THIS **WILL** CAUSE ERRORS AND SHOULD BE FIXED AS SOON AS POSSIBLE
+                           ".txt";
     std::ifstream file(filename);
     std::string line;
 
@@ -53,9 +49,9 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
     while (std::getline(file, line)) {
         unsigned int lineLength = line.length();
         unsigned int endIndex = std::min(maxWidth, lineLength);
-        for (int i = 0; i < endIndex; ++i) {  // FIXME I am pretty sure this can be done with an iterator
+        for (int i = 0; i < endIndex; ++i) {
             switch (line[i]) {
-                case 'E': { // TODO add eagle
+                case 'E': {
                     newGrid->eagleLocation = std::make_pair(i, lineIdx);
                     break;
                 }
@@ -80,8 +76,4 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
     }
 
     return std::move(newGrid);
-}
-
-const char *InvalidLevelFile::what() const noexcept {
-    return "Invalid level file";
 }

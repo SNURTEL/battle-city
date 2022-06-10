@@ -91,10 +91,21 @@ public:
      */
     void setTypes(const std::queue<Tank::TankType> &types);
 
+    /**
+     * Sets the counting_ flag. If the flag is not set, the object will not repond to any notify() call
+     * @param counting
+     */
     void setCounting(bool counting);
 
+    /**
+     * Sets the spawn cooldown back to 0
+     */
     void zeroCooldown();
 
+    /**
+     * Returns the number of bots remaining to spawn
+     * @return
+     */
     unsigned int getRemainingBotsCount();
 
 protected:

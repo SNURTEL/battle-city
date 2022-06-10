@@ -54,6 +54,9 @@ public:
      */
     bool isFriendly();
 
+    /**
+     * Explicitly unsubscribes the bullet from the  tank
+     */
     void unlink();
 
 protected:

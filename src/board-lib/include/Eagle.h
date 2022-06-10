@@ -11,12 +11,20 @@
 
 class Eagle : public Entity {
 public:
+    /**
+     * Inits Eagle class
+     * @param x
+     * @param y
+     */
     Eagle(unsigned int x, unsigned int y);
 
     bool move() override { return false; };
 
     bool moveBack() override { return false; };
 
+    /**
+     * Immediately queues Event::GameEnded
+     */
     void kill();
 };
 

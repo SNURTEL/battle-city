@@ -15,7 +15,7 @@ class ObserverException : public std::exception{
 public:
     ObserverException()=default;
 
-    explicit ObserverException(std::string msg);  // FIXME message not showing up
+    explicit ObserverException(std::string msg);
 
     const char* what();
 

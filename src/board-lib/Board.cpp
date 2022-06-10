@@ -3,6 +3,7 @@
 //
 
 #include <cmath>
+#include <utility>
 
 #include "../core-lib/include/EventQueue.h"
 #include "../core-lib/include/Event.h"
@@ -15,8 +16,6 @@
 #include "../bot-lib/include/BotController.h"
 #include "include/Eagle.h"
 #include "../core-lib/include/Clock.h"
-
-#include <iostream>
 
 Board::Board() : entityController_(std::make_unique<EntityController>()), grid_(std::make_unique<Grid>()) {
     botController = BotController::instance();
@@ -47,9 +46,6 @@ void Board::setTankDirection(const std::shared_ptr<Tank> &tank, Direction target
 bool Board::snapTankToGrid(const std::shared_ptr<Tank> &target, bool snap_x, bool snap_y) {
     float initial_x = target->getX();
     float initial_y = target->getY();
-
-
-//    }
 
     if (snap_x)
         target->setX(std::round(target->getX()));
@@ -93,16 +89,12 @@ void Board::deleteTile(unsigned int x, unsigned int y) {
 }
 
 void Board::moveAllEntities() {
-    for (std::shared_ptr<Entity> entity: *(entityController_->getAllEntities())) {
+    for (const std::shared_ptr<Entity>& entity: *(entityController_->getAllEntities())) {
         moveEntity(entity);
     }
 }
 
 bool Board::moveEntity(const std::shared_ptr<Entity> &target) {
-
-    if(dynamic_cast<Bullet*>(target.get())!= nullptr && dynamic_cast<Bullet*>(target.get())->isFriendly()){
-        int a = 6;  // debugging breakpoint
-    }
 
     if (!entityController_->moveEntity(target)) {
         return false;
@@ -174,7 +166,7 @@ bool Board::validateEntityPosition(const std::shared_ptr<Entity> &target) {
         return false;
     }
 
-    auto min_x = static_cast<unsigned int>(floorf(target->getX()));   // TODO USE DOUBLE
+    auto min_x = static_cast<unsigned int>(floorf(target->getX()));
     auto max_x = static_cast<unsigned int>(ceilf(target->getX() + target->getSizeX() - 1));
     auto min_y = static_cast<unsigned int>(floorf(target->getY()));
     auto max_y = static_cast<unsigned int>(ceilf(target->getY() + target->getSizeY() - 1));
@@ -196,21 +188,13 @@ bool Board::validateEntityPosition(const std::shared_ptr<Entity> &target) {
         return true;
     }
 
-    bool c1 = dynamic_cast<Tank*>(c.value().get())!= nullptr;
-    bool c2 = dynamic_cast<PlayerTank *>(target.get()) == nullptr;
-    bool c3 = dynamic_cast<PlayerTank *>(c.value().get()) == nullptr;
-
     return (dynamic_cast<Bullet*>(c.value().get())!= nullptr
     && (dynamic_cast<PlayerTank *>(target.get()) != nullptr
     || dynamic_cast<PlayerTank *>(c.value().get()) != nullptr));
-//
-//    return (dynamic_cast<Tank*>(c.value().get())!= nullptr
-//    && dynamic_cast<PlayerTank *>(target.get()) == nullptr
-//    && dynamic_cast<PlayerTank *>(c.value().get()) == nullptr);
 
 }
 
-void Board::killAllEnemyEntities() {   // FIXME this should be in EntityController
+void Board::killAllEnemyEntities() {
     std::vector<std::shared_ptr<Entity>> *entityVector = entityController_->getAllEntities();
     for (auto iter = entityVector->rbegin(); iter != entityVector->rend(); iter++) {
         std::shared_ptr<Entity> entity = *iter;
@@ -231,14 +215,14 @@ void Board::killAllEnemyEntities() {   // FIXME this should be in EntityControll
     }
 }
 
-void Board::removeEntity(std::shared_ptr<Entity> entity) {
+void Board::removeEntity(const std::shared_ptr<Entity>& entity) {
     if (dynamic_cast<Bot *>(entity.get()) != nullptr) {
         dynamic_cast<Bot *>(entity.get())->unsubscribe(Clock::instance());
         BotController::instance()->deregisterBot();
     }
 
     entityController_->removeEntity(entity);
-                                            // player + eagle
+
     endIfNoBotsLeft();
 }
 
@@ -255,7 +239,6 @@ unsigned int Board::getSizeY() {
 }
 
 std::unique_ptr<Event> Board::createCollisionEvent(std::shared_ptr<Entity> entity) {
-    // wdym typechecking is a bad thing
 
     Event::CollisionMember member1;
     Event::CollisionMember member2;
@@ -343,7 +326,7 @@ std::shared_ptr<PlayerTank> Board::getPlayerTank() {
 }
 
 void Board::hitTank(std::shared_ptr<Tank> target, unsigned int damage) {
-    entityController_->hitTank(target, damage);
+    entityController_->hitTank(std::move(target), damage);
     endIfNoBotsLeft();
 }
 
@@ -356,6 +339,7 @@ bool Board::spawnPlayer(Direction facing) {
 }
 
 void Board::endIfNoBotsLeft() {
+                                                  // player + eagle
     if (entityController_->getAllEntities()->size() == 2 && botController->getRemainingBotsCount()==0) {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
     }

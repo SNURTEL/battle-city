@@ -11,15 +11,6 @@ class Grid;
 
 enum TileType: unsigned int;
 
-class InvalidLevelFile : public std::exception{
-public:
-    const char* what() const noexcept override;
-
-private:
-    std::string what_message;
-};
-
-
 /**
  * Used for building an initial grid for different levels. Class does not provide a constructor and all of it's methods are static, making it a primitive singleton
  */
@@ -38,12 +29,12 @@ public:
      *  - 'S' - steel
      *  - 'T' - trees
      *  - 'W' - water
-     *  - 'E' - eagle (currently NUllTile)
+     *  - 'E' - eagle location
      *  - '*' - enemy spawn point
      *  - '+' - player spawn point
      *  - any other char - NullTile
      *
-     * // FIXME ADJUST THE PATH IF NOT WORKING
+     *
      * @param level The level to be loaded. ./levels/lvl<level>.txt will be checked
      * @return A grid constructed with the file. If file was not loaded, the grid will be filled with NullTiles
      */
@@ -62,7 +53,7 @@ private:
      * @param y2
      */
     [[deprecated]] static void placeChunk(Grid *targetGrid, TileType type, unsigned int x1, unsigned int x2, unsigned int y1, unsigned int y2) {};
-    GridBuilder()=default;  // TODO Make it a proper builder (returns self on each operation)
+    GridBuilder()=default;
 };
 
 
