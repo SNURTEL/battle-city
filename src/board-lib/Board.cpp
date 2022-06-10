@@ -131,7 +131,7 @@ bool Board::fireTank(const std::shared_ptr<Tank> &target) {
     eventQueue_->registerEvent(std::make_unique<Event>(Event::EntitySpawned, addedEntity));
 
     if (!validateEntityPosition(std::dynamic_pointer_cast<Entity>(newBullet.value()))) {
-        eventQueue_->registerEvent(createCollisionEvent(target));
+        eventQueue_->registerEvent(createCollisionEvent(addedEntity));
     }
 
     return true;

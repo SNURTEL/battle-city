@@ -258,7 +258,6 @@ void handleCollision(Event::EnemyBulletCollisionInfo member1,
 //    }
     std::vector<std::pair<unsigned int, unsigned int>> tilesToDestroy{};
 
-    float baseCoord = 0;
 
     std::pair<unsigned int, unsigned int> base{};
     switch (member1.enemyBullet->getFacing()) {
