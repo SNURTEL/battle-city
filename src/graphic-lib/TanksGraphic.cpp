@@ -25,6 +25,7 @@ void TanksGraphic::render()
     std::string path;
     sf::Texture texture;
     sf::Sprite sprite;
+    float scale = 4.f/7.f;
     for(const RenderObject& tank : renderTanks)
     {
         Tank::TankType tankType = tank.textureType;
@@ -33,7 +34,7 @@ void TanksGraphic::render()
         sprite.setPosition(tank.coords);
         float angle = getAngle(tank.direction);
         setTankRotation(sprite, angle);
-        sprite.setScale(4.f, 4.f);
+        sprite.setScale(scale, scale);
         windowView.window->draw(sprite);
     }
 }
