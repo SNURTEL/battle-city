@@ -14,6 +14,7 @@ Event::Event(EventType e) {
     type = e;
     switch (e) {
         case GameEnded:
+        case GameWon:
         case NullEvent: {
             break;
         }

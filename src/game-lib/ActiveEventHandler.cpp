@@ -397,7 +397,8 @@ std::unique_ptr<Event> ActiveEventHandler::processEvent(std::unique_ptr<Event> e
                         std::dynamic_pointer_cast<Tank>(event->info.entityInfo.entity)->getPoints());
             break;
         }
-        case (Event::GameEnded): {
+        case (Event::GameEnded):
+        case (Event::GameWon): {
             game_->setFinishedState();
             break;
         }
