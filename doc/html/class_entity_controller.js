@@ -8,7 +8,7 @@ var class_entity_controller =
     [ "checkEntityCollisions", "class_entity_controller.html#a8f51a07cea3b8bad1ce3e5c9f7c1486c", null ],
     [ "clear", "class_entity_controller.html#a38db732e6ab191af3f7011a3820dabd4", null ],
     [ "createTank", "class_entity_controller.html#a5707e7ac4d86f96198a00c4bcb601a50", null ],
-    [ "findEntityAtPosition", "class_entity_controller.html#a51675ea9fcccc12baaa9c87e343e7226", null ],
+    [ "findEntityAtPosition", "class_entity_controller.html#aa5b45c79fbad38b379faa031605f1678", null ],
     [ "getAllEntities", "class_entity_controller.html#a4acbe2be0b7d0c8fccc1837b41359b98", null ],
     [ "getPlayer", "class_entity_controller.html#a4f8d1e18974ef3045758b82100077a8c", null ],
     [ "hitTank", "class_entity_controller.html#a441dac67fc01c179ee2c44d205e735a0", null ],

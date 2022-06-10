@@ -32,7 +32,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="class_game_state.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="class_game_state.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-182.5 0,-338.5 168,-338.5 168,-182.5 0,-182.5"/>
 <text text-anchor="middle" x="84" y="-326.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameState</text>
 <polyline fill="none" stroke="black" points="0,-319.5 168,-319.5 "/>

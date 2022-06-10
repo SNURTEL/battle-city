@@ -1,9 +1,9 @@
 var class_tiles_graphic =
 [
     [ "RenderObject", "struct_tiles_graphic_1_1_render_object.html", "struct_tiles_graphic_1_1_render_object" ],
-    [ "TilesGraphic", "class_tiles_graphic.html#a18d7fff2d9402c085bd1080bf9778dba", null ],
+    [ "TilesGraphic", "class_tiles_graphic.html#aa71fabdcfcee4d9911e672c3e5e36d63", null ],
     [ "getGrid", "class_tiles_graphic.html#aa7c74f36f3a95baffb7a3aa22af0ee9d", null ],
-    [ "getRenderTiles", "class_tiles_graphic.html#a23ae40909c6be80810a9455b52d7433a", null ],
+    [ "getRenderTiles", "class_tiles_graphic.html#a21f26a9bc588474925b67c69fdb8ccdd", null ],
     [ "loadTextures", "class_tiles_graphic.html#a32780984dbe363a75df972f6828aa8fc", null ],
     [ "render", "class_tiles_graphic.html#ac9f8102f5a056846e677195a74e9398e", null ],
     [ "setTileTexture", "class_tiles_graphic.html#a19372c7bcd09126ed637f026c4d66680", null ],

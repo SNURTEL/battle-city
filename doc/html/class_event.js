@@ -46,7 +46,8 @@ var class_event =
       [ "MenuEnterClicked", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea1f669d6a6cbf0c176bc56bc14115cf17", null ],
       [ "StateChanged", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea4b0a0dacfb81d6de16eb50754b71bfc2", null ],
       [ "StatisticsChanged", "class_event.html#aa306292f6e9bf31a622e79dfc54321deae5f102857f7011882a09ca6f2ec011eb", null ],
-      [ "GameEnded", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea5f6c2c86e4c51b04bb494aee0a236a35", null ]
+      [ "GameEnded", "class_event.html#aa306292f6e9bf31a622e79dfc54321dea5f6c2c86e4c51b04bb494aee0a236a35", null ],
+      [ "GameWon", "class_event.html#aa306292f6e9bf31a622e79dfc54321deae8176d791a14d50a4384937fa1ded700", null ]
     ] ],
     [ "~Event", "class_event.html#a18e23f5205467eedd3f3f4aa82e019d7", null ],
     [ "Event", "class_event.html#acada8c80e07cef0cc7228145e9367c59", null ],

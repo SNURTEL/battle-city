@@ -24,13 +24,13 @@ if (edges && edges.length) {
                 <circle id="rim" cx="0" cy="0" r="7"/>
                 <circle id="rim2" cx="0" cy="0" r="3.5"/>
                 <g id="zoomPlus">
-                        <use xlink:href="#rim" fill="#404040">
+                        <use xlink:href="#rim" target="_top" fill="#404040">
                                 <set attributeName="fill" to="#808080" begin="zoomplus.mouseover" end="zoomplus.mouseout"/>
                         </use>
                         <path d="M-4,0h8M0,-4v8" fill="none" stroke="white" stroke-width="1.5" pointer-events="none"/>
                 </g>
                 <g id="zoomMin">
-                        <use xlink:href="#rim" fill="#404040">
+                        <use xlink:href="#rim" target="_top" fill="#404040">
                                 <set attributeName="fill" to="#808080" begin="zoomminus.mouseover" end="zoomminus.mouseout"/>
                         </use>
                         <path d="M-4,0h8" fill="none" stroke="white" stroke-width="1.5" pointer-events="none"/>
@@ -39,7 +39,7 @@ if (edges && edges.length) {
                         <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
                 </g>
                <g id="resetDef">
-                       <use xlink:href="#rim2" fill="#404040">
+                       <use xlink:href="#rim2" target="_top" fill="#404040">
                                <set attributeName="fill" to="#808080" begin="reset.mouseover" end="reset.mouseout"/>
                        </use>
                </g>
@@ -50,7 +50,7 @@ var viewWidth = 2594;
 var viewHeight = 562;
 var sectionId = 'dynsection-1';
 </script>
-<script xlink:href="svgpan.js"/>
+<script xlink:href="svgpan.js" target="_top"/>
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>/home/tomek/CLionProjects/proi/proi&#45;projekt/src/core&#45;lib/include/SimplePublisher.h</title>
@@ -68,7 +68,7 @@ var sectionId = 'dynsection-1';
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="_simple_publisher_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="_simple_publisher_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="332.5,-434.5 332.5,-475.5 490.5,-475.5 490.5,-434.5 332.5,-434.5"/>
 <text text-anchor="start" x="340.5" y="-463.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="340.5" y="-452.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -85,7 +85,7 @@ var sectionId = 'dynsection-1';
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="_simple_subscriber_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="_simple_subscriber_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="508.5,-434.5 508.5,-475.5 672.5,-475.5 672.5,-434.5 508.5,-434.5"/>
 <text text-anchor="start" x="516.5" y="-463.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="516.5" y="-452.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -102,7 +102,7 @@ var sectionId = 'dynsection-1';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="_clock_8h.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="_clock_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="2058,-434.5 2058,-475.5 2209,-475.5 2209,-434.5 2058,-434.5"/>
 <text text-anchor="start" x="2066" y="-463.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="2066" y="-452.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -119,7 +119,7 @@ var sectionId = 'dynsection-1';
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="_bullet_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node11"><a xlink:href="_bullet_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="412,-351 412,-392 563,-392 563,-351 412,-351"/>
 <text text-anchor="start" x="420" y="-380" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="420" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -136,7 +136,7 @@ var sectionId = 'dynsection-1';
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="_tank_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node12"><a xlink:href="_tank_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="581,-351 581,-392 732,-392 732,-351 581,-351"/>
 <text text-anchor="start" x="589" y="-380" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="589" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -153,7 +153,7 @@ var sectionId = 'dynsection-1';
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
-<g id="a_node13"><a xlink:href="_bullet_8h.html" target="_top" xlink:title=" ">
+<g id="a_node13"><a xlink:href="_bullet_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="850,-434.5 850,-475.5 1001,-475.5 1001,-434.5 850,-434.5"/>
 <text text-anchor="start" x="858" y="-463.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="858" y="-452.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -170,7 +170,7 @@ var sectionId = 'dynsection-1';
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="_board_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="_board_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1889,-351 1889,-392 2040,-392 2040,-351 1889,-351"/>
 <text text-anchor="start" x="1897" y="-380" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1897" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -187,7 +187,7 @@ var sectionId = 'dynsection-1';
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="_bot_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="_bot_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="2266,-351 2266,-392 2417,-392 2417,-351 2266,-351"/>
 <text text-anchor="start" x="2274" y="-380" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="2274" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -204,7 +204,7 @@ var sectionId = 'dynsection-1';
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="_bot_controller_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="_bot_controller_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="2435,-351 2435,-392 2586,-392 2586,-351 2435,-351"/>
 <text text-anchor="start" x="2443" y="-380" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="2443" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -221,7 +221,7 @@ var sectionId = 'dynsection-1';
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="_clock_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="_clock_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="2058,-351 2058,-392 2209,-392 2209,-351 2058,-351"/>
 <text text-anchor="start" x="2066" y="-380" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="2066" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -238,7 +238,7 @@ var sectionId = 'dynsection-1';
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="_game_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node9"><a xlink:href="_game_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="2361,-84 2361,-125 2512,-125 2512,-84 2361,-84"/>
 <text text-anchor="start" x="2369" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="2369" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -255,7 +255,7 @@ var sectionId = 'dynsection-1';
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="_entity_controller_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node10"><a xlink:href="_entity_controller_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1714.5,-351 1714.5,-392 1870.5,-392 1870.5,-351 1714.5,-351"/>
 <text text-anchor="start" x="1722.5" y="-380" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1722.5" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -296,7 +296,7 @@ var sectionId = 'dynsection-1';
 <!-- Node14 -->
 <g id="node14" class="node">
 <title>Node14</title>
-<g id="a_node14"><a xlink:href="_active_event_handler_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node14"><a xlink:href="_active_event_handler_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="2160.5,-84 2160.5,-125 2342.5,-125 2342.5,-84 2160.5,-84"/>
 <text text-anchor="start" x="2168.5" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="2168.5" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -313,7 +313,7 @@ var sectionId = 'dynsection-1';
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="_bullets_graphic_8h.html" target="_top" xlink:title=" ">
+<g id="a_node15"><a xlink:href="_bullets_graphic_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="750,-345.5 750,-397.5 919,-397.5 919,-345.5 750,-345.5"/>
 <text text-anchor="start" x="758" y="-385.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="758" y="-374.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -331,7 +331,7 @@ var sectionId = 'dynsection-1';
 <!-- Node18 -->
 <g id="node18" class="node">
 <title>Node18</title>
-<g id="a_node18"><a xlink:href="_window_8h.html" target="_top" xlink:title=" ">
+<g id="a_node18"><a xlink:href="_window_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="937.5,-351 937.5,-392 1097.5,-392 1097.5,-351 937.5,-351"/>
 <text text-anchor="start" x="945.5" y="-380" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="945.5" y="-369" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -348,7 +348,7 @@ var sectionId = 'dynsection-1';
 <!-- Node16 -->
 <g id="node16" class="node">
 <title>Node16</title>
-<g id="a_node16"><a xlink:href="_board_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node16"><a xlink:href="_board_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="382,-84 382,-125 543,-125 543,-84 382,-84"/>
 <text text-anchor="start" x="390" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="390" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -365,7 +365,7 @@ var sectionId = 'dynsection-1';
 <!-- Node17 -->
 <g id="node17" class="node">
 <title>Node17</title>
-<g id="a_node17"><a xlink:href="_bullets_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node17"><a xlink:href="_bullets_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="45.5,-262 45.5,-303 211.5,-303 211.5,-262 45.5,-262"/>
 <text text-anchor="start" x="53.5" y="-291" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="53.5" y="-280" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -382,7 +382,7 @@ var sectionId = 'dynsection-1';
 <!-- Node19 -->
 <g id="node19" class="node">
 <title>Node19</title>
-<g id="a_node19"><a xlink:href="_game_8h.html" target="_top" xlink:title=" ">
+<g id="a_node19"><a xlink:href="_game_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1507,-173 1507,-214 1658,-214 1658,-173 1507,-173"/>
 <text text-anchor="start" x="1515" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1515" y="-191" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -399,7 +399,7 @@ var sectionId = 'dynsection-1';
 <!-- Node24 -->
 <g id="node24" class="node">
 <title>Node24</title>
-<g id="a_node24"><a xlink:href="_graphic_event_handler_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node24"><a xlink:href="_graphic_event_handler_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1134,-173 1134,-214 1331,-214 1331,-173 1134,-173"/>
 <text text-anchor="start" x="1142" y="-202" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1142" y="-191" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -416,7 +416,7 @@ var sectionId = 'dynsection-1';
 <!-- Node25 -->
 <g id="node25" class="node">
 <title>Node25</title>
-<g id="a_node25"><a xlink:href="_menu_state_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node25"><a xlink:href="_menu_state_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-84 0,-125 185,-125 185,-84 0,-84"/>
 <text text-anchor="start" x="8" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="8" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -433,7 +433,7 @@ var sectionId = 'dynsection-1';
 <!-- Node26 -->
 <g id="node26" class="node">
 <title>Node26</title>
-<g id="a_node26"><a xlink:href="_window_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node26"><a xlink:href="_window_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="561,-84 561,-125 712,-125 712,-84 561,-84"/>
 <text text-anchor="start" x="569" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="569" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -450,7 +450,7 @@ var sectionId = 'dynsection-1';
 <!-- Node27 -->
 <g id="node27" class="node">
 <title>Node27</title>
-<g id="a_node27"><a xlink:href="_active_state_graphic_8h.html" target="_top" xlink:title=" ">
+<g id="a_node27"><a xlink:href="_active_state_graphic_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="856,-256.5 856,-308.5 1025,-308.5 1025,-256.5 856,-256.5"/>
 <text text-anchor="start" x="864" y="-296.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="864" y="-285.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -468,7 +468,7 @@ var sectionId = 'dynsection-1';
 <!-- Node36 -->
 <g id="node36" class="node">
 <title>Node36</title>
-<g id="a_node36"><a xlink:href="_graphic_event_handler_8h.html" target="_top" xlink:title=" ">
+<g id="a_node36"><a xlink:href="_graphic_event_handler_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1143.5,-256.5 1143.5,-308.5 1321.5,-308.5 1321.5,-256.5 1143.5,-256.5"/>
 <text text-anchor="start" x="1151.5" y="-296.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1151.5" y="-285.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -486,7 +486,7 @@ var sectionId = 'dynsection-1';
 <!-- Node37 -->
 <g id="node37" class="node">
 <title>Node37</title>
-<g id="a_node37"><a xlink:href="_menu_state_graphic_8h.html" target="_top" xlink:title=" ">
+<g id="a_node37"><a xlink:href="_menu_state_graphic_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="268,-167.5 268,-219.5 439,-219.5 439,-167.5 268,-167.5"/>
 <text text-anchor="start" x="276" y="-207.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="276" y="-196.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -504,7 +504,7 @@ var sectionId = 'dynsection-1';
 <!-- Node39 -->
 <g id="node39" class="node">
 <title>Node39</title>
-<g id="a_node39"><a xlink:href="_static_graphic_8h.html" target="_top" xlink:title=" ">
+<g id="a_node39"><a xlink:href="_static_graphic_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="496,-256.5 496,-308.5 667,-308.5 667,-256.5 496,-256.5"/>
 <text text-anchor="start" x="504" y="-296.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="504" y="-285.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -534,7 +534,7 @@ var sectionId = 'dynsection-1';
 <!-- Node20 -->
 <g id="node20" class="node">
 <title>Node20</title>
-<g id="a_node20"><a xlink:href="_finished_event_handler_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node20"><a xlink:href="_finished_event_handler_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1384.5,-84 1384.5,-125 1576.5,-125 1576.5,-84 1384.5,-84"/>
 <text text-anchor="start" x="1392.5" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1392.5" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -551,7 +551,7 @@ var sectionId = 'dynsection-1';
 <!-- Node21 -->
 <g id="node21" class="node">
 <title>Node21</title>
-<g id="a_node21"><a xlink:href="_menu_event_handler_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node21"><a xlink:href="_menu_event_handler_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1595,-84 1595,-125 1774,-125 1774,-84 1595,-84"/>
 <text text-anchor="start" x="1603" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1603" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -568,7 +568,7 @@ var sectionId = 'dynsection-1';
 <!-- Node22 -->
 <g id="node22" class="node">
 <title>Node22</title>
-<g id="a_node22"><a xlink:href="_pause_event_handler_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node22"><a xlink:href="_pause_event_handler_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1792.5,-84 1792.5,-125 1972.5,-125 1972.5,-84 1792.5,-84"/>
 <text text-anchor="start" x="1800.5" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1800.5" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -585,7 +585,7 @@ var sectionId = 'dynsection-1';
 <!-- Node23 -->
 <g id="node23" class="node">
 <title>Node23</title>
-<g id="a_node23"><a xlink:href="tanks_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node23"><a xlink:href="tanks_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1991,-84 1991,-125 2142,-125 2142,-84 1991,-84"/>
 <text text-anchor="start" x="1999" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1999" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -602,7 +602,7 @@ var sectionId = 'dynsection-1';
 <!-- Node28 -->
 <g id="node28" class="node">
 <title>Node28</title>
-<g id="a_node28"><a xlink:href="_active_state_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node28"><a xlink:href="_active_state_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="730.5,-84 730.5,-125 918.5,-125 918.5,-84 730.5,-84"/>
 <text text-anchor="start" x="738.5" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="738.5" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -619,7 +619,7 @@ var sectionId = 'dynsection-1';
 <!-- Node29 -->
 <g id="node29" class="node">
 <title>Node29</title>
-<g id="a_node29"><a xlink:href="_board_graphic_8h.html" target="_top" xlink:title=" ">
+<g id="a_node29"><a xlink:href="_board_graphic_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="723,-167.5 723,-219.5 892,-219.5 892,-167.5 723,-167.5"/>
 <text text-anchor="start" x="731" y="-207.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="731" y="-196.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -637,7 +637,7 @@ var sectionId = 'dynsection-1';
 <!-- Node30 -->
 <g id="node30" class="node">
 <title>Node30</title>
-<g id="a_node30"><a xlink:href="_frame_graphic_8h.html" target="_top" xlink:title=" ">
+<g id="a_node30"><a xlink:href="_frame_graphic_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="947,-167.5 947,-219.5 1116,-219.5 1116,-167.5 947,-167.5"/>
 <text text-anchor="start" x="955" y="-207.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="955" y="-196.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -679,7 +679,7 @@ var sectionId = 'dynsection-1';
 <!-- Node31 -->
 <g id="node31" class="node">
 <title>Node31</title>
-<g id="a_node31"><a xlink:href="_frame_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node31"><a xlink:href="_frame_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1073,-0.5 1073,-41.5 1236,-41.5 1236,-0.5 1073,-0.5"/>
 <text text-anchor="start" x="1081" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1081" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -696,7 +696,7 @@ var sectionId = 'dynsection-1';
 <!-- Node32 -->
 <g id="node32" class="node">
 <title>Node32</title>
-<g id="a_node32"><a xlink:href="_bare_frame_graphic_8h.html" target="_top" xlink:title=" ">
+<g id="a_node32"><a xlink:href="_bare_frame_graphic_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="937,-78.5 937,-130.5 1126,-130.5 1126,-78.5 937,-78.5"/>
 <text text-anchor="start" x="945" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="945" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -714,7 +714,7 @@ var sectionId = 'dynsection-1';
 <!-- Node34 -->
 <g id="node34" class="node">
 <title>Node34</title>
-<g id="a_node34"><a xlink:href="_game_info_graphic_8h.html" target="_top" xlink:title=" ">
+<g id="a_node34"><a xlink:href="_game_info_graphic_8h.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1182.5,-78.5 1182.5,-130.5 1366.5,-130.5 1366.5,-78.5 1182.5,-78.5"/>
 <text text-anchor="start" x="1190.5" y="-118.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1190.5" y="-107.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -738,7 +738,7 @@ var sectionId = 'dynsection-1';
 <!-- Node33 -->
 <g id="node33" class="node">
 <title>Node33</title>
-<g id="a_node33"><a xlink:href="_bare_frame_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node33"><a xlink:href="_bare_frame_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="870,-0.5 870,-41.5 1055,-41.5 1055,-0.5 870,-0.5"/>
 <text text-anchor="start" x="878" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="878" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -761,7 +761,7 @@ var sectionId = 'dynsection-1';
 <!-- Node35 -->
 <g id="node35" class="node">
 <title>Node35</title>
-<g id="a_node35"><a xlink:href="_game_info_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node35"><a xlink:href="_game_info_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1254.5,-0.5 1254.5,-41.5 1434.5,-41.5 1434.5,-0.5 1254.5,-0.5"/>
 <text text-anchor="start" x="1262.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="1262.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -796,7 +796,7 @@ var sectionId = 'dynsection-1';
 <!-- Node38 -->
 <g id="node38" class="node">
 <title>Node38</title>
-<g id="a_node38"><a xlink:href="_static_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node38"><a xlink:href="_static_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="203.5,-84 203.5,-125 363.5,-125 363.5,-84 203.5,-84"/>
 <text text-anchor="start" x="211.5" y="-113" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="211.5" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -832,29 +832,29 @@ var sectionId = 'dynsection-1';
 </svg>
         <g id="navigator" transform="translate(0 0)" fill="#404254">
                 <rect fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width=".5" x="0" y="0" width="60" height="60"/>
-                <use id="zoomplus" xlink:href="#zoomPlus" x="17" y="9" onmousedown="handleZoom(evt,'in')"/>
-                <use id="zoomminus" xlink:href="#zoomMin" x="42" y="9" onmousedown="handleZoom(evt,'out')"/>
-                <use id="reset" xlink:href="#resetDef" x="30" y="36" onmousedown="handleReset()"/>
-                <g id="arrowUp" xlink:href="#dirArrow" transform="translate(30 24)" onmousedown="handlePan(0,-1)">
-                  <use xlink:href="#rim" fill="#404040">
+                <use id="zoomplus" xlink:href="#zoomPlus" target="_top" x="17" y="9" onmousedown="handleZoom(evt,'in')"/>
+                <use id="zoomminus" xlink:href="#zoomMin" target="_top" x="42" y="9" onmousedown="handleZoom(evt,'out')"/>
+                <use id="reset" xlink:href="#resetDef" target="_top" x="30" y="36" onmousedown="handleReset()"/>
+                <g id="arrowUp" xlink:href="#dirArrow" target="_top" transform="translate(30 24)" onmousedown="handlePan(0,-1)">
+                  <use xlink:href="#rim" target="_top" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowUp.mouseover" end="arrowUp.mouseout"/>
                   </use>
                   <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
                 </g>
-                <g id="arrowRight" xlink:href="#dirArrow" transform="rotate(90) translate(36 -43)" onmousedown="handlePan(1,0)">
-                  <use xlink:href="#rim" fill="#404040">
+                <g id="arrowRight" xlink:href="#dirArrow" target="_top" transform="rotate(90) translate(36 -43)" onmousedown="handlePan(1,0)">
+                  <use xlink:href="#rim" target="_top" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowRight.mouseover" end="arrowRight.mouseout"/>
                   </use>
                   <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
                 </g>
-                <g id="arrowDown" xlink:href="#dirArrow" transform="rotate(180) translate(-30 -48)" onmousedown="handlePan(0,1)">
-                  <use xlink:href="#rim" fill="#404040">
+                <g id="arrowDown" xlink:href="#dirArrow" target="_top" transform="rotate(180) translate(-30 -48)" onmousedown="handlePan(0,1)">
+                  <use xlink:href="#rim" target="_top" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowDown.mouseover" end="arrowDown.mouseout"/>
                   </use>
                   <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
                 </g>
-                <g id="arrowLeft" xlink:href="#dirArrow" transform="rotate(270) translate(-36 17)" onmousedown="handlePan(-1,0)">
-                  <use xlink:href="#rim" fill="#404040">
+                <g id="arrowLeft" xlink:href="#dirArrow" target="_top" transform="rotate(270) translate(-36 17)" onmousedown="handlePan(-1,0)">
+                  <use xlink:href="#rim" target="_top" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowLeft.mouseover" end="arrowLeft.mouseout"/>
                   </use>
                   <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
@@ -862,7 +862,7 @@ var sectionId = 'dynsection-1';
         </g>
         <svg viewBox="0 0 15 15" width="100%" height="30px" preserveAspectRatio="xMaxYMin meet">
          <g id="arrow_out" transform="scale(0.3 0.3)">
-          <a xlink:href="_simple_publisher_8h__dep__incl_org.svg" target="_base">
+          <a xlink:href="_simple_publisher_8h__dep__incl_org.svg" target="_top" target="_base">
            <rect id="button" ry="5" rx="5" y="6" x="6" height="38" width="38"
                 fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width="1.0"/>
            <path id="arrow"

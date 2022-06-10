@@ -51,7 +51,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="struct_window_view.html" target="_top" xlink:title="Struct that contains the sf::RenderWindow nad offset of elements to render.">
+<g id="a_node3"><a xlink:href="struct_window_view.html" target="_top" target="_top" xlink:title="Struct that contains the sf::RenderWindow nad offset of elements to render.">
 <polygon fill="none" stroke="black" points="83.5,-182.5 83.5,-272.5 265.5,-272.5 265.5,-182.5 83.5,-182.5"/>
 <text text-anchor="middle" x="174.5" y="-260.5" font-family="Helvetica,sans-Serif" font-size="10.00">WindowView</text>
 <polyline fill="none" stroke="black" points="83.5,-253.5 265.5,-253.5 "/>

@@ -24,13 +24,13 @@ if (edges && edges.length) {
                 <circle id="rim" cx="0" cy="0" r="7"/>
                 <circle id="rim2" cx="0" cy="0" r="3.5"/>
                 <g id="zoomPlus">
-                        <use xlink:href="#rim" fill="#404040">
+                        <use xlink:href="#rim" target="_top" fill="#404040">
                                 <set attributeName="fill" to="#808080" begin="zoomplus.mouseover" end="zoomplus.mouseout"/>
                         </use>
                         <path d="M-4,0h8M0,-4v8" fill="none" stroke="white" stroke-width="1.5" pointer-events="none"/>
                 </g>
                 <g id="zoomMin">
-                        <use xlink:href="#rim" fill="#404040">
+                        <use xlink:href="#rim" target="_top" fill="#404040">
                                 <set attributeName="fill" to="#808080" begin="zoomminus.mouseover" end="zoomminus.mouseout"/>
                         </use>
                         <path d="M-4,0h8" fill="none" stroke="white" stroke-width="1.5" pointer-events="none"/>
@@ -39,7 +39,7 @@ if (edges && edges.length) {
                         <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
                 </g>
                <g id="resetDef">
-                       <use xlink:href="#rim2" fill="#404040">
+                       <use xlink:href="#rim2" target="_top" fill="#404040">
                                <set attributeName="fill" to="#808080" begin="reset.mouseover" end="reset.mouseout"/>
                        </use>
                </g>
@@ -50,7 +50,7 @@ var viewWidth = 2780;
 var viewHeight = 2121;
 var sectionId = 'dynsection-0';
 </script>
-<script xlink:href="svgpan.js"/>
+<script xlink:href="svgpan.js" target="_top"/>
 <svg id="graph" class="graph">
 <g id="viewport">
 <title>Event</title>
@@ -128,7 +128,7 @@ var sectionId = 'dynsection-0';
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="union_event_1_1info__u.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="union_event_1_1info__u.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="925.5,-523.5 925.5,-580.5 1005.5,-580.5 1005.5,-523.5 925.5,-523.5"/>
 <text text-anchor="middle" x="965.5" y="-568.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::info_u</text>
 <polyline fill="none" stroke="black" points="925.5,-561.5 1005.5,-561.5 "/>
@@ -148,7 +148,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="struct_event_1_1_menu_info.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="struct_event_1_1_menu_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="632.5,-639.5 632.5,-696.5 728.5,-696.5 728.5,-639.5 632.5,-639.5"/>
 <text text-anchor="middle" x="680.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::MenuInfo</text>
 <polyline fill="none" stroke="black" points="632.5,-677.5 728.5,-677.5 "/>
@@ -168,7 +168,7 @@ var sectionId = 'dynsection-0';
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="class_menu.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="class_menu.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="507,-832.5 507,-999.5 644,-999.5 644,-832.5 507,-832.5"/>
 <text text-anchor="middle" x="575.5" y="-987.5" font-family="Helvetica,sans-Serif" font-size="10.00">Menu</text>
 <polyline fill="none" stroke="black" points="507,-980.5 644,-980.5 "/>
@@ -226,7 +226,7 @@ var sectionId = 'dynsection-0';
 <!-- Node30 -->
 <g id="node30" class="node">
 <title>Node30</title>
-<g id="a_node30"><a xlink:href="struct_event_1_1_key_event_info.html" target="_top" xlink:title=" ">
+<g id="a_node30"><a xlink:href="struct_event_1_1_key_event_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="374,-887.5 374,-944.5 489,-944.5 489,-887.5 374,-887.5"/>
 <text text-anchor="middle" x="431.5" y="-932.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::KeyEventInfo</text>
 <polyline fill="none" stroke="black" points="374,-925.5 489,-925.5 "/>
@@ -246,7 +246,7 @@ var sectionId = 'dynsection-0';
 <!-- Node34 -->
 <g id="node34" class="node">
 <title>Node34</title>
-<g id="a_node34"><a xlink:href="struct_event_1_1_tile_info.html" target="_top" xlink:title=" ">
+<g id="a_node34"><a xlink:href="struct_event_1_1_tile_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="977,-639.5 977,-696.5 1064,-696.5 1064,-639.5 977,-639.5"/>
 <text text-anchor="middle" x="1020.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::TileInfo</text>
 <polyline fill="none" stroke="black" points="977,-677.5 1064,-677.5 "/>
@@ -267,7 +267,7 @@ var sectionId = 'dynsection-0';
 <!-- Node35 -->
 <g id="node35" class="node">
 <title>Node35</title>
-<g id="a_node35"><a xlink:href="class_grid.html" target="_top" xlink:title="Represents a grid of tiles.">
+<g id="a_node35"><a xlink:href="class_grid.html" target="_top" target="_top" xlink:title="Represents a grid of tiles.">
 <polygon fill="none" stroke="black" points="1161.5,-755.5 1161.5,-1076.5 1329.5,-1076.5 1329.5,-755.5 1161.5,-755.5"/>
 <text text-anchor="middle" x="1245.5" y="-1064.5" font-family="Helvetica,sans-Serif" font-size="10.00">Grid</text>
 <polyline fill="none" stroke="black" points="1161.5,-1057.5 1329.5,-1057.5 "/>
@@ -312,7 +312,7 @@ var sectionId = 'dynsection-0';
 <!-- Node40 -->
 <g id="node40" class="node">
 <title>Node40</title>
-<g id="a_node40"><a xlink:href="struct_event_1_1_level_info.html" target="_top" xlink:title=" ">
+<g id="a_node40"><a xlink:href="struct_event_1_1_level_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="864,-639.5 864,-696.5 959,-696.5 959,-639.5 864,-639.5"/>
 <text text-anchor="middle" x="911.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::LevelInfo</text>
 <polyline fill="none" stroke="black" points="864,-677.5 959,-677.5 "/>
@@ -332,7 +332,7 @@ var sectionId = 'dynsection-0';
 <!-- Node44 -->
 <g id="node44" class="node">
 <title>Node44</title>
-<g id="a_node44"><a xlink:href="class_game_statistics.html" target="_top" xlink:title=" ">
+<g id="a_node44"><a xlink:href="class_game_statistics.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="993.5,-777.5 993.5,-1054.5 1143.5,-1054.5 1143.5,-777.5 993.5,-777.5"/>
 <text text-anchor="middle" x="1068.5" y="-1042.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameStatistics</text>
 <polyline fill="none" stroke="black" points="993.5,-1035.5 1143.5,-1035.5 "/>
@@ -374,7 +374,7 @@ var sectionId = 'dynsection-0';
 <!-- Node48 -->
 <g id="node48" class="node">
 <title>Node48</title>
-<g id="a_node48"><a xlink:href="struct_event_1_1_spawn_decision_info.html" target="_top" xlink:title=" ">
+<g id="a_node48"><a xlink:href="struct_event_1_1_spawn_decision_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1166,-639.5 1166,-696.5 1309,-696.5 1309,-639.5 1166,-639.5"/>
 <text text-anchor="middle" x="1237.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::SpawnDecisionInfo</text>
 <polyline fill="none" stroke="black" points="1166,-677.5 1309,-677.5 "/>
@@ -395,7 +395,7 @@ var sectionId = 'dynsection-0';
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="class_event_queue.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="class_event_queue.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="917.5,-1526.5 917.5,-1737.5 1067.5,-1737.5 1067.5,-1526.5 917.5,-1526.5"/>
 <text text-anchor="middle" x="992.5" y="-1725.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; Event &gt;</text>
 <polyline fill="none" stroke="black" points="917.5,-1718.5 1067.5,-1718.5 "/>
@@ -429,7 +429,7 @@ var sectionId = 'dynsection-0';
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="class_game.html" target="_top" xlink:title=" ">
+<g id="a_node15"><a xlink:href="class_game.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1894.5,-1146.5 1894.5,-1445.5 2058.5,-1445.5 2058.5,-1146.5 1894.5,-1146.5"/>
 <text text-anchor="middle" x="1976.5" y="-1433.5" font-family="Helvetica,sans-Serif" font-size="10.00">Game</text>
 <polyline fill="none" stroke="black" points="1894.5,-1426.5 2058.5,-1426.5 "/>
@@ -485,7 +485,7 @@ var sectionId = 'dynsection-0';
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1076.5,-1857 1076.5,-1925 1188.5,-1925 1188.5,-1857 1076.5,-1857"/>
 <text text-anchor="start" x="1084.5" y="-1913" font-family="Helvetica,sans-Serif" font-size="10.00">queue&lt; std::unique</text>
 <text text-anchor="middle" x="1132.5" y="-1902" font-family="Helvetica,sans-Serif" font-size="10.00">_ptr&lt; Event &gt; &gt;</text>
@@ -526,7 +526,7 @@ var sectionId = 'dynsection-0';
 <!-- Node10 -->
 <g id="node10" class="node">
 <title>Node10</title>
-<g id="a_node10"><a xlink:href="class_event_queue.html" target="_top" xlink:title="Singleton class wrapper for std::queue&lt;E&gt;.">
+<g id="a_node10"><a xlink:href="class_event_queue.html" target="_top" target="_top" xlink:title="Singleton class wrapper for std::queue&lt;E&gt;.">
 <polygon fill="none" stroke="black" points="908.5,-1785.5 908.5,-1996.5 1058.5,-1996.5 1058.5,-1785.5 908.5,-1785.5"/>
 <text text-anchor="middle" x="983.5" y="-1984.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventQueue&lt; E &gt;</text>
 <polyline fill="none" stroke="black" points="908.5,-1977.5 1058.5,-1977.5 "/>
@@ -588,7 +588,7 @@ var sectionId = 'dynsection-0';
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="struct_event_1_1_state_info.html" target="_top" xlink:title=" ">
+<g id="a_node12"><a xlink:href="struct_event_1_1_state_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1382,-639.5 1382,-696.5 1477,-696.5 1477,-639.5 1382,-639.5"/>
 <text text-anchor="middle" x="1429.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::StateInfo</text>
 <polyline fill="none" stroke="black" points="1382,-677.5 1477,-677.5 "/>
@@ -608,7 +608,7 @@ var sectionId = 'dynsection-0';
 <!-- Node13 -->
 <g id="node13" class="node">
 <title>Node13</title>
-<g id="a_node13"><a xlink:href="class_game_state.html" target="_top" xlink:title=" ">
+<g id="a_node13"><a xlink:href="class_game_state.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1428,-849 1428,-983 1567,-983 1567,-849 1428,-849"/>
 <text text-anchor="middle" x="1497.5" y="-971" font-family="Helvetica,sans-Serif" font-size="10.00">GameState</text>
 <polyline fill="none" stroke="black" points="1428,-964 1567,-964 "/>
@@ -773,7 +773,7 @@ var sectionId = 'dynsection-0';
 <!-- Node52 -->
 <g id="node52" class="node">
 <title>Node52</title>
-<g id="a_node52"><a xlink:href="struct_event_1_1_move_decision_info.html" target="_top" xlink:title=" ">
+<g id="a_node52"><a xlink:href="struct_event_1_1_move_decision_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1761.5,-639.5 1761.5,-696.5 1899.5,-696.5 1899.5,-639.5 1761.5,-639.5"/>
 <text text-anchor="middle" x="1830.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::MoveDecisionInfo</text>
 <polyline fill="none" stroke="black" points="1761.5,-677.5 1899.5,-677.5 "/>
@@ -793,7 +793,7 @@ var sectionId = 'dynsection-0';
 <!-- Node21 -->
 <g id="node21" class="node">
 <title>Node21</title>
-<g id="a_node21"><a xlink:href="class_clock.html" target="_top" xlink:title="Represents an externally controlled clock running at a given frequency.">
+<g id="a_node21"><a xlink:href="class_clock.html" target="_top" target="_top" xlink:title="Represents an externally controlled clock running at a given frequency.">
 <polygon fill="none" stroke="black" points="1397,-1543 1397,-1721 1542,-1721 1542,-1543 1397,-1543"/>
 <text text-anchor="middle" x="1469.5" y="-1709" font-family="Helvetica,sans-Serif" font-size="10.00">Clock</text>
 <polyline fill="none" stroke="black" points="1397,-1702 1542,-1702 "/>
@@ -824,7 +824,7 @@ var sectionId = 'dynsection-0';
 <!-- Node22 -->
 <g id="node22" class="node">
 <title>Node22</title>
-<g id="a_node22"><a xlink:href="class_simple_publisher.html" target="_top" xlink:title=" ">
+<g id="a_node22"><a xlink:href="class_simple_publisher.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1206.5,-1791 1206.5,-1991 1384.5,-1991 1384.5,-1791 1206.5,-1791"/>
 <text text-anchor="middle" x="1295.5" y="-1979" font-family="Helvetica,sans-Serif" font-size="10.00">SimplePublisher</text>
 <polyline fill="none" stroke="black" points="1206.5,-1972 1384.5,-1972 "/>
@@ -1025,7 +1025,7 @@ var sectionId = 'dynsection-0';
 <!-- Node32 -->
 <g id="node32" class="node">
 <title>Node32</title>
-<g id="a_node32"><a xlink:href="struct_event_1_1_entity_info.html" target="_top" xlink:title=" ">
+<g id="a_node32"><a xlink:href="struct_event_1_1_entity_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="117.5,-639.5 117.5,-696.5 215.5,-696.5 215.5,-639.5 117.5,-639.5"/>
 <text text-anchor="middle" x="166.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::EntityInfo</text>
 <polyline fill="none" stroke="black" points="117.5,-677.5 215.5,-677.5 "/>
@@ -1177,7 +1177,7 @@ var sectionId = 'dynsection-0';
 <!-- Node41 -->
 <g id="node41" class="node">
 <title>Node41</title>
-<g id="a_node41"><a xlink:href="struct_event_1_1_collision_info.html" target="_top" xlink:title=" ">
+<g id="a_node41"><a xlink:href="struct_event_1_1_collision_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="312,-639.5 312,-696.5 423,-696.5 423,-639.5 312,-639.5"/>
 <text text-anchor="middle" x="367.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::CollisionInfo</text>
 <polyline fill="none" stroke="black" points="312,-677.5 423,-677.5 "/>
@@ -1222,7 +1222,7 @@ var sectionId = 'dynsection-0';
 <!-- Node43 -->
 <g id="node43" class="node">
 <title>Node43</title>
-<g id="a_node43"><a xlink:href="struct_event_1_1_stats_info.html" target="_top" xlink:title=" ">
+<g id="a_node43"><a xlink:href="struct_event_1_1_stats_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="751.5,-639.5 751.5,-696.5 845.5,-696.5 845.5,-639.5 751.5,-639.5"/>
 <text text-anchor="middle" x="798.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::StatsInfo</text>
 <polyline fill="none" stroke="black" points="751.5,-677.5 845.5,-677.5 "/>
@@ -1269,7 +1269,7 @@ var sectionId = 'dynsection-0';
 <!-- Node46 -->
 <g id="node46" class="node">
 <title>Node46</title>
-<g id="a_node46"><a xlink:href="struct_event_1_1_bot_info.html" target="_top" xlink:title=" ">
+<g id="a_node46"><a xlink:href="struct_event_1_1_bot_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1657.5,-639.5 1657.5,-696.5 1743.5,-696.5 1743.5,-639.5 1657.5,-639.5"/>
 <text text-anchor="middle" x="1700.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::BotInfo</text>
 <polyline fill="none" stroke="black" points="1657.5,-677.5 1743.5,-677.5 "/>
@@ -1310,7 +1310,7 @@ var sectionId = 'dynsection-0';
 <!-- Node51 -->
 <g id="node51" class="node">
 <title>Node51</title>
-<g id="a_node51"><a xlink:href="struct_event_1_1_rotate_decision_info.html" target="_top" xlink:title=" ">
+<g id="a_node51"><a xlink:href="struct_event_1_1_rotate_decision_info.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="1496,-639.5 1496,-696.5 1639,-696.5 1639,-639.5 1496,-639.5"/>
 <text text-anchor="middle" x="1567.5" y="-684.5" font-family="Helvetica,sans-Serif" font-size="10.00">Event::RotateDecisionInfo</text>
 <polyline fill="none" stroke="black" points="1496,-677.5 1639,-677.5 "/>
@@ -1406,29 +1406,29 @@ var sectionId = 'dynsection-0';
 </svg>
         <g id="navigator" transform="translate(0 0)" fill="#404254">
                 <rect fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width=".5" x="0" y="0" width="60" height="60"/>
-                <use id="zoomplus" xlink:href="#zoomPlus" x="17" y="9" onmousedown="handleZoom(evt,'in')"/>
-                <use id="zoomminus" xlink:href="#zoomMin" x="42" y="9" onmousedown="handleZoom(evt,'out')"/>
-                <use id="reset" xlink:href="#resetDef" x="30" y="36" onmousedown="handleReset()"/>
-                <g id="arrowUp" xlink:href="#dirArrow" transform="translate(30 24)" onmousedown="handlePan(0,-1)">
-                  <use xlink:href="#rim" fill="#404040">
+                <use id="zoomplus" xlink:href="#zoomPlus" target="_top" x="17" y="9" onmousedown="handleZoom(evt,'in')"/>
+                <use id="zoomminus" xlink:href="#zoomMin" target="_top" x="42" y="9" onmousedown="handleZoom(evt,'out')"/>
+                <use id="reset" xlink:href="#resetDef" target="_top" x="30" y="36" onmousedown="handleReset()"/>
+                <g id="arrowUp" xlink:href="#dirArrow" target="_top" transform="translate(30 24)" onmousedown="handlePan(0,-1)">
+                  <use xlink:href="#rim" target="_top" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowUp.mouseover" end="arrowUp.mouseout"/>
                   </use>
                   <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
                 </g>
-                <g id="arrowRight" xlink:href="#dirArrow" transform="rotate(90) translate(36 -43)" onmousedown="handlePan(1,0)">
-                  <use xlink:href="#rim" fill="#404040">
+                <g id="arrowRight" xlink:href="#dirArrow" target="_top" transform="rotate(90) translate(36 -43)" onmousedown="handlePan(1,0)">
+                  <use xlink:href="#rim" target="_top" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowRight.mouseover" end="arrowRight.mouseout"/>
                   </use>
                   <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
                 </g>
-                <g id="arrowDown" xlink:href="#dirArrow" transform="rotate(180) translate(-30 -48)" onmousedown="handlePan(0,1)">
-                  <use xlink:href="#rim" fill="#404040">
+                <g id="arrowDown" xlink:href="#dirArrow" target="_top" transform="rotate(180) translate(-30 -48)" onmousedown="handlePan(0,1)">
+                  <use xlink:href="#rim" target="_top" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowDown.mouseover" end="arrowDown.mouseout"/>
                   </use>
                   <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
                 </g>
-                <g id="arrowLeft" xlink:href="#dirArrow" transform="rotate(270) translate(-36 17)" onmousedown="handlePan(-1,0)">
-                  <use xlink:href="#rim" fill="#404040">
+                <g id="arrowLeft" xlink:href="#dirArrow" target="_top" transform="rotate(270) translate(-36 17)" onmousedown="handlePan(-1,0)">
+                  <use xlink:href="#rim" target="_top" fill="#404040">
                         <set attributeName="fill" to="#808080" begin="arrowLeft.mouseover" end="arrowLeft.mouseout"/>
                   </use>
                   <path fill="none" stroke="white" stroke-width="1.5" d="M0,-3.0v7 M-2.5,-0.5L0,-3.0L2.5,-0.5"/>
@@ -1436,7 +1436,7 @@ var sectionId = 'dynsection-0';
         </g>
         <svg viewBox="0 0 15 15" width="100%" height="30px" preserveAspectRatio="xMaxYMin meet">
          <g id="arrow_out" transform="scale(0.3 0.3)">
-          <a xlink:href="class_event__coll__graph_org.svg" target="_base">
+          <a xlink:href="class_event__coll__graph_org.svg" target="_top" target="_base">
            <rect id="button" ry="5" rx="5" y="6" x="6" height="38" width="38"
                 fill="#f2f5e9" fill-opacity="0.5" stroke="#606060" stroke-width="1.0"/>
            <path id="arrow"

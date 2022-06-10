@@ -1,0 +1,10 @@
+digraph "/home/michal/proi/projekt2/22l-proi-projekt-jakomulski-budnik-owienko/src/graphic-lib/include/StaticStates_dir" {
+  bgcolor=transparent;
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_ec77ab512a0817bed8cc07eeb3e7ef4d {
+    graph [ bgcolor="#ddddee", pencolor="black", label="include" fontname="Helvetica", fontsize="10", URL="dir_ec77ab512a0817bed8cc07eeb3e7ef4d.html"]
+  dir_c6c6287d85e45c4af8975e7ca92022af [shape=box, label="StaticStates_dir", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_c6c6287d85e45c4af8975e7ca92022af.html"];
+  }
+}
