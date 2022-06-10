@@ -341,6 +341,6 @@ bool Board::spawnPlayer(Direction facing) {
 void Board::endIfNoBotsLeft() {
                                                   // player + eagle
     if (entityController_->getAllEntities()->size() == 2 && botController->getRemainingBotsCount()==0) {
-        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameEnded));
+        eventQueue_->registerEvent(std::make_unique<Event>(Event::GameWon));
     }
 }

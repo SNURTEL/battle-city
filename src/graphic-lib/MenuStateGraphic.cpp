@@ -40,8 +40,6 @@ void MenuStateGraphic::render()
     initiatePointsStateHeader(); // Amount of points might vary every render sesion
 
     Window::GameStateGraphic gameState = *(*staticPointers.gameState);
-    // Text textButtons = (gameState==Window::GameStateGraphic::MenuGameState) ? menuStateText : pauseStateText;
-    // Text textHeader = (gameState==Window::GameStateGraphic::MenuGameState) ? menuStateHeader : pauseStateHeader;
 
     renderHeader(gameState);
 
@@ -52,8 +50,14 @@ void MenuStateGraphic::render()
 void MenuStateGraphic::initiatePointsStateHeader()
 {
     std::stringstream ss;
-    ss << "\t\t\t\t  " << "PLAYER POINTS: " << std::to_string(*staticPointers.points);
+    ss << "\t\t\t   " << "PLAYER's POINTS: " << std::to_string(*staticPointers.points);
     pauseStateHeader.text2 = ss.str();
+
+    ss.clear();
+    ss.str("");
+    std::string result = (*staticPointers.gameWon) ? "YOU WON!" : "YOU LOST";
+    ss << "\t\t\t\t\t\t" << result << "\n"
+       << "\t\t\t   " << "PLAYER'S POINTS: " << std::to_string(*staticPointers.points);
     finishStateHeader.text2 = ss.str();
 }
 

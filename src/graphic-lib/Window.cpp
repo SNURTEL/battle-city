@@ -16,7 +16,6 @@ Window::Window()
 {
     videoMode = sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT);
     window = std::make_unique<sf::RenderWindow>(videoMode, "Tanks", sf::Style::Default);
-//    window->setKeyRepeatEnabled(false);
     window->setFramerateLimit(60);
     windowView.window = window.get();
     windowView.leftOffset = 0.f;
@@ -143,11 +142,17 @@ void Window::initateStaticStatePointers()
     staticStatesPointers.menuPos = std::make_shared<int>();
     staticStatesPointers.points = std::make_shared<int>();
     staticStatesPointers.gameState = std::make_shared<GameStateGraphic*>(&gameState);
-
+    staticStatesPointers.gameWon = std::make_shared<bool>(false);
 }
 
 
 void Window::changeMenuPos(uint menuPos)
 {
     *staticStatesPointers.menuPos = menuPos;
+}
+
+
+void Window::gameWon()
+{
+    *staticStatesPointers.gameWon = true;
 }

@@ -95,7 +95,8 @@ public:
 
         StatisticsChanged,
 
-        GameEnded
+        GameEnded,
+        GameWon
     };
 
     EventType type;

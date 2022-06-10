@@ -62,6 +62,7 @@ public:
         std::shared_ptr<Window::GameStateGraphic*> gameState;
         std::shared_ptr<int> points;
         std::shared_ptr<int> menuPos;
+        std::shared_ptr<bool> gameWon;
     };
 
 
@@ -138,6 +139,10 @@ public:
      * @return std::string
      */
     std::string checkEntityType(std::shared_ptr<Entity> e);
+
+
+    /// @brief Sets window attribute gameWon as true
+    void gameWon();
 
 
 protected:

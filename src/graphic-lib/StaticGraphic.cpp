@@ -35,7 +35,6 @@ void StaticGraphic::constructComposite()
 {
     std::shared_ptr<AbstractWindow> menuGameState = std::make_shared<MenuStateGraphic>
                                                     (menuStatesView, buttonsPosition,staticPointers);
-    // childrensMap[Window::GameStateGraphic::MenuGameState] = menuGameState;
     children.push_back(menuGameState);
 
 }
