@@ -10,7 +10,7 @@
 <title>/home/tomek/CLionProjects/proi/proi&#45;projekt/src/graphic&#45;lib/include/ActiveState_dir</title>
 <g id="clust1" class="cluster">
 <title>clusterdir_ec77ab512a0817bed8cc07eeb3e7ef4d</title>
-<g id="a_clust1"><a xlink:href="dir_ec77ab512a0817bed8cc07eeb3e7ef4d.html" target="_top" xlink:title="include">
+<g id="a_clust1"><a xlink:href="dir_ec77ab512a0817bed8cc07eeb3e7ef4d.html" target="_top" target="_top" xlink:title="include">
 <polygon fill="#edf0f7" stroke="#7f7f7f" stroke-dasharray="5,2" points="8,-56 8,-143 296,-143 296,-56 8,-56"/>
 <text text-anchor="middle" x="152" y="-131" font-family="Helvetica,sans-Serif" font-size="10.00">include</text>
 </a>
@@ -18,7 +18,7 @@
 </g>
 <g id="clust2" class="cluster">
 <title>clusterdir_a72983fa265d186490ae6acf21276fd1</title>
-<g id="a_clust2"><a xlink:href="dir_a72983fa265d186490ae6acf21276fd1.html" target="_top">
+<g id="a_clust2"><a xlink:href="dir_a72983fa265d186490ae6acf21276fd1.html" target="_top" target="_top">
 <polygon fill="#edf0f7" stroke="#404040" stroke-width="2" points="16,-64 16,-116 288,-116 288,-64 16,-64"/>
 </a>
 </g>
@@ -31,7 +31,7 @@
 <!-- dir_0cee904257f2e35fdc3c5f2abdc683af -->
 <g id="node2" class="node">
 <title>dir_0cee904257f2e35fdc3c5f2abdc683af</title>
-<g id="a_node2"><a xlink:href="dir_0cee904257f2e35fdc3c5f2abdc683af.html" target="_top" xlink:title="Borad_dir">
+<g id="a_node2"><a xlink:href="dir_0cee904257f2e35fdc3c5f2abdc683af.html" target="_top" target="_top" xlink:title="Borad_dir">
 <polygon fill="#a2b4d6" stroke="#404040" points="170.5,-108 107.5,-108 107.5,-72 170.5,-72 170.5,-108"/>
 <text text-anchor="middle" x="139" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">Borad_dir</text>
 </a>
@@ -40,7 +40,7 @@
 <!-- dir_09862807db2014add90ed94978e55931 -->
 <g id="node4" class="node">
 <title>dir_09862807db2014add90ed94978e55931</title>
-<g id="a_node4"><a xlink:href="dir_09862807db2014add90ed94978e55931.html" target="_top" xlink:title="tank&#45;lib">
+<g id="a_node4"><a xlink:href="dir_09862807db2014add90ed94978e55931.html" target="_top" target="_top" xlink:title="tank&#45;lib">
 <polygon fill="none" stroke="red" stroke-dasharray="5,2" points="129,-36 75,-36 75,0 129,0 129,-36"/>
 <text text-anchor="middle" x="102" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">tank&#45;lib</text>
 </a>
@@ -51,7 +51,7 @@
 <title>dir_0cee904257f2e35fdc3c5f2abdc683af&#45;&gt;dir_09862807db2014add90ed94978e55931</title>
 <path fill="none" stroke="black" d="M129.85,-71.7C125.6,-63.64 120.44,-53.89 115.73,-44.98"/>
 <polygon fill="black" stroke="black" points="118.81,-43.31 111.04,-36.1 112.62,-46.58 118.81,-43.31"/>
-<g id="a_edge1&#45;headlabel"><a xlink:href="dir_000002_000017.html" target="_top" xlink:title="3">
+<g id="a_edge1&#45;headlabel"><a xlink:href="dir_000002_000017.html" target="_top" target="_top" xlink:title="3">
 <text text-anchor="middle" x="123" y="-42.66" font-family="Helvetica,sans-Serif" font-size="10.00">3</text>
 </a>
 </g>
@@ -59,7 +59,7 @@
 <!-- dir_f9968d1aa079c8b4e4a8682b301a0233 -->
 <g id="node5" class="node">
 <title>dir_f9968d1aa079c8b4e4a8682b301a0233</title>
-<g id="a_node5"><a xlink:href="dir_f9968d1aa079c8b4e4a8682b301a0233.html" target="_top" xlink:title="board&#45;lib">
+<g id="a_node5"><a xlink:href="dir_f9968d1aa079c8b4e4a8682b301a0233.html" target="_top" target="_top" xlink:title="board&#45;lib">
 <polygon fill="none" stroke="red" stroke-dasharray="5,2" points="207,-36 147,-36 147,0 207,0 207,-36"/>
 <text text-anchor="middle" x="177" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">board&#45;lib</text>
 </a>
@@ -70,7 +70,7 @@
 <title>dir_0cee904257f2e35fdc3c5f2abdc683af&#45;&gt;dir_f9968d1aa079c8b4e4a8682b301a0233</title>
 <path fill="none" stroke="black" d="M148.39,-71.7C152.76,-63.64 158.06,-53.89 162.9,-44.98"/>
 <polygon fill="black" stroke="black" points="166.02,-46.56 167.71,-36.1 159.87,-43.22 166.02,-46.56"/>
-<g id="a_edge2&#45;headlabel"><a xlink:href="dir_000002_000001.html" target="_top" xlink:title="2">
+<g id="a_edge2&#45;headlabel"><a xlink:href="dir_000002_000001.html" target="_top" target="_top" xlink:title="2">
 <text text-anchor="middle" x="166.8" y="-48.58" font-family="Helvetica,sans-Serif" font-size="10.00">2</text>
 </a>
 </g>
@@ -78,7 +78,7 @@
 <!-- dir_8ebacc26f31fe05d91db52fb91bec5b6 -->
 <g id="node3" class="node">
 <title>dir_8ebacc26f31fe05d91db52fb91bec5b6</title>
-<g id="a_node3"><a xlink:href="dir_8ebacc26f31fe05d91db52fb91bec5b6.html" target="_top" xlink:title="Frame_dir">
+<g id="a_node3"><a xlink:href="dir_8ebacc26f31fe05d91db52fb91bec5b6.html" target="_top" target="_top" xlink:title="Frame_dir">
 <polygon fill="#a2b4d6" stroke="#404040" points="89.5,-108 24.5,-108 24.5,-72 89.5,-72 89.5,-108"/>
 <text text-anchor="middle" x="57" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">Frame_dir</text>
 </a>

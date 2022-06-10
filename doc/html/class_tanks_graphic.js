@@ -1,9 +1,9 @@
 var class_tanks_graphic =
 [
     [ "RenderObject", "struct_tanks_graphic_1_1_render_object.html", "struct_tanks_graphic_1_1_render_object" ],
-    [ "TanksGraphic", "class_tanks_graphic.html#ad00b0decbc8d289f512746b6f9ae6df9", null ],
+    [ "TanksGraphic", "class_tanks_graphic.html#a49a1289306b5c42f2f0fa683d9efeadb", null ],
     [ "getAngle", "class_tanks_graphic.html#a46a848950f0b4c3a82043fa5c34a90dd", null ],
-    [ "getRenderTanks", "class_tanks_graphic.html#a48239a3d994bc183ece7568dd0a3560b", null ],
+    [ "getRenderTanks", "class_tanks_graphic.html#ac881d135f6a880f486b85c4868467fc7", null ],
     [ "getTanks", "class_tanks_graphic.html#a29639ebdf03562e43e4fe36eef984994", null ],
     [ "loadTextures", "class_tanks_graphic.html#ab3a40c5e4c3e939961a594d58a2a3336", null ],
     [ "makeRenderTanks", "class_tanks_graphic.html#af2eac7f5ae700ca4756769c42bbb420f", null ],

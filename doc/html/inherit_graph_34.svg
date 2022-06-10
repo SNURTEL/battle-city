@@ -11,7 +11,7 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="class_game_state.html" target="_top" xlink:title=" ">
+<g id="a_node1"><a xlink:href="class_game_state.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-57.5 0,-76.5 71,-76.5 71,-57.5 0,-57.5"/>
 <text text-anchor="middle" x="35.5" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">GameState</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="class_active_game_state.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="class_active_game_state.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="112,-114.5 112,-133.5 214,-133.5 214,-114.5 112,-114.5"/>
 <text text-anchor="middle" x="163" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">ActiveGameState</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="class_finished_game_state.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="class_finished_game_state.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="107,-76.5 107,-95.5 219,-95.5 219,-76.5 107,-76.5"/>
 <text text-anchor="middle" x="163" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">FinishedGameState</text>
 </a>
@@ -50,7 +50,7 @@
 <!-- Node3 -->
 <g id="node4" class="node">
 <title>Node3</title>
-<g id="a_node4"><a xlink:href="class_menu_game_state.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="class_menu_game_state.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="114,-38.5 114,-57.5 212,-57.5 212,-38.5 114,-38.5"/>
 <text text-anchor="middle" x="163" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MenuGameState</text>
 </a>
@@ -65,7 +65,7 @@
 <!-- Node4 -->
 <g id="node5" class="node">
 <title>Node4</title>
-<g id="a_node5"><a xlink:href="class_pause_game_state.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="class_pause_game_state.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="113,-0.5 113,-19.5 213,-19.5 213,-0.5 113,-0.5"/>
 <text text-anchor="middle" x="163" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">PauseGameState</text>
 </a>

@@ -23,7 +23,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="_bare_frame_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="_bare_frame_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-41.5 185,-41.5 185,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="_frame_graphic_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="_frame_graphic_8cpp.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="203,-0.5 203,-41.5 366,-41.5 366,-0.5 203,-0.5"/>
 <text text-anchor="start" x="211" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">/home/tomek/CLionProjects</text>
 <text text-anchor="start" x="211" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">/proi/proi&#45;projekt/src</text>

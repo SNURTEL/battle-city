@@ -10,7 +10,7 @@
 <title>/home/tomek/CLionProjects/proi/proi&#45;projekt/src/tank&#45;lib/include</title>
 <g id="clust1" class="cluster">
 <title>clusterdir_09862807db2014add90ed94978e55931</title>
-<g id="a_clust1"><a xlink:href="dir_09862807db2014add90ed94978e55931.html" target="_top" xlink:title="tank&#45;lib">
+<g id="a_clust1"><a xlink:href="dir_09862807db2014add90ed94978e55931.html" target="_top" target="_top" xlink:title="tank&#45;lib">
 <polygon fill="#edf0f7" stroke="#7f7f7f" stroke-dasharray="5,2" points="28,-64 28,-135 98,-135 98,-64 28,-64"/>
 <text text-anchor="middle" x="63" y="-123" font-family="Helvetica,sans-Serif" font-size="10.00">tank&#45;lib</text>
 </a>
@@ -19,7 +19,7 @@
 <!-- dir_6a891b5c69bad4f9fca30d15db322bca -->
 <g id="node1" class="node">
 <title>dir_6a891b5c69bad4f9fca30d15db322bca</title>
-<g id="a_node1"><a xlink:href="dir_6a891b5c69bad4f9fca30d15db322bca.html" target="_top" xlink:title="include">
+<g id="a_node1"><a xlink:href="dir_6a891b5c69bad4f9fca30d15db322bca.html" target="_top" target="_top" xlink:title="include">
 <polygon fill="#edf0f7" stroke="#404040" stroke-width="2" points="90,-108 36,-108 36,-72 90,-72 90,-108"/>
 <text text-anchor="middle" x="63" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">include</text>
 </a>
@@ -28,7 +28,7 @@
 <!-- dir_bca8c228595a97e53e081df8126faa1b -->
 <g id="node2" class="node">
 <title>dir_bca8c228595a97e53e081df8126faa1b</title>
-<g id="a_node2"><a xlink:href="dir_bca8c228595a97e53e081df8126faa1b.html" target="_top" xlink:title="bot&#45;lib">
+<g id="a_node2"><a xlink:href="dir_bca8c228595a97e53e081df8126faa1b.html" target="_top" target="_top" xlink:title="bot&#45;lib">
 <polygon fill="none" stroke="red" stroke-dasharray="5,2" points="54,-36 0,-36 0,0 54,0 54,-36"/>
 <text text-anchor="middle" x="27" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">bot&#45;lib</text>
 </a>
@@ -39,7 +39,7 @@
 <title>dir_6a891b5c69bad4f9fca30d15db322bca&#45;&gt;dir_bca8c228595a97e53e081df8126faa1b</title>
 <path fill="none" stroke="black" d="M54.1,-71.7C50,-63.73 45.05,-54.1 40.51,-45.26"/>
 <polygon fill="black" stroke="black" points="43.48,-43.4 35.8,-36.1 37.26,-46.6 43.48,-43.4"/>
-<g id="a_edge1&#45;headlabel"><a xlink:href="dir_000013_000003.html" target="_top" xlink:title="1">
+<g id="a_edge1&#45;headlabel"><a xlink:href="dir_000013_000003.html" target="_top" target="_top" xlink:title="1">
 <text text-anchor="middle" x="47.65" y="-42.79" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </a>
 </g>
@@ -47,7 +47,7 @@
 <!-- dir_dd008488fb0da8829e2acca19721471d -->
 <g id="node3" class="node">
 <title>dir_dd008488fb0da8829e2acca19721471d</title>
-<g id="a_node3"><a xlink:href="dir_dd008488fb0da8829e2acca19721471d.html" target="_top" xlink:title="core&#45;lib">
+<g id="a_node3"><a xlink:href="dir_dd008488fb0da8829e2acca19721471d.html" target="_top" target="_top" xlink:title="core&#45;lib">
 <polygon fill="none" stroke="red" stroke-dasharray="5,2" points="126,-36 72,-36 72,0 126,0 126,-36"/>
 <text text-anchor="middle" x="99" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">core&#45;lib</text>
 </a>
@@ -58,7 +58,7 @@
 <title>dir_6a891b5c69bad4f9fca30d15db322bca&#45;&gt;dir_dd008488fb0da8829e2acca19721471d</title>
 <path fill="none" stroke="black" d="M71.9,-71.7C76,-63.73 80.95,-54.1 85.49,-45.26"/>
 <polygon fill="black" stroke="black" points="88.74,-46.6 90.2,-36.1 82.52,-43.4 88.74,-46.6"/>
-<g id="a_edge2&#45;headlabel"><a xlink:href="dir_000013_000004.html" target="_top" xlink:title="2">
+<g id="a_edge2&#45;headlabel"><a xlink:href="dir_000013_000004.html" target="_top" target="_top" xlink:title="2">
 <text text-anchor="middle" x="89.62" y="-48.59" font-family="Helvetica,sans-Serif" font-size="10.00">2</text>
 </a>
 </g>

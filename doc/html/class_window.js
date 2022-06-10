@@ -15,6 +15,7 @@ var class_window =
     [ "checkEntityType", "class_window.html#a4153657512894dec0b757b388f623c6d", null ],
     [ "conscructComposit", "class_window.html#a2daf52599efd7210c6d82fa4bb69c8ca", null ],
     [ "fetchMenuStatePointers", "class_window.html#a5671162771d9ad1ce1afe59e1381f7a5", null ],
+    [ "gameWon", "class_window.html#ac6ee603ecc17723b3a4f777a43011d29", null ],
     [ "initateStaticStatePointers", "class_window.html#aeb25aca8ccd89f4d43eaf17ed9b8a2e3", null ],
     [ "initiateActiveStatePointers", "class_window.html#abf27d6272f9b135eb1dafc253b899ce1", null ],
     [ "instanceOf", "class_window.html#a9e692f6fb8f6ccedca219068153c7038", null ],

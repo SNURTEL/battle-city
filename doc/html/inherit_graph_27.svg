@@ -11,7 +11,7 @@
 <!-- Node0 -->
 <g id="node1" class="node">
 <title>Node0</title>
-<g id="a_node1"><a xlink:href="class_event_handler.html" target="_top" xlink:title=" ">
+<g id="a_node1"><a xlink:href="class_event_handler.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="0,-76.5 0,-95.5 133,-95.5 133,-76.5 0,-76.5"/>
 <text text-anchor="middle" x="66.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventHandler&lt; Event &gt;</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node1 -->
 <g id="node2" class="node">
 <title>Node1</title>
-<g id="a_node2"><a xlink:href="class_publisher_event_handler.html" target="_top" xlink:title="Extended EventHandler for Event class events with publisher capabilities.">
+<g id="a_node2"><a xlink:href="class_publisher_event_handler.html" target="_top" target="_top" xlink:title="Extended EventHandler for Event class events with publisher capabilities.">
 <polygon fill="none" stroke="black" points="169,-57.5 169,-76.5 297,-76.5 297,-57.5 169,-57.5"/>
 <text text-anchor="middle" x="233" y="-64.5" font-family="Helvetica,sans-Serif" font-size="10.00">PublisherEventHandler</text>
 </a>
@@ -35,7 +35,7 @@
 <!-- Node2 -->
 <g id="node3" class="node">
 <title>Node2</title>
-<g id="a_node3"><a xlink:href="class_active_event_handler.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="class_active_event_handler.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="338,-114.5 338,-133.5 451,-133.5 451,-114.5 338,-114.5"/>
 <text text-anchor="middle" x="394.5" y="-121.5" font-family="Helvetica,sans-Serif" font-size="10.00">ActiveEventHandler</text>
 </a>
@@ -50,7 +50,7 @@
 <!-- Node3 -->
 <g id="node4" class="node">
 <title>Node3</title>
-<g id="a_node4"><a xlink:href="class_finished_event_handler.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="class_finished_event_handler.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="333,-76.5 333,-95.5 456,-95.5 456,-76.5 333,-76.5"/>
 <text text-anchor="middle" x="394.5" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">FinishedEventHandler</text>
 </a>
@@ -65,7 +65,7 @@
 <!-- Node4 -->
 <g id="node5" class="node">
 <title>Node4</title>
-<g id="a_node5"><a xlink:href="class_menu_event_handler.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="class_menu_event_handler.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="339.5,-38.5 339.5,-57.5 449.5,-57.5 449.5,-38.5 339.5,-38.5"/>
 <text text-anchor="middle" x="394.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">MenuEventHandler</text>
 </a>
@@ -80,7 +80,7 @@
 <!-- Node5 -->
 <g id="node6" class="node">
 <title>Node5</title>
-<g id="a_node6"><a xlink:href="class_pause_event_handler.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="class_pause_event_handler.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="339,-0.5 339,-19.5 450,-19.5 450,-0.5 339,-0.5"/>
 <text text-anchor="middle" x="394.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">PauseEventHandler</text>
 </a>
@@ -95,7 +95,7 @@
 <!-- Node6 -->
 <g id="node7" class="node">
 <title>Node6</title>
-<g id="a_node7"><a xlink:href="class_event_publisher.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="class_event_publisher.html" target="_top" target="_top" xlink:title=" ">
 <polygon fill="none" stroke="black" points="22,-38.5 22,-57.5 111,-57.5 111,-38.5 22,-38.5"/>
 <text text-anchor="middle" x="66.5" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">EventPublisher</text>
 </a>

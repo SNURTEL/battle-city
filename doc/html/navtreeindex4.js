@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"struct_frame_graphic_1_1_game_info.html":[0,0,28,1],
+"struct_frame_graphic_1_1_game_info.html#a092123962e1d38742b09f4463332a001":[0,0,28,1,1],
 "struct_frame_graphic_1_1_game_info.html#a47ff5a1fb1b4b0e4ba089f12d3512262":[0,0,28,1,0],
 "struct_frame_graphic_1_1_game_info.html#a6684082eb7e6107ac37bb2596e49d756":[0,0,28,1,2],
 "struct_static_graphic_1_1_buttons_position_menu.html":[0,0,54,0],
@@ -28,8 +30,9 @@ var NAVTREEINDEX4 =
 "struct_window_1_1_active_state_pointers.html#ada84eb075d9f6457be926d360ade570c":[0,0,61,0,1],
 "struct_window_1_1_active_state_pointers.html#afc423e52072443bd885315ccd4ecf6b3":[0,0,61,0,6],
 "struct_window_1_1_static_state_pointers.html":[0,0,61,1],
-"struct_window_1_1_static_state_pointers.html#a43020057a091a8b0dc2b19bfbc6dda29":[0,0,61,1,1],
-"struct_window_1_1_static_state_pointers.html#a8380077c689b8c36fc2ed456710ac60a":[0,0,61,1,2],
+"struct_window_1_1_static_state_pointers.html#a43020057a091a8b0dc2b19bfbc6dda29":[0,0,61,1,2],
+"struct_window_1_1_static_state_pointers.html#a8380077c689b8c36fc2ed456710ac60a":[0,0,61,1,3],
+"struct_window_1_1_static_state_pointers.html#ac7110e9a38e4ed3ddc4205c5c7fb4c92":[0,0,61,1,1],
 "struct_window_1_1_static_state_pointers.html#ae51b3d15c23cc3c4c72048b491d778c4":[0,0,61,1,0],
 "struct_window_view.html":[0,0,62],
 "struct_window_view.html#a716ddf81f50e679a1b8ce78f3e7af436":[0,0,62,4],

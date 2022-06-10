@@ -23,7 +23,7 @@ var hierarchy =
     [ "StaticGraphic::ButtonsPositionMenu", "struct_static_graphic_1_1_buttons_position_menu.html", null ],
     [ "Event::CollisionInfo", "struct_event_1_1_collision_info.html", null ],
     [ "Event::EagleCollisionInfo", "struct_event_1_1_eagle_collision_info.html", null ],
-    [ "std::enable_shared_from_this", null, [
+    [ "enable_shared_from_this", null, [
       [ "Bot", "class_bot.html", [
         [ "ArmorTank", "class_armor_tank.html", null ],
         [ "BasicTank", "class_basic_tank.html", null ],
@@ -63,7 +63,7 @@ var hierarchy =
     [ "EventQueue< E >", "class_event_queue.html", null ],
     [ "EventQueue< Event >", "class_event_queue.html", null ],
     [ "EventSubscriber", "class_event_subscriber.html", null ],
-    [ "std::exception", null, [
+    [ "exception", null, [
       [ "EntityDoesNotExistException", "class_entity_does_not_exist_exception.html", null ],
       [ "EventConstructionException", "struct_event_construction_exception.html", null ],
       [ "InvalidEventException", "class_invalid_event_exception.html", null ],
@@ -96,8 +96,8 @@ var hierarchy =
     [ "Event::MoveDecisionInfo", "struct_event_1_1_move_decision_info.html", null ],
     [ "Event::PlayerTankCollisionInfo", "struct_event_1_1_player_tank_collision_info.html", null ],
     [ "BulletsGraphic::RenderObject", "struct_bullets_graphic_1_1_render_object.html", null ],
-    [ "TanksGraphic::RenderObject", "struct_tanks_graphic_1_1_render_object.html", null ],
     [ "TilesGraphic::RenderObject", "struct_tiles_graphic_1_1_render_object.html", null ],
+    [ "TanksGraphic::RenderObject", "struct_tanks_graphic_1_1_render_object.html", null ],
     [ "Event::RotateDecisionInfo", "struct_event_1_1_rotate_decision_info.html", null ],
     [ "SimplePublisher", "class_simple_publisher.html", [
       [ "Bullet", "class_bullet.html", null ],
@@ -116,6 +116,5 @@ var hierarchy =
     [ "Text", "struct_text.html", null ],
     [ "Event::TileInfo", "struct_event_1_1_tile_info.html", null ],
     [ "TileManager", "class_tile_manager.html", null ],
-    [ "WindowView", "struct_window_view.html", null ],
-    [ "queue< std::unique_ptr< Event > >", "classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html", null ]
+    [ "WindowView", "struct_window_view.html", null ]
 ];
