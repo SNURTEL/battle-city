@@ -13,6 +13,7 @@
 #include "include/Game.h"
 #include "../board-lib/include/Eagle.h"
 #include "../core-lib/include/ObserverExceptions.h"
+#include "../board-lib/include/TileManager.h"
 
 ActiveEventHandler::ActiveEventHandler(Game *game, ActiveGameState *state) {
     game_ = game;
@@ -33,7 +34,6 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
                      Event::PlayerTankCollisionInfo member2, Game *game_) {
 
 }
-
 
 
 void handleCollision(Event::EnemyTankCollisionInfo member1,
@@ -171,61 +171,41 @@ void handleCollision(Event::EnemyTankCollisionInfo member1,
     handleCollision(member2, member1, game_);
 }
 
-void handleCollision(Event::FriendlyBulletCollisionInfo member1,
-                     Event::BoardCollisionInfo member2, Game *game) {
-    try {
-        game->getBoard()->removeEntity(member1.friendlyBullet);
-    }
-    catch (EntityDoesNotExistException &) { return; }
 
-//    for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
-//            {member2.tile_x, member2.tile_y},
-//            {std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y},
-//            {member2.tile_x, std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY())},
-//            {std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY())}
-//    }){
-//        if(coords.first > game->getBoard()->getSizeX() - 1 || coords.second > game->getBoard()->getSizeY() - 1){
-//        continue;
-//        }
-//        game->getBoard()->deleteTile(coords.first, coords.second);
-//    }
+void destroyBulletCollisionTiles(std::shared_ptr<Bullet> b, Game *game) {
     std::vector<std::pair<unsigned int, unsigned int>> tilesToDestroy{};
 
-    float baseCoord = 0;
+    if (b->getFacing() % 2 == 0) {
+        // north, south
+        auto y = static_cast<unsigned int>(b->getY() + (b->getFacing() == South ? b->getSizeY() : 0));
+        auto baseX = static_cast<unsigned int>(b->getX());
 
-    std::pair<unsigned int, unsigned int> base{};
-    switch (member1.friendlyBullet->getFacing()) {
-        case (North): {
-            base = {member1.friendlyBullet->getX(), member1.friendlyBullet->getY()};
-            break;
+        try {
+            if (!TileManager::isTileDestructible(game->getBoard()->getGrid()->getTileAtPosition(baseX, y)) &&
+                !TileManager::isTileDestructible(game->getBoard()->getGrid()->getTileAtPosition(baseX + 1, y))) {
+                return;  // hit indestructible tiles
+            }
+        } catch (OutOfGridException &) {};
+
+
+        for (int i = -1; i <= 2; i++) {
+            tilesToDestroy.emplace_back(std::make_pair(baseX + i, y));
         }
-        case (East): {
-            base = {member1.friendlyBullet->getX() + member1.friendlyBullet->getSizeX(),
-                    member1.friendlyBullet->getY()};
-            break;
-        }
-        case (South): {
-            base = {member1.friendlyBullet->getX() + member1.friendlyBullet->getSizeX(),
-                    member1.friendlyBullet->getY() + member1.friendlyBullet->getSizeY()};
-            break;
-        }
-        case (West): {
-            base = {member1.friendlyBullet->getX(),
-                    member1.friendlyBullet->getY() + member1.friendlyBullet->getSizeY()};
-            break;
-        }
-    }
-    tilesToDestroy.push_back(base);
-    if (member1.friendlyBullet->getFacing() % 2 == 0) {
-        // north, east
-        tilesToDestroy.emplace_back(std::make_pair(base.first - 1, base.second));
-        tilesToDestroy.emplace_back(std::make_pair(base.first + 1, base.second));
-        tilesToDestroy.emplace_back(std::make_pair(base.first + 2, base.second));
     } else {
         // east, west
-        tilesToDestroy.emplace_back(std::make_pair(base.first, base.second - 1));
-        tilesToDestroy.emplace_back(std::make_pair(base.first, base.second + 1));
-        tilesToDestroy.emplace_back(std::make_pair(base.first, base.second + 2));
+        auto x = static_cast<unsigned int>(b->getX() + (b->getFacing() == East ? b->getSizeX() : 0));
+        auto baseY = static_cast<unsigned int>(b->getY());
+        try {
+            if (!TileManager::isTileDestructible(game->getBoard()->getGrid()->getTileAtPosition(x, baseY)) &&
+                !TileManager::isTileDestructible(game->getBoard()->getGrid()->getTileAtPosition(x, baseY + 1))) {
+                return;  // hit indestructible tiles
+            }
+        } catch (OutOfGridException &) {}
+
+
+        for (int i = -1; i <= 2; i++) {
+            tilesToDestroy.emplace_back(std::make_pair(x, baseY + i));
+        }
 
     }
 
@@ -238,88 +218,24 @@ void handleCollision(Event::FriendlyBulletCollisionInfo member1,
     }
 }
 
+void handleCollision(Event::FriendlyBulletCollisionInfo member1,
+                     Event::BoardCollisionInfo member2, Game *game) {
+    try {
+        game->getBoard()->removeEntity(member1.friendlyBullet);
+    }
+    catch (EntityDoesNotExistException &) { return; }
+
+    destroyBulletCollisionTiles(member1.friendlyBullet, game);
+}
+
 void handleCollision(Event::EnemyBulletCollisionInfo member1,
                      Event::BoardCollisionInfo member2, Game *game) {
     try {
         game->getBoard()->removeEntity(member1.enemyBullet);
     }
-    catch (EntityDoesNotExistException) { return; }
+    catch (EntityDoesNotExistException &) { return; }
 
-//    for(std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>> {
-//            {member2.tile_x, member2.tile_y},
-//            {std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), member2.tile_y},
-//            {member2.tile_x, std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY())},
-//            {std::ceil(member2.tile_x + member1.friendlyBullet->getSizeX()), std::ceil(member2.tile_y + member1.friendlyBullet->getSizeY())}
-//    }){
-//        if(coords.first > game->getBoard()->getSizeX() - 1 || coords.second > game->getBoard()->getSizeY() - 1){
-//        continue;
-//        }
-//        game->getBoard()->deleteTile(coords.first, coords.second);
-//    }
-    std::vector<std::pair<unsigned int, unsigned int>> tilesToDestroy{};
-
-
-    std::pair<unsigned int, unsigned int> base{};
-    switch (member1.enemyBullet->getFacing()) {
-        case (North): {
-            base = {member1.enemyBullet->getX(), member1.enemyBullet->getY()};
-            break;
-        }
-        case (East): {
-            base = {member1.enemyBullet->getX() + member1.enemyBullet->getSizeX(),
-                    member1.enemyBullet->getY()};
-            break;
-        }
-        case (South): {
-            base = {member1.enemyBullet->getX() + member1.enemyBullet->getSizeX(),
-                    member1.enemyBullet->getY() + member1.enemyBullet->getSizeY()};
-            break;
-        }
-        case (West): {
-            base = {member1.enemyBullet->getX(),
-                    member1.enemyBullet->getY() + member1.enemyBullet->getSizeY()};
-            break;
-        }
-    }
-    tilesToDestroy.push_back(base);
-    if (member1.enemyBullet->getFacing() % 2 == 0) {
-        // north, east
-        tilesToDestroy.emplace_back(std::make_pair(base.first - 1, base.second));
-        tilesToDestroy.emplace_back(std::make_pair(base.first + 1, base.second));
-        tilesToDestroy.emplace_back(std::make_pair(base.first + 2, base.second));
-    } else {
-        // east, west
-        tilesToDestroy.emplace_back(std::make_pair(base.first, base.second - 1));
-        tilesToDestroy.emplace_back(std::make_pair(base.first, base.second + 1));
-        tilesToDestroy.emplace_back(std::make_pair(base.first, base.second + 2));
-
-    }
-
-    for (std::pair<unsigned int, unsigned int> tileCoords: tilesToDestroy) {
-        if (tileCoords.first > game->getBoard()->getSizeX() - 1 ||
-            tileCoords.second > game->getBoard()->getSizeY() - 1) {
-            continue;
-        }
-        game->getBoard()->deleteTile(tileCoords.first, tileCoords.second);
-    }
-//    try {
-//        game->getBoard()->removeEntity(member1.enemyBullet);
-//    }
-//    catch (EntityDoesNotExistException) { return; }
-//
-//    for (std::pair<unsigned int, unsigned int> coords: std::vector<std::pair<unsigned int, unsigned int>>{
-//            {member2.tile_x,                                              member2.tile_y},
-//            {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), member2.tile_y},
-//            {member2.tile_x,                                              std::ceil(
-//                    member2.tile_y + member1.enemyBullet->getSizeY())},
-//            {std::ceil(member2.tile_x + member1.enemyBullet->getSizeX()), std::ceil(
-//                    member2.tile_y + member1.enemyBullet->getSizeY())}
-//    }) {
-//        if (coords.first > game->getBoard()->getSizeX() - 1 || coords.second > game->getBoard()->getSizeY() - 1) {
-//            continue;
-//        }
-//        game->getBoard()->deleteTile(coords.first, coords.second);
-//    }
+    destroyBulletCollisionTiles(member1.enemyBullet, game);
 }
 
 // ######
