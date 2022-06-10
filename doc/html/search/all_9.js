@@ -12,5 +12,5 @@ var searchData=
   ['keyreleased_9',['KeyReleased',['../class_event.html#aa306292f6e9bf31a622e79dfc54321dea23d7d2cb81f58d78fc803b9303fa2c8d',1,'Event']]],
   ['kill_10',['kill',['../class_eagle.html#a9275ce95521d5eee0a7b435935e636d9',1,'Eagle']]],
   ['killallenemyentities_11',['killAllEnemyEntities',['../class_board.html#abdb06aa942ce94caa39f4386d2040d48',1,'Board']]],
-  ['killtank_12',['killTank',['../class_entity_controller.html#a28e03a2ea4bbe6703b84b47087b544dc',1,'EntityController']]]
+  ['killtank_12',['killTank',['../class_entity_controller.html#aeaaec20d82083306abf71b846fef33c8',1,'EntityController']]]
 ];

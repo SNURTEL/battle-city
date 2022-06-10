@@ -100,8 +100,16 @@ public:
      */
     [[nodiscard]] const std::queue<Tank::TankType> &getTankTypes() const;
 
+    /**
+     * Returns player's spawnpoint
+     * @return
+     */
     [[nodiscard]] const std::pair<unsigned int, unsigned int> &getPlayerSpawnpoint() const;
 
+    /**
+     * Returns eagle's location
+     * @return
+     */
     [[nodiscard]] const std::pair<unsigned int, unsigned int> &getEagleLocation() const;
 
     friend class GridBuilder;

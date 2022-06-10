@@ -3,8 +3,6 @@
 //
 
 #include "include/Menu.h"
-#include "../core-lib/include/EventQueue.h"
-#include "../core-lib/include/Event.h"
 
 Menu::Menu(unsigned int max_pos) {
     max_pos_ = max_pos;

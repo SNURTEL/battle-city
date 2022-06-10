@@ -8,7 +8,6 @@
 #include "include/PauseEventHandler.h"
 #include "include/MenuEventHandler.h"
 #include "include/Menu.h"
-#include "../tank-lib/include/Tank.h"
 
 
 PublisherEventHandler *GameState::getEventHandler() {

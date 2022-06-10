@@ -52,7 +52,7 @@ EntityController::createTank(unsigned int x, unsigned int y, Tank::TankType type
     return std::move(newTank);
 }
 
-void EntityController::hitTank(std::shared_ptr<Tank> target, unsigned int damage) {
+void EntityController::hitTank(const std::shared_ptr<Tank>& target, unsigned int damage) {
     if (target->getLives() <= damage) {  // if greater than health
         killTank(target);
     } else {
@@ -61,7 +61,7 @@ void EntityController::hitTank(std::shared_ptr<Tank> target, unsigned int damage
     }
 }
 
-void EntityController::killTank(std::shared_ptr<Tank> tank) {
+void EntityController::killTank(const std::shared_ptr<Tank>& tank) {
     if (dynamic_cast<Bot *>(tank.get()) != nullptr) {
         BotController::instance()->deregisterBot();
         dynamic_cast<Bot *>(tank.get())->unsubscribe(Clock::instance());
@@ -81,7 +81,7 @@ void EntityController::killTank(std::shared_ptr<Tank> tank) {
     entities_.erase(iter);
 }
 
-void EntityController::removeEntity(std::shared_ptr<Entity> entity) {
+void EntityController::removeEntity(const std::shared_ptr<Entity>& entity) {
     auto const &iter = std::find(entities_.begin(), entities_.end(), entity);
 
     if (iter == entities_.end()) {
@@ -105,7 +105,7 @@ void EntityController::moveAllEntities() {
     }
 }
 
-bool EntityController::moveEntity(std::shared_ptr<Entity> target) {
+bool EntityController::moveEntity(const std::shared_ptr<Entity>& target) {
     if (target->move()) {
         eventQueue_->registerEvent(std::make_unique<Event>(Event::EntityMoved, target));
         return true;

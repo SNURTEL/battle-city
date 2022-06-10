@@ -67,7 +67,6 @@ var hierarchy =
       [ "EntityDoesNotExistException", "class_entity_does_not_exist_exception.html", null ],
       [ "EventConstructionException", "struct_event_construction_exception.html", null ],
       [ "InvalidEventException", "class_invalid_event_exception.html", null ],
-      [ "InvalidLevelFile", "class_invalid_level_file.html", null ],
       [ "NoSpawnpointException", "class_no_spawnpoint_exception.html", null ],
       [ "ObserverException", "class_observer_exception.html", null ],
       [ "OutOfGridException", "class_out_of_grid_exception.html", null ],

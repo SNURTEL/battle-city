@@ -75,25 +75,31 @@ public:
 
     /**
      * Attempts to spawn a tank at a given location.
-     * Detects collisions and queues events if one happens (does not correct colliding tank's position)
+     * Fails of a collision was detected
      * If passed TankType::PlayerTank as param, spawnPlayer is called instead
      *
-     * Possibly queues Event::EntitySpawned or Event::PlayerSpawned and Event::EntityEntityCollision or Event::EntityGridCollision
+     * Possibly queues Event::EntitySpawned, Event::PlayerSpawned
      * @param x New tank's X coord
      * @param y New tank's Y coord
      * @param type New tank's type
      * @param facing The direction in which the new tank will be faced (defaults to North)
-     * @return Whether a collision was detected while spawning the tank
+     * @return Whether the tank was spawned
      */
     bool spawnTank(unsigned int x, unsigned int y, Tank::TankType type, Direction facing = North);
 
+    /**
+     * Spawns the player at spawnpoint defined in Grid. Fails if collision was detected
+     *
+     * Possibly queues Event::PlayerSpawned
+     * @param facing
+     * @return Whether the player was spawned
+     */
     bool spawnPlayer(Direction facing = North);
 
     /**
-     * Spawns the player at a given location
-     * Detects collisions and queues events if one happens (does not correct colliding tank's position)
+     * Spawns the player overriding spawnpoint coords. Fails if collision was detected
      *
-     * Queues Event::PlayerSpawned and possibly Event::EntityEntityCollision or Event::EntityGridCollision
+     * Possibly queues Event::PlayerSpawned
      * @param x Player's initial x coord
      * @param y Player's initial y coord
      * @param facing The direction in which the player should be faced
@@ -102,10 +108,10 @@ public:
     bool spawnPlayer(unsigned int x, unsigned int y, Direction facing = North);
 
     /**
-     * Sets board's grid to a given one. Loads enemy spawnpoints and types to BotController
+     * Sets board's grid to a given one. Loads enemy spawnpoints, loads player spawnpoint, and spawns the Eagle
      * This function should only be used after removing all entities from the board in order to prevent overlaps
      *
-     * Does not queue events (yet...)
+     * Queues Event::EntitySpawned
      * @param grid New Grid object wrapped in a unique_ptr
      */
     void setGrid(std::unique_ptr<Grid> grid);
@@ -131,7 +137,7 @@ public:
      *
      * Queues Event::EntityRemoved
      */
-    void removeEntity(std::shared_ptr<Entity> entity);
+    void removeEntity(const std::shared_ptr<Entity> &entity);
 
     /**
      * Removes all entities from the board
@@ -177,14 +183,17 @@ public:
     std::shared_ptr<PlayerTank> getPlayerTank();
 
     /**
-     * Hits tank
+     * Damages a tank. Kills it, if HP drops to 0
+     *
+     * Queues Event::TankHit or Event::TankKilled
      * @param target (Tank)
      * @param damage (int)
      */
     void hitTank(std::shared_ptr<Tank> target, unsigned int damage);
 
     /**
-     * Returns grid pointer
+     * Returns a pointer to the Grid object
+     *
      * @return grid pointer
      */
     Grid* getGrid();
@@ -207,6 +216,9 @@ protected:
      */
     std::unique_ptr<Event> createCollisionEvent(std::shared_ptr<Entity> entity);
 
+    /**
+     * If no enemies are on the board, and no more are left to spawn, queues Event::GameEnded
+     */
     void endIfNoBotsLeft();
 
     std::unique_ptr<Grid> grid_;

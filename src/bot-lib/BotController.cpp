@@ -33,7 +33,6 @@ void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
         Fire
     };
 
-    std::default_random_engine generator;
     std::vector<int> distribution {4, 1, 1, 2};
     auto pick = std::rand() % 8;
     for (int i = 0; i < distribution.size(); i++) {
@@ -43,8 +42,6 @@ void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
             break;
         }
     }
-
-    // auto pick = static_cast<action>(distribution(generator));
 
     switch (pick) {
         case MoveForward:{
@@ -65,20 +62,6 @@ void BotController::makeBotDecision(const std::shared_ptr<Bot>& bot) {
         }
         default: {};
     }
-
-
-    // if (rotateRoll == 0) {
-    //     eventQueue_->registerEvent(
-    //             std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() - 1) % 4)));
-
-    // } else if (rotateRoll == 1) {
-    //     eventQueue_->registerEvent(
-    //             std::make_unique<Event>(Event::BotRotateDecision, bot, static_cast<int>((bot->getFacing() + 1) % 4)));
-
-    // }
-
-
-
 }
 
 void BotController::registerBot() {

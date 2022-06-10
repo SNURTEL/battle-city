@@ -38,7 +38,6 @@ var annotated_dup =
     [ "Grid", "class_grid.html", "class_grid" ],
     [ "GridBuilder", "class_grid_builder.html", "class_grid_builder" ],
     [ "InvalidEventException", "class_invalid_event_exception.html", "class_invalid_event_exception" ],
-    [ "InvalidLevelFile", "class_invalid_level_file.html", "class_invalid_level_file" ],
     [ "KeyboardController", "class_keyboard_controller.html", "class_keyboard_controller" ],
     [ "Menu", "class_menu.html", "class_menu" ],
     [ "MenuEventHandler", "class_menu_event_handler.html", "class_menu_event_handler" ],

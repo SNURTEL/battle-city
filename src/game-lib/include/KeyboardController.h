@@ -15,8 +15,6 @@ class Event;
 template <class E>
 class EventQueue;
 
-//FIXME Delayed response, repeat character delay, unexpected KeyReleased events
-
 /**
  * Translates SFML's window events (or, more precisely, KeyPressed, KeyReleased and NullEvent events)
  * to game's internal events.

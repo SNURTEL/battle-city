@@ -6,14 +6,11 @@
 
 
 #include "include/Game.h"
-#include "../core-lib/include/Clock.h"  //FIXME GROSS
-#include "../core-lib/include/EventQueue.h"
+#include "../core-lib/include/Clock.h"
 #include "include/GameState.h"
 #include "include/KeyboardController.h"
 #include "include/GameStatistics.h"
 #include "include/GameStatsIO.h"
-#include "../board-lib/include/Board.h"
-#include "../board-lib/include/Grid.h"
 #include "../bot-lib/include/BotController.h"
 
 

@@ -38,6 +38,6 @@ var searchData=
   ['moveback_35',['moveBack',['../class_eagle.html#a05b6e802eddb6e4d343c165d3b5868d3',1,'Eagle::moveBack()'],['../class_tank.html#a33a90a2f46e0255fb7d0df390845ce24',1,'Tank::moveBack()'],['../class_entity.html#a3f3c6dfe3a28bb6e7ee1936c74238fd5',1,'Entity::moveBack()'],['../class_bullet.html#a9bb74127e22cc31e931bf3d5f060c853',1,'Bullet::moveBack()']]],
   ['movedecisioninfo_36',['MoveDecisionInfo',['../struct_event_1_1_move_decision_info.html',1,'Event']]],
   ['movedecisioninfo_37',['moveDecisionInfo',['../union_event_1_1info__u.html#a29e8d453d9bf0e220372575601d24b78',1,'Event::info_u']]],
-  ['moveentity_38',['moveEntity',['../class_board.html#a57c0b593ca35b096421b9dc6db8a953d',1,'Board::moveEntity()'],['../class_entity_controller.html#ab75ce0dca6120036f0c3403f195b94fe',1,'EntityController::moveEntity()']]],
+  ['moveentity_38',['moveEntity',['../class_board.html#a57c0b593ca35b096421b9dc6db8a953d',1,'Board::moveEntity()'],['../class_entity_controller.html#ad2d0d21641290831cb4e28ad4cce891a',1,'EntityController::moveEntity()']]],
   ['moving_5f_39',['moving_',['../class_tank.html#abedb1b99229f0f1413ad302d7a89047f',1,'Tank']]]
 ];
