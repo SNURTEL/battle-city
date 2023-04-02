@@ -11,9 +11,9 @@ make --build . --target tanks --clean-first
 ```
 Executable should be written to `bin/`.
 
-Here's the original readme:
-
 ---
+
+# ORIGINAL README
 
 ## Contents
 - [Repository structure](#repository-structure)
