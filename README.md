@@ -1,7 +1,17 @@
-# 22L-PROI-projekt-Jakomulski-Budnik-Owienko
+# Battle-city
+A simple [Battle City](https://en.wikipedia.org/wiki/Battle_City) clone. Forked from my 2nd semester OOP project. Utilizes a custom event generation and handling system with a simple event loop. SFML is the only dependency, excluding Catch2 >=3.0 for unit testing.
 
----
-## Full documentation in >>> [doc](doc) <<<
+![game](doc/img/tanks.png)
+
+Build with CMake:
+```sh
+cd build
+cmake .
+make --build . --target tanks --clean-first
+```
+Executable should be written to `bin/`.
+
+Here's the original readme:
 
 ---
 
@@ -44,7 +54,7 @@ Where:
     - `rtf/` - Doxygen - style documentation in RTF
 4. `src/` - Project source code
     - `<name>-lib/` - Project libraries
-    - `main/` - Main file
+    - `main/` - Project executable
 
 ## Configuration
 Load `/build/CMakeLists.txt` into your IDE of choice.
@@ -241,11 +251,11 @@ When working on the project:
    ```
 6. Open a merge request, address all merge conflicts and **ask someone to review your code**.
 
-## Full documentation
+## Code documentation
 Check [`doc`](/doc):
 - [`doc/html`](doc/html) and [`doc/rtf`](doc/rtf) for Doxygen-style code documentation:
    ```bash
   cd ./doc/html/
    opera ./index.html
    ```
-- `doc/project_doc` for full project documentation
+
