@@ -3,6 +3,37 @@ A simple [Battle City](https://en.wikipedia.org/wiki/Battle_City) clone. Forked 
 
 ![game](doc/img/tanks.png)
 
+
+### Dependencies
+For Debian-based system::
+```sh
+apt-get install         \
+    libfreetype6-dev    \
+    libx11-dev          \
+    libxrandr-dev       \
+    libgl1-mesa-dev     \
+    libudev-dev         \
+    libopenal-dev       \
+    libflac-dev         \
+    libogg-dev          \
+    libvorbis-dev
+```
+For RHEL-based systems:
+```sh
+dnf install             \
+    freetype-devel      \
+    libX11-devel        \
+    libXrandr-devel     \
+    mesa-libGL-devel    \
+    libgudev1-devel     \
+    openal-devel        \
+    flac-devel          \
+    libogg-devel        \
+    vorbis-devel
+```
+
+
+
 Build with CMake:
 ```sh
 cd build
@@ -10,6 +41,16 @@ cmake .
 make --build . --target tanks --clean-first
 ```
 Executable should be written to `bin/`.
+
+
+```sh
+mkdir build && cd build
+cmake ../
+make
+```
+
+
+
 
 ---
 
@@ -167,7 +208,7 @@ The majority of source code is organised in libraries under /src/. Each library 
           └ test_baz.cpp
 ```
 ### CMakeLists.txt
-Each library should have its representation in [`CMakeLists.txt`](build/CMakeLists.txt) written as follows:
+Each library should have its representation in [`CMakeLists.txt`](CMakeLists.txt) written as follows:
 ```cmake
 set(my_lib_dir ../src/my-lib)
 set(my_lib_sources
@@ -231,7 +272,7 @@ When working on the project:
    git checkout -b feature-branch-foo
    ```
 2. Do your work and commit changes. Don't forget to:
-   - Update [CMakeLists.txt](build/CMakeLists.txt) according to [source code structure](#source-code-structure)
+   - Update [CMakeLists.txt](CMakeLists.txt) according to [source code structure](#source-code-structure)
    - Write and re-generate the documentation (should match javadoc standard):
        ```bash
        cd doc

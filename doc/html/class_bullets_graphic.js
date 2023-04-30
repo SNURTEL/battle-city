@@ -7,7 +7,7 @@ var class_bullets_graphic =
     [ "getRenderBullets", "class_bullets_graphic.html#a0384d101a0f08b17787b0d61d54312bd", null ],
     [ "loadTextures", "class_bullets_graphic.html#a2dad9d433619386ce71eb362664fb55e", null ],
     [ "makeRenderBullets", "class_bullets_graphic.html#a083db7134e83820f8908980d5b494765", null ],
-    [ "makeRenderBullets", "class_bullets_graphic.html#a824eabf6f91119f62bebd2baac50109c", null ],
+    [ "makeRenderBullets", "class_bullets_graphic.html#ad51218f64cebe2ce654ae2c2002ecc80", null ],
     [ "render", "class_bullets_graphic.html#acb257bd4037655b0fe585cc3d36e66c3", null ],
     [ "setBulletRotation", "class_bullets_graphic.html#adcc32c43039a2236d77cc3e1f455b3b4", null ],
     [ "bullets", "class_bullets_graphic.html#a4341c8c51a678395b2c333eecfb39add", null ],

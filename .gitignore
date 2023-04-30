@@ -169,7 +169,5 @@ bin/tanks
 !bin/lib/.gitinclude
 
 # build files
-build/*
-!build/CMakeLists.txt
-src/board-lib/GridBuilder.cpp
+build
 .vscode/settings.json

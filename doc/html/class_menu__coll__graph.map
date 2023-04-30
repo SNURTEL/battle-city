@@ -1,9 +1,8 @@
 <map id="Menu" name="Menu">
-<area shape="rect" id="node1" title=" " alt="" coords="19,865,201,1089"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,608,108,685"/>
-<area shape="rect" id="node3" href="$class_event_queue.html" title=" " alt="" coords="133,505,333,788"/>
-<area shape="rect" id="node4" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="35,255,185,347"/>
-<area shape="rect" id="node5" title=" " alt="" coords="133,13,333,90"/>
-<area shape="rect" id="node6" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="303,160,503,443"/>
-<area shape="rect" id="node7" title=" " alt="" coords="357,5,506,97"/>
+<area shape="rect" id="node1" title=" " alt="" coords="175,909,358,1133"/>
+<area shape="rect" id="node2" href="$class_event_queue.html" title=" " alt="" coords="79,505,279,832"/>
+<area shape="rect" id="node3" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="79,160,279,443"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,5,155,97"/>
+<area shape="rect" id="node5" title=" " alt="" coords="179,13,379,90"/>
+<area shape="rect" id="node6" title=" " alt="" coords="303,630,406,707"/>
 </map>

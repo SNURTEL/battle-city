@@ -1,7 +1,7 @@
 <map id="ActiveStateGraphic::BoardPointers" name="ActiveStateGraphic::BoardPointers">
-<area shape="rect" id="node1" title="Stores given board object pointers." alt="" coords="405,160,552,252"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,229,97"/>
-<area shape="rect" id="node3" title=" " alt="" coords="253,5,485,97"/>
-<area shape="rect" id="node4" title=" " alt="" coords="510,13,669,90"/>
-<area shape="rect" id="node5" title=" " alt="" coords="693,13,888,90"/>
+<area shape="rect" id="node1" title="Stores given board object pointers." alt="" coords="331,160,478,252"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,13,164,90"/>
+<area shape="rect" id="node3" title=" " alt="" coords="189,13,383,90"/>
+<area shape="rect" id="node4" title=" " alt="" coords="407,5,639,97"/>
+<area shape="rect" id="node5" title=" " alt="" coords="663,5,887,97"/>
 </map>

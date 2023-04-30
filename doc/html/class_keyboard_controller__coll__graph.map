@@ -1,11 +1,10 @@
 <map id="KeyboardController" name="KeyboardController">
-<area shape="rect" id="node1" title=" " alt="" coords="245,851,461,1031"/>
-<area shape="rect" id="node2" href="$class_simple_subscriber.html" title=" " alt="" coords="5,535,263,759"/>
+<area shape="rect" id="node1" title=" " alt="" coords="245,895,461,1075"/>
+<area shape="rect" id="node2" href="$class_simple_subscriber.html" title=" " alt="" coords="5,557,263,781"/>
 <area shape="rect" id="node3" title=" " alt="" coords="29,263,239,340"/>
-<area shape="rect" id="node4" title=" " alt="" coords="287,608,418,685"/>
-<area shape="rect" id="node5" href="$class_event_queue.html" title=" " alt="" coords="442,505,642,788"/>
-<area shape="rect" id="node6" href="$classstd_1_1queue_3_01std_1_1unique__ptr_3_01_event_01_4_01_4.html" title=" " alt="" coords="345,255,494,347"/>
-<area shape="rect" id="node7" title=" " alt="" coords="442,13,642,90"/>
-<area shape="rect" id="node8" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="613,160,813,443"/>
-<area shape="rect" id="node9" title=" " alt="" coords="666,5,815,97"/>
+<area shape="rect" id="node4" title=" " alt="" coords="287,630,418,707"/>
+<area shape="rect" id="node5" href="$class_event_queue.html" title=" " alt="" coords="442,505,642,832"/>
+<area shape="rect" id="node6" href="$class_event_queue.html" title="Singleton class wrapper for std::queue&lt;E&gt;." alt="" coords="442,160,642,443"/>
+<area shape="rect" id="node7" title=" " alt="" coords="369,5,518,97"/>
+<area shape="rect" id="node8" title=" " alt="" coords="542,13,742,90"/>
 </map>

@@ -1,23 +1,24 @@
-<map id="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/tank&#45;lib/EntityController.cpp" name="/home/tomek/CLionProjects/proi/proi&#45;projekt/src/tank&#45;lib/EntityController.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="411,5,619,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="317,288,376,315"/>
-<area shape="rect" id="node3" title=" " alt="" coords="847,541,924,568"/>
-<area shape="rect" id="node4" href="$_entity_controller_8h.html" title=" " alt="" coords="5,206,192,233"/>
-<area shape="rect" id="node7" href="$_tank_8h.html" title=" " alt="" coords="128,288,192,315"/>
-<area shape="rect" id="node11" href="$_bullet_8h.html" title=" " alt="" coords="713,370,836,397"/>
-<area shape="rect" id="node13" href="$_event_queue_8h.html" title=" " alt="" coords="1063,199,1198,240"/>
-<area shape="rect" id="node15" href="$_event_8h.html" title=" " alt="" coords="447,199,582,240"/>
-<area shape="rect" id="node19" href="$_clock_8h.html" title=" " alt="" coords="1223,363,1358,404"/>
-<area shape="rect" id="node21" href="$_bot_controller_8h.html" title=" " alt="" coords="861,109,987,151"/>
-<area shape="rect" id="node5" title=" " alt="" coords="511,541,574,568"/>
-<area shape="rect" id="node6" title=" " alt="" coords="427,370,501,397"/>
-<area shape="rect" id="node8" href="$_simple_subscriber_8h.html" title=" " alt="" coords="329,452,479,493"/>
-<area shape="rect" id="node9" href="$_entity_8h.html" title=" " alt="" coords="503,459,574,486"/>
-<area shape="rect" id="node10" href="$_bot_8h.html" title=" " alt="" coords="213,363,352,404"/>
-<area shape="rect" id="node12" href="$_simple_publisher_8h.html" title=" " alt="" coords="701,452,848,493"/>
-<area shape="rect" id="node14" title=" " alt="" coords="1022,288,1085,315"/>
-<area shape="rect" id="node16" title=" " alt="" coords="553,288,639,315"/>
-<area shape="rect" id="node17" title=" " alt="" coords="663,288,731,315"/>
-<area shape="rect" id="node18" title=" " alt="" coords="756,288,836,315"/>
-<area shape="rect" id="node20" title=" " alt="" coords="1223,459,1289,486"/>
+<map id="/home/tomek/trash/battle&#45;city/src/lib/tank&#45;lib/EntityController.cpp" name="/home/tomek/trash/battle&#45;city/src/lib/tank&#45;lib/EntityController.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="881,5,1069,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="814,541,891,568"/>
+<area shape="rect" id="node3" title=" " alt="" coords="1551,117,1636,143"/>
+<area shape="rect" id="node4" href="$_entity_controller_8h.html" title=" " alt="" coords="290,206,476,233"/>
+<area shape="rect" id="node7" href="$_tank_8h.html" title=" " alt="" coords="351,288,415,315"/>
+<area shape="rect" id="node11" href="$_bullet_8h.html" title=" " alt="" coords="570,370,692,397"/>
+<area shape="rect" id="node13" href="$_event_queue_8h.html" title=" " alt="" coords="1181,199,1316,240"/>
+<area shape="rect" id="node15" href="$_event_8h.html" title=" " alt="" coords="876,199,1010,240"/>
+<area shape="rect" id="node20" href="$_clock_8h.html" title=" " alt="" coords="1501,363,1636,404"/>
+<area shape="rect" id="node22" href="$_bot_controller_8h.html" title=" " alt="" coords="810,109,937,151"/>
+<area shape="rect" id="node5" title=" " alt="" coords="496,541,558,568"/>
+<area shape="rect" id="node6" title=" " alt="" coords="420,370,495,397"/>
+<area shape="rect" id="node8" href="$_simple_subscriber_8h.html" title=" " alt="" coords="348,452,498,493"/>
+<area shape="rect" id="node9" href="$_entity_8h.html" title=" " alt="" coords="522,459,593,486"/>
+<area shape="rect" id="node10" href="$_bot_8h.html" title=" " alt="" coords="207,363,346,404"/>
+<area shape="rect" id="node12" href="$_simple_publisher_8h.html" title=" " alt="" coords="668,452,815,493"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1312,288,1374,315"/>
+<area shape="rect" id="node16" title=" " alt="" coords="869,288,956,315"/>
+<area shape="rect" id="node17" title=" " alt="" coords="980,288,1039,315"/>
+<area shape="rect" id="node18" title=" " alt="" coords="1064,288,1132,315"/>
+<area shape="rect" id="node19" title=" " alt="" coords="1156,288,1236,315"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1500,459,1567,486"/>
 </map>

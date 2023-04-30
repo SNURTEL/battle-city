@@ -1,13 +1,13 @@
 <map id="TilesGraphic" name="TilesGraphic">
-<area shape="rect" id="node1" title="Class responsible for board updates and render." alt="" coords="541,587,751,913"/>
+<area shape="rect" id="node1" title="Class responsible for board updates and render." alt="" coords="545,587,755,913"/>
 <area shape="rect" id="node2" href="$class_abstract_window.html" title="Contains main SFML functions." alt="" coords="133,359,343,524"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,182,92,259"/>
 <area shape="rect" id="node4" href="$struct_window_view.html" title="Struct that contains the sf::RenderWindow nad offset of elements to render." alt="" coords="117,160,359,281"/>
 <area shape="rect" id="node5" title=" " alt="" coords="115,5,246,83"/>
 <area shape="rect" id="node6" title=" " alt="" coords="270,5,321,83"/>
 <area shape="rect" id="node7" title=" " alt="" coords="384,175,583,267"/>
-<area shape="rect" id="node8" title=" " alt="" coords="368,395,543,487"/>
-<area shape="rect" id="node9" title=" " alt="" coords="567,403,725,480"/>
-<area shape="rect" id="node10" title=" " alt="" coords="750,395,947,487"/>
-<area shape="rect" id="node11" title=" " alt="" coords="971,395,1169,487"/>
+<area shape="rect" id="node8" title=" " alt="" coords="368,403,527,480"/>
+<area shape="rect" id="node9" title=" " alt="" coords="551,395,749,487"/>
+<area shape="rect" id="node10" title=" " alt="" coords="773,395,970,487"/>
+<area shape="rect" id="node11" title=" " alt="" coords="995,395,1169,487"/>
 </map>

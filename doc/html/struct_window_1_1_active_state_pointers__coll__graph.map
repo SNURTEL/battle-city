@@ -1,8 +1,8 @@
 <map id="Window::ActiveStatePointers" name="Window::ActiveStatePointers">
-<area shape="rect" id="node1" title="Stores given ActiveState pointers." alt="" coords="483,189,693,267"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,13,200,90"/>
-<area shape="rect" id="node3" title=" " alt="" coords="224,5,448,97"/>
-<area shape="rect" id="node4" title=" " alt="" coords="472,5,704,97"/>
-<area shape="rect" id="node5" title=" " alt="" coords="729,13,887,90"/>
-<area shape="rect" id="node6" title=" " alt="" coords="912,13,1051,90"/>
+<area shape="rect" id="node1" title="Stores given ActiveState pointers." alt="" coords="345,189,554,267"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,13,144,90"/>
+<area shape="rect" id="node3" title=" " alt="" coords="169,13,327,90"/>
+<area shape="rect" id="node4" title=" " alt="" coords="352,13,547,90"/>
+<area shape="rect" id="node5" title=" " alt="" coords="571,5,803,97"/>
+<area shape="rect" id="node6" title=" " alt="" coords="827,5,1051,97"/>
 </map>
