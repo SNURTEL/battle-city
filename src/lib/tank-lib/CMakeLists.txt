@@ -16,3 +16,6 @@ set(tank_lib_test_sources
 
 add_executable(test_tank_lib ${tank_lib_test_sources})
 target_link_libraries(test_tank_lib PRIVATE tank-lib Catch2::Catch2WithMain)
+
+enable_testing()
+add_test(TANK_LIB_TEST ./bin/test_tank_lib)

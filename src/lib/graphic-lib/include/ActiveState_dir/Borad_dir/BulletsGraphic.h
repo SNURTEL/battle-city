@@ -38,8 +38,8 @@ protected:
     /// @brief Maps texture types to actual paths to textures
     std::unordered_map<Bullet::BulletType, std::string> pathMap
     {
-        {Bullet::Enemy, "../../src/lib/graphic-lib/bulletsImages/bullet.png"},
-        {Bullet::Friendly, "../../src/lib/graphic-lib/bulletsImages/bullet.png"}
+        {Bullet::Enemy, "./res/bulletsImages/bullet.png"},
+        {Bullet::Friendly, "./res/bulletsImages/bullet.png"}
     };
 
 

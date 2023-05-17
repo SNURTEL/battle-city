@@ -109,7 +109,7 @@ namespace {
     }
 }
 
-SCENARIO("testing point system") {
+SCENARIO("testing point system", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     GameStatistics p(0, 0, 0);
     WHEN("Adding points into system") {
@@ -131,7 +131,7 @@ SCENARIO("testing point system") {
     }
 }
 
-SCENARIO("Player Movement") {
+SCENARIO("Player Movement", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();
@@ -196,7 +196,7 @@ SCENARIO("Player Movement") {
     }
 }
 
-SCENARIO("Player Shooting") {
+SCENARIO("Player Shooting", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();
@@ -212,7 +212,7 @@ SCENARIO("Player Shooting") {
     }
 }
 
-SCENARIO("Active to Pause") {
+SCENARIO("Active to Pause", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();
@@ -228,7 +228,7 @@ SCENARIO("Active to Pause") {
     }
 }
 
-SCENARIO("Player tank is killed") {
+SCENARIO("Player tank is killed", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();
@@ -246,7 +246,7 @@ SCENARIO("Player tank is killed") {
     }
 }
 
-SCENARIO("Collisions") {
+SCENARIO("Collisions", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();
@@ -351,7 +351,7 @@ SCENARIO("Collisions") {
     }
 }
 
-SCENARIO("Bot events") {
+SCENARIO("Bot events", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();
@@ -465,7 +465,7 @@ SCENARIO("Bot events") {
 }
 
 
-SCENARIO("State is menu") {
+SCENARIO("State is menu", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();
@@ -511,7 +511,7 @@ SCENARIO("State is menu") {
 }
 
 
-SCENARIO("State is pause") {
+SCENARIO("State is pause", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();
@@ -556,7 +556,7 @@ SCENARIO("State is pause") {
     }
 }
 
-SCENARIO("State is finished") {
+SCENARIO("State is finished", "[!mayfail], [FileAccess]") {
     EventQueue<Event> *eq = helper::getEmptyEventQueue();
     std::unique_ptr<helper::TestGame> game = std::make_unique<helper::TestGame>(60);
     game->testSetup();

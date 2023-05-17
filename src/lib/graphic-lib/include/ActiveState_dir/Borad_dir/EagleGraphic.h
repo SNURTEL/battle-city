@@ -21,7 +21,7 @@ protected:
 
     std::shared_ptr<sf::Vector2f> eaglePos;
 
-    std::string pathToTexture = "../../src/lib/graphic-lib/eagleImage/Eagle.png";
+    std::string pathToTexture = "./res/eagleImage/Eagle.png";
 
     bool eagleSet = false;
 

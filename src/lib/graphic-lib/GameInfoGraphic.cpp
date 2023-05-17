@@ -55,7 +55,7 @@ void GameInfoGraphic::renderText(std::string renderText, float leftOffset, float
 
 void GameInfoGraphic::loadFont()
 {
-    std::string path = "../../src/lib/graphic-lib/fontFolder/CharisSIL-Regular.ttf";
+    std::string path = "./res/fontFolder/CharisSIL-Regular.ttf";
     if (!font.loadFromFile(path))
     {
         std::stringstream ss;

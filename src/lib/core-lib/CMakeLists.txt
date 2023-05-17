@@ -24,3 +24,6 @@ set(core_lib_test_sources
 
 add_executable(test_core_lib ${core_lib_test_sources})
 target_link_libraries(test_core_lib PRIVATE core-lib Catch2::Catch2WithMain)
+
+enable_testing()
+add_test(CORE_LIB_TEST ./bin/test_core_lib)

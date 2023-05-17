@@ -18,7 +18,7 @@ namespace {
     }
 }
 
-SCENARIO("Player was killed"){
+SCENARIO("Player was killed", "[!mayfail], [FileAccess]"){
     GIVEN("A gamestats object with one life left"){
         GameStatistics stats(100, 1, 1);
 

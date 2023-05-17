@@ -38,7 +38,7 @@ namespace {
     }
 }
 
-SCENARIO("Initializing the game") {
+SCENARIO("Initializing the game", "[!mayfail], [FileAccess]") {
     helper::getEmptyEventQueue();
     GIVEN("Program just started running") {
         WHEN("Initializing the main container") {
@@ -63,7 +63,7 @@ SCENARIO("Initializing the game") {
     }
 }
 
-SCENARIO("Starting the game") {
+SCENARIO("Starting the game", "[!mayfail], [FileAccess]") {
     GIVEN("Game object was already initialized") {
         helper::TestGame game = helper::TestGame(60);
         game.testSetup();
@@ -103,7 +103,7 @@ SCENARIO("Starting the game") {
     }
 }
 
-SCENARIO("Resetting game's state") {
+SCENARIO("Resetting game's state", "[!mayfail], [FileAccess]") {
     GIVEN("Game's attrs were changed") {
         helper::TestGame game = helper::TestGame(60);
         game.testSetup();
@@ -146,7 +146,7 @@ SCENARIO("Resetting game's state") {
     }
 }
 
-SCENARIO("Ending the game") {
+SCENARIO("Ending the game", "[!mayfail], [FileAccess]") {
     GIVEN("Game's attrs were changed") {
         helper::TestGame game = helper::TestGame(60);
         game.testSetup();

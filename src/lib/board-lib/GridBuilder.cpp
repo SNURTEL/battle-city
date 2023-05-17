@@ -28,7 +28,7 @@ std::unique_ptr<Grid> GridBuilder::buildLevel(unsigned int level) {
 
     };
 
-    std::string filename = "./levels/lvl" + std::to_string(level) +
+    std::string filename = "./res/levels/lvl" + std::to_string(level) +
                            ".txt";
     std::ifstream file(filename);
     std::string line;

@@ -18,3 +18,6 @@ set(board_lib_test_sources
 add_executable(test_board_lib ${board_lib_test_sources})
 target_link_libraries(test_board_lib PRIVATE board-lib Catch2::Catch2WithMain)
 add_test(NAME test_board_lib COMMAND test_board_lib)
+
+enable_testing()
+add_test(BOARD_LIB_TEST ./bin/test_board_lib)

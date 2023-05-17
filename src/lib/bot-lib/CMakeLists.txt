@@ -14,3 +14,6 @@ set(bot_lib_test_sources
 
 add_executable(test_bot_lib ${bot_lib_test_sources})
 target_link_libraries(test_bot_lib PRIVATE tank-lib bot-lib Catch2::Catch2WithMain)
+
+enable_testing()
+add_test(BOT_LIB_TEST ./bin/test_bot_lib)

@@ -39,25 +39,10 @@ add_subdirectory(src/lib/board-lib)
 add_subdirectory(src/lib/graphic-lib)
 add_subdirectory(src/lib/bot-lib)
 
-
-
-############################ ALL TESTS ################################
-
-#add_executable(all_tests
-#        ${core_lib_test_sources}
-#        ${game_lib_test_sources}
-#        ${tank_lib_test_sources}
-#        ${board_lib_test_sources}
-#        ${graphic_lib_test_sources}
-#        ${bot_lib_test_sources}
-#        )
-#target_link_libraries(all_tests PRIVATE core-lib game-lib tank-lib board-lib graphic-lib bot-lib Catch2::Catch2WithMain)
-
-
-############################ MAIN ################################
-
+enable_testing()
 
 add_executable(tanks src/tanks.cpp)
 include_directories(src/lib/game-lib/include)
 target_link_libraries(tanks ${SFML_LIBRARIES} core-lib game-lib tank-lib board-lib bot-lib)
 
+file(COPY res DESTINATION "${CMAKE_BINARY_DIR}")

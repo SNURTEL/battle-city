@@ -40,10 +40,10 @@ protected:
 
     /// @brief Maps texture types to actual paths to textures
     std::unordered_map<TileType, std::string> pathMap{
-        {TileType::Bricks, "../../src/lib/graphic-lib/tilesImages/Bricks.png"},
-        {TileType::Steel, "../../src/lib/graphic-lib/tilesImages/Steel.png"},
-        {TileType::Trees, "../../src/lib/graphic-lib/tilesImages/Grass.png"},
-        {TileType::Water, "../../src/lib/graphic-lib/tilesImages/Water.png"}
+        {TileType::Bricks, "./res/tilesImages/Bricks.png"},
+        {TileType::Steel, "./res/tilesImages/Steel.png"},
+        {TileType::Trees, "./res/tilesImages/Grass.png"},
+        {TileType::Water, "./res/tilesImages/Water.png"}
     };
 
 

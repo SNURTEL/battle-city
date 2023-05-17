@@ -44,11 +44,11 @@ protected:
     /// @brief Maps paths types to actual textures
     std::unordered_map<Tank::TankType, std::string> pathMap
     {
-        {Tank::ArmorTank, "../../src/lib/graphic-lib/tanksImages/ArmorTank.png"},
-        {Tank::FastTank, "../../src/lib/graphic-lib/tanksImages/FastTank.png"},
-        {Tank::BasicTank, "../../src/lib/graphic-lib/tanksImages/BasicTank.png"},
-        {Tank::PlayerTank, "../../src/lib/graphic-lib/tanksImages/PlayerTank.png"},
-        {Tank::PowerTank, "../../src/lib/graphic-lib/tanksImages/PowerTank.png"}
+        {Tank::ArmorTank, "././res/tanksImages/ArmorTank.png"},
+        {Tank::FastTank, "./res/tanksImages/FastTank.png"},
+        {Tank::BasicTank, "./res/tanksImages/BasicTank.png"},
+        {Tank::PlayerTank, "./res/tanksImages/PlayerTank.png"},
+        {Tank::PowerTank, "./res/tanksImages/PowerTank.png"}
     };
 
 
